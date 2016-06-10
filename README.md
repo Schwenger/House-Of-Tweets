@@ -119,8 +119,8 @@ When editing the README have a look at this [markdown-cheatsheet](https://github
 Authors:
 ========
 
-* s9miklau@stud.uni-saarland.de
-* Christopher Schommer (christopherschommer@gmx.de)
+* Michaela Klauck (s9miklau@stud.uni-saarland.de)
+* Christopher Schommer (s9chschom@stud.uni-saarland.de)
 * Maximilian Schwenger (schwenger@stud.uni-saarland.de)
 * s9saster@stud.uni-saarland.de
 
