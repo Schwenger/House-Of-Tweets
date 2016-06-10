@@ -1,0 +1,84 @@
+.tweet-list-footer {
+	position: absolute;
+	width: 80%;
+	height: 20%;
+	bottom: 0px;
+	margin-left: 10%;
+	display: flex;
+	align-items: center;
+}
+
+.tweet-list-footer-options {
+	height: 100%;
+	width: 100%;
+	margin-right: 10px;
+	display: flex;
+	align-items: center;
+
+	& > .footer-container {
+		color: @footer_label_color;
+		text-align: center;
+		text-shadow: 3px 3px 7px @footer_label_shadow_color;
+		width: 30%;
+		float: left;
+		height: 100%;
+
+		& .sub-container {
+			height: 60%;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+
+		& .time-span-container {
+
+			& .time-span {
+				.hover-element;
+				width: 33%;
+				font-size: 40px;
+				& .footenote-number {
+					& > translatestring {
+						font-size: 0.5em;
+					}
+				}
+			}
+		}
+
+		&.large {
+			width: 36%; // 100 - 30 - 30 - 4
+			padding-left: 4%;
+		}
+
+		& > .header {
+			width: 100%;
+			font-size: @footer-header-size;
+		}
+
+		& > .switch-container {
+
+			& > .switch-label {
+				font-size: @footer-label-size;
+				width: 30%;
+				float: left;
+				line-height:22px;
+
+				&.left {
+					text-align: right;
+				}
+				&.right {
+					text-align: left;
+					padding-left: 2px;
+				}
+				& .text {
+					font-size: 20px;
+				}
+			}
+			& > .switch {
+				height: 30px;
+				float: left;
+			}
+		}
+
+	}
+}

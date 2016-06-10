@@ -1,0 +1,529 @@
+<!doctype html>
+<html>
+  <head>
+        <meta name="generator" content="HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.12), see www.w3.org">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title data-message="title">House of Tweets</title><!-- Bootstrap -->
+        <link href="../ext/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="../ext/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="../out/main.css" rel="stylesheet" type="text/css">
+        <link rel="icon" type="image/png" href="../ext/images/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+
+<div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+
+  <div id="screensaver-element-0" class="screen-saver"> 
+    <img src="../ext/images/screensaver.gif">
+  </div>
+
+  <!-- CAROUSEL CONTENT-->
+  <div class="carousel-inner page-container" role="listbox">
+
+    <!-- POLITICIANS AND BIRDS -->
+    <div id="voices" class="page item">
+      <img class="background" src="../ext/images/backgrounds/background-left.jpg" alt="background-left">
+      <div class="voices-container" id="voices-container">
+
+        <div class="voices-list-container" id="voices-list-container">
+          <div class="voices-list-wrapper voices-list-wrapper-left">
+            <div class="voices-list" id="voices-list-politicians">
+              <span  translatestring stringID="rot_Abgeordnete" class="header"> @rot_Abgeordnete </span>
+            </div>
+          </div>
+          <div class="voices-list-wrapper voices-list-wrapper-right">
+            <div class="voices-list" id="voices-list-birds">
+              <span  translatestring stringID="rot_Vögel" class="header"> @rot_Vögel </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Politician Profile Page -->
+        <div class="voices-profile-container invisible" id="voices-profile-container-politician">
+          <div class="name" id="voices-profile-name-politician">
+            Pete Altmeierle
+          </div>
+          <div class="picture-wrapper">
+            <img class="picture" id="voices-profile-picture-politician" src="../ext/images/default.png"></img>
+          </div>
+          <div class="profile-back-button clickable-text" id="profile-back-button-politician">
+              <i class="fa fa-arrow-left"></i> <span translatestring stringID="rot_zurück"> @rot_zurück </span>
+          </div>
+
+          <div class="cv-and-selection-wrapper right-profile-wrapper" id="cv-and-selection-wrapper">
+            
+            <div class="cv" id="voices-profile-cv-politician">
+              On the eighth day He, who must not be named, thought 'Screw it, ain't serious today!'. Fly, you fools, for there he is.
+            </div>
+
+            <div class="selection-container">
+              <div class="x-selection self-selection">
+                <div class="header">
+                  <span  translatestring stringID="own_bird" class="header"> @own_bird </span>
+                </div>
+                <img id="voices-profile-self-selection-image-politician" src="../ext/images/default.png">
+                </img>
+                <div class="text" id="voices-profile-self-selection-text-politician">
+                  Schwan
+                </div>
+              </div>
+              <div class="x-selection citizen-selection">
+                <div class="header">
+                  <span  translatestring stringID="citizen_bird" class="header"> @citizen_bird </span>
+                </div>
+                <img id="voices-profile-citizen-selection-image-politician" src="../ext/images/default.png">
+                </img>
+                <div class="text" id="voices-profile-citizen-selection-text-politician">
+                  Schwan
+                </div>
+                <div class="change-button clickable-text" id="voices-profile-citizen-selection-change-button">
+                  <span translatestring stringID="rot_ändern"> @rot_ändern </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="change-citizen-bird-wrapper right-profile-wrapper invisible" id="change-citizen-bird-wrapper">
+            <span translatestring stringID="select_bird" class="header"> @select_bird </span>
+           <!-- to be filled dynamically -->
+          </div>
+
+        </div>
+
+        <!-- Bird Profile Page -->
+        <div class="voices-profile-container invisible" id="voices-profile-container-bird">
+          <div class="name" id="voices-profile-name-bird">
+            Pete Altmeierle
+          </div>
+          <div class="picture-wrapper">
+            <img class="picture" id="voices-profile-picture-bird" src="../ext/images/default.png"></img>
+          </div>
+          <div class="profile-back-button clickable-text" id="profile-back-button-bird">
+            <i class="fa fa-arrow-left"></i> <span translatestring stringID="rot_zurück"> @rot_zurück </span>
+          </div>
+          <div class="cv-birds cv" id="voices-profile-cv-bird">
+            On the eighth day He, who must not be named, thought 'Screw it, ain't serious today!'. Fly, you fools, for there he is.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TWEETS -->
+    <div class="page item active" id="tweets">
+      <img class="background" src="../ext/images/backgrounds/background-center.jpg" alt="background-center">
+
+      <div id="tweet-list-header" class="tweet-list-header">
+      <span class="tweet-list-header-text">
+          <i class="fa fa-arrow-up"></i>
+          <span translatestring stringID="sprachen" id="tweet-list-header-text"> @sprachen </span>
+          <i class="fa fa-arrow-up"></i>
+        </span>
+      </div>
+      <div class='language-control invisible' id='language-control'>
+        <img class="language-bg background" src="../ext/images/backgrounds/background-top.jpg" alt="background-top">
+        <div class="flex-alignment-helper-vertical"></div>
+        <img id="german-flag"  class="flag" src="../ext/images/flags/german.png"></img>
+        <img id="english-flag" class="flag" src="../ext/images/flags/english.png"></img>
+        <img id="french-flag"  class="flag" src="../ext/images/flags/french.png" ></img>
+      </div>
+
+      <div class="tweet-list" id="tweet-list">
+        
+          <!--div class="tweet">
+            <img class='retweet-bird' src='../ext/images/vogel2.png'>
+            <div class="tweet-profile-info">
+              <img src="http://hd-hintergrundbilder.com/natur/de-zon-komt-op.jpg">
+              <i class="speaker fa fa-music fa-2x"></i>
+              <div class="time">
+              1h ago
+              </div>
+            </div>
+            <div class="tweet-content">
+              <div class="profile-name">
+              Michaela Klaukington
+              </div>
+              <div class="twitter-id">
+              @mklaukington
+              </div>
+              <div class="textfield">
+              m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m 
+              </div>
+            </div>
+          </div--> 
+
+      </div>
+        <!-- <div class="item"><i class="fa fa-fw fa-child"/><br> Bürger </div> -->
+      <div id="tweet-list-footer" class="tweet-list-footer">
+        <div id="tweet-list-footer-options" class="tweet-list-footer-options">
+          
+          <div class="footer-container">
+            <div class="header"> 
+            <span translatestring stringID="stimmenVon"> @stimmenVon </span>
+            </div>
+            <div class="switch-container sub-container">
+              <div class="switch-label left">
+                <i class="fa fa-users"></i> <br>
+                <span translatestring stringID="bürgern" class="text"> @bürgern </span>
+              </div>
+              <div class="switch">
+                <div class="onoffswitch">
+                  <input type="checkbox" name="voices-switch" class="onoffswitch-checkbox" id="voices-switch" checked>
+                  <label class="onoffswitch-label" for="voices-switch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="switch-label right">
+                <i class="fa fa-university"></i> <br>
+                <span translatestring stringID="politikern" class="text"> @politikern </span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="footer-container">
+            <div class="header"> 
+            <span translatestring stringID="tweetsVonBürgern"> @tweetsVonBürgern </span>
+            </div>
+            <div class="switch-container sub-container">
+              <div class="switch-label left">
+                <i class="fa fa-check fa-2x" style="font-size: 1.5em;"></i><br>
+                <span translatestring stringID="footerAn" class="text" style="margin-right:14px;"> @footerAn </span>
+              </div>
+              <div class="switch">
+                <div class="onoffswitch">
+                  <input type="checkbox" name="citizen-tweets-switch" class="onoffswitch-checkbox" id="citizen-tweets-switch" checked>
+                  <label class="onoffswitch-label" for="citizen-tweets-switch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="switch-label right">
+                <i class="fa fa-times fa-2x" style="font-size: 1.5em;"></i> <br>
+                <span translatestring stringID="footerAus" class="text"> @footerAus </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-container large">
+
+            <div class="header"> 
+              <span translatestring stringID="playlastxsounds"> @playlastxsounds </span>
+            </div>
+
+            <div class="time-span-container sub-container">
+              <div class="time-span" id="play-tweets-1-button">
+                <div class="footer-number"> 1h
+                </div>
+              </div>
+
+              <div class="time-span" id="play-tweets-6-button">
+                <div class="footer-number"> 6h
+                </div>
+              </div>
+
+              <div class="time-span" id="play-tweets-24-button">
+                <div class="footer-number"> 24h
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div id="impressum-button-container" class="impressum-button-container">
+      <span id="impressum-button" class="impressum-button-text clickable-text"> impressum </span>
+      </div>
+    </div>
+
+    <!-- Login with your own twitter account -->
+    <div class="page item" id="owntweets">
+      <img class="background" src="../ext/images/backgrounds/background-right.jpg" alt="background-right"></img>
+      
+      <div class="citizen-bird-page"> <span translatestring stringID="gelb_text1"> @gelb_text1 </span>
+        <input type="text" name="twitterName" id="citizen-user-name-input" class="citizen-user-name-input" placeholder="Twitter name">
+
+        <span translatestring stringID="gelb_text2"> @gelb_text2 </span> 
+        <div class="bird-dropdown-container">
+          <button class="bird-dropdown-button" id="bird-dropdown-button">Placeholder</button>
+          <ul id="bird-dropdown-list">
+
+          </ul>
+        </div>
+        <input type="submit" class="btn submit-citizen-bird" id="submit-citizen-bird" value="Submit"></input>
+        
+      </div>
+    </div>
+
+    <!-- IMPRESSUM Not reachable by carousel -->
+    <div class="page item" id="impressum">
+      <img class="background" src="../ext/images/backgrounds/background-bottom.jpg" alt="background-bottom">
+      <div class="impressum-container" id="impressum-container">
+	  
+		<div id = "adminLogin">
+			<div class="admin-button clickable-text" id="admin-button">
+				<i class="fa fa-lock"></i> 
+				<span translatestring stringID="admin_page">@admin_page</span>
+				<i class="fa fa-lock"></i>
+			</div>
+
+			<div class="invisible" id="simple-auth">
+				<form class="form-inline">
+					<div class="form-group">
+						<input type="password" class="form-control" id="simple-auth-input" placeholder="admin">
+					</div>
+					<button type="button" class="btn btn-default" id="simple-auth-button">
+						<span translatestring stringID="open">@open</span> 
+					</button>
+				</form>
+			</div>
+
+			<div class="profile-back-button clickable-text" id="impressum-back-button">
+			<i class="fa fa-arrow-left"></i> <span translatestring stringID="back">@back</span>
+			</div>
+		</div>
+		
+		 <h1 id = "IMP"> House of Tweets </h1>
+	  
+			<div id = "leaded_by">
+				<span translatestring stringID="a_project_by">@a_project_by</span> <br>
+				<span translatestring stringID="leader">@leader</span>
+			</div>
+			  
+			<div id="logos">
+				<img class="logo" src="../ext/images/logos/unieule.png" alt="unieule">
+				<img class="logo" src="../ext/images/logos/DFKI.jpg" alt="DFKI">
+			</div>
+			  
+			<div id="members">
+				<h2 id="h2members"> <span translatestring stringID="members">@members</span> </h2>
+				<div class="nameBox">
+					<div id="Michaela"> Michaela Klauck </div>
+					<div id="Max"> Maximilian Schwenger </div>
+					<div id="Christopher"> Christopher Schommer </div>
+					<div id="Sarah"> Sarah Sterz </div>
+				</div>
+			</div>
+				
+			<div id="group_foto">
+				<img class="group" src="../ext/images/the_greatest.jpg" alt="the_greatest">
+			</div>
+      </div>	
+	  
+	  
+    </div>
+
+    <!-- ADMIN PAGE Not reachable by carousel but only via impressum -->
+    <div class="page item" id="admin-page">
+      <img class="background" src="../ext/images/backgrounds/background-bottom.jpg" alt="background-bottom">
+      <div class="admin-page-container" id="admin-page-container">
+
+        <div class="login-container">
+          <form class="form-inline">
+            <div class="form-group">
+
+              <!-- username input -->
+              <label for="username-input"><span translatestring stringID="username">@username</span></label>
+              <div class="input-group username-input">
+                <div class="input-group-addon">$</div>
+                <input type="text" class="form-control" id="username-input" placeholder="JaneDoe">
+              </div>
+
+              <!-- The password is "This" -->
+              <label for="password-input"><span translatestring stringID="password">@password</span></label>
+              <div class="input-group password-input">
+                <div class="input-group-addon">$</div>
+                <input type="password" class="form-control" id="password-input" placeholder="NotThis">
+              </div>
+
+              <!-- save changes -->
+              <div>
+                <button type="submit" class="btn btn-default save-button" id="save-changes-button">
+                  <span translatestring stringID="save_changes">@save_changes</span>
+                </button>
+              </div>
+
+              <!-- back -->
+              <div class="clickable-text back-button" id="admin-page-back-button">
+                <i class="fa fa-arrow-left"></i> <span translatestring stringID="logout">@logout</span>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+        <div class="make-changes-container">
+
+          <!--ul class="nav nav-tabs">
+            <li class="active">
+              <a data-toggle="tab" href="#make-changes-politician-container" class="nav-header">
+                <span translatestring stringID="politicians">@politicians</span>
+              </a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#make-changes-birds-container" class="nav-header">
+                <span translatestring stringID="birds">@birds</span>
+              </a>
+            </li>
+          </ul-->
+        
+          <div class="tab-content make-changes-tab-container">
+
+            <!-- change politicians -->
+            <div id="make-changes-politician-container" class="tab-pane fade in active make-changes-tab">
+
+              <div class="add-container">
+                <div class="header">
+                  <span translatestring stringID="add_politician">@add_politician</span>
+                </div>
+                <form class="form-inline make-changes-form">
+                  <div class="form-group make-changes-form-group">
+
+                    <div>
+                    <label> <span translatestring stringID="name">@name</span> </label>
+                    <input type="text" class="form-control text-input" id="new-poli-name" placeholder="Angela Merkel">
+                    </div>
+
+                    <div>
+                    <label> <span translatestring stringID="party">@party</span> </label>
+                    <input type="text" class="form-control text-input" id="new-poli-party" placeholder="CDU">
+                    </div>
+
+                    <div>
+                    <label> <span translatestring stringID="description">@description</span> </label>
+                    <textarea class="form-control text-input" rows="3" id="new-poli-cv"></textarea>
+                    </div>
+
+                    <div>
+                    <label> <span translatestring stringID="imageurl">@imageurl</span> </label>
+                    <input type="text" class="form-control text-input" id="new-poli-imageurl" placeholder="https://de.wikipedia.org/wiki/Datei:Angela_Merkel_(August_2012)_cropped.jpg">
+                    </div>
+
+                    <div>
+                    <label> <span translatestring stringID="tweetername">Twitter username</span> </label>
+                    <input type="text" class="form-control text-input" id="new-poli-twittername" placeholder="(optional)">
+                    </div>
+
+                    <label class="radio-inline">
+                      <input type="radio" name="sex-input" id="sex-input-male" value="male" checked> <span translatestring stringID="male">@male</span>
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="sex-input" id="sex-input-female" value="female"> <span translatestring stringID="female">@female</span>
+                    </label>
+
+                    <div>
+                      <button type="submit" class="btn btn-default add-button" id="add-poli-button">
+                        <span translatestring stringID="add">@add</span>
+                      </button>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+
+              <div class="remove-container">
+                <div class="header">
+                  <span translatestring stringID="remove_politician">@remove_politician</span>
+                </div>
+                <div class="remove-list" id="remove-entry-list-poli">
+                <!-- To be filled dynamically. -->
+                </div>
+              </div>
+
+            </div>
+
+            <!-- change birds >
+            <div id="make-changes-birds-container" class="tab-pane fade make-changes-tab">
+
+              <div class="add-container">
+                <div class="header">
+                  <span translatestring stringID="add_bird">@add_bird</span>
+                </div>
+                <form class="form-inline make-changes-form">
+                  <div class="form-group">
+
+                    <div>
+                    <label> <span translatestring stringID="name">@name</span> </label>
+                    <input type="text" class="form-control text-input" id="new-bird-name" placeholder="Tukan">
+                    </div>
+
+                    <div>
+                    <label> <span translatestring stringID="latin">@latin</span> </label>
+                    <input type="text" class="form-control text-input" id="new-bird-latin" placeholder="Fiat non">
+                    </div>
+
+                    <div>
+                    <label> <span translatestring stringID="description">@description</span> </label>
+                    <textarea class="form-control text-input" rows="3" id="new-bird-cv"></textarea>
+                    </div>
+
+                    <div>
+                    <button type="submit" class="btn btn-default add-button" id="add-bird-button">
+                      <span translatestring stringID="add">@add</span>
+                    </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div class="remove-container vertical-line">
+                <div class="header">
+                  <span translatestring stringID="remove_bird">@remove_bird</span>
+                </div>
+
+                <div class="remove-list" id="remove-entry-list-bird">
+                  <!-- To be filled dynamically.>
+                </div> 
+              </div>
+
+            </div-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CAROUSEL CONTROL -->
+  <a id="carousel-control-prev" class="left carousel-control carousel-prev sidebar-voices-coloring sidebar" href="#carousel" role="button" data-slide="prev">
+    <div class="left-sidebar">
+      <span class="text" id="carousel-control-prev-text">
+        <i class="fa fa-arrow-left"></i> 
+        <span translatestring stringID="vogelstimmen" id="carousel-control-prev-text-string"> @vogelstimmen</span>
+        <i class="fa fa-arrow-left"></i> 
+      </span>
+    </div>
+  </a>
+  <a id="carousel-control-next" class="right carousel-control carousel-next sidebar-owntweets-coloring sidebar" href="#carousel" role="button" data-slide="next">
+    <div class="right-sidebar">
+      <span class="text" id="carousel-control-next-text">
+        <i class="fa fa-arrow-left"></i> 
+        <span translatestring stringID="eigeneT" id="carousel-control-next-text-string"> @eigeneT </span>
+        <i class="fa fa-arrow-left"></i> 
+      </span>
+    </div>
+  </a>
+
+  <div id="archive-container">
+  </div>
+  </div>
+
+  <!-- FOOTER -->
+  <script src="../ext/js/jquery.min.js" type="text/javascript"></script>
+  <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+  <script src="../ext/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../ext/js/sha256.js" type="text/javascript"></script>
+  <!-- // <script src="../ext/js/sockjs.min.js" type="text/javascript"></script> -->
+  <script src="../ext/js/bad_words.js" type="text/javascript"></script>
+  <script src="../out/main.js" type="text/javascript"></script>
+  </body>
+</html>
+
+

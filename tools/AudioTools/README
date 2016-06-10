@@ -1,0 +1,18 @@
+Please install libstk0-dev ,  libboost-filesystem-dev
+
+For compiling (on linux):
+
+g++ -Wall -D__LITTLE_ENDIAN__ -I/usr/include/stk -o app addReverbToBirdSound.cpp -lboost_filesystem -lboost_system -lstk
+
+How it works?
+=================================================
+
+1) Compile the tool.
+2) Create a folder called "in" and "out".
+3) Place files to add the filter to in "in"-folder. They have to be in .wave format
+4) Run ./app
+5) You can find the tranformed sounds in "out" folder
+
+
+
+

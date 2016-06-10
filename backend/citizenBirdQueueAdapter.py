@@ -1,0 +1,22 @@
+import pika
+import json
+import threading
+class CitizenBirdQueueAdapter(threading.Thread):
+	def __init__(self, politianBackend):
+		threading.Thread.__init__(self, daemon=True)
+		self.politianBackend = politianBackend
+		self.connection = pika.BlockingConnection(pika.ConnectionParameters(
+        host='localhost'))
+		
+		
+	def run(self):
+		self.channel = self.connection.channel()
+		self.channel.queue_declare(queue='citizenbirds', durable=True)
+		self.channel.basic_consume(self.callback, queue="citizenbirds", no_ack=True)
+		self.channel.start_consuming()
+		
+		
+	def callback(self, ch, method, properties, body):
+		body = json.loads(body.decode('utf-8'))
+		print("set !!!!!!!!!!!!!!!!!!!!!!!" + str(body))
+		self.politianBackend.setCitizensBird(body["politicianid"], body["birdid"])

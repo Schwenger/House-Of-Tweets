@@ -1,0 +1,9 @@
+.DS_Store
+*~
+out
+legacy
+ext/node_modules/
+pydub/__pycache__
+node_modules/
+ext/sounds/processed
+backend/__pycache__

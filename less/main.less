@@ -1,0 +1,75 @@
+@import "variables.less";
+@import "carousel.less";
+@import "tweets.less"; 
+@import "layout.less";
+@import "voices.less";
+@import "switch.less";
+@import "footer.less";
+@import "impressum.less";
+@import "citizenbird.less";
+
+body, html {
+	height: 100%;
+	margin: 0px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+.invisible {
+	display: none;
+}
+
+.blur-image {
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+ 	-o-filter: blur(5px);
+ 	-ms-filter: blur(5px);
+ 	filter: blur(5px);
+}
+
+.anti-blur-image {
+	-webkit-filter: blur(0px);
+	-moz-filter: blur(0px);
+ 	-o-filter: blur(0px);
+ 	-ms-filter: blur(0px);
+ 	filter: blur(0px);
+}
+
+.hover-element {
+	cursor: pointer;
+}
+
+.flex-alignment-helper-vertical {
+	height: 100%;
+}
+
+.flex-alignment-helper-end {
+	align-self: flex-end;
+}
+
+.clickable-text {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.vertical-line {
+	border-left: 1px solid @admin-page-border-color;
+}
+
+.error-message {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 400px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: rgba(255,0,0,0.4);
+    border-color: black;
+    border-style: solid;
+    overflow: hidden;
+}

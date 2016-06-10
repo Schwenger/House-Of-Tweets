@@ -1,0 +1,77 @@
+
+.citizen-bird-page {
+	text-align: center;
+	width: 70%;
+	margin-left: 15%;
+	color: @citizen-bird-color;
+	font-size: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	height: 100%;
+	padding-top: 10%;
+	padding-bottom: 10%;
+}
+
+.citizen-user-name-input{
+	width: 30%;
+	padding: 3px;
+}
+
+.submit-citizen-bird {
+	background: @citizen-bird-color;
+    color:  white;
+    &:hover, &:focus {
+    	color: white;
+    }
+}
+
+.bird-dropdown-container {
+	width: 30%;
+	position: relative;
+
+	& .bird-dropdown-button {
+	    width: 100%;
+	    background: @citizen-bird-color;
+	    color:  white;
+	    line-height: 40px;
+	    font-size: 30px;
+	    padding: 0 10px;
+	    cursor: pointer;
+	    border: none;
+
+	    &:focus {
+	    	outline: none;
+	    }
+	}
+
+	& > ul {
+		.hover-element;
+	    display: none;
+	    margin: 0;
+	    padding: 0px;
+	    background: #dddddd;
+	    width: 100%;
+	    list-style: none;
+	    position: absolute;
+	    font-size: 25px;
+	    height: 200px;
+	    overflow: hidden;
+	    overflow-y: scroll;
+
+	    & > li {
+	    	background: @citizen-bird-color;
+	    	color:  white;
+	    	line-height: 25px;
+	    	font-size: 14px;
+	    	cursor: pointer;
+
+	    	&:hover {
+	    		background: #aaa;
+	    	}
+
+	    }
+
+	}
+}
