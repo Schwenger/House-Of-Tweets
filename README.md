@@ -119,10 +119,10 @@ When editing the README have a look at this [markdown-cheatsheet](https://github
 Authors:
 ========
 
-* Michaela Klauck (klauck@houseoftweets.de)
-* Christopher Schommer (schommer@houseoftweets.de)
-* Maximilian Schwenger (schwenger@houseoftweets.de)
-* Sarah Sterz (sterz@houseoftweets.de)
+* s9miklau@stud.uni-saarland.de
+* Christopher Schommer (christopherschommer@gmx.de)
+* Maximilian Schwenger (schwenger@stud.uni-saarland.de)
+* s9saster@stud.uni-saarland.de
 
 Sounds are extracted from [xeno-canto](http://www.xeno-canto.org/about/terms), thank you very much!
 Images can be extracted from wikipedia, for legal reasons, they are not included online.
