@@ -5,7 +5,7 @@ House of Tweets is an art/computer science project that took place at the Saarla
 
 We do not want to bother anyone with unnecessarily many words, so feel free to play around with our project and leave feedback if you like. Make sure, your sound is turned on!
 
-![main_page_overview](https://github.com/Schwenger/House-Of-Tweets/preview.png)
+![main_page_overview](https://github.com/Schwenger/House-Of-Tweets/blob/master/preview.png)
 
 Prerequesites:
 ==============
