@@ -120,7 +120,7 @@ Authors:
 ========
 
 * Michaela Klauck (s9miklau@stud.uni-saarland.de)
-* Christopher Schommer (s9chschom@stud.uni-saarland.de)
+* Christopher Schommer (s9crscho@stud.uni-saarland.de)
 * Maximilian Schwenger (schwenger@stud.uni-saarland.de)
 * s9saster@stud.uni-saarland.de
 
