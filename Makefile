@@ -2,7 +2,7 @@ OUTPUT_DIR:=out
 TEMP_DIR:=temp
 COFFEE_DIR:=coffee
 DIRS:=${OUTPUT_DIR} ${TEMP_DIR}
-JS_TEMP:=${TEMP_DIR}/temporarily_combined_code.js
+JS_TEMP:=${OUTPUT_DIR}/temporarily_combined_code.js
 FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify
 COFFEE_ALL:=$(sort $(wildcard ${COFFEE_DIR}/*.coffee))
 
@@ -19,12 +19,12 @@ ${OUTPUT_DIR}/main.css: $(wildcard less/*.less) | ${DIRS}
 
 .PHONY: coffee
 coffee: ${COFFEE_ALL} | ${DIRS}
-	coffee --output ${TEMP_DIR} --compile ${COFFEE_DIR}/
+	coffee --output ${TEMP_DIR}/ --compile ${COFFEE_DIR}/
 
 ${JS_TEMP}: coffee | ${DIRS}
 	cat ${TEMP_DIR}/*.js > $@
 
-${OUTPUT_DIR}/main.js: ${JS_TEMP}| ${DIRS} 
+${OUTPUT_DIR}/main.js: ${JS_TEMP} | ${DIRS} 
 	browserify $< > $@
 
 .PHONY: say 
