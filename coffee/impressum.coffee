@@ -1,5 +1,5 @@
 #= require <global.coffee>
-#= require <lang.coffee>
+#= require <model.coffee>
 #= require <connector.coffee>
 
 prepareImpressum = ->
@@ -118,11 +118,11 @@ rollbackChanges = (changes) ->
 inputValid = ->
 	uname = $("#username-input").val()
 	if uname?.length < 1
-		msg = SiteLanguage[global.transform(global.language)]["missing_uname"]
+		msg = Model.msg.get("missing_uname")
 		return [false, msg]
 	pw = $("#password-input").val()
 	if pw?.length < 1
-		msg = SiteLanguage[global.transform(global.language)]["missing_pw"]
+		msg = Model.msg.get("missing_pw")
 		return [false, msg]
 	return [true, undefined]
 

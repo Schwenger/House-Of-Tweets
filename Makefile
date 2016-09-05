@@ -1,5 +1,5 @@
 FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat
-MODELS=${COFFEE}/model_birds.coffee ${COFFEE}/model_polis.coffee
+MODELS=${COFFEE}/model_birds.coffee ${COFFEE}/model_polis.coffee ${COFFEE}/model_messages.coffee
 OUT=out
 TEMP=out/temp
 LESS=less

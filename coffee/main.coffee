@@ -5,7 +5,7 @@
 #= require <tweet_controller.coffee>
 #= require <tweet_provider.coffee>
 #= require <citizen_birds.coffee>
-#= require <frame_controller.coffee>
+#= require <language_controller.coffee>
 
 called = "You should never forget quotation marks."
 here = "You should never forget quotation marks."

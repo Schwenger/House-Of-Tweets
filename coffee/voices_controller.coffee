@@ -1,5 +1,4 @@
 #= require <global.coffee>
-#= require <lang.coffee>
 #= require <connector.coffee>
 #= require <model.coffee>
 

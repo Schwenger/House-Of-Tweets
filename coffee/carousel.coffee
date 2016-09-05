@@ -1,5 +1,5 @@
 #= require <global.coffee>
-#= require <lang.coffee>
+#= require <model.coffee>
 
 _resetState = (prevCtrl, nextCtrl) ->
 	nextCtrl.removeClass("invisible")
@@ -12,10 +12,10 @@ _resetState = (prevCtrl, nextCtrl) ->
 _setUpInitialState = (prevCtrl, nextCtrl, prevCtrlTextContainer, nextCtrlTextContainer, prevCtrlTextContainerString, nextCtrlTextContainerString) ->
 	prevCtrl.addClass "sidebar-voices-coloring"
 	nextCtrl.addClass "sidebar-owntweets-coloring"
-	content = SiteLanguage[global.transform(global.language)]["eigeneT"]
+	content = Model.msg.get("eigeneT")
 	nextCtrlTextContainerString.text(content)
 	nextCtrlTextContainer.removeClass "invisible"
-	content = SiteLanguage[global.transform(global.language)]["vogelstimmen"]
+	content = Model.msg.get("vogelstimmen")
 	prevCtrlTextContainerString.text(content)
 	prevCtrlTextContainer.removeClass "invisible"
 
@@ -44,7 +44,7 @@ triggerCarousel = (state, swipeLeft) ->
 		prevCtrl.addClass "invisible"
 		nextCtrl.addClass "sidebar-voices-coloring"
 		nextCtrl.removeClass "sidebar-owntweets-coloring"
-		content = SiteLanguage[global.transform(global.language)]["zurückZuT"]
+		content = Model.msg.get("zurückZuT")
 		timeoutAction = -> 
 			nextCtrlTextContainerString.text(content)
 			nextCtrlTextContainer.removeClass "invisible"
@@ -52,7 +52,7 @@ triggerCarousel = (state, swipeLeft) ->
 		nextCtrl.addClass "invisible"
 		prevCtrl.addClass "sidebar-owntweets-coloring"
 		prevCtrl.removeClass "sidebar-voices-coloring"
-		content = SiteLanguage[global.transform(global.language)]["zurückZuT"]
+		content = Model.msg.get("zurückZuT")
 		timeoutAction = ->
 			prevCtrlTextContainerString.text(content)
 			prevCtrlTextContainer.removeClass "invisible"
