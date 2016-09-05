@@ -74,7 +74,7 @@ changeView = ->
 	tweet?.remove() for tweet in oldL
 	root = $('#tweet-list')
 	root.append tweet for tweet in newL
-	turnOnSound (obj.attr('tweetid') for obj in newL when obj?)
+	SoundCtrl.turnOnSound (obj.attr('tweetid') for obj in newL when obj?)
 
 updateTweetLists = (incomingTweets) ->
 	tweet.time = new Date(parseInt tweet.time) for tweet in incomingTweets
@@ -107,7 +107,7 @@ updateShownTweets = (incomingTweets) ->
 	for tweet in respectiveList
 		list.append tweet 
 
-	turnOnSound(tweet.id for tweet in incomingTweets)
+	SoundCtrl.turnOnSound(tweet.id for tweet in incomingTweets)
 
 sanitize = (tags) ->
 	for tag in tags
@@ -158,7 +158,7 @@ transform = (tweet) ->
 	profileImg.css("border-color", "#{tweet.partycolor}") if tweet.partycolor?
 	speakerElement.click( ->
 		# see sound_controller
-		playSound tweet.id
+		SoundCtrl.playSound tweet.id
 		)	
 	return tweetElement
 

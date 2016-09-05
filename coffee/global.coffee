@@ -30,14 +30,7 @@ Global = {
 		uname: "guest"
 		passcode: "guest"
 
-	screensaver: {
-		duration: 6000000,
-		startThreshold: 1500000,
-		checkFrequency: 500000,
-		active: -1,
-		lastTouch: -1
-	}
-	screensaverOn: false
+	
 	
 	transform: (langString) ->
 		switch(langString)
