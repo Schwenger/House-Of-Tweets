@@ -1,10 +1,3 @@
-
-# manualTweets = [{name:"Bettina K.", content: "House of Tweets hat mein Leben verändert. #HouseOfTweets #life #art", time: "09:14", hashtags: ["HouseOfTweets", "art", "life"], image: "../ext/images/bettinak.png"},
-# {name:"Saarland University", content: "House of Tweets is very promising. We should consider repurposing CIPSA's funds. #WeMeanIt", time: "tomorrow", hashtags: ["WeMeanIt"], image: "../ext/images/eule.png"},
-# {name:"Albert Einstein", content: "You will never fail until you stop tweeting. #clever", time: "12:58", hashtags: ["clever"], image: "../ext/images/einstein.jpg"},
-# {name:"Angela Merkel", content: "Die Saarbrücker Informatik ist das stärkste Standbein unserer Wirtschaft. #investitionen", time: "not yet", hashtags: ["investitionen"], image: "../ext/images/merkel.png"},
-# {name:"Group Green", content: "Haben eben eine 1.0 auf unser Projekt bekommen!! #yay", time: "soon", hashtags: ["yay"], image: "../ext/images/groupgreen.png"}]
-
 called = "You should never forget quotation marks."
 here = "You should never forget quotation marks."
 
@@ -12,9 +5,7 @@ here = "You should never forget quotation marks."
 
 startScreensaver = ->
 	return if global.screensaver.active isnt -1
-	# r = Math.floor(Math.random() * 5) # leq 4
-	r = 0
-	global.screensaver.active = r
+	global.screensaver.active = 0 # we only have one screen saver, type 0
 	saver = $("#screensaver-element-#{r}")
 	saver.removeClass "invisible"
 	saver.addClass "load"
@@ -76,13 +67,8 @@ initMain = ->
 	prepareTweetProvider(updateTweetLists)
 	$(document).keydown((e) -> 
 		switch e?.which
-			# when 68 then toggleDemo() # d
-			# when 65 then toggle_demo_bg_additional() # a
-			# when 86 then toggle_demo_bg_additional() # v
 			when 34 then triggerTweet() # page down
-			# when 84 then triggerTweet() # t
-			# when 87 then useBlinking = not useBlinking # w
-			# when 66 then useBlinking = not useBlinking # b
+			when 84 then triggerTweet() # t
 			when 123 then startScreensaver() # f12
 			when 121 then toggleAmbient() # f11
 		)
@@ -90,17 +76,8 @@ initMain = ->
 initCarousel()
 initMain()
 
-# console.log(""" \
-# Controls:
-# 	d: open demo page
-# 	a | v: open Altmeier's page ('Vogelstimmen' view only)
-# 	t | page_down: fire tweet (Non-demo view only)
-# 	b | w: enables blinking of incoming tweets""")
-
 # openImpressum()
 # openAdminPage()
 
 # TODOS
 # Language overlay fades in
-# sidebar elements' texts change during scroll animation, not instantly.
-# extend demo (remove all the elements)
