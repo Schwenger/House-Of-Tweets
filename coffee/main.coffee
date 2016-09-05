@@ -7,9 +7,6 @@
 #= require <citizenBirds.coffee>
 #= require <frame_control.coffee>
 
-#= require <modelBirds.coffee>
-#= require <modelPoli.coffee>
-
 called = "You should never forget quotation marks."
 here = "You should never forget quotation marks."
 

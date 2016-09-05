@@ -1,6 +1,7 @@
 #= require <global.coffee>
 #= require <lang.coffee>
 #= require <connector.coffee>
+#= require <model.coffee>
 
 _birdPath = (id) ->
 	global.bird_path + id + ".jpg"
@@ -66,7 +67,7 @@ openPoliticianPage = (id) ->
 	$("#voices-list-container").css("opacity", 0)
 	$("#voices-profile-container-politician").removeClass "invisible"
 
-	poli = model.politicians[id]
+	poli = Model.politicians[id]
 
 	picObj = $("#voices-profile-picture-politician")
 	picObj.css("height", picObj.width() + "px")
@@ -82,9 +83,9 @@ openPoliticianPage = (id) ->
 	$("#voices-profile-self-selection-image-politician").attr("src", _birdPath poli.self_bird)
 	$("#voices-profile-citizen-selection-image-politician").attr("src", _birdPath poli.citizen_bird)
 	
-	citizenBirdName = model.birds[poli.citizen_bird][util.addLang "name"] if model.birds[poli.citizen_bird]?
+	citizenBirdName = Model.birds[poli.citizen_bird][util.addLang "name"] if Model.birds[poli.citizen_bird]?
 	$("#voices-profile-citizen-selection-text-politician").text(citizenBirdName)
-	selfBirdName = model.birds[poli.self_bird][util.addLang "name"]
+	selfBirdName = Model.birds[poli.self_bird][util.addLang "name"]
 	$("#voices-profile-self-selection-text-politician").text(selfBirdName)
 
 openBirdPage = (id) ->
@@ -94,7 +95,7 @@ openBirdPage = (id) ->
 	picObj = $("#voices-profile-picture-bird")
 	picObj.css("height", picObj.width() + "px")
 
-	bird = model.birds[id]
+	bird = Model.birds[id]
 	$("#voices-profile-name-bird").text(bird[util.addLang "name"])
 	$("#voices-profile-cv-bird").text(bird[util.addLang "cv"])
 	$("#voices-profile-picture-bird").attr("src", _birdPath id)
@@ -102,7 +103,7 @@ openBirdPage = (id) ->
 translateBirds = ->
 	$("#voices-list-birds").children(".voices-list-entry").each ->
 		[head..., id] = $(this).attr("id").split("-")
-		newName = model.birds[id][util.addLang("name")]
+		newName = Model.birds[id][util.addLang("name")]
 		$(this).find('.first-line').text(newName)
 
 
@@ -117,7 +118,7 @@ _openBirdPageFactory = (id) ->
 		openBirdPage id
 
 displayPoliticians = (root, prefix) ->
-	for own id, p of model.politicians
+	for own id, p of Model.politicians
 		firstLine = p.name
 		image = _politicianPath p.images?.pathToThumb
 		obj = transformItem id, firstLine, p.party, image, prefix
@@ -125,7 +126,7 @@ displayPoliticians = (root, prefix) ->
 		obj.click (_openPoliticianPageFactory(id))
 
 displayBirds = (root, prefix, addon, info) ->
-	for own id, b of model.birds
+	for own id, b of Model.birds
 		image = _birdPath id
 		name = b[util.addLang "name"]
 		obj = transformItem id, name, b.latin_name, image, prefix

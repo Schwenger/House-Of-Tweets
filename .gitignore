@@ -7,3 +7,6 @@ pydub/__pycache__
 node_modules/
 ext/sounds/processed
 backend/__pycache__
+
+# Unneccesary to upload the model twice.
+coffee/model.coffee

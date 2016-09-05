@@ -9,7 +9,7 @@ wrap = (callback) ->
 			if tweet.refresh?
 				pid = tweet.refresh.politicianId
 				bid = tweet.refresh.birdId
-				model.politicians[pid].self_bird = bid
+				Model.politicians[pid].self_bird = bid
 				global.pendingBirdListUpdate = true
 		# updateVoicesPage()
 		if global.state isnt "center"

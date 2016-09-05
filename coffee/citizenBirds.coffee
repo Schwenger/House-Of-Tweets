@@ -31,7 +31,7 @@ resetCitizenBird = ->
 	$('#citizen-user-name-input').val("")
 
 resetDropdownTrigger = ->
-	for own id, bird of model.birds
+	for own id, bird of Model.birds
 		citizenBirdSelection = id
 		dropdownTrigger?.text(bird[util.addLang "name"])
 		break
@@ -46,12 +46,12 @@ closeDropdown = ->
 selectCitizenBirdFactory = (id) ->
 	() ->
 		citizenBirdSelection = id
-		dropdownTrigger.text(model.birds[id][util.addLang("name")])
+		dropdownTrigger.text(Model.birds[id][util.addLang("name")])
 		toggleDropdown()
 
 vivifyCitizenBirdsList = ->
 	list = $('#bird-dropdown-list')
-	for own id, bird of model.birds 
+	for own id, bird of Model.birds 
 		option_object = $("<li class='bird-dropdown-entry' value=#{id}>")
 		option_object.text(bird[util.addLang "name"])
 		list.append(option_object)
@@ -68,7 +68,7 @@ submit_citizen_bird = (event) ->
 translateCitizenBirds = ->
 	dropdownList?.children().each(() -> $(this).remove())
 	list = $('#bird-dropdown-list')
-	for own id, bird of model.birds 
+	for own id, bird of Model.birds 
 		option_object = $("<li class='bird-dropdown-entry' value=#{id}>")
 		option_object.text(bird[util.addLang "name"])
 		list.append(option_object)

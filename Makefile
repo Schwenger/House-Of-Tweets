@@ -34,8 +34,11 @@ ${OUT}/main.js: ${OUT}/bundled.js | ${DIRS}
 ${OUT}/bundled.js: ${TEMP}/bundled.coffee | ${DIRS}
 	coffee --output ${OUT} --compile $^
 
-${TEMP}/bundled.coffee: $(wildcard ${COFFEE}/*.coffee) | ${DIRS}
+${TEMP}/bundled.coffee: ${COFFEE}/model.coffee $(wildcard ${COFFEE}/*.coffee) | ${DIRS}
 	coffeescript-concat -I ${COFFEE} ${COFFEE}/main.coffee -o ${TEMP}/bundled.coffee
+
+${COFFEE}/model.coffee: ${COFFEE}/model_empty.coffee ${COFFEE}/modelPoli.coffee ${COFFEE}/modelBirds.coffee | ${DIRS}
+	cat ${COFFEE}/model_empty.coffee ${COFFEE}/modelPoli.coffee ${COFFEE}/modelBirds.coffee > $@
 
 # BACKEND
 
