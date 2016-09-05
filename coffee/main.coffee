@@ -1,3 +1,15 @@
+#= require <carousel.coffee>
+#= require <global.coffee>
+#= require <impressum.coffee>
+#= require <voices_controller.coffee>
+#= require <tweet_controller.coffee>
+#= require <tweet_provider.coffee>
+#= require <citizenBirds.coffee>
+#= require <frame_control.coffee>
+
+#= require <modelBirds.coffee>
+#= require <modelPoli.coffee>
+
 called = "You should never forget quotation marks."
 here = "You should never forget quotation marks."
 

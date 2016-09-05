@@ -1,3 +1,5 @@
+#= require <global.coffee>
+#= require <lang.coffee>
 
 _resetState = (prevCtrl, nextCtrl) ->
 	nextCtrl.removeClass("invisible")

@@ -1,3 +1,6 @@
+#= require <global.coffee>
+#= require <connector.coffee>
+#= require <model.coffee>
 
 wrap = (callback) ->
 	(tweets) ->

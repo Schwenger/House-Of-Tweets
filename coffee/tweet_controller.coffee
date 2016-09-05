@@ -1,3 +1,6 @@
+#= require <global.coffee>
+#= require <sound_controller.coffee>
+
 ### LOGIC: ###
 
 tLists = {
@@ -102,7 +105,6 @@ updateShownTweets = (incomingTweets) ->
 	respectiveList = if global.poliTweetsOnly then tLists.poli else tLists.mixed
 	for tweet in respectiveList
 		list.append tweet 
-		blinkBorder("gray", tweet.partycolor, "#tweet-#{tweet.id}", 500, 10) if global.useBlinking
 
 	turnOnSound(tweet.id for tweet in incomingTweets)
 
@@ -113,31 +115,6 @@ sanitize = (tags) ->
 triggerTweet = () ->
 	updateTweetLists [model.manualTweets[global.manualTweetID]]
 	global.manualTweetID = (global.manualTweetID + 1) % model.manualTweets.length
-	
-
-### DESIGN ###
-
-###
-# @author Petros Kyladitis - 2011
-# @license MIT License
-#
-# @description make the border of an element blink
-# @param colorA first border's color code
-# @param colorB second border's color code
-# @param elementId element id
-# @param time blinking time in milliseconds
-###
-blinkBorder = (colorA, colorB, element, time, iterations) ->
-	return if iterations is -1
-	element.css("border-color", colorB)
-	setTimeout (() -> 
-		blinkBorder(colorB, colorA, element, time, iterations - 1)
-		# prevent memory leak
-		colorB = null
-		colorA = null
-		elementId = null
-		time = null
-	), time
 
 appendTweet = (tweet) ->
 	$("#tweet-list").append(transform tweet)

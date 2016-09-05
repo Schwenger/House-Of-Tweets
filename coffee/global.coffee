@@ -1,3 +1,4 @@
+
 global = {
 	threshold: 6;
 	sanityPattern: /\w*/

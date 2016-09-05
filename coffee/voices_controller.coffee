@@ -1,3 +1,7 @@
+#= require <global.coffee>
+#= require <lang.coffee>
+#= require <connector.coffee>
+
 _birdPath = (id) ->
 	global.bird_path + id + ".jpg"
 

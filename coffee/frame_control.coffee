@@ -1,3 +1,7 @@
+#= require <global.coffee>
+#= require <lang.coffee>
+#= require <voices_controller.coffee>
+
 $("#tweet-list-header").click (-> $("#language-control").removeClass "invisible")
 
 $("#language-control").click (->	

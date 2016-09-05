@@ -1,3 +1,6 @@
+#= require <global.coffee>
+#= require <lang.coffee>
+#= require <connector.coffee>
 
 prepareImpressum = ->
 	$("#impressum-button").click openImpressum

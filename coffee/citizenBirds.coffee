@@ -1,5 +1,8 @@
-citizenBirdMQ = undefined
+#=require <connector.coffee>
+#=require <model.coffee>
+#=require <global.coffee>
 
+citizenBirdMQ = undefined
 citizenBirdSelection = undefined
 dropdownTrigger = undefined
 dropdownList = undefined

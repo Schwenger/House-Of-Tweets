@@ -1,3 +1,5 @@
+#= require <global.coffee>
+
 Stomp = require('../ext/node_modules/stompjs')
 
 _openConnection = (callback, qname) ->
