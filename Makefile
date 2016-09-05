@@ -1,4 +1,5 @@
 FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat
+MODELS=${COFFEE}/model_birds.coffee ${COFFEE}/model_polis.coffee
 OUT=out
 TEMP=out/temp
 LESS=less
@@ -37,8 +38,8 @@ ${OUT}/bundled.js: ${TEMP}/bundled.coffee | ${DIRS}
 ${TEMP}/bundled.coffee: ${COFFEE}/model.coffee $(wildcard ${COFFEE}/*.coffee) | ${DIRS}
 	coffeescript-concat -I ${COFFEE} ${COFFEE}/main.coffee -o ${TEMP}/bundled.coffee
 
-${COFFEE}/model.coffee: ${COFFEE}/model_empty.coffee ${COFFEE}/modelPoli.coffee ${COFFEE}/modelBirds.coffee | ${DIRS}
-	cat ${COFFEE}/model_empty.coffee ${COFFEE}/modelPoli.coffee ${COFFEE}/modelBirds.coffee > $@
+${COFFEE}/model.coffee: ${COFFEE}/model_empty.coffee ${MODELS} | ${DIRS}
+	cat ${COFFEE}/model_empty.coffee ${MODELS} > $@
 
 # BACKEND
 
