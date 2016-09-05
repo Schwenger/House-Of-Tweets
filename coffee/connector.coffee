@@ -1,15 +1,16 @@
 #= require <global.coffee>
+#= require <util.coffee>
 
 Stomp = require('../ext/node_modules/stompjs')
 
 _openConnection = (callback, qname) ->
 	MQ = {}
-	MQ.ws       = if location.search is "?ws" then new WebSocket("ws://#{global.rabbitMQ.url}:#{global.rabbitMQ.port}/ws") else new SockJS("http://#{global.rabbitMQ.url}:#{global.rabbitMQ.port}/stomp")
+	MQ.ws       = if location.search is "?ws" then new WebSocket("ws://#{Global.rabbitMQ.url}:#{Global.rabbitMQ.port}/ws") else new SockJS("http://#{Global.rabbitMQ.url}:#{Global.rabbitMQ.port}/stomp")
 	MQ.client   = Stomp.over(MQ.ws)
 	MQ.name     = qname
 	MQ.callback = callback
-	MQ.uname    = global.rabbitMQ.uname
-	MQ.passcode = global.rabbitMQ.passcode
+	MQ.uname    = Global.rabbitMQ.uname
+	MQ.passcode = Global.rabbitMQ.passcode
 	# disable heartbeats
 	MQ.client.heartbeat.outgoing = 0
 	MQ.client.heartbeat.incoming = 0
@@ -38,7 +39,7 @@ _connect = (MQ) ->
 	MQ.client.connect MQ.uname, MQ.passcode, _subscribe(MQ), _on_error(MQ.name), '/'
 
 _extractContent = (txt) ->
-	util.str2obj(txt.body)
+	Util.str2obj(txt.body)
 
 _consume = (msg) ->
 	tweets = _extractContent msg
@@ -53,4 +54,4 @@ openConnection = (qname, callback) ->
 sendToQueue = (MQ, data) ->
 	console.log "Sending data to " + MQ.name
 	console.log data
-	MQ.client.send(MQ.name, {}, util.obj2str(data))
+	MQ.client.send(MQ.name, {}, Util.obj2str(data))

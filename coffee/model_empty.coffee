@@ -1,3 +1,6 @@
+#= require <global.coffee>
+#= require <util.coffee>
+
 class Model
 
   @name2id: (name) ->
@@ -7,7 +10,7 @@ class Model
     {
       name:"Group Green", 
       content: "Hmm, wenn die Tagesschau beim NPD-Verbotsverfahren ne Schalte zu ihrem 'Rechtsexperten' macht, ist das irgendwie doppeldeutig...", 
-      time: new Date().getTime(), 
+      time: Util.time(), 
       # hashtags: ["HouseOfTweets"], 
       image: "../ext/images/politicians/group_greengrün.jpg",
       birdp: "amsel",
@@ -22,7 +25,7 @@ class Model
     {
       name:"Group Green", 
       content: "The tweet has intentionally been left blank.", 
-      time: new Date().getTime(), 
+      time: Util.time(), 
       # hashtags: ["HouseOfTweets"], 
       image: "../ext/images/politicians/group_greengrün.jpg",
       birdp: "amsel",
@@ -37,7 +40,7 @@ class Model
     {
       name:"Group Green", 
       content: "Politician should be spelled 'politian'. Deep thoughts...", 
-      time: new Date().getTime(), 
+      time: Util.time(), 
       # hashtags: ["HouseOfTweets"], 
       image: "../ext/images/politicians/group_greengrün.jpg",
       birdp: "amsel",

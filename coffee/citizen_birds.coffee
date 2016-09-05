@@ -1,5 +1,6 @@
 #=require <connector.coffee>
 #=require <model.coffee>
+#=require <util.coffee>
 #=require <global.coffee>
 
 citizenBirdMQ = undefined
@@ -14,7 +15,7 @@ dropdownList = undefined
 
 prepareCitizenBirdsPage = ->
 	# attach handler to save button
-	citizenBirdMQ = openConnection(global.rabbitMQ.citizenUserQueue, undefined)
+	citizenBirdMQ = openConnection(Global.rabbitMQ.citizenUserQueue, undefined)
 	vivifyCitizenBirdsList()
 	$('#submit-citizen-bird').click(submit_citizen_bird)
 	dropdownTrigger = $('#bird-dropdown-button')
@@ -33,7 +34,7 @@ resetCitizenBird = ->
 resetDropdownTrigger = ->
 	for own id, bird of Model.birds
 		citizenBirdSelection = id
-		dropdownTrigger?.text(bird[util.addLang "name"])
+		dropdownTrigger?.text(bird[Util.addLang "name"])
 		break
 	
 toggleDropdown = ->
@@ -46,14 +47,14 @@ closeDropdown = ->
 selectCitizenBirdFactory = (id) ->
 	() ->
 		citizenBirdSelection = id
-		dropdownTrigger.text(Model.birds[id][util.addLang("name")])
+		dropdownTrigger.text(Model.birds[id][Util.addLang("name")])
 		toggleDropdown()
 
 vivifyCitizenBirdsList = ->
 	list = $('#bird-dropdown-list')
 	for own id, bird of Model.birds 
 		option_object = $("<li class='bird-dropdown-entry' value=#{id}>")
-		option_object.text(bird[util.addLang "name"])
+		option_object.text(bird[Util.addLang "name"])
 		list.append(option_object)
 		option_object.click selectCitizenBirdFactory(id)
 		
@@ -70,7 +71,7 @@ translateCitizenBirds = ->
 	list = $('#bird-dropdown-list')
 	for own id, bird of Model.birds 
 		option_object = $("<li class='bird-dropdown-entry' value=#{id}>")
-		option_object.text(bird[util.addLang "name"])
+		option_object.text(bird[Util.addLang "name"])
 		list.append(option_object)
 		option_object.click selectCitizenBirdFactory(id)
 	resetDropdownTrigger()

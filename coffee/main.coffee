@@ -1,5 +1,6 @@
 #= require <carousel.coffee>
 #= require <global.coffee>
+#= require <util.coffee>
 #= require <impressum.coffee>
 #= require <voices_controller.coffee>
 #= require <tweet_controller.coffee>
@@ -13,28 +14,28 @@ here = "You should never forget quotation marks."
 # Setup #################################################################################
 
 startScreensaver = ->
-	return if global.screensaver.active isnt -1
-	global.screensaver.active = 0 # we only have one screen saver, type 0
+	return if Global.screensaver.active isnt -1
+	Global.screensaver.active = 0 # we only have one screen saver, type 0
 	saver = $("#screensaver-element-#{r}")
 	saver.removeClass "invisible"
 	saver.addClass "load"
 	saver.children().each () -> $(this).addClass "load"
-	setTimeout(stopScreensaver, global.screensaver.duration)
+	setTimeout(stopScreensaver, Global.screensaver.duration)
 
 stopScreensaver = ->
-	return if global.screensaver.active is -1
+	return if Global.screensaver.active is -1
 	saver = $("#screensaver-element-0")
 	saver.addClass "invisible"
 	saver.removeClass "load"
 	saver.children().each () -> $(this).removeClass "load"
-	global.screensaver.active = -1
-	global.screensaver.lastTouch = util.time()
+	Global.screensaver.active = -1
+	Global.screensaver.lastTouch = Util.time()
 
 testSimple = () ->
 	tweetTest = {name:"Michaela Klauckington", content: "Working all morning long. #awesome", time: "12:00", hashtags: []}
 	$("#tweet-list").append(transform tweetTest)
 
-global.screensaver.lastTouch = util.time()
+Global.screensaver.lastTouch = Util.time()
 
 enforceConsistencyConstraints = ->
 	# we cannot [...] set height in relative to relative width value
@@ -44,13 +45,13 @@ enforceConsistencyConstraints = ->
 
 initScreensaver = ->
 	$(document).click (->
-		global.screensaver.lastTouch = util.time()
+		Global.screensaver.lastTouch = Util.time()
 		stopScreensaver()
 		)
 
 	setInterval (->
-		startScreensaver() if util.time() - global.screensaver.lastTouch > global.screensaver.startThreshold
-		), global.screensaver.checkFrequency
+		startScreensaver() if Util.time() - Global.screensaver.lastTouch > Global.screensaver.startThreshold
+		), Global.screensaver.checkFrequency
 
 turnOnAmbientSound = () ->
 	src = "../ext/sounds/ambient.mp3"

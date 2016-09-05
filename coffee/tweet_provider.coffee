@@ -10,12 +10,12 @@ wrap = (callback) ->
 				pid = tweet.refresh.politicianId
 				bid = tweet.refresh.birdId
 				Model.politicians[pid].self_bird = bid
-				global.pendingBirdListUpdate = true
+				Global.pendingBirdListUpdate = true
 		# updateVoicesPage()
-		if global.state isnt "center"
-			global.pendingTweets.push tweets
+		if Global.state isnt "center"
+			Global.pendingTweets.push tweets
 		else
 			callback tweets
 
 prepareTweetProvider = (callback) ->
-	openConnection(global.rabbitMQ.tweetsQueue, wrap callback)
+	openConnection(Global.rabbitMQ.tweetsQueue, wrap callback)

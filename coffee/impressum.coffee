@@ -1,4 +1,5 @@
 #= require <global.coffee>
+#= require <util.coffee>
 #= require <model.coffee>
 #= require <connector.coffee>
 
@@ -41,7 +42,7 @@ closeImpressum = ->
 	$("#carousel-control-prev").removeClass "invisible"
 	$("#carousel-control-next").removeClass "invisible"
 	hideSimpleAuth
-	global.handleStalledTweets()
+	Global.handleStalledTweets()
 
 openAdminPage = ->
 	$("#impressum").removeClass "active"
@@ -72,7 +73,7 @@ addPoli = (e) ->
 		imagelink: $('#new-poli-imageurl').val()
 	}
 	id = poli.name.toLowerCase().replace(" ", "_") + poli.party.toLowerCase().replace(" ", "_")
-	model.politicians[id] = util.clone(poli)
+	model.politicians[id] = Util.clone(poli)
 	poli["remove"] = false
 	poli["id"] = id
 	poliChanges.push poli
@@ -85,7 +86,7 @@ addPoli = (e) ->
 	$('#sex-input-male').prop("checked", true)
 
 displayError = (error) ->
-	util.createError(error, 10000)
+	Util.createError(error, 10000)
 
 rollbackExtChanges = (obj) ->
 	rollbackChanges obj.values
@@ -142,8 +143,8 @@ saveChanges = (e) ->
 	updateVoicesPage()
 
 prepareAdminPage = () ->
-	impressumMQ = openConnection(global.rabbitMQ.persistQueue, undefined)
-	ackMQ = openConnection(global.rabbitMQ.acknowledgeQueue, rollbackExtChanges)
+	impressumMQ = openConnection(Global.rabbitMQ.persistQueue, undefined)
+	ackMQ = openConnection(Global.rabbitMQ.acknowledgeQueue, rollbackExtChanges)
 	$('#add-poli-button').click addPoli
 	# $('#add-bird-button').click addBird
 	$("#save-changes-button").click saveChanges
@@ -165,7 +166,7 @@ _deleteClickFactory = (id) ->
 		entry = $("#" + id)
 		list = getRespectiveList entry
 		id = entry.attr("value")
-		poli = util.clone(list[id])
+		poli = Util.clone(list[id])
 		poli["remove"] = true
 		poli["id"] = id
 		poliChanges.push poli

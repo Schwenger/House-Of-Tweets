@@ -1,4 +1,5 @@
 #= require <global.coffee>
+#= require <util.coffee>
 #= require <sound_controller.coffee>
 
 ### LOGIC: ###
@@ -17,7 +18,7 @@ batchIntervall = 5 * 1000
 archiveRoot = $('#archive-container')
 
 addToArchive = (tweet) ->
-	entry = [tweet.time, a = $("<audio src='#{(if global.usePoliSounds and tweet.byPoli then tweet.soundp[0] else tweet.soundc[0])}'>")]
+	entry = [tweet.time, a = $("<audio src='#{(if Global.usePoliSounds and tweet.byPoli then tweet.soundp[0] else tweet.soundc[0])}'>")]
 	archive.push entry
 
 stopPlayback = (objs) ->
@@ -40,7 +41,7 @@ playSoundsFactory = (duration) ->
 	() ->
 		return if active
 		qualifying = 0
-		nowTime = util.time()
+		nowTime = Util.time()
 		diff = duration * 60 * 60 * 1000
 		for [time, audioObj] in archive
 			if nowTime - time.getTime() < diff then qualifying += 1 else break 
@@ -59,17 +60,17 @@ prepareTweetController = ->
 	tweetsSwitch = $('#citizen-tweets-switch')
 	
 	birdsSwitch.change (-> 
-		global.usePoliBirds = birdsSwitch.prop('checked')
+		Global.usePoliBirds = birdsSwitch.prop('checked')
 		changeView()
 		)
 	tweetsSwitch.change (-> 
-		global.poliTweetsOnly = tweetsSwitch.prop('checked')
+		Global.poliTweetsOnly = tweetsSwitch.prop('checked')
 		changeView()
 		)
 
 changeView = ->
-	oldL = tLists[if global.poliTweetsOnly then "mixed" else "poli"]
-	newL = tLists[if global.poliTweetsOnly then "poli" else "mixed"]
+	oldL = tLists[if Global.poliTweetsOnly then "mixed" else "poli"]
+	newL = tLists[if Global.poliTweetsOnly then "poli" else "mixed"]
 	tweet?.remove() for tweet in oldL
 	root = $('#tweet-list')
 	root.append tweet for tweet in newL
@@ -81,7 +82,7 @@ updateTweetLists = (incomingTweets) ->
 	newTweets = (transform tweet for tweet in incomingTweets)
 
 	for tweet, index in newTweets
-		tLists.mixed.push tweet # unless tweet.byPoli and global.poliTweetsOnly
+		tLists.mixed.push tweet # unless tweet.byPoli and Global.poliTweetsOnly
 		tLists.poli.push tweet if incomingTweets[index].byPoli
 
 	updateShownTweets(incomingTweets)
@@ -90,19 +91,19 @@ updateShownTweets = (incomingTweets) ->
 	# update poli list
 	newOnes = 0
 	newOnes += 1 for tweet in incomingTweets when tweet.byPoli
-	tweetsToRemove = tLists.poli[0..newOnes] if global.poliTweetsOnly
+	tweetsToRemove = tLists.poli[0..newOnes] if Global.poliTweetsOnly
 	tLists.poli = tLists.poli[newOnes..]
-	tLists.poli  = tLists.poli[tLists.poli.length - global.threshold..]
+	tLists.poli  = tLists.poli[tLists.poli.length - Global.threshold..]
 	# update mixed list
 	newOnes = incomingTweets.length
-	tweetsToRemove = tLists.mixed[0..newOnes] unless global.poliTweetsOnly
+	tweetsToRemove = tLists.mixed[0..newOnes] unless Global.poliTweetsOnly
 	tLists.mixed = tLists.mixed[newOnes..]
-	tLists.mixed = tLists.mixed[tLists.mixed.length - global.threshold..]
+	tLists.mixed = tLists.mixed[tLists.mixed.length - Global.threshold..]
 
 	tweet?.remove() for tweet in tweetsToRemove
 
 	list = $('#tweet-list')
-	respectiveList = if global.poliTweetsOnly then tLists.poli else tLists.mixed
+	respectiveList = if Global.poliTweetsOnly then tLists.poli else tLists.mixed
 	for tweet in respectiveList
 		list.append tweet 
 
@@ -110,17 +111,17 @@ updateShownTweets = (incomingTweets) ->
 
 sanitize = (tags) ->
 	for tag in tags
-		if tag.match global.sanityPattern then tag else "--warning--"
+		if tag.match Global.sanityPattern then tag else "--warning--"
 
 triggerTweet = () ->
-	updateTweetLists [model.manualTweets[global.manualTweetID]]
-	global.manualTweetID = (global.manualTweetID + 1) % model.manualTweets.length
+	updateTweetLists [model.manualTweets[Global.manualTweetID]]
+	Global.manualTweetID = (Global.manualTweetID + 1) % model.manualTweets.length
 
 appendTweet = (tweet) ->
 	$("#tweet-list").append(transform tweet)
 
 transform = (tweet) ->
-	retweetImage = $("<img class='retweet-bird' src='#{global.base_path}/images/vogel2.png'>") if tweet.retweet
+	retweetImage = $("<img class='retweet-bird' src='#{Global.base_path}/images/vogel2.png'>") if tweet.retweet
 	tweetElement = $("<div id='tweet-#{tweet.id}' class='tweet' tweetid='#{tweet.id}'>")
 	console.log tweet.soundp
 	console.log tweet.soundc
@@ -145,7 +146,7 @@ transform = (tweet) ->
 	tweetContent.append(tweetText)
 
 	tweetText.html(enhance tweet.content, tweet.hashtags)
-	tweetTime.text(util.transformTime tweet.time)
+	tweetTime.text(Util.transformTime tweet.time)
 	twitterName.text("@" + tweet.twitterName)
 
 	tweetElement.append(retweetImage) if tweet.retweet

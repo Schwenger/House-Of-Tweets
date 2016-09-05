@@ -15,7 +15,7 @@ addLanguageClickHandler = (lang) ->
 addLanguageClickHandler lang for lang in ["german", "english", "french"]
 
 changeLanguage = (langString) ->
-	global.language = langString
+	Global.language = langString
 	console.log "Changing language to #{langString}"
 	
 	$("[translatestring]").each ((index) -> 

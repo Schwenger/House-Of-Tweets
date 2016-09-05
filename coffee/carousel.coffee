@@ -1,4 +1,5 @@
 #= require <global.coffee>
+#= require <util.coffee>
 #= require <model.coffee>
 
 _resetState = (prevCtrl, nextCtrl) ->
@@ -57,14 +58,14 @@ triggerCarousel = (state, swipeLeft) ->
 			prevCtrlTextContainerString.text(content)
 			prevCtrlTextContainer.removeClass "invisible"
 
-	updateVoicesPage() if state is "center" and global.pendingBirdListUpdate
+	updateVoicesPage() if state is "center" and Global.pendingBirdListUpdate
 
-	timeoutAction = util.composeFunctions([timeoutAction, closeProfilePage]) if state is "left"
-	timeoutAction = util.composeFunctions([timeoutAction, resetCitizenBird]) if state is "right"
-	timeoutAction = util.composeFunctions([timeoutAction, global.handleStalledTweets]) if state isnt "center"
+	timeoutAction = Util.composeFunctions([timeoutAction, closeProfilePage]) if state is "left"
+	timeoutAction = Util.composeFunctions([timeoutAction, resetCitizenBird]) if state is "right"
+	timeoutAction = Util.composeFunctions([timeoutAction, Global.handleStalledTweets]) if state isnt "center"
 
 	setTimeout timeoutAction, 600
-	global.state = newState
+	Global.state = newState
 
 _transition = (state, prev) ->
 	if state is "center"
@@ -75,5 +76,5 @@ _transition = (state, prev) ->
 initCarousel = () ->
 	prev = $('#carousel-control-prev')
 	next = $('#carousel-control-next')
-	prev.click(() -> triggerCarousel(global.state, true))
-	next.click(() -> triggerCarousel(global.state, false))
+	prev.click(() -> triggerCarousel(Global.state, true))
+	next.click(() -> triggerCarousel(Global.state, false))

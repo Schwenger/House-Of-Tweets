@@ -1,12 +1,13 @@
 #= require <global.coffee>
+#= require <util.coffee>
 #= require <connector.coffee>
 #= require <model.coffee>
 
 _birdPath = (id) ->
-	global.bird_path + id + ".jpg"
+	Global.bird_path + id + ".jpg"
 
 _politicianPath = (id) ->
-	global.politician_path + if id? then id else "placeholder.png"
+	Global.politician_path + if id? then id else "placeholder.png"
 
 voicesMQ = undefined
 
@@ -24,14 +25,14 @@ prepareVoicesPage = ->
 	$("#profile-back-button-politician").click closeProfilePage
 	$("#profile-back-button-bird").click closeProfilePage
 
-	voicesMQ = openConnection(global.rabbitMQ.citizenBirdQueue, undefined)
+	voicesMQ = openConnection(Global.rabbitMQ.citizenBirdQueue, undefined)
 
 updateVoicesPage = ->
 	console.log "updating"
 	list = $("#voices-list-politicians")
 	list.children(".voices-list-entry").each -> $(this).remove()
 	displayPoliticians list, "voices-list-item"
-	global.pendingBirdListUpdate = false
+	Global.pendingBirdListUpdate = false
 
 	# TODO connection to change bird
 
@@ -76,15 +77,15 @@ openPoliticianPage = (id) ->
 	changeButtonObj.click openCitizenBirdSelection(poli.citizen_bird, id)
 
 	$("#voices-profile-name-politician").text(poli.name)
-	$("#voices-profile-cv-politician").text(poli.cv[global.langId()])
+	$("#voices-profile-cv-politician").text(poli.cv[Global.langId()])
 	imagepath = _politicianPath poli.images?.pathToImage
 	$("#voices-profile-picture-politician").attr("src", imagepath)
 	$("#voices-profile-self-selection-image-politician").attr("src", _birdPath poli.self_bird)
 	$("#voices-profile-citizen-selection-image-politician").attr("src", _birdPath poli.citizen_bird)
 	
-	citizenBirdName = Model.birds[poli.citizen_bird][util.addLang "name"] if Model.birds[poli.citizen_bird]?
+	citizenBirdName = Model.birds[poli.citizen_bird][Util.addLang "name"] if Model.birds[poli.citizen_bird]?
 	$("#voices-profile-citizen-selection-text-politician").text(citizenBirdName)
-	selfBirdName = Model.birds[poli.self_bird][util.addLang "name"]
+	selfBirdName = Model.birds[poli.self_bird][Util.addLang "name"]
 	$("#voices-profile-self-selection-text-politician").text(selfBirdName)
 
 openBirdPage = (id) ->
@@ -95,14 +96,14 @@ openBirdPage = (id) ->
 	picObj.css("height", picObj.width() + "px")
 
 	bird = Model.birds[id]
-	$("#voices-profile-name-bird").text(bird[util.addLang "name"])
-	$("#voices-profile-cv-bird").text(bird[util.addLang "cv"])
+	$("#voices-profile-name-bird").text(bird[Util.addLang "name"])
+	$("#voices-profile-cv-bird").text(bird[Util.addLang "cv"])
 	$("#voices-profile-picture-bird").attr("src", _birdPath id)
 
 translateBirds = ->
 	$("#voices-list-birds").children(".voices-list-entry").each ->
 		[head..., id] = $(this).attr("id").split("-")
-		newName = Model.birds[id][util.addLang("name")]
+		newName = Model.birds[id][Util.addLang("name")]
 		$(this).find('.first-line').text(newName)
 
 
@@ -127,7 +128,7 @@ displayPoliticians = (root, prefix) ->
 displayBirds = (root, prefix, addon, info) ->
 	for own id, b of Model.birds
 		image = _birdPath id
-		name = b[util.addLang "name"]
+		name = b[Util.addLang "name"]
 		obj = transformItem id, name, b.latin_name, image, prefix
 		handler = changeBirdHandlerFactory id, info if addon
 		root.append obj

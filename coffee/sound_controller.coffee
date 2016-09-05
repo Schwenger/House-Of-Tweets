@@ -6,7 +6,7 @@ turnOnSound = (incomingTweetIds) ->
 
 playSound = (tweetId) ->
 	audio = $("#audio-#{tweetId}-P")
-	useCitizenBirds = not global.usePoliBirds
+	useCitizenBirds = not Global.usePoliBirds
 	if useCitizenBirds or not audio[0]?
 		audio = $("#audio-#{tweetId}-C")
 	audio[0]?.play()

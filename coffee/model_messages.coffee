@@ -1,6 +1,6 @@
   @msg: {
     get: (msg_id) ->
-      switch global.language
+      switch Global.language
         when "german",  "de" then @_de[msg_id]
         when "english", "en" then @_en[msg_id]
         when "french",  "fr" then @_fr[msg_id]
