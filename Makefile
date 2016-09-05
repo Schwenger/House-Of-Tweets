@@ -1,53 +1,74 @@
-OUTPUT_DIR:=out
-TEMP_DIR:=temp
-COFFEE_DIR:=coffee
-DIRS:=${OUTPUT_DIR} ${TEMP_DIR}
-JS_TEMP:=${OUTPUT_DIR}/temporarily_combined_code.js
-FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify
-COFFEE_ALL:=$(sort $(wildcard ${COFFEE_DIR}/*.coffee))
+FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat
+OUT=out
+TEMP=out/temp
+LESS=less
+COFFEE=coffee
+HTML=html
+DIRS=${OUT} ${TEMP}
 
-all: frontend backend
+all: clean_temp frontend backend
 
-${DIRS}:
-	mkdir -p $@
+# FRONTEND
 
 .PHONY: frontend
-frontend: ${FRONTEND_DEP} clean_temp ${OUTPUT_DIR}/main.css ${OUTPUT_DIR}/main.js
+frontend: css js html
 
-${OUTPUT_DIR}/main.css: $(wildcard less/*.less) | ${DIRS}
-	lessc less/main.less > $@
+.PHONY: css
+css: ${OUT}/main.css
 
-.PHONY: coffee
-coffee: ${COFFEE_ALL} | ${DIRS}
-	coffee --output ${TEMP_DIR}/ --compile ${COFFEE_DIR}/
+${OUT}/main.css: $(wildcard ${LESS}/*.less) | ${DIRS}
+	lessc ${LESS}/main.less > $@
 
-${JS_TEMP}: coffee | ${DIRS}
-	cat ${TEMP_DIR}/*.js > $@
+.PHONY: html
+html: ${OUT}/main.html
 
-${OUTPUT_DIR}/main.js: ${JS_TEMP} | ${DIRS} 
+${OUT}/main.html: ${HTML}/main.html
+	cp $^ $@
+
+.PHONY: js
+js: ${OUT}/main.js | ${DIRS}
+
+${OUT}/main.js: ${OUT}/bundled.js | ${DIRS}
 	browserify $< > $@
 
-.PHONY: say 
-say: 
-	true ${COFFEE_ALL}
+${OUT}/bundled.js: ${TEMP}/bundled.coffee | ${DIRS}
+	coffee --output ${OUT} --compile $^
+
+${TEMP}/bundled.coffee: $(wildcard ${COFFEE}/*.coffee) | ${DIRS}
+	coffeescript-concat -I ${COFFEE} ${COFFEE}/main.coffee -o ${TEMP}/bundled.coffee
+
+# BACKEND
 
 .PHONY: backend
-backend:
+backend: 
 
-.PHONY: start
-start:
-	$SCRIPTDIR/start_app.sh
+
+# DEPENDENCIES
 
 .PHONY: dependencies
-dependencies: ${FRONTEND_DEP}
+dependencies: ${FRONTEND_DEP} ${BACKEND_DEP}
 
 ${FRONTEND_DEP}: ext/node_modules/%: 
 	npm install --prefix ./ext/ $(@:ext/node_modules/=)
 
+# INSTALL
+
+.PHONY: install all
+install: install_dependencies all
+
+.PHONY: install_dependencies
+install_dependencies: ${DEPEN}
+
+# CLEAN
+
+${DIRS}: 
+	mkdir -p $@
+
 .PHONY: clean
-clean:
-	rm -rf ${DIRS}
+clean: 
+	rm -rf ${OUT}
 
 .PHONY: clean_temp
-clean_temp:
-	rm -rf ${TEMP_DIR}
+clean_temp: 
+	rm -rf ${TEMP}
+
