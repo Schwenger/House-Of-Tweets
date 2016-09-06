@@ -2,12 +2,13 @@
 #= require <util.coffee>
 #= require <model.coffee>
 
-Carousel = 
+Carousel =
+
 	init: () ->
 		prev = $('#carousel-control-prev')
 		next = $('#carousel-control-next')
-		prev.click(() -> trigger(Global.state, true))
-		next.click(() -> trigger(Global.state, false))
+		prev.click(() -> Carousel._trigger(Global.state, true))
+		next.click(() -> Carousel._trigger(Global.state, false))
 
 	_resetState: (prevCtrl, nextCtrl) ->
 		nextCtrl.removeClass("invisible")
@@ -35,16 +36,16 @@ Carousel =
 		nextCtrlTextContainer = $("#carousel-control-next-text") # includes icons
 		nextCtrlTextContainerString = $("#carousel-control-next-text-string")
 
-		newState = _transition(state, swipeLeft)
+		newState = Carousel._transition(state, swipeLeft)
 		# We do not need information about the former state: we just reset everything and set it up new.
 		# However, we remove the text and wait for the animation to finish until re-adding it.
 		nextCtrlTextContainer.addClass "invisible"
 		prevCtrlTextContainer.addClass "invisible"
 
 		if newState is "center" 
-			_resetState(prevCtrl, nextCtrl)
+			Carousel._resetState(prevCtrl, nextCtrl)
 			timeoutAction = ->
-				_setUpInitialState(
+				Carousel._setUpInitialState(
 					prevCtrl, nextCtrl, prevCtrlTextContainer, nextCtrlTextContainer, 
 					prevCtrlTextContainerString, nextCtrlTextContainerString
 					)
@@ -65,7 +66,7 @@ Carousel =
 				prevCtrlTextContainerString.text(content)
 				prevCtrlTextContainer.removeClass "invisible"
 
-		updateVoicesPage() if state is "center" and Global.pendingBirdListUpdate
+		VoicesLists.update() if state is "center" and Global.pendingBirdListUpdate
 
 		timeoutAction = Util.composeFunctions([timeoutAction, closeProfilePage]) if state is "left"
 		timeoutAction = Util.composeFunctions([timeoutAction, resetCitizenBird]) if state is "right"
