@@ -1,40 +1,41 @@
 #= require <global.coffee>
 #= require <util.coffee>
 
-class Screensaver
-
+Screensaver = 
   active: false
   lastTouch: -1
 
-  @config:
+  config:
     duration: 6000000,
     startThreshold: 1500000,
     checkFrequency: 500000,
 
-  constructor: ->
+  init: ->
     $(document).click (->
-      @lastTouch = Util.time()
-      @stop()
+      Screensaver.lastTouch = Util.time()
+      Screensaver.stop()
     )
-    setInterval (->
-      @start() if Util.time() - @lastTouch > Screensaver.config.startThreshold
-    ), Screensaver.config.checkFrequency
-    @lastTouch = Util.time()
 
-start = ->
-  return if @active
-  @active = 0 # we only have one screen saver, type 0
-  saver = $("#screensaver-element-#{r}")
-  saver.removeClass "invisible"
-  saver.addClass "load"
-  saver.children().each () -> $(this).addClass "load"
-  setTimeout(@stop, Screensaver.config.duration)
+    checkActivation = () ->
+      Screensaver.start() if Util.time() - Screensaver.lastTouch > Screensaver.config.startThreshold
 
-stop = ->
-  return unless @active
-  saver = $("#screensaver-element-0")
-  saver.addClass "invisible"
-  saver.removeClass "load"
-  saver.children().each () -> $(this).removeClass "load"
-  @active = -1
-  @lastTouch = Util.time()
+    setInterval(checkActivation, Screensaver.config.checkFrequency)
+    Screensaver.lastTouch = Util.time()
+
+  start: ->
+    return if Screensaver.active
+    Screensaver.active = true
+    saver = $("#screensaver-element-0")
+    saver.removeClass "invisible"
+    saver.addClass "load"
+    saver.children().each () -> $(this).addClass "load"
+    setTimeout(Screensaver.stop, Screensaver.config.duration)
+
+  stop: ->
+    return unless Screensaver.active
+    saver = $("#screensaver-element-0")
+    saver.addClass "invisible"
+    saver.removeClass "load"
+    saver.children().each () -> $(this).removeClass "load"
+    Screensaver.active = -1
+    Screensaver.lastTouch = Util.time()

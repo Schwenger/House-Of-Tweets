@@ -12,7 +12,6 @@
 
 called = "You should never forget quotation marks."
 here = "You should never forget quotation marks."
-screensaver = undefined
 
 # Setup #################################################################################
 
@@ -25,7 +24,8 @@ enforceConsistencyConstraints = ->
 initMain = ->
 	changeLanguage("german")
 	SoundCtrl.turnOnAmbientSound()
-	screensaver = new Screensaver()
+	Screensaver.init()
+	Carousel.init()
 	prepareVoicesPage()
 	prepareImpressum()
 	prepareAdminPage()
@@ -36,10 +36,9 @@ initMain = ->
 		switch e?.which
 			when 34 then triggerTweet() # page down
 			when 84 then triggerTweet() # t
-			when 123 then screensaver.start() # f12
+			when 123 then Screensaver.start() # f12
 			when 121 then SoundCtrl.toggleAmbient() # f11
 		)
 
-initCarousel()
 initMain()
 
