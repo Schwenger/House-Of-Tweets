@@ -1,6 +1,13 @@
 #= require <global.coffee>
 
 Util = {
+
+	birdPath: (id) ->
+		Global.bird_path + id + ".jpg"
+
+	politicianPath: (id) ->
+		Global.politician_path + if id? then id else "placeholder.png"
+
 	composeFunctions: (functions) ->
 		() -> 
 			f() for f in functions

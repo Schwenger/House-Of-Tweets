@@ -2,7 +2,7 @@
 #= require <global.coffee>
 #= require <util.coffee>
 #= require <impressum.coffee>
-#= require <voices_controller.coffee>
+#= require <voices_lists.coffee>
 #= require <tweet_controller.coffee>
 #= require <tweet_provider.coffee>
 #= require <citizen_birds.coffee>
@@ -26,7 +26,7 @@ initMain = ->
 	SoundCtrl.turnOnAmbientSound()
 	Screensaver.init()
 	Carousel.init()
-	prepareVoicesPage()
+	VoicesLists.init()
 	prepareImpressum()
 	prepareAdminPage()
 	prepareCitizenBirdsPage()

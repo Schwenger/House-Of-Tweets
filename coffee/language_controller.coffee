@@ -1,6 +1,6 @@
 #= require <global.coffee>
 #= require <model.coffee>
-#= require <voices_controller.coffee>
+#= require <voices_lists.coffee>
 #= require <citizen_birds.coffee>
 
 $("#tweet-list-header").click (-> $("#language-control").removeClass "invisible")
@@ -24,5 +24,5 @@ changeLanguage = (langString) ->
 		string = Model.msg.get(identifier)
 		obj.text(string)
 		)
-	translateBirds()
+	VoicesLists.translateBirds()
 	translateCitizenBirds()
