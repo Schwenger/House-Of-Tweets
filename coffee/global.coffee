@@ -38,7 +38,7 @@ Global = {
 			when "english" then "en"		
 			when "french" then "fr"
 
-	langId: () -> global.transform(global.language)
+	langId: () -> Global.transform(Global.language)
 
 	handleStalledTweets: ->
 		tmp = global.pendingTweets
