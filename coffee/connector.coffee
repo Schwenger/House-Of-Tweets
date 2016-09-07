@@ -1,15 +1,15 @@
 #= require <global.coffee>
 #= require <util.coffee>
 
-class Connector
+Stomp = require('../ext/node_modules/stompjs')
 
-	@Stomp: require('../ext/node_modules/stompjs')
+class Connector
 
 	constructor: (qname, callback) ->
 		console.log "*** Opening connection to >>> #{qname}"
 
 		@ws       = if location.search is "?ws" then new WebSocket("ws://#{Global.rabbitMQ.url}:#{Global.rabbitMQ.port}/ws") else new SockJS("http://#{Global.rabbitMQ.url}:#{Global.rabbitMQ.port}/stomp")
-		@client   = @Stomp.over(MQ.ws)
+		@client   = Stomp.over(@ws)
 		# disable heartbeats
 		@client.heartbeat.outgoing = 0
 		@client.heartbeat.incoming = 0
@@ -19,7 +19,7 @@ class Connector
 		@passcode = Global.rabbitMQ.passcode
 
 		@client.debug = (str) -> $("#debug").append(str + "\n");
-		@client.connect MQ.uname, MQ.passcode, _subscribe(), _on_error(@name), '/'
+		@client.connect @name, @passcode, Connector._subscribe(@client, @callback, @name), Connector._on_error(@name), '/'
 	
 	@_subscribe: (client, callback, name) ->
 		->
