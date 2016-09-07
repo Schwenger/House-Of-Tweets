@@ -1,7 +1,5 @@
 
 Global = {
-	threshold: 6;
-	sanityPattern: /\w*/
 	testData: []
 	manualTweetID: 0
 	state: "center"
@@ -15,9 +13,6 @@ Global = {
 	sound_path: "../ext/sounds/"
 	bird_path:  "../ext/images/birds/"
 	politician_path: "../ext/images/politicians/"
-	
-	usePoliBirds: true
-	poliTweetsOnly: true
 	
 	transform: (langString) ->
 		switch(langString)

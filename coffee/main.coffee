@@ -27,18 +27,18 @@ initMain = ->
 	Screensaver.init()
 	Carousel.init()
 	VoicesLists.init()
+	tweetsCtrl = new TweetController
 	prepareImpressum()
 	prepareAdminPage()
 	prepareCitizenBirdsPage()
-	prepareTweetController()
-	prepareTweetProvider(updateTweetLists)
 	$(document).keydown((e) -> 
 		switch e?.which
-			when 34 then triggerTweet() # page down
-			when 84 then triggerTweet() # t
+			when 34 then tweetsCtrl.triggerTweetManually() # page down
+			when 84 then tweetsCtrl.triggerTweetManually() # t
 			when 123 then Screensaver.start() # f12
 			when 121 then SoundCtrl.toggleAmbient() # f11
 		)
 
 initMain()
+# SoundCtrl.toggleAmbient()
 
