@@ -144,7 +144,7 @@ saveChanges = (e) ->
 
 prepareAdminPage = () ->
 	impressumMQ = new Connector(Global.rabbitMQ.persistQueue, undefined)
-	ackMQ = openConnection(Global.rabbitMQ.acknowledgeQueue, rollbackExtChanges)
+	ackMQ = new Connector(Global.rabbitMQ.acknowledgeQueue, rollbackExtChanges)
 	$('#add-poli-button').click addPoli
 	# $('#add-bird-button').click addBird
 	$("#save-changes-button").click saveChanges
