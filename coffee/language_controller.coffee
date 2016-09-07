@@ -3,26 +3,26 @@
 #= require <voices_lists.coffee>
 #= require <citizen_user.coffee>
 
-$("#tweet-list-header").click (-> $("#language-control").removeClass "invisible")
+class LanguageController 
 
-$("#language-control").click (->	
-	$("#language-control").addClass "invisible"
-	)
+	@init: (lang) ->
+		$("#tweet-list-header").click (-> $("#language-control").removeClass "invisible")
+		$("#language-control").click (-> $("#language-control").addClass "invisible")
+		LanguageController._addLanguageClickHandler l for l in ["german", "english", "french"]
+		LanguageController.changeLanguage(lang) if lang?
 
-addLanguageClickHandler = (lang) ->
-	$("##{lang}-flag").click (-> changeLanguage(lang))
+	@_addLanguageClickHandler: (lang) ->
+		$("##{lang}-flag").click (-> LanguageController.changeLanguage(lang))
 
-addLanguageClickHandler lang for lang in ["german", "english", "french"]
-
-changeLanguage = (langString) ->
-	Global.language = langString
-	console.log "Changing language to #{langString}"
-	
-	$("[translatestring]").each ((index) -> 
-		obj = $(this)
-		identifier = obj.attr("stringID")
-		string = Model.msg.get(identifier)
-		obj.text(string)
-		)
-	VoicesLists.translateBirds()
-	translateCitizenBirds()
+	@changeLanguage: (langString) ->
+		Global.language = langString
+		console.log "Changing language to #{langString}"
+		
+		$("[translatestring]").each ((index) -> 
+			obj = $(this)
+			identifier = obj.attr("stringID")
+			string = Model.msg.get(identifier)
+			obj.text(string)
+			)
+		VoicesLists.translateBirds()
+		translateCitizenBirds()

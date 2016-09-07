@@ -22,8 +22,8 @@ enforceConsistencyConstraints = ->
 	$("#voice-profile-cv").css("height", w + "px")
 
 initMain = ->
-	changeLanguage("german")
 	SoundCtrl.turnOnAmbientSound()
+	LanguageController.init("german")
 	Screensaver.init()
 	Carousel.init()
 	VoicesLists.init()
