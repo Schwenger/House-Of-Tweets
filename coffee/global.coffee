@@ -2,9 +2,6 @@
 Global = {
 	testData: []
 	manualTweetID: 0
-	state: "center"
-	pendingTweets: []
-	pendingBirdListUpdate: false
 	no_demo: true
 	useBlinking: false
 	language: "german"

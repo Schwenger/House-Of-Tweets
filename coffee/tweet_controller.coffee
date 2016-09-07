@@ -1,8 +1,9 @@
 #= require <global.coffee>
 #= require <util.coffee>
 #= require <sound_controller.coffee>
+#= require <carousel.coffee>
 
-class TweetController 
+TweetController =
 	_tLists: {
 		mixed: [undefined, undefined, undefined, undefined, undefined, undefined]
 		poli: [undefined, undefined, undefined, undefined, undefined, undefined]
@@ -19,8 +20,9 @@ class TweetController
 	_poliTweetsOnly: true
 	_threshold: 6
 	_sanityPattern: /\w*/
+	_stalled: []
 
-	constructor: ->
+	init: ->
 		$('#play-tweets-1-button').click(() -> @_timeTravel(1))
 		$('#play-tweets-6-button').click(() -> @_timeTravel(6))
 		$('#play-tweets-24-button').click(() -> @_timeTravel(24))
@@ -45,6 +47,11 @@ class TweetController
 		incoming =  [Model.manualTweets[Global.manualTweetID]]
 		Global.manualTweetID = (Global.manualTweetID + 1) % Model.manualTweets.length
 		@_consumeTweets(incoming)
+
+	update: () ->
+		return unless Carousel.state is "center"
+		@_consumeTweets(@_stalled)
+		@_stalled = []
 
 	# ARCHIVE
 	_addToArchive: (tweet) ->
@@ -87,15 +94,16 @@ class TweetController
 	# CONSUME INCOMING TWEETS
 
 	_consumeTweets: (incomingTweets) ->
-		tweet.time = new Date(parseInt tweet.time) for tweet in incomingTweets
-		@_addToArchive(tweet) for tweet in incomingTweets
-		newTweets = (@_transform tweet for tweet in incomingTweets)
-
-		for tweet, index in newTweets
-			@_tLists.mixed.push tweet # unless tweet.byPoli and Global.poliTweetsOnly
-			@_tLists.poli.push tweet if incomingTweets[index].byPoli
-
-		@_updateShownTweets(incomingTweets)
+		if Carousel.state isnt "center"
+			@_stalled push incomingTweets
+		else 
+			tweet.time = new Date(parseInt tweet.time) for tweet in incomingTweets
+			@_addToArchive(tweet) for tweet in incomingTweets
+			newTweets = (@_transform tweet for tweet in incomingTweets)
+			for tweet, index in newTweets
+				@_tLists.mixed.push tweet # unless tweet.byPoli and Global.poliTweetsOnly
+				@_tLists.poli.push tweet if incomingTweets[index].byPoli
+			@_updateShownTweets(incomingTweets)
 
 	_changeView: ->
 		oldL = @_tLists[if @_poliTweetsOnly then "mixed" else "poli"]

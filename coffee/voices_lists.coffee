@@ -19,7 +19,7 @@ VoicesLists =
 		console.log "updating"
 		list = $("#voices-list-politicians")
 		list.children(".voices-list-entry").each -> $(this).remove()
-		@displayPoliticians list, "voices-list-item"
+		@_displayPoliticians list, "voices-list-item"
 		Global.pendingBirdListUpdate = false
 
 	translateBirds: ->
@@ -27,6 +27,9 @@ VoicesLists =
 			[head..., id] = $(this).attr("id").split("-")
 			newName = Model.birds[id][Util.addLang("name")]
 			$(this).find('.first-line').text(newName)
+
+	leavePage: ->
+		VoicesLists.closeProfilePage()
 
 	# CREATE AND DISPLAY LISTS
 

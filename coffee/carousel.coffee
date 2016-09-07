@@ -7,8 +7,9 @@ Carousel =
 	init: () ->
 		prev = $('#carousel-control-prev')
 		next = $('#carousel-control-next')
-		prev.click(() -> Carousel._trigger(Global.state, true))
-		next.click(() -> Carousel._trigger(Global.state, false))
+		prev.click(() -> Carousel._trigger(@state, true))
+		next.click(() -> Carousel._trigger(@state, false))
+		@state = "center"
 
 	_resetState: (prevCtrl, nextCtrl) ->
 		nextCtrl.removeClass("invisible")
@@ -28,7 +29,7 @@ Carousel =
 		prevCtrlTextContainerString.text(content)
 		prevCtrlTextContainer.removeClass "invisible"
 
-	_trigger: (state, swipeLeft) ->
+	_trigger: (oldState, swipeLeft) ->
 		prevCtrl = $('#carousel-control-prev')
 		prevCtrlTextContainer = $("#carousel-control-prev-text")
 		prevCtrlTextContainerString = $("#carousel-control-prev-text-string")
@@ -36,7 +37,7 @@ Carousel =
 		nextCtrlTextContainer = $("#carousel-control-next-text") # includes icons
 		nextCtrlTextContainerString = $("#carousel-control-next-text-string")
 
-		newState = Carousel._transition(state, swipeLeft)
+		newState = Carousel._transition(oldState, swipeLeft)
 		# We do not need information about the former state: we just reset everything and set it up new.
 		# However, we remove the text and wait for the animation to finish until re-adding it.
 		nextCtrlTextContainer.addClass "invisible"
@@ -66,17 +67,16 @@ Carousel =
 				prevCtrlTextContainerString.text(content)
 				prevCtrlTextContainer.removeClass "invisible"
 
-		VoicesLists.update() if state is "center" and Global.pendingBirdListUpdate
+		VoicesLists.update() if newState is "center"
 
-		timeoutAction = Util.composeFunctions([timeoutAction, closeProfilePage]) if state is "left"
-		timeoutAction = Util.composeFunctions([timeoutAction, resetCitizenBird]) if state is "right"
-		timeoutAction = Util.composeFunctions([timeoutAction, Global.handleStalledTweets]) if state isnt "center"
+		timeoutAction = Util.composeFunctions([timeoutAction, VoicesLists.leavePage, TweetController]) if oldState is "left"
+		timeoutAction = Util.composeFunctions([timeoutAction, CitizenUser.leavePage, TweetController]) if oldState is "right"
 
 		setTimeout timeoutAction, 600
-		Global.state = newState
+		@state = newState
 
 	_transition: (state, prev) ->
-		if state is "center"
+		if @state is "center"
 			if prev then "left" else "right"
 		else 
 			"center"
