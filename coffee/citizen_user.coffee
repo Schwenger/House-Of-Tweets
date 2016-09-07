@@ -3,75 +3,73 @@
 #=require <util.coffee>
 #=require <global.coffee>
 
-citizenBirdMQ = undefined
-citizenBirdSelection = undefined
-dropdownTrigger = undefined
-dropdownList = undefined
+CitizenUser = 
 
-# this is optional to close the list while the new page is loading
-# list.click(function() {
-#     trigger.click();
-# });
+	_citizenBirdMQ: undefined
+	_citizenBirdSelection: undefined
+	_dropdownTrigger: undefined
+	_dropdownList: undefined
 
-prepareCitizenBirdsPage = ->
-	# attach handler to save button
-	citizenBirdMQ = new Connector(Connector.citizenUserQueue, undefined)
-	vivifyCitizenBirdsList()
-	$('#submit-citizen-bird').click(submit_citizen_bird)
-	dropdownTrigger = $('#bird-dropdown-button')
-	dropdownList = $('#bird-dropdown-list')
+	init: ->
+		# attach handler to save button
+		@citizenBirdMQ = new Connector(Connector.citizenUserQueue, undefined)
+		@_vivifyCitizenBirdsList()
+		$('#submit-citizen-bird').click(@_submitCitizenBird)
+		@_dropdownTrigger = $('#bird-dropdown-button')
+		@_dropdownList = $('#bird-dropdown-list')
 
-	dropdownTrigger.click toggleDropdown
+		@_dropdownTrigger.click @_toggleDropdown
 
-	$("submit-citizen-bird").click submit_citizen_bird
-	resetDropdownTrigger()
+		$("submit-citizen-bird").click @_submitCitizenBird
+		@_resetDropdownTrigger()
 
-resetCitizenBird = ->
-	resetDropdownTrigger()
-	closeDropdown()
-	$('#citizen-user-name-input').val("")
+	leavePage: ->
+		resetDropdownTrigger()
+		closeDropdown()
+		$('#citizen-user-name-input').val("")
 
-resetDropdownTrigger = ->
-	for own id, bird of Model.birds
-		citizenBirdSelection = id
-		dropdownTrigger?.text(bird[Util.addLang "name"])
-		break
-	
-toggleDropdown = ->
-	dropdownTrigger.toggleClass('active')
-	dropdownList.slideToggle(200)
+	translateBirds: ->
+		@_dropdownList?.children().each(() -> $(this).remove())
+		list = $('#bird-dropdown-list')
+		for own id, bird of Model.birds 
+			optionObject = $("<li class='bird-dropdown-entry' value=#{id}>")
+			optionObject.text(bird[Util.addLang "name"])
+			list.append(optionObject)
+			optionObject.click(() -> CitizenUser._selectCitizenBird(id))
+		@_resetDropdownTrigger()
 
-closeDropdown = ->
-	toggleDropdown() if dropdownTrigger.hasClass('active')
-
-selectCitizenBirdFactory = (id) ->
-	() ->
-		citizenBirdSelection = id
-		dropdownTrigger.text(Model.birds[id][Util.addLang("name")])
-		toggleDropdown()
-
-vivifyCitizenBirdsList = ->
-	list = $('#bird-dropdown-list')
-	for own id, bird of Model.birds 
-		option_object = $("<li class='bird-dropdown-entry' value=#{id}>")
-		option_object.text(bird[Util.addLang "name"])
-		list.append(option_object)
-		option_object.click selectCitizenBirdFactory(id)
+	_resetDropdownTrigger: ->
+		for own id, bird of Model.birds
+			@_citizenBirdSelection = id
+			@_dropdownTrigger.text(bird[Util.addLang "name"])
+			# We are only interested in the first element.
+			break
 		
-submit_citizen_bird = (event) ->
-	event.preventDefault()
-	username = $('#citizen-user-name-input').val()
-	data = {twittername:username, birdid:citizenBirdSelection}
-	sendToQueue(citizenBirdMQ, data)
-	resetCitizenBird()
-	$("#carousel-control-prev").click()
+	_toggleDropdown: ->
+		CitizenUser._dropdownTrigger.toggleClass('active')
+		CitizenUser._dropdownList.slideToggle(200)
 
-translateCitizenBirds = ->
-	dropdownList?.children().each(() -> $(this).remove())
-	list = $('#bird-dropdown-list')
-	for own id, bird of Model.birds 
-		option_object = $("<li class='bird-dropdown-entry' value=#{id}>")
-		option_object.text(bird[Util.addLang "name"])
-		list.append(option_object)
-		option_object.click selectCitizenBirdFactory(id)
-	resetDropdownTrigger()
+	_closeDropdown: ->
+		@_toggleDropdown() if @_dropdownTrigger.hasClass('active')
+
+	_selectCitizenBird: (id) ->
+		@_citizenBirdSelection = id
+		@_dropdownTrigger.text(Model.birds[id][Util.addLang("name")])
+		@_toggleDropdown()
+
+	_vivifyCitizenBirdsList: ->
+		list = $('#bird-dropdown-list')
+		for own id, bird of Model.birds 
+			option_object = $("<li class='bird-dropdown-entry' value=#{id}>")
+			option_object.text(bird[Util.addLang "name"])
+			list.append(option_object)
+			option_object.click (() -> selectCitizenBird(id))
+			
+	_submitCitizenBird: (event) ->
+		event.preventDefault()
+		username = $('#citizen-user-name-input').val()
+		data = {twittername: username, birdid: @_citizenBirdSelection}
+		@_citizenBirdMQ.sendToQueue(data)
+		@_resetCitizenBird()
+		$("#carousel-control-prev").click()
+

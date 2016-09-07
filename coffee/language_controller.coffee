@@ -25,4 +25,4 @@ class LanguageController
 			obj.text(string)
 			)
 		VoicesLists.translateBirds()
-		translateCitizenBirds()
+		CitizenUser.translateBirds()

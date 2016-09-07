@@ -21,20 +21,21 @@ enforceConsistencyConstraints = ->
 	$("#voice-profile-picture").css("height", w + "px")
 	$("#voice-profile-cv").css("height", w + "px")
 
+# NB: Language needs CitizenUser and VoicesLists to be initialized.
 initMain = ->
+	CitizenUser.init()
 	SoundCtrl.turnOnAmbientSound()
 	LanguageController.init("german")
 	Screensaver.init()
 	Carousel.init()
 	VoicesLists.init()
-	tweetsCtrl = new TweetController
+	TweetController.init()
 	prepareImpressum()
 	prepareAdminPage()
-	prepareCitizenBirdsPage()
 	$(document).keydown((e) -> 
 		switch e?.which
-			when 34 then tweetsCtrl.triggerTweetManually() # page down
-			when 84 then tweetsCtrl.triggerTweetManually() # t
+			when 34 then TweetController.triggerTweetManually() # page down
+			when 84 then TweetController.triggerTweetManually() # t
 			when 123 then Screensaver.start() # f12
 			when 121 then SoundCtrl.toggleAmbient() # f11
 		)
