@@ -2,7 +2,7 @@
 SoundCtrl = 
 	turnOnSound: (incomingTweetIds) ->
 		for id in incomingTweetIds
-			playSound id
+			@playSound id
 
 	playSound: (tweetId) ->
 		audio = $("#audio-#{tweetId}-P")
