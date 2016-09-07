@@ -5,7 +5,7 @@
 #= require <voices_lists.coffee>
 #= require <tweet_controller.coffee>
 #= require <tweet_provider.coffee>
-#= require <citizen_birds.coffee>
+#= require <citizen_user.coffee>
 #= require <language_controller.coffee>
 #= require <screensaver.coffee>
 #= require <sound_controller.coffee>

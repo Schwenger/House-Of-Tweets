@@ -1,7 +1,7 @@
 #= require <global.coffee>
 #= require <model.coffee>
 #= require <voices_lists.coffee>
-#= require <citizen_birds.coffee>
+#= require <citizen_user.coffee>
 
 $("#tweet-list-header").click (-> $("#language-control").removeClass "invisible")
 
