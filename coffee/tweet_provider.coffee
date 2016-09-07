@@ -2,8 +2,12 @@
 #= require <connector.coffee>
 #= require <model.coffee>
 
-wrap = (callback) ->
-	(tweets) ->
+class TweetProvider
+
+	constructor: (@callback) ->
+		new Connector(Connector.tweetsQueue, @consume)
+
+	consume: (tweets) ->
 		console.log "New incoming tweet."
 		for tweet in tweets
 			if tweet.refresh?
@@ -11,11 +15,8 @@ wrap = (callback) ->
 				bid = tweet.refresh.birdId
 				Model.politicians[pid].self_bird = bid
 				Global.pendingBirdListUpdate = true
-		# updateVoicesPage()
+		# VoicesLists.update() -> introduce mechanism for updating birds after respective tweet.
 		if Global.state isnt "center"
 			Global.pendingTweets.push tweets
 		else
-			callback tweets
-
-prepareTweetProvider = (callback) ->
-	new Connector(Global.rabbitMQ.tweetsQueue, wrap callback)
+			@callback tweets

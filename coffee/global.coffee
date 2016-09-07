@@ -18,19 +18,6 @@ Global = {
 	
 	usePoliBirds: true
 	poliTweetsOnly: true
-
-	rabbitMQ:
-		tweetsQueue: "/queue/tweets"
-		persistQueue: "/queue/persist"
-		citizenBirdQueue: "/queue/citizenbirds"
-		citizenUserQueue: "/queue/citizenuser"
-		acknowledgeQueue: "/queue/ack"
-		url: "127.0.0.1" # localhost
-		port: "15674"
-		uname: "guest"
-		passcode: "guest"
-
-	
 	
 	transform: (langString) ->
 		switch(langString)

@@ -9,7 +9,7 @@ VoicesLists =
 	voicesMQ: undefined
 	profiles: undefined
 	init: ->
-		VoicesLists.voicesMQ = new Connector(Global.rabbitMQ.citizenBirdQueue, undefined)
+		VoicesLists.voicesMQ = new Connector(Connector.citizenBirdQueue, undefined)
 		VoicesLists.profiles = new Profiles(VoicesLists.voicesMQ, @_displayBirds)
 
 		@_displayPoliticians $("#voices-list-politicians"), "voices-list-item"

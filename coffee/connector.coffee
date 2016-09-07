@@ -5,18 +5,31 @@ Stomp = require('../ext/node_modules/stompjs')
 
 class Connector
 
+	@config: 
+		tweetsQueue: "/queue/tweets"
+		persistQueue: "/queue/persist"
+		citizenBirdQueue: "/queue/citizenbirds"
+		citizenUserQueue: "/queue/citizenuser"
+		acknowledgeQueue: "/queue/ack"
+		url: "127.0.0.1" # localhost
+		port: "15674"
+		uname: "guest"
+		passcode: "guest"
+
 	constructor: (qname, callback) ->
 		console.log "*** Opening connection to >>> #{qname}"
 
-		@ws       = if location.search is "?ws" then new WebSocket("ws://#{Global.rabbitMQ.url}:#{Global.rabbitMQ.port}/ws") else new SockJS("http://#{Global.rabbitMQ.url}:#{Global.rabbitMQ.port}/stomp")
+		addr = "#{Connector.config.url}:#{Connector.config.port}"
+
+		@ws       = if location.search is "?ws" then new WebSocket("ws://#{addr}/ws") else new SockJS("http://#{addr}/stomp")
 		@client   = Stomp.over(@ws)
 		# disable heartbeats
 		@client.heartbeat.outgoing = 0
 		@client.heartbeat.incoming = 0
 		@name     = qname
 		@callback = callback
-		@uname    = Global.rabbitMQ.uname
-		@passcode = Global.rabbitMQ.passcode
+		@uname    = Connector.config.uname
+		@passcode = Connector.config.passcode
 
 		@client.debug = (str) -> $("#debug").append(str + "\n");
 		@client.connect @name, @passcode, Connector._subscribe(@client, @callback, @name), Connector._on_error(@name), '/'
