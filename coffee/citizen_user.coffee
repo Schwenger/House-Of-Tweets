@@ -15,7 +15,7 @@ dropdownList = undefined
 
 prepareCitizenBirdsPage = ->
 	# attach handler to save button
-	citizenBirdMQ = openConnection(Global.rabbitMQ.citizenUserQueue, undefined)
+	citizenBirdMQ = new Connector(Global.rabbitMQ.citizenUserQueue, undefined)
 	vivifyCitizenBirdsList()
 	$('#submit-citizen-bird').click(submit_citizen_bird)
 	dropdownTrigger = $('#bird-dropdown-button')

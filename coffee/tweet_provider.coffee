@@ -18,4 +18,4 @@ wrap = (callback) ->
 			callback tweets
 
 prepareTweetProvider = (callback) ->
-	openConnection(Global.rabbitMQ.tweetsQueue, wrap callback)
+	new Connector(Global.rabbitMQ.tweetsQueue, wrap callback)
