@@ -7,11 +7,11 @@ import hashlib
 from ackQueue import AckQueue
 
 class PersistQueueAdapter(threading.Thread):
-	def __init__(self, politianBackend, twi):
+	def __init__(self, politicianBackend, twi):
 		threading.Thread.__init__(self, daemon=True)
 		self.ackQueue = AckQueue()
 		self.ackQueue.start()
-		self.politianBackend = politianBackend
+		self.politicianBackend = politicianBackend
 		self.birdList = ['amsel', 'ara', 'bachstelze', 'blaumeise', 'buchfink', 'buntspecht', 'dohle', 'eichelhaeher', 'elster', 'feldsperling', 'fitis', 'gartenbaumlaeufer', 'gartengrasmuecke', 'gartenrotschwanz', 'gimpel', 'girlitz', 'goldammer', 'grauschnaepper', 'gruenfink', 'hausrotschwanz', 'haussperling', 'heckenbraunelle', 'kiwi', 'klappergrasmuecke', 'kleiber', 'kohlmeise', 'mauersegler', 'mehlschwalbe', 'moenchsgrasmuecke', 'rabenkraehe', 'rauchschwalbe', 'ringeltaube', 'rotkehlchen', 'saatkraehe', 'schneeeule', 'schwanzmeise', 'singdrossel', 'star', 'stieglitz', 'tannenmeise', 'tukan', 'tuerkentaube', 'weisskopfseeadler', 'zaunkoenig', 'zilpzalp']
 		self.twi = twi
 		self.connection = pika.BlockingConnection(pika.ConnectionParameters(
@@ -45,7 +45,7 @@ class PersistQueueAdapter(threading.Thread):
 		
 		for v in values:
 			if v["remove"]:
-				ret = self.politianBackend.delPolitian(v["id"])
+				ret = self.politicianBackend.delPolitician(v["id"])
 				
 				if ret is not True:
 					body["error"] = "Could not delete politician."
@@ -66,10 +66,10 @@ class PersistQueueAdapter(threading.Thread):
 		
 				if v["male"] == True:
 					cv["fr"] = v["name"] + " est un politicien allemand. Il est une membre de la partie " + v["party"] + "."
-					cv["en"] =v["name"] + " is a German politian. He is a member of the " + v["party"] + "."
+					cv["en"] =v["name"] + " is a German politician. He is a member of the " + v["party"] + "."
 				else :
 					cv["fr"] = v["name"] +" est une politicienne allemande. Elle est un membre de la partie " +  v["party"] + "."
-					cv["en"] = v["name"] +" is a German politian. She is a member of the " +  v["party"] + "."
+					cv["en"] = v["name"] +" is a German politician. She is a member of the " +  v["party"] + "."
 		
 				twittering = None
 				if v["twittername"] != "":
@@ -88,7 +88,7 @@ class PersistQueueAdapter(threading.Thread):
 		
 				#(self, pid, name, party, twittering, self_bird, citizen_bird, cv, images)
 				print("add ")
-				ret = self.politianBackend.addPolitian(v["id"], v["name"], v["party"], twittering, self.birdList[randint(0, len(self.birdList)-1)], self.birdList[randint(0, len(self.birdList)-1)], cv, images) 
+				ret = self.politicianBackend.addPolitician(v["id"], v["name"], v["party"], twittering, self.birdList[randint(0, len(self.birdList)-1)], self.birdList[randint(0, len(self.birdList)-1)], cv, images) 
 				
 				
 				if ret is not True:

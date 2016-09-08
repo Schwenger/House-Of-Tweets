@@ -2,9 +2,9 @@ import pika
 import json
 import threading
 class CitizenBirdQueueAdapter(threading.Thread):
-	def __init__(self, politianBackend):
+	def __init__(self, politicianBackend):
 		threading.Thread.__init__(self, daemon=True)
-		self.politianBackend = politianBackend
+		self.politicianBackend = politicianBackend
 		self.connection = pika.BlockingConnection(pika.ConnectionParameters(
         host='localhost'))
 		
@@ -19,4 +19,4 @@ class CitizenBirdQueueAdapter(threading.Thread):
 	def callback(self, ch, method, properties, body):
 		body = json.loads(body.decode('utf-8'))
 		print("set !!!!!!!!!!!!!!!!!!!!!!!" + str(body))
-		self.politianBackend.setCitizensBird(body["politicianid"], body["birdid"])
+		self.politicianBackend.setCitizensBird(body["politicianid"], body["birdid"])

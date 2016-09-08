@@ -6,7 +6,7 @@ from PIL import ImageFile
 import os
 
 
-class PolitianBackend:
+class PoliticianBackend:
 	def __init__(self):
 		
 		self.pathToJson = "pols.json"
@@ -21,10 +21,10 @@ class PolitianBackend:
 		im.thumbnail(size)
 		im.save(out, "JPEG")
 		
-	def getAllPolitians(self):
+	def getAllPoliticians(self):
 		return self.polList
 		
-	def createPolitian(self, pid, name, party, twittering, self_bird, citizen_bird, cv, images):
+	def createPolitician(self, pid, name, party, twittering, self_bird, citizen_bird, cv, images):
 		dic = {}
 		#dic["id"] = pid
 		dic["name"] = name 
@@ -54,7 +54,7 @@ class PolitianBackend:
 		
 		return (pid, dic)
 
-	def getAllTwitteringPolitians(self):
+	def getAllTwitteringPoliticians(self):
 		res = []
 		with self.lock:
 			for i in self.polList:
@@ -64,11 +64,11 @@ class PolitianBackend:
 				
 		return res
 		
-	def addPolitian(self, pid, name, party, twittering, self_bird, citizen_bird, cv, images):
+	def addPolitician(self, pid, name, party, twittering, self_bird, citizen_bird, cv, images):
 		# check for dupicates ...
 		
 		with self.lock:
-			(pid, dic) = self.createPolitian(pid, name, party, twittering, self_bird, citizen_bird, cv, images)
+			(pid, dic) = self.createPolitician(pid, name, party, twittering, self_bird, citizen_bird, cv, images)
 			
 			if pid in self.polList:
 				return False
@@ -78,8 +78,8 @@ class PolitianBackend:
 			self.dumpToFile()
 			return True
 			
-	def delPolitian(self, pid):
-		#TODO delte politian
+	def delPolitician(self, pid):
+		#TODO delte politician
 		toDel = []
 		with self.lock:
 			if str(pid) in self.polList:
@@ -91,7 +91,7 @@ class PolitianBackend:
 				
 			
 			
-	def getPolitian(self, tid):
+	def getPolitician(self, tid):
 		ret = None
 		with self.lock:
 			for p in self.polList:
@@ -110,7 +110,7 @@ class PolitianBackend:
 		return ret
 		
 	
-	def setPolitiansBird(self, tid, bid):
+	def setPoliticiansBird(self, tid, bid):
 		with self.lock:
 			for p in self.polList:
 				po = self.polList[str(p)]
@@ -154,11 +154,11 @@ class PolitianBackend:
 			
 
 """			
-pb = PolitianBackend()
+pb = PoliticianBackend()
 #dic["self_bird"] = self_bird
 #dic["citizen_bird"] = citizen_bird
 m = {"ä" : "ae" , "ö":"oe", "ü":"ue", "ß":"ss"}
-alll=pb.getAllPolitians() 
+alll=pb.getAllPoliticians() 
 for i in range(0, len(alll)):
 	p = alll[str(i)]
 	for k,v in m.items():
