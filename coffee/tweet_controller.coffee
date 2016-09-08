@@ -146,7 +146,7 @@ TweetController =
 		$("#tweet-list").append(@_transform tweet)
 
 	_transform: (tweet) ->
-		retweetImage = $("<img class='retweet-bird' src='#{Global.base_path}/images/vogel2.png'>") if tweet.retweet
+		retweetImage = $("<img class='retweet-bird' src='#{Global.basePath}/images/vogel2.png'>") if tweet.retweet
 		tweetElement = $("<div id='tweet-#{tweet.id}' class='tweet' tweetid='#{tweet.id}'>")
 		soundElementP = $("<audio id='audio-#{tweet.id}-P' src='#{tweet.soundp[0]}' hotlength='#{tweet.soundp[1]}'>") if tweet.soundp?
 		soundElementC = $("<audio id='audio-#{tweet.id}-C' src='#{tweet.soundc[0]}' hotlength='#{tweet.soundc[1]}'>")

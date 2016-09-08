@@ -3,10 +3,10 @@
 Util = {
 
 	birdPath: (id) ->
-		Global.bird_path + id + ".jpg"
+		Global.birdPath + id + ".jpg"
 
 	politicianPath: (id) ->
-		Global.politician_path + if id? then id else "placeholder.png"
+		Global.politicianPath + if id? then id else "placeholder.png"
 
 	composeFunctions: (functions...) ->
 		() -> 
