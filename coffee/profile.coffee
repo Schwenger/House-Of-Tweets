@@ -3,22 +3,24 @@
 #= require <model.coffee>
 #= require <global.coffee>
 
-class Profiles
+Profiles =
 
-	constructor: (@voicesMQ, @createBirdEntry) ->
-		$("#profile-back-button-politician").click @closeProfilePage
-		$("#profile-back-button-bird").click @closeProfilePage
+	voicesMQ: undefined
+	createBirdList: undefined
+
+	init: (createBirdList) ->
+		@createBirdList = createBirdList
+		@voicesMQ = new Connector(Connector.citizenBirdQueue, undefined)
 		$("#profile-back-button-politician").click Util.composeFunctions(@closeProfilePage, @closeCitizenBirdSelection)
 		$("#profile-back-button-bird").click Util.composeFunctions(@closeProfilePage, @closeCitizenBirdSelection)
 
 	# CHANGE BIRD LOGIC
 
-	changeCitizenBird: (bid, pid, save) ->
-		@closeCitizenBirdSelection
-		return unless save
+	changeCitizenBird: (bid, pid) ->
+		@closeCitizenBirdSelection()
 		Model.politicians[pid].citizen_bird = bid
 		data = {politicianid: pid, birdid: bid}
-		sendToQueue(@voicesMQ, data)
+		@voicesMQ.sendToQueue(data)
 		@closeProfilePage()
 		@openPoliticianPage pid
 
@@ -27,13 +29,16 @@ class Profiles
 		$('#change-citizen-bird-wrapper').addClass "invisible"
 
 	openCitizenBirdSelection: (bid, pid) ->
-		transform = @createBirdEntry
 		-> 
 			root = $("#change-citizen-bird-wrapper")
 			o.remove() for o in root.children(".voices-list-entry")
 			$('#cv-and-selection-wrapper').addClass "invisible"
 			$('#change-citizen-bird-wrapper').removeClass "invisible"
-			transform root, "change-bird-list-entry", true, pid
+			handler = (bid) -> 
+				() -> 
+					Profiles.changeCitizenBird(bid, pid)
+					Profiles.closeCitizenBirdSelection
+			Profiles.createBirdList root, "change-bird-list-entry", handler
 
 	# PROFILE PAGE
 

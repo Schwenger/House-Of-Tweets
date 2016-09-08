@@ -6,14 +6,10 @@
 
 VoicesLists = 
 
-	voicesMQ: undefined
-	profiles: undefined
 	init: ->
-		VoicesLists.voicesMQ = new Connector(Connector.citizenBirdQueue, undefined)
-		VoicesLists.profiles = new Profiles(VoicesLists.voicesMQ, @_displayBirds)
-
 		@_displayPoliticians $("#voices-list-politicians"), "voices-list-item"
-		@_displayBirds $("#voices-list-birds"), "voices-list-item", false
+		@_displayBirdList $("#voices-list-birds"), "voices-list-item", @_openBirdPageFactory
+		Profiles.init(@_displayBirdList)
 
 	update: ->
 		console.log "updating"
@@ -29,21 +25,19 @@ VoicesLists =
 			$(this).find('.first-line').text(newName)
 
 	leavePage: ->
-		VoicesLists.closeProfilePage()
+		@closeProfilePage()
 
 	# CREATE AND DISPLAY LISTS
 
-	_openPoliticianPageFactory: (id) ->
+	# We need those factories to prevent the id to *always* the one of the list's last entry.
+	# [Bug? Source missing...]
+	_openPoliticianPage: (id) ->
 		() ->
-			VoicesLists.profiles.openPoliticianPage id
+			Profiles.openPoliticianPage id
 
 	_openBirdPageFactory: (id) ->
 		() ->
-			VoicesLists.profiles.openBirdPage id
-
-	_changeBirdFactory: (bid, pid) ->
-		() ->
-			VoicesLists.profiles.changeCitizenBird(bid, pid, true)
+			Profiles.openBirdPage id
 
 	_displayPoliticians: (root, prefix) ->
 		for own id, p of Model.politicians
@@ -51,16 +45,16 @@ VoicesLists =
 			image = Util.politicianPath p.images?.pathToThumb
 			obj = @_createListEntry id, firstLine, p.party, image, prefix
 			root.append obj
-			obj.click (@_openPoliticianPageFactory(id))
+			obj.click(@_openPoliticianPage(id))
 
-	_displayBirds: (root, prefix, addon, info) ->
+	# NB: This method is called from within profile, thus avoid using @.
+	_displayBirdList: (root, prefix, handler) ->
 		for own id, b of Model.birds
 			image = Util.birdPath id
 			name = b[Util.addLang "name"]
 			obj = VoicesLists._createListEntry id, name, b.latin_name, image, prefix
-			handler = VoicesLists._changeBirdFactory id, info if addon
 			root.append obj
-			obj.click (if addon then handler else @_openBirdPageFactory(id))
+			obj.click handler(id)
 
 	_createListEntry: (id, first_line, second_line, image, prefix, addon, info) ->
 		item_o = $("<div id='#{prefix}-#{id}' class='voices-list-entry'>")
