@@ -40,7 +40,7 @@ TweetController =
 			@_poliTweetsOnly = tweetsSwitch.prop('checked')
 			@_changeView()
 			)
-		new TweetProvider(@consumeTweets)
+		new TweetProvider(@_consumeTweets)
 
 	# Interface
 	triggerTweetManually: () ->
@@ -49,7 +49,7 @@ TweetController =
 		@_consumeTweets(incoming)
 
 	update: () ->
-		return unless Display.state is "center"
+		return unless Display.state is "center" or not Global.stallTweets
 		@_consumeTweets(@_stalled)
 		@_stalled = []
 
@@ -94,7 +94,7 @@ TweetController =
 	# CONSUME INCOMING TWEETS
 
 	_consumeTweets: (incomingTweets) ->
-		if Display.state isnt "center"
+		if Display.state isnt "center" and Global.stallTweets
 			@_stalled push incomingTweets
 		else 
 			tweet.time = new Date(parseInt tweet.time) for tweet in incomingTweets

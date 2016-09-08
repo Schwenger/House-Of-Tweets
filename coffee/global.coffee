@@ -10,6 +10,8 @@ Global = {
 	sound_path: "../ext/sounds/"
 	bird_path:  "../ext/images/birds/"
 	politician_path: "../ext/images/politicians/"
+
+	stallTweets: false
 	
 	transform: (langString) ->
 		switch(langString)
