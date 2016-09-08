@@ -1,7 +1,7 @@
 #= require <global.coffee>
 #= require <util.coffee>
 #= require <sound_controller.coffee>
-#= require <carousel.coffee>
+#= require <display.coffee>
 
 TweetController =
 	_tLists: {
@@ -49,7 +49,7 @@ TweetController =
 		@_consumeTweets(incoming)
 
 	update: () ->
-		return unless Carousel.state is "center"
+		return unless Display.state is "center"
 		@_consumeTweets(@_stalled)
 		@_stalled = []
 
@@ -94,7 +94,7 @@ TweetController =
 	# CONSUME INCOMING TWEETS
 
 	_consumeTweets: (incomingTweets) ->
-		if Carousel.state isnt "center"
+		if Display.state isnt "center"
 			@_stalled push incomingTweets
 		else 
 			tweet.time = new Date(parseInt tweet.time) for tweet in incomingTweets

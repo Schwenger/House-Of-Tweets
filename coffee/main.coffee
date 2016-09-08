@@ -1,4 +1,4 @@
-#= require <carousel.coffee>
+#= require <display.coffee>
 #= require <global.coffee>
 #= require <util.coffee>
 #= require <impressum.coffee>
@@ -24,14 +24,12 @@ enforceConsistencyConstraints = ->
 # NB: Language needs CitizenUser and VoicesLists to be initialized.
 initMain = ->
 	CitizenUser.init()
-	SoundCtrl.turnOnAmbientSound()
-	LanguageController.init("german")
+	# SoundCtrl.turnOnAmbientSound()
 	Screensaver.init()
-	Carousel.init()
+	Display.init()
 	VoicesLists.init()
 	TweetController.init()
-	prepareImpressum()
-	prepareAdminPage()
+	LanguageController.init("german")
 	$(document).keydown((e) -> 
 		switch e?.which
 			when 34 then TweetController.triggerTweetManually() # page down
@@ -41,5 +39,4 @@ initMain = ->
 		)
 
 initMain()
-# SoundCtrl.toggleAmbient()
 
