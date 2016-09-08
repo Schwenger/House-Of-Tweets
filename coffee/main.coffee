@@ -1,7 +1,6 @@
 #= require <display.coffee>
 #= require <global.coffee>
 #= require <util.coffee>
-#= require <impressum.coffee>
 #= require <voices_lists.coffee>
 #= require <tweet_controller.coffee>
 #= require <tweet_provider.coffee>
