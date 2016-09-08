@@ -24,8 +24,8 @@ CitizenUser =
 		@_resetDropdownTrigger()
 
 	leavePage: ->
-		resetDropdownTrigger()
-		closeDropdown()
+		@_resetDropdownTrigger()
+		@_closeDropdown()
 		$('#citizen-user-name-input').val("")
 
 	translateBirds: ->
