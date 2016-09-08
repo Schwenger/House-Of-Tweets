@@ -90,8 +90,10 @@ class PolitianData:
 		for line in polFile:
 			splitted = line.split("\t")
 			if len(splitted) != 7:
-				raise AssertionError("Wrong input format: length of Line = " + len(splitted))
-			#id name pathToFile wikiLink wikiDesck twitternumber twittername
+				raise AssertionError(
+					"Wrong input format: found {actual} fields, expected 7,"
+					" in line:\n\t>>{line}<<".format(actual=len(splitted), line=line))
+			# id name pathToFile wikiLink wikiDesc twitternumber twittername
 			polId      = splitted[0]
 			name       = splitted[1]
 			pathToFile = splitted[2]
