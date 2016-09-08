@@ -2,11 +2,13 @@
 *~
 out
 legacy
-ext/node_modules/
-pydub/__pycache__
 node_modules/
 ext/sounds/processed
-backend/__pycache__
+__pycache__
 
 # Unneccesary to upload the model twice.
 coffee/model.coffee
+
+# No logs, please
+backend/log
+tools/DataMiningTool/log.txt
