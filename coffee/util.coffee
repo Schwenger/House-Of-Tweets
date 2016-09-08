@@ -8,7 +8,7 @@ Util = {
 	politicianPath: (id) ->
 		Global.politician_path + if id? then id else "placeholder.png"
 
-	composeFunctions: (functions) ->
+	composeFunctions: (functions...) ->
 		() -> 
 			f() for f in functions
 
