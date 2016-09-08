@@ -11,17 +11,17 @@ Profiles =
 	init: (createBirdList) ->
 		@createBirdList = createBirdList
 		@voicesMQ = new Connector(Connector.citizenBirdQueue, undefined)
-		$("#profile-back-button-politician").click Util.composeFunctions(@closeProfilePage, @closeCitizenBirdSelection)
-		$("#profile-back-button-bird").click Util.composeFunctions(@closeProfilePage, @closeCitizenBirdSelection)
+		$("#profile-back-button-politician").click @close
+		$("#profile-back-button-bird").click @close
 
 	# CHANGE BIRD LOGIC
 
 	changeCitizenBird: (bid, pid) ->
-		@closeCitizenBirdSelection()
 		Model.politicians[pid].citizen_bird = bid
 		data = {politicianid: pid, birdid: bid}
 		@voicesMQ.sendToQueue(data)
-		@closeProfilePage()
+		# re-open profile to display changes
+		@close()
 		@openPoliticianPage pid
 
 	closeCitizenBirdSelection: (bid, pid)->
@@ -29,20 +29,19 @@ Profiles =
 		$('#change-citizen-bird-wrapper').addClass "invisible"
 
 	openCitizenBirdSelection: (bid, pid) ->
-		-> 
-			root = $("#change-citizen-bird-wrapper")
-			o.remove() for o in root.children(".voices-list-entry")
-			$('#cv-and-selection-wrapper').addClass "invisible"
-			$('#change-citizen-bird-wrapper').removeClass "invisible"
-			handler = (bid) -> 
-				() -> 
-					Profiles.changeCitizenBird(bid, pid)
-					Profiles.closeCitizenBirdSelection
-			Profiles.createBirdList root, "change-bird-list-entry", handler
+		root = $("#change-citizen-bird-wrapper")
+		o.remove() for o in root.children(".voices-list-entry")
+		$('#cv-and-selection-wrapper').addClass "invisible"
+		$('#change-citizen-bird-wrapper').removeClass "invisible"
+		handler = (bid) -> 
+			Profiles.changeCitizenBird(bid, pid)
+			Profiles.closeCitizenBirdSelection
+		Profiles.createBirdList root, "change-bird-list-entry", handler
 
 	# PROFILE PAGE
 
-	closeProfilePage: ->
+	close: ->
+		Profiles.closeCitizenBirdSelection()
 		$("#voices-list-container").css("opacity", 1)
 		$("#voices-profile-container-politician").addClass "invisible"
 		$("#voices-profile-container-bird").addClass "invisible"
@@ -58,7 +57,7 @@ Profiles =
 
 		changeButtonObj = $("#voices-profile-citizen-selection-change-button")
 		changeButtonObj.off("click")
-		changeButtonObj.click @openCitizenBirdSelection(poli.citizen_bird, id)
+		changeButtonObj.click () -> Profiles.openCitizenBirdSelection(poli.citizen_bird, id)
 
 		$("#voices-profile-name-politician").text(poli.name)
 		$("#voices-profile-cv-politician").text(poli.cv[Global.langId()])

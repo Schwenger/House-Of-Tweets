@@ -8,7 +8,7 @@ VoicesLists =
 
 	init: ->
 		@_displayPoliticians $("#voices-list-politicians"), "voices-list-item"
-		@_displayBirdList $("#voices-list-birds"), "voices-list-item", @_openBirdPageFactory
+		@_displayBirdList $("#voices-list-birds"), "voices-list-item", (id) -> Profiles.openBirdPage(id)
 		Profiles.init(@_displayBirdList)
 
 	update: ->
@@ -25,36 +25,28 @@ VoicesLists =
 			$(this).find('.first-line').text(newName)
 
 	leavePage: ->
-		@closeProfilePage()
+		Profiles.close()
 
 	# CREATE AND DISPLAY LISTS
 
-	# We need those factories to prevent the id to *always* the one of the list's last entry.
-	# [Bug? Source missing...]
-	_openPoliticianPage: (id) ->
-		() ->
-			Profiles.openPoliticianPage id
-
-	_openBirdPageFactory: (id) ->
-		() ->
-			Profiles.openBirdPage id
-
 	_displayPoliticians: (root, prefix) ->
 		for own id, p of Model.politicians
-			firstLine = p.name
-			image = Util.politicianPath p.images?.pathToThumb
-			obj = @_createListEntry id, firstLine, p.party, image, prefix
-			root.append obj
-			obj.click(@_openPoliticianPage(id))
+			do(id, p) ->
+				firstLine = p.name
+				image = Util.politicianPath p.images?.pathToThumb
+				obj = VoicesLists._createListEntry id, firstLine, p.party, image, prefix
+				root.append obj
+				obj.click () -> Profiles.openPoliticianPage id
 
 	# NB: This method is called from within profile, thus avoid using @.
 	_displayBirdList: (root, prefix, handler) ->
 		for own id, b of Model.birds
-			image = Util.birdPath id
-			name = b[Util.addLang "name"]
-			obj = VoicesLists._createListEntry id, name, b.latin_name, image, prefix
-			root.append obj
-			obj.click handler(id)
+			do(id, b) ->
+				image = Util.birdPath id
+				name = b[Util.addLang "name"]
+				obj = VoicesLists._createListEntry id, name, b.latin_name, image, prefix
+				root.append obj
+				obj.click () -> handler(id)
 
 	_createListEntry: (id, first_line, second_line, image, prefix, addon, info) ->
 		item_o = $("<div id='#{prefix}-#{id}' class='voices-list-entry'>")
