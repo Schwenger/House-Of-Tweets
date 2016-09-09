@@ -9,8 +9,8 @@ Util = {
 		Global.politicianPath + if id? then id else "placeholder.png"
 
 	composeFunctions: (functions...) ->
-		() -> 
-			f() for f in functions
+		(args...) -> 
+			f(args) for f in functions
 
 	obj2str: (obj) ->
 		JSON.stringify obj
