@@ -6,6 +6,9 @@
 				when "french",  "fr" then @_fr[msg_id]
 
 		_de: {
+
+			photo: "Foto"
+			drawing: "Zeichnung" #Kunst?
 			
 			sprachen: "Sprachen",
 			vogelstimmen: "Vogelstimmen",
@@ -79,6 +82,9 @@
 		}
 
 		_fr: {
+
+			photo: "photo"
+			drawing: "dressin" 
 			
 			sprachen: "Langues",
 			vogelstimmen: "Chantes d´oiseaux",
@@ -147,6 +153,9 @@
 		}
 
 		_en: {
+
+			photo: "photo"
+			drawing: "drawing"
 
 			sprachen: "Languages",
 			vogelstimmen: "Birdsounds",

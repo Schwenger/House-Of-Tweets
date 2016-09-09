@@ -13,6 +13,19 @@ Profiles =
 		@voicesMQ = new Connector(Connector.config.citizenBirdQueue, undefined)
 		$("#profile-back-button-politician").click @close
 		$("#profile-back-button-bird").click @close
+		$("#picture-artist-image-switch").click @_changeArtStyle
+
+	# CHANGE IMAGE DISPLAY
+
+	_changeArtStyle: () ->
+		photo = $("#voices-profile-picture-bird")
+		drawing = $("#voices-profile-picture-bird-drawing")
+		picture = $(@).prop('checked')
+		if picture then Profiles._switchVisibility(photo, drawing) else Profiles._switchVisibility(drawing, photo)
+
+	_switchVisibility: (vis, invis) ->
+		invis.addClass "invisible"
+		vis.removeClass "invisible"
 
 	# CHANGE BIRD LOGIC
 
@@ -77,9 +90,12 @@ Profiles =
 
 		picObj = $("#voices-profile-picture-bird")
 		picObj.css("height", picObj.width() + "px")
+		picObjDrawing = $("#voices-profile-picture-bird-drawing")
+		picObjDrawing.css("height", picObj.width() + "px")
 
 		bird = Model.birds[id]
 		$("#voices-profile-name-bird").text(bird[Util.addLang "name"])
 		$("#voices-profile-cv-bird").text(bird[Util.addLang "cv"])
 		$("#voices-profile-picture-bird").attr("src", Util.birdPath id)
+		$("#voices-profile-picture-bird-drawing").attr("src", Util.birdPath(id, "-drawing"))
 

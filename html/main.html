@@ -102,7 +102,31 @@
           </div>
           <div class="picture-wrapper">
             <img class="picture" id="voices-profile-picture-bird" src="../ext/images/default.png"></img>
+            <img class="picture invisible" id="voices-profile-picture-bird-drawing" src="../ext/images/default-drawing.png"></img>
+
+            <div class="switch-container">
+              <div class="switch-label left">
+                <i class="fa fa-camera"></i> <br>
+                <span translatestring stringID="photo" class="text"> @photo </span>
+              </div>
+
+              <div class="switch">
+                <div class="onoffswitch">
+                  <input type="checkbox" name="picture-artist-image-switch" class="onoffswitch-checkbox" id="picture-artist-image-switch" checked>
+                  <label class="onoffswitch-label" for="picture-artist-image-switch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="switch-label right">
+                <i class="fa fa-paint-brush"></i> <br>
+                <span translatestring stringID="drawing" class="text"> @drawing </span>
+              </div>
+            </div>
           </div>
+
           <div class="profile-back-button clickable-text" id="profile-back-button-bird">
             <i class="fa fa-arrow-left"></i> <span translatestring stringID="rot_zurück"> @rot_zurück </span>
           </div>

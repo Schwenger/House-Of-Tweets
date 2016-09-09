@@ -2,8 +2,8 @@
 
 Util = {
 
-	birdPath: (id) ->
-		Global.birdPath + id + ".jpg"
+	birdPath: (id, add) ->
+		Global.birdPath + id + (if add? then add else "") + ".jpg"
 
 	politicianPath: (id) ->
 		Global.politicianPath + if id? then id else "placeholder.png"
