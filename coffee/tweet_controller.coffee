@@ -34,12 +34,12 @@ TweetController =
 		@_poliTweetsOnly = tweetsSwitch.prop('checked')
 
 		birdsSwitch.change (-> 
-			@_usePoliBirds = birdsSwitch.prop('checked')
-			@_changeView()
+			TweetController._usePoliBirds = birdsSwitch.prop('checked')
+			TweetController._changeView()
 			)
 		tweetsSwitch.change (-> 
-			@_poliTweetsOnly = tweetsSwitch.prop('checked')
-			@_changeView()
+			TweetController._poliTweetsOnly = tweetsSwitch.prop('checked')
+			TweetController._changeView()
 			)
 		new Connector(Connector.config.tweetsQueue, @consume)
 
@@ -50,7 +50,7 @@ TweetController =
 		@consume(incoming)
 
 	update: () ->
-		return unless Display.state is "center" or not Global.stallTweets
+		return if Display.state isnt "center" and Global.stallTweets
 		console.log "Consuming stalled tweets"
 		@consume(@_stalled)
 		@_stalled = []
