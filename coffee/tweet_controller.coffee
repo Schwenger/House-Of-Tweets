@@ -2,7 +2,6 @@
 #= require <sound_controller.coffee>
 #= require <global.coffee>
 #= require <util.coffee>
-#= require <tweet_provider.coffee>
 #= require <voices_lists.coffee>
 
 TweetController =
