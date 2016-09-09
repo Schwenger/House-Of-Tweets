@@ -11,6 +11,7 @@ TweetController =
 	}
 
 	_archive: []
+	_archiveThreshold: 10000
 	_timeTravel: -1
 	_timeTravelRoot: $('#time-travel-container')
 	_batch:
@@ -57,8 +58,10 @@ TweetController =
 
 	# ARCHIVE
 	_addToArchive: (tweet) ->
-		entry = [tweet.time, a = $("<audio src='#{(if Global.usePoliSounds and tweet.byPoli then tweet.soundp[0] else tweet.soundc[0])}'>")]
+		audio = $("<audio src='#{(if Global.usePoliSounds and tweet.byPoli then tweet.soundp[0] else tweet.soundc[0])}'>")
+		entry = [tweet.time, audio]
 		@_archive.push entry
+		@_archive = @_archive[..@_archiveThreshold]
 
 	# TIME TRAVEL
 
