@@ -7,6 +7,10 @@
 
 		_de: {
 
+			birdsObl: "Vögeln"
+			musicianObl: "Musikern"
+			chirpingOf: "Zwittern von"
+
 			photo: "Foto"
 			drawing: "Zeichnung" #Kunst?
 			
@@ -83,6 +87,10 @@
 
 		_fr: {
 
+			birdsObl: "Oiseaux"
+			musicianObl: "Musiciens"
+			chirpingOf: "Chant des"
+
 			photo: "photo"
 			drawing: "dressin" 
 			
@@ -153,6 +161,10 @@
 		}
 
 		_en: {
+
+			birdsObl: "Birds"
+			musicianObl: "Musicians"
+			chirpingOf: "Chirping of"
 
 			photo: "photo"
 			drawing: "drawing"
