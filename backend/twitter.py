@@ -16,6 +16,9 @@ class TwitterInterface(object):
     def deregister(self, usernames: List[str]):
         raise NotImplementedError("Should have implemented this")
 
+    def resolve_name(self, username: str):
+        raise NotImplementedError("Should have implemented this")
+
 
 class TweetConsumer(object):
     def consumeTweet(self, tweet: dict):
@@ -127,6 +130,7 @@ class RealTwitterInterface(TwitterInterface):
         self.auth.set_access_token(access_key, access_secret)
         self.streams = dict()
         self.lock = threading.RLock()
+        self.api = tweepy.API(self.auth)
 
     def register(self, usernames, consumer: TweetConsumer) -> object:
         with self.lock:
@@ -143,6 +147,14 @@ class RealTwitterInterface(TwitterInterface):
             s = self.streams[tuple(usernames)]
             del self.streams[tuple(usernames)]
             s.disconnect()
+
+    def resolve_name(self, username: str):
+        ret_id = None
+        try:
+            ret_id = self.api.get_user(username).id
+        except Exception as e:
+            print("Couldn't resolve username: " + str(e))
+        return ret_id
 
 
 class FakeTwitterInterface(TwitterInterface):
@@ -167,6 +179,10 @@ class FakeTwitterInterface(TwitterInterface):
                 return
             del self.consumers[tuple(usernames)]
 
+    def resolve_name(self, username: str):
+        raise AssertionError('FakeTwitterInterface is *only* for generating tweets.')
+        # You only ever need to resolve a name when you're *about to* add a citizen,
+        # so you can easily avoid that in test situations.
 
 # Only test for RealTwitterInterface.deregister
 if __name__ == '__main__':

@@ -70,6 +70,15 @@ def test_parse_tweet():
 all_tests.append(test_parse_tweet)
 
 
+def test_name_resolution():
+    twi = twitter.RealTwitterInterface()
+    for u in ['HouseOfTweetsSB', '@HouseOfTweetsSB', '@MissesVlog', 'eeQu0Ae4',
+              'SarcasticTester', 'HopefullyNotARealTwitterAccount']:
+        print('resolve {}={!r}'.format(u, twi.resolve_name(u)))
+
+all_tests.append(test_name_resolution)
+
+
 def test_all():
     # This might show weird behavior if you modify MANUAL_TESTS by hand
     print('[TEST] -- Running all tests (MANUAL_TESTS={}) --'.
