@@ -210,7 +210,12 @@ class TwitterConnection(object):
 
 	def __remove_citizen(self, tid):
 		with self.lock:
-			del self.citizens[str(tid)]
+			print("Removing citizen {}".format(tid))
+			try:
+				del self.citizens[str(tid)]
+			except KeyError:
+				pass
+			print("Remaining citizens: {}".format(self.citizens.keys()))
 
 	def isPoli(self, uid):
 		tmp = False
