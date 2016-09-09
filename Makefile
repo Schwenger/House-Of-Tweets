@@ -1,11 +1,12 @@
 FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat
-MODELS=${COFFEE}/model_birds.coffee ${COFFEE}/model_polis.coffee ${COFFEE}/model_messages.coffee
 OUT=out
 TEMP=out/temp
 LESS=less
 COFFEE=coffee
+MODEL=${COFFEE}/model
 HTML=html
 DIRS=${OUT} ${TEMP}
+MODELS:=$(wildcard ${MODEL}/*.coffee)
 
 all: clean_temp frontend backend
 
@@ -57,11 +58,17 @@ ${FRONTEND_DEP}: ext/node_modules/%:
 
 # INSTALL
 
-.PHONY: install all
+.PHONY: install
 install: install_dependencies all
 
 .PHONY: install_dependencies
 install_dependencies: ${DEPEN}
+
+# START
+
+.PHONY: start
+start: 
+	rabbitmq-server -detached
 
 # CLEAN
 
@@ -74,5 +81,6 @@ clean:
 
 .PHONY: clean_temp
 clean_temp: 
+	rm -f ${COFFEE}/model.coffee
 	rm -rf ${TEMP}
 
