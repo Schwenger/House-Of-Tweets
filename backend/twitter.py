@@ -9,19 +9,19 @@ import json
 import threading
 
 
+class TweetConsumer(object):
+    def consumeTweet(self, tweet: dict):
+        raise NotImplementedError("Should have implemented this")
+
+
 class TwitterInterface(object):
-    def register(self, usernames: List[str], listener: StreamListener):
+    def register(self, usernames: List[str], listener: TweetConsumer):
         raise NotImplementedError("Should have implemented this")
 
     def deregister(self, usernames: List[str]):
         raise NotImplementedError("Should have implemented this")
 
     def resolve_name(self, username: str):
-        raise NotImplementedError("Should have implemented this")
-
-
-class TweetConsumer(object):
-    def consumeTweet(self, tweet: dict):
         raise NotImplementedError("Should have implemented this")
 
 
