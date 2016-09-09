@@ -2,6 +2,7 @@ import os
 import math
 from pydub import *
 
+
 class SoundGenerator:
 	def __init__(self):
 		self.soundDir = self.getSoundDir()
@@ -36,27 +37,6 @@ class SoundGenerator:
 			mood = 'neutral'
 
 		return mood
-
-	'''def changeBird(self, tweet, birds, path):
-		f = open(path, 'r+')
-		politician = tweet.image.replace('.jpg', '')
-		text = tweet.content
-		text = text.replace('ä', 'ae').replace('ü', 'ue').replace('ö', 'oe')
-		text = text.replace('Ä', 'ae').replace('Ü', 'ue').replace('Ö', 'oe')
-		text = text.replace('ß', 'ss').lower()
-		words = text.split()
-
-		for w in words:
-			if w in birds:
-				rightSection = False
-				rightPolitician = False
-				for line in f:
-					rightSection = rightSection or "politicians: {" in line
-					rightPolitician = rightPolitician or '"' + politician + '": {' in line
-					if rightSection and rightPolitician and "self_bird:" in line:
-						parts = line.split('"')
-						line.replace(parts[1], w)
-	'''
 
 
 	### directories and files ###	
@@ -107,8 +87,6 @@ class SoundGenerator:
 		return(pRes, cRes, pdur, cdur)
 
 	def getClosestMood(self, bird, mood, retweet):
-		
-
 		n = 'neutral'
 		a = 'aufgebracht'
 		f = 'fragend'

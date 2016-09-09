@@ -1,13 +1,14 @@
 import pika
 import json
 import threading
+
+
 class CitizenQueueAdapter(threading.Thread):
 	def __init__(self, twitterConnection):
 		threading.Thread.__init__(self, daemon=True)
 		self.twitterConnection = twitterConnection
-		#here
 		self.connection = pika.BlockingConnection(pika.ConnectionParameters(
-        host='localhost'))
+		host='localhost'))
 		
 	
 	def run(self):
@@ -18,8 +19,5 @@ class CitizenQueueAdapter(threading.Thread):
 		
 	def callback(self, ch, method, properties, body):
 		body = json.loads(body.decode('utf-8'))
-		#body = json.loads(str(body))
-		#print(body)
-		#body = json.loads(body)
 		print(body)
 		self.twitterConnection.addCitizen(body["twittername"], body["birdid"])

@@ -8,11 +8,9 @@ import os
 
 class PoliticianBackend:
 	def __init__(self):
-		
 		self.pathToJson = "pols.json"
 		self.polList = json.load(open(self.pathToJson))
 		self.outPath = "../coffee/modelPoli.coffee"
-		
 		self.lock = threading.RLock()
 		
 	def cutImage(self, path, out, size):
@@ -63,34 +61,7 @@ class PoliticianBackend:
 					res.append(str(p["twittering"]["twitterId"]))
 				
 		return res
-		
-	def addPolitician(self, pid, name, party, twittering, self_bird, citizen_bird, cv, images):
-		# check for dupicates ...
-		
-		with self.lock:
-			(pid, dic) = self.createPolitician(pid, name, party, twittering, self_bird, citizen_bird, cv, images)
-			
-			if pid in self.polList:
-				return False
-			
-			self.polList[pid] = dic
-			#print(self.polList)			
-			self.dumpToFile()
-			return True
-			
-	def delPolitician(self, pid):
-		#TODO delte politician
-		toDel = []
-		with self.lock:
-			if str(pid) in self.polList:
-				del self.polList[str(pid)]
-				self.dumpToFile()
-				return True
-			else:
-				return False
-				
-			
-			
+
 	def getPolitician(self, tid):
 		ret = None
 		with self.lock:
@@ -108,8 +79,7 @@ class PoliticianBackend:
 			
 		print("Ret is None " + str(ret is None))
 		return ret
-		
-	
+
 	def setPoliticiansBird(self, tid, bid):
 		with self.lock:
 			for p in self.polList:
@@ -128,7 +98,6 @@ class PoliticianBackend:
 		
 		
 	def dumpToFile(self):
-		#print(self.polList)
 		with self.lock:
 			with open(self.pathToJson, 'w') as outfile:
 				json.dump(self.polList, outfile, indent=2)
@@ -140,9 +109,7 @@ class PoliticianBackend:
 			print(os.getcwd())
 			os.system("sh compile.sh")
 			os.chdir("backend")
-			
-			
-				
+
 	def setCitizensBird(self, tid, bid):
 		with self.lock:
 			
@@ -150,24 +117,3 @@ class PoliticianBackend:
 				po = self.polList[str(tid)]
 				po["citizen_bird"] = bid
 				self.dumpToFile()
-			
-			
-
-"""			
-pb = PoliticianBackend()
-#dic["self_bird"] = self_bird
-#dic["citizen_bird"] = citizen_bird
-m = {"ä" : "ae" , "ö":"oe", "ü":"ue", "ß":"ss"}
-alll=pb.getAllPoliticians() 
-for i in range(0, len(alll)):
-	p = alll[str(i)]
-	for k,v in m.items():
-		if k in p["citizen_bird"]:
-			p["citizen_bird"] = p["citizen_bird"].replace(k,v)
-			
-		if k in p["self_bird"]:
-			p["self_bird"] = p["self_bird"].replace(k,v)
-		
-pb.dumpToFile()	
-"""
-

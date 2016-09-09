@@ -14,8 +14,7 @@ class SendingQueueForTweets:
                'localhost'))
 		self.channel = self.connection.channel()
 		self.channel.queue_declare(queue='tweets', durable=True)
-		
-	
+
 	def addTweet(self, tweet):
 		with self.qlock:
 			self.q.put(tweet)
@@ -33,11 +32,3 @@ class SendingQueueForTweets:
 					
 		self.channel.basic_publish(exchange='', routing_key="tweets",body=json.dumps(toSend))
 		self.timer = None
-                     
-                      
-           
-		
-				
-	
-			
-		
