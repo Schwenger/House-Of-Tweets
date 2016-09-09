@@ -3,6 +3,7 @@
 #= require <global.coffee>
 #= require <util.coffee>
 #= require <tweet_provider.coffee>
+#= require <voices_lists.coffee>
 
 TweetController =
 	_tLists: {
@@ -41,17 +42,18 @@ TweetController =
 			@_poliTweetsOnly = tweetsSwitch.prop('checked')
 			@_changeView()
 			)
-		new TweetProvider(@_consumeTweets)
+		new Connector(Connector.config.tweetsQueue, @consume)
 
 	# Interface
 	triggerTweetManually: () ->
 		incoming =  [Model.manualTweets[Global.manualTweetID]]
 		Global.manualTweetID = (Global.manualTweetID + 1) % Model.manualTweets.length
-		@_consumeTweets(incoming)
+		@consume(incoming)
 
 	update: () ->
 		return unless Display.state is "center" or not Global.stallTweets
-		@_consumeTweets(@_stalled)
+		console.log "Consuming stalled tweets"
+		@consume(@_stalled)
 		@_stalled = []
 
 	# ARCHIVE
@@ -94,17 +96,34 @@ TweetController =
 
 	# CONSUME INCOMING TWEETS
 
-	_consumeTweets: (incomingTweets) ->
+	consume: (incomingTweets) ->
 		if Display.state isnt "center" and Global.stallTweets
 			@_stalled push incomingTweets
 		else 
-			tweet.time = new Date(parseInt tweet.time) for tweet in incomingTweets
-			@_addToArchive(tweet) for tweet in incomingTweets
-			newTweets = (@_transform tweet for tweet in incomingTweets)
-			for tweet, index in newTweets
-				@_tLists.mixed.push tweet # unless tweet.byPoli and Global.poliTweetsOnly
-				@_tLists.poli.push tweet if incomingTweets[index].byPoli
+			for tweet in incomingTweets
+				# archive
+				tweet.time = new Date(parseInt tweet.time) 
+				TweetController._addToArchive(tweet)
+				# handle #houseoftweets
+				@_updatePoliBird(tweet.refresh) if tweet.refresh?
+				# prepare for displaying
+				transformed = @_transform(tweet)
+				@_tLists.mixed.push transformed # unless tweet.byPoli and Global.poliTweetsOnly
+				@_tLists.poli.push transformed if tweet.byPoli
 			@_updateShownTweets(incomingTweets)
+
+	_updatePoliBird: (info) ->
+		pid = info.politicianId
+		bid = info.birdId
+		Model.politicians[pid].self_bird = bid
+		VoicesLists.update()
+
+	_parseBirdName: (text) ->
+		str = text.toLowerCase().replace("ß", "ss").replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
+		for own bid of Model.birds
+			console.log bid
+			return bid if str.search(bid) isnt -1
+		return undefined
 
 	_changeView: ->
 		oldL = @_tLists[if @_poliTweetsOnly then "mixed" else "poli"]
