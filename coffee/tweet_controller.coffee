@@ -6,8 +6,8 @@
 
 TweetController =
 	_tLists: {
-		mixed: [undefined, undefined, undefined, undefined, undefined, undefined]
-		poli: [undefined, undefined, undefined, undefined, undefined, undefined]
+		mixed: []
+		poli: []
 	}
 
 	_archive: []
@@ -18,7 +18,6 @@ TweetController =
 		duration: 10 * 1000
 		intervall: 5 * 1000
 		size: 10
-	_usePoliBirds: true
 	_poliTweetsOnly: true
 	_threshold: 6
 	_sanityPattern: /\w*/
@@ -28,21 +27,14 @@ TweetController =
 		$('#play-tweets-1-button').click(() -> @_timeTravel(1))
 		$('#play-tweets-6-button').click(() -> @_timeTravel(6))
 		$('#play-tweets-24-button').click(() -> @_timeTravel(24))
+		$('#chirping-of-switch').change(@_changeSoundOrigin)
+		$('#voices-switch').change(@_changeBirdSelection)
+		$('#citizen-tweets-switch').change(@_changeShownTweets)
 
-		birdsSwitch = $('#voices-switch')
-		tweetsSwitch = $('#citizen-tweets-switch')
-		@_usePoliBirds = birdsSwitch.prop('checked')
-		@_poliTweetsOnly = tweetsSwitch.prop('checked')
+		@_poliTweetsOnly = $("citizen-tweets-switch").prop('checked')
+		@_usePoliBirds = $("voices-switch").prop('checked')
 
-		birdsSwitch.change (-> 
-			TweetController._usePoliBirds = birdsSwitch.prop('checked')
-			TweetController._changeView()
-			)
-		tweetsSwitch.change (-> 
-			TweetController._poliTweetsOnly = tweetsSwitch.prop('checked')
-			TweetController._changeView()
-			)
-		new Connector(Connector.config.tweetsQueue, @consume)
+		new Connector(Connector.config.tweetsQueue, (data) -> TweetController.consume(data))
 
 	# Interface
 	triggerTweetManually: () ->
@@ -57,62 +49,87 @@ TweetController =
 		@_stalled = []
 
 	# ARCHIVE
-	_addToArchive: (tweet) ->
-		audio = $("<audio src='#{(if Global.usePoliSounds and tweet.byPoli then tweet.soundp[0] else tweet.soundc[0])}'>")
-		entry = [tweet.time, audio]
+	_addToArchive: (entry) ->
 		@_archive.push entry
 		@_archive = @_archive[..@_archiveThreshold]
 
-	# TIME TRAVEL
+	# USER SETTINGS
+	_changeSoundOrigin: ->
+		bird = $(@).prop('checked')
+		SoundCtrl.setSoundMode(if bird then "B" else "M")
 
+	_changeBirdSelection: ->
+		poli = $(@).prop('checked')
+		SoundCtrl.setBirdMode(if poli then "P" else "C")
+
+	_changeShownTweets: ->
+		TweetController._poliTweetsOnly = $(@).prop('checked')
+		TweetController._switchView()
+
+	# TIME TRAVEL
 	_timeTravel: (timeSpan) ->
 		qualifying = 0
 		nowTime = Util.time()
 		diff = timeSpan * 60 * 60 * 1000
-		for [time, audioObj] in @_archive
-			if nowTime - time.getTime() < diff then qualifying += 1 else break 
-		maxIndex = qualifying - 1
-		agenda = []
-		for i in [0..(maxIndex / @_batch.size)] # .. means inclusively
-			batch = (audioObj for [time, audioObj] in @_archive[i * @_batch.size ... Math.min((i+1) * @_batch.size, maxIndex+1)])
-			agenda.push batch
+		@_archive.reduce (sum, obj) -> sum + (nowTime - obj.time < diff)
+		agenda = _createBatches(@archive[..qualifying])
 		id = @_timeTravel + 1
 		@_timeTravel = id
 		@_startPlaybackHandler(id, agenda)
 
+	_createBatches: (list) ->
+		batchCount = list.length + (@_batch.size - 1) / @_batch.size
+		return (for i in [0 ... batchCount]
+			lb = @_batch.size * i
+			up = Math.max(list.length, @_batch.size * (i+1))
+			list[lb ... ub])
+
 	_startPlaybackHandler: (id, agenda) ->
 		return if agenda.length is 0 or @_timeTravel != id
-		[upcoming..., toStart] = agenda
-		for audioObj in toStart
-			archiveRoot.append(audioObj)
-			audioObj[0].play()
-		stopCurrent = () -> @_stopPlayback(toStart)
+		[upcoming..., current] = agenda
+		for tweet in current
+			archiveRoot.append(tweet.obj)
+			tweet.play()
+		stopCurrent = () -> @_stopPlayback(current)
 		setTimeout stopCurrent, @_batch.duration
 		startNext = () -> @_startPlaybackHandler(id, upcoming)
 		setTimeout startNext, @_batch.intervall
 
-	_stopPlayback: (objs) ->
-		for obj in objs
-			obj.stop()
-			obj.remove()
+	_stopPlayback: (tweets) ->
+		for tweet in tweets
+			tweet.stop()
+			tweet.obj.remove()
 
 	# CONSUME INCOMING TWEETS
 
 	consume: (incomingTweets) ->
+		console.log "Consuming"
 		if Display.state isnt "center" and Global.stallTweets
-			TweetController._stalled push incomingTweets
+			@_stalled push incomingTweets
 		else 
+			# remove everything 
+			@_removeTweets(@_tLists.mixed)
+			@_removeTweets(@_tLists.poli)
+			newPoliTweets = incomingTweets.reduce (sum, tweet) -> sum + tweet.byPoli
+			newMixedTweets = incomingTweets.length
+			# process tweet
 			for tweet in incomingTweets
-				# archive
 				tweet.time = new Date(parseInt tweet.time) 
-				TweetController._addToArchive(tweet)
+				transformed = @_transform(tweet)
+				# archive
+				@_addToArchive(transformed)
 				# handle #houseoftweets
-				TweetController._updatePoliBird(tweet.refresh) if tweet.refresh?
-				# prepare for displaying
-				transformed = TweetController._transform(tweet)
-				TweetController._tLists.mixed.push transformed # unless tweet.byPoli and Global.poliTweetsOnly
-				TweetController._tLists.poli.push transformed if tweet.byPoli
-			TweetController._updateShownTweets(incomingTweets)
+				@_updatePoliBird(tweet.refresh) if tweet.refresh?
+				# file by origin
+				@_tLists.mixed.push transformed 
+				@_tLists.poli.push transformed if tweet.byPoli
+			# update current lists
+			@_tLists.mixed = @_tLists.mixed[..@_threshold]
+			@_tLists.poli = @_tLists.poli[..@_threshold]
+			# display and play w.r.t user settings
+			list = if @_poliTweetsOnly then @_tLists.poli else @_tLists.mixed
+			@_displayTweets(list)
+			@_playTweets(@_tLists.poli[..newPoliTweets])
 
 	_updatePoliBird: (info) ->
 		pid = info.politicianId
@@ -120,58 +137,32 @@ TweetController =
 		Model.politicians[pid].self_bird = bid
 		VoicesLists.update()
 
-	_parseBirdName: (text) ->
-		str = text.toLowerCase().replace("ß", "ss").replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
-		for own bid of Model.birds
-			console.log bid
-			return bid if str.search(bid) isnt -1
-		return undefined
-
-	_changeView: ->
-		oldL = @_tLists[if @_poliTweetsOnly then "mixed" else "poli"]
-		newL = @_tLists[if @_poliTweetsOnly then "poli" else "mixed"]
-		tweet?.remove() for tweet in oldL
+	_switchView: ->
+		oldL = if @_poliTweetsOnly then @_tLists.mixed else @_tLists.poli
+		newL = if @_poliTweetsOnly then @_tLists.poli else @_tLists.mixed
+		tweet.obj.remove() for tweet in oldL
 		root = $('#tweet-list')
-		root.append tweet for tweet in newL
-		# The next action is questionable:
-		# If the user pushes the button, there should be _some_ auditive feedback.
-		# But is playing all sounds on top of everything else the best idea?
-		SoundCtrl.turnOnSound (obj.attr('tweetid') for obj in newL when obj?)
+		root.append tweet.obj for tweet in newL
+		@_playTweets(newL)
 
-	_updateShownTweets: (incomingTweets) ->
-		newOnes = 0
-		# update poli list
-		newOnes += 1 for tweet in incomingTweets when tweet.byPoli
-		tweetsToRemove = @_tLists.poli[0..newOnes] if @_poliTweetsOnly
-		@_tLists.poli = @_tLists.poli[newOnes..]
-		@_tLists.poli  = @_tLists.poli[@_tLists.poli.length - @_threshold..]
-		# update mixed list
-		newOnes = incomingTweets.length
-		tweetsToRemove = @_tLists.mixed[0..newOnes] unless @_poliTweetsOnly
-		@_tLists.mixed = @_tLists.mixed[newOnes..]
-		@_tLists.mixed = @_tLists.mixed[@_tLists.mixed.length - @_threshold..]
+	_removeTweets: (tweets) ->
+		tweet.obj.remove() for tweet in tweets
 
-		tweet?.remove() for tweet in tweetsToRemove
+	_displayTweets: (tweets) ->
+		domList = $('#tweet-list')
+		domList.append tweet.obj for tweet in tweets
 
-		list = $('#tweet-list')
-		respectiveList = if @_poliTweetsOnly then @_tLists.poli else @_tLists.mixed
-		for tweet in respectiveList
-			list.append tweet 
-
-		SoundCtrl.turnOnSound(tweet.id for tweet in incomingTweets)
+	_playTweets: (list) ->
+		tweet.play() for tweet in list
 
 	_sanitize: (tags) ->
 		for tag in tags
 			if tag.match @_sanityPattern then tag else "--warning--"
 
-	_appendTweet: (tweet) ->
-		$("#tweet-list").append(@_transform tweet)
-
 	_transform: (tweet) ->
 		retweetImage = $("<img class='retweet-bird' src='#{Global.basePath}/images/vogel2.png'>") if tweet.retweet
 		tweetElement = $("<div id='tweet-#{tweet.id}' class='tweet' tweetid='#{tweet.id}'>")
-		soundElementP = $("<audio id='audio-#{tweet.id}-P' src='#{tweet.soundp[0]}' hotlength='#{tweet.soundp[1]}'>") if tweet.soundp?
-		soundElementC = $("<audio id='audio-#{tweet.id}-C' src='#{tweet.soundc[0]}' hotlength='#{tweet.soundc[1]}'>")
+
 		tweetProfileInfo = $("<div id='tweet-#{tweet.id}-profile' class='tweet-profile-info'>")
 		tweetContent = $("<div id='tweet-#{tweet.id}-content' class='tweet-content'>")
 		speakerElement = $("<i class='speaker fa fa-music fa-2x' id='tweet-#{tweet.id}-speaker'>")
@@ -197,15 +188,29 @@ TweetController =
 		tweetElement.append(retweetImage) if tweet.retweet
 		tweetElement.append(tweetProfileInfo)
 		tweetElement.append(tweetContent)
-		tweetElement.append(soundElementP) if soundElementP
-		tweetElement.append(soundElementC)
+
+		audioElems = [
+			$("<audio id='audio-#{tweet.id}-PB' src='#{tweet.soundp[0]}' hotlength='#{tweet.soundp[2]}'>") if tweet.soundp?,
+			$("<audio id='audio-#{tweet.id}-PM' src='#{tweet.soundp[1]}' hotlength='#{tweet.soundp[2]}'>") if tweet.soundp?,
+			$("<audio id='audio-#{tweet.id}-CB' src='#{tweet.soundc[0]}' hotlength='#{tweet.soundc[2]}'>"),
+			$("<audio id='audio-#{tweet.id}-CM' src='#{tweet.soundc[1]}' hotlength='#{tweet.soundc[2]}'>")
+		]
+
+		for audio in audioElems
+			tweetElement.append(audio)
 
 		profileImg.css("border-color", "#{tweet.partycolor}") if tweet.partycolor?
-		speakerElement.click( ->
-			# see sound_controller
-			SoundCtrl.playSound tweet.id
-			)	
-		return tweetElement
+
+		mode = SoundCtrl.getMode()
+		tweetCompound = 
+			obj: tweetElement
+			play: () -> SoundCtrl.play(tweet.id, tweet.soundp[2], mode)
+			stop: () -> SoundCtrl.stop(tweet.id, mode)
+			time: tweet.time
+
+		speakerElement.click tweetCompound.play
+
+		return tweetCompound
 
 	_enhance: (tweet, hashtags) ->
 		return tweet unless hashtags?

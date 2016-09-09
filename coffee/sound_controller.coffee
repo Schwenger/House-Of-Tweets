@@ -1,22 +1,36 @@
 #= require <global.coffee>
 
 SoundCtrl = 
-	turnOnSound: (incomingTweetIds) ->
-		for id in incomingTweetIds
-			@playSound id
 
-	playSound: (tweetId) ->
-		audio = $("#audio-#{tweetId}-P")
-		useCitizenBirds = not Global.usePoliBirds
-		if useCitizenBirds or not audio[0]?
-			audio = $("#audio-#{tweetId}-C")
-		audio[0]?.play()
+	bird: "P" # P or C for politician or citizen
+	sound: "B" # B or M for bird or musician
+
+	setBirdMode: (mode) ->
+		@bird = mode
+
+	setSoundMode: (mode) ->
+		@sound = mode
+
+	getMode: ->
+		@bird + @sound
+
+	play: (tweetId, duration, mode) ->
+		# TODO THIS IS NO RIGHT, ITS JUST UNTIL THE BE HAS THIS FEATURE IMPLEMENTED
+		duration = 10000
+		audio = @_getAudio(tweetId, mode)
+		audio[0].play()
 		$("#tweet-#{tweetId}-speaker").addClass("speaker-active")
-		sound_length = audio.attr("hotlength")
-		setTimeout (() -> 
-			audio.stop()
-			$("#tweet-#{tweetId}-speaker").removeClass("speaker-active")
-			), parseInt(sound_length)
+		setTimeout (() -> SoundCtrl.stop(tweetId, mode)),  duration
+		return
+
+	stop: (tweetId, mode) ->
+		audio = @_getAudio(tweetId, mode)
+		audio[0].pause()
+		$("#tweet-#{tweetId}-speaker").removeClass("speaker-active")
+		return
+
+	_getAudio: (id, mode) ->
+		$("#audio-#{id}-#{mode}")
 
 	turnOnAmbientSound: () ->
 		src = "../ext/sounds/ambient.mp3"
