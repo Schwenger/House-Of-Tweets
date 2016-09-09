@@ -1,4 +1,3 @@
-#= require <global.coffee>
 #= require <util.coffee>
 
 Stomp = require('../ext/node_modules/stompjs')

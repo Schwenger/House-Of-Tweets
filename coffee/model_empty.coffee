@@ -1,5 +1,5 @@
-#= require <global.coffee>
 #= require <util.coffee>
+#= require <global.coffee>
 
 class Model
 

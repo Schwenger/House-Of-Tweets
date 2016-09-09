@@ -1,4 +1,3 @@
-#= require <global.coffee>
 #= require <util.coffee>
 
 Screensaver = 

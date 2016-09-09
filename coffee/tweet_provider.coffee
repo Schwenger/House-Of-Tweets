@@ -1,6 +1,7 @@
-#= require <global.coffee>
-#= require <connector.coffee>
 #= require <model.coffee>
+#= require <global.coffee>
+#= require <voices_lists.coffee>
+#= require <connector.coffee>
 
 class TweetProvider
 

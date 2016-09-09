@@ -1,13 +1,10 @@
 #= require <display.coffee>
-#= require <global.coffee>
-#= require <util.coffee>
+#= require <sound_controller.coffee>
+#= require <screensaver.coffee>
 #= require <voices_lists.coffee>
 #= require <tweet_controller.coffee>
-#= require <tweet_provider.coffee>
-#= require <citizen_user.coffee>
 #= require <language_controller.coffee>
-#= require <screensaver.coffee>
-#= require <sound_controller.coffee>
+#= require <citizen_user.coffee>
 
 called = "You should never forget quotation marks."
 here = "You should never forget quotation marks."

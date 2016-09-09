@@ -1,4 +1,5 @@
 #= require <global.coffee>
+
 SoundCtrl = 
 	turnOnSound: (incomingTweetIds) ->
 		for id in incomingTweetIds

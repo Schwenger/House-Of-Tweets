@@ -1,7 +1,8 @@
+#= require <model.coffee>
+#= require <sound_controller.coffee>
 #= require <global.coffee>
 #= require <util.coffee>
-#= require <sound_controller.coffee>
-#= require <display.coffee>
+#= require <tweet_provider.coffee>
 
 TweetController =
 	_tLists: {

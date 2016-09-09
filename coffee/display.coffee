@@ -1,6 +1,7 @@
-#= require <global.coffee>
-#= require <util.coffee>
 #= require <model.coffee>
+#= require <citizen_user.coffee>
+#= require <tweet_controller.coffee>
+#= require <voices_lists.coffee>
 
 Display =
 

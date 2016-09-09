@@ -1,7 +1,6 @@
-#=require <connector.coffee>
-#=require <model.coffee>
-#=require <util.coffee>
-#=require <global.coffee>
+#= require <model.coffee>
+#= require <connector.coffee>
+#= require <util.coffee>
 
 CitizenUser = 
 
