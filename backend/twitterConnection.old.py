@@ -1,14 +1,14 @@
-from tweepy.streaming import StreamListener
-from tweepy import OAuthHandler
-from tweepy import Stream
-import tweepy
 import json
 import threading
 import time
 from soundGenerator import SoundGenerator
+from twitter import TwitterInterface, TweetConsumer
+
+# Seconds
+REMOVE_CITIZEN_TIME = 5 * 60
 
 
-class TwitterListener(StreamListener):
+class TwitterListener(TweetConsumer):
 	def __init__(self, sendingQueue, tw, politicianBackend, birdBack):
 		super().__init__()
 		self.birdsList = birdBack.getAllBirds()
@@ -73,7 +73,7 @@ class TwitterListener(StreamListener):
 			print("did not found the hashtag")
 			return None
 		
-
+	# FIXME: Should be 'consumeTweet' now
 	def on_data(self, status):
 		print("Receives Tweet\n" + status)
 		status = json.loads(status)
@@ -90,7 +90,7 @@ class TwitterListener(StreamListener):
 		
 		uid = status["user"]["id"]
 		print("Is poli" + str(self.tw.isPoli(uid)) + " " + str(uid) + " ")
-		print("Is citizen: " + str(self.tw.isCitizen(uid)))
+		print("Is citizen: " + str(self.tw.getCitizen(uid)))
 		if  not self.tw.isPoli(uid) and not self.tw.isCitizen(uid):
 			return 
 			
@@ -160,105 +160,60 @@ class TwitterListener(StreamListener):
 		gen = SoundGenerator()
 		(pPath, cPath, pdur, cdur) = gen.makeSounds(tweetId, content, isRetweet, cBird, pBird)
 
-		tweet = self.createTestTweet(status["user"]["name"], status["user"]["screen_name"], self.tw.isPoli(status["user"]["id"]), content, status["timestamp_ms"] ,tweetId, color, status["user"]["profile_image_url_https"], cPath, pPath, isRetweet, refresh, pdur, cdur)
+		tweet = self.createTestTweet(status["user"]["name"], status["user"]["screen_name"], self.tw.isPoli(status["user"]["id"]), content, status["timestamp_ms"] ,tweetId, color, status["user"]["profile_image_url_https"], cPath, pPath, isRetweet, refresh, pdur, cdur) 
 
 		self.sendingQueue.addTweet(tweet)
 		
 
-class TwitterConnection:
-	def __init__(self, queue, followListPolitician, polBack, birdBack):
+class TwitterConnection(object):
+	def __init__(self, queue, followListPolitician, polBack, birdBack, twitter: TwitterInterface):
 		self.birdBack = birdBack
 		self.polBack = polBack
-		self.citizens = []
+		self.citizens = dict()
 		self.poList = followListPolitician
 		self.queue = queue
 		self.lock = threading.RLock()
-		
-		l = TwitterListener(self.queue, self, self.polBack, self.birdBack)
-		self.auth = CENSORED
-		self.auth.set_access_token(CENSORED)
-		self.api = tweepy.API(self.auth)
-		self.stream = Stream(self.auth, l)
-		self.stream.filter(follow = followListPolitician, async=True)
-		self.timer = threading.Timer(5*60, self.cleanCitizens)
-		self.timer.start()
+		self.twitter = twitter
+		self.listener = TwitterListener(self.queue, self, self.polBack, self.birdBack)
+		self.twitter.register(followListPolitician, self.listener)
 
-	def getTwitterId(self, name):
-		return str(self.api.get_user(name).id)
-		
 	def getCitizen(self, cid):
-		res = None
 		with self.lock:
-			for c in self.citizens:
-				if c["userId"] == str(cid):
-					res = c
-					break
+			res = self.citizens.get(str(cid))
 		return res
 
 	def addCitizen(self, twittername, birdid):
-		entry = {}
-		try:
-			tid = self.api.get_user(twittername).id
-		except Exception as e:
-			print(e)
+		tid = self.twitter.resolve_name(twittername)
+		if tid is None:
+			print("no such user: " + twittername)
 			return
+		# Need the lock due to __removeCitizen
+		if self.getCitizen(tid) is not None or self.isPoli(tid):
+			print("already added: " + twittername)
+			return
+
+		entry = dict()
 		entry["userId"] = str(tid)
 		entry["birdId"] = birdid
 		entry["startingTime"] = time.time()
 		
-		print("added user " + str(entry))
-		
+		print("add citizen " + str(entry))
+
 		with self.lock:
-			# FIXME What was this condition, and what did it do?
-			# if entry not in self.citizens:
-			self.citizens.append(entry)
-			self.rebuildStream()
-			
+			if str(tid) in self.citizens:
+				print("Don't call addCitizen from multiple threads, dude!")
+			else:
+				self.citizens[str(tid)] = entry
+				self.twitter.register([twittername], self.listener)
+				threading.Timer(REMOVE_CITIZEN_TIME,
+								self.__remove_citizen, tid).start()
+
+	def __remove_citizen(self, tid):
+		with self.lock:
+			del self.citizens[str(tid)]
+
 	def isPoli(self, uid):
 		tmp = False
 		with self.lock:
 			tmp = str(uid) in self.poList
 		return tmp
-		
-	def isCitizen(self, uid):
-		tmp = False
-		with self.lock:
-			for e in self.citizens:
-				if e["userId"] == str(uid):
-					tmp = True
-					break
-		return tmp
-			
-	def cleanCitizens(self):
-		delta = 5*60
-		now = time.time()
-		toDelete = []
-		re = False
-		with self.lock:
-			for i in range(0, len(self.citizens)):
-				e = self.citizens[i]
-				print(str(e["startingTime"] + delta) + "<" + str(now))
-				if e["startingTime"] + delta < now:
-					toDelete.append(i)
-			print("delete " + str(len(toDelete)))  
-			if len(toDelete) > 0:
-				re = True
-				for i in toDelete:
-					del self.citizens[i]
-				
-		if re == True:		
-			self.rebuildStream()
-		self.timer = threading.Timer(5*60, self.cleanCitizens)
-		self.timer.start()
-
-	def rebuildStream(self):
-		self.stream.disconnect()
-		
-		with self.lock:
-			fo= list(self.poList)
-			
-			for e in self.citizens:
-				fo.append(e["userId"])
-				
-			self.stream = Stream(self.auth, TwitterListener(self.queue, self, self.polBack, self.birdBack))
-			self.stream.filter(follow = fo, async=True)
