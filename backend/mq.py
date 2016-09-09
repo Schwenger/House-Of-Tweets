@@ -27,10 +27,14 @@ class RealQueue(SendQueueInterface):
 class PrintQueue(SendQueueInterface):
     def __init__(self, name):
         self.name = name
+        # Technically, reading (and asserting against) this property
+        # is always a data race.  Practically, fuck you.
+        self.received = 0
 
     def post(self, message):
         print('Would send this to MQ {name}: {data!r}'
               .format(name=self.name, data=message))
+        self.received += 1
 
     @staticmethod
     def new(name):
