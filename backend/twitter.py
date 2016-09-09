@@ -42,6 +42,7 @@ def parse_tweet(status):
         report['userscreen'] = status["user"]["screen_name"]
         report['time'] = status["timestamp_ms"]
         report['profile_img'] = status["user"]["profile_image_url_https"]
+        report['retweet'] = status["is_quote_status"]
         return report
     except KeyError:
         return None
@@ -78,7 +79,11 @@ class StreamListenerAdapter(StreamListener):
         if self.raw_data is None:
             print("ERROR: on_status called without going through on_data?!")
             return
-        self.on_tweet(parse_tweet(json.loads(self.raw_data)))
+        tweet = parse_tweet(json.loads(self.raw_data))
+        if tweet is not None:
+            self.on_tweet(tweet)
+        else:
+            print("{}: on_tweet BROKEN! (skip)".format(self.desc))
 
     def on_exception(self, exception):
         print("{} on_exception {!r}".format(self.desc, exception))
