@@ -184,8 +184,8 @@ class FakeTwitterInterface(TwitterInterface):
         # You only ever need to resolve a name when you're *about to* add a citizen,
         # so you can easily avoid that in test situations.
 
-# Only test for RealTwitterInterface.deregister
-if __name__ == '__main__':
+
+def manual_test_incoming():
     from time import sleep
     print("Reading from Twitter in stand-alone mode.")
     twi = RealTwitterInterface()
@@ -199,3 +199,8 @@ if __name__ == '__main__':
     print("Sleep over.  Unsubscribing Ben's throwaway account.")
     twi.deregister(["774336282101178368"])
     print("Kill with Ctrl-C")
+
+
+# Only test for RealTwitterInterface.deregister
+if __name__ == '__main__':
+    manual_test_incoming()
