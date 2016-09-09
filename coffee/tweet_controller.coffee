@@ -98,19 +98,19 @@ TweetController =
 
 	consume: (incomingTweets) ->
 		if Display.state isnt "center" and Global.stallTweets
-			@_stalled push incomingTweets
+			TweetController._stalled push incomingTweets
 		else 
 			for tweet in incomingTweets
 				# archive
 				tweet.time = new Date(parseInt tweet.time) 
 				TweetController._addToArchive(tweet)
 				# handle #houseoftweets
-				@_updatePoliBird(tweet.refresh) if tweet.refresh?
+				TweetController._updatePoliBird(tweet.refresh) if tweet.refresh?
 				# prepare for displaying
-				transformed = @_transform(tweet)
-				@_tLists.mixed.push transformed # unless tweet.byPoli and Global.poliTweetsOnly
-				@_tLists.poli.push transformed if tweet.byPoli
-			@_updateShownTweets(incomingTweets)
+				transformed = TweetController._transform(tweet)
+				TweetController._tLists.mixed.push transformed # unless tweet.byPoli and Global.poliTweetsOnly
+				TweetController._tLists.poli.push transformed if tweet.byPoli
+			TweetController._updateShownTweets(incomingTweets)
 
 	_updatePoliBird: (info) ->
 		pid = info.politicianId
