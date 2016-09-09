@@ -9578,24 +9578,24 @@
 			"citizen_bird": "gartengrasmuecke",
 			"images": null
 		},
-		"group_greengr\u00fcn": {
-			"self_bird": "weisskopfseeadler",
-			"name": "Group Green",
-			"twittering": {
-				"twitterId": "4718199753",
-				"twitterUserName": "GroupGreenHoT"
-			},
+		"hot": {
 			"party": "Gr\u00fcn",
-			"cv": {
-				"en": "Group Green is a German politician. He is a member of the Gr\u00fcn.",
-				"de": "Das sind wir",
-				"fr": "Group Green est un politicien allemand. Il est un membre de la partie Gr\u00fcn."
+			"twittering": {
+				"twitterUserName": "HouseOfTweetsSB",
+				"twitterId": "4718199753"
 			},
-			"citizen_bird": "weisskopfseeadler",
+			"cv": {
+				"en": "HoT is an ordinary German politician. He is a member of the Gr\u00fcn.",
+				"de": "Das sind wir",
+				"fr": "HoT est un ordinary (yes, this is french, go on) politicien allemand. Il est un membre de la partie Gr\u00fcn."
+			},
+			"name": "House Of Tweets",
 			"images": {
-				"pathToThumb": "group_greengr\u00fcn.jpg",
-				"pathToImage": "tgroup_greengr\u00fcn.jpg"
-			}
+				"pathToImage": "tgroup_greengr\u00fcn.jpg",
+				"pathToThumb": "group_greengr\u00fcn.jpg"
+			},
+			"self_bird": "amsel",
+			"citizen_bird": "weisskopfseeadler"
 		},
 		"384": {
 			"self_bird": "gartenbaumlaeufer",

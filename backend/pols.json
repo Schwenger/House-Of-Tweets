@@ -1990,18 +1990,18 @@
     "self_bird": "ringeltaube",
     "citizen_bird": "tuerkentaube"
   },
-  "group_greengr\u00fcn": {
+  "hot": {
     "party": "Gr\u00fcn",
     "twittering": {
-      "twitterUserName": "GroupGreenHoT",
+      "twitterUserName": "HouseOfTweetsSB",
       "twitterId": "4718199753"
     },
     "cv": {
-      "en": "Group Green is a German politician. He is a member of the Gr\u00fcn.",
+      "en": "HoT is an ordinary German politician. He is a member of the Gr\u00fcn.",
       "de": "Das sind wir",
-      "fr": "Group Green est un politicien allemand. Il est un membre de la partie Gr\u00fcn."
+      "fr": "HoT est un ordinary (yes, this is french, go on) politicien allemand. Il est un membre de la partie Gr\u00fcn."
     },
-    "name": "Group Green",
+    "name": "House Of Tweets",
     "images": {
       "pathToImage": "tgroup_greengr\u00fcn.jpg",
       "pathToThumb": "group_greengr\u00fcn.jpg"
