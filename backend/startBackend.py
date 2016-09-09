@@ -3,7 +3,6 @@ from twitterConnection import TwitterConnection
 from tweepy.auth import OAuthHandler
 from politicianBackend import PoliticianBackend
 from citizenQueueAdapter import CitizenQueueAdapter
-from persistQueueAdapter import PersistQueueAdapter
 from birdBackend import BirdBackend
 from citizenBirdQueueAdapter import CitizenBirdQueueAdapter
 
@@ -12,27 +11,17 @@ polBack = PoliticianBackend()
 #follow = ["4718199753"]#["29033470"]
 follow = []
 follow.extend(polBack.getAllTwitteringPoliticians())
-
-
-
-
 #print(follow)
-
 
 
 queue = SendingQueueForTweets()
 
 twi = TwitterConnection(queue, follow, polBack, birdBack)
 
-
 c = CitizenQueueAdapter(twi)
 c.start()
 
-pqa = PersistQueueAdapter(polBack, twi)
-pqa.start()
-
 cbq = CitizenBirdQueueAdapter(polBack)
 cbq.start()
-print("heeere")
 
-
+print('Backend started ("heeere")')
