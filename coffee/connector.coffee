@@ -16,7 +16,7 @@ class Connector
 		passcode: "guest"
 
 	constructor: (qname, callback) ->
-		console.log "*** Opening connection to >>> #{qname}"
+		console.log "Opening connection to #{qname}" + (if callback? then "; Subscribing..." else ".")
 
 		addr = "#{Connector.config.url}:#{Connector.config.port}"
 
@@ -35,9 +35,7 @@ class Connector
 	
 	@_subscribe: (client, callback, qname) ->
 		->
-			console.log "Connected to #{qname};" + (if callback? then " Subscribing..." else "")
 			client.subscribe qname, Connector._consumeWrapper(callback, qname) if callback?
-
 
 	@_consumeWrapper: (consume, qname) ->
 		(msg) ->
