@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
+
 from sendingQueueForTweets import SendingQueueForTweets
 from twitterConnection import TwitterConnection
-from tweepy.auth import OAuthHandler
 from politicianBackend import PoliticianBackend
 from citizenQueueAdapter import CitizenQueueAdapter
 from birdBackend import BirdBackend

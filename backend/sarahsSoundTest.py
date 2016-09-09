@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from soundGenerator import SoundGenerator
 
 tweetId = 1
