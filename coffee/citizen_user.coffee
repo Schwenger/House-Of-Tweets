@@ -12,7 +12,7 @@ CitizenUser =
 
 	init: ->
 		# attach handler to save button
-		@citizenBirdMQ = new Connector(Connector.citizenUserQueue, undefined)
+		@_citizenBirdMQ = new Connector(Connector.config.citizenUserQueue, undefined)
 		@_vivifyCitizenBirdsList()
 		$('#submit-citizen-bird').click(@_submitCitizenBird)
 		@_dropdownTrigger = $('#bird-dropdown-button')
@@ -37,6 +37,10 @@ CitizenUser =
 			list.append(optionObject)
 			optionObject.click(() -> CitizenUser._selectCitizenBird(id))
 		@_resetDropdownTrigger()
+
+	_leave: () ->
+		@leavePage()
+		$("carousel-control-prev").click()
 
 	_resetDropdownTrigger: ->
 		for own id, bird of Model.birds
@@ -68,8 +72,8 @@ CitizenUser =
 	_submitCitizenBird: (event) ->
 		event.preventDefault()
 		username = $('#citizen-user-name-input').val()
-		data = {twittername: username, birdid: @_citizenBirdSelection}
-		@_citizenBirdMQ.sendToQueue(data)
-		@_resetCitizenBird()
+		data = {twittername: username, birdid: CitizenUser._citizenBirdSelection}
+		CitizenUser._citizenBirdMQ.sendToQueue(data)
+		CitizenUser._leave()
 		$("#carousel-control-prev").click()
 

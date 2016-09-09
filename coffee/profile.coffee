@@ -10,7 +10,7 @@ Profiles =
 
 	init: (createBirdList) ->
 		@createBirdList = createBirdList
-		@voicesMQ = new Connector(Connector.citizenBirdQueue, undefined)
+		@voicesMQ = new Connector(Connector.config.citizenBirdQueue, undefined)
 		$("#profile-back-button-politician").click @close
 		$("#profile-back-button-bird").click @close
 

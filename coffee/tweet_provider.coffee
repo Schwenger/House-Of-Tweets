@@ -5,7 +5,7 @@
 class TweetProvider
 
 	constructor: (@callback) ->
-		new Connector(Connector.tweetsQueue, @consume)
+		new Connector(Connector.config.tweetsQueue, @consume)
 
 	consume: (tweets) ->
 		console.log "New incoming tweet."

@@ -32,17 +32,17 @@ class Connector
 		@passcode = Connector.config.passcode
 
 		@client.debug = (str) -> $("#debug").append(str + "\n");
-		@client.connect @name, @passcode, Connector._subscribe(@client, @callback, @name), Connector._on_error(@name), '/'
+		@client.connect @uname, @passcode, Connector._subscribe(@client, @callback, @name), Connector._on_error(@name), '/'
 	
-	@_subscribe: (client, callback, name) ->
+	@_subscribe: (client, callback, qname) ->
 		->
-			console.log "Connected to #{MQ.name};" + (if callback? then " Subscribing..." else "")
-			client.subscribe name, Connector._consumeWrapper(callback, name) if callback?
+			console.log "Connected to #{qname};" + (if callback? then " Subscribing..." else "")
+			client.subscribe qname, Connector._consumeWrapper(callback, qname) if callback?
 
 
-	@_consumeWrapper: (consume, code) ->
+	@_consumeWrapper: (consume, qname) ->
 		(msg) ->
-			console.log "Received data from #{code}. Processing..."
+			console.log "Received data from #{qname}. Processing..."
 			console.log Connector._extractContent msg
 			consume(Connector._extractContent msg)
 
@@ -60,5 +60,4 @@ class Connector
 
 	sendToQueue: (data) ->
 		console.log "Sending data to " + @name
-		console.log data
 		@client.send(@name, {}, Util.obj2str(data))
