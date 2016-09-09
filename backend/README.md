@@ -20,8 +20,12 @@ See attached file `dataflow.png`:
     - `politicianId`: string, only present if 'byPoli' is true, HoT-defined ID, e.g. `"hot"` or `"384"`
     - `birdId`: string, the newly assigned bird, e.g. `"amsel"` (always a valid key in birds.json)
 - `retweet`: boolean, e.g. `true`
-- `soundc`: string, valid path to the bird, chosen by the citizen, e.g. `"/home/eispin/workspace/House-Of-Tweets/ext/sounds/amsel-aufgebracht.mp3"`
-- `soundp`: same, but chosen by politician.  If not a politician, `null`.
+- `sound`: JSON object
+    - `duration`: integer, length, in milliseconds, of the sounds
+    - `citizen`: JSON object, describing the bird chosen by the citizen
+        - `natural`: string, valid path to the bird's natural sound, e.g. `"/home/eispin/workspace/House-Of-Tweets/ext/sounds/processed/774316458742583296r-c_n.mp3"`
+        - `synth`: string, valid path to the bird's "synthesized" sound or "artistic interpretation", e.g. `"/home/eispin/workspace/House-Of-Tweets/ext/sounds/processed/774316458742583296r-c_s.mp3"`
+    - `poli`: same, but chosen by the politician.  If not a politician, `null`.
 - `time`: string, containing unix timestamp (seconds since 1970-01-01), e.g. `"1453840647"`
 - `twitterName`: string, twitter-handle without '@' char, e.g. `"pes04"`
 
