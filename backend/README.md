@@ -21,7 +21,7 @@ See attached file `dataflow.png`:
     - `birdId`: string, the newly assigned bird, e.g. `"amsel"` (always a valid key in birds.json)
 - `retweet`: boolean, e.g. `true`
 - `soundc`: string, valid path to the bird, chosen by the citizen, e.g. `"/home/eispin/workspace/House-Of-Tweets/ext/sounds/amsel-aufgebracht.mp3"`
-- `soundp`: same, but chosen by politician
+- `soundp`: same, but chosen by politician.  If not a politician, `null`.
 - `time`: string, containing unix timestamp (seconds since 1970-01-01), e.g. `"1453840647"`
 - `twitterName`: string, twitter-handle without '@' char, e.g. `"pes04"`
 
