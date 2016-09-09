@@ -139,6 +139,30 @@ class RealTwitterInterface(TwitterInterface):
             del self.streams[tuple(usernames)]
             s.disconnect()
 
+
+class FakeTwitterInterface(TwitterInterface):
+    def __init__(self):
+        self.consumers = dict()
+        self.lock = threading.RLock()
+
+    def send(self, fake_tweet: dict):
+        with self.lock:
+            for (users, consumer) in self.consumers:
+                if fake_tweet['uid'] in users:
+                    consumer.consumeTweet(fake_tweet)
+
+    def register(self, usernames, consumer: TweetConsumer) -> object:
+        with self.lock:
+            self.consumers[tuple(usernames)] = consumer
+
+    def deregister(self, usernames: List[str]):
+        with self.lock:
+            if tuple(usernames) not in self.consumers:
+                print("Tried to remove nonexistent usernames entry {}".format(usernames))
+                return
+            del self.consumers[tuple(usernames)]
+
+
 # Only test for RealTwitterInterface.deregister
 if __name__ == '__main__':
     from time import sleep
