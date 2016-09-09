@@ -1,5 +1,6 @@
-import pika
 import json
+import pika
+import threading
 
 
 class SendQueueInterface(object):
@@ -39,3 +40,28 @@ class PrintQueue(SendQueueInterface):
     @staticmethod
     def new(name):
         return PrintQueue(name)
+
+
+BATCH_TIMEOUT = 5
+
+
+class Batcher:
+    def __init__(self, queue: SendQueueInterface):
+        self.tweets = []
+        self.connection = queue
+        self.timer = None
+        self.lock = threading.RLock()
+
+    def add(self, msg):
+        with self.lock:
+            self.tweets.append(msg)
+            if self.timer is None:
+                self.timer = \
+                    threading.Timer(BATCH_TIMEOUT, self.__send)
+                self.timer.start()
+
+    def __send(self):
+        with self.lock:
+            toSend = self.tweets
+            self.tweets = []
+        self.connection.post(toSend)
