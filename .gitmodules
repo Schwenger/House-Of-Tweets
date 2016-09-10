@@ -1,3 +1,6 @@
 [submodule ".heavy"]
 	path = .heavy
 	url = https://github.com/BenWiederhake/hot_heavy.git
+[submodule ".secrets"]
+	path = .secrets
+	url = ssh://gitolite3@wiederhake.privatedns.org:1374/hot_secrets.git
