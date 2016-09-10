@@ -10,6 +10,7 @@ import soundGenerator
 
 all_tests = []
 MANUAL_TESTS = False
+REAL_TWITTER_TESTS = False
 
 
 def test_mq():
@@ -84,6 +85,9 @@ all_tests.append(test_parse_tweet)
 
 
 def test_name_resolution():
+    if not REAL_TWITTER_TESTS:
+        print("[SKIP] Not allowed to contact real Twitter")
+        return
     ids = {'HouseOfTweetsSB': '4718199753',
            '@HouseOfTweetsSB': '4718199753',
            '@MissesVlog': '50712079',
@@ -316,4 +320,15 @@ def test_all():
 
 
 if __name__ == '__main__':
+    line = "=" * 80
+    import os.path
+    if os.path.isfile('credentials.py'):
+        print(line + "\nUSING REAL TWITTER API!\n" + line)
+        REAL_TWITTER_TESTS = True
+    else:
+        print(line + "\nNo credentials.py found!  Won't connect to Twitter.")
+        if not MANUAL_TESTS:
+            print("Enabling MANUAL_TESTS, to check RabbitMQ connectivity")
+        print(line)
+
     test_all()
