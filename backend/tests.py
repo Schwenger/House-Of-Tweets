@@ -171,8 +171,6 @@ all_tests.append(test_soundfile_guesser)
 
 
 def test_twitter_citizenship():
-    # FIXME Need to check messages by hand.
-    # FIXME Buffer messages in PrintQueue so we can assert on them?
     politicianBackend.check_writeback()
     politicianBackend.set_skip_writeback(True)
     politicianBackend.check_writeback()
@@ -180,7 +178,6 @@ def test_twitter_citizenship():
     polBack = politicianBackend.PoliticianBackend()
     follow = ["4718199753", "774336282101178368"]
     queue = mq.PrintQueue("twitter_conn_test")
-    print("[INFO] Setting up and testing citizenship …")
     fakeTwitter = twitter.FakeTwitterInterface()
     twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack, fakeTwitter)
     queue.expect([])
