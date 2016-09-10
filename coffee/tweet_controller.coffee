@@ -12,7 +12,7 @@ TweetController =
 
 	_archive: []
 	_archiveThreshold: 10000
-	_timeTravel: -1
+	_timeTravelId: -1
 	_timeTravelRoot: $('#time-travel-container')
 	_batch:
 		duration: 10 * 1000
@@ -73,8 +73,8 @@ TweetController =
 		diff = timeSpan * 60 * 60 * 1000
 		@_archive.reduce (sum, obj) -> sum + (nowTime - obj.time < diff)
 		agenda = _createBatches(@archive[..qualifying])
-		id = @_timeTravel + 1
-		@_timeTravel = id
+		id = @_timeTravelId + 1
+		@_timeTravelId = id
 		@_startPlaybackHandler(id, agenda)
 
 	_createBatches: (list) ->
@@ -85,7 +85,7 @@ TweetController =
 			list[lb ... ub])
 
 	_startPlaybackHandler: (id, agenda) ->
-		return if agenda.length is 0 or @_timeTravel != id
+		return if agenda.length is 0 or @_timeTravelId != id
 		[upcoming..., current] = agenda
 		for tweet in current
 			archiveRoot.append(tweet.obj)
@@ -190,11 +190,13 @@ TweetController =
 		tweetElement.append(tweetContent)
 
 		audioElems = [
-			$("<audio id='audio-#{tweet.id}-PB' src='#{tweet.soundp[0]}' hotlength='#{tweet.soundp[2]}'>") if tweet.soundp?,
-			$("<audio id='audio-#{tweet.id}-PM' src='#{tweet.soundp[1]}' hotlength='#{tweet.soundp[2]}'>") if tweet.soundp?,
-			$("<audio id='audio-#{tweet.id}-CB' src='#{tweet.soundc[0]}' hotlength='#{tweet.soundc[2]}'>"),
-			$("<audio id='audio-#{tweet.id}-CM' src='#{tweet.soundc[1]}' hotlength='#{tweet.soundc[2]}'>")
+			$("<audio id='audio-#{tweet.id}-PB' src='#{tweet.sound.poli.natural}'>") if tweet.sound.poli?,
+			$("<audio id='audio-#{tweet.id}-PM' src='#{tweet.sound.poli.synth}'>") if tweet.sound.poli?,
+			$("<audio id='audio-#{tweet.id}-CB' src='#{tweet.sound.citizen.natural}>"),
+			$("<audio id='audio-#{tweet.id}-CM' src='#{tweet.sound.citizen.synth}'>")
 		]
+
+		console.log audioElems
 
 		for audio in audioElems
 			tweetElement.append(audio)
@@ -204,7 +206,7 @@ TweetController =
 		mode = SoundCtrl.getMode()
 		tweetCompound = 
 			obj: tweetElement
-			play: () -> SoundCtrl.play(tweet.id, tweet.soundp[2], mode)
+			play: () -> SoundCtrl.play(tweet.id, tweet.sound.duration, mode)
 			stop: () -> SoundCtrl.stop(tweet.id, mode)
 			time: tweet.time
 

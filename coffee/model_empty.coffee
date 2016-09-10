@@ -12,10 +12,16 @@ class Model
 		time: Util.time(), 
 		# hashtags: ["HouseOfTweets"], 
 		image: "../ext/images/politicians/group_greengrün.jpg",
+		sound:
+			duration: 5000
+			poli:
+				natural: "../.heavy/sounds/amsel-neutral.mp3"
+				synth: "../.heavy/sounds/amsel-neutral.mp3"
+			citizen:
+				natural: "../.heavy/sounds/amsel-neutral.mp3"
+				synth: "../.heavy/sounds/amsel-neutral.mp3"
 		birdp: "amsel",
 		birdc: "ara",
-		soundp: "../ext/sounds/amsel-neutral.mp3", 
-		soundc: "../ext/sounds/ara-neutral.mp3", 
 		id: 0,
 		partycolor: "green",
 		byPoli: true,
@@ -29,8 +35,14 @@ class Model
 		image: "../ext/images/politicians/group_greengrün.jpg",
 		birdp: "amsel",
 		birdc: "ara",
-		soundp: "../ext/sounds/amsel-neutral.mp3", 
-		soundc: "../ext/sounds/ara-neutral.mp3", 
+		sound:
+			duration: 5000
+			poli:
+				natural: "../.heavy/sounds/amsel-neutral.mp3"
+				synth: "../.heavy/sounds/amsel-neutral.mp3"
+			citizen:
+				natural: "../.heavy/sounds/amsel-neutral.mp3"
+				synth: "../.heavy/sounds/amsel-neutral.mp3"
 		id: 2,
 		partycolor: "green",
 		byPoli: true,
@@ -44,9 +56,14 @@ class Model
 		image: "../ext/images/politicians/group_greengrün.jpg",
 		birdp: "amsel",
 		birdc: "ara",
-		soundp: "../ext/sounds/amsel-neutral.mp3", 
-		soundc: "../ext/sounds/ara-neutral.mp3", 
-		id: 3,
+		sound:
+			duration: 5000
+			poli:
+				natural: "../.heavy/sounds/amsel-neutral.mp3"
+				synth: "../.heavy/sounds/amsel-neutral.mp3"
+			citizen:
+				natural: "../.heavy/sounds/amsel-neutral.mp3"
+				synth: "../.heavy/sounds/amsel-neutral.mp3"
 		partycolor: "green",
 		byPoli: true,
 		twitterName: "groupgreen"
