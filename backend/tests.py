@@ -22,7 +22,7 @@ def test_mq():
     print("Testing mq.PrintQueue:")
     run_with(mq.PrintQueue.new)
     if MANUAL_TESTS:
-        print("Testing mq.RealQueue. MANUAL: http://localhost:15672/#/queues/%2F/test_mq")
+        print("[MANU] Testing mq.RealQueue. Check http://localhost:15672/#/queues/%2F/test_mq")
         run_with(mq.RealQueue.new)
     else:
         print("SKIP RealQueue access")
@@ -146,6 +146,28 @@ def test_bird_recognition():
         assert expected == actual, (input, expected, actual)
 
 all_tests.append(test_bird_recognition)
+
+
+guess_counter = 0
+
+
+def guess_sound():
+    import os, soundGenerator
+    global guess_counter
+    guess_root = os.path.abspath(os.path.abspath(os.path.join(os.curdir, os.pardir)))
+    s = "{root}/ext/sounds/processed/{time}_{id}.mp3" \
+        .format(root=guess_root, time=soundGenerator.STARTUP, id=guess_counter)
+    guess_counter += 1
+    return s
+
+
+def test_soundfile_guesser():
+    global guess_counter
+    # Ignore MANUAL_TESTS since we don't have side-effects anyway
+    print("[MANU] Does this sound like a valid path to you?\n{}".format(guess_sound()))
+    guess_counter = 0
+
+all_tests.append(test_soundfile_guesser)
 
 
 def test_twitter_listener():

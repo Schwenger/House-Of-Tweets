@@ -143,7 +143,8 @@ class SoundGenerator:
 			sound = sound[:(middle + math.floor(finDuration/2))]
 			sound = sound[-math.floor(finDuration):]
 		sound = sound.fade_in(2000).fade_out(2000)
-		path = self.soundDir + os.path.sep + "processed/" + STARTUP + "_" + str(processed_tweets) + "_" + group + ".mp3"
+		global processed_tweets
+		path = self.soundDir + os.path.sep + "processed/" + STARTUP + "_" + str(processed_tweets) + ".mp3"
 		processed_tweets += 1
 		sound.export(path, format="mp3")
 		return (path, finDuration)
