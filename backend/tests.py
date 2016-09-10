@@ -233,6 +233,49 @@ def test_sound_gen():
 all_tests.append(test_sound_gen)
 
 
+def test_twitter_listener():
+    politicianBackend.check_writeback()
+    politicianBackend.set_skip_writeback(True)
+    politicianBackend.check_writeback()
+    birdBack = birdBackend.BirdBackend()
+    polBack = politicianBackend.PoliticianBackend()
+    follow = ["4718199753", "774336282101178368"]
+    queue = mq.PrintQueue("twitter_lis_test")
+    print("[INFO] Preparing for integration test …")
+
+    fakeTwitter = twitter.FakeTwitterInterface()
+    twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack, fakeTwitter)
+    queue.expect([])
+    twi.addCitizen("Heinz1", "ara", tid="987654")
+    assert twi.citizens.keys() == {'987654'}
+
+    print("[INFO] Testing reactions to various tweets …")
+
+    fakeTwitter.send({'content': 'content1',
+                      'profile_img': 'img_url',
+                      'userscreen': 'userscreen',
+                      'hashtags': ['NiceExample', 'TotallyRealistic'],
+                      'username': 'HouseOfTweets',
+                      'time': '1473446404525',
+                      'uid': 4718199753,
+                      'retweet': False})
+    queue.expect([{'byPoli': True, 'content': 'content1',
+                   'hashtags': ['NiceExample', 'TotallyRealistic'],
+                   'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#00cc00',
+                   # No 'refresh'
+                   'retweet': False, 'sound':
+                       (guess_sound(), guess_sound(), 6000, 6000),  # FIXME
+                   # {
+                   #   'duration': 2000,
+                   #   'citizen': {'natural': guess_sound()},
+                   #   FIXME
+                   # },
+                   'time': '1473446404525', 'twitterName': 'HouseOfTweets'
+                   }])
+
+all_tests.append(test_twitter_listener)
+
+
 def test_all():
     # This might show weird behavior if you modify MANUAL_TESTS by hand
     print('[TEST] -- Running all tests (MANUAL_TESTS={}) --'.
