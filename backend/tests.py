@@ -33,8 +33,8 @@ def test_batching_x(n, batch):
     batcher = mq.Batcher(conn)
     # argument should be a tweet, but who cares
     for i in range(n):
-        batcher.add("Should be batch {batch}, message {i}/{n}"
-                    .format(batch=batch, i=i, n=n))
+        batcher.post("Should be batch {batch}, message {i}/{n}"
+                     .format(batch=batch, i=i, n=n))
     time.sleep(mq.BATCH_TIMEOUT / 2.0)
     assert conn.received == 0
     time.sleep(mq.BATCH_TIMEOUT)

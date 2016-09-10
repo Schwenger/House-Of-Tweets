@@ -45,14 +45,14 @@ class PrintQueue(SendQueueInterface):
 BATCH_TIMEOUT = 5
 
 
-class Batcher:
+class Batcher(SendQueueInterface):
     def __init__(self, queue: SendQueueInterface):
         self.tweets = []
         self.connection = queue
         self.timer = None
         self.lock = threading.RLock()
 
-    def add(self, msg):
+    def post(self, msg):
         with self.lock:
             self.tweets.append(msg)
             if self.timer is None:

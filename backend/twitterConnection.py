@@ -59,7 +59,7 @@ def find_bird(content, birdBack):
 
 
 class TwitterListener(TweetConsumer):
-	def __init__(self, sendingQueue: mq.Batcher, tw, politicianBackend, birdBack):
+	def __init__(self, sendingQueue: mq.SendQueueInterface, tw, politicianBackend, birdBack):
 		super().__init__()
 		self.birdBack = birdBack
 		self.sendingQueue = sendingQueue
@@ -101,7 +101,7 @@ class TwitterListener(TweetConsumer):
 		msg['sound'] = generate_sound(tweet['content'], tweet['retweet'], birds)
 
 		# Send it
-		self.sendingQueue.add(msg)
+		self.sendingQueue.post(msg)
 		print("Done with this tweet, DONE.")
 
 	# For consistency.
@@ -139,7 +139,8 @@ class TwitterListener(TweetConsumer):
 
 
 class TwitterConnection(object):
-	def __init__(self, queue, followListPolitician, polBack, birdBack, twitter: TwitterInterface):
+	def __init__(self, queue: mq.SendQueueInterface, followListPolitician,
+				 polBack, birdBack, twitter: TwitterInterface):
 		self.birdBack = birdBack
 		self.polBack = polBack
 		self.citizens = dict()

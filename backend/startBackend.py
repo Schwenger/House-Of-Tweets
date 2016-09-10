@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-from sendingQueueForTweets import SendingQueueForTweets
+import mq
+
 from twitterConnection import TwitterConnection
 from politicianBackend import PoliticianBackend
 from citizenQueueAdapter import CitizenQueueAdapter
@@ -15,7 +16,7 @@ follow.extend(polBack.getAllTwitteringPoliticians())
 #print(follow)
 
 
-queue = SendingQueueForTweets()
+queue = mq.Batcher(mq.RealQueue("tweets"))
 
 twi = TwitterConnection(queue, follow, polBack, birdBack)
 
