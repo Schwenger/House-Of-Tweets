@@ -153,8 +153,11 @@ class SoundGenerator:
 def generate_sound(content: str, retweet: bool, birds):
 	# Why is that even a class?  FIXME: dissolve 'SoundGenerator' into functions
 	sg = SoundGenerator()
-	cBird, pBird = (b.replace('ß','ss') if b is not None else None for b in birds)
-	return sg.makeSounds(STARTUP, content, retweet, cBird, pBird)
+	_, pBird = (b.replace('ß','ss') if b is not None else None for b in birds)
+	# return sg.makeSounds(STARTUP, content, retweet, cBird, pBird)
+	dummy = sg.getSoundPath('amsel', 'neutral', False)
+	bird = {'natural': dummy, 'synth': dummy}
+	return {'duration': 6000, 'citizen': bird, 'poli': bird if pBird is not None else None}
 """
 - `sound`: JSON object
     - `duration`: integer, length, in milliseconds, of the sounds

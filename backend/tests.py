@@ -6,6 +6,7 @@ import twitter
 import twitterConnection
 import birdBackend
 import politicianBackend
+import soundGenerator
 
 all_tests = []
 MANUAL_TESTS = False
@@ -148,24 +149,16 @@ def test_bird_recognition():
 all_tests.append(test_bird_recognition)
 
 
-guess_counter = 0
-
-
 def guess_sound():
-    import os, soundGenerator
-    global guess_counter
+    import os
     guess_root = os.path.abspath(os.path.abspath(os.path.join(os.curdir, os.pardir)))
-    s = "{root}/ext/sounds/processed/{time}_{id}.mp3" \
-        .format(root=guess_root, time=soundGenerator.STARTUP, id=guess_counter)
-    guess_counter += 1
+    s = "{}/ext/sounds/amsel-neutral.mp3".format(guess_root)
     return s
 
 
 def test_soundfile_guesser():
-    global guess_counter
     # Ignore MANUAL_TESTS since we don't have side-effects anyway
     print("[MANU] Does this sound like a valid path to you?\n{}".format(guess_sound()))
-    guess_counter = 0
 
 all_tests.append(test_soundfile_guesser)
 
@@ -214,19 +207,22 @@ def test_twitter_citizenship():
 
 all_tests.append(test_twitter_citizenship)
 
+dummy = soundGenerator.SoundGenerator().getSoundPath('amsel', 'neutral', False)
+bird = {'natural': dummy, 'synth': dummy}
+both_birds = {'duration': 6000, 'citizen': bird, 'poli': bird}
+one_bird = {'duration': 6000, 'citizen': bird, 'poli': None}
+
 
 def test_sound_gen():
     # Don't even attempt to prevent writing to disk.  Overwriting is perfectly
     # fine, as we don't overwrite anything important, and everything is in git.
-    import soundGenerator
-
     actual = soundGenerator.generate_sound('Heyaloha', True, ['ara', 'zilpzalp'])
-    expected = (guess_sound(), guess_sound(), 6000, 6000)
+    expected = both_birds
     assert actual == expected, (actual, expected)
 
     content = 'Ganz a doll langer aufgebrachter! Tweet!'
     actual = soundGenerator.generate_sound(content, False, ['wei\u00dfkopfseeadler', None])
-    expected = (None, guess_sound(), 0, 10000)
+    expected = one_bird
     assert actual == expected, (actual, expected)
     soundGenerator.processed_tweets = 0
 
@@ -264,7 +260,7 @@ def test_twitter_listener():
                    'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#00cc00',
                    # No 'refresh'
                    'retweet': False, 'sound':
-                       (guess_sound(), guess_sound(), 6000, 6000),  # FIXME
+                       both_birds,  # FIXME
                    # {
                    #   'duration': 2000,
                    #   'citizen': {'natural': guess_sound()},
@@ -272,6 +268,38 @@ def test_twitter_listener():
                    # },
                    'time': '1473446404525', 'twitterName': 'HouseOfTweets'
                    }])
+
+    fakeTwitter.send({'content': 'content!!!!!',
+                      'profile_img': 'img_url',
+                      'userscreen': 'Heinzi',
+                      'hashtags': [],
+                      'username': 'Yoyo',
+                      'time': '1473446404527',
+                      'uid': 987654,
+                      'retweet': False})
+    queue.expect([{'byPoli': False, 'content': 'content!!!!!',
+                   'hashtags': [],
+                   'id': 43, 'image': 'img_url', 'name': 'Heinzi', 'partycolor': '#257E9C',
+                   # No 'refresh'
+                   'retweet': False, 'sound':
+                       one_bird,  # FIXME
+                   # {
+                   #   'duration': 2000,
+                   #   'citizen': {'natural': guess_sound()},
+                   #   FIXME
+                   # },
+                   'time': '1473446404527', 'twitterName': 'Yoyo'
+                   }])
+
+    fakeTwitter.send({'content': 'Strayer McStray',
+                      'profile_img': 'img_url',
+                      'userscreen': 'Strayson',
+                      'hashtags': [],
+                      'username': 'Straynger',
+                      'time': '1473446404529',
+                      'uid': 5550800911,
+                      'retweet': False})
+    queue.expect([])
 
 all_tests.append(test_twitter_listener)
 
