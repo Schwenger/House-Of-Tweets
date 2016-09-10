@@ -53,8 +53,9 @@ backend:
 .PHONY: dependencies
 dependencies: ${FRONTEND_DEP} ${BACKEND_DEP}
 
-${FRONTEND_DEP}: ext/node_modules/%: 
-	npm install --prefix ./ext/ $(@:ext/node_modules/=)
+${FRONTEND_DEP}: ext/node_modules/%:
+	@mkdir -p ext/node_modules
+	npm install --prefix ./ext/ $(patsubst ext/node_modules/%,%,$@)
 
 # INSTALL
 
