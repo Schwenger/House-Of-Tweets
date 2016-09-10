@@ -1,4 +1,9 @@
-FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat
+FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat ext/node_modules/less
+
+BROWSERIFY?=ext/node_modules/.bin/browserify
+COFFEESCRIPT_CONCAT?=ext/node_modules/.bin/coffeescript-concat
+LESSC?=ext/node_modules/.bin/lessc
+
 OUT=out
 TEMP=out/temp
 LESS=less
@@ -8,7 +13,8 @@ HTML=html
 DIRS=${OUT} ${TEMP}
 MODELS:=$(wildcard ${MODEL}/*.coffee)
 
-all: clean_temp frontend backend
+
+all: frontend backend
 
 # FRONTEND
 
@@ -19,7 +25,7 @@ frontend: css js html
 css: ${OUT}/main.css
 
 ${OUT}/main.css: $(wildcard ${LESS}/*.less) | ${DIRS}
-	lessc ${LESS}/main.less > $@
+	${LESSC} ${LESS}/main.less > $@
 
 .PHONY: html
 html: ${OUT}/main.html
@@ -31,13 +37,13 @@ ${OUT}/main.html: ${HTML}/main.html
 js: ${OUT}/main.js | ${DIRS}
 
 ${OUT}/main.js: ${OUT}/bundled.js | ${DIRS}
-	browserify $< > $@
+	${BROWSERIFY} $< > $@
 
 ${OUT}/bundled.js: ${TEMP}/bundled.coffee | ${DIRS}
 	coffee --output ${OUT} --compile $^
 
 ${TEMP}/bundled.coffee: ${COFFEE}/model.coffee $(wildcard ${COFFEE}/*.coffee) | ${DIRS}
-	coffeescript-concat -I ${COFFEE} ${COFFEE}/main.coffee -o ${TEMP}/bundled.coffee
+	${COFFEESCRIPT_CONCAT} -I ${COFFEE} ${COFFEE}/main.coffee -o ${TEMP}/bundled.coffee
 
 ${COFFEE}/model.coffee: ${COFFEE}/model_empty.coffee ${MODELS} | ${DIRS}
 	cat ${COFFEE}/model_empty.coffee ${MODELS} > $@
@@ -84,4 +90,3 @@ clean:
 clean_temp: 
 	rm -f ${COFFEE}/model.coffee
 	rm -rf ${TEMP}
-
