@@ -60,7 +60,9 @@ def test_batching_x(n, batch):
         conn.expect([])
     time.sleep(mq.BATCH_TIMEOUT)
     if hasattr(conn, 'expect'):
-        conn.expect([expected])
+        batch = [expected]
+        all_batches = [batch]
+        conn.expect(all_batches)
 
 
 def test_batching1():
