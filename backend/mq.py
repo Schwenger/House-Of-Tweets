@@ -82,4 +82,5 @@ class Batcher(SendQueueInterface):
         with self.lock:
             toSend = self.tweets
             self.tweets = []
+            self.timer = None
         self.connection.post(toSend)
