@@ -339,6 +339,7 @@ if __name__ == '__main__':
         print(line + "\nNo credentials.py found!  Won't connect to Twitter.")
         if not MANUAL_TESTS:
             print("Enabling MANUAL_TESTS, to check RabbitMQ connectivity")
+            MANUAL_TESTS = True
         print(line)
 
     test_all()
