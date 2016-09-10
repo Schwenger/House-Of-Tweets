@@ -5,6 +5,18 @@ from PIL import Image
 from PIL import ImageFile
 import os
 
+_SKIP_WRITEBACK = False
+
+
+def set_skip_writeback(to: bool):
+	global _SKIP_WRITEBACK
+	_SKIP_WRITEBACK = to
+	print("politicianBackend: UPDATE SKIP_WRITEBACK = {}".format(_SKIP_WRITEBACK))
+
+
+def check_writeback():
+	print("politicianBackend: SKIP_WRITEBACK is currently {}".format(_SKIP_WRITEBACK))
+
 
 class PoliticianBackend:
 	def __init__(self):
@@ -54,8 +66,7 @@ class PoliticianBackend:
 		with self.lock:
 			for p in self.polList:
 				po = self.polList[str(p)]
-				
-				
+
 				if po["twittering"] is None:
 					continue
 				
@@ -65,9 +76,14 @@ class PoliticianBackend:
 					print("!!!!!!!!!!!!!!!! set to " + str(bid))
 					self.dumpToFile()
 					return p
-		
-		
+
 	def dumpToFile(self):
+		if _SKIP_WRITEBACK:
+			print("=" * 77)
+			print("politicianBackend: skipping write-back <THIS SHOULD NOT HAPPEN IN PRODUCTION>")
+			print("=" * 77)
+			return
+
 		with self.lock:
 			with open(self.pathToJson, 'w') as outfile:
 				json.dump(self.polList, outfile, indent=2)

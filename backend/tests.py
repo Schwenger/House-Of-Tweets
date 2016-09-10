@@ -4,6 +4,7 @@ import json
 import mq
 import twitter
 import twitterConnection
+import politicianBackend
 
 all_tests = []
 MANUAL_TESTS = False
@@ -123,6 +124,14 @@ def test_bird_recognition():
         assert expected == actual, (input, expected, actual)
 
 all_tests.append(test_bird_recognition)
+
+
+def test_twitter_listener():
+    politicianBackend.check_writeback()
+    politicianBackend.set_skip_writeback(True)
+    politicianBackend.check_writeback()
+
+all_tests.append(test_twitter_listener)
 
 
 def test_all():
