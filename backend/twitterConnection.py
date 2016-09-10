@@ -69,7 +69,8 @@ class TwitterListener(TweetConsumer):
 
 	def consumeTweet(self, tweet):
 		self.prev_msg_id += 1
-		print("Received tweet # {}".format(tweet))
+		print("{line}\nReceived tweet #{msg_id}:\n{tweet}"
+			  .format(line="("*80, tweet=tweet, msg_id = self.prev_msg_id))
 
 		# Boring stuff
 		msg = dict()
@@ -96,13 +97,13 @@ class TwitterListener(TweetConsumer):
 
 		# Make a sound
 		if birds is None:
-			print("=> drop tweet, DONE")
+			print("=> drop tweet, DONE\n" + ")"*80)
 			return
 		msg['sound'] = generate_sound(tweet['content'], tweet['retweet'], birds)
 
 		# Send it
 		self.sendingQueue.post(msg)
-		print("Done with this tweet, DONE.")
+		print("Done with this tweet, DONE\n" + ")"*80)
 
 	# For consistency.
 	# noinspection PyMethodMayBeStatic

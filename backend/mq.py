@@ -17,6 +17,8 @@ class RealQueue(SendQueueInterface):
         self.channel.queue_declare(queue=name, durable=True)
 
     def post(self, message):
+        print('Publishing on queue {name}: {data!r}'
+              .format(name=self.name, data=message))
         self.channel.basic_publish(exchange='', routing_key=self.name,
                                    body=json.dumps(message))
 
