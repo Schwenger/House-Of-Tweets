@@ -14,7 +14,11 @@ MANUAL_TESTS = False
 def test_mq():
     def run_with(maker):
         conn = maker("test_mq")
+        if hasattr(conn, 'expect'):
+            conn.expect([])
         conn.post("My lovely message")
+        if hasattr(conn, 'expect'):
+            conn.expect(["My lovely message"])
     print("Testing mq.PrintQueue:")
     run_with(mq.PrintQueue.new)
     if MANUAL_TESTS:
@@ -32,14 +36,19 @@ def test_batching_x(n, batch):
     print("Testing batching.TweetBatcher:")
     conn = mq.PrintQueue.new('test_batching')
     batcher = mq.Batcher(conn)
-    # argument should be a tweet, but who cares
+    expected = []
     for i in range(n):
-        batcher.post("Should be batch {batch}, message {i}/{n}"
-                     .format(batch=batch, i=i, n=n))
+        s = "Should be batch {batch}, message {i}/{n}" \
+            .format(batch=batch, i=i, n=n)
+        expected.append(s)
+        batcher.post(s)
     time.sleep(mq.BATCH_TIMEOUT / 2.0)
-    assert conn.received == 0
+    if hasattr(conn, 'expect'):
+        conn.expect([])
     time.sleep(mq.BATCH_TIMEOUT)
-    assert conn.received == 1
+    if hasattr(conn, 'expect'):
+        # Expect precisely one message with all "parts" bundled up.
+        conn.expect([expected])
 
 
 def test_batching1():
@@ -149,19 +158,19 @@ def test_twitter_listener():
     polBack = politicianBackend.PoliticianBackend()
     follow = ["4718199753", "774336282101178368"]
     queue = mq.PrintQueue("twitter_conn_test")
-    print("Setting up and testing citizenship …")
+    print("[INFO] Setting up and testing citizenship …")
     fakeTwitter = twitter.FakeTwitterInterface()
     twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack, fakeTwitter)
-    assert queue.received == 0
+    queue.expect([])
 
     twi.addCitizen("Heinz", "Katzastrophe", tid="12345678")
-    assert queue.received == 0
+    queue.expect([])
     assert not twi.isPoli("12345678")
     assert twi.getCitizen("12345678") is None
 
     # Must be able to handle "decapitalization"
     twi.addCitizen("Heinz", 'Ara', tid="12345679")
-    assert queue.received == 0
+    queue.expect([])
     assert not twi.isPoli("12345679")
     assert twi.getCitizen("12345679") is not None
     assert twi.getCitizen("12345679")['birdId'] == 'ara'
@@ -169,14 +178,15 @@ def test_twitter_listener():
     # FIXME: Citizen updates not implemented
     # FIXME: Citizen delayed-removal not implemented
     twi.addCitizen("Heinz", 'zilpzalp', tid="12345679")
-    assert queue.received == 0
+    queue.expect([])
     assert not twi.isPoli("12345679")
     assert twi.getCitizen("12345679") is not None
     assert twi.getCitizen("12345679")['birdId'] == 'ara'
 
     # Be able to deal with erroneous removals
+    # noinspection PyProtectedMember
     twi._remove_citizen('123456')
-    assert queue.received == 0
+    queue.expect([])
 
 all_tests.append(test_twitter_listener)
 

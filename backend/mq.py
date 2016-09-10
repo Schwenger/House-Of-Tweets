@@ -30,16 +30,20 @@ class PrintQueue(SendQueueInterface):
         self.name = name
         # Technically, reading (and asserting against) this property
         # is always a data race.  Practically, fuck you.
-        self.received = 0
+        self.msgs = []
 
     def post(self, message):
         print('Would send this to MQ {name}: {data!r}'
               .format(name=self.name, data=message))
-        self.received += 1
+        self.msgs.append(message)
 
     @staticmethod
     def new(name):
         return PrintQueue(name)
+
+    def expect(self, msgs_expect):
+        assert self.msgs == msgs_expect, (self.msgs, msgs_expect)
+        self.msgs = []
 
 
 BATCH_TIMEOUT = 5
