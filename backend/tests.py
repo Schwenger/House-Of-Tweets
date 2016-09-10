@@ -39,6 +39,7 @@ def test_batching_x(n, batch):
     conn = mq.PrintQueue.new('test_batching')
     batcher = mq.Batcher(conn)
     expected = []
+
     for i in range(n):
         s = "Should be batch {batch}, message {i}/{n}" \
             .format(batch=batch, i=i, n=n)
@@ -50,6 +51,15 @@ def test_batching_x(n, batch):
     time.sleep(mq.BATCH_TIMEOUT)
     if hasattr(conn, 'expect'):
         # Expect precisely one message with all "parts" bundled up.
+        conn.expect([expected])
+
+    expected = 'Check second run'
+    batcher.post(expected)
+    time.sleep(mq.BATCH_TIMEOUT / 2.0)
+    if hasattr(conn, 'expect'):
+        conn.expect([])
+    time.sleep(mq.BATCH_TIMEOUT)
+    if hasattr(conn, 'expect'):
         conn.expect([expected])
 
 
