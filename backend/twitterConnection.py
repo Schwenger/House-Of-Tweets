@@ -1,169 +1,142 @@
-import json
+import re
 import threading
 import time
-from soundGenerator import SoundGenerator
+from soundGenerator import generate_sound
 from twitter import TwitterInterface, TweetConsumer
+import mq
 
 # Seconds
 REMOVE_CITIZEN_TIME = 5 * 60
 
+COMMAND_HASHTAGS = {'houseoftweets', 'house_of_tweets', 'hot', 'house-of-tweets'}
+
+
+def party_to_color(party: str):
+	party = party.lower()
+	"""
+Currently, these are *all* parties in our dataset:
+CDU
+CSU
+Demokraten
+DIE LINKE
+GR\u00dcNE
+Gr\u00fcn
+Parti socialiste
+SPD
+	"""
+
+	if party is None:
+		color = "#ffffff"
+	elif party.startswith("c"):
+		color = "#000000"
+	elif party.startswith("s"):
+		color = "#ff0000"
+	elif party.startswith("g"):
+		color = "#00cc00"
+	elif party.startswith("d"):
+		color = "#c82864"
+	else:
+		color = "#ffffff"
+
+	return color
+
+
+def contains_command(hashtags):
+	for h in hashtags:
+		if h.lower() in COMMAND_HASHTAGS:
+			return True
+	return False
+
+
+def find_bird(content, birdBack):
+	content = content.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
+	words = set(re.sub("[^\wäöüß]", " ",  content).split())
+	for candidate in words:
+		bird = birdBack.bJson.get(candidate)
+		if bird is not None:
+			return [candidate, bird]
+	return None
+
 
 class TwitterListener(TweetConsumer):
-	def __init__(self, sendingQueue, tw, politicianBackend, birdBack):
+	def __init__(self, sendingQueue: mq.Batcher, tw, politicianBackend, birdBack):
 		super().__init__()
-		self.birdsList = birdBack.getAllBirds()
+		self.birdBack = birdBack
 		self.sendingQueue = sendingQueue
 		self.tw = tw
 		self.pb = politicianBackend
-		
-	def createTestTweet(self, name, twittername, byPoli, content, time, tid, partycolor, image, soundc, soundp, retweeted, refresh, pdur, cdur):
-		d = {}
-		d["name"] = name
-		d["twitterName"] = twittername
-		d["byPoli"] = byPoli
-		d["content"] = content
-		d["time"] = time
-		d["id"] = tid
-		d["partycolor"] = partycolor
-		d["image"] = image
-		d["soundc"] = [soundc, cdur]
-		
-		if soundp is None:
-			d["soundp"] = None
-		else:
-			d["soundp"] = [soundp, pdur]
-			
-		d["retweet"] = retweeted
-		d["refresh"] = refresh
-		
-		return d
+		self.next_msg_id = 42 - 1
 
-	# This is functionally equivalent to:
-	# 'retweeted_status' in tweet
-	def isRetweet(self, tweet):
-		re = True
-		try:
-			bla = tweet["retweeted_status"]
+	def consumeTweet(self, tweet):
+		self.next_msg_id += 1
+		print("Received tweet # {}".format(tweet))
 
-		except Exception as e:
-			re = False
-			print(e)
-	
-		return re
-		
-	def getHashtags(self, tweet):
-		hashTags = []
-		try:
-			hh = tweet["entities"]["hashtags"]
-			
-			for s in hh:
-				tmp = s["text"].lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss").lower()
-				hashTags.append(tmp)
-		except Exception as e:
-			print("Exception + "  + str(e))
-			
-		print(hashTags)
-		
-		if len(hashTags) > 0:
-			print("house of tweets is in hashTags " + str("houseoftweet" in hashTags))
-			if "houseoftweets" in hashTags:		
-				print("found houseoftweets hashtag")
-				return hashTags
+		# Boring stuff
+		msg = dict()
+		msg['byPoli'] = self.tw.isPoli(tweet['uid'])
+		msg['content'] = tweet['content']
+		msg['hashtags'] = tweet['hashtags']
+		msg['id'] = self.next_msg_id
+		msg['image'] = tweet['profile_img']
+		msg['name'] = tweet['userscreen']
+		msg['retweet'] = tweet['retweet']
+		msg['time'] = tweet['time']
+		msg['twitterName'] = tweet['username']
+
+		# Resolve politician/citizen specifics
+		if msg['byPoli']:
+			birds = self.handle_poli(tweet, msg)
 		else:
-			print("did not found the hashtag")
-			return None
-		
-	# FIXME: Should be 'consumeTweet' now
-	def on_data(self, status):
-		print("Receives Tweet\n" + status)
-		status = json.loads(status)
-		
-		send = True
-		try:
-			status["delete"]
-			send = False
-		except Exception:
-			send = True
-			
-		if not send:
+			citizen = self.tw.getCitizen(tweet['uid'])
+			if citizen is None:
+				print("Outdated tweet by no-longer citizen {}".format(tweet['uid']))
+				birds = None
+			else:
+				birds = self.handle_citizen(citizen, msg)
+
+		# Make a sound
+		if birds is None:
+			print("=> drop tweet, DONE")
 			return
-		
-		uid = status["user"]["id"]
-		print("Is poli" + str(self.tw.isPoli(uid)) + " " + str(uid) + " ")
-		print("Is citizen: " + str(self.tw.getCitizen(uid)))
-		if  not self.tw.isPoli(uid) and not self.tw.isCitizen(uid):
-			return 
-			
-		hashTags = self.getHashtags(status)
-		
-		
-		
-		# TODO parse hashtag "houseoftweets"
-		
-		isPolitician = self.tw.isPoli(status["user"]["id"])
-		
-		tweetId = status["id"]
-		content = status["text"]
-		isRetweet = self.isRetweet(status)
-		print("isReteweet? " + str(isRetweet))
-		politician = None
-		
-		if isPolitician:
-			politician = self.pb.getPolitician(status["user"]["id"])
-		else:
-			politician = self.tw.getCitizen(status["user"]["id"])
-			
-		refresh = None
-	
-		if hashTags is not None and isPolitician:
-			# Do Something here
-			
-			for s in content.split(" "):
-				tmp = s.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss").lower().strip()
-				print("TMPPPPPPPPPPP is " + tmp)
-				print(self.birdsList)
-				if tmp in self.birdsList:
-					print("new bird is " + tmp)
-					
-					pid = self.pb.setPoliticiansBird(status["user"]["id"], tmp)
-					refresh = { "politicianId" :pid , "birdId" : tmp}
+		msg['sound'] = generate_sound(tweet['content'], tweet['retweet'], birds)
 
-		cBird = None
-		if isPolitician:
-			cBird = politician["citizen_bird"]
-		else:
-			cBird = politician["birdId"]
-		
-		pBird = None
-		
-		if isPolitician:
-			pBird = politician["self_bird"]
+		# Send it
+		self.sendingQueue.add(msg)
+		print("Done with this tweet, DONE.")
 
-		color = None
-		party = None 
-		if isPolitician:
-			party = politician["party"].lower().strip()
-		
-		if party is None:
-			color = "#ffffff"
-		elif party.startswith("c"):
-			color = "#000000"
-		elif party.startswith("s"):
-			color = "#ff0000"
-		elif party.startswith("g"):
-			color = "#00cc00"
-		elif party.startswith("d"):
-			color = "#c82864"
-		else:
-			color = "#ffffff"
+	# For consistency.
+	# noinspection PyMethodMayBeStatic
+	def handle_citizen(self, citizen, msg):
+		msg['partycolor'] = '#257E9C'  # some random, dark-ish blue
+		# Don't define msg['refresh']
+		return [citizen['birdId'], None]
 
-		gen = SoundGenerator()
-		(pPath, cPath, pdur, cdur) = gen.makeSounds(tweetId, content, isRetweet, cBird, pBird)
+	def handle_poli(self, tweet, msg):
+		poli = self.pb.getPolitician(tweet['uid'])
+		if poli is None:
+			print("No poli for tracked poli-uid {} found".format(tweet['uid']))
+			return None
 
-		tweet = self.createTestTweet(status["user"]["name"], status["user"]["screen_name"], self.tw.isPoli(status["user"]["id"]), content, status["timestamp_ms"] ,tweetId, color, status["user"]["profile_image_url_https"], cPath, pPath, isRetweet, refresh, pdur, cdur) 
+		msg['partycolor'] = party_to_color(poli['party'])
 
-		self.sendingQueue.addTweet(tweet)
-		
+		# Check for any updates
+		if contains_command(tweet['hashtags']):
+			pid = self.pb.tid2pid(poli['id'])
+			bird = find_bird(tweet['content'], self.birdBack)
+			if bird is None or pid is None:
+				print('I saw that command, but bird={bird!r}, pid={pid!r} content={ct}'
+						.format(ct=tweet['content'], bird=bird, pid=pid))
+			else:
+				print('politician "{}" ({}) gets new bird {}'
+						.format(tweet['screenname'], poli['id'], bird))
+				msg['refresh'] = dict()
+				msg['refresh']['politicianId'] = pid
+				msg['refresh']['birdId'] = bird
+				self.pb.setPoliticiansBird(tweet['uid'], bird)
+
+		# In case of 'refresh', poli already contains the update:
+		return [poli['citizen_bird'], poli['self_bird']]
+
 
 class TwitterConnection(object):
 	def __init__(self, queue, followListPolitician, polBack, birdBack, twitter: TwitterInterface):
@@ -195,6 +168,7 @@ class TwitterConnection(object):
 		entry = dict()
 		entry["userId"] = str(tid)
 		entry["birdId"] = birdid
+		entry["party"] = 'neutral'
 		entry["startingTime"] = time.time()
 		
 		print("add citizen " + str(entry))
@@ -218,7 +192,5 @@ class TwitterConnection(object):
 			print("Remaining citizens: {}".format(self.citizens.keys()))
 
 	def isPoli(self, uid):
-		tmp = False
 		with self.lock:
-			tmp = str(uid) in self.poList
-		return tmp
+			return str(uid) in self.poList

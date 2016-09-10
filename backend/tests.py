@@ -3,6 +3,7 @@
 import json
 import mq
 import twitter
+import twitterConnection
 
 all_tests = []
 MANUAL_TESTS = False
@@ -77,6 +78,51 @@ def test_name_resolution():
         print('resolve {}={!r}'.format(u, twi.resolve_name(u)))
 
 all_tests.append(test_name_resolution)
+
+
+def test_party_color():
+    known_results = {'GR\u00dcNE': '#00cc00', 'CDU': '#000000',
+                     'CSU': '#000000', 'SPD': '#ff0000',
+                     'DIE LINKE': '#c82864'}
+    for (party, expected) in known_results.items():
+        actual = twitterConnection.party_to_color(party)
+        assert actual == expected
+
+all_tests.append(test_party_color)
+
+
+def test_command_recognition():
+    for h in ['HouseOfTweets', 'HoT', 'HOT']:
+        assert twitterConnection.contains_command([h])
+        assert twitterConnection.contains_command(['shit', h, 'what'])
+    for h in ['something', 'hottie', 'HouseOfTwats']:
+        assert not twitterConnection.contains_command([h])
+        assert not twitterConnection.contains_command(['shit', h, 'what'])
+
+all_tests.append(test_command_recognition)
+
+
+def test_bird_recognition():
+    from birdBackend import BirdBackend
+    results = {'Ich will ein Ara sein!!': 'ara',
+               'Ich auch!': None,
+               "Gibt's für mich einen ZilpZalp?!": 'zilpzalp',
+               'Zaunkönig auch?': 'zaunkoenig',
+               'How about #Weißkopfseeadler?!': 'wei\u00dfkopfseeadler',
+               'Ick bin ein zaunkoenig #obamalincoln': 'zaunkoenig',
+               'Für mich einen Paradiesvogel': None,
+               'Hey! Paradiesvogel!': None,
+               'Menno': None,}
+    birdBack = BirdBackend()
+    for (input, expected) in results.items():
+        actual = twitterConnection.find_bird(input, birdBack)
+        if actual is not None:
+            new_actual = actual[0]
+            assert new_actual is not None
+            actual = new_actual
+        assert expected == actual, (input, expected, actual)
+
+all_tests.append(test_bird_recognition)
 
 
 def test_all():

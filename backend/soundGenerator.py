@@ -1,6 +1,13 @@
 import os
 import math
+import time
+
 from pydub import *
+
+# Let's hope that the backend doesn't get started twice within a second
+STARTUP = str(int(time.time() * 1000))
+
+processed_tweets = 0
 
 
 class SoundGenerator:
@@ -136,6 +143,22 @@ class SoundGenerator:
 			sound = sound[:(middle + math.floor(finDuration/2))]
 			sound = sound[-math.floor(finDuration):]
 		sound = sound.fade_in(2000).fade_out(2000)
-		path = self.soundDir + os.path.sep + "processed/" + str(tweetid) + group + ".mp3"
+		path = self.soundDir + os.path.sep + "processed/" + STARTUP + "_" + str(processed_tweets) + "_" + group + ".mp3"
+		processed_tweets += 1
 		sound.export(path, format="mp3")
 		return (path, finDuration)
+
+
+def generate_sound(content: str, retweet: bool, birds):
+	# Why is that even a class?  FIXME: dissolve 'SoundGenerator' into functions
+	sg = SoundGenerator()
+	cBird, pBird = birds
+	return sg.makeSounds(STARTUP, content, retweet, cBird, pBird)
+"""
+- `sound`: JSON object
+    - `duration`: integer, length, in milliseconds, of the sounds
+    - `citizen`: JSON object, describing the bird chosen by the citizen
+        - `natural`: string, valid path to the bird's natural sound, e.g. `"/home/eispin/workspace/House-Of-Tweets/ext/sounds/processed/774316458742583296r-c_n.mp3"`
+        - `synth`: string, valid path to the bird's "synthesized" sound or "artistic interpretation", e.g. `"/home/eispin/workspace/House-Of-Tweets/ext/sounds/processed/774316458742583296r-c_s.mp3"`
+    - `poli`: same, but chosen by the politician.  If not a politician, `null`.
+"""
