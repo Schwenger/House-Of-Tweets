@@ -170,7 +170,7 @@ def test_soundfile_guesser():
 all_tests.append(test_soundfile_guesser)
 
 
-def test_twitter_listener():
+def test_twitter_citizenship():
     # FIXME Need to check messages by hand.
     # FIXME Buffer messages in PrintQueue so we can assert on them?
     politicianBackend.check_writeback()
@@ -185,32 +185,37 @@ def test_twitter_listener():
     twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack, fakeTwitter)
     queue.expect([])
 
-    twi.addCitizen("Heinz", "Katzastrophe", tid="12345678")
+    twi.addCitizen("Heinz1", "Katzastrophe", tid="12345678")
     queue.expect([])
     assert not twi.isPoli("12345678")
     assert twi.getCitizen("12345678") is None
+    assert twi.citizens == dict()
 
     # Must be able to handle "decapitalization"
-    twi.addCitizen("Heinz", 'Ara', tid="12345679")
+    twi.addCitizen("Heinz2", 'Ara', tid="12345679")
     queue.expect([])
     assert not twi.isPoli("12345679")
     assert twi.getCitizen("12345679") is not None
     assert twi.getCitizen("12345679")['birdId'] == 'ara'
+    assert twi.citizens.keys() == {'12345679'}
 
     # FIXME: Citizen updates not implemented
-    # FIXME: Citizen delayed-removal not implemented
-    twi.addCitizen("Heinz", 'zilpzalp', tid="12345679")
+    twi.addCitizen("Heinz3", 'zilpzalp', tid="12345679")
     queue.expect([])
     assert not twi.isPoli("12345679")
     assert twi.getCitizen("12345679") is not None
     assert twi.getCitizen("12345679")['birdId'] == 'ara'
+    assert twi.citizens.keys() == {'12345679'}
 
     # Be able to deal with erroneous removals
     # noinspection PyProtectedMember
     twi._remove_citizen('123456')
+    assert twi.citizens.keys() == {'12345679'}
     queue.expect([])
 
-all_tests.append(test_twitter_listener)
+    # FIXME: Citizen delayed-removal not implemented
+
+all_tests.append(test_twitter_citizenship)
 
 
 def test_all():
