@@ -73,10 +73,22 @@ all_tests.append(test_parse_tweet)
 
 
 def test_name_resolution():
+    ids = {'HouseOfTweetsSB': '4718199753',
+           '@HouseOfTweetsSB': '4718199753',
+           '@MissesVlog': '50712079',
+           'eeQu0Ae4': '774336282101178368',
+           'SarcasticTester': '720224609560371201',
+           'HopefullyNotARealTwitterAccount': None}
     twi = twitter.RealTwitterInterface()
-    for u in ['HouseOfTweetsSB', '@HouseOfTweetsSB', '@MissesVlog', 'eeQu0Ae4',
-              'SarcasticTester', 'HopefullyNotARealTwitterAccount']:
-        print('resolve {}={!r}'.format(u, twi.resolve_name(u)))
+    for (user, expect_id) in ids.items():
+        actual_id = twi.resolve_name(user)
+        # This really is how it's handled.
+        # TODO: push str() call into resolve_name()
+        if actual_id is not None:
+            actual_id = str(actual_id)
+        print('resolve {u} to {a!r} (expected {e!r})'
+              .format(u=user, e=expect_id, a=actual_id))
+        assert actual_id == expect_id
 
 all_tests.append(test_name_resolution)
 
