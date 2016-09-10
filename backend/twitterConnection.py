@@ -156,10 +156,15 @@ class TwitterConnection(object):
 			res = self.citizens.get(str(cid))
 		return res
 
-	def addCitizen(self, twittername, birdid):
-		tid = self.twitter.resolve_name(twittername)
+	def addCitizen(self, twittername, birdid, tid=None):
 		if tid is None:
-			print("no such user: " + twittername)
+			tid = self.twitter.resolve_name(twittername)
+		if tid is None:
+			print("citizen user ignored, invalid name: " + twittername)
+			return
+		birdid = birdid.lower()
+		if birdid not in self.birdBack.bJson:
+			print("citizen user ignored, invalid bird: " + birdid)
 			return
 		# Need the lock due to __removeCitizen
 		if self.getCitizen(tid) is not None or self.isPoli(tid):
@@ -180,10 +185,13 @@ class TwitterConnection(object):
 			else:
 				self.citizens[str(tid)] = entry
 				self.twitter.register([twittername], self.listener)
-				threading.Timer(REMOVE_CITIZEN_TIME,
-								self.__remove_citizen, tid).start()
+				timer = threading.Timer(REMOVE_CITIZEN_TIME,
+										self._remove_citizen, tid)
+				# Don't prevent shutting down
+				timer.daemon = True
+				timer.start()
 
-	def __remove_citizen(self, tid):
+	def _remove_citizen(self, tid):
 		with self.lock:
 			print("Removing citizen {}".format(tid))
 			try:

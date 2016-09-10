@@ -4,6 +4,7 @@ import json
 import mq
 import twitter
 import twitterConnection
+import birdBackend
 import politicianBackend
 
 all_tests = []
@@ -139,9 +140,43 @@ all_tests.append(test_bird_recognition)
 
 
 def test_twitter_listener():
+    # FIXME Need to check messages by hand.
+    # FIXME Buffer messages in PrintQueue so we can assert on them?
     politicianBackend.check_writeback()
     politicianBackend.set_skip_writeback(True)
     politicianBackend.check_writeback()
+    birdBack = birdBackend.BirdBackend()
+    polBack = politicianBackend.PoliticianBackend()
+    follow = ["4718199753", "774336282101178368"]
+    queue = mq.PrintQueue("twitter_conn_test")
+    print("Setting up and testing citizenship …")
+    fakeTwitter = twitter.FakeTwitterInterface()
+    twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack, fakeTwitter)
+    assert queue.received == 0
+
+    twi.addCitizen("Heinz", "Katzastrophe", tid="12345678")
+    assert queue.received == 0
+    assert not twi.isPoli("12345678")
+    assert twi.getCitizen("12345678") is None
+
+    # Must be able to handle "decapitalization"
+    twi.addCitizen("Heinz", 'Ara', tid="12345679")
+    assert queue.received == 0
+    assert not twi.isPoli("12345679")
+    assert twi.getCitizen("12345679") is not None
+    assert twi.getCitizen("12345679")['birdId'] == 'ara'
+
+    # FIXME: Citizen updates not implemented
+    # FIXME: Citizen delayed-removal not implemented
+    twi.addCitizen("Heinz", 'zilpzalp', tid="12345679")
+    assert queue.received == 0
+    assert not twi.isPoli("12345679")
+    assert twi.getCitizen("12345679") is not None
+    assert twi.getCitizen("12345679")['birdId'] == 'ara'
+
+    # Be able to deal with erroneous removals
+    twi._remove_citizen('123456')
+    assert queue.received == 0
 
 all_tests.append(test_twitter_listener)
 
@@ -155,6 +190,7 @@ def test_all():
         t()
         print("[DONE] {}".format(t))
     print('[DONE] -- Done with all tests --')
+
 
 if __name__ == '__main__':
     test_all()
