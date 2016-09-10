@@ -164,7 +164,7 @@ class FakeTwitterInterface(TwitterInterface):
 
     def send(self, fake_tweet: dict):
         with self.lock:
-            for (users, consumer) in self.consumers:
+            for (users, consumer) in self.consumers.items():
                 if fake_tweet['uid'] in users:
                     consumer.consumeTweet(fake_tweet)
 
