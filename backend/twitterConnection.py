@@ -65,10 +65,10 @@ class TwitterListener(TweetConsumer):
 		self.sendingQueue = sendingQueue
 		self.tw = tw
 		self.pb = politicianBackend
-		self.next_msg_id = 42 - 1
+		self.prev_msg_id = 42 - 1
 
 	def consumeTweet(self, tweet):
-		self.next_msg_id += 1
+		self.prev_msg_id += 1
 		print("Received tweet # {}".format(tweet))
 
 		# Boring stuff
@@ -76,7 +76,7 @@ class TwitterListener(TweetConsumer):
 		msg['byPoli'] = self.tw.isPoli(tweet['uid'])
 		msg['content'] = tweet['content']
 		msg['hashtags'] = tweet['hashtags']
-		msg['id'] = self.next_msg_id
+		msg['id'] = self.prev_msg_id
 		msg['image'] = tweet['profile_img']
 		msg['name'] = tweet['userscreen']
 		msg['retweet'] = tweet['retweet']
