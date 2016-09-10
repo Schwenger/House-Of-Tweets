@@ -184,7 +184,7 @@ class TwitterConnection(object):
 				print("Don't call addCitizen from multiple threads, dude!")
 			else:
 				self.citizens[str(tid)] = entry
-				self.twitter.register([twittername], self.listener)
+				self.twitter.register([str(tid)], self.listener)
 				timer = threading.Timer(REMOVE_CITIZEN_TIME,
 										self._remove_citizen, tid)
 				# Don't prevent shutting down

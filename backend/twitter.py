@@ -163,9 +163,10 @@ class FakeTwitterInterface(TwitterInterface):
         self.lock = threading.RLock()
 
     def send(self, fake_tweet: dict):
+        tid = str(fake_tweet['uid'])
         with self.lock:
             for (users, consumer) in self.consumers.items():
-                if fake_tweet['uid'] in users:
+                if tid in users:
                     consumer.consumeTweet(fake_tweet)
 
     def register(self, usernames, consumer: TweetConsumer) -> object:
