@@ -215,6 +215,24 @@ def test_twitter_citizenship():
 all_tests.append(test_twitter_citizenship)
 
 
+def test_sound_gen():
+    # Don't even attempt to prevent writing to disk.  Overwriting is perfectly
+    # fine, as we don't overwrite anything important, and everything is in git.
+    import soundGenerator
+
+    actual = soundGenerator.generate_sound('Heyaloha', True, ['ara', 'zilpzalp'])
+    expected = (guess_sound(), guess_sound(), 6000, 6000)
+    assert actual == expected, (actual, expected)
+
+    content = 'Ganz a doll langer aufgebrachter! Tweet!'
+    actual = soundGenerator.generate_sound(content, False, ['wei\u00dfkopfseeadler', None])
+    expected = (None, guess_sound(), 0, 10000)
+    assert actual == expected, (actual, expected)
+    soundGenerator.processed_tweets = 0
+
+all_tests.append(test_sound_gen)
+
+
 def test_all():
     # This might show weird behavior if you modify MANUAL_TESTS by hand
     print('[TEST] -- Running all tests (MANUAL_TESTS={}) --'.
