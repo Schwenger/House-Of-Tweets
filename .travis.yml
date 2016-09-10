@@ -21,7 +21,7 @@ before_install:
   # Build frontend for fun:
   # ( Only pulls frontend dependencies )
   - sudo ln -s /usr/bin/nodejs /usr/bin/node
-  - make dependencies
+  - make install_dependencies
   - make frontend
   # By now, rabbitmq-server should be done starting up
   - sudo rabbitmqctl status

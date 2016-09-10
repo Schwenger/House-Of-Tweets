@@ -51,31 +51,35 @@ ${COFFEE}/model.coffee: ${COFFEE}/model_empty.coffee ${MODELS} | ${DIRS}
 # BACKEND
 
 .PHONY: backend
-backend: 
-
+backend:
+# Needs no building.
 
 # DEPENDENCIES
 
-.PHONY: dependencies
-dependencies: ${FRONTEND_DEP} ${BACKEND_DEP}
+.PHONY: install_dependencies
+install_dependencies: ${FRONTEND_DEP}
 
 ${FRONTEND_DEP}: ext/node_modules/%:
 	@mkdir -p ext/node_modules
 	npm install --prefix ./ext/ $(patsubst ext/node_modules/%,%,$@)
 
-# INSTALL
-
-.PHONY: install
-install: install_dependencies all
-
-.PHONY: install_dependencies
-install_dependencies: ${DEPEN}
-
 # START
 
 .PHONY: start
 start: 
-	rabbitmq-server -detached
+	@echo '# If this fails immediately due to "ConnectionError",'
+	@echo '# check wheter RabbitMQ is up and running!  Try this:'
+	@echo '# sudo rabbitmq-server -detached'
+	( cd backend && ./startBackend.py )
+
+# CHECK
+
+.PHONY: check
+check:
+	@echo '# If this fails immediately due to "ConnectionError",'
+	@echo '# check wheter RabbitMQ is up and running!  Try this:'
+	@echo '# sudo rabbitmq-server -detached'
+	( cd backend && ./tests.py )
 
 # CLEAN
 
