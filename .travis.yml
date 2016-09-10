@@ -1,0 +1,32 @@
+language: python
+# Select Trusty Tahr.
+sudo: required
+dist: trusty
+git:
+  # We need neither .heavy nor .secret
+  # (.secret isn't available anyway)
+  submodules: false
+  depth: 3
+python:
+  - "3.5"
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript
+  - sudo rabbitmq-server -detached
+  # Note that on Debian, you'd need to say 'pip3'
+  - pip install pika pillow pydub tweepy typing
+  # ( Skip rabbitmq_management, because Travis doesn't
+  #   offer this kind of web interface anyway.)
+  # - sudo rabbitmq-plugins enable rabbitmq_management
+  # Build frontend for fun:
+  # ( Only pulls frontend dependencies )
+  - sudo ln -s /usr/bin/nodejs /usr/bin/node
+  - make dependencies
+  - make frontend
+  # By now, rabbitmq-server should be done starting up
+  - sudo rabbitmqctl status
+  - sudo rabbitmq-plugins enable --online rabbitmq_web_stomp
+script:
+  # ( Makefile is currently unimplemented for backend )
+  # Is rabbitmq running already?
+  - ( cd backend && ./tests.py )
