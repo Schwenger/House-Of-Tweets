@@ -1,0 +1,3 @@
+[submodule ".heavy"]
+	path = .heavy
+	url = https://github.com/BenWiederhake/hot_heavy.git
