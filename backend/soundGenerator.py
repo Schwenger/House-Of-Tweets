@@ -4,6 +4,28 @@ import time
 
 from pydub import *
 
+
+def get_mood(text: str) -> str:
+	questionmarks = text.count('?')
+	exclamationmarks = text.count('!')
+	multidots = text.count('..')
+
+	exclamationmarks += text.count('?!')
+	questionmarks -= text.count('?!')
+	# Unwanted side-effect: "Hello!?!?" counts as exclamation, not as question
+
+	caps = len([w for w in text.split() if w.isupper()])
+
+	if caps + exclamationmarks > multidots + questionmarks:
+		mood = 'aufgebracht'
+	elif caps + exclamationmarks < multidots + questionmarks:
+		mood = 'fragend'
+	else:
+		mood = 'neutral'
+
+	return mood
+
+
 # Let's hope that the backend doesn't get started twice within a second
 STARTUP = str(int(time.time() * 1000))
 
@@ -14,39 +36,8 @@ class SoundGenerator:
 	def __init__(self):
 		self.soundDir = self.getSoundDir()
 
-	### tweet parsing ####
 
-	def parseTweet(self, content):
-		caps = 0 	#counts words in CAPS-LOCK
-		qm = 0		#counts questionmarks
-		em = 0		#counts exclamationmarks
-		dot = 0		#counts multiple dots
-		mood = None	#neutral or aufgebracht or fragend
-		text = content
-
-		qm += text.count('?')
-		em += text.count('?!')
-		qm -= text.count('?!')
-		em += text.count('!')
-		dot += text.count('..')
-
-		words = text.split()
-
-		for w in words:
-			if w.isupper():
-				caps += 1
-
-		if caps + em > dot + qm:
-			mood = 'aufgebracht'
-		elif caps + em < dot + qm:
-			mood = 'fragend'
-		else:
-			mood = 'neutral'
-
-		return mood
-
-
-	### directories and files ###	
+	### directories and files ###
 
 	def getParent(self, dirr):
 		return os.path.abspath(os.path.join(dirr, os.pardir))
@@ -73,7 +64,7 @@ class SoundGenerator:
 	### sound handling ###
 
 	def makeSounds(self, tweetid, content, isRetweet, cBird, pBird):
-		mood = self.parseTweet(content)
+		mood = get_mood(content)
 
 		if pBird is not None:
 			pMood = self.getClosestMood(pBird, mood, isRetweet)
