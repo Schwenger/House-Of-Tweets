@@ -88,9 +88,8 @@ def test_parse_tweet():
                 'hashtags': ['Improved', 'Harder', 'Faster', 'Stronger'],
                 'username': 'HouseOfTweets',
                 'time': '1473446404525',
-                'uid': 4718199753,
-                'retweet': True,
-                'tweetId': 774316458742583296}
+                'uid': '4718199753',
+                'retweet': True}
     assert actual == expected
 
 all_tests.append(test_parse_tweet)

@@ -33,13 +33,12 @@ class TweetPrinter(TweetConsumer):
 def parse_tweet(status):
     try:
         report = dict()
-        report['uid'] = status["user"]["id"]
+        report['uid'] = str(status["user"]["id"])
         hh = status["entities"]["hashtags"]
         # For each element, only view 'text' subelement
         report['hashtags'] = []
         for h in hh:
             report['hashtags'].append(h['text'])
-        report['tweetId'] = status["id"]
         report['content'] = status["text"]
         report['username'] = status["user"]["name"]
         report['userscreen'] = status["user"]["screen_name"]
