@@ -25,18 +25,27 @@ Screensaver =
   start: ->
     return if Screensaver.active
     Screensaver.active = true
+
+    # Switch to German.
+    toGerman = () -> LanguageController.changeLanguage("german")
+    setTimeout(toGerman, Screensaver.config.languageChangeDelay)
+
+    # Center and turn on.
+    delay = if Display.state isnt "center" then Display.pageMoveDelay else 0
+    Display.center()
+    setTimeout(Screensaver._turnOn, delay)
+
+  _turnOn: ->
     saver = $("#screensaver-element-0")
     saver.removeClass "invisible"
-    saver.addClass "load"
+    saver.addClass "fade-in"
     saver.children().each () -> $(this).addClass "load"
-    setTimeout (() -> LanguageController.changeLanguage("german")), Screensaver.config.languageChangeDelay
-
+      
   stop: ->
     return unless Screensaver.active
     Screensaver.active = false
     saver = $("#screensaver-element-0")
     saver.addClass "invisible"
-    saver.removeClass "load"
+    saver.removeClass "fade-in"
     saver.children().each () -> $(this).removeClass "load"
-    Screensaver.active = -1
     Screensaver.lastTouch = Util.time()
