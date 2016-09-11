@@ -261,7 +261,7 @@ def test_mood_detection():
 all_tests.append(test_mood_detection)
 
 
-def test_sound_sourcing():
+def test_sound_pairing():
     # For each entry e of the test battery it holds that the source-resolution
     # will succeed/fail in exactly the same way on both the minimal sounds
     # environment *and* in the production (heavy) environment.
@@ -274,26 +274,28 @@ def test_sound_sourcing():
     # - zilpzalp-aufgebracht-r.mp3
     # - invalid*.mp3
     # However, you should sometimes run this test against 'heavy'.
-    # find_pair(bird: str, mood: str, retweet: bool, length: int):
     battery = [# Positive examples:
-               ('amsel', 'neutral', False, 'amsel-neutral.mp3'),
-               ('zilpzalp', 'fragend', True, 'zilpzalp-fragend-r.mp3'),
-               ('zilpzalp', 'neutral', True, 'zilpzalp-neutral-r.mp3'),
+               ('amsel', 'neutral', False, 'amsel-neutral'),
+               ('zilpzalp', 'fragend', True, 'zilpzalp-fragend-r'),
+               ('zilpzalp', 'neutral', True, 'zilpzalp-neutral-r'),
                # Negative examples, ignore mood:
-               ('amsel', 'fragend', False, 'amsel-neutral.mp3'),
-               ('zilpzalp', 'aufgebracht', True, 'zilpzalp-neutral-r.mp3'),
+               ('amsel', 'fragend', False, 'amsel-neutral'),
+               ('zilpzalp', 'aufgebracht', True, 'zilpzalp-neutral-r'),
                # Negative examples, ignore all:
-               ('invalid', 'neutral', False, 'amsel-neutral.mp3'),
-               ('invalid', 'aufgebracht', True, 'amsel-neutral.mp3')]
+               ('invalid', 'neutral', False, 'amsel-neutral'),
+               ('invalid', 'aufgebracht', True, 'amsel-neutral')]
     print("You can safely ignore the following warnings about missing files,")
     print("  because that's exactly what this test is checking.")
-    for (b, m, r, expect_rel) in battery:
-        actual_source, _ = soundGenerator.find_pair(b, m, r, 6001)
-        expect_source = os.path.join(soundGenerator.HOT_ROOT, 'ext/sounds', expect_rel)
+    sounds = os.path.join(soundGenerator.HOT_ROOT, 'ext/sounds')
+    for (b, m, r, expect_body) in battery:
+        actual_source, actual_dest = soundGenerator.find_pair(b, m, r, 6001)
+        expect_source = os.path.join(sounds, expect_body + ".mp3")
+        expect_dest = os.path.join(sounds, 'processed', expect_body + "-6001.mp3")
         assert actual_source == expect_source, (actual_source, expect_source)
+        assert actual_dest == expect_dest, (actual_dest, expect_dest)
     print("Done.  Warnings about missing files after this are bad.")
 
-all_tests.append(test_sound_sourcing)
+all_tests.append(test_sound_pairing)
 
 
 def test_twitter_listener():
