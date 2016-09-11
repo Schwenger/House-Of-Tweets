@@ -19,4 +19,4 @@ class CitizenBirdQueueAdapter(threading.Thread):
 	def callback(self, ch, method, properties, body):
 		body = json.loads(body.decode('utf-8'))
 		print("set !!!!!!!!!!!!!!!!!!!!!!!" + str(body))
-		self.politicianBackend.setCitizensBird(body["politicianid"], body["birdid"])
+		self.politicianBackend.setBird(body["politicianid"], body["birdid"], actor='c')

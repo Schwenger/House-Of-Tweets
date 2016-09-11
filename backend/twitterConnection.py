@@ -133,7 +133,7 @@ class TwitterListener(TweetConsumer):
 				msg['refresh'] = dict()
 				msg['refresh']['politicianId'] = pid
 				msg['refresh']['birdId'] = bird
-				self.pb.setPoliticiansBird(tweet['uid'], bird)
+				self.pb.setBird(tweet['uid'], bird, actor='p')
 
 		# In case of 'refresh', poli already contains the update:
 		return [poli['citizen_bird'], poli['self_bird']]
