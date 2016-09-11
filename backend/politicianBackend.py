@@ -1,6 +1,7 @@
 import threading 
 import json
 import urllib.request
+import fileinput
 from PIL import Image
 from PIL import ImageFile
 import os
@@ -22,7 +23,7 @@ class PoliticianBackend:
 	def __init__(self):
 		self.pathToJson = "pols.json"
 		self.polList = json.load(open(self.pathToJson))
-		self.outPath = "../coffee/modelPoli.coffee"
+		self.outPath = "../coffee/model/model_polis.coffee"
 		self.lock = threading.RLock()
 		
 	def cutImage(self, path, out, size):
@@ -89,12 +90,10 @@ class PoliticianBackend:
 				json.dump(self.polList, outfile, indent=2)
 				
 			with open(self.outPath, "w") as out:
-				out.write("model.politicians= ")
-				json.dump(self.polList, out, indent=2)
-			os.chdir("..")
-			print(os.getcwd())
-			os.system("sh compile.sh")
-			os.chdir("backend")
+				out.write("@politicians = ")
+				json.dump(self.polList, out, indent="\t")
+			for line in fileinput.input([self.outPath], inplace=True):
+				print('\t' + line.rstrip('\n'))
 
 	def setCitizensBird(self, tid, bid):
 		with self.lock:
@@ -103,3 +102,6 @@ class PoliticianBackend:
 				po = self.polList[str(tid)]
 				po["citizen_bird"] = bid
 				self.dumpToFile()
+
+b = PoliticianBackend()
+b.dumpToFile()
