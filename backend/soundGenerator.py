@@ -116,7 +116,7 @@ def get_dst(p):
 
 
 def generate_sound(content: str, retweet: bool, cBird, pBird):
-	length_ms = max(len(content) * 250, 6000)
+	length_ms = max(len(content) * 250, 10000)
 	mood = get_mood(content)
 	birds_sanit = [sanitize_bird(cBird), sanitize_bird(pBird)]
 	birds_paths = [find_pair(b, mood, retweet, length_ms) for b in birds_sanit]

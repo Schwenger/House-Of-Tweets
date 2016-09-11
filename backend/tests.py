@@ -212,9 +212,9 @@ def test_sound_gen():
           "       first call and uses the cached version on the second:")
     actual = soundGenerator.generate_sound('Cheerio, buddy', False, 'amsel', 'amsel')
     print("[MANU] (end)")
-    path_amsel = os.path.join(soundGenerator.SOUND_ROOT, 'processed/amsel-neutral-6000.mp3')
+    path_amsel = os.path.join(soundGenerator.SOUND_ROOT, 'processed/amsel-neutral-10000.mp3')
     desc_amsel = {'natural': path_amsel, 'synth': path_amsel}
-    expected = {'duration': 6000, 'citizen': desc_amsel, 'poli': desc_amsel}
+    expected = {'duration': 10000, 'citizen': desc_amsel, 'poli': desc_amsel}
     assert actual == expected, (actual, expected)
 
     content = "How can mirrors be real if our eyes aren't real?"
@@ -312,21 +312,21 @@ def test_twitter_listener():
                       'time': '1473446404525',
                       'uid': 4718199753,
                       'retweet': False})
-    expect_amsel = sounds + '/processed/amsel-neutral-6000.mp3'
+    expect_amsel = sounds + '/processed/amsel-neutral-10000.mp3'
     queue.expect([{'byPoli': True, 'content': 'content1',
                    'hashtags': ['NiceExample', 'TotallyRealistic'],
                    'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#00cc00',
                    # No 'refresh'
                    'retweet': False, 'sound':
                    {
-                     'duration': 6000,
+                     'duration': 10000,
                      'citizen': {'natural': expect_amsel, 'synth': expect_amsel},
                      'poli': {'natural': expect_amsel, 'synth': expect_amsel},
                    },
                    'time': '1473446404525', 'twitterName': 'HouseOfTweets'
                    }])
 
-    fakeTwitter.send({'content': 'guy who writes long(?) tweets says what?',
+    fakeTwitter.send({'content': 'guy who writes long(?) tweets says whaaaat?',
                       'profile_img': 'img_url',
                       'userscreen': 'Heinzi',
                       'hashtags': [],
@@ -334,14 +334,14 @@ def test_twitter_listener():
                       'time': '1473446404527',
                       'uid': 987654,
                       'retweet': True})
-    expect_zz = sounds + '/processed/zilpzalp-fragend-r-10000.mp3'
-    queue.expect([{'byPoli': False, 'content': 'guy who writes long(?) tweets says what?',
+    expect_zz = sounds + '/processed/zilpzalp-fragend-r-10750.mp3'
+    queue.expect([{'byPoli': False, 'content': 'guy who writes long(?) tweets says whaaaat?',
                    'hashtags': [],
                    'id': 43, 'image': 'img_url', 'name': 'Heinzi', 'partycolor': '#257E9C',
                    # No 'refresh'
                    'retweet': True, 'sound':
                    {
-                     'duration': 10000,
+                     'duration': 10750,
                      'citizen': {'natural': expect_zz, 'synth': expect_zz},
                      'poli': None,
                    },
