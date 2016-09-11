@@ -45,7 +45,7 @@ def path_raw(bird: str, mood: str, retweet: bool):
 
 def path_processed(bird: str, mood: str, retweet: bool, length: int):
 	retweet_suffix = "-r" if retweet else ""
-	# Goal: "mehlschwalbe-aufgebracht-r.mp3"
+	# Goal: "processed/mehlschwalbe-aufgebracht-6000-r.mp3"
 	filename = "{bird}-{mood}-{len}{suff}.mp3" \
 		.format(bird=bird, mood=mood, len=length, suff=retweet_suffix)
 	return os.path.join(SOUND_ROOT, 'processed', filename)
