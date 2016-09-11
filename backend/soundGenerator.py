@@ -26,6 +26,51 @@ def get_mood(text: str) -> str:
 	return mood
 
 
+def get_parent(path):
+	return os.path.abspath(os.path.join(path, os.pardir))
+
+
+HOT_ROOT = get_parent(get_parent(__file__))
+SOUND_ROOT = os.path.join(HOT_ROOT, "ext", "sounds")
+print("SOUND_ROOT = " + SOUND_ROOT)
+
+
+def path_raw(bird: str, mood: str, retweet: bool):
+	retweet_suffix = "-r" if retweet else ""
+	# Goal: "mehlschwalbe-aufgebracht-r.mp3"
+	filename = "{bird}-{mood}{suff}.mp3" \
+		.format(bird=bird, mood=mood, suff=retweet_suffix)
+	return os.path.join(SOUND_ROOT, filename)
+
+
+def path_processed(bird: str, mood: str, retweet: bool, length: int):
+	retweet_suffix = "-r" if retweet else ""
+	# Goal: "mehlschwalbe-aufgebracht-r.mp3"
+	filename = "{bird}-{mood}-{len}{suff}.mp3" \
+		.format(bird=bird, mood=mood, len=length, suff=retweet_suffix)
+	return os.path.join(SOUND_ROOT, 'processed', filename)
+
+
+def find_source(bird: str, mood: str, retweet: bool):
+	candidates = [path_raw(bird, mood, retweet),
+				  path_raw(bird, 'neutral', retweet),
+				  # Duplicate entry in case of retweet=False
+				  # Not nice, but it doesn't hurt.
+				  path_raw(bird, 'neutral', False),
+				  path_raw('amsel', 'neutral', False)]
+	verbose = False
+	for c in candidates:
+		if os.path.isfile(c):
+			if verbose:
+				print("[INFO] Found at {}".format(c))
+			return c
+		else:
+			print("[WARN] Source file {} missing, falling back …".format(c))
+			verbose = True
+	print("[ERR ] All sources and fallbacks missing.  Giving up.")
+	return None
+
+
 # Let's hope that the backend doesn't get started twice within a second
 STARTUP = str(int(time.time() * 1000))
 
