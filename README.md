@@ -47,7 +47,12 @@ In general, you'll need:
 Install like this:
 - Ubuntu: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript` (python and pip?)
 - Debian: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript python3-dev pip3`
-- MacOS X: `brew install rabbitmq nodejs npm` (python, libav-tools, coffeescript, and pip?)
+- MacOS X: `brew install rabbitmq node python3 libav`
+Afterwards add the following to your `.bashrc`
+```
+export NODE_PATH=/usr/local/lib/node_modules
+```
+Then, run `npm install -g coffee-script`.
 
 Some systems (Ubuntu and Debian, at least) install the `node` binary in
 a way that is incompatible with npm.  To resolve this, do this on
