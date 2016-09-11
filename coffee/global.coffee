@@ -6,8 +6,6 @@ Global = {
 	birdPath:  "../ext/images/birds/"
 	politicianPath: "../ext/images/politicians/"
 
-	stallTweets: false
-	
 	_transform: (langString) ->
 		switch(langString)
 			when "german" then "de"

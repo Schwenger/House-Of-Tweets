@@ -21,7 +21,6 @@ TweetController =
 	_poliTweetsOnly: true
 	_threshold: 6
 	_sanityPattern: /\w*/
-	_stalled: []
 
 	init: ->
 		$('#play-tweets-1-button').click(() -> TweetController._timeTravel(1))
@@ -41,12 +40,6 @@ TweetController =
 		incoming =  [Model.manualTweets[Global.manualTweetID]]
 		Global.manualTweetID = (Global.manualTweetID + 1) % Model.manualTweets.length
 		@consume(incoming)
-
-	update: () ->
-		return if Display.state isnt "center" and Global.stallTweets
-		console.log "Consuming stalled tweets"
-		@consume(@_stalled)
-		@_stalled = []
 
 	# ARCHIVE
 	_addToArchive: (entry) ->
@@ -101,21 +94,18 @@ TweetController =
 
 	consume: (incomingTweets) ->
 		console.log "Tweets incoming!"
-		if Display.state isnt "center" and Global.stallTweets
-			@_stalled push incomingTweets
-		else 
-			@_removeTweets(@_tLists.mixed)
-			@_removeTweets(@_tLists.poli)
+		@_removeTweets(@_tLists.mixed)
+		@_removeTweets(@_tLists.poli)
 
-			@_process tweet for tweet in incomingTweets
-			@_trimLists()
-			
-			list = if @_poliTweetsOnly then @_tLists.poli else @_tLists.mixed
+		@_process tweet for tweet in incomingTweets
+		@_trimLists()
+		
+		list = if @_poliTweetsOnly then @_tLists.poli else @_tLists.mixed
 
-			@_displayTweets(list)
-			byPoli = Util.count(list, (t) -> t.byPoli) # I miss lazy variables.
-			toPlay = if @_poliTweetsOnly then byPoli else incomingTweets.length
-			@_playTweets(list[..toPlay], SoundCtrl.getMode())
+		@_displayTweets(list)
+		byPoli = Util.count(list, (t) -> t.byPoli) # I miss lazy variables.
+		toPlay = if @_poliTweetsOnly then byPoli else incomingTweets.length
+		@_playTweets(list[..toPlay], SoundCtrl.getMode())
 
 	_trimLists: () ->
 		@_tLists.mixed = @_tLists.mixed[..@_threshold]

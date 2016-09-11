@@ -37,6 +37,12 @@ Display =
 			do(id, ctrl) ->
 				ctrl.click(() -> Display._trigger(id))
 
+	center: ->
+		switch @state
+			when "right" then @controls.left.click()
+			when "left" then @controls.right.click()
+			when "U1" then @_trigger("up")
+
 	_trigger: (dir) ->
 		@state = @_delta(@state, dir)
 		switch dir
@@ -45,15 +51,14 @@ Display =
 			else
 				@_removeSidebars()
 				timeoutAction = switch @state
-					when "center" then @_openCenter()
-					when "right" then @_openSide("right", "left")
-					when "left" then @_openSide("left", "right")
+					when "center" then () -> Display._openCenter()
+					when "right" then () -> Display._openSide("right", "left")
+					when "left" then () -> Display._openSide("left", "right")
 				setTimeout(timeoutAction, @pageMoveDelay)
 
 	_panUp: ->
 		@_addSidebars()
 		@_resetImpressum()
-		TweetController.update()
 		@_deactivate(@pages.impressum)
 		@_activate(@pages.tweets)
 
@@ -84,7 +89,6 @@ Display =
 		@_addSidebars()
 		VoicesLists.leavePage()
 		CitizenUser.leavePage()
-		TweetController.update()
 
 	_resetImpressum: ->
 		# "go from U2/U1 to U1"
