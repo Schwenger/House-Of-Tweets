@@ -241,6 +241,26 @@ def test_sound_gen():
 all_tests.append(test_sound_gen)
 
 
+def test_mood_detection():
+    battery = {'It is dark here': 'neutral',
+               'Why is it SO DAMN DARK': 'aufgebracht',
+               'Who turned off the light?!': 'aufgebracht',
+               'Who turned off the light?!?!': 'aufgebracht',
+               'Who turned off the light!?!': 'aufgebracht',
+               'Who turned off the light!?!?!': 'aufgebracht',
+               'Was it you?': 'fragend',
+               'Is this real life????': 'fragend',
+               'Or is this fantasy...': 'fragend',
+               'caught in a landslide': 'neutral',
+               'and now, the weather': 'neutral'
+               }
+    for (text, expected) in battery.items():
+        actual = soundGenerator.get_mood(text)
+        assert actual == expected, (actual, expected)
+
+all_tests.append(test_mood_detection)
+
+
 def test_twitter_listener():
     politicianBackend.check_writeback()
     politicianBackend.set_skip_writeback(True)
@@ -332,26 +352,6 @@ def test_poli_writeback():
     raise AssertionError("Can't continue after this point.")
 
 # Don't automatically run the above test!
-
-
-def test_mood_detection():
-    battery = {'It is dark here': 'neutral',
-               'Why is it SO DAMN DARK': 'aufgebracht',
-               'Who turned off the light?!': 'aufgebracht',
-               'Who turned off the light?!?!': 'aufgebracht',
-               'Who turned off the light!?!': 'aufgebracht',
-               'Who turned off the light!?!?!': 'aufgebracht',
-               'Was it you?': 'fragend',
-               'Is this real life????': 'fragend',
-               'Or is this fantasy...': 'fragend',
-               'caught in a landslide': 'neutral',
-               'and now, the weather': 'neutral'
-               }
-    for (text, expected) in battery.items():
-        actual = soundGenerator.get_mood(text)
-        assert actual == expected, (actual, expected)
-
-all_tests.append(test_mood_detection)
 
 
 def test_all():
