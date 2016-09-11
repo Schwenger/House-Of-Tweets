@@ -82,5 +82,5 @@ class PoliticianBackend:
 			json.dump(self.poliList, outfile, indent=2)
 
 		with open(FRONTEND_POLI_DB, "w") as out:
-			out.write("@politicians:")
+			out.write("\t@politicians:")
 			json.dump(self.polByPid, out, indent=2)
