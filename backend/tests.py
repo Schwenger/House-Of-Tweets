@@ -320,6 +320,25 @@ def test_twitter_listener():
 all_tests.append(test_twitter_listener)
 
 
+def test_poli_writeback():
+    print("Testing politicianBackend.setBird.  I hope you saved your stuff!")
+    politicianBackend.check_writeback()
+    politicianBackend.set_skip_writeback(False)
+    politicianBackend.check_writeback()
+    print("Running against Armin Schuster (395912134)")
+    print("original self_bird: weisskopfseeadler")
+    print("original citizen_bird: fitis")
+    pB = politicianBackend.PoliticianBackend()
+    #pB.setBird('395912134', 'ara', 'p')
+    #pB.setBird('395912134', 'mauersegler', 'c')
+    pB.setBird('395912134', 'fitis', 'c')
+    print("Now check by hand.")
+    raise AssertionError("Can't continue after this point.")
+
+
+# Don't automatically run the above test!
+
+
 def test_all():
     # This might show weird behavior if you modify MANUAL_TESTS by hand
     print('[TEST] -- Running all tests (MANUAL_TESTS={}) --'.
