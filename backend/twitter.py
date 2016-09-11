@@ -57,6 +57,7 @@ class StreamListenerAdapter(StreamListener):
         self.raw_data = None
         self.consumer = consumer
         self.desc = "{} ({} users)".format(users[:2], len(users))
+        self.sensitive = set(users)
 
     def on_data(self, raw_data):
         if self.raw_data is not None:
@@ -82,10 +83,13 @@ class StreamListenerAdapter(StreamListener):
             print("ERROR: on_status called without going through on_data?!")
             return
         tweet = parse_tweet(json.loads(self.raw_data))
-        if tweet is not None:
-            self.on_tweet(tweet)
-        else:
+        if tweet is None:
             print("{}: on_tweet BROKEN! (skip)".format(self.desc))
+        elif tweet['uid'] not in self.sensitive:
+            print("{}: dropped irrelevant tweet from user {} at time {}"
+                  .format(self.desc, tweet['uid'], tweet['time']))
+        else:
+            self.on_tweet(tweet)
 
     def on_exception(self, exception):
         print("{} on_exception {!r}".format(self.desc, exception))
