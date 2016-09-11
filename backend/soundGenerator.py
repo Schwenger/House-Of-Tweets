@@ -51,21 +51,19 @@ def path_processed(bird: str, mood: str, retweet: bool, length: int):
 	return os.path.join(SOUND_ROOT, 'processed', filename)
 
 
-def find_source(bird: str, mood: str, retweet: bool):
-	candidates = [path_raw(bird, mood, retweet),
-				  path_raw(bird, 'neutral', retweet),
-				  # Duplicate entry in case of retweet=False
-				  # Not nice, but it doesn't hurt.
-				  path_raw(bird, 'neutral', False),
-				  path_raw('amsel', 'neutral', False)]
+def find_pair(bird: str, mood: str, retweet: bool, length: int):
+	candidates = [(bird, mood, retweet),
+				  (bird, 'neutral', retweet),
+				  ('amsel', 'neutral', False)]
 	verbose = False
-	for c in candidates:
-		if os.path.isfile(c):
+	for (b, m, r) in candidates:
+		candidSource = path_raw(b, m, r)
+		if os.path.isfile(candidSource):
 			if verbose:
-				print("[INFO] Found at {}".format(c))
-			return c
+				print("[INFO] Found at {}".format(candidSource))
+			return candidSource, path_processed(b, m, r, length)
 		else:
-			print("[WARN] Source file {} missing, falling back …".format(c))
+			print("[WARN] Source file {} missing, falling back …".format(candidSource))
 			verbose = True
 	print("[ERR ] All sources and fallbacks missing.  Giving up.")
 	return None
