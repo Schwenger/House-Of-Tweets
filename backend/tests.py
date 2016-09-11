@@ -274,7 +274,7 @@ def test_sound_pairing():
                ('invalid', 'aufgebracht', True, 'amsel-neutral')]
     print("You can safely ignore the following warnings about missing files,")
     print("  because that's exactly what this test is checking.")
-    sounds = os.path.join(soundGenerator.HOT_ROOT, 'ext/sounds')
+    sounds = soundGenerator.SOUND_ROOT
     for (b, m, r, expect_body) in battery:
         actual_source, actual_dest = soundGenerator.find_pair(b, m, r, 6001)
         expect_source = os.path.join(sounds, expect_body + ".mp3")
@@ -299,8 +299,9 @@ def test_twitter_listener():
     fakeTwitter = twitter.FakeTwitterInterface()
     twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack, fakeTwitter)
     queue.expect([])
-    twi.addCitizen("Heinz1", "ara", tid="987654")
+    twi.addCitizen("Heinz1", "zilpzalp", tid="987654")
     assert twi.citizens.keys() == {'987654'}
+    sounds = soundGenerator.SOUND_ROOT
 
     print("[INFO] Testing reactions to various tweets …")
 
@@ -312,21 +313,22 @@ def test_twitter_listener():
                       'time': '1473446404525',
                       'uid': 4718199753,
                       'retweet': False})
+    expect_c = sounds + '/processed/weisskopfseeadler-neutral-6000.mp3'
+    expect_p = sounds + '/processed/amsel-neutral-6000.mp3'
     queue.expect([{'byPoli': True, 'content': 'content1',
                    'hashtags': ['NiceExample', 'TotallyRealistic'],
                    'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#00cc00',
                    # No 'refresh'
                    'retweet': False, 'sound':
-                       None,  # FIXME
-                   # {
-                   #   'duration': 2000,
-                   #   'citizen': {'natural': guess_sound()},
-                   #   FIXME
-                   # },
+                   {
+                     'duration': 6000,
+                     'citizen': {'natural': expect_c, 'synth': expect_c},
+                     'poli': {'natural': expect_p, 'synth': expect_p},
+                   },
                    'time': '1473446404525', 'twitterName': 'HouseOfTweets'
                    }])
 
-    fakeTwitter.send({'content': 'content!!!!!',
+    fakeTwitter.send({'content': 'guy who writes long(?) tweets says what?',
                       'profile_img': 'img_url',
                       'userscreen': 'Heinzi',
                       'hashtags': [],
@@ -334,17 +336,17 @@ def test_twitter_listener():
                       'time': '1473446404527',
                       'uid': 987654,
                       'retweet': False})
-    queue.expect([{'byPoli': False, 'content': 'content!!!!!',
+    expect_c = sounds + '/processed/zilpzalp-fragend-10000.mp3'
+    queue.expect([{'byPoli': False, 'content': 'guy who writes long(?) tweets says what?',
                    'hashtags': [],
                    'id': 43, 'image': 'img_url', 'name': 'Heinzi', 'partycolor': '#257E9C',
                    # No 'refresh'
                    'retweet': False, 'sound':
-                       None,  # FIXME
-                   # {
-                   #   'duration': 2000,
-                   #   'citizen': {'natural': guess_sound()},
-                   #   FIXME
-                   # },
+                   {
+                     'duration': 10000,
+                     'citizen': {'natural': expect_c, 'synth': expect_c},
+                     'poli': None,
+                   },
                    'time': '1473446404527', 'twitterName': 'Yoyo'
                    }])
 
@@ -357,6 +359,8 @@ def test_twitter_listener():
                       'uid': 5550800911,
                       'retweet': False})
     queue.expect([])
+
+    # TODO: Test for updates of a politician's bird?
 
 all_tests.append(test_twitter_listener)
 
