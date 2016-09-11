@@ -109,10 +109,6 @@ def test_name_resolution():
     twi = twitter.RealTwitterInterface()
     for (user, expect_id) in ids.items():
         actual_id = twi.resolve_name(user)
-        # This really is how it's handled.
-        # TODO: push str() call into resolve_name()
-        if actual_id is not None:
-            actual_id = str(actual_id)
         print('resolve {u} to {a!r} (expected {e!r})'
               .format(u=user, e=expect_id, a=actual_id))
         assert actual_id == expect_id

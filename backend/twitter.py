@@ -149,12 +149,11 @@ class RealTwitterInterface(TwitterInterface):
             s.disconnect()
 
     def resolve_name(self, username: str):
-        ret_id = None
         try:
-            ret_id = self.api.get_user(username).id
+            return str(self.api.get_user(username).id)
         except Exception as e:
             print("Couldn't resolve username: " + str(e))
-        return ret_id
+            return None
 
 
 class FakeTwitterInterface(TwitterInterface):

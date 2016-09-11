@@ -173,7 +173,7 @@ class TwitterConnection(object):
 			return
 
 		entry = dict()
-		entry["userId"] = str(tid)
+		entry["userId"] = tid
 		entry["birdId"] = birdid
 		entry["party"] = 'neutral'
 		entry["startingTime"] = time.time()
@@ -181,11 +181,11 @@ class TwitterConnection(object):
 		print("add citizen " + str(entry))
 
 		with self.lock:
-			if str(tid) in self.citizens:
+			if tid in self.citizens:
 				print("Don't call addCitizen from multiple threads, dude!")
 			else:
-				self.citizens[str(tid)] = entry
-				self.twitter.register([str(tid)], self.listener)
+				self.citizens[tid] = entry
+				self.twitter.register([tid], self.listener)
 				timer = threading.Timer(REMOVE_CITIZEN_TIME,
 										self._remove_citizen, tid)
 				# Don't prevent shutting down
