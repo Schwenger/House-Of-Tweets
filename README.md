@@ -1,6 +1,9 @@
 House of Tweets
 ===============
 
+<!-- Do not change the first three lines; it is used by provide.sh to verify
+     stuff.  Also, HTML comments need to stand alone. -->
+
 House of Tweets is an art/computer science project that took place at the Saarland University.
 
 We do not want to bother anyone with unnecessarily many words, so feel free to play around with our project and leave feedback if you like. Make sure, your sound is turned on!
