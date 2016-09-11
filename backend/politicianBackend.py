@@ -102,6 +102,3 @@ class PoliticianBackend:
 				po = self.polList[str(tid)]
 				po["citizen_bird"] = bid
 				self.dumpToFile()
-
-b = PoliticianBackend()
-b.dumpToFile()
