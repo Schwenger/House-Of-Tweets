@@ -161,20 +161,6 @@ def test_bird_recognition():
 all_tests.append(test_bird_recognition)
 
 
-def guess_sound():
-    import os
-    guess_root = os.path.abspath(os.path.abspath(os.path.join(os.curdir, os.pardir)))
-    s = "{}/ext/sounds/amsel-neutral.mp3".format(guess_root)
-    return s
-
-
-def test_soundfile_guesser():
-    # Ignore MANUAL_TESTS since we don't have side-effects anyway
-    print("[MANU] Does this sound like a valid path to you?\n{}".format(guess_sound()))
-
-all_tests.append(test_soundfile_guesser)
-
-
 def test_twitter_citizenship():
     politicianBackend.check_writeback()
     politicianBackend.set_skip_writeback(True)
@@ -219,22 +205,24 @@ def test_twitter_citizenship():
 
 all_tests.append(test_twitter_citizenship)
 
-dummy = soundGenerator.SoundGenerator().getSoundPath('amsel', 'neutral', False)
-bird = {'natural': dummy, 'synth': dummy}
-both_birds = {'duration': 6000, 'citizen': bird, 'poli': bird}
-one_bird = {'duration': 6000, 'citizen': bird, 'poli': None}
-
 
 def test_sound_gen():
     # Don't even attempt to prevent writing to disk.  Overwriting is perfectly
     # fine, as we don't overwrite anything important, and everything is in git.
-    actual = soundGenerator.generate_sound('Heyaloha', True, ['ara', 'zilpzalp'])
-    expected = both_birds
+    print("[MANU] Please check by hand whether this generates the file on the\n"
+          "       first call and uses the cached version on the second:")
+    actual = soundGenerator.generate_sound('Cheerio, buddy', False, 'amsel', 'amsel')
+    print("[MANU] (end)")
+    path_amsel = os.path.join(soundGenerator.SOUND_ROOT, 'processed/amsel-neutral-6000.mp3')
+    desc_amsel = {'natural': path_amsel, 'synth': path_amsel}
+    expected = {'duration': 6000, 'citizen': desc_amsel, 'poli': desc_amsel}
     assert actual == expected, (actual, expected)
 
-    content = 'Ganz a doll langer aufgebrachter! Tweet!'
-    actual = soundGenerator.generate_sound(content, False, ['wei\u00dfkopfseeadler', None])
-    expected = one_bird
+    content = "How can mirrors be real if our eyes aren't real?"
+    actual = soundGenerator.generate_sound(content, True, 'zilpzalp', None)
+    path_zz = os.path.join(soundGenerator.SOUND_ROOT, 'processed/zilpzalp-fragend-r-12000.mp3')
+    desc_zz = {'natural': path_zz, 'synth': path_zz}
+    expected = {'duration': 12000, 'citizen': desc_zz, 'poli': None}
     assert actual == expected, (actual, expected)
     soundGenerator.processed_tweets = 0
 
@@ -329,7 +317,7 @@ def test_twitter_listener():
                    'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#00cc00',
                    # No 'refresh'
                    'retweet': False, 'sound':
-                       both_birds,  # FIXME
+                       None,  # FIXME
                    # {
                    #   'duration': 2000,
                    #   'citizen': {'natural': guess_sound()},
@@ -351,7 +339,7 @@ def test_twitter_listener():
                    'id': 43, 'image': 'img_url', 'name': 'Heinzi', 'partycolor': '#257E9C',
                    # No 'refresh'
                    'retweet': False, 'sound':
-                       one_bird,  # FIXME
+                       None,  # FIXME
                    # {
                    #   'duration': 2000,
                    #   'citizen': {'natural': guess_sound()},

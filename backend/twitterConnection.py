@@ -99,7 +99,8 @@ class TwitterListener(TweetConsumer):
 		if birds is None:
 			print("=> drop tweet, DONE\n" + ")"*80)
 			return
-		msg['sound'] = generate_sound(tweet['content'], tweet['retweet'], birds)
+		cBird, pBird = birds
+		msg['sound'] = generate_sound(tweet['content'], tweet['retweet'], cBird, pBird)
 
 		# Send it
 		self.sendingQueue.post(msg)
