@@ -312,8 +312,7 @@ def test_twitter_listener():
                       'time': '1473446404525',
                       'uid': 4718199753,
                       'retweet': False})
-    expect_c = sounds + '/processed/weisskopfseeadler-neutral-6000.mp3'
-    expect_p = sounds + '/processed/amsel-neutral-6000.mp3'
+    expect_amsel = sounds + '/processed/amsel-neutral-6000.mp3'
     queue.expect([{'byPoli': True, 'content': 'content1',
                    'hashtags': ['NiceExample', 'TotallyRealistic'],
                    'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#00cc00',
@@ -321,8 +320,8 @@ def test_twitter_listener():
                    'retweet': False, 'sound':
                    {
                      'duration': 6000,
-                     'citizen': {'natural': expect_c, 'synth': expect_c},
-                     'poli': {'natural': expect_p, 'synth': expect_p},
+                     'citizen': {'natural': expect_amsel, 'synth': expect_amsel},
+                     'poli': {'natural': expect_amsel, 'synth': expect_amsel},
                    },
                    'time': '1473446404525', 'twitterName': 'HouseOfTweets'
                    }])
@@ -334,16 +333,16 @@ def test_twitter_listener():
                       'username': 'Yoyo',
                       'time': '1473446404527',
                       'uid': 987654,
-                      'retweet': False})
-    expect_c = sounds + '/processed/zilpzalp-fragend-10000.mp3'
+                      'retweet': True})
+    expect_zz = sounds + '/processed/zilpzalp-fragend-r-10000.mp3'
     queue.expect([{'byPoli': False, 'content': 'guy who writes long(?) tweets says what?',
                    'hashtags': [],
                    'id': 43, 'image': 'img_url', 'name': 'Heinzi', 'partycolor': '#257E9C',
                    # No 'refresh'
-                   'retweet': False, 'sound':
+                   'retweet': True, 'sound':
                    {
                      'duration': 10000,
-                     'citizen': {'natural': expect_c, 'synth': expect_c},
+                     'citizen': {'natural': expect_zz, 'synth': expect_zz},
                      'poli': None,
                    },
                    'time': '1473446404527', 'twitterName': 'Yoyo'
