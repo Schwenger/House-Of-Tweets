@@ -19,33 +19,33 @@ Screensaver =
     checkActivation = () ->
       Screensaver.start() if Util.time() - Screensaver.lastTouch > Screensaver.config.startThreshold
 
-    setInterval(checkActivation, Screensaver.config.checkFrequency)
-    Screensaver.lastTouch = Util.time()
+    setInterval(checkActivation, @config.checkFrequency)
+    @lastTouch = Util.time()
 
   start: ->
-    return if Screensaver.active
-    Screensaver.active = true
+    return if @active
+    @active = true
 
     # Switch to German.
     toGerman = () -> LanguageController.changeLanguage("german")
-    setTimeout(toGerman, Screensaver.config.languageChangeDelay)
+    setTimeout(toGerman, @config.languageChangeDelay)
 
     # Center and turn on.
     delay = if Display.state isnt "center" then Display.pageMoveDelay else 0
     Display.center()
-    setTimeout(Screensaver._turnOn, delay)
+    setTimeout(@_turnOn, delay)
 
   _turnOn: ->
     saver = $("#screensaver-element-0")
     saver.removeClass "invisible"
     saver.addClass "fade-in"
-    saver.children().each () -> $(this).addClass "load"
+    saver.children().each () -> $(@).addClass "load"
       
   stop: ->
-    return unless Screensaver.active
-    Screensaver.active = false
+    return unless @active
+    @active = false
     saver = $("#screensaver-element-0")
     saver.addClass "invisible"
     saver.removeClass "fade-in"
-    saver.children().each () -> $(this).removeClass "load"
-    Screensaver.lastTouch = Util.time()
+    saver.children().each () -> $(@).removeClass "load"
+    @lastTouch = Util.time()
