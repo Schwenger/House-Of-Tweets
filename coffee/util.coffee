@@ -2,6 +2,9 @@
 
 Util = {
 
+	count: (list, pred) ->
+		list.reduce (sum, elem) -> sum += pred(elem)
+
 	birdPath: (id, add) ->
 		Global.birdPath + id + (if add? then add else "") + ".jpg"
 

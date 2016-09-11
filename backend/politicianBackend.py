@@ -1,4 +1,5 @@
-import threading 
+import fileinput
+import threading
 import json
 
 _SKIP_WRITEBACK = False
@@ -82,5 +83,7 @@ class PoliticianBackend:
 			json.dump(self.poliList, outfile, indent=2)
 
 		with open(FRONTEND_POLI_DB, "w") as out:
-			out.write("\t@politicians:")
-			json.dump(self.polByPid, out, indent=2)
+			out.write("@politicians = ")
+			json.dump(self.polByPid, out, indent="\t")
+		for line in fileinput.input([FRONTEND_POLI_DB], inplace=True):
+			print('\t' + line.rstrip('\n'))

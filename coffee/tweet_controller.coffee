@@ -12,8 +12,8 @@ TweetController =
 
 	_archive: []
 	_archiveThreshold: 10000
-	_timeTravel: -1
-	_timeTravelRoot: $('#time-travel-container')
+	_timeTravelId: -1
+	_archiveRoot: $('#archive-container')
 	_batch:
 		duration: 10 * 1000
 		intervall: 5 * 1000
@@ -24,9 +24,9 @@ TweetController =
 	_stalled: []
 
 	init: ->
-		$('#play-tweets-1-button').click(() -> @_timeTravel(1))
-		$('#play-tweets-6-button').click(() -> @_timeTravel(6))
-		$('#play-tweets-24-button').click(() -> @_timeTravel(24))
+		$('#play-tweets-1-button').click(() -> TweetController._timeTravel(1))
+		$('#play-tweets-6-button').click(() -> TweetController._timeTravel(6))
+		$('#play-tweets-24-button').click(() -> TweetController._timeTravel(24))
 		$('#chirping-of-switch').change(@_changeSoundOrigin)
 		$('#voices-switch').change(@_changeBirdSelection)
 		$('#citizen-tweets-switch').change(@_changeShownTweets)
@@ -50,7 +50,9 @@ TweetController =
 
 	# ARCHIVE
 	_addToArchive: (entry) ->
+		@_archiveRoot.append entry.obj
 		@_archive.push entry
+		@_removeTweets(@_archive[@_archiveThreshold..])
 		@_archive = @_archive[..@_archiveThreshold]
 
 	# USER SETTINGS
@@ -67,69 +69,65 @@ TweetController =
 		TweetController._switchView()
 
 	# TIME TRAVEL
-	_timeTravel: (timeSpan) ->
-		qualifying = 0
-		nowTime = Util.time()
-		diff = timeSpan * 60 * 60 * 1000
-		@_archive.reduce (sum, obj) -> sum + (nowTime - obj.time < diff)
-		agenda = _createBatches(@archive[..qualifying])
-		id = @_timeTravel + 1
-		@_timeTravel = id
-		@_startPlaybackHandler(id, agenda)
 
-	_createBatches: (list) ->
-		batchCount = list.length + (@_batch.size - 1) / @_batch.size
-		return (for i in [0 ... batchCount]
-			lb = @_batch.size * i
-			up = Math.max(list.length, @_batch.size * (i+1))
-			list[lb ... ub])
+	_timeTravel: (timeSpan) ->
+		now = Util.time()
+		diff = timeSpan * 60 * 60 * 1000
+		thresholdTime = now - diff
+		agenda = @_createBatches (tweet) -> tweet.time > thresholdTime
+		@_timeTravelId += 1
+		@_startPlaybackHandler(@_timeTravelId, agenda)
+
+	_createBatches: (pred) ->
+		result = []
+		batch = []
+		for tweet in @_archive
+			break unless pred(tweet)
+			if batch.length is @_batch.size
+				result.push batch
+				batch = []
+			batch.push tweet
+		result.push batch
+		return result
 
 	_startPlaybackHandler: (id, agenda) ->
-		return if agenda.length is 0 or @_timeTravel != id
+		return if agenda.length is 0 or @_timeTravelId != id
 		[upcoming..., current] = agenda
-		for tweet in current
-			archiveRoot.append(tweet.obj)
-			tweet.play()
-		stopCurrent = () -> @_stopPlayback(current)
-		setTimeout stopCurrent, @_batch.duration
-		startNext = () -> @_startPlaybackHandler(id, upcoming)
+		tweet.play(SoundCtrl.getMode(), @_batch.duration) for tweet in current
+		startNext = () -> TweetController._startPlaybackHandler(id, upcoming)
 		setTimeout startNext, @_batch.intervall
-
-	_stopPlayback: (tweets) ->
-		for tweet in tweets
-			tweet.stop()
-			tweet.obj.remove()
 
 	# CONSUME INCOMING TWEETS
 
 	consume: (incomingTweets) ->
-		console.log "Consuming"
+		console.log "Tweets incoming!"
 		if Display.state isnt "center" and Global.stallTweets
 			@_stalled push incomingTweets
 		else 
-			# remove everything 
 			@_removeTweets(@_tLists.mixed)
 			@_removeTweets(@_tLists.poli)
-			newPoliTweets = incomingTweets.reduce (sum, tweet) -> sum + tweet.byPoli
-			newMixedTweets = incomingTweets.length
-			# process tweet
-			for tweet in incomingTweets
-				tweet.time = new Date(parseInt tweet.time) 
-				transformed = @_transform(tweet)
-				# archive
-				@_addToArchive(transformed)
-				# handle #houseoftweets
-				@_updatePoliBird(tweet.refresh) if tweet.refresh?
-				# file by origin
-				@_tLists.mixed.push transformed 
-				@_tLists.poli.push transformed if tweet.byPoli
-			# update current lists
-			@_tLists.mixed = @_tLists.mixed[..@_threshold]
-			@_tLists.poli = @_tLists.poli[..@_threshold]
-			# display and play w.r.t user settings
+
+			@_process tweet for tweet in incomingTweets
+			@_trimLists()
+			
 			list = if @_poliTweetsOnly then @_tLists.poli else @_tLists.mixed
+
 			@_displayTweets(list)
-			@_playTweets(@_tLists.poli[..newPoliTweets])
+			byPoli = Util.count(list, (t) -> t.byPoli) # I miss lazy variables.
+			toPlay = if @_poliTweetsOnly then byPoli else incomingTweets.length
+			@_playTweets(list[..toPlay], SoundCtrl.getMode())
+
+	_trimLists: () ->
+		@_tLists.mixed = @_tLists.mixed[..@_threshold]
+		@_tLists.poli = @_tLists.poli[..@_threshold]
+
+	_process: (tweet) ->
+		tweet.time = new Date(parseInt tweet.time) 
+		transformed = @_transform(tweet)
+		@_addToArchive(transformed)
+		@_updatePoliBird(tweet.refresh) if tweet.refresh?
+		@_tLists.mixed.push transformed 
+		@_tLists.poli.push transformed if tweet.byPoli
 
 	_updatePoliBird: (info) ->
 		pid = info.politicianId
@@ -152,8 +150,8 @@ TweetController =
 		domList = $('#tweet-list')
 		domList.append tweet.obj for tweet in tweets
 
-	_playTweets: (list) ->
-		tweet.play() for tweet in list
+	_playTweets: (list, mode) ->
+		tweet.play(mode) for tweet in list
 
 	_sanitize: (tags) ->
 		for tag in tags
@@ -190,10 +188,10 @@ TweetController =
 		tweetElement.append(tweetContent)
 
 		audioElems = [
-			$("<audio id='audio-#{tweet.id}-PB' src='#{tweet.soundp[0]}' hotlength='#{tweet.soundp[2]}'>") if tweet.soundp?,
-			$("<audio id='audio-#{tweet.id}-PM' src='#{tweet.soundp[1]}' hotlength='#{tweet.soundp[2]}'>") if tweet.soundp?,
-			$("<audio id='audio-#{tweet.id}-CB' src='#{tweet.soundc[0]}' hotlength='#{tweet.soundc[2]}'>"),
-			$("<audio id='audio-#{tweet.id}-CM' src='#{tweet.soundc[1]}' hotlength='#{tweet.soundc[2]}'>")
+			$("<audio id='audio-#{tweet.id}-PB' src='#{tweet.sound.poli.natural}'>") if tweet.sound.poli?,
+			$("<audio id='audio-#{tweet.id}-PM' src='#{tweet.sound.poli.synth}'>") if tweet.sound.poli?,
+			$("<audio id='audio-#{tweet.id}-CB' src='#{tweet.sound.citizen.natural}>"),
+			$("<audio id='audio-#{tweet.id}-CM' src='#{tweet.sound.citizen.synth}'>")
 		]
 
 		for audio in audioElems
@@ -201,14 +199,12 @@ TweetController =
 
 		profileImg.css("border-color", "#{tweet.partycolor}") if tweet.partycolor?
 
-		mode = SoundCtrl.getMode()
 		tweetCompound = 
 			obj: tweetElement
-			play: () -> SoundCtrl.play(tweet.id, tweet.soundp[2], mode)
-			stop: () -> SoundCtrl.stop(tweet.id, mode)
+			play: (mode, duration = tweet.sound.duration) -> SoundCtrl.play(tweet.id, duration, mode)
 			time: tweet.time
 
-		speakerElement.click tweetCompound.play
+		speakerElement.click () -> tweetCompound.play(SoundCtrl.getMode())
 
 		return tweetCompound
 
