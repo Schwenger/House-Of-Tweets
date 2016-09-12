@@ -122,14 +122,15 @@ class TwitterListener(TweetConsumer):
 
 		# Check for any updates
 		if contains_command(tweet['hashtags']):
-			pid = self.pb.tid2pid(poli['id'])
+			pid = poli['pid']
 			bird = find_bird(tweet['content'], self.birdBack)
-			if bird is None or pid is None:
-				print('I saw that command, but bird={bird!r}, pid={pid!r} content={ct}'
-						.format(ct=tweet['content'], bird=bird, pid=pid))
+			if bird is None:
+				print('I saw that command, but bird={bird!r} is not a valid bird!\n'
+					  'pid={pid!r} content={ct}'
+					  .format(ct=tweet['content'], bird=bird, pid=pid))
 			else:
 				print('politician "{}" ({}) gets new bird {}'
-						.format(tweet['screenname'], poli['id'], bird))
+						.format(tweet['screenname'], pid, bird))
 				msg['refresh'] = dict()
 				msg['refresh']['politicianId'] = pid
 				msg['refresh']['birdId'] = bird
