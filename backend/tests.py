@@ -2,6 +2,7 @@
 
 import json
 import mq
+import os
 import twitter
 import twitterConnection
 import birdBackend
@@ -9,8 +10,6 @@ import politicianBackend
 import soundGenerator
 
 all_tests = []
-MANUAL_TESTS = False
-REAL_TWITTER_TESTS = False
 
 
 def test_mq():
@@ -23,11 +22,8 @@ def test_mq():
             conn.expect(["My lovely message"])
     print("Testing mq.PrintQueue:")
     run_with(mq.PrintQueue.new)
-    if MANUAL_TESTS:
-        print("[MANU] Testing mq.RealQueue. Check http://localhost:15672/#/queues/%2F/test_mq")
-        run_with(mq.RealQueue.new)
-    else:
-        print("SKIP RealQueue access")
+    print("[MANU] Testing mq.RealQueue. Check http://localhost:15672/#/queues/%2F/test_mq")
+    run_with(mq.RealQueue.new)
 
 all_tests.append(test_mq)
 
@@ -96,9 +92,6 @@ all_tests.append(test_parse_tweet)
 
 
 def test_name_resolution():
-    if not REAL_TWITTER_TESTS:
-        print("[SKIP] Not allowed to contact real Twitter")
-        return
     ids = {'HouseOfTweetsSB': '4718199753',
            '@HouseOfTweetsSB': '4718199753',
            '@MissesVlog': '50712079',
@@ -147,7 +140,7 @@ def test_bird_recognition():
                'Ick bin ein zaunkoenig #obamalincoln': 'zaunkoenig',
                'Für mich einen Paradiesvogel': None,
                'Hey! Paradiesvogel!': None,
-               'Menno': None,}
+               'Menno': None}
     birdBack = BirdBackend()
     for (input, expected) in results.items():
         actual = twitterConnection.find_bird(input, birdBack)
@@ -383,8 +376,7 @@ def test_poli_writeback():
 
 def test_all():
     # This might show weird behavior if you modify MANUAL_TESTS by hand
-    print('[TEST] -- Running all tests (MANUAL_TESTS={}) --'.
-          format(MANUAL_TESTS))
+    print('[TEST] -- Running all tests --')
     for t in all_tests:
         print("[TEST] {}".format(t))
         t()
@@ -394,15 +386,6 @@ def test_all():
 
 if __name__ == '__main__':
     line = "=" * 80
-    import os.path
-    if os.path.isfile('credentials.py'):
-        print(line + "\nUSING REAL TWITTER API!\n" + line)
-        REAL_TWITTER_TESTS = True
-    else:
-        print(line + "\nNo credentials.py found!  Won't connect to Twitter.")
-        if not MANUAL_TESTS:
-            print("Enabling MANUAL_TESTS, to check RabbitMQ connectivity")
-            MANUAL_TESTS = True
-        print(line)
+    print(line + "\nUSING REAL TWITTER API!\n" + line)
 
     test_all()
