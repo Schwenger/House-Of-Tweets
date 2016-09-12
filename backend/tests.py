@@ -178,7 +178,7 @@ def test_twitter_citizenship():
     assert twi.citizens == dict()
 
     # Must be able to handle "decapitalization"
-    twi.addCitizen("Heinz2", 'Ara', tid="12345679")
+    twi.addCitizen("Heinz2", 'ara', tid="12345679")
     queue.expect([])
     assert not twi.isPoli("12345679")
     assert twi.getCitizen("12345679") is not None

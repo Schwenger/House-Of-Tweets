@@ -164,7 +164,6 @@ class TwitterConnection(object):
 		if tid is None:
 			print("citizen user ignored, invalid name: " + twittername)
 			return
-		birdid = birdid.lower()
 		if birdid not in self.birdBack.bJson:
 			print("citizen user ignored, invalid bird: " + birdid)
 			return
