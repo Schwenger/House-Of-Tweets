@@ -2807,23 +2807,6 @@
 				"de": "Manfred Grund (* 3. Juli 1955 in Zeitz) ist ein deutscher Politiker (CDU). Er ist seit 1998 Parlamentarischer Gesch\u00e4ftsf\u00fchrer der CDU/CSU-Bundestagsfraktion."
 			}
 		},
-		"3": {
-			"images": null,
-			"party": "DIE LINKE",
-			"self_bird": "goldammer",
-			"citizen_bird": "zilpzalp",
-			"name": "Agnes Alpers",
-			"twittering": {
-				"twitterId": 181699011,
-				"twitterUserName": "AgnesAlpers"
-			},
-			"pid": "3",
-			"cv": {
-				"en": "Agnes Alpers is a German politician. She is a member of the DIE LINKE.",
-				"fr": "Agnes Alpers est une politicienne allemande. Elle est un membre de la partie DIE LINKE.",
-				"de": "Agnes Alpers (* 29. Juni 1961 in Oerel) ist eine deutsche P\u00e4dagogin, Politikerin (Die Linke) und ehemaliges Mitglied des Bundestages."
-			}
-		},
 		"512": {
 			"images": {
 				"pathToImage": "512.jpg",
