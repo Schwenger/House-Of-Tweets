@@ -1,6 +1,5 @@
 import re
 import threading
-import time
 from soundGenerator import generate_sound
 from twitter import TwitterInterface, TweetConsumer
 import mq
@@ -140,6 +139,17 @@ class TwitterListener(TweetConsumer):
 		return [poli['citizen_bird'], poli['self_bird']]
 
 
+COUNTER_PREV = 1
+
+
+# Locking has to be done from the outside
+# TODO: Shouldn't there be something for this in the stdlib?  Probably a class.
+def poll_counter():
+	global COUNTER_PREV
+	COUNTER_PREV += 1
+	return COUNTER_PREV
+
+
 class TwitterConnection(object):
 	def __init__(self, queue: mq.SendQueueInterface, followListPolitician,
 				 polBack, birdBack, twitter: TwitterInterface):
@@ -167,38 +177,43 @@ class TwitterConnection(object):
 		if birdid not in self.birdBack.bJson:
 			print("citizen user ignored, invalid bird: " + birdid)
 			return
-		# Need the lock due to __removeCitizen
-		if self.getCitizen(tid) is not None or self.isPoli(tid):
-			print("already added: " + twittername)
-			return
-
-		entry = dict()
-		entry["userId"] = tid
-		entry["birdId"] = birdid
-		entry["party"] = 'neutral'
-		entry["startingTime"] = time.time()
-		
-		print("add citizen " + str(entry))
 
 		with self.lock:
 			if tid in self.citizens:
-				print("Don't call addCitizen from multiple threads, dude!")
+				entry = self.citizens[tid]
+				print("Updating existing citizen's bird from {}".format(entry))
 			else:
+				print("Creating new citizen's bird")
+				entry = dict()
+				entry["userId"] = tid
+				entry["party"] = 'neutral'
 				self.citizens[tid] = entry
+				# Even if a tweet comes in instantly, getCitizen syncs on
+				# self.lock, so it's fine.  That's also why getCitizen() will
+				# never see an incomplete citizen.
 				self.twitter.register([tid], self.listener)
-				timer = threading.Timer(REMOVE_CITIZEN_TIME,
-										self._remove_citizen, tid)
-				# Don't prevent shutting down
-				timer.daemon = True
-				timer.start()
 
-	def _remove_citizen(self, tid):
+			entry["birdId"] = birdid
+			token = poll_counter()
+			entry["token"] = token
+			print("Resulting citizen entry: {}".format(entry))
+			timer = threading.Timer(REMOVE_CITIZEN_TIME,
+									self._remove_citizen, [tid, token])
+			# Don't prevent shutting down
+			timer.daemon = True
+			timer.start()
+
+	def _remove_citizen(self, tid, token):
 		with self.lock:
-			print("Removing citizen {}".format(tid))
-			try:
-				del self.citizens[str(tid)]
-			except KeyError:
-				pass
+			print("Want to remove citizen {}, token {}".format(tid, token))
+			if tid not in self.citizens:
+				print("=> Already deleted (huh?)")
+			elif self.citizens[tid]['token'] != token:
+				print("=> Token mismatch, db has {}"
+					  .format(self.citizens[tid]['token']))
+			else:
+				print("=> Yup")
+				del self.citizens[tid]
 			print("Remaining citizens: {}".format(self.citizens.keys()))
 
 	def isPoli(self, uid):

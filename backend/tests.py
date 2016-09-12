@@ -3,6 +3,7 @@
 import json
 import mq
 import os
+import time
 import twitter
 import twitterConnection
 import birdBackend
@@ -35,8 +36,6 @@ def test_batching_x(n, batch):
         print("[SKIP] Skipping slow test")
         return
 
-    import time
-    # from datetime import datetime
     print("Testing batching.TweetBatcher:")
     conn = mq.PrintQueue.new('test_batching')
     batcher = mq.Batcher(conn)
@@ -159,7 +158,15 @@ def test_bird_recognition():
 all_tests.append(test_bird_recognition)
 
 
+def long_wait(secs):
+    print("[INFO] Waiting for {} seconds.  Note that Travis kills".format(secs))
+    print("       you after 600 seconds of no output.")
+    time.sleep(secs)
+
+
 def test_twitter_citizenship():
+    # This test won't change anything about the politicians,
+    # but still, better play it safe.
     politicianBackend.check_writeback()
     politicianBackend.set_skip_writeback(True)
     politicianBackend.check_writeback()
@@ -185,21 +192,43 @@ def test_twitter_citizenship():
     assert twi.getCitizen("12345679")['birdId'] == 'ara'
     assert twi.citizens.keys() == {'12345679'}
 
-    # FIXME: Citizen updates not implemented
+    # Be able to deal with erroneous removals
+    # noinspection PyProtectedMember
+    twi._remove_citizen('123456', 666)  # token of the beast
+    assert twi.citizens.keys() == {'12345679'}
+    queue.expect([])
+
+    if RUN_SLOW_TESTS:
+        print("[INFO] This wakeup should be completely silent.")
+        long_wait(twitterConnection.REMOVE_CITIZEN_TIME / 2)
+
     twi.addCitizen("Heinz3", 'zilpzalp', tid="12345679")
     queue.expect([])
     assert not twi.isPoli("12345679")
     assert twi.getCitizen("12345679") is not None
-    assert twi.getCitizen("12345679")['birdId'] == 'ara'
+    assert twi.getCitizen("12345679")['birdId'] == 'zilpzalp'
     assert twi.citizens.keys() == {'12345679'}
 
-    # Be able to deal with erroneous removals
-    # noinspection PyProtectedMember
-    twi._remove_citizen('123456')
-    assert twi.citizens.keys() == {'12345679'}
+    if not RUN_SLOW_TESTS:
+        print("[SKIP] The slow part of test_twitter_citizenship().")
+        print("       You might see several stray 'citizen removed' messages.")
+        return
+
+    print("[INFO] This wakeup should be a no-op.")
+    long_wait(twitterConnection.REMOVE_CITIZEN_TIME / 2 + 10)
     queue.expect([])
+    assert not twi.isPoli("12345679")
+    assert twi.getCitizen("12345679") is not None
+    assert twi.getCitizen("12345679")['birdId'] == 'zilpzalp'
+    assert twi.citizens.keys() == {'12345679'}
 
-    # FIXME: Citizen delayed-removal not implemented
+    print("[INFO] This wakeup should remove it, as citizen deletion")
+    print("       has been deferred when the bird was updated.")
+    long_wait(twitterConnection.REMOVE_CITIZEN_TIME / 2 + 10)
+    queue.expect([])
+    assert not twi.isPoli("12345679")
+    assert twi.getCitizen("12345679") is None
+    assert twi.citizens.keys() == set()
 
 all_tests.append(test_twitter_citizenship)
 
@@ -298,6 +327,8 @@ def test_twitter_listener():
     twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack, fakeTwitter)
     queue.expect([])
     twi.addCitizen("Heinz1", "zilpzalp", tid="987654")
+    # This should be the last test, so don't care about the
+    # timer and/or removal of this citizen.
     assert twi.citizens.keys() == {'987654'}
     sounds = soundGenerator.SOUND_ROOT
 
