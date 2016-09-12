@@ -11,8 +11,7 @@ from twitter import RealTwitterInterface
 
 birdBack = BirdBackend()
 polBack = PoliticianBackend()
-follow = ["4718199753", "774336282101178368"]
-# follow.extend(polBack.getAllTwitteringPoliticians())
+follow = polBack.getAllTwitteringPoliticians()
 print("Configured to follow {} accounts.".format(len(follow)))
 
 queue = mq.Batcher(mq.RealQueue("tweets"))
