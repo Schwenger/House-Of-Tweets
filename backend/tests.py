@@ -11,6 +11,8 @@ import soundGenerator
 
 all_tests = []
 
+RUN_SLOW_TESTS = 'CONTINUOUS_INTEGRATION' in os.environ
+
 
 def test_mq():
     def run_with(maker):
@@ -29,6 +31,10 @@ all_tests.append(test_mq)
 
 
 def test_batching_x(n, batch):
+    if not RUN_SLOW_TESTS:
+        print("[SKIP] Skipping slow test")
+        return
+
     import time
     # from datetime import datetime
     print("Testing batching.TweetBatcher:")
@@ -386,6 +392,7 @@ def test_all():
 
 if __name__ == '__main__':
     line = "=" * 80
-    print(line + "\nUSING REAL TWITTER API!\n" + line)
+    print("{line}\nUSING REAL TWITTER API!\nSlow tests = {slow}\n{line}"
+          .format(line=line, slow=RUN_SLOW_TESTS))
 
     test_all()
