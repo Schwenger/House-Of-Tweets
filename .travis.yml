@@ -11,7 +11,9 @@ python:
   - "3.5"
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript
+  - sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript openssl
+  - rm backend/credentials.py
+  - openssl aes-256-cbc -K $encrypted_3804c810c01a_key -iv $encrypted_3804c810c01a_iv -in tools/minimal_sound/test-cred.py.enc -out backend/credentials.py -d
   - sudo rabbitmq-server -detached
   # Note that on Debian, you'd need to say 'pip3'
   - pip install pika pillow pydub tweepy typing
@@ -31,4 +33,4 @@ script:
   - make frontend
   # ( Makefile is currently unimplemented for backend )
   # Is rabbitmq running already?
-  - ( cd backend && ./tests.py )
+  - ( cd backend && ./tests.py test_ben )
