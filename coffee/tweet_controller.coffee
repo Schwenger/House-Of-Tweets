@@ -107,9 +107,10 @@ TweetController =
 		toPlay = if @_poliTweetsOnly then byPoli else incomingTweets.length
 		@_playTweets(list[..toPlay], SoundCtrl.getMode())
 
+	# selects the last @_threshold elements
 	_trimLists: () ->
-		@_tLists.mixed = @_tLists.mixed[..@_threshold]
-		@_tLists.poli = @_tLists.poli[..@_threshold]
+		@_tLists.mixed = @_tLists.mixed[-@_threshold...]
+		@_tLists.poli = @_tLists.poli[-@_threshold...]
 
 	_process: (tweet) ->
 		tweet.time = new Date(parseInt tweet.time) 
