@@ -125,12 +125,32 @@ class StreamListenerAdapter(StreamListener):
         print("{} on_warning: {}".format(self.desc, notice))
 
 
+def show_usage(keys):
+    from sys import exit
+    print('Start it like this:')
+    print('( cd backend && ./startBackend.py ${SOME_KEY} )')
+    print('Where the following values are accepted for ${SOME_KEY}:')
+    print('{}'.format(keys))
+    exit(1)
+
+
 class RealTwitterInterface(TwitterInterface):
     def __init__(self):
-        from credentials import consumer_key, consumer_secret, \
-            access_key, access_secret
-        self.auth = OAuthHandler(consumer_key, consumer_secret)
-        self.auth.set_access_token(access_key, access_secret)
+        from credentials import CREDENTIALS
+        from sys import argv
+
+        show_keys = set(CREDENTIALS.keys())  # Copy to be extra safe
+        if len(argv) != 2:
+            print('Must specify exactly one argument, but {} provided.'.format(len(argv) - 1))
+            show_usage(show_keys)
+        key = argv[1]
+        if key not in CREDENTIALS:
+            print('Unknown key {} provided.'.format(argv[1]))
+            show_usage(show_keys)
+
+        creds = CREDENTIALS[argv[1]]
+        self.auth = OAuthHandler(creds['consumer_key'], creds['consumer_secret'])
+        self.auth.set_access_token(creds['access_key'], creds['access_secret'])
         self.streams = dict()
         self.lock = threading.RLock()
         self.api = tweepy.API(self.auth)
