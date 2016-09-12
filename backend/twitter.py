@@ -9,6 +9,11 @@ import json
 import threading
 
 
+# If a crashing bug in tweepy happens,
+# after how many seconds shall we try again?
+RESPAWN_PERIOD = 15
+
+
 class TweetConsumer(object):
     def consumeTweet(self, tweet: dict):
         raise NotImplementedError("Should have implemented this")
@@ -51,13 +56,14 @@ def parse_tweet(status):
 
 
 class StreamListenerAdapter(StreamListener):
-    def __init__(self, consumer: TweetConsumer, users: List[str]):
+    def __init__(self, consumer: TweetConsumer, users: List[str], restarter):
         super().__init__()
         # bypass the "parsing" done by StreamListener
         self.raw_data = None
         self.consumer = consumer
         self.desc = "{} ({} users)".format(list(users)[:2], len(users))
         self.sensitive = set(users)
+        self.restarter = restarter
 
     def on_data(self, raw_data):
         if self.raw_data is not None:
@@ -93,6 +99,9 @@ class StreamListenerAdapter(StreamListener):
 
     def on_exception(self, exception):
         print("{} on_exception {!r}".format(self.desc, exception))
+        print("(You'll see the same error immediately again, but don't"
+              " worry, I'm a Phoenix, I'll get revived in a few seconds.)")
+        threading.Timer(RESPAWN_PERIOD, self.restarter.restart_now).start()
 
     def on_delete(self, status_id, user_id):
         print("{} on_delete".format(self.desc))
@@ -123,6 +132,36 @@ class StreamListenerAdapter(StreamListener):
 
     def on_warning(self, notice):
         print("{} on_warning: {}".format(self.desc, notice))
+
+
+class RestartingStream:
+    def __init__(self, consumer, usernames, auth):
+        self.active = True
+        self.s = None
+        self.consumer = consumer
+        self.usernames = usernames
+        self.auth = auth
+        self.lock = threading.RLock()
+
+        self.restart_now()
+
+    def restart_now(self):
+        with self.lock:
+            if not self.active:
+                return
+            if self.s is not None:
+                self.s.disconnect()
+            l = StreamListenerAdapter(self.consumer, self.usernames, self)
+            self.s = tweepy.Stream(self.auth, l)
+            self.s.filter(follow=self.usernames, async=True)
+
+    def disconnect(self):
+        with self.lock:
+            self.active = False
+            if self.s is None:
+                return
+            self.s.disconnect()
+            self.s = None
 
 
 def show_usage(keys):
@@ -157,10 +196,7 @@ class RealTwitterInterface(TwitterInterface):
 
     def register(self, usernames, consumer: TweetConsumer) -> object:
         with self.lock:
-            l = StreamListenerAdapter(consumer, usernames)
-            stream = tweepy.Stream(self.auth, l)
-            self.streams[tuple(usernames)] = stream
-            stream.filter(follow=usernames, async=True)
+            self.streams[tuple(usernames)] = RestartingStream(consumer, usernames, self.auth)
 
     def deregister(self, usernames: List[str]):
         with self.lock:
