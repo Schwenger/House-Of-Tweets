@@ -1,4 +1,5 @@
 FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat ext/node_modules/less
+BACKEND_DEP:=pika pillow pydub tweepy typing
 
 BROWSERIFY?=ext/node_modules/.bin/browserify
 COFFEESCRIPT_CONCAT?=ext/node_modules/.bin/coffeescript-concat
@@ -58,6 +59,18 @@ backend:
 
 .PHONY: install_dependencies
 install_dependencies: ${FRONTEND_DEP}
+	@if command -v pip3 &> /dev/null ; \
+	then \
+		echo pip3 install ${BACKEND_DEP} ; \
+		pip3 install ${BACKEND_DEP} ; \
+	elif command -v pip &> /dev/null ; \
+	then \
+		echo pip install ${BACKEND_DEP} ; \
+		pip install ${BACKEND_DEP} ; \
+	else \
+		echo "# Can't find pip or pip3.  Is it installed?" ; \
+		false ; \
+	fi
 
 ${FRONTEND_DEP}: ext/node_modules/%:
 	@mkdir -p ext/node_modules
