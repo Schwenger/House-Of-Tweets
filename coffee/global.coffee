@@ -10,7 +10,6 @@ Global = {
 		switch(langString)
 			when "german" then "de"
 			when "english" then "en"		
-			when "french" then "fr"
 
 	langId: () -> Global._transform(Global.language)
 }

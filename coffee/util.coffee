@@ -36,7 +36,6 @@ Util = {
 		switch Global.language
 			when "english" then "en_" + str
 			when "german"  then "de_" + str
-			when "french"  then "fr_" + str
 
 	createError: (msg, time) ->
 		errorObj = $("<div class='error-message'>")
