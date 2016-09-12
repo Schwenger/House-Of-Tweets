@@ -5,28 +5,31 @@
 
 VoicesLists = 
 
+	birdListRoot: $("#voices-list-birds")
+	politicianListRoot: $("#voices-list-politicians")
+
 	init: ->
-		@_displayPoliticians $("#voices-list-politicians"), "voices-list-item"
-		@_displayBirdList $("#voices-list-birds"), "voices-list-item", (id) -> Profiles.openBirdPage(id)
+		@_initPoliticianList()
+		@_initBirdList()
 		Profiles.init(@_displayBirdList)
 
 	update: ->
 		console.log "updating"
-		list = $("#voices-list-politicians")
-		list.children(".voices-list-entry").each -> $(this).remove()
-		@_displayPoliticians list, "voices-list-item"
+		VoicesLists.politicianListRoot.children(".voices-list-entry").each -> $(this).remove()
+		VoicesLists._displayPoliticians list, "voices-list-item"
 		Global.pendingBirdListUpdate = false
 
 	translateBirds: ->
-		$("#voices-list-birds").children(".voices-list-entry").each ->
-			[head..., id] = $(this).attr("id").split("-")
-			newName = Model.birds[id][Util.addLang("name")]
-			$(this).find('.first-line').text(newName)
+		VoicesLists.birdListRoot.children(".voices-list-entry").each -> $(this).remove()
+		VoicesLists._initBirdList()
 
 	leavePage: ->
 		Profiles.close()
 
 	# CREATE AND DISPLAY LISTS
+
+	_initPoliticianList: ->
+		@_displayPoliticians @politicianListRoot, "voices-list-item"
 
 	_displayPoliticians: (root, prefix) ->
 		for own id, p of Model.politicians
@@ -37,13 +40,22 @@ VoicesLists =
 				root.append obj
 				obj.click () -> Profiles.openPoliticianPage id
 
+	_initBirdList: ->
+		@_displayBirdList @birdListRoot, "voices-list-item", (id) -> Profiles.openBirdPage(id)
+
 	# NB: This method is called from within profile, thus avoid using @.
 	_displayBirdList: (root, prefix, handler) ->
-		for own id, b of Model.birds
+		respName = Util.addLang "name"
+		cmp = (a,b) ->
+			if a[1][respName] < b[1][respName] then -1
+			else if b[1][respName] < a[1][respName] then 1
+			else 0
+		sortable = ([id, bird] for own id, bird of Model.birds)
+		sortable.sort(cmp)
+		for [id, b] in sortable
 			do(id, b) ->
 				image = Util.birdPath id
-				name = b[Util.addLang "name"]
-				obj = VoicesLists._createListEntry id, name, b.latin_name, image, prefix
+				obj = VoicesLists._createListEntry id, b[respName], b.latin_name, image, prefix
 				root.append obj
 				obj.click () -> handler(id)
 
