@@ -56,7 +56,7 @@ class StreamListenerAdapter(StreamListener):
         # bypass the "parsing" done by StreamListener
         self.raw_data = None
         self.consumer = consumer
-        self.desc = "{} ({} users)".format(users[:2], len(users))
+        self.desc = "{} ({} users)".format(list(users)[:2], len(users))
         self.sensitive = set(users)
 
     def on_data(self, raw_data):
