@@ -145,7 +145,17 @@ def test_bird_recognition():
                'Ick bin ein zaunkoenig #obamalincoln': 'zaunkoenig',
                'Für mich einen Paradiesvogel': None,
                'Hey! Paradiesvogel!': None,
-               'Menno': None}
+               'Menno': None,
+               'Ich will ein ara sein! #HoT': 'ara',
+               'Ara? So ein Blödsinn, ich bin eine Amsel! #HoT': 'ara',
+               'Ich bin eine Amsel! #HoT': 'amsel',
+               '#HoT #Amsel': 'amsel',
+               'Ara!!! #HoT': 'ara',
+               '#Ara #HoT': 'ara',
+               'Party@Ara! Voll der Vogel11! #HoT': 'ara',
+               'Amsel#1 mein Lieber! #houseoftweets': 'amsel',
+               'Frei wie ein Vogel! #houseoftweets': None,
+               }
     birdBack = BirdBackend()
     for (input, expected) in results.items():
         actual = twitterConnection.find_bird(input, birdBack)

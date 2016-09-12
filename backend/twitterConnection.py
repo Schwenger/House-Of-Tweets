@@ -49,7 +49,7 @@ def contains_command(hashtags):
 
 def find_bird(content, birdBack):
 	content = content.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
-	words = set(re.sub("[^\wäöüß]", " ",  content).split())
+	words = list(re.sub("[^\wäöüß]", " ",  content).split())
 	for candidate in words:
 		bird = birdBack.bJson.get(candidate)
 		if bird is not None:
