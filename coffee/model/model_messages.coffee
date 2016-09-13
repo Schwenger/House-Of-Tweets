@@ -9,7 +9,7 @@
 
 			birdsObl: "Vögeln"
 			musicianObl: "Musikern"
-			chirpingOf: "Zwittern von"
+			chirpingOf: "Zwitschern von"
 
 			photo: "Foto"
 			drawing: "Zeichnung" #Kunst?
