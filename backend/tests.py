@@ -85,9 +85,9 @@ def test_parse_tweet():
     # Somewhat fragile test, but at least it shows you what the internal format looks like
     expected = {'content': 'Blarghi v2.0 #Improved #Harder #Faster #Stronger https:\\/\\/t.co\\/qzF99STdcU',
                 'profile_img': 'https:\\/\\/pbs.twimg.com\\/profile_images\\/774232619248746500\\/5wvBHiHp_normal.jpg',
-                'userscreen': 'HouseOfTweetsSB',
+                'userscreen': 'HouseOfTweets',
                 'hashtags': ['Improved', 'Harder', 'Faster', 'Stronger'],
-                'username': 'HouseOfTweets',
+                'username': 'HouseOfTweetsSB',
                 'time': '1473446404525',
                 'uid': '4718199753',
                 'retweet': True}

@@ -46,8 +46,8 @@ def parse_tweet(status):
         for h in hh:
             report['hashtags'].append(h['text'])
         report['content'] = status["text"]
-        report['username'] = status["user"]["name"]
-        report['userscreen'] = status["user"]["screen_name"]
+        report['username'] = status["user"]["screen_name"]
+        report['userscreen'] = status["user"]["name"]
         report['time'] = status["timestamp_ms"]
         report['profile_img'] = status["user"]["profile_image_url_https"]
         report['retweet'] = status["is_quote_status"]
