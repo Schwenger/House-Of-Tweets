@@ -30,7 +30,7 @@ class RealQueue(SendQueueInterface):
             self.channel.basic_publish(exchange='', routing_key=self.name,
                                        body=json.dumps(message))
         except Exception as e:
-            print("Connection failed anyway?  Make sure RabbitMQ is running!")
+            print("Connection failed anyway?  Make sure RabbitMQ is running! (is_closed = {})".format(self.connection.is_closed))
             print(e.__repr__())
             print("Message dropped.")
 
