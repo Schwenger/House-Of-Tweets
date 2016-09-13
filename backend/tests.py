@@ -330,7 +330,7 @@ def test_twitter_listener():
     politicianBackend.check_writeback()
     birdBack = birdBackend.BirdBackend()
     polBack = politicianBackend.PoliticianBackend()
-    follow = ["4718199753", "774336282101178368"]
+    follow = ["4718199753", "813286", "774336282101178368"]
     queue = mq.PrintQueue("twitter_lis_test")
     print("[INFO] Preparing for integration test …")
 
@@ -399,7 +399,34 @@ def test_twitter_listener():
                       'retweet': False})
     queue.expect([])
 
-    # TODO: Test for updates of a politician's bird?
+    # Put into some known state
+    polBack.setBird('813286', 'amsel', 'c')
+    polBack.setBird('813286', 'invalid', 'p')
+    # Test receiving a command:
+    fakeTwitter.send({'content': 'such an #amsel #HoT',
+                      'profile_img': 'img_url',
+                      'userscreen': 'The Barack',
+                      'hashtags': ['amsel', 'HoT'],
+                      'username': 'RealBarackObama',
+                      'time': '1473446404527',
+                      'uid': 813286,
+                      'retweet': False})
+    queue.expect([{'byPoli': True, 'content': 'such an #amsel #HoT',
+                   'hashtags': ['amsel', 'HoT'],
+                   # "Demokraten" will get treated as 'DIE LINKE'
+                   'id': 44, 'image': 'img_url', 'name': 'The Barack', 'partycolor': '#c82864',
+                   'refresh': {
+                       'politicianId': '648',
+                       'birdId': 'amsel',  # Must be the new bird
+                   },
+                   'retweet': False, 'sound':
+                   {
+                     'duration': 10000,
+                     'citizen': {'natural': expect_amsel, 'synth': expect_amsel},
+                     'poli': {'natural': expect_amsel, 'synth': expect_amsel},
+                   },
+                   'time': '1473446404527', 'twitterName': 'RealBarackObama'
+                   }])
 
 all_tests.append(test_twitter_listener)
 
