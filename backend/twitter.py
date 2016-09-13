@@ -49,6 +49,7 @@ def parse_tweet(status):
         report['username'] = status["user"]["screen_name"]
         report['userscreen'] = status["user"]["name"]
         report['time'] = status["timestamp_ms"]
+        report['tweet_id'] = status["id_str"]
         report['profile_img'] = status["user"]["profile_image_url_https"]
         report['retweet'] = status["is_quote_status"]
         return report

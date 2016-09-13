@@ -89,6 +89,7 @@ def test_parse_tweet():
                 'hashtags': ['Improved', 'Harder', 'Faster', 'Stronger'],
                 'username': 'HouseOfTweetsSB',
                 'time': '1473446404525',
+                'tweet_id': '774316458742583296',
                 'uid': '4718199753',
                 'retweet': True}
     assert actual == expected
@@ -351,7 +352,7 @@ def test_twitter_listener():
                       'hashtags': ['NiceExample', 'TotallyRealistic'],
                       'username': 'HouseOfTweets',
                       'time': '1473446404525',
-                      'uid': 4718199753,
+                      'uid': 4718199753, 'tweet_id': 'bullshit',
                       'retweet': False})
     expect_amsel = sounds + '/processed/amsel-neutral-10000.mp3'
     queue.expect([{'byPoli': True, 'poli': 'hot', 'content': 'content1',
@@ -373,7 +374,7 @@ def test_twitter_listener():
                       'hashtags': [],
                       'username': 'Yoyo',
                       'time': '1473446404527',
-                      'uid': 987654,
+                      'uid': 987654, 'tweet_id': 'bullshit',
                       'retweet': True})
     expect_zz = sounds + '/processed/zilpzalp-fragend-r-10750.mp3'
     queue.expect([{'byPoli': False, 'poli': None, 'content': 'guy who writes long(?) tweets says whaaaat?',
@@ -395,7 +396,7 @@ def test_twitter_listener():
                       'hashtags': [],
                       'username': 'Straynger',
                       'time': '1473446404529',
-                      'uid': 5550800911,
+                      'uid': 5550800911, 'tweet_id': 'bullshit',
                       'retweet': False})
     queue.expect([])
 
@@ -409,7 +410,7 @@ def test_twitter_listener():
                       'hashtags': ['amsel', 'HoT'],
                       'username': 'RealBarackObama',
                       'time': '1473446404527',
-                      'uid': 813286,
+                      'uid': 813286, 'tweet_id': 'bullshit',
                       'retweet': False})
     queue.expect([{'byPoli': True, 'poli': '648', 'content': 'such an #amsel #HoT',
                    'hashtags': ['amsel', 'HoT'],
