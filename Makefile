@@ -80,10 +80,10 @@ ${FRONTEND_DEP}: ext/node_modules/%:
 
 .PHONY: start
 start: 
-	@echo '# If this fails immediately due to "ConnectionError",'
-	@echo '# check wheter RabbitMQ is up and running!  Try this:'
-	@echo '# sudo rabbitmq-server -detached'
-	( cd backend && ./startBackend.py )
+	@echo '# Can't start backend: I need your key!  Do it like this:'
+	@echo '#     ./startLoggedBackend.sh test_max'
+	@echo '# I'll fail now so you can see this message.'
+	@false
 
 # CHECK
 

@@ -12,3 +12,4 @@ coffee/model.coffee
 # No logs, please
 backend/log
 tools/DataMiningTool/log.txt
+log_*.txt*
