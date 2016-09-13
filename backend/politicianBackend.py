@@ -102,6 +102,12 @@ def poli_modify():
 	# Do your thing here, e.g.:
 	#     pB.setBird('395912134', 'fitis', 'c')
 	#     # This is a no-op on the original pols.json
+	# Or to purge everything French:
+	#     for poli in pb.poliList:
+	#         cv = poli['cv']
+	#         if 'fr' in cv:
+	#             print('Purged the French out of ' + poli['name'])
+	#             del cv['fr']
 	# Note:
 	# - setBird automatically calls dumpToFile.
 	#   In all other cases, you'll need to call __dumpToFile by hand, like this:
