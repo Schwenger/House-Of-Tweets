@@ -159,10 +159,6 @@ def test_bird_recognition():
     birdBack = BirdBackend()
     for (input, expected) in results.items():
         actual = twitterConnection.find_bird(input, birdBack)
-        if actual is not None:
-            new_actual = actual[0]
-            assert new_actual is not None
-            actual = new_actual
         assert expected == actual, (input, expected, actual)
 
 all_tests.append(test_bird_recognition)

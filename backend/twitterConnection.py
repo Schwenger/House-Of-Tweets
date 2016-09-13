@@ -53,9 +53,8 @@ def find_bird(content, birdBack):
 	content = content.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
 	words = list(re.sub("[^\wäöüß]", " ",  content).split())
 	for candidate in words:
-		bird = birdBack.bJson.get(candidate)
-		if bird is not None:
-			return [candidate, bird]
+		if candidate in birdBack.bJson:
+			return candidate
 	return None
 
 
@@ -126,18 +125,18 @@ class TwitterListener(TweetConsumer):
 		# Check for any updates
 		if contains_command(tweet['hashtags']):
 			pid = poli['pid']
-			bird = find_bird(tweet['content'], self.birdBack)
-			if bird is None:
-				print('I saw that command, but bird={bird!r} is not a valid bird!\n'
+			bird_id = find_bird(tweet['content'], self.birdBack)
+			if bird_id is None:
+				print('I saw that command, but no valid bird!\n'
 					  'pid={pid!r} content={ct}'
-					  .format(ct=tweet['content'], bird=bird, pid=pid))
+					  .format(ct=tweet['content'], pid=pid))
 			else:
 				print('politician "{}" ({}) gets new bird {}'
-						.format(tweet['userscreen'], pid, bird))
+						.format(tweet['userscreen'], pid, bird_id))
 				msg['refresh'] = dict()
 				msg['refresh']['politicianId'] = pid
-				msg['refresh']['birdId'] = bird
-				self.pb.setBird(tweet['uid'], bird, actor='p')
+				msg['refresh']['birdId'] = bird_id
+				self.pb.setBird(tweet['uid'], bird_id, actor='p')
 
 		# In case of 'refresh', poli already contains the update:
 		return [poli['citizen_bird'], poli['self_bird']]
