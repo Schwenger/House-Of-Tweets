@@ -354,7 +354,7 @@ def test_twitter_listener():
                       'uid': 4718199753,
                       'retweet': False})
     expect_amsel = sounds + '/processed/amsel-neutral-10000.mp3'
-    queue.expect([{'byPoli': True, 'content': 'content1',
+    queue.expect([{'byPoli': True, 'poli': 'hot', 'content': 'content1',
                    'hashtags': ['NiceExample', 'TotallyRealistic'],
                    'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#00cc00',
                    # No 'refresh'
@@ -376,7 +376,7 @@ def test_twitter_listener():
                       'uid': 987654,
                       'retweet': True})
     expect_zz = sounds + '/processed/zilpzalp-fragend-r-10750.mp3'
-    queue.expect([{'byPoli': False, 'content': 'guy who writes long(?) tweets says whaaaat?',
+    queue.expect([{'byPoli': False, 'poli': None, 'content': 'guy who writes long(?) tweets says whaaaat?',
                    'hashtags': [],
                    'id': 43, 'image': 'img_url', 'name': 'Heinzi', 'partycolor': '#257E9C',
                    # No 'refresh'
@@ -411,7 +411,7 @@ def test_twitter_listener():
                       'time': '1473446404527',
                       'uid': 813286,
                       'retweet': False})
-    queue.expect([{'byPoli': True, 'content': 'such an #amsel #HoT',
+    queue.expect([{'byPoli': True, 'poli': '648', 'content': 'such an #amsel #HoT',
                    'hashtags': ['amsel', 'HoT'],
                    # "Demokraten" will get treated as 'DIE LINKE'
                    'id': 44, 'image': 'img_url', 'name': 'The Barack', 'partycolor': '#429EE2',

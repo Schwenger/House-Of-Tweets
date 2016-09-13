@@ -8,7 +8,8 @@ See attached file `dataflow.png`:
 
 ### Queue "tweets"
 
-- `byPoli`: boolean, whether this is a politician or not, e.g. `true`
+- `byPoli`: boolean, whether this is a politician or not, e.g. `true` **DEPRECATED**
+- `poli`: string, the HoT-internal ID of the politician or `null` if citizen, e.g. `null` or `"649"`
 - `content`: string, e.g. `"Wir dürfen uns nicht auseinander dividieren lassen!"`
 - `hashtags`: possibly empty array, each element is a string, containing a single hashtag, without the leading hash, e.g. `[]` or `["what", "doomed"]`
     Note that frontend should NOT parse this for `HoT` or something.

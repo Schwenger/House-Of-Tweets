@@ -75,11 +75,10 @@ class TwitterListener(TweetConsumer):
 	def consumeTweet(self, tweet):
 		self.prev_msg_id += 1
 		print("{line}\nReceived tweet #{msg_id}:\n{tweet}"
-			  .format(line="("*80, tweet=tweet, msg_id = self.prev_msg_id))
+			  .format(line="("*80, tweet=tweet, msg_id=self.prev_msg_id))
 
 		# Boring stuff
 		msg = dict()
-		msg['byPoli'] = self.tw.isPoli(tweet['uid'])
 		msg['content'] = tweet['content']
 		msg['hashtags'] = tweet['hashtags']
 		msg['id'] = self.prev_msg_id
@@ -89,16 +88,20 @@ class TwitterListener(TweetConsumer):
 		msg['time'] = tweet['time']
 		msg['twitterName'] = tweet['username']
 
+		poli = self.pb.getPolitician(tweet['uid'])
+		citi = self.tw.getCitizen(tweet['uid'])
+		msg['byPoli'] = poli is not None  # FIXME: deprecated, remove
+
 		# Resolve politician/citizen specifics
-		if msg['byPoli']:
+		if poli is not None:
+			msg['poli'] = poli['pid']
 			birds = self.handle_poli(tweet, msg)
+		elif citi is not None:
+			msg['poli'] = None
+			birds = self.handle_citizen(citi, msg)
 		else:
-			citizen = self.tw.getCitizen(tweet['uid'])
-			if citizen is None:
-				print("Outdated tweet by no-longer citizen {}".format(tweet['uid']))
-				birds = None
-			else:
-				birds = self.handle_citizen(citizen, msg)
+			print("Outdated tweet by no-longer citizen {}".format(tweet['uid']))
+			birds = None
 
 		# Make a sound
 		if birds is None:
