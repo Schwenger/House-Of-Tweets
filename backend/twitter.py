@@ -35,6 +35,7 @@ class TweetPrinter(TweetConsumer):
         print("incoming tweet {}".format(tweet))
 
 
+# Turn a giant "Tweet" JSON into a more easily spoofable and printable format.
 def parse_tweet(status):
     try:
         report = dict()
@@ -55,6 +56,9 @@ def parse_tweet(status):
         return None
 
 
+# Reduce the implementation workload for the "tweet consumer" by filtering out
+# irrelevant retweets and handling all the tweepy requirements.
+# Also, don't require a 'StreamListener' implementation from them.
 class StreamListenerAdapter(StreamListener):
     def __init__(self, consumer: TweetConsumer, users: List[str], restarter):
         super().__init__()
@@ -65,6 +69,7 @@ class StreamListenerAdapter(StreamListener):
         self.sensitive = set(users)
         self.restarter = restarter
 
+    # Intercept on_data calls because we want the raw data later on.
     def on_data(self, raw_data):
         if self.raw_data is not None:
             print("StreamListenerAdapter.raw_data was unclean.  Ignoring.")
@@ -84,6 +89,7 @@ class StreamListenerAdapter(StreamListener):
         print("{}: on_tweet".format(self.desc))
         self.consumer.consumeTweet(tweet)
 
+    # A tweet arrived.  The retweet filtering happens here.
     def on_status(self, status):
         if self.raw_data is None:
             print("ERROR: on_status called without going through on_data?!")
@@ -98,9 +104,13 @@ class StreamListenerAdapter(StreamListener):
             self.on_tweet(tweet)
 
     def on_exception(self, exception):
+        # tweepy has lots of bugs.  Backend and tweepy exception will
+        # result in this code being called, so use it as a trampoline.
         print("{} on_exception {!r}".format(self.desc, exception))
         print("(You'll see the same error immediately again, but don't"
               " worry, I'm a Phoenix, I'll get revived in a few seconds.)")
+        # Fun fact: even if no thread is runnable,
+        # the existence of a Timer keeps Python alive.
         threading.Timer(RESPAWN_PERIOD, self.restarter.restart_now).start()
 
     def on_delete(self, status_id, user_id):
@@ -134,6 +144,10 @@ class StreamListenerAdapter(StreamListener):
         print("{} on_warning: {}".format(self.desc, notice))
 
 
+# tweepy has lots of bugs.  This is essentially a wrapper that automatically
+# restarts on tweepy- or backend-induced errors.  Note that Twitter error
+# codes and connectivity issues are already handled by tweepy, so no need
+# for any sophisticated algorithms here.
 class RestartingStream:
     def __init__(self, consumer, usernames, auth):
         self.active = True
@@ -175,6 +189,7 @@ def show_usage(keys):
 
 class RealTwitterInterface(TwitterInterface):
     def __init__(self):
+        # Read argv to determine which credentials to use
         from credentials import CREDENTIALS
         from sys import argv
 

@@ -7,6 +7,7 @@ import mq
 # Seconds
 REMOVE_CITIZEN_TIME = 5 * 60
 
+# Must be lowercase.  The incoming hashtags will be lowercased before comparison.
 COMMAND_HASHTAGS = {'houseoftweets', 'house_of_tweets', 'hot', 'house-of-tweets'}
 
 
@@ -47,6 +48,7 @@ def contains_command(hashtags):
 	return False
 
 
+# Search the tweet for a bird, and return the first one.
 def find_bird(content, birdBack):
 	content = content.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
 	words = list(re.sub("[^\wäöüß]", " ",  content).split())
@@ -57,6 +59,7 @@ def find_bird(content, birdBack):
 	return None
 
 
+# The core decisionmaker.  Gets a processed tweet (consumeTweet()) and
 class TwitterListener(TweetConsumer):
 	def __init__(self, sendingQueue: mq.SendQueueInterface, tw, politicianBackend, birdBack):
 		super().__init__()

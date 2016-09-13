@@ -174,6 +174,7 @@ def long_wait(secs):
     time.sleep(secs)
 
 
+# Test whether adding / updating / deleting citizens works as intended.
 def test_twitter_citizenship():
     # This test won't change anything about the politicians,
     # but still, better play it safe.
@@ -286,6 +287,8 @@ def test_mood_detection():
 all_tests.append(test_mood_detection)
 
 
+# Do we detect the correct source files, and deduce the correct destination files?
+# ("source" and "destination" in the context of sound generation / conversion.)
 def test_sound_pairing():
     # For each entry e of the test battery it holds that the source-resolution
     # will succeed/fail in exactly the same way on both the minimal sounds
@@ -323,6 +326,8 @@ def test_sound_pairing():
 all_tests.append(test_sound_pairing)
 
 
+# Essentially an integration test.
+# Given a tweet, do we write the correct thing(s) to the mesage queues?
 def test_twitter_listener():
     politicianBackend.check_writeback()
     politicianBackend.set_skip_writeback(True)
@@ -401,24 +406,6 @@ def test_twitter_listener():
     # TODO: Test for updates of a politician's bird?
 
 all_tests.append(test_twitter_listener)
-
-
-def test_poli_writeback():
-    print("Testing politicianBackend.setBird.  I hope you saved your stuff!")
-    politicianBackend.check_writeback()
-    politicianBackend.set_skip_writeback(False)
-    politicianBackend.check_writeback()
-    print("Running against Armin Schuster (395912134)")
-    print("original self_bird: weisskopfseeadler")
-    print("original citizen_bird: fitis")
-    pB = politicianBackend.PoliticianBackend()
-    #pB.setBird('395912134', 'ara', 'p')
-    #pB.setBird('395912134', 'mauersegler', 'c')
-    pB.setBird('395912134', 'fitis', 'c')
-    print("Now check by hand.")
-    raise AssertionError("Can't continue after this point.")
-
-# Don't automatically run the above test!
 
 
 def test_all():

@@ -34,6 +34,7 @@ SOUND_ROOT = os.path.join(HOT_ROOT, "ext", "sounds")
 print("SOUND_ROOT = " + SOUND_ROOT)
 
 
+# Determine where we *expect* the file, without checking it
 def path_raw(bird: str, mood: str, retweet: bool):
 	retweet_suffix = "-r" if retweet else ""
 	# Goal: "mehlschwalbe-aufgebracht-r.mp3"
@@ -42,6 +43,7 @@ def path_raw(bird: str, mood: str, retweet: bool):
 	return os.path.join(SOUND_ROOT, filename)
 
 
+# Determine where the result *should* be, without checking it
 def path_processed(bird: str, mood: str, retweet: bool, length: int):
 	retweet_suffix = "-r" if retweet else ""
 	# Goal: "processed/mehlschwalbe-aufgebracht-6000-r.mp3"
@@ -50,6 +52,9 @@ def path_processed(bird: str, mood: str, retweet: bool, length: int):
 	return os.path.join(SOUND_ROOT, 'processed', filename)
 
 
+# Determine a viable source/destination pair, such that the
+# source exists and the destination is correlated.
+# (I.e., the same destination path means you can use caches.)
 def find_pair(bird: Union[None, str], mood: str, retweet: bool, length: int):
 	if bird is None:
 		return None
@@ -70,6 +75,7 @@ def find_pair(bird: Union[None, str], mood: str, retweet: bool, length: int):
 	return None
 
 
+# Actual sound conversion and writing.
 def createNewSoundfile(src_path, dst_path, length_ms):
 	sound = AudioSegment.from_mp3(src_path)
 	finDuration_ms = length_ms
@@ -115,6 +121,8 @@ def get_dst(p):
 	return dst
 
 
+# Public interface.  Get the conversion rolling, and return a JSON struct with the results.
+# The JSON struct is ready for transmission via the 'tweets' queue.
 def generate_sound(content: str, retweet: bool, cBird, pBird):
 	length_ms = max(len(content) * 250, 10000)
 	mood = get_mood(content)

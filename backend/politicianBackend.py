@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import fileinput
 import threading
 import json
@@ -70,9 +72,9 @@ class PoliticianBackend:
 					  .format(tid=tid, bid=bid, actor=actor))
 				return
 			poli[bird_key] = bid
-			self.__dumpToFile()
+			self._dumpToFile()
 
-	def __dumpToFile(self):
+	def _dumpToFile(self):
 		if _SKIP_WRITEBACK:
 			print("=" * 77)
 			print("politicianBackend: skipping write-back <THIS SHOULD NOT HAPPEN IN PRODUCTION>")
@@ -87,3 +89,30 @@ class PoliticianBackend:
 			json.dump(self.polByPid, out, indent="\t")
 		for line in fileinput.input([FRONTEND_POLI_DB], inplace=True):
 			print('\t' + line.rstrip('\n'))
+
+
+# Use this if you need to make some processing / regeneration.
+def poli_modify():
+	check_writeback()
+	set_skip_writeback(False)
+	check_writeback()
+	print("Fiddling with politicianBackend.")
+	pb = PoliticianBackend()
+
+	# Do your thing here, e.g.:
+	#     pB.setBird('395912134', 'fitis', 'c')
+	#     # This is a no-op on the original pols.json
+	# Note:
+	# - setBird automatically calls dumpToFile.
+	#   In all other cases, you'll need to call __dumpToFile by hand, like this:
+	pb._dumpToFile()
+	# - This causes a HUGE diff.  Please commit responsibly.
+
+	print("Now check by hand.")
+
+
+if __name__ == '__main__':
+	print("Are you sure you want to rewrite pols.json?")
+	print("Uncomment me, I'm not gonna let ya!")
+	# Uncomment to run:
+	# poli_modify()

@@ -3,6 +3,7 @@ import json
 import threading
 
 
+# Listen for a new citizen-assigned bird for a politician.
 class CitizenBirdQueueAdapter(threading.Thread):
 	def __init__(self, politicianBackend):
 		threading.Thread.__init__(self, daemon=True)

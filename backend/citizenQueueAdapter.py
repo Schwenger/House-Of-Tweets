@@ -3,14 +3,14 @@ import json
 import threading
 
 
+# Listen for a user to enter his handle and favourite bird.
 class CitizenQueueAdapter(threading.Thread):
 	def __init__(self, twitterConnection):
 		threading.Thread.__init__(self, daemon=True)
 		self.twitterConnection = twitterConnection
 		self.connection = pika.BlockingConnection(pika.ConnectionParameters(
 		host='localhost'))
-		
-	
+
 	def run(self):
 		self.channel = self.connection.channel()
 		self.channel.queue_declare(queue='citizenuser', durable=True)
