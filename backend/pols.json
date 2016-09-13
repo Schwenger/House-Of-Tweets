@@ -2108,8 +2108,8 @@
   },
   {
     "images": {
-      "pathToImage": "tgroup_greengr\u00fcn.jpg",
-      "pathToThumb": "group_greengr\u00fcn.jpg"
+      "pathToImage": "group_greengr\u00fcn.jpg",
+      "pathToThumb": "tgroup_greengr\u00fcn.jpg"
     },
     "party": "Gr\u00fcn",
     "self_bird": "amsel",
@@ -8107,23 +8107,6 @@
     }
   },
   {
-    "images": null,
-    "party": "DIE LINKE",
-    "self_bird": "goldammer",
-    "citizen_bird": "zilpzalp",
-    "name": "Agnes Alpers",
-    "twittering": {
-      "twitterId": 181699011,
-      "twitterUserName": "AgnesAlpers"
-    },
-    "pid": "3",
-    "cv": {
-      "en": "Agnes Alpers is a German politician. She is a member of the DIE LINKE.",
-      "fr": "Agnes Alpers est une politicienne allemande. Elle est un membre de la partie DIE LINKE.",
-      "de": "Agnes Alpers (* 29. Juni 1961 in Oerel) ist eine deutsche P\u00e4dagogin, Politikerin (Die Linke) und ehemaliges Mitglied des Bundestages."
-    }
-  },
-  {
     "images": {
       "pathToImage": "371.jpg",
       "pathToThumb": "t371.jpg"
@@ -9896,7 +9879,7 @@
       "pathToThumb": "obamaThumb.jpg"
     },
     "party": "Demokraten",
-    "self_bird": "moenchsgrasmuecke",
+    "self_bird": "weisskopfseeadler",
     "citizen_bird": "girlitz",
     "name": "Barack Obama",
     "twittering": {
@@ -9905,9 +9888,9 @@
     },
     "pid": "648",
     "cv": {
-      "en": "Barack Obama is a German politician. He is a member of the Demokraten.",
+      "en": "Barack Hussein Obama is an American politician. He is a member of the Democrats.",
       "fr": "Barack Obama est un politicien allemand. Il est un membre de la partie Demokraten.",
-      "de": "Barack Hussein Obama II (* 4. August 1961 in Honolulu, Hawaii) ist ein US merikanischer Politiker und seit dem 20. Januar 2009 der 44. Pr\u00e4sident der Vereinigten Staaten."
+      "de": "Barack Hussein Obama II (* 4. August 1961 in Honolulu, Hawaii) ist ein US amerikanischer Politiker und seit dem 20. Januar 2009 der 44. Pr\u00e4sident der Vereinigten Staaten."
     }
   },
   {
