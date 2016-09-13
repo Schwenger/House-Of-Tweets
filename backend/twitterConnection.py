@@ -133,7 +133,7 @@ class TwitterListener(TweetConsumer):
 					  .format(ct=tweet['content'], bird=bird, pid=pid))
 			else:
 				print('politician "{}" ({}) gets new bird {}'
-						.format(tweet['screenname'], pid, bird))
+						.format(tweet['userscreen'], pid, bird))
 				msg['refresh'] = dict()
 				msg['refresh']['politicianId'] = pid
 				msg['refresh']['birdId'] = bird
