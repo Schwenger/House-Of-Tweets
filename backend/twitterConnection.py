@@ -33,8 +33,12 @@ SPD
 		color = "#ff0000"
 	elif party.startswith("g"):
 		color = "#00cc00"
-	elif party.startswith("d"):
+	elif party.startswith("di"):
 		color = "#c82864"
+	elif party.startswith("de"):
+		color = "#429EE2"
+	elif party.startswith("p"):
+		color = "#FFC0DB"  # Wikipedia page says just "pink", where the page about pink says "#FFC0DB"
 	else:
 		color = "#ffffff"
 

@@ -414,7 +414,7 @@ def test_twitter_listener():
     queue.expect([{'byPoli': True, 'content': 'such an #amsel #HoT',
                    'hashtags': ['amsel', 'HoT'],
                    # "Demokraten" will get treated as 'DIE LINKE'
-                   'id': 44, 'image': 'img_url', 'name': 'The Barack', 'partycolor': '#c82864',
+                   'id': 44, 'image': 'img_url', 'name': 'The Barack', 'partycolor': '#429EE2',
                    'refresh': {
                        'politicianId': '648',
                        'birdId': 'amsel',  # Must be the new bird
