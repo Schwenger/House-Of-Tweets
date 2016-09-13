@@ -3315,8 +3315,8 @@
 		},
 		"hot": {
 			"images": {
-				"pathToImage": "tgroup_greengr\u00fcn.jpg",
-				"pathToThumb": "group_greengr\u00fcn.jpg"
+				"pathToImage": "group_greengr\u00fcn.jpg",
+				"pathToThumb": "tgroup_greengr\u00fcn.jpg"
 			},
 			"party": "Gr\u00fcn",
 			"self_bird": "amsel",
