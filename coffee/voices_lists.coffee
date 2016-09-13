@@ -16,7 +16,7 @@ VoicesLists =
 	update: ->
 		console.log "updating"
 		VoicesLists.politicianListRoot.children(".voices-list-entry").each -> $(this).remove()
-		VoicesLists._displayPoliticians list, "voices-list-item"
+		VoicesLists._displayPoliticians VoicesLists.politicianListRoot, "voices-list-item"
 		Global.pendingBirdListUpdate = false
 
 	translateBirds: ->
