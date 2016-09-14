@@ -1,7 +1,7 @@
 BASE_TEMPLATE = '@{handle}: {msg} {link} #HouseOfTweets'
 
 # You MAY use {fromm}, you MUST use {to}
-# (The typo in 'fromm' is intentional.)
+# (The typo in 'fromm' is intentional, as 'from' is a reserved Python-keyword.)
 # Must NOT contain
 # any opening braces or other formatting instructions.
 ACK_TEMPLATES = [
@@ -13,7 +13,7 @@ ACK_TEMPLATES = [
 ]
 
 # You MAY use {fromm}, you must NOT use {to}
-# (The typo in 'fromm' is intentional.)
+# (The typo in 'fromm' is intentional, as 'from' is a reserved Python-keyword.)
 # Must NOT contain
 # any opening braces or other formatting instructions.
 NACK_TEMPLATES = [
@@ -30,7 +30,7 @@ NACK_LINK = 'https://t.co/BLE25414ym'
 
 
 def _build_ack(handle, bird_from, bird_to, template):
-    # (The typo in 'fromm' is intentional.)
+    # (The typo in 'fromm' is intentional, as 'from' is a reserved Python-keyword.)
     msg = template.format(fromm=bird_from, to=bird_to)
     # Thankfully, the message will never contain
     # any opening braces or other formatting instructions.
@@ -38,7 +38,7 @@ def _build_ack(handle, bird_from, bird_to, template):
 
 
 def _build_nack(handle, bird_from, template):
-    # (The typo in 'fromm' is intentional.)
+    # (The typo in 'fromm' is intentional, as 'from' is a reserved Python-keyword.)
     msg = template.format(fromm=bird_from)
     # Thankfully, the message will never contain
     # any opening braces or other formatting instructions.
