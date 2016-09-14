@@ -14,10 +14,8 @@ VoicesLists =
 		Profiles.init(@_displayBirdList)
 
 	update: ->
-		console.log "updating"
-		VoicesLists.politicianListRoot.children(".voices-list-entry").each -> $(this).remove()
-		VoicesLists._displayPoliticians VoicesLists.politicianListRoot, "voices-list-item"
-		Global.pendingBirdListUpdate = false
+		# no need to do anything because the profile is re-created each time anyway.
+		return
 
 	translateBirds: ->
 		VoicesLists.birdListRoot.children(".voices-list-entry").each -> $(this).remove()
