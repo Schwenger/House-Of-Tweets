@@ -8,6 +8,9 @@ Profiles =
 	voicesMQ: undefined
 	createBirdList: undefined
 
+	birdPhoto: $("#voices-profile-picture-bird")
+	birdDrawing: $("#voices-profile-picture-bird-drawing")
+
 	init: (createBirdList) ->
 		@createBirdList = createBirdList
 		@voicesMQ = new Connector(Connector.config.citizenBirdQueue, undefined)
@@ -18,10 +21,11 @@ Profiles =
 	# CHANGE IMAGE DISPLAY
 
 	_changeArtStyle: () ->
-		photo = $("#voices-profile-picture-bird")
-		drawing = $("#voices-profile-picture-bird-drawing")
 		picture = $(@).prop('checked')
-		if picture then Profiles._switchVisibility(photo, drawing) else Profiles._switchVisibility(drawing, photo)
+		if picture 
+			Profiles._switchVisibility(Profiles.birdPhoto, Profiles.birdDrawing)
+		else 
+			Profiles._switchVisibility(Profiles.birdDrawing, Profiles.birdPhoto)
 
 	_switchVisibility: (vis, invis) ->
 		invis.addClass "invisible"
@@ -58,6 +62,7 @@ Profiles =
 		$("#voices-list-container").css("opacity", 1)
 		$("#voices-profile-container-politician").addClass "invisible"
 		$("#voices-profile-container-bird").addClass "invisible"
+		Profiles._switchVisibility(Profiles.birdPhoto, Profiles.birdDrawing)
 
 	openPoliticianPage: (id) ->
 		$("#voices-list-container").css("opacity", 0)
@@ -97,5 +102,9 @@ Profiles =
 		$("#voices-profile-name-bird").text(bird[Util.addLang "name"])
 		$("#voices-profile-cv-bird").text(bird[Util.addLang "cv"])
 		$("#voices-profile-picture-bird").attr("src", Util.birdPath id)
-		$("#voices-profile-picture-bird-drawing").attr("src", Util.birdPath(id, "-drawing"))
-
+		
+		if Model.birds[id].has_drawing
+			$("#bird-photo-switch-container").removeClass "invisible"
+			$("#voices-profile-picture-bird-drawing").attr("src", Util.birdPath(id, "-drawing"))
+		else
+			$("#bird-photo-switch-container").addClass "invisible" 
