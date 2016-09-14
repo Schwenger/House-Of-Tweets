@@ -133,9 +133,14 @@ all_tests.append(test_name_resolution)
 
 
 def test_party_color():
+    # Currently, these are *all* parties in our dataset:
+    # CDU, CSU, Demokraten, DIE LINKE, GR\u00dcNE, Gr\u00fcn,
+    # Parti socialiste, SPD
     known_results = {'GR\u00dcNE': '#00cc00', 'CDU': '#000000',
                      'CSU': '#000000', 'SPD': '#ff0000',
-                     'DIE LINKE': '#c82864'}
+                     'DIE LINKE': '#c82864',
+                     'Demokraten': '#429EE2',
+                     'Parti socialiste': '#FFC0DB'}
     for (party, expected) in known_results.items():
         actual = twitterConnection.party_to_color(party)
         assert actual == expected

@@ -14,31 +14,20 @@ COMMAND_HASHTAGS = {'houseoftweets', 'house_of_tweets', 'hot', 'house-of-tweets'
 
 def party_to_color(party: str):
 	party = party.lower()
-	"""
-Currently, these are *all* parties in our dataset:
-CDU
-CSU
-Demokraten
-DIE LINKE
-GR\u00dcNE
-Gr\u00fcn
-Parti socialiste
-SPD
-	"""
 
 	if party is None:
 		color = "#ffffff"
-	elif party.startswith("c"):
+	elif party.startswith("c"):  # CDU/CSU
 		color = "#000000"
-	elif party.startswith("s"):
+	elif party.startswith("s"):  # SPD
 		color = "#ff0000"
-	elif party.startswith("g"):
+	elif party.startswith("g"):  # GRÜNE, Grün
 		color = "#00cc00"
-	elif party.startswith("di"):
+	elif party.startswith("di"):  # DIE LINKE
 		color = "#c82864"
-	elif party.startswith("de"):
+	elif party.startswith("de"):  # Demokraten (Obama, USA)
 		color = "#429EE2"
-	elif party.startswith("p"):
+	elif party.startswith("p"):  # Partie socialiste (Hollande, France)
 		color = "#FFC0DB"  # Wikipedia page says just "pink", where the page about pink says "#FFC0DB"
 	else:
 		color = "#ffffff"
