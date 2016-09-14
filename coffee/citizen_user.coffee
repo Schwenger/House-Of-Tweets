@@ -10,14 +10,13 @@ CitizenUser =
 	_dropdownList: undefined
 
 	init: ->
-		# attach handler to save button
 		@_citizenBirdMQ = new Connector(Connector.config.citizenUserQueue, undefined)
-		@_vivifyCitizenBirdsList()
 		$('#submit-citizen-bird').click(@_submitCitizenBird)
 		@_dropdownTrigger = $('#bird-dropdown-button')
 		@_dropdownList = $('#bird-dropdown-list')
-
 		@_dropdownTrigger.click @_toggleDropdown
+		@translateBirds()
+
 
 		$("submit-citizen-bird").click @_submitCitizenBird
 		@_resetDropdownTrigger()
@@ -31,10 +30,11 @@ CitizenUser =
 		@_dropdownList?.children().each(() -> $(this).remove())
 		list = $('#bird-dropdown-list')
 		for own id, bird of Model.birds 
-			optionObject = $("<li class='bird-dropdown-entry' value=#{id}>")
-			optionObject.text(bird[Util.addLang "name"])
-			list.append(optionObject)
-			optionObject.click(() -> CitizenUser._selectCitizenBird(id))
+			do(id, bird) ->
+				optionObject = $("<li class='bird-dropdown-entry' value=#{id}>")
+				optionObject.text(bird[Util.addLang "name"])
+				list.append(optionObject)
+				optionObject.click(() -> CitizenUser._selectCitizenBird(id))
 		@_resetDropdownTrigger()
 
 	_leave: () ->
@@ -59,14 +59,6 @@ CitizenUser =
 		@_citizenBirdSelection = id
 		@_dropdownTrigger.text(Model.birds[id][Util.addLang("name")])
 		@_toggleDropdown()
-
-	_vivifyCitizenBirdsList: ->
-		list = $('#bird-dropdown-list')
-		for own id, bird of Model.birds 
-			option_object = $("<li class='bird-dropdown-entry' value=#{id}>")
-			option_object.text(bird[Util.addLang "name"])
-			list.append(option_object)
-			option_object.click (() -> selectCitizenBird(id))
 			
 	_submitCitizenBird: (event) ->
 		event.preventDefault()
