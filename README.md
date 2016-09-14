@@ -43,11 +43,12 @@ In general, you'll need:
 - coffeescript
 - Python 3
 - pip (sometimes "pip3", should be running on Python 3)
+- script (as in "typescript", appeared in BSD 3.0)
 
 Install like this:
-- Ubuntu: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript` (python and pip?)
-- Debian: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript python3-dev pip3`
-- MacOS X: `brew install rabbitmq node python3 libav`
+- Ubuntu: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript` (python, pip, and bsdutils?)
+- Debian: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript python3-dev pip3 bsdutils`
+- MacOS X: `brew install rabbitmq node python3 libav bsdutils`
 Afterwards add the following to your `.bashrc`
 ```
 export NODE_PATH=/usr/local/lib/node_modules

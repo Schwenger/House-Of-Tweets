@@ -30,9 +30,8 @@ esac
 {
     cd backend
     OUTFILE=$(date +'../log_%Y%m%d_%H%M%S.txt')
-    OUTPATH=$(realpath "${OUTFILE}")
-    # No need to output OUTPATH, 'script' already does it.
+    # No need to resolve OUTFILE, 'script' is clever enough.
     echo "View this log interactively by calling:"
     echo "scriptreplay --timing=${OUTFILE}.timing --typescript=${OUTFILE} --maxdelay=10"
-    script -c "./startBackend.py $1" --timing="${OUTPATH}.timing" "${OUTPATH}"
+    script -c "./startBackend.py $1" --timing="${OUTFILE}.timing" "${OUTFILE}"
 }
