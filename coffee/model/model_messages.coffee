@@ -7,6 +7,21 @@
 
 		_de: {
 
+			concept_header: "Konzept"
+			concept: """
+				Bei HOUSE OF TWEETS handelt es sich um eine interdisziplinäre Klangskulptur für den Deutschen Bundestag, die dialogisch ausgerichtet ist.
+
+				Die von den Politikern per TWITTER praktizierte Kommunikation wird in Vogelsprache transkribiert und ist von den Abgeordneten in aktiver Teilhabe persönlich wählbar. 
+				Sie erstellen quasi eine stellvertretende Vogelstimme, eine Art Alter Ego-Vogel für ihren Twitter-Account. Eine öffentliche Schnittstelle ermöglicht es, dass diese tweets auch ausserhalb des Plenarsaals ab-hörbar sind.
+
+				Die Messages werden übersetzt in "Zwitschern", #hashtags in Flügelschlagen als Beispiel. Zeitgenössische Musiker und Komponisten stellen eigene Interpretation wahlweise zur Verfügung - möglich ist es auch, einen Stimmen-Imitator einzusetzen oder gar selbst eine Melodie zu pfeifen. 
+
+				Besucher des Bundestages, sowie die Adressaten der Tweets, die "Followers", können ebenfalls auf einer Internet-Plattform den Delegierten Vogelstimmen ihrer Wahl zuordnen. Als Filter für die Re-Tweets, die eingehenden Antworten der Beteiligten, kann man z.B. einen Vogel-Schwarm wählen oder pure Natur- Athmo (die Nebengeräusche in den mp3-files der ornithologischen recordings) einsetzen. Hörbar über Lautsprechersysteme (wahlweise Kopfhörer) an variablen Orten im Bundestag. 
+
+				Durch die stattfindende Überlagerung der Tonspuren entsteht ein Soundmix, der sich autark - je nach Traffic, jeden Moment neu generiert. Es erwächst eine soziale Plastik, die -auditiv wahrgenommen- interaktiv eine sinnliche Form annimmt. 
+			"""
+			us_header: "Das sind wir"
+
 			birdsObl: "Vögeln"
 			musicianObl: "Musikern"
 			chirpingOf: "Zwitschern von"
@@ -86,6 +101,22 @@
 		}
 
 		_en: {
+
+			concept_header: "Concept"
+			concept: """
+				"House of  Tweets" is an interdisciplinary sound sculpture for the German Bundestag, which is oriented dialogue. 
+
+				The communication practiced by politicians via Twitter is transcribed in bird language and is personally selected by the deputies in active participation. They create a deputy bird voice, a kind of alter ego bird for their Twitter account. A public interface enables these tweets to be audible from outside the Chamber. 
+
+				The messages are translated into "chirping", #hashtags in beating of wings as an example. Contemporary composers and musicians provide their own interpretations to choose. It is also possible to use a voice impersonator or to whistle a tune itself. 
+
+				Visitors of the Bundestag, as well as the addressee of the tweets or "followers" can also assign to an internet platform in order to delegate a birdsong their choice. As a filter for the re-tweets that incoming responses of the participants, you can select a bird swarm or pure natural ambient (the noise in the MP3 files of the ornithological recordings). As an alternative to the natural birdsong the visitor can select compositions/soundscapes by contemporary musicians - also artistic variations of the bird-image are applicable.
+				Audible on speaker systems (optional headphones) at variable locations in the Bundestag. 
+
+				By taking place superposition of soundtracks a symphony, a sound mix, the autarkic be created - depending on traffic, at any moment regenerated. It rises to a social sculpture that auditive-perceived interactively assumes a sensual form.
+
+			"""
+			us_header: "This is us"
 
 			birdsObl: "Birds"
 			musicianObl: "Musicians"
