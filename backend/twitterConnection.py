@@ -185,15 +185,15 @@ class TwitterConnection(object):
 			res = self.citizens.get(str(cid))
 		return res
 
-	def addCitizen(self, twittername, birdid, tid=None):
+	def addCitizen(self, twittername, birdid, tid=None) -> str:
 		if tid is None:
 			tid = self.twitter.resolve_name(twittername)
 		if tid is None:
 			print("citizen user ignored, invalid name: " + twittername)
-			return
+			return "unknown-user"
 		if birdid not in self.birdBack.bJson:
 			print("citizen user ignored, invalid bird: " + birdid)
-			return
+			return "unknown-bird"
 
 		with self.lock:
 			if tid in self.citizens:
@@ -219,6 +219,7 @@ class TwitterConnection(object):
 			# Don't prevent shutting down
 			timer.daemon = True
 			timer.start()
+		return None
 
 	def _remove_citizen(self, tid, token):
 		with self.lock:

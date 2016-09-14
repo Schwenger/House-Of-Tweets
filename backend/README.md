@@ -33,6 +33,18 @@ Direction: backend → frontend
 - `time`: string, containing unix timestamp (seconds since 1970-01-01), e.g. `"1453840647"`
 - `twitterName`: string, twitter-handle without '@' char, e.g. `"pes04"`
 
+### Queue "userBirdNack"
+
+Direction: backend → frontend
+
+- `twittername`: same as from the `citizenuser` request
+- `birdid`: same as from the `citizenuser` request
+- `error`: string, contains the id of any error.  Possible values are:
+    - `null`: no error occurred
+    - `"unknown-user"`: couldn't resolve `twittername` (note that inclusion of the
+      initial `@` does not matter, and twitter-handles are case-insensitive)
+    - `"unknown-bird"`: couldn't resolve `birdid`
+
 ### Queue "citizenbirds"
 
 Direction: frontend → backend
