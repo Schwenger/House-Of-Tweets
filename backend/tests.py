@@ -373,7 +373,7 @@ def test_twitter_listener():
                       'uid': 4718199753, 'tweet_id': 'bullshit',
                       'retweet': False})
     expect_amsel = sounds + '/processed/amsel-neutral-10000.mp3'
-    queue.expect([{'byPoli': True, 'poli': 'hot', 'content': 'content1',
+    queue.expect([{'poli': 'hot', 'content': 'content1',
                    'hashtags': ['NiceExample', 'TotallyRealistic'],
                    'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#00cc00',
                    # No 'refresh'
@@ -396,7 +396,7 @@ def test_twitter_listener():
                       'uid': 987654, 'tweet_id': 'bullshit',
                       'retweet': True})
     expect_zz = sounds + '/processed/zilpzalp-fragend-r-10750.mp3'
-    queue.expect([{'byPoli': False, 'poli': None, 'content': 'guy who writes long(?) tweets says whaaaat?',
+    queue.expect([{'poli': None, 'content': 'guy who writes long(?) tweets says whaaaat?',
                    'hashtags': [],
                    'id': 43, 'image': 'img_url', 'name': 'Heinzi', 'partycolor': '#257E9C',
                    # No 'refresh'
@@ -439,7 +439,7 @@ def test_twitter_listener():
                       'time': '1473446404527',
                       'uid': 813286, 'tweet_id': 'bullshit',
                       'retweet': False})
-    queue.expect([{'byPoli': True, 'poli': '648', 'content': 'such an #amsel #HoT',
+    queue.expect([{'poli': '648', 'content': 'such an #amsel #HoT',
                    'hashtags': ['amsel', 'HoT'],
                    'id': 44, 'image': 'img_url', 'name': 'The Barack', 'partycolor': '#429EE2',
                    'refresh': {

@@ -91,7 +91,6 @@ class TwitterListener(TweetConsumer):
 
 		poli = self.pb.getPolitician(tweet['uid'])
 		citi = self.tw.getCitizen(tweet['uid'])
-		msg['byPoli'] = poli is not None  # FIXME: deprecated, remove
 
 		# Resolve politician/citizen specifics
 		if poli is not None:
