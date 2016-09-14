@@ -367,6 +367,7 @@ def test_twitter_listener():
                    },
                    'time': '1473446404525', 'twitterName': 'HouseOfTweets'
                    }])
+    fakeTwitter.expect([])
 
     fakeTwitter.send({'content': 'guy who writes long(?) tweets says whaaaat?',
                       'profile_img': 'img_url',
@@ -389,6 +390,7 @@ def test_twitter_listener():
                    },
                    'time': '1473446404527', 'twitterName': 'Yoyo'
                    }])
+    fakeTwitter.expect([])
 
     fakeTwitter.send({'content': 'Strayer McStray',
                       'profile_img': 'img_url',
@@ -399,6 +401,7 @@ def test_twitter_listener():
                       'uid': 5550800911, 'tweet_id': 'bullshit',
                       'retweet': False})
     queue.expect([])
+    fakeTwitter.expect([])
 
     # Put into some known state
     polBack.setBird('813286', 'amsel', 'c')
@@ -428,6 +431,8 @@ def test_twitter_listener():
                    },
                    'time': '1473446404527', 'twitterName': 'RealBarackObama'
                    }])
+    fakeTwitter.expect([])  # FIXME: Should expect a reply to Obama
+    # FIXME: Also test negative replies!
 
 all_tests.append(test_twitter_listener)
 

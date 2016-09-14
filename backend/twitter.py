@@ -29,6 +29,12 @@ class TwitterInterface(object):
     def resolve_name(self, username: str):
         raise NotImplementedError("Should have implemented this")
 
+    # 'Maybe' because it's the responsibility of this method to check
+    # whether we should actually send this to Twitter.
+    # (I.e., check whether we're in test mode or in silent mode.)
+    def maybe_reply(self, tweet_id: str, content: str):
+        raise NotImplementedError("Should have implemented this")
+
 
 class TweetPrinter(TweetConsumer):
     def consumeTweet(self, tweet: dict):
@@ -230,11 +236,15 @@ class RealTwitterInterface(TwitterInterface):
             print("Couldn't resolve username: " + str(e))
             return None
 
+    def maybe_reply(self, tweet_id: str, content: str):
+        raise NotImplementedError("Should have implemented this")  # FIXME
+
 
 class FakeTwitterInterface(TwitterInterface):
     def __init__(self):
         self.consumers = dict()
         self.lock = threading.RLock()
+        self.replies = []
 
     def send(self, fake_tweet: dict):
         tid = str(fake_tweet['uid'])
@@ -258,6 +268,13 @@ class FakeTwitterInterface(TwitterInterface):
         raise AssertionError('FakeTwitterInterface is *only* for generating tweets.')
         # You only ever need to resolve a name when you're *about to* add a citizen,
         # so you can easily avoid that in test situations.
+
+    def maybe_reply(self, tweet_id: str, content: str):
+        self.replies.append((tweet_id, content))
+
+    def expect(self, replies_expect):
+        assert self.replies == replies_expect, (self.replies, replies_expect)
+        self.replies = []
 
 
 def manual_test_incoming():
