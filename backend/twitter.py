@@ -247,7 +247,8 @@ class RealTwitterInterface(TwitterInterface):
                   .format(self.key, MAY_POST))
         else:
             print("Actually writing to Twitter!")
-            self.api.update_status(status=content, in_reply_to_status_id=tweet_id)
+            # self.api.update_status(status=content, in_reply_to_status_id=tweet_id)
+            print("Hah!  Gotcha.  :notyet:")
         print("-" * 40)
 
 

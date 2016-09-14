@@ -1,6 +1,7 @@
 import re
 import threading
 from soundGenerator import generate_sound
+import responseBuilder
 from twitter import TwitterInterface, TweetConsumer
 import mq
 
@@ -132,15 +133,21 @@ class TwitterListener(TweetConsumer):
 
 		msg['partycolor'] = party_to_color(poli['party'])
 		pBird = poli['self_bird']
+		# In case it changed, use the one provided by twitter
+		handle = msg['twitterName']
+
 
 		# Check for any updates
-		if contains_command(tweet['hashtags']):
+		if tweet['content'].lower().startswith('@houseoftweets'):
+			print("Ignoring my own tweet, as it starts with '@HouseOfTweets'")
+		elif contains_command(tweet['hashtags']):
 			pid = poli['pid']
 			bird_id = find_bird(tweet['content'], self.birdBack)
 			if bird_id is None:
 				print('I saw that command, but no valid bird!\n'
 					  'pid={pid!r} content={ct}'
 					  .format(ct=tweet['content'], pid=pid))
+				reply = responseBuilder.build_some_nack(handle, pBird)
 			else:
 				print('politician "{}" ({}) gets new bird {}'
 						.format(tweet['userscreen'], pid, bird_id))
@@ -148,8 +155,10 @@ class TwitterListener(TweetConsumer):
 				msg['refresh']['politicianId'] = pid
 				msg['refresh']['birdId'] = bird_id
 				self.pb.setBird(pid, bird_id, actor='p')
+				reply = responseBuilder.build_some_ack(handle, pBird, bird_id)
 				# Again, 'poli' is a copy, so it wasn't updated by the call to 'setBird'.
 				pBird = bird_id
+			self.tw.twitter.maybe_reply(tweet['tweet_id'], reply)
 
 		# In case of 'refresh', poli already contains the update:
 		return [poli['citizen_bird'], pBird]
