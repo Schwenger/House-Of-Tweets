@@ -55,8 +55,8 @@ def contains_command(hashtags):
 
 # Search the tweet for a bird, and return the first one.
 def find_bird(content, birdBack):
-	content = content.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
-	words = list(re.sub("[^\wäöüß]", " ",  content).split())
+	content = content.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
+	words = list(re.sub("[^\w]", " ",  content).split())
 	for candidate in words:
 		if candidate in birdBack.bJson:
 			return candidate

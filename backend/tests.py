@@ -160,7 +160,7 @@ def test_bird_recognition():
                'Ich auch!': None,
                "Gibt's für mich einen ZilpZalp?!": 'zilpzalp',
                'Zaunkönig auch?': 'zaunkoenig',
-               'How about #Weißkopfseeadler?!': 'wei\u00dfkopfseeadler',
+               'How about #Weißkopfseeadler?!': 'weisskopfseeadler',
                'Ick bin ein zaunkoenig #obamalincoln': 'zaunkoenig',
                'Für mich einen Paradiesvogel': None,
                'Hey! Paradiesvogel!': None,
