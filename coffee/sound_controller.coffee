@@ -15,8 +15,6 @@ SoundCtrl =
 		@bird + @sound
 
 	play: (tweetId, duration, mode) ->
-		# TODO THIS IS NO RIGHT, ITS JUST UNTIL THE BE HAS THIS FEATURE IMPLEMENTED
-		duration = 10000
 		audio = @_getAudio(tweetId, mode)
 		audio[0].play()
 		$("#tweet-#{tweetId}-speaker").addClass("speaker-active")
