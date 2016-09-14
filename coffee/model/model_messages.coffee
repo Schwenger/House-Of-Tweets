@@ -50,7 +50,7 @@
 			dieLetzten24: "die letzten 24 h",
 			echtzeit: "Echtzeit",
 			
-			gelb_text1: "Gib deinen Twitternamen an, um für mindestens 5 Minuten deine eigenen Tweets zu sehen und zu hören!",
+			gelb_text1: "Geben Sie Ihren Twitternamen an, um für mindestens 5 Minuten Ihre eigenen Tweets zu sehen und zu hören!",
 			gelb_text2: "Wähle deinen Vogel aus:",
 			button_text: "Vögel",
 			
