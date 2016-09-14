@@ -422,8 +422,8 @@ def test_twitter_listener():
     fakeTwitter.expect([])
 
     # Put into some known state
-    polBack.setBird('813286', 'amsel', 'c')
-    polBack.setBird('813286', 'invalid', 'p')
+    polBack.setBird('648', 'amsel', 'c')
+    polBack.setBird('648', 'invalid', 'p')
     # Test receiving a command:
     fakeTwitter.send({'content': 'such an #amsel #HoT',
                       'profile_img': 'img_url',

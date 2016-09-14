@@ -57,19 +57,18 @@ class PoliticianBackend:
 			print("ERROR: Tried to get non-existent politician {}".format(tid))
 			return None
 
-	def setBird(self, tid, bid, actor):
+	def setBird(self, pid, bid, actor):
 		assert actor in ['p', 'c']
 		bird_key = 'self_bird' if actor == 'p' else 'citizen_bird'
-		tid = str(tid)
 		with self.lock:
 			try:
 				# Copy the politician, in case a concurrent
 				# setPoliticianBird comes in.
-				poli = self.polByTid[tid]
+				poli = self.polByPid[pid]
 			except KeyError:
-				print("ERROR: Tried to update non-existent politician {tid}"
+				print("ERROR: Tried to update non-existent politician {pid}"
 					  " to bird {bid}, actor={actor}"
-					  .format(tid=tid, bid=bid, actor=actor))
+					  .format(pid=pid, bid=bid, actor=actor))
 				return
 			poli[bird_key] = bid
 			self._dumpToFile()

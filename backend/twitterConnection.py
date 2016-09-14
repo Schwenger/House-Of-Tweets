@@ -145,7 +145,7 @@ class TwitterListener(TweetConsumer):
 				msg['refresh'] = dict()
 				msg['refresh']['politicianId'] = pid
 				msg['refresh']['birdId'] = bird_id
-				self.pb.setBird(tweet['uid'], bird_id, actor='p')
+				self.pb.setBird(pid, bird_id, actor='p')
 				# Again, 'poli' is a copy, so it wasn't updated by the call to 'setBird'.
 				pBird = bird_id
 
