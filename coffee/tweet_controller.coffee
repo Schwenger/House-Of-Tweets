@@ -105,7 +105,7 @@ TweetController =
 		@_displayTweets(list)
 		byPoli = Util.count(list, (t) -> t.byPoli) # I miss lazy variables.
 		toPlay = if @_poliTweetsOnly then byPoli else incomingTweets.length
-		@_playTweets(list[..toPlay], SoundCtrl.getMode())
+		@_playTweets(list[-toPlay...], SoundCtrl.getMode())
 
 	# selects the last @_threshold elements
 	_trimLists: () ->
