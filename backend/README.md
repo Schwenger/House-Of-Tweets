@@ -8,6 +8,8 @@ See attached file `dataflow.png`:
 
 ### Queue "tweets"
 
+Direction: backend → frontend
+
 - `byPoli`: boolean, whether this is a politician or not, e.g. `true` **DEPRECATED**
 - `poli`: string, the HoT-internal ID of the politician or `null` if citizen, e.g. `null` or `"649"`
 - `content`: string, e.g. `"Wir dürfen uns nicht auseinander dividieren lassen!"`
@@ -33,10 +35,14 @@ See attached file `dataflow.png`:
 
 ### Queue "citizenbirds"
 
+Direction: frontend → backend
+
 - `politicianid`: string, the HoT-internal politician-ID, e.g. `"195"` or `"notavalidpolitician"`
 - `birdid`: string, the (unsanitized) bird name, e.g. `"ara"` or `"notavalidbird"`
 
 ### Queue "citizenuser"
+
+Direction: frontend → backend
 
 - `twittername`: string, the (unsanitized) twitter handle of the user,
   may (but does not need to) include the `@` character, e.g. `"HouseOfTweetsSB"`
@@ -47,7 +53,8 @@ See attached file `dataflow.png`:
 
 - `batching.py` creates a Timer.  Concurrency between this Timer and the owner of the `TweetBatcher` is synchronized
   via a lock inside the `TweetBatcher`.  However, nobody else should access the same connection.
-- *unsure*: RabbitMQ callbacks. They might have their own threads per callback. Locking: *unknown*
+- Each "incoming" RabbitMQ queue has its own thread. Locking: must happen in the called functions,
+  namely `TwitterConnection.addCitizen` and `PoliticianBackend.setBird`
 - *unsure*: The twitter connection itself spawns at least one thread. Locking: *unknown*
 - Note that `TwitterConnection` creates one `filter` for all politicians
   together, and then one for *each* active citizen. `TwitterConnection`
