@@ -108,10 +108,10 @@ def sanitize_bird(b):
 	return b.replace('ß', 'ss')
 
 
-def dup(path):
+def dup(path, idealBid):
 	if path is None:
 		return None
-	return {'natural': path, 'synth': path}
+	return {'natural': path, 'synth': path, 'bid': idealBid}
 
 
 def get_dst(p):
@@ -135,5 +135,5 @@ def generate_sound(content: str, retweet: bool, cBird, pBird):
 	cDst, pDst = [get_dst(p) for p in birds_paths]
 
 	return {'duration': length_ms,
-			'citizen': dup(cDst),
-			'poli': dup(pDst)}
+			'citizen': dup(cDst, cBird),
+			'poli': dup(pDst, pBird)}
