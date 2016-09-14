@@ -8,11 +8,15 @@ import twitter
 import twitterConnection
 import birdBackend
 import politicianBackend
+import responseBuilder
 import soundGenerator
 
 all_tests = []
 
 RUN_SLOW_TESTS = 'CONTINUOUS_INTEGRATION' in os.environ
+
+# Stay away from the official maximum 140 in order to have a safety margin.
+MAX_RESPONSE_LENGTH = 120
 
 
 def test_mq():
@@ -95,6 +99,20 @@ def test_parse_tweet():
     assert actual == expected
 
 all_tests.append(test_parse_tweet)
+
+
+def test_responses():
+    responses = []
+    responses.extend(responseBuilder.build_worst_acks())
+    responses.extend(responseBuilder.build_worst_nacks())
+    # Not a dict to preserve order
+    lengths = [(len(r), r) for r in responses]
+    print("Worst-case response lengths: {}"
+          .format([len(r) for r in responses]))
+    for (l, r) in lengths:
+        assert l <= MAX_RESPONSE_LENGTH, (l, r)
+
+all_tests.append(test_responses)
 
 
 def test_name_resolution():
