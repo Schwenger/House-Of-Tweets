@@ -1,9 +1,14 @@
 	@msg: {
 		get: (msg_id) ->
-			switch Global.language
-				when "german",  "de" then @_de[msg_id]
-				when "english", "en" then @_en[msg_id]
-				when "french",  "fr" then @_fr[msg_id]
+			split = msg_id.split(":")
+			if split.length is 1
+				switch Global.language
+					when "german",  "de" then @_de[msg_id]
+					when "english", "en" then @_en[msg_id]
+					when "french",  "fr" then @_fr[msg_id]
+			else
+				[model_key, model_id] = split
+				Model[model_key][model_id][Util.addLang("name")]
 
 		_de: {
 

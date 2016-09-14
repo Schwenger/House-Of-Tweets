@@ -154,6 +154,11 @@ TweetController =
 
 		tweetProfileInfo = $("<div id='tweet-#{tweet.id}-profile' class='tweet-profile-info'>")
 		tweetContent = $("<div id='tweet-#{tweet.id}-content' class='tweet-content'>")
+		birdNameContainer = $("<span class='bird-name-container'>")
+		birdNamePoli = $("<span translatestring stringID='birds:#{tweet.sound.poli.bid}'>") if tweet.sound.poli?
+		birdNamePoli.text(Model.birds[tweet.sound.poli.bid][Util.addLang("name")]) if tweet.sound.poli?
+		birdNameCitizen = $("<span translatestring stringID='birds:#{tweet.sound.citizen.bid}'>") 
+		birdNameCitizen.text(Model.birds[tweet.sound.citizen.bid][Util.addLang("name")])
 		speakerElement = $("<i class='speaker fa fa-music fa-2x' id='tweet-#{tweet.id}-speaker'>")
 		profileImg = $("<img src=#{tweet.image}>")
 		profileName = $("<div class='profile-name'>")
@@ -161,6 +166,9 @@ TweetController =
 		twitterName = $("<div class='twitter-name'>")
 		tweetText = $("<div class='textfield'>")
 		tweetTime = $("<div class='time'>")
+
+		birdNameContainer.append(birdNamePoli) if tweet.sound.poli?
+		birdNameContainer.append(birdNameCitizen)
 
 		tweetProfileInfo.append(profileImg)
 		tweetProfileInfo.append(speakerElement)
@@ -177,11 +185,12 @@ TweetController =
 		tweetElement.append(retweetImage) if tweet.retweet
 		tweetElement.append(tweetProfileInfo)
 		tweetElement.append(tweetContent)
+		tweetElement.append(birdNameContainer)
 
 		audioElems = [
 			$("<audio id='audio-#{tweet.id}-PB' src='#{tweet.sound.poli.natural}'>") if tweet.sound.poli?,
 			$("<audio id='audio-#{tweet.id}-PM' src='#{tweet.sound.poli.synth}'>") if tweet.sound.poli?,
-			$("<audio id='audio-#{tweet.id}-CB' src='#{tweet.sound.citizen.natural}>"),
+			$("<audio id='audio-#{tweet.id}-CB' src='#{tweet.sound.citizen.natural}'>"),
 			$("<audio id='audio-#{tweet.id}-CM' src='#{tweet.sound.citizen.synth}'>")
 		]
 
@@ -194,6 +203,7 @@ TweetController =
 			obj: tweetElement
 			play: (mode, duration = tweet.sound.duration) -> SoundCtrl.play(tweet.id, duration, mode)
 			time: tweet.time
+			id: tweet.id
 
 		speakerElement.click () -> tweetCompound.play(SoundCtrl.getMode())
 
