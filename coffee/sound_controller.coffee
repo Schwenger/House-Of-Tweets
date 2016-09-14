@@ -23,8 +23,14 @@ SoundCtrl =
 
 	stop: (tweetId, mode) ->
 		audio = @_getAudio(tweetId, mode)
-		audio[0].pause()
-		$("#tweet-#{tweetId}-speaker").removeClass("speaker-active")
+		# Bug in chromium:
+		# https://bugs.chromium.org/p/chromium/issues/detail?id=593273
+		# This has no significant impact in the user experience but 
+		# prevents the console to be flooded with the respective exception.
+		setTimeout ( ->
+			audio[0]?.pause()
+			$("#tweet-#{tweetId}-speaker")?.removeClass("speaker-active")
+			), 150
 		return
 
 	_getAudio: (id, mode) ->
