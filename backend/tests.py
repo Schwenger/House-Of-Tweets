@@ -435,7 +435,6 @@ def test_twitter_listener():
                       'retweet': False})
     queue.expect([{'byPoli': True, 'poli': '648', 'content': 'such an #amsel #HoT',
                    'hashtags': ['amsel', 'HoT'],
-                   # "Demokraten" will get treated as 'DIE LINKE'
                    'id': 44, 'image': 'img_url', 'name': 'The Barack', 'partycolor': '#429EE2',
                    'refresh': {
                        'politicianId': '648',
@@ -450,7 +449,8 @@ def test_twitter_listener():
                    'time': '1473446404527', 'twitterName': 'RealBarackObama'
                    }])
     fakeTwitter.expect([])  # FIXME: Should expect a reply to Obama
-    # FIXME: Also test negative replies!
+
+    # FIXME: Test negative replies!
 
 all_tests.append(test_twitter_listener)
 
