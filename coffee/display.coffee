@@ -21,16 +21,16 @@ Display =
 
 	right: {
 		color: "sidebar-right-coloring"
-		text: Model.msg.get("eigeneT")
+		getText: () -> Model.msg.get("eigeneT")
 		textContainer: $("#carousel-control-right-text-string")
 	}
 	left: {
 		color: "sidebar-left-coloring"
-		text: Model.msg.get("vogelstimmen")
+		getText: () -> Model.msg.get("vogelstimmen")
 		textContainer: $("#carousel-control-left-text-string")
 	}
 
-	state: "center" # center, right, left, U1, U2
+	state: "center" # center, right, left, U1
 
 	init: ->
 		for own id, ctrl of @controls
@@ -85,13 +85,13 @@ Display =
 		#reset colors & text
 		for side in ["right", "left"]
 			@controls[side].addClass @[side].color
-			@[side].textContainer.text(@[side].text)
+			@[side].textContainer.text(@[side].getText())
 		@_addSidebars()
 		VoicesLists.leavePage()
 		CitizenUser.leavePage()
 
 	_resetImpressum: ->
-		# "go from U2/U1 to U1"
+		return
 
 	# AUXILIARY
 	_removeSidebars: ->
