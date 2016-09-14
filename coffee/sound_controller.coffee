@@ -15,14 +15,14 @@ SoundCtrl =
 		@bird + @sound
 
 	play: (tweetId, duration, mode) ->
-		audio = @_getAudio(tweetId, mode)
-		audio[0].play()
+		audio = @getAudio(tweetId, mode)
+		audio[0]?.play()
 		$("#tweet-#{tweetId}-speaker").addClass("speaker-active")
 		setTimeout (() -> SoundCtrl.stop(tweetId, mode)),  duration
 		return
 
 	stop: (tweetId, mode) ->
-		audio = @_getAudio(tweetId, mode)
+		audio = @getAudio(tweetId, mode)
 		# Bug in chromium:
 		# https://bugs.chromium.org/p/chromium/issues/detail?id=593273
 		# This has no significant impact in the user experience but 
@@ -33,7 +33,7 @@ SoundCtrl =
 			), 150
 		return
 
-	_getAudio: (id, mode) ->
+	getAudio: (id, mode) ->
 		$("#audio-#{id}-#{mode}")
 
 	turnOnAmbientSound: () ->
