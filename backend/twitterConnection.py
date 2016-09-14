@@ -122,12 +122,14 @@ class TwitterListener(TweetConsumer):
 		return [citizen['birdId'], None]
 
 	def handle_poli(self, tweet, msg):
+		# Careful: we have a copy, so any changes due to setBird aren't reflected!
 		poli = self.pb.getPolitician(tweet['uid'])
 		if poli is None:
 			print("No poli for tracked poli-uid {} found".format(tweet['uid']))
 			return None
 
 		msg['partycolor'] = party_to_color(poli['party'])
+		pBird = poli['self_bird']
 
 		# Check for any updates
 		if contains_command(tweet['hashtags']):
@@ -144,9 +146,11 @@ class TwitterListener(TweetConsumer):
 				msg['refresh']['politicianId'] = pid
 				msg['refresh']['birdId'] = bird_id
 				self.pb.setBird(tweet['uid'], bird_id, actor='p')
+				# Again, 'poli' is a copy, so it wasn't updated by the call to 'setBird'.
+				pBird = bird_id
 
 		# In case of 'refresh', poli already contains the update:
-		return [poli['citizen_bird'], poli['self_bird']]
+		return [poli['citizen_bird'], pBird]
 
 
 COUNTER_PREV = 1
