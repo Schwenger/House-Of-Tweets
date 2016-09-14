@@ -94,9 +94,11 @@ class TwitterListener(TweetConsumer):
 
 		# Resolve politician/citizen specifics
 		if poli is not None:
+			print("This is definitely a politician.")
 			msg['poli'] = poli['pid']
 			birds = self.handle_poli(tweet, msg)
 		elif citi is not None:
+			print("This is definitely a citizen.")
 			msg['poli'] = None
 			birds = self.handle_citizen(citi, msg)
 		else:
@@ -177,6 +179,7 @@ class TwitterConnection(object):
 		self.listener = TwitterListener(self.queue, self, self.polBack, self.birdBack)
 		self.twitter.register(followListPolitician, self.listener)
 
+	# Returns 'None' if not a citizen
 	def getCitizen(self, cid):
 		with self.lock:
 			res = self.citizens.get(str(cid))

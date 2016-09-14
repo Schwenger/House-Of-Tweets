@@ -46,6 +46,7 @@ class PoliticianBackend:
 			# Copy the keys, just in case.
 			return set(self.polByTid.keys())
 
+	# Returns 'None' if not a politician
 	def getPolitician(self, tid):
 		tid = str(tid)
 		try:
@@ -54,7 +55,6 @@ class PoliticianBackend:
 				# setPoliticianBird comes in.
 				return dict(self.polByTid[tid])
 		except KeyError:
-			print("ERROR: Tried to get non-existent politician {}".format(tid))
 			return None
 
 	def setBird(self, pid, bid, actor):
