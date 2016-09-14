@@ -13,6 +13,9 @@ import threading
 # after how many seconds shall we try again?
 RESPAWN_PERIOD = 15
 
+# List of all keys that are allowed to actually post something on Twitter.
+MAY_POST = ['production_responder']
+
 
 class TweetConsumer(object):
     def consumeTweet(self, tweet: dict):
@@ -204,12 +207,12 @@ class RealTwitterInterface(TwitterInterface):
         if len(argv) != 2:
             print('Must specify exactly one argument, but {} provided.'.format(len(argv) - 1))
             show_usage(show_keys)
-        key = argv[1]
-        if key not in CREDENTIALS:
-            print('Unknown key {} provided.'.format(argv[1]))
+        self.key = argv[1]
+        if self.key not in CREDENTIALS:
+            print('Unknown key {} provided.'.format(self.key))
             show_usage(show_keys)
 
-        creds = CREDENTIALS[argv[1]]
+        creds = CREDENTIALS[self.key]
         self.auth = OAuthHandler(creds['consumer_key'], creds['consumer_secret'])
         self.auth.set_access_token(creds['access_key'], creds['access_secret'])
         self.streams = dict()
@@ -237,7 +240,15 @@ class RealTwitterInterface(TwitterInterface):
             return None
 
     def maybe_reply(self, tweet_id: str, content: str):
-        raise NotImplementedError("Should have implemented this")  # FIXME
+        print("-" * 40)
+        print("About to respond ({} chars): {}".format(len(content), content))
+        if self.key not in MAY_POST:
+            print("Not posting this reply, as key {} is not permitted.  Try one of {} instead."
+                  .format(self.key, MAY_POST))
+        else:
+            print("Actually writing to Twitter!")
+            self.api.update_status(status=content, in_reply_to_status_id=tweet_id)
+        print("-" * 40)
 
 
 class FakeTwitterInterface(TwitterInterface):
