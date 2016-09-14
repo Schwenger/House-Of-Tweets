@@ -424,6 +424,12 @@ def test_twitter_listener():
     # Put into some known state
     polBack.setBird('648', 'amsel', 'c')
     polBack.setBird('648', 'invalid', 'p')
+    assert responseBuilder.NEXT_ACK == 0, 'You inserted/removed a test without updating this one'
+    assert ('Ihre Vogelstimme wurde geändert: {fromm} → {to}', 'https://t.co/2FCr67spc6') \
+        == (responseBuilder.ACK_TEMPLATES[0], responseBuilder.ACK_LINK), \
+        'You changed responseBuilder.py without updating tests.py'
+    expect_response = \
+        '@RealBarackObama: Ihre Vogelstimme wurde geändert: invalid → amsel https://t.co/2FCr67spc6 #HouseOfTweets'
     # Test receiving a command:
     fakeTwitter.send({'content': 'such an #amsel #HoT',
                       'profile_img': 'img_url',
@@ -448,7 +454,7 @@ def test_twitter_listener():
                    },
                    'time': '1473446404527', 'twitterName': 'RealBarackObama'
                    }])
-    fakeTwitter.expect([])  # FIXME: Should expect a reply to Obama
+    fakeTwitter.expect([('bullshit', expect_response)])
 
     # FIXME: Test negative replies!
 
