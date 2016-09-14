@@ -5,12 +5,11 @@ BASE_TEMPLATE = '@{handle}: {msg} {link} #HouseOfTweets'
 # Must NOT contain
 # any opening braces or other formatting instructions.
 ACK_TEMPLATES = [
-    'Vogelstimme geändert: {fromm} → {to}',
-    'Okay, Sie sind jetzt ein {to} :)',
-    'Gerne, ein {to} für Sie',
-    'Ein {to}? Kommt sofort!',
-    'Gemacht: Von {fromm} zu {to} geändert',
-    'Umgestellt auf {to}',
+    'Ihre Vogelstimme wurde geändert: {fromm} → {to}',
+    'Okay, Sie sind jetzt ein {to}. :)',
+    'Gerne, ein {to} für Sie!',
+    '{to}? Kommt sofort!',
+    '{to}? Gute Wahl!'
 ]
 
 # You MAY use {fromm}, you must NOT use {to}
@@ -22,8 +21,7 @@ NACK_TEMPLATES = [
     'Das Programm fand keinen Vogelnamen im Tweet. Liste gefällig?',
     'Keinen Vogelnamen im Tweet gefunden. Der Link führt zur Liste:',
     'Wir kennen diese 45 Vogelnamen:',
-    'Das Programm erkennt diese 45 Vögel:',
-    'Leider haben wir nicht alle Vogelstimmen, nur diese hier:',
+    'Leider haben wir nicht alle Vogelstimmen, aber hier ist unsere Auswahl:',
 ]
 
 # FIXME: both currently point to the github repo.  That's bad.

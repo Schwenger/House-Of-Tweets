@@ -16,7 +16,7 @@ all_tests = []
 RUN_SLOW_TESTS = 'CONTINUOUS_INTEGRATION' in os.environ
 
 # Stay away from the official maximum 140 in order to have a safety margin.
-MAX_RESPONSE_LENGTH = 120
+MAX_RESPONSE_LENGTH = 130
 
 
 def test_mq():
