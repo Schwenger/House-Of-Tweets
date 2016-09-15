@@ -434,7 +434,7 @@ def test_twitter_listener():
         == (responseBuilder.ACK_TEMPLATES[0], responseBuilder.ACK_LINK), \
         'You changed responseBuilder.py without updating tests.py'
     expect_response = \
-        '@RealBarackObama: Ihre Vogelstimme wurde geändert: invalid → amsel https://t.co/2FCr67spc6 #HouseOfTweets'
+        '@RealBarackObama: Ihre Vogelstimme wurde geändert: Goldammer → Amsel https://t.co/2FCr67spc6 #HouseOfTweets'
     # Test receiving a command:
     fakeTwitter.send({'content': 'such an #amsel #HoT',
                       'profile_img': 'img_url',

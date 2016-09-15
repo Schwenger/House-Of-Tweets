@@ -1,3 +1,4 @@
+from birdBackend import BirdBackend
 import re
 import threading
 from soundGenerator import generate_sound
@@ -54,7 +55,8 @@ def find_bird(content, birdBack):
 
 # The core decisionmaker.  Gets a processed tweet (consumeTweet()) and
 class TwitterListener(TweetConsumer):
-	def __init__(self, sendingQueue: mq.SendQueueInterface, tw, politicianBackend, birdBack):
+	def __init__(self, sendingQueue: mq.SendQueueInterface, tw,
+				 politicianBackend, birdBack: BirdBackend):
 		super().__init__()
 		self.birdBack = birdBack
 		self.sendingQueue = sendingQueue
@@ -130,20 +132,22 @@ class TwitterListener(TweetConsumer):
 			print("Ignoring my own tweet, as it starts with '@HouseOfTweets'")
 		elif contains_command(tweet['hashtags']):
 			pid = poli['pid']
+			pBird_name = self.birdBack.getName(pBird)
 			bird_id = find_bird(tweet['content'], self.birdBack)
 			if bird_id is None:
 				print('I saw that command, but no valid bird!\n'
 					  'pid={pid!r} content={ct}'
 					  .format(ct=tweet['content'], pid=pid))
-				reply = responseBuilder.build_some_nack(handle, pBird)
+				reply = responseBuilder.build_some_nack(handle, pBird_name)
 			else:
+				bird_name = self.birdBack.getName(bird_id)
 				print('politician "{}" ({}) gets new bird {}'
 						.format(tweet['userscreen'], pid, bird_id))
 				msg['refresh'] = dict()
 				msg['refresh']['politicianId'] = pid
 				msg['refresh']['birdId'] = bird_id
 				self.pb.setBird(pid, bird_id, actor='p')
-				reply = responseBuilder.build_some_ack(handle, pBird, bird_id)
+				reply = responseBuilder.build_some_ack(handle, pBird_name, bird_name)
 				# Again, 'poli' is a copy, so it wasn't updated by the call to 'setBird'.
 				pBird = bird_id
 			self.tw.twitter.maybe_reply(tweet['tweet_id'], reply)
