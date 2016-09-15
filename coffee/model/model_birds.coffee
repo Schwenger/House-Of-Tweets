@@ -152,7 +152,7 @@
 			"has_drawing": false
 		},
 		"stieglitz": {
-			"de_name": "Stieglitz (Distelfink)",
+			"de_name": "Distelfink",
 			"de_cv": "Der Stieglitz (Carduelis carduelis), auch Distelfink genannt, ist eine Vogelart aus der Familie der Finken (Fringillidae). Er besiedelt Westeuropa bis Mittelsibirien, Nordafrika sowie West- und Zentralasien. In S\u00fcdamerika und Australien sowie auf Neuseeland und einigen Inseln Ozeaniens wurde er eingef\u00fchrt. Seine Nahrung setzt sich aus halbreifen und reifen S\u00e4mereien von Stauden, Wiesenpflanzen und B\u00e4umen zusammen. Die Art gilt derzeit als nicht gef\u00e4hrdet.",
 			"en_cv": "The European goldfinch or goldfinch (Carduelis carduelis), is a small passerine bird in the finch family that is native to Europe, North Africa and western Asia. It has been introduced to other areas including Australia, New Zealand and Uruguay.",
 			"latin_name": "Carduelis carduelis",
