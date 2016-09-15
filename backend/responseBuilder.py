@@ -6,8 +6,8 @@ BASE_TEMPLATE = '@{handle}: {msg} {link} #HouseOfTweets'
 # any opening braces or other formatting instructions.
 ACK_TEMPLATES = [
     'Ihre Vogelstimme wurde geändert: {fromm} → {to}',
-    'Okay, Sie sind jetzt ein {to}. :)',
-    'Gerne, ein {to} für Sie!',
+    'Okay, Sie haben jetzt eine {to}-Stimme. :)',
+    'Gerne, eine {to}-Stimme für Sie!',
     '{to}? Kommt sofort!',
     '{to}? Gute Wahl!'
 ]
