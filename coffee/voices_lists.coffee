@@ -40,7 +40,8 @@ VoicesLists =
 			pred = (poli) -> 
 				poli.name.toLowerCase().indexOf(VoicesLists._searchString) isnt -1
 			VoicesLists._removePolis()
-			remaining = (poli for pid, poli of Model.politicians when pred(poli))
+			remaining = {}
+			remaining[pid] = poli for pid, poli of Model.politicians when pred(poli)
 			VoicesLists._display VoicesLists.politicianListRoot, "voices-list-item", remaining
 		$(document).keyup handler
 
