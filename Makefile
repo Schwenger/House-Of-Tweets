@@ -1,5 +1,5 @@
 FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat ext/node_modules/less
-BACKEND_DEP:=pika pillow pydub tweepy typing
+BACKEND_DEP:=pika pillow pydub requests tweepy typing
 
 BROWSERIFY?=ext/node_modules/.bin/browserify
 COFFEESCRIPT_CONCAT?=ext/node_modules/.bin/coffeescript-concat
