@@ -66,7 +66,7 @@ VoicesLists =
 			do(id, p) ->
 				firstLine = p.name
 				image = Util.politicianPath p.images?.pathToThumb
-				obj = VoicesLists._createListEntry id, firstLine, p.party, image, prefix
+				obj = VoicesLists._createListEntry id, firstLine, p.party, image, prefix, (p.twittering? and p.twittering isnt null) # TODO
 				root.append obj
 				obj.click () -> Profiles.openPoliticianPage id
 
@@ -85,11 +85,11 @@ VoicesLists =
 		for [id, b] in sortable
 			do(id, b) ->
 				image = Util.birdPath id
-				obj = VoicesLists._createListEntry id, b[respName], b.latin_name, image, prefix
+				obj = VoicesLists._createListEntry id, b[respName], b.latin_name, image, prefix, false
 				root.append obj
 				obj.click () -> handler(id)
 
-	_createListEntry: (id, first_line, second_line, image, prefix, addon, info) ->
+	_createListEntry: (id, first_line, second_line, image, prefix, twitterBird) ->
 		item_o = $("<div id='#{prefix}-#{id}' class='voices-list-entry'>")
 		
 		if first_line.length >= 30
@@ -106,12 +106,14 @@ VoicesLists =
 		second_line_o.text(second_line)
 
 		image_o = $("<img src='#{image}'>")
+		twitter_image_o = $("<img class='twitter-bird-overlay' src='#{Global.twitterIconPath}'>") if twitterBird
 
 		span_o.append first_line_o
 		span_o.append lineBreak_o
 		span_o.append second_line_o
 
 		item_o.append image_o
+		item_o.append twitter_image_o if twitterBird
 		item_o.append span_o
 
 		return item_o
