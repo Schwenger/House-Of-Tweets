@@ -36,7 +36,7 @@ VoicesLists =
 		searchBar = $("#voices-list-search-bar")
 		handler = (event) ->
 			return if VoicesLists._searchString is searchBar.val().toLowerCase()
-			VoicesLists._searchString = searchBar.val()
+			VoicesLists._searchString = searchBar.val().toLowerCase()
 			pred = (poli) -> 
 				poli.name.toLowerCase().indexOf(VoicesLists._searchString) isnt -1
 			VoicesLists._removePolis()
