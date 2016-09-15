@@ -35,7 +35,6 @@ VoicesLists =
 		handler = (event) ->
 			return if VoicesLists._searchString is searchBar.val()
 			VoicesLists._searchString = searchBar.val()
-			return unless VoicesLists._searchString.length > 2
 			pred = (poli) -> 
 				poli.name.indexOf(VoicesLists._searchString) isnt -1
 			VoicesLists._removePolis()
