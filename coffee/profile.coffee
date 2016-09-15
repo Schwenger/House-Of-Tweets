@@ -77,13 +77,23 @@ Profiles =
 		changeButtonObj.off("click")
 		changeButtonObj.click () -> Profiles.openCitizenBirdSelection(poli.citizen_bird, id)
 
+		# NAME
 		$("#voices-profile-name-politician").text(poli.name)
+
+		# CV
 		$("#voices-profile-cv-politician").text(poli.cv[Global.langId()])
+		cvSrcObj = $("#voices-profile-cv-politician-src")
+		cvSrcObj.text(if poli.cv.src? then poli.cv.src else "")
+
+		# IMAGE
 		imagepath = Util.politicianPath poli.images?.pathToImage
 		$("#voices-profile-picture-politician").attr("src", imagepath)
+		imgSrcObj = $("#voices-profile-picture-politician-src")
+		imgSrcObj.text(if poli.images.src? then poli.images.src else "")
 		$("#voices-profile-self-selection-image-politician").attr("src", Util.birdPath poli.self_bird)
 		$("#voices-profile-citizen-selection-image-politician").attr("src", Util.birdPath poli.citizen_bird)
 		
+		# BIRDS
 		citizenBirdName = Model.birds[poli.citizen_bird][Util.addLang "name"] if Model.birds[poli.citizen_bird]?
 		$("#voices-profile-citizen-selection-text-politician").text(citizenBirdName)
 		selfBirdName = Model.birds[poli.self_bird][Util.addLang "name"]
