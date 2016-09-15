@@ -95,7 +95,7 @@ Profiles =
 		
 		# BIRDS
 		selectionContainer = $("#voices-bird-selection-container")
-		if(poli.twittering? and poli.twittering isnt null) # python compatibility :/ TODO?
+		if(poli.twittering?)
 			selectionContainer.removeClass "invisible"
 			citizenBirdName = Model.birds[poli.citizen_bird][Util.addLang "name"] if Model.birds[poli.citizen_bird]?
 			$("#voices-profile-citizen-selection-text-politician").text(citizenBirdName)
