@@ -33,10 +33,10 @@ VoicesLists =
 	_initSearchBar: ->
 		searchBar = $("#voices-list-search-bar")
 		handler = (event) ->
-			return if VoicesLists._searchString is searchBar.val()
+			return if VoicesLists._searchString is searchBar.val().toLowerCase()
 			VoicesLists._searchString = searchBar.val()
 			pred = (poli) -> 
-				poli.name.indexOf(VoicesLists._searchString) isnt -1
+				poli.name.toLowerCase().indexOf(VoicesLists._searchString) isnt -1
 			VoicesLists._removePolis()
 			remaining = (poli for pid, poli of Model.politicians when pred(poli))
 			VoicesLists._display VoicesLists.politicianListRoot, "voices-list-item", remaining
