@@ -25,7 +25,9 @@ VoicesLists =
 	leavePage: ->
 		Profiles.close()
 		_searchString = ""
-		$("voices-list-search-bar").val("")
+		$("#voices-list-search-bar").val("")
+		@_removePolis()
+		@_initPoliticianList()
 
 	# SEARCH BAR
 
