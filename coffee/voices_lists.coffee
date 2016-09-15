@@ -12,25 +12,56 @@ VoicesLists =
 		@_initPoliticianList()
 		@_initBirdList()
 		Profiles.init(@_displayBirdList)
+		@_initSearchBar()
 
 	update: ->
 		# no need to do anything because the profile is re-created each time anyway.
 		return
 
 	translateBirds: ->
-		VoicesLists.birdListRoot.children(".voices-list-entry").each -> $(this).remove()
+		VoicesLists._removeBirds()
 		VoicesLists._initBirdList()
 
 	leavePage: ->
 		Profiles.close()
+		_searchString = ""
+		$("voices-list-search-bar").val("")
+
+	# SEARCH BAR
+
+	_searchString: ""
+	_initSearchBar: ->
+		searchBar = $("#voices-list-search-bar")
+		handler = (event) ->
+			return if VoicesLists._searchString is searchBar.val()
+			VoicesLists._searchString = searchBar.val()
+			return unless VoicesLists._searchString.length > 2
+			pred = (poli) -> 
+				poli.name.indexOf(VoicesLists._searchString) isnt -1
+			VoicesLists._removePolis()
+			remaining = (poli for pid, poli of Model.politicians when pred(poli))
+			VoicesLists._display VoicesLists.politicianListRoot, "voices-list-item", remaining
+		$(document).keyup handler
 
 	# CREATE AND DISPLAY LISTS
+
+	_removePolis: ->
+		@_removeEntries(@politicianListRoot, ".voices-list-entry")
+
+	_removeBirds: ->
+		@_removeEntries(@birdListRoot, ".voices-list-entry")
+
+	_removeEntries: (root, selector) ->
+		root.children(selector).each -> $(this).remove()
 
 	_initPoliticianList: ->
 		@_displayPoliticians @politicianListRoot, "voices-list-item"
 
 	_displayPoliticians: (root, prefix) ->
-		for own id, p of Model.politicians
+		@_display(root, prefix, Model.politicians)
+
+	_display: (root, prefix, list) ->
+		for own id, p of list
 			do(id, p) ->
 				firstLine = p.name
 				image = Util.politicianPath p.images?.pathToThumb
