@@ -1,0 +1,49 @@
+This is a check-list for setting up a new installation, from scratch.
+Please document all relevant steps taken on the actual machines,
+so we can undo/redo anything needed.
+
+=======================[ General setup, pre-ssh ]=======================
+T1? T2? Task
+[_] [_] install Debian (With Dekstop, sshd, XFCE) from debian-stretch-DI-alpha7-amd64-netinst.iso
+[_] [_] configure panels
+[_] [_] set up sshd
+[_] [_] set up port-forwarding in VBox
+[_] [_] set up port-forwarding in Max' Router
+[X] [X] acquire dyndns domain-names
+[_] [_] set up "own" sshkeys, give them read-access to `.secrets`
+[_] [_] aptitude install git
+[_] [_] clone repo
+[_] [_] copy .gitconfig, dns-update.sh, and authorized_keys
+[_] [_] ready dns-update.sh (enter password, make crontab entry)
+
+=======================[ General setup, ssh-able ]======================
+T1? T2? Task
+[_] [_] enable autologin (lightdm.conf)
+[_] [_] fix aptitude behavior around "recommended"
+[_] [_] aptitude update && aptitude safe-upgrade
+[_] [_] install chrome: https://www.google.com/chrome/browser/desktop/
+[_] [_] create 'pad' and 'apdate' for my convenience
+
+========================[ Install instructions ]========================
+T1? T2? Task
+[_] [_] aptitude install libav-tools npm rabbitmq-server coffeescript
+                         python3-dev pip3 bsdutils
+[_] [_] Emoji and Unicode-Fonts
+[_] [_] pip3 install requests-oauthlib  # Debian's version is broken / outdated
+[_] [_] ln -s /usr/bin/nodejs /usr/bin/node
+[_] [_] clone .secrets, .heavy
+[_] [_] attempt "normal workflow" from README.md
+[_] [_] ( cd backend && ./tests.py test_ben )
+
+============================[ UI niceties ]=============================
+T1? T2? Task
+[_] [_] configure chrome (install adblock plus, clean up UI)
+[_] [_] add bookmark for out.html and RabbitMQ management
+[_] [_] set out.html as homepage
+[_] [_] disable screensaver
+[_] [_] disable "XFCE Energieverwaltung"
+[_] [_] remove annoying "scroll up" WM button
+
+==============================[ Template ]==============================
+T1? T2? Task
+[_] [_] TEMPLATE

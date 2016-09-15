@@ -1,0 +1,15 @@
+[user]
+    name = TweetianX
+    email = INVALID
+[color]
+    ui = true
+[alias]
+    cd = checkout
+    changes = diff --cached
+    ff = merge --ff-only
+    get = fetch --all --prune
+    rub = commit --amend --no-edit
+[rebase]
+    autosquash = true
+[push]
+    default = simple
