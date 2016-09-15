@@ -94,10 +94,15 @@ Profiles =
 		$("#voices-profile-citizen-selection-image-politician").attr("src", Util.birdPath poli.citizen_bird)
 		
 		# BIRDS
-		citizenBirdName = Model.birds[poli.citizen_bird][Util.addLang "name"] if Model.birds[poli.citizen_bird]?
-		$("#voices-profile-citizen-selection-text-politician").text(citizenBirdName)
-		selfBirdName = Model.birds[poli.self_bird][Util.addLang "name"]
-		$("#voices-profile-self-selection-text-politician").text(selfBirdName)
+		selectionContainer = $("#voices-bird-selection-container")
+		if(poli.twittering? and poli.twittering isnt null) # python compatibility :/ TODO?
+			selectionContainer.removeClass "invisible"
+			citizenBirdName = Model.birds[poli.citizen_bird][Util.addLang "name"] if Model.birds[poli.citizen_bird]?
+			$("#voices-profile-citizen-selection-text-politician").text(citizenBirdName)
+			selfBirdName = Model.birds[poli.self_bird][Util.addLang "name"]
+			$("#voices-profile-self-selection-text-politician").text(selfBirdName)
+		else
+			selectionContainer.addClass "invisible"
 
 	openBirdPage: (id) ->
 		$("#voices-list-container").css("opacity", 0)
