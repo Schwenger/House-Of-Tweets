@@ -1,0 +1,76 @@
+ALL
+    Get each page:
+        https://www.bundestag.de/bundestag/abgeordnete18/biografien/A
+        https://www.bundestag.de/bundestag/abgeordnete18/biografien/${UPPERCASELETTER}
+    EachPage link:
+        <a href="/bundestag/abgeordnete18/biografien/U/uhl_hans_peter/259136" title="linkTextAttr">Uhl, Dr. Hans-Peter, CDU/CSU</a>
+    AVOID single pages
+    Image Source:
+        <div class="bildUnterschrift"><p class="keinAbstand">© R. Modl </p></div>
+
+GRÜNE
+    Get each page:
+        https://www.gruene-bundestag.de/abgeordnete.html
+    EachPage link:
+        <a href="abgeordnete/luise-amtsberg.html" class="content-teaser__blocklink">
+            <div class="content-teaser__media-container">
+                <img src="typo3temp/_processed_/csm_Amtsberg-Luise-570_1306459ff6.jpg" class="content-teaser__image" alt="" width="370" height="210">
+            </div>
+            <header class="content-teaser__header">
+                <h3 class="content-teaser__title">Luise Amtsberg</h3>
+            </header>
+            <div class="content-teaser__main">
+                <ul class="content-teaser__jobs">
+                    <li>Sprecherin für Flüchtlingspolitik</li>
+                    <li>Sprecherin für Bürgeranliegen</li>
+                </ul>
+            </div>
+        </a>
+    Image per page:
+        <a href="uploads/tx_wwgruenefraktion/Amtsberg_Luise_01.zip" class="member-media__download">Download Foto</a>
+    Twitter per page:
+        <a href="https://twitter.com/Luise_Amtsberg" target="_blank" class="share__button share__button--twitter--outline">Twitter</a>
+    Image source:
+        ???
+
+LINKE
+    Get each page:
+        https://www.linksfraktion.de/fraktion/abgeordnete/a-bis-e/
+        https://www.linksfraktion.de/fraktion/abgeordnete/f-bis-j/
+        https://www.linksfraktion.de/fraktion/abgeordnete/k-bis-o/
+        https://www.linksfraktion.de/fraktion/abgeordnete/p-bis-t/
+        https://www.linksfraktion.de/fraktion/abgeordnete/u-bis-z/
+    EachPage link:
+        <a href="/fraktion/abgeordnete/profil/jan-van-aken/">Jan van Aken</a>
+    Image per page:
+        <a href="/fileadmin/user_upload/Pressefotos/pressefoto-jan-van-aken.jpg" target="_blank">Pressefoto von Jan van Aken</a>
+    Twitter per page:
+        N/A
+    Image source:
+        ???
+
+SPD
+    Get each page:
+        http://www.spdfraktion.de/abgeordnete/alle?wp=18&view=grid&old=18
+    EachPage link:
+        <a href="/abgeordnete/annen?wp=18">  Niels Annen</a>
+    Image per page:
+        <a title="Bild-Download" onclick="openDelegatePicture(this.href);return false;" target="_blank" href="http://www.spdfraktion.de/system/files/images/annen_niels.jpg" class="ico_download float_right">Pressebild (4249 KB)</a>
+    Twitter per page:
+        <a href="https://twitter.com/NielsAnnen" target="_blank">twitter</a>
+    Image source:
+        <span class="copyright">(Foto: spdfraktion.de (Susie Knoll / Florian Jänicke))</span>
+
+CDU / CSU
+    Get each page:
+        https://www.cducsu.de/abgeordnete/
+    EachPage link:
+        <a class="abgeordnete_wrapper_link" href="/abgeordnete/stephan-albani"></a>
+    Specific party:
+        <div class="group-right"> CSU-Landesgruppe  </div>
+    Image per page:
+        ???
+    Image source:
+        <div class="group-bildquelle"><div class="label-inline">Bildquelle:&nbsp;</div>Junge Union</div>
+    Twitter per page:
+        <a href="http://twitter.com/dieAlbsteigerin" title="Twitter" target="_blank">

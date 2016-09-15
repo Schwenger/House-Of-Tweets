@@ -1,0 +1,4 @@
+# Ignore crawling results (should be version-controlled in a
+# different manner, as this is going to get large quickly.)
+# Breaks on Mi 18 Mai 2033 05:33:20 CEST
+/results_1????????????/
