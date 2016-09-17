@@ -309,7 +309,7 @@
 			"en_cv": "Kiwi (pronounced /ki\u02d0wi\u02d0/) or kiwis are flightless birds native to New Zealand, in the genus Apteryx and family Apterygidae. At around the size of a domestic chicken, kiwi are by far the smallest living ratites (which also consist of ostriches, emus, rheas, and cassowaries), and lay the largest egg in relation to their body size of any species of bird in the world. DNA sequence comparisons have yielded the surprising conclusion that kiwi are much more closely related to the extinct Malagasy elephant birds than to the moa with which they shared New Zealand. There are five recognised species, two of which are currently vulnerable, one of which is endangered, and one of which is critically endangered. All species have been negatively affected by historic deforestation but currently the remaining large areas of their forest habitat are well protected in reserves and national parks. At present, the greatest threat to their survival is predation by invasive mammalian predators.",
 			"latin_name": "Apteryx",
 			"en_name": "Kiwi",
-			"has_drawing": false
+			"has_drawing": true
 		},
 		"rotkehlchen": {
 			"de_name": "Rotkehlchen",
