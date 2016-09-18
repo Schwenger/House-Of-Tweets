@@ -46,8 +46,8 @@ T1? T2? Task
 [*] [*] Emoji and Unicode-Fonts
 [*] [*] pip3 install requests-oauthlib  # Debian's version is broken / outdated
 [X] [X] ln -s /usr/bin/nodejs /usr/bin/node
-[_] [X] attempt "normal workflow" from README.md
-[_] [X] ( cd backend && ./tests.py test_ben )
+[X] [X] attempt "normal workflow" from README.md
+[X] [X] ( cd backend && ./tests.py test_ben )
 [_] [_] install florence
 
 ============================[ UI niceties ]=============================
