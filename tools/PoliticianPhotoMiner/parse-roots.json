@@ -7888,5 +7888,75 @@
     "name": "Brigitte Zypries",
     "page": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/Z/zypries_brigitte/259230",
     "src": "bundestag"
+  },
+  {
+    "detect_party": "SPD",
+    "full_name": "J\u00fcrgen Co\u00dfe",
+    "name": "-",
+    "page": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/C/-/438482",
+    "src": "bundestag"
+  },
+  {
+    "detect_party": "CDU/CSU",
+    "full_name": "Iris Eberl",
+    "name": "-",
+    "page": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/E/-/369518",
+    "src": "bundestag"
+  },
+  {
+    "detect_party": "SPD",
+    "full_name": "Angelika Gl\u00f6ckner",
+    "name": "-",
+    "page": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/G/-/340584",
+    "src": "bundestag"
+  },
+  {
+    "detect_party": "SPD",
+    "full_name": "Detlef M\u00fcller (Chemnitz)",
+    "name": "-",
+    "page": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/M/-/348978",
+    "src": "bundestag"
+  },
+  {
+    "detect_party": "Die Linke",
+    "full_name": "Norbert M\u00fcller (Potsdam)",
+    "name": "-",
+    "page": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/M/-/339918",
+    "src": "bundestag"
+  },
+  {
+    "detect_party": "CDU/CSU",
+    "full_name": "Iris Ripsam",
+    "name": "-",
+    "page": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/R/-/427104",
+    "src": "bundestag"
+  },
+  {
+    "detect_party": "SPD",
+    "full_name": "Petra Rode-Bosse",
+    "name": "-",
+    "page": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/R/-/392814",
+    "src": "bundestag"
+  },
+  {
+    "detect_party": "CDU/CSU",
+    "full_name": "Kathrin R\u00f6sel",
+    "name": "-",
+    "page": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/R/-/426590",
+    "src": "bundestag"
+  },
+  {
+    "detect_party": "SPD",
+    "full_name": "Dr. Karin Thissen",
+    "name": "-",
+    "page": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/T/-/375574",
+    "src": "bundestag"
+  },
+  {
+    "detect_party": "CDU/CSU",
+    "full_name": "Karl-Heinz Wange",
+    "name": "-",
+    "page": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/W/-/434696",
+    "src": "bundestag"
   }
 ]
