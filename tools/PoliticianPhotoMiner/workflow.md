@@ -16,7 +16,7 @@ Intermediate results (roughly 60 MiB) are stored in Ben's archives.
 ### First parsing: `parse-roots.py`
 
 - parse them to generate a preliminary list of politicians.  Not presentable yet.
-- input: `crawl-roots.json` (pass as argument; sorry for the inconsistency)
+- input: `crawl-roots.json` (hard-coded)
 - output: `parse-roots.json` (hard-coded)
 - output format of each entry:
   - `page`: URL of respective politician (not downloaded or parsed yet)

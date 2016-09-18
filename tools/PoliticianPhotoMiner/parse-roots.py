@@ -139,15 +139,8 @@ def get_polis_cxu(soup):
 
 
 if __name__ == '__main__':
-    # FIXME: for consistency with the other tools, don't take an argument!
-    from sys import argv
-    if len(argv) != 2:
-        print('Expected precisely 1 argument (something like crawl-roots.json), got {} instead.'.format(len(argv)))
-        exit(1)
-
     # Reading
-    json_path = argv[1]  # Not a typo, argv[0] is the program name
-    with open(json_path, 'r') as json_fp:
+    with open('crawl-roots.json', 'r') as json_fp:
         roots = json.load(json_fp)
 
     # Parsing (setup)
