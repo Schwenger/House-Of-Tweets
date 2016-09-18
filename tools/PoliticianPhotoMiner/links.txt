@@ -67,9 +67,17 @@ CDU / CSU
     EachPage link:
         <h2><a href="/abgeordnete/angela-merkel">Dr. Angela Merkel</a></h2>
     Specific party:
-        <div class="group-right"> CSU-Landesgruppe  </div>
+        <div class="vocabulary-landesgruppen">
+          <div class="group-left" />
+          <div class="group-right">
+            Hessen
+          </div>
+        </div>
     Image per page:
-        ???
+        <a href="https://www.cducsu.de/sites/default/files/albsteiger_490x275.jpg"
+           class="colorbox init-colorbox-processed cboxElement">
+          <img />
+        </a>
     Image source:
         <div class="group-bildquelle"><div class="label-inline">Bildquelle:&nbsp;</div>Junge Union</div>
     Twitter per page:
