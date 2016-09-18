@@ -1,0 +1,20 @@
+#!/bin/bash
+
+case "$1" in
+    1)
+        echo "Connecting to ONE ..."
+        ;;
+    2)
+        echo "Connecting to TWO ..."
+        ;;
+    *)
+        echo "Usage:"
+        echo "$0 N"
+        echo "Where N is either 1 or 2"
+        exit 1
+        ;;
+esac
+
+# Can't use "set -v", as this displays the following like, WITHOUT variable replacement.
+echo ssh -p "100$1" "user@tweetian$1.privatedns.org"
+ssh -p "100$1" "user@tweetian$1.privatedns.org"
