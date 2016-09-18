@@ -24,8 +24,6 @@ Intermediate results (roughly 60 MiB) are stored in Ben's archives.
   - `full_name`: name, including any titles, proper hyphenization
   - if from bundestag: `detect_party`, `name`
 
-FIXME: spd still calls it `name`.
-
 ### Second crawling: `crawl-each.py`
 
 - crawls each politician-specific page, hosted on a party's website (where `bundestag.de` counts as a party)

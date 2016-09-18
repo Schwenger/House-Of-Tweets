@@ -106,11 +106,11 @@ def get_polis_spd(soup):
     for a in soup.find_all('a'):
         href = a.get('href')
         match = None
-        name = a.get_text().strip()
+        full_name = a.get_text().strip()
         if href is not None:
             match = pat.match(href)
         bad_match = match is None
-        bad_name = name == ''
+        bad_name = full_name == ''
         if bad_match or bad_name:
             href_meaningful = href is not None and href.startswith('/abgeordnete')
             if href_meaningful and not bad_name:
@@ -119,7 +119,7 @@ def get_polis_spd(soup):
         slug = match.groups()[0]
         # Dear SPD: Welcome to the 21th century, now start using https!
         page = 'http://www.spdfraktion.de' + href
-        entry = {'src': 'spd', 'name': name, 'page': page, 'slug': slug}
+        entry = {'src': 'spd', 'full_name': full_name, 'page': page, 'slug': slug}
         yield entry
 
 
