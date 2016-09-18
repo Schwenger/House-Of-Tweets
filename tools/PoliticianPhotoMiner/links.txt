@@ -65,7 +65,7 @@ CDU / CSU
     Get each page:
         https://www.cducsu.de/abgeordnete/
     EachPage link:
-        <a class="abgeordnete_wrapper_link" href="/abgeordnete/stephan-albani"></a>
+        <h2><a href="/abgeordnete/angela-merkel">Dr. Angela Merkel</a></h2>
     Specific party:
         <div class="group-right"> CSU-Landesgruppe  </div>
     Image per page:

@@ -125,16 +125,23 @@ def get_polis_spd(soup):
 
 def get_polis_cxu(soup):
     PREFIX = '/abgeordnete/'
-    # Example: <a class="abgeordnete_wrapper_link" href="/abgeordnete/stephan-albani"></a>
-    for a in soup.find_all('a', 'abgeordnete_wrapper_link'):
+    # Example: <h2><a href="/abgeordnete/angela-merkel">Dr. Angela Merkel</a></h2>
+    for h2 in soup.find_all('h2'):
+        assert h2.name == 'h2', h2
+        if h2.get('class') is not None:
+            print("Ignore {}".format(h2))
+            continue
+        children = list(h2.children)
+        assert len(children) == 1, children
+        a = children[0]
+        assert a.name == 'a', a.name
         href = a.get('href')
         if href is None or not href.startswith(PREFIX):
             print('Ignoring "irrelevant" href "{}"'.format(href))
             continue
-        rawname = href[len(PREFIX):]
-        name = ' '.join([p.capitalize() for p in rawname.split('-')])
+        full_name = a.get_text()
         page = 'https://www.cducsu.de' + href
-        entry = {'src': 'cxu', 'name': name, 'page': page}
+        entry = {'src': 'cxu', 'full_name': full_name, 'page': page}
         yield entry
 
 

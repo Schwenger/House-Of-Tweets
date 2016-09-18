@@ -21,12 +21,10 @@ Intermediate results (roughly 60 MiB) are stored in Ben's archives.
 - output format of each entry:
   - `page`: URL of respective politician (not downloaded or parsed yet)
   - `src`: owning party of the website (`bundestag.de` is `bundestag`)
+  - `full_name`: name, including any titles, proper hyphenization
   - if from bundestag: `detect_party`, `name`
-  - if from linke, spd or gruene: `full_name` (including any titles, proper hyphenization)
-  - if cxu (= cdu/csu): `name` (deduced from url, wrong hyphenization, missing titles)
 
 FIXME: spd still calls it `name`.
-FIXME: cxu could have `full_name`.
 
 ### Second crawling: `crawl-each.py`
 
