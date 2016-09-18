@@ -47,7 +47,7 @@ In general, you'll need:
 
 Install like this:
 - Ubuntu: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript` (python, pip, and bsdutils?)
-- Debian: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript python3-dev pip3 bsdutils`
+- Debian: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript python3-dev python3-pip bsdutils`
 - MacOS X: `brew install rabbitmq node python3 libav bsdutils`
 Afterwards add the following to your `.bashrc`
 ```

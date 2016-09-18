@@ -2,47 +2,61 @@ This is a check-list for setting up a new installation, from scratch.
 Please document all relevant steps taken on the actual machines,
 so we can undo/redo anything needed.
 
+=====================[ General setup, pre-install ]=====================
+.. these ones are because Xorg on Debian testing (stretch DI alpha 7)
+has some kind of problem booting up)
+[X] [X] VBox: enable3D accel
+[X] [X] VBox: Use an "even" amount of RAM, NOT 1900, but 1536
+[X] [X] VBox: Use Debian stable
+[_] [X] VBox: Allow "carrier" partition forwarding
+
 =======================[ General setup, pre-ssh ]=======================
 T1? T2? Task
-[_] [_] install Debian (With Dekstop, sshd, XFCE) from debian-stretch-DI-alpha7-amd64-netinst.iso
-[_] [_] configure panels
-[_] [_] set up sshd
-[_] [_] set up port-forwarding in VBox
-[_] [_] set up port-forwarding in Max' Router
+[X] [X] install Debian (With Dekstop, sshd, XFCE) from debian-stretch-DI-alpha7-amd64-netinst.iso
+[X] [X] fix aptitude behavior around "recommended"
+[X] [X] aptitude update && aptitude safe-upgrade
+[X] [X] set up sshd
+[X] [X] set up port-forwarding in VBox
+
+[X] [X] aptitude install dkms linux-headers-586
+[X] [X] guest additions
+[X] [X] set up static IPs in Windows
+[X] [X] set up port-forwarding in Max' Router
 [X] [X] acquire dyndns domain-names
-[_] [_] set up "own" sshkeys, give them read-access to `.secrets`
-[_] [_] aptitude install git
+[X] [X] set up "own" sshkeys
+[_] [_] … and give them read-access to `.secrets`
+[X] [X] aptitude install git
+[X] [X] copy repo
 [_] [_] clone repo
-[_] [_] copy .gitconfig, dns-update.sh, and authorized_keys
+[X] [X] copy .gitconfig, dns-update.sh, and authorized_keys
 [_] [_] ready dns-update.sh (enter password, make crontab entry)
 
 =======================[ General setup, ssh-able ]======================
 T1? T2? Task
-[_] [_] enable autologin (lightdm.conf)
-[_] [_] fix aptitude behavior around "recommended"
-[_] [_] aptitude update && aptitude safe-upgrade
-[_] [_] install chrome: https://www.google.com/chrome/browser/desktop/
-[_] [_] create 'pad' and 'apdate' for my convenience
+[X] [X] enable autologin (lightdm.conf)
+[X] [X] install chromium
+[_] [_] uninstall firefox
+[X] [X] create 'pad' for my convenience
 
 ========================[ Install instructions ]========================
 T1? T2? Task
-[_] [_] aptitude install libav-tools npm rabbitmq-server coffeescript
-                         python3-dev pip3 bsdutils
+[X] [X] aptitude install libav-tools npm rabbitmq-server coffeescript
+                         python3-dev python3-wheel python3-pip bsdutils
 [_] [_] Emoji and Unicode-Fonts
-[_] [_] pip3 install requests-oauthlib  # Debian's version is broken / outdated
-[_] [_] ln -s /usr/bin/nodejs /usr/bin/node
-[_] [_] clone .secrets, .heavy
+[*] [*] pip3 install requests-oauthlib  # Debian's version is broken / outdated
+[X] [X] ln -s /usr/bin/nodejs /usr/bin/node
 [_] [_] attempt "normal workflow" from README.md
 [_] [_] ( cd backend && ./tests.py test_ben )
+[_] [_] install florence
 
 ============================[ UI niceties ]=============================
 T1? T2? Task
-[_] [_] configure chrome (install adblock plus, clean up UI)
-[_] [_] add bookmark for out.html and RabbitMQ management
-[_] [_] set out.html as homepage
-[_] [_] disable screensaver
-[_] [_] disable "XFCE Energieverwaltung"
-[_] [_] remove annoying "scroll up" WM button
+[X] [_] set out.html as homepage
+[X] [X] disable screensaver
+[X] [X] disable "XFCE Energieverwaltung"
+[X] [X] remove annoying "scroll up" WM button
+[X] [X] configure panels
+[*] [_] fix keyboard layout
 
 ==============================[ Template ]==============================
 T1? T2? Task
