@@ -48,7 +48,8 @@ T1? T2? Task
 [X] [X] ln -s /usr/bin/nodejs /usr/bin/node
 [X] [X] attempt "normal workflow" from README.md
 [X] [X] ( cd backend && ./tests.py test_ben )
-[_] [_] install florence
+[X] [X] install florence
+[_] [_] get florence working as intended
 
 ============================[ UI niceties ]=============================
 T1? T2? Task
@@ -57,7 +58,7 @@ T1? T2? Task
 [X] [X] disable "XFCE Energieverwaltung"
 [X] [X] remove annoying "scroll up" WM button
 [X] [X] configure panels
-[*] [_] fix keyboard layout
+[*] [_] fix keyboard layout (OBSOLETE! Windows on-screen keyboard)
 
 ==============================[ Template ]==============================
 T1? T2? Task
