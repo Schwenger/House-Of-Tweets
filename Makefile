@@ -1,5 +1,5 @@
 FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat ext/node_modules/less
-BACKEND_DEP:=bs4 pika pillow pydub requests tweepy typing
+BACKEND_DEP:=bs4 pika pydub requests tweepy typing
 
 BROWSERIFY?=ext/node_modules/.bin/browserify
 COFFEESCRIPT_CONCAT?=ext/node_modules/.bin/coffeescript-concat
@@ -79,7 +79,7 @@ ${FRONTEND_DEP}: ext/node_modules/%:
 # START
 
 .PHONY: start
-start: 
+start:
 	@echo '# Can't start backend: I need your key!  Do it like this:'
 	@echo '#     ./startLoggedBackend.sh test_max'
 	@echo '# I'll fail now so you can see this message.'
@@ -96,14 +96,14 @@ check:
 
 # CLEAN
 
-${DIRS}: 
+${DIRS}:
 	mkdir -p $@
 
 .PHONY: clean
-clean: 
+clean:
 	rm -rf ${OUT}
 
 .PHONY: clean_temp
-clean_temp: 
+clean_temp:
 	rm -f ${COFFEE}/model.coffee
 	rm -rf ${TEMP}

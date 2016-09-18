@@ -22,17 +22,15 @@ If you're one of us, then you have access to the repository referenced
 in `.gitmodules`, and all you need to do is `git submodule update
 --init .secrets`.
 
-If not, you should probably overwrite the `credentials.py` with a short Python "module" that defines four variables.
-- the format will / should change
-- FIXME: create `credentials_TEMPLATE.py` to show the outline
+If not, you should probably overwrite the `credentials.py` with a short Python "module" that defines a map `CREDENTIALS`.
+- the format is pretty obvious
+- see `credentials_TEMPLATE.py` for an example
 
 ### Get heavy
 
 You'll need the heavy files stored in `.heavy`, so so a `git submodule update --init .heavy`
 
 Or just update all submodules in one go with `git submodule update --init`
-
-FIXME: Image data?  Part of "secrets" or what?
 
 ### OS-dependent packages
 
@@ -67,15 +65,15 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 Frontend-dependencies will be installed automatically by running
 `make install_dependencies`.
 This will essentially run
-`npm install --prefix=./ext/ stompjs browserify coffeescript-concat less`
+```
+npm install --prefix=./ext/ stompjs browserify coffeescript-concat less
+pip3 install pika pydub tweepy typing
+```
 
-Backend-dependencies currently needs manual installation:
-```
-pip3 install pika pillow pydub tweepy typing
-```
 Note that Ubuntu calls it `pip`.
 Check with `--version` which Python version it is addressing.
-TODO: Write a script to do that, put it into `make install_dependencies`
+
+Note that under Debian, you may need to install the pip packages as sudo.
 
 
 Normal workflow:

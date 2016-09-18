@@ -24,10 +24,10 @@ T1? T2? Task
 [X] [X] set up port-forwarding in Max' Router
 [X] [X] acquire dyndns domain-names
 [X] [X] set up "own" sshkeys
-[_] [_] … and give them read-access to `.secrets`
+[X] [X] … and give them read-access to `.secrets`
 [X] [X] aptitude install git
 [X] [X] copy repo
-[_] [_] clone repo
+[X] [X] clone repo
 [X] [X] copy .gitconfig, dns-update.sh, and authorized_keys
 [_] [_] ready dns-update.sh (enter password, make crontab entry)
 
@@ -42,6 +42,7 @@ T1? T2? Task
 T1? T2? Task
 [X] [X] aptitude install libav-tools npm rabbitmq-server coffeescript
                          python3-dev python3-wheel python3-pip bsdutils
+[X] [X] make install_dependencies
 [_] [_] Emoji and Unicode-Fonts
 [*] [*] pip3 install requests-oauthlib  # Debian's version is broken / outdated
 [X] [X] ln -s /usr/bin/nodejs /usr/bin/node
