@@ -25,6 +25,7 @@ before_install:
   # By now, rabbitmq-server should be done starting up
   - sudo rabbitmqctl status
   - sudo rabbitmq-plugins enable --online rabbitmq_web_stomp
+  #                              ^^^^^^^^ don't use with Debian; too old version
   # Set up a minimal environment without pulling "hot_heavy"
   - tools/minimal_sound/provide.sh
 script:
