@@ -4,7 +4,7 @@ import threading
 import time
 
 # Amount of seconds to wait between each download.
-_NICE_WAIT_TIME = 3
+_NICE_WAIT_TIME = 4
 # Minimal sleep time for grace, in seconds.
 _MIN_SLEEP_TIME = 0.1
 
@@ -34,7 +34,7 @@ def _unlocked_get(url):
     print("get_nice: got ticket!  Fetching data …")
     r = requests.get(url)
     name = "object_{}.dat".format(my_id)
-    path = os.path.abspath(os.path.join(_PREFIX, name))
+    path = os.path.join(_PREFIX, name)
     with open(path, 'wb') as fp:
         fp.write(r.content)
     print("get_nice: done.  Backup saved to {}".format(path))
