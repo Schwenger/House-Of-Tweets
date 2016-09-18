@@ -139,9 +139,10 @@ def get_polis_cxu(soup):
 
 
 if __name__ == '__main__':
+    # FIXME: for consistency with the other tools, don't take an argument!
     from sys import argv
     if len(argv) != 2:
-        print('Expected precisely 1 argument (something like roots_147….json), got {} instead.'.format(len(argv)))
+        print('Expected precisely 1 argument (something like crawl-roots.json), got {} instead.'.format(len(argv)))
         exit(1)
 
     # Reading
