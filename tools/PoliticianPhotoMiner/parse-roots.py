@@ -10,7 +10,6 @@ import json
 
 def get_polis_bundestag(soup):
     # Could be compiled globally, but don't pollute namespace
-    # FIXME: Some politicians have different URLs!
     pat = re.compile('^/bundestag/abgeordnete18/biografien/./(-|[a-z_]+)/\d+$')
     # Example:
     # <a href="/bundestag/abgeordnete18/biografien/U/uhl_hans_peter/259136" title="linkTextAttr">
