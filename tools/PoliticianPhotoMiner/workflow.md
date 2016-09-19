@@ -3,6 +3,8 @@
 This file tries to document what each file is supposed to do.
 
 Intermediate results (roughly 60 MiB) are stored in Ben's archives.
+So instead of running `crawl-*.py`, please contact me,
+to go easy on their websites.
 
 ### First crawling: `crawl-roots.json`
 
@@ -35,11 +37,32 @@ Intermediate results (roughly 60 MiB) are stored in Ben's archives.
 
 ### Second parsing: `parse-each.py`
 
-NOT IMPLEMENTED
-
-- parse them, extract all interesting infos, aggregate by name
+- parse them, extract all interesting infos
 - input: `crawl-each.json` (hard-coded)
 - output: `parse-each.json` (hard-coded)
+- output format of each entry:
+  - `full_name`: same as above
+  - `page`: URL from which this information was gathered
+  - `possible_parties`: "list" (semantically a set) of reasonable
+    party-associations (usually only a single party, or rarely `['cdu', 'csu']`)
+  - `ejected` (optional): whether they are "ausgeschieden"
+  - `src`: owning party of the website (`bundestag.de` is `bundestag`)
+  - `twitter_handle` (optional): twitter account, probably without leading `@`.
+  - `img`: JSON object, or `null` (in case of bundestag.de;
+    these photos are too small to be usable)
+
+Where the format for `img`
+  - `url`: url from the source's website
+  - `license`: one of `CC-BY-SA`, `unknown-bundestag`, `unknown-linke`, `unknown-gruene`
+  - `photographer` (optional): what it says
+
+### Aggregation: `aggregate-each.py`
+
+NOT IMPLEMENTED
+
+- aggregate by name, make sure everything matches
+- input: `parse-each.json` (hard-coded)
+- output: `aggregate-each.json` (hard-coded)
 - output format of each entry:
   - `full_name`: verified and consistent (else it throws)
   - `party`: verified and consistent (else it throws)

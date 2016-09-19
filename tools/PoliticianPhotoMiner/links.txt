@@ -45,7 +45,7 @@ LINKE
     Image per page:
         <a href="/fileadmin/user_upload/Pressefotos/pressefoto-jan-van-aken.jpg" target="_blank">Pressefoto von Jan van Aken</a>
     Twitter per page:
-        N/A
+        <a href="https://twitter.com/AndrejHunko">Twitter-Profil</a>
     Image source:
         ???
 
