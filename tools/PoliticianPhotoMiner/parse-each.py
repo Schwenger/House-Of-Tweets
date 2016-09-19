@@ -174,14 +174,6 @@ def get_details_spd(old_entry, soup):
         # Don't break: check/assert for duplicate links!
     # Don't assert: omission is okay
 
-    # You're a special snowflake, aren't you?
-    # http://www.spdfraktion.de/abgeordnete/mierscheid?wp=18
-    if entry['full_name'] == 'Jakob Maria Mierscheid':
-        # Spoof something so that the crawler doesn't need special rules.
-        imgdata['url'] = 'file:///dev/null'
-        imgdata['copyright'] = '/dev/null'
-        return entry
-
     # Image:
     # <a title="Bild-Download" href="http://www.spdfraktion.de/system/files/images/annen_niels.jpg"
     #    class="ico_download float_right">Pressebild (4249 KB)</a>
@@ -223,6 +215,9 @@ def get_details_all(entries):
     }
     # Actual work
     for e in entries:
+        if e['full_name'] == 'Jakob Maria Mierscheid':
+            print('Ignoring fictional character {} on {}'.format(e['full_name'], e['src']))
+            continue
         detailer = detailers.get(e['src'])
         if detailer is None:
             print('[WARN] skip for party {}: {}'.format(e['src'], e['full_name']))
