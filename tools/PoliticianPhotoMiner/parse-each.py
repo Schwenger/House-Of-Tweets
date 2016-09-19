@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-import re
 from bs4 import BeautifulSoup
 import json
+
+TWITTER_PREFIX = 'https://twitter.com/'
 
 
 # Even more code duplication.
@@ -56,16 +57,15 @@ def get_details_linke(old_entry, soup):
     # Twitter-Handle
     # <a href="https://twitter.com/AndrejHunko">Twitter-Profil</a>
     for a in soup.find_all('a'):
-        PREFIX = 'https://twitter.com/'
         href = a.get('href')
-        if href is None or not href.startswith(PREFIX):
+        if href is None or not href.startswith(TWITTER_PREFIX):
             # Not even relevant
             continue
         raw_text = a.get_text()
         if raw_text == '':
             continue
         assert raw_text == 'Twitter-Profil', (a, old_entry)
-        new_handle = href[len(PREFIX):]
+        new_handle = href[len(TWITTER_PREFIX):]
         assert 'twitter_handle' not in entry, (entry['twitter_handle'], new_handle, old_entry)
         entry['twitter_handle'] = new_handle
         # Don't break: check/assert for duplicate links!
@@ -94,7 +94,50 @@ def get_details_linke(old_entry, soup):
 
 
 def get_details_gruene(old_entry, soup):
-    raise NotImplementedError()
+    assert old_entry['src'] == 'gruene'
+    entry = dict()
+    entry['src'] = old_entry['src']
+    entry['page'] = old_entry['page']
+    entry['full_name'] = old_entry['full_name']
+    # No 'ejected'
+    entry['possible_parties'] = ['gruene']
+    imgdata = {'license': 'unknown-gruene', 'is_compressed': True}
+
+    # Twitter-Handle
+    # <a href="https://twitter.com/Luise_Amtsberg" target="_blank"
+    #    class="share__button share__button--twitter--outline">Twitter</a>
+    twitter_a = soup.find('a', 'share__button--twitter--outline')
+    if twitter_a is not None:
+        href = twitter_a.get('href')
+        # Dear Grüne,
+        # please get your shit together.
+        # https://www.youtube.com/watch?v=jl17CYYSzUw
+        href = href.replace('http://', 'https://')
+        href = href.replace('//www.twitter.com/', '//twitter.com/')
+        assert href.startswith(TWITTER_PREFIX), (href, old_entry)
+        new_handle = href[len(TWITTER_PREFIX):]
+        entry['twitter_handle'] = new_handle
+
+    # Image:
+    # <a href="uploads/tx_wwgruenefraktion/Amtsberg_Luise_01.zip"
+    #    class="member-media__download">Download Foto</a>
+    for a in soup.find_all('a', 'member-media__download'):
+        PREFIX = 'uploads/tx_wwgruenefraktion/'
+        href = a.get('href')
+        good_text = a.get_text() == 'Download Foto'
+        good_href = href is not None and href.startswith(PREFIX)
+        if not good_text and not good_href:
+            continue
+        assert good_text and good_href, (a, old_entry)
+        # https://www.gruene-bundestag.de/uploads/tx_wwgruenefraktion/Franziska-Branter.zip
+        new_url = 'https://www.gruene-bundestag.de/' + href
+        assert 'url' not in imgdata, (imgdata['url'], new_url, old_entry)
+        imgdata['url'] = new_url
+        # Don't break: check/assert for duplicate links!
+    assert 'url' in imgdata
+
+    entry['img'] = imgdata
+    return entry
 
 
 def get_details_spd(old_entry, soup):
@@ -109,8 +152,8 @@ def get_details_all(entries):
     # Setup
     detailers = {
         #'bundestag': get_details_bundestag,
-        'die linke': get_details_linke,
-        #'gruene': get_details_gruene,
+        #'die linke': get_details_linke,
+        'gruene': get_details_gruene,
         #'spd': get_details_spd,
         #'cxu': get_details_cxu,
     }
