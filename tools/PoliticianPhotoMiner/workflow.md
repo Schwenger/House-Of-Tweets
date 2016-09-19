@@ -54,7 +54,7 @@ to go easy on their websites.
 Where the format for `img`
   - `url`: url from the source's website
   - `license`: one of `CC-BY-SA`, `unknown-bundestag`, `unknown-linke`, `unknown-gruene`
-  - `photographer` (optional): what it says
+  - `copyright` (optional): what it says
   - `is_compressed`: presence indicates that the download is a compressed file which
     has to be uncompressed to get an image file.
 

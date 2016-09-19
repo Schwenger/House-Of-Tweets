@@ -141,7 +141,71 @@ def get_details_gruene(old_entry, soup):
 
 
 def get_details_spd(old_entry, soup):
-    raise NotImplementedError()
+    assert old_entry['src'] == 'spd'
+    entry = dict()
+    entry['src'] = old_entry['src']
+    entry['page'] = old_entry['page']
+    entry['full_name'] = old_entry['full_name']
+    # No 'ejected'
+    entry['possible_parties'] = ['gruene']
+    imgdata = {'license': 'unknown-spd'}
+    entry['img'] = imgdata
+
+    # Twitter-Handle
+    # <a href="https://twitter.com/NielsAnnen" target="_blank">twitter</a>
+    for a in soup.find_all('a'):
+        href = a.get('href')
+        if href is None or not href.startswith(TWITTER_PREFIX):
+            # Not even relevant
+            continue
+        raw_text = a.get_text()
+        if 'http://www.spdfraktion.de' in href or \
+           'search?q=' in href or \
+           'http%3A%2F%2Fwww.spdfraktion.de%2F' in href or \
+           raw_text.startswith('@'):
+            # Dumb header-things.  What the hell?
+            continue
+        if raw_text != 'twitter':
+            print('ignore {}: {}'.format(a, old_entry))
+            continue
+        new_handle = href[len(TWITTER_PREFIX):]
+        assert 'twitter_handle' not in entry, (entry['twitter_handle'], new_handle, old_entry)
+        entry['twitter_handle'] = new_handle
+        # Don't break: check/assert for duplicate links!
+    # Don't assert: omission is okay
+
+    # You're a special snowflake, aren't you?
+    # http://www.spdfraktion.de/abgeordnete/mierscheid?wp=18
+    if entry['full_name'] == 'Jakob Maria Mierscheid':
+        # Spoof something so that the crawler doesn't need special rules.
+        imgdata['url'] = 'file:///dev/null'
+        imgdata['copyright'] = '/dev/null'
+        return entry
+
+    # Image:
+    # <a title="Bild-Download" href="http://www.spdfraktion.de/system/files/images/annen_niels.jpg"
+    #    class="ico_download float_right">Pressebild (4249 KB)</a>
+    img_a = soup.find('a', 'ico_download')
+    assert img_a is not None, old_entry
+    img_href = img_a.get('href')
+    assert img_href.startswith('http://www.spdfraktion.de/system/files/images/'), (img_href, old_entry)
+    assert img_a.get_text().startswith('Pressebild (')
+    # https://www.gruene-bundestag.de/uploads/tx_wwgruenefraktion/Franziska-Branter.zip
+    imgdata['url'] = img_href
+
+    # Photographer:
+    # <span class="copyright">(Foto: spdfraktion.de (Susie Knoll / Florian Jänicke))</span>
+    copyright = soup.find('span', 'copyright')
+    assert copyright is not None
+    copy_text = copyright.get_text()
+    COPY_START = '(Foto: '
+    COPY_END = ')'
+    assert copy_text.startswith(COPY_START) and copy_text.endswith(COPY_END), (copy_text, old_entry)
+    copy_text = copy_text[len(COPY_START):]
+    copy_text = copy_text[:-len(COPY_END)]
+    imgdata['copyright'] = copy_text
+
+    return entry
 
 
 def get_details_cxu(old_entry, soup):
