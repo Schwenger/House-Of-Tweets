@@ -51,7 +51,7 @@ def get_details_linke(old_entry, soup):
     entry['page'] = old_entry['page']
     entry['full_name'] = old_entry['full_name']
     # No 'ejected'
-    entry['possible_parties'] = ['die linke']
+    entry['possible_parties'] = [old_entry['src']]
     imgdata = {'license': 'unknown-linke'}
 
     # Twitter-Handle
@@ -100,7 +100,7 @@ def get_details_gruene(old_entry, soup):
     entry['page'] = old_entry['page']
     entry['full_name'] = old_entry['full_name']
     # No 'ejected'
-    entry['possible_parties'] = ['gruene']
+    entry['possible_parties'] = [old_entry['src']]
     imgdata = {'license': 'unknown-gruene', 'is_compressed': True}
 
     # Twitter-Handle
@@ -147,8 +147,8 @@ def get_details_spd(old_entry, soup):
     entry['page'] = old_entry['page']
     entry['full_name'] = old_entry['full_name']
     # No 'ejected'
-    entry['possible_parties'] = ['gruene']
-    imgdata = {'license': 'unknown-spd'}
+    entry['possible_parties'] = [old_entry['src']]
+    imgdata = {'license': 'custom-spd'}
     entry['img'] = imgdata
 
     # Twitter-Handle
