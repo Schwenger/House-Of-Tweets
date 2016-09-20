@@ -32,6 +32,12 @@ def get_details_bundestag(old_entry, soup):
         detect_party = detect_party[:-2]
         entry['ejected'] = True
 
+    # Sanitize full_name.
+    # TODO: Should have probably happened in parse-roots.py, but whatever.
+    if entry['full_name'].endswith(')'):
+        parts = entry['full_name'].split('(')[:-1]
+        entry['full_name'] = ' '.join(parts).strip()
+
     if detect_party == 'Die Linke':
         entry['possible_parties'] = ['die linke']
     elif detect_party == 'CDU/CSU':
@@ -153,6 +159,13 @@ def get_details_spd(old_entry, soup):
     entry['possible_parties'] = [old_entry['src']]
     imgdata = {'license': 'custom-spd'}
     entry['img'] = imgdata
+
+    # Sanitize full_name.
+    # TODO: Should have probably happened in parse-roots.py, but whatever.
+    entry['full_name'] = " ".join(entry['full_name'].split())
+    if entry['full_name'].endswith(')'):
+        parts = entry['full_name'].split('(')[:-1]
+        entry['full_name'] = ' '.join(parts).strip()
 
     # Twitter-Handle
     # <a href="https://twitter.com/NielsAnnen" target="_blank">twitter</a>
