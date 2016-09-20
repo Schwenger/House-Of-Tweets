@@ -61,22 +61,27 @@ Where the format for `img`
 
 ### Aggregation: `aggregate-each.py`
 
-NOT IMPLEMENTED
-
-- aggregate by name, make sure everything matches
+- aggregate by name, remove ejected politicians completely, make sure everything matches
 - input: `parse-each.json` (hard-coded)
 - output: `aggregate-each.json` (hard-coded)
 - output format of each entry:
   - `full_name`: verified and consistent (else it throws)
+  - `name`: simple name
   - `party`: verified and consistent (else it throws)
-  - `imgs`: object
+  - `twitter_handle` (optional): twitter account, without leading `@`
+  - `srcs`: dict of all the sources used to their respective URL.
+    Keys are a superset of all `imgs`' `src`.
+    May include `pols.json`, if appliccable.  FIXME: Hmm.
+  - `imgs`: JSON object
   
 The format of `imgs` is:
 - key: owning party of the website (`bundestag.de` is `bundestag`)
 - value: JSON object
-  - `url`: url from the source's website
-  - `license`: one of `CC-BY-SA`, `unknown-linke`, `unknown-gruene`
-  - `photographer`: what it says
+  - `url`: URL of the image itself
+  - `license`: see Second Parsing
+  - `copyright` (otpional): what it says
+  - `is_compressed`: presence indicates that the download is a compressed file which
+    has to be uncompressed to get an image file.
 
 ### Patching
 
