@@ -24,7 +24,8 @@ to go easy on their websites.
   - `page`: URL of respective politician (not downloaded or parsed yet)
   - `src`: owning party of the website (`bundestag.de` is `bundestag`)
   - `full_name`: name, including any titles, proper hyphenization
-  - if from bundestag: `detect_party`, `name`
+  - if from bundestag: `detect_party`, `name`  
+    FIXME: kick `name`
 
 ### Second crawling: `crawl-each.py`
 
@@ -42,7 +43,8 @@ to go easy on their websites.
 - output: `parse-each.json` (hard-coded)
 - output format of each entry:
   - `full_name`: same as above
-  - `name`: optional, if from bundestag
+  - `name`: optional, if from bundestag  
+    FIXME: kick `name`
   - `page`: URL from which this information was gathered
   - `possible_parties`: "list" (semantically a set) of reasonable
     party-associations (usually only a single party, or rarely `['cdu', 'csu']`)
@@ -66,7 +68,7 @@ Where the format for `img`
 - output: `aggregate-each.json` (hard-coded)
 - output format of each entry:
   - `full_name`: verified and consistent (else it throws)
-  - `name`: simple name
+  - `name`: simple name (derived from `full_name` by removing titles)
   - `party`: verified and consistent (else it throws)
   - `twitter_handle` (optional): twitter account, without leading `@`
   - `srcs`: dict of all the sources used to their respective URL.

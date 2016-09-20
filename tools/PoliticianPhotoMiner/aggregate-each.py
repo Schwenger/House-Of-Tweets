@@ -29,23 +29,6 @@ resolutions = {
 }
 
 
-def find_name(entries):
-    # Hard-codedly extract the field 'name'.
-    assert(len(entries) == 2)
-    # For higher 'n', there sure is a better way to do it.
-    if 'name' in entries[0]:
-        bundestag = entries[0]
-        party = entries[1]
-    elif 'name' in entries[1]:
-        bundestag = entries[1]
-        party = entries[0]
-    else:
-        assert False, entries
-    assert bundestag['src'] == 'bundestag'
-    assert party['src'] != 'bundestag'
-    return bundestag['name']
-
-
 def load_filtered_entries():
     ejected_names = []
 
@@ -72,10 +55,15 @@ def load_filtered_entries():
     return {k: v for (k, v) in by_full_name.items() if k not in ejected_names}
 
 
+def resolve_name(full_name):
+    return full_name.replace('Prof. ', '').replace('Dr. ', '') \
+        .replace('h. c. ', '').replace('h.c. ', '')
+
+
 # Actual aggregation code.
 def aggregate(full_name, entries):
     agg_entry = {'full_name': full_name,
-                 'name': find_name(entries),
+                 'name': resolve_name(full_name),
                  'srcs': {e['src']: e['page'] for e in entries},
                  'imgs': {e['src']: e['img'] for e in entries if 'img' in e}
                  }
@@ -103,6 +91,7 @@ def aggregate(full_name, entries):
 
 raw_entries = load_filtered_entries()
 aggregated = [aggregate(k, v) for (k, v) in raw_entries.items()]
+aggregated = sorted(aggregated, key=lambda x: x['full_name'])
 
 assert len(aggregated) == 630, 'Expected 630 in the Budnestag, but found {}'.format(len(aggregated))
 
