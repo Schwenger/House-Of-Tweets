@@ -201,17 +201,89 @@ def get_details_spd(old_entry, soup):
 
 
 def get_details_cxu(old_entry, soup):
-    raise NotImplementedError()
+    assert old_entry['src'] == 'cxu'
+    entry = dict()
+    entry['src'] = old_entry['src']
+    entry['page'] = old_entry['page']
+    entry['full_name'] = old_entry['full_name']
+    # No 'ejected'
+    # Don't set 'possible_parties' yet: see below
+    imgdata = dict()
+    # Don't set 'img' yet: see below
+
+    # Determine party  # FIXME: incomplete party detection!
+    # <div class="vocabulary-landesgruppen">
+    #   <div class="group-left" />
+    #   <div class="group-right">Hessen</div>
+    # </div>
+    div_party = soup.find('div', 'vocabulary-landesgruppen')
+    entry['raw_party'] = div_party.get_text()
+    entry['possible_parties'] = ['cxu-unparsed']
+
+    # Twitter-Handle
+    # <a href="http://twitter.com/dieAlbsteigerin" title="Twitter" target="_blank" />
+    a_twitter = soup.find('a', {'title': 'Twitter'})
+    if a_twitter is not None:
+        href_twitter = a_twitter.get('href')
+        # Dear CXU,
+        # please get your shit together.
+        # https://www.youtube.com/watch?v=jl17CYYSzUw
+        href_twitter = href_twitter.replace('http://', 'https://')
+        href_twitter = href_twitter.replace('//www.twitter.com/', '//twitter.com/')
+        assert href_twitter.startswith(TWITTER_PREFIX), (href_twitter, old_entry)
+        new_handle = href_twitter[len(TWITTER_PREFIX):]
+        entry['twitter_handle'] = new_handle
+
+    # Image:
+    # <div class="btn btn-light download">
+    #   <p><a href="https://www.cducsu.de/file/37075/download?token=tNcn6T0h">Download</a></p>
+    # </div>
+    # (Don't even search for the small, non-ideal image)
+    img_div = soup.find('div', 'download')
+    if img_div is None:
+        # Early exit
+        return entry
+    img_href = img_div.find('a')['href']
+    if img_href.startswith('https://www.cducsu.de/file/'):
+        assert '/download?token=' in img_href, (img_href, old_entry)
+        assert img_div.get_text() == 'Download\n', (img_div.get_text(), old_entry)
+        imgdata['url'] = img_href
+    elif img_href.startswith('/download/file/fid/'):
+        assert img_div.get_text() == 'Download', (img_div.get_text(), old_entry)
+        imgdata['url'] = 'https://www.cducsu.de' + img_href
+    else:
+        assert False, (img_href, old_entry)
+
+    # Image license:
+    # <div class="cc-image" />
+    assert soup.find('div', 'cc-image') is not None, old_entry
+    # The class 'cc-image' directly implies displaying the CC-BY-SA badge,
+    # and is accompanied by the 3.0 text.  Thus, this is binding.
+    imgdata['license'] = 'cc-by-sa-3.0'
+
+    # Photographer:
+    # <div class="group-bildquelle"><div class="label-inline">
+    #   Bildquelle:&nbsp;</div>Junge Union</div>
+    copyright = soup.find('div', 'group-bildquelle')
+    assert copyright is not None, old_entry
+    copy_text = copyright.get_text().strip()
+    COPY_START = 'Bildquelle:\xa0'
+    assert copy_text.startswith(COPY_START), (copy_text, old_entry)
+    copy_text = copy_text[len(COPY_START):]
+    imgdata['copyright'] = copy_text
+
+    entry['img'] = imgdata
+    return entry
 
 
 def get_details_all(entries):
     # Setup
     detailers = {
-        #'bundestag': get_details_bundestag,
-        #'die linke': get_details_linke,
+        'bundestag': get_details_bundestag,
+        'die linke': get_details_linke,
         'gruene': get_details_gruene,
-        #'spd': get_details_spd,
-        #'cxu': get_details_cxu,
+        'spd': get_details_spd,
+        'cxu': get_details_cxu,
     }
     # Actual work
     for e in entries:

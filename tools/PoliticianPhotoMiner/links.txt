@@ -73,12 +73,19 @@ CDU / CSU
             Hessen
           </div>
         </div>
-    Image per page:
+    Image fall-back per page:
         <a href="https://www.cducsu.de/sites/default/files/albsteiger_490x275.jpg"
            class="colorbox init-colorbox-processed cboxElement">
           <img />
         </a>
+    Image ideal per page:
+        <div class="btn btn-light download">
+          <p><a href="https://www.cducsu.de/file/37075/download?token=tNcn6T0h">Download</a></p>
+        </div>
+    Image license:
+        <div class="cc-image" />
+        # Implies CC-BY-SA 3.0
     Image source:
         <div class="group-bildquelle"><div class="label-inline">Bildquelle:&nbsp;</div>Junge Union</div>
     Twitter per page:
-        <a href="http://twitter.com/dieAlbsteigerin" title="Twitter" target="_blank">
+        <a href="http://twitter.com/dieAlbsteigerin" title="Twitter" target="_blank" />

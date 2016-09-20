@@ -48,12 +48,14 @@ to go easy on their websites.
   - `ejected` (optional): whether they are "ausgeschieden"
   - `src`: owning party of the website (`bundestag.de` is `bundestag`)
   - `twitter_handle` (optional): twitter account, probably without leading `@`.
-  - `img`: JSON object, or `null` (in case of bundestag.de;
-    these photos are too small to be usable)
+  - `img`: JSON object, or `null` (in case of bundestag and sometimes cxu;
+    these photos are too small to be usable)  
+    FIXME: should be optional, not null
 
 Where the format for `img`
   - `url`: url from the source's website
-  - `license`: one of `CC-BY-SA`, `unknown-bundestag`, `unknown-linke`, `unknown-gruene`
+  - `license`: one of `cc-by-sa-3.0`, `unknown-bundestag`,
+    `unknown-linke`, `unknown-gruene`, `custom-spd`
   - `copyright` (optional): what it says
   - `is_compressed`: presence indicates that the download is a compressed file which
     has to be uncompressed to get an image file.
