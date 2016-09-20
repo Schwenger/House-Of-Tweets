@@ -42,6 +42,7 @@ to go easy on their websites.
 - output: `parse-each.json` (hard-coded)
 - output format of each entry:
   - `full_name`: same as above
+  - `name`: optional, if from bundestag
   - `page`: URL from which this information was gathered
   - `possible_parties`: "list" (semantically a set) of reasonable
     party-associations (usually only a single party, or rarely `['cdu', 'csu']`)

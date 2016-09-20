@@ -15,6 +15,7 @@ def get_details_bundestag(old_entry, soup):
     entry['src'] = old_entry['src']
     entry['page'] = old_entry['page']
     entry['full_name'] = old_entry['full_name']
+    entry['name'] = old_entry['name']
     # No 'img'
     # No 'twitter_handle'
     entry['ejected'] = False
