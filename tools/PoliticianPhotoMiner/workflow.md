@@ -47,10 +47,8 @@ to go easy on their websites.
     party-associations (usually only a single party, or rarely `['cdu', 'csu']`)
   - `ejected` (optional): whether they are "ausgeschieden"
   - `src`: owning party of the website (`bundestag.de` is `bundestag`)
-  - `twitter_handle` (optional): twitter account, probably without leading `@`.
-  - `img`: JSON object, or `null` (in case of bundestag and sometimes cxu;
-    these photos are too small to be usable)  
-    FIXME: should be optional, not null
+  - `twitter_handle` (optional): twitter account, without leading `@`
+  - `img` (optional): JSON object, if there is a big enough photo to be usable
 
 Where the format for `img`
   - `url`: url from the source's website

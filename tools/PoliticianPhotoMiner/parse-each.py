@@ -15,8 +15,8 @@ def get_details_bundestag(old_entry, soup):
     entry['src'] = old_entry['src']
     entry['page'] = old_entry['page']
     entry['full_name'] = old_entry['full_name']
-    entry['img'] = None  # Force JSON null
-    entry['twitter_handle'] = None  # Force JSON null
+    # No 'img'
+    # No 'twitter_handle'
     entry['ejected'] = False
     detect_party = old_entry['detect_party']
     if detect_party.endswith(' *'):
@@ -89,6 +89,7 @@ def get_details_linke(old_entry, soup):
         # Don't break: check/assert for duplicate links!
     assert 'url' in imgdata
 
+    # No imgdata['copyright']
     entry['img'] = imgdata
     return entry
 
@@ -136,6 +137,7 @@ def get_details_gruene(old_entry, soup):
         # Don't break: check/assert for duplicate links!
     assert 'url' in imgdata
 
+    # No imgdata['copyright']
     entry['img'] = imgdata
     return entry
 
@@ -211,14 +213,16 @@ def get_details_cxu(old_entry, soup):
     imgdata = dict()
     # Don't set 'img' yet: see below
 
-    # Determine party  # FIXME: incomplete party detection!
+    # Determine party
     # <div class="vocabulary-landesgruppen">
     #   <div class="group-left" />
     #   <div class="group-right">Hessen</div>
     # </div>
-    div_party = soup.find('div', 'vocabulary-landesgruppen')
-    entry['raw_party'] = div_party.get_text()
-    entry['possible_parties'] = ['cxu-unparsed']
+    district = soup.find('div', 'vocabulary-landesgruppen').get_text()
+    if 'CSU' in district:
+        entry['possible_parties'] = ['csu']
+    else:
+        entry['possible_parties'] = ['cdu']
 
     # Twitter-Handle
     # <a href="http://twitter.com/dieAlbsteigerin" title="Twitter" target="_blank" />
