@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
 
-# Output format:
-# [
-#   { "party": "spd", "link": "https://whatever", "filename": "object_1234.dat" }
-#   …
-# ]
-# Each of the fetch_* functions returns something that
-# could be / will be a subset of the 'content' field.
-# 'party' may be null, if this entry was fetched from bundestag.de.
-
 import nice
 import json
 
