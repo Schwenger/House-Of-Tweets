@@ -3,6 +3,7 @@
 import json
 
 recently_renamed = {
+    # 'Name in poli.json': 'Crawled Name'
     'Alexander Neu': 'Alexander S. Neu',
     'Alois Georg Josef Rainer': 'Alois Rainer',
     'Andreas Lämmel': 'Andreas G. Lämmel',
@@ -48,15 +49,16 @@ recently_ejected = {
     'Wolfgang Tiefensee',
 }
 
+# NOTE: silent assumption: name==full_name for these entries!
 recently_joined = {
-#    'Max Mustermann': {
-#        "self_bird": "gimpel",
-#        "cv": {
-#            "en": "Max Mustermann is a German politician. He/She/FIXME is a member of the FIXME.",
-#            "de": "FIXME"
-#        },
-#        "citizen_bird": "star"
-#    },
+    # 'Max Mustermann': {
+    #     "self_bird": "gimpel",
+    #     "cv": {
+    #         "en": "Max Mustermann is a German politician. He/She/FIXME is a member of the FIXME.",
+    #         "de": "FIXME"
+    #     },
+    #     "citizen_bird": "star"
+    # },
     'Iris Ripsam': {
         "self_bird": "goldammer",
         "cv": {
@@ -71,7 +73,9 @@ recently_joined = {
         "cv": {
             "en": "Jürgen Coße is a German politician. He is a member of the SPD.",
             # Manually adapted.
-            "de": "Jürgen Coße (* 16. August 1969) ist ein deutscher Politiker (SPD). Er ist seit 1986 Mitglied der SPD. Dort ist er Vorsitzender des Unterbezirkes Steinfurt und gehört zurzeit dem Ortsverein Neuenkirchen an."
+            "de": "Jürgen Coße (* 16. August 1969) ist ein deutscher Politiker (SPD)."
+                  " Er ist seit 1986 Mitglied der SPD. Dort ist er Vorsitzender des Unterbezirkes"
+                  " Steinfurt und gehört zurzeit dem Ortsverein Neuenkirchen an."
         },
         "citizen_bird": "rotkehlchen"
     },
@@ -88,53 +92,97 @@ recently_joined = {
         "self_bird": "dohle",
         "cv": {
             "en": "Kathrin Rösel is a German politician. She is a member of the CDU.",
-            "de": "Kathrin Rösel (* 4. November 1970 in Stendal) ist eine deutsche Politikerin (CDU). Seit dem 4. Juni 2016 gehört sie dem 18. Deutschen Bundestag an."
+            "de": "Kathrin Rösel (* 4. November 1970 in Stendal) ist eine deutsche Politikerin (CDU)."
+                  " Seit dem 4. Juni 2016 gehört sie dem 18. Deutschen Bundestag an."
         },
         "citizen_bird": "bachstelze"
     },
 }
 
+# NOTE: silent assumption: name==full_name for these entries!
 allow_spurious_poli = {
     'Barack Obama',
     'François Hollande',
     'House Of Tweets',
 }
 
-with open('aggregate-each.json', 'r') as fp:
-    aggregated = json.load(fp)
 
-with open('../../backend/pols.json', 'r') as fp:
-    old_pols = json.load(fp)
+def merge(agg, poli):
+    if poli.get('images') is not None:
+        # This fails currently.
+        assert len(agg['imgs']) > 0, (agg, poli)
+    # FIXME
+    return {'agg': agg, 'poli': poli, 'full_name': agg['full_name']}
 
-aggregated_by_name = {e['name']: e for e in aggregated}
 
-poli_only = []
+def merge_pseudo(name, poli):
+    # FIXME
+    return {'poli': poli, 'full_name': name}
 
-for poli in old_pols:
-    name = poli['name']
-    if name in recently_renamed:
-        name = recently_renamed[name]
-    e = aggregated_by_name.get(name)
-    if name in recently_ejected:
-        continue
-    if e is None:
-        aggregated_by_name[name] = {'seen': True}
-        poli_only.append(name)
-        continue
-    assert 'seen' not in e, 'Second coming of {}'.format(name)
-    e['seen'] = True
 
-agg_only = [e['name'] for e in aggregated if 'seen' not in e]
+def merge_all(by_name, padded_polis):
+    all_merged = []
+    spurious_poli = []
 
-for x in sorted(poli_only):
-    print(x + '_poli')
-for x in sorted(agg_only):
-    print(x + '_agg')
+    for poli in padded_polis:
+        name = poli['name']
+        if name in recently_renamed:
+            name = recently_renamed[name]
+        if name in recently_ejected:
+            continue
+        if name in allow_spurious_poli:
+            all_merged.append(merge_pseudo(name, poli))
+            continue
+        agg = by_name.get(name)
+        if agg is None:
+            spurious_poli.append(poli)
+            # Error!  But don't throw right away, as the overview might be helpful
+            # in finding out whether it's "just" a rename, or maybe someone got ejected.
+            continue
+        del by_name[name]
+        all_merged.append(merge(agg, poli))
+    assert len(by_name) == 0, "unmatched: agg={}, poli={}".format(by_name, spurious_poli)
 
-# with open('parse-each.json', 'r') as fp:
-#     ejected = [e['full_name'].replace('Prof. ', '').replace('Dr. ', '')
-#                              .replace('h. c. ', '').replace('h.c. ', '')
-#                for e in json.load(fp) if e.get('ejected')]
-# # 
-# for x in sorted(ejected):
-#     print(x + '_ej')
+    return all_merged
+
+
+def load_agg_by_name():
+    with open('aggregate-each.json', 'r') as fp:
+        # TODO: In later versions, don't use 'name' but rather 'full_name'
+        return {e['name']: e for e in json.load(fp)}
+        # if e['name'] not in recently_ejected}  # TODO: Necessary?
+
+
+def load_padded_polis():
+    with open('../../backend/pols.json', 'r') as fp:
+        polis = json.load(fp)
+
+    max_pid = 1
+    for poli in polis:
+        try:
+            this_pid = int(poli['pid'])
+        except ValueError:
+            # Ignore non-numeric pids
+            continue
+        max_pid = max(max_pid, this_pid)
+
+    for name, j in recently_joined.items():
+        j['name'] = name
+        max_pid += 1
+        j['pid'] = max_pid
+        polis.append(j)
+
+    return polis
+
+
+def run():
+    by_name = load_agg_by_name()
+    polis = load_padded_polis()
+    merged = merge_all(by_name, polis)
+    # FIXME: Sort before writing!
+    with open('fill-in.json', 'w') as fp:
+        json.dump(merged, fp, sort_keys=True, indent=2)
+
+
+if __name__ == '__main__':
+    run()

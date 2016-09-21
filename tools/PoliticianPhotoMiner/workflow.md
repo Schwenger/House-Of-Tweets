@@ -6,6 +6,11 @@ Intermediate results (roughly 60 MiB) are stored in Ben's archives.
 So instead of running `crawl-*.py`, please contact me,
 to go easy on their websites.
 
+If there ever are politicians with duplicate name, you'll need to modify the
+"sanitization"  code in `parse-each.py` so that it generates strictly unique
+names for each politician, and optionally adapt the full-to-bare name conversion.
+`aggregate.py` and all later stages assume that a `full_name` is strictly unique.
+
 ### First crawling: `crawl-roots.json`
 
 - crawls the few "root" websites (roughly 30)
@@ -75,7 +80,7 @@ Where the format for `img`
     Keys are a superset of all `imgs`' `src`.
     May include `pols.json`, if appliccable.  FIXME: Hmm.
   - `imgs`: JSON object
-  
+
 The format of `imgs` is:
 - key: owning party of the website (`bundestag.de` is `bundestag`)
 - value: JSON object
@@ -85,7 +90,9 @@ The format of `imgs` is:
   - `is_compressed`: presence indicates that the download is a compressed file which
     has to be uncompressed to get an image file.
 
-### Patching
+### Converging with existing `polis.json` (`fill-in.py`)
+
+Hmm.  Bad order.  Should crawl Wikipedia first.
 
 In case this is necessary: some `jsonpatch`
 
