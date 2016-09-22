@@ -90,6 +90,15 @@ The format of `imgs` is:
   - `is_compressed`: presence indicates that the download is a compressed file which
     has to be uncompressed to get an image file.
 
+### Third Crawling: `crawl-wiki.py`
+
+- download the Wikipedia pages for each politician
+- input: `aggregate-each.json` (hard-coded)
+- output: `crawl-wiki.json` (hard-coded)
+- output format as a dict:
+  - key: what previous formats call `full_name`
+  - value: path to "real" downloaded Wikipedia page, or `null` if no such page
+
 ### Converging with existing `polis.json` (`fill-in.py`)
 
 Hmm.  Bad order.  Should crawl Wikipedia first.
