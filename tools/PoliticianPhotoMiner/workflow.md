@@ -2,8 +2,8 @@
 
 This file tries to document what each file is supposed to do.
 
-Intermediate results (roughly 60 MiB) are stored in Ben's archives.
-So instead of running `crawl-*.py`, please contact me,
+Intermediate results (roughly 60 MiB) are stored in the `cache` submodule.
+So instead of running `crawl-*.py` from scratch, please contact me for access to it,
 to go easy on their websites.
 
 If there ever are politicians with duplicate name, you'll need to modify the
