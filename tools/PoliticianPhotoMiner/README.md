@@ -92,14 +92,16 @@ The format of `imgs` is:
   - `is_compressed`: presence indicates that the download is a compressed file which
     has to be uncompressed to get an image file.
 
-### Third Crawling: `crawl-wiki.py`
+### Third Crawling: `wikify-each.py`
 
 - download the Wikipedia pages for each politician
 - input: `aggregate-each.json` (hard-coded)
-- output: `crawl-wiki.json` (hard-coded)
-- output format as a dict:
-  - key: what previous formats call `full_name`
-  - value: path to "real" downloaded Wikipedia page, or `null` if no such page
+- output: `wikify-each.json` (hard-coded)
+- output format of each entry:
+  - same as `aggregate-each.json`
+  - if a Wikipedia entry with image exists, the image URL is added to
+    the `imgs` entry, and `wiki` is added to the `srcs` list/set.  
+    Note that this doesn't actually download the image, just determine its URL.
 
 ### Converging with existing `polis.json` (`fill-in.py`)
 
