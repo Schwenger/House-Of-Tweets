@@ -106,18 +106,71 @@ allow_spurious_poli = {
     'House Of Tweets',
 }
 
+twitter_stats = {'neither': 0, 'poli': 0, 'agg': 0, 'both': 0}
+
+
+def merge_handle(old_twittering, new_handle):
+    # Set of known-outdated Twitter-accounts:
+    twitter_outdated = {
+        'peternachberlin',
+        'GabiKatzmarek',
+    }
+    if new_handle in twitter_outdated:
+        new_handle = None
+    if old_twittering is not None and old_twittering['twitterUserName'] in twitter_outdated:
+        old_twittering = None
+
+    # Actual logic:
+    if old_twittering is None:
+        if new_handle is None:
+            twitter_stats['neither'] += 1
+            return None
+        else:
+            twitter_stats['agg'] += 1
+            return {'twitterUserName': new_handle}
+    else:
+        if new_handle is None:
+            twitter_stats['poli'] += 1
+            return old_twittering
+        else:
+            twitter_stats['both'] += 1
+            old_handle = old_twittering['twitterUserName']
+            assert old_handle.lower() == new_handle.lower(), (old_handle, new_handle)
+            return old_twittering
+
 
 def merge(agg, poli):
-    if poli.get('images') is not None:
-        # This fails currently.
-        assert len(agg['imgs']) > 0, (agg, poli)
-    # FIXME
-    return {'agg': agg, 'poli': poli, 'full_name': agg['full_name']}
+    if 'party' in poli:
+        assert poli['party'] == agg['party'], (poli['party'], agg['party'])
+
+    new_poli = dict()
+    for key in ['name', 'full_name', 'imgs', 'party']:
+        new_poli[key] = agg[key]
+    for key in ['self_bird', 'pid', 'cv', 'citizen_bird']:
+        new_poli[key] = poli[key]
+
+    twit = merge_handle(poli.get('twittering'), agg.get('twitter_handle'))
+    if twit is not None:
+        new_poli['twittering'] = twit
+    else:
+        print('[WARN] No twitter found for MdB ' + agg['full_name'])
+
+    # Discard agg['srcs']
+    return new_poli
 
 
 def merge_pseudo(name, poli):
-    # FIXME
-    return {'poli': poli, 'full_name': name}
+    new_poli = {'name': name, 'full_name': name}  # Hope for the best
+    for key in ['self_bird', 'pid', 'cv', 'citizen_bird', 'party', 'images']:
+        new_poli[key] = poli[key]
+
+    twit = merge_handle(poli.get('twittering'), None)
+    if twit is not None:
+        new_poli['twittering'] = twit
+    else:
+        print('[WARN] No twitter found for pseudo-MdB ' + name)
+
+    return new_poli
 
 
 def merge_all(by_name, padded_polis):
@@ -173,7 +226,7 @@ def load_padded_polis():
     for name, j in recently_joined.items():
         j['name'] = name
         max_pid += 1
-        j['pid'] = max_pid
+        j['pid'] = str(max_pid)
         polis.append(j)
 
     return polis
@@ -183,6 +236,9 @@ def run():
     by_name = load_by_name()
     polis = load_padded_polis()
     merged = merge_all(by_name, polis)
+    print('Merge stats:')
+    for k, v in twitter_stats.items():
+        print('    {}: {}'.format(k, v))
     # FIXME: Sort before writing!
     with open('converge-each.json', 'w') as fp:
         json.dump(merged, fp, sort_keys=True, indent=2)
