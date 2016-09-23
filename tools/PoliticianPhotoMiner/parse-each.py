@@ -59,7 +59,7 @@ def get_details_linke(old_entry, soup):
     entry['full_name'] = old_entry['full_name']
     # No 'ejected'
     entry['possible_parties'] = [old_entry['src']]
-    imgdata = {'license': 'unknown-linke'}
+    imgdata = {'license': 'custom-linke'}
 
     # Twitter-Handle
     # <a href="https://twitter.com/AndrejHunko">Twitter-Profil</a>
