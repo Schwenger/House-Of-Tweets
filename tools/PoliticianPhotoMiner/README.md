@@ -61,9 +61,8 @@ names for each politician, and optionally adapt the full-to-bare name conversion
 
 Where the format for `img`
   - `url`: url from the source's website
-  - `license`: one of `cc-by-sa-3.0`, `unknown-bundestag`,
-    `custom-linke`, `unknown-gruene`, `custom-spd`  
-    FIXME: `cc-by-sa-3.0` should be uppercase.
+  - `license`: one of `CC-BY-SA-3.0`, `unknown-bundestag`,
+    `custom-linke`, `custom-gruene`, `custom-spd`
   - `copyright` (optional): what it says
   - `is_compressed`: presence indicates that the download is a compressed file which
     has to be uncompressed to get an image file.

@@ -39,13 +39,13 @@ def get_details_bundestag(old_entry, soup):
         entry['full_name'] = ' '.join(parts).strip()
 
     if detect_party == 'Die Linke':
-        entry['possible_parties'] = ['die linke']
+        entry['possible_parties'] = ['DIE LINKE']
     elif detect_party == 'CDU/CSU':
-        entry['possible_parties'] = ['cdu', 'csu']
+        entry['possible_parties'] = ['CDU', 'CSU']
     elif detect_party == 'SPD':
-        entry['possible_parties'] = ['spd']
+        entry['possible_parties'] = ['SPD']
     elif detect_party == 'B\u00fcndnis 90/Die Gr\u00fcnen':
-        entry['possible_parties'] = ['gruene']
+        entry['possible_parties'] = ['GRÜNE']
     else:
         assert False, "Unknown party: '{}'".format(old_entry['detect_party'])
     return entry
@@ -58,8 +58,10 @@ def get_details_linke(old_entry, soup):
     entry['page'] = old_entry['page']
     entry['full_name'] = old_entry['full_name']
     # No 'ejected'
-    entry['possible_parties'] = [old_entry['src']]
+    entry['possible_parties'] = ['DIE LINKE']
     imgdata = {'license': 'custom-linke'}
+    # Specifically, the "license" can be found here:
+    # https://www.linksfraktion.de/presse/pressedownload/
 
     # Twitter-Handle
     # <a href="https://twitter.com/AndrejHunko">Twitter-Profil</a>
@@ -108,8 +110,9 @@ def get_details_gruene(old_entry, soup):
     entry['page'] = old_entry['page']
     entry['full_name'] = old_entry['full_name']
     # No 'ejected'
-    entry['possible_parties'] = [old_entry['src']]
-    imgdata = {'license': 'unknown-gruene', 'is_compressed': True}
+    entry['possible_parties'] = ['GRÜNE']
+    imgdata = {'license': 'custom-gruene', 'is_compressed': True}
+    # License source: private communication (Max Schwenger)
 
     # Twitter-Handle
     # <a href="https://twitter.com/Luise_Amtsberg" target="_blank"
@@ -156,7 +159,7 @@ def get_details_spd(old_entry, soup):
     entry['page'] = old_entry['page']
     entry['full_name'] = old_entry['full_name']
     # No 'ejected'
-    entry['possible_parties'] = [old_entry['src']]
+    entry['possible_parties'] = ['SPD']
     imgdata = {'license': 'custom-spd'}
     entry['img'] = imgdata
 
@@ -234,9 +237,9 @@ def get_details_cxu(old_entry, soup):
     # </div>
     district = soup.find('div', 'vocabulary-landesgruppen').get_text()
     if 'CSU' in district:
-        entry['possible_parties'] = ['csu']
+        entry['possible_parties'] = ['CSU']
     else:
-        entry['possible_parties'] = ['cdu']
+        entry['possible_parties'] = ['CDU']
 
     # Twitter-Handle
     # <a href="http://twitter.com/dieAlbsteigerin" title="Twitter" target="_blank" />
@@ -277,7 +280,7 @@ def get_details_cxu(old_entry, soup):
     assert soup.find('div', 'cc-image') is not None, old_entry
     # The class 'cc-image' directly implies displaying the CC-BY-SA badge,
     # and is accompanied by the 3.0 text.  Thus, this is binding.
-    imgdata['license'] = 'cc-by-sa-3.0'
+    imgdata['license'] = 'CC-BY-SA-3.0'
 
     # Photographer:
     # <div class="group-bildquelle"><div class="label-inline">

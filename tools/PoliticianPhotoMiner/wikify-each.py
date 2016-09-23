@@ -37,8 +37,8 @@ def is_not_found(soup):
 # If it is a disambiguation page, all implicit assumptions will be 'assert'-ed.
 def get_disambiguated_url(soup, expect_party):
     PARTY_TO_TEXT = {
-        'spd': 'SPD', 'csu': 'CSU', 'cdu': 'CDU', 'die linke': 'Die Linke',
-        'gruene': 'Bündnis 90/Die Grünen',
+        'SPD': 'SPD', 'CSU': 'CSU', 'CDU': 'CDU', 'DIE LINKE': 'Die Linke',
+        'GRÜNE': 'Bündnis 90/Die Grünen',
     }
     if soup.find('table', id='Vorlage_Begriffsklaerung') is None:
         return None
