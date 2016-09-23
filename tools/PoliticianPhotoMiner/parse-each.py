@@ -319,7 +319,15 @@ def get_details_all(entries):
             the_soup = BeautifulSoup(fp.read(), 'html.parser')
         detail = detailer(e, the_soup)
         if 'twitter_handle' in detail:
-            detail['twitter_handle'] = detail['twitter_handle'].strip('@')
+            orig = detail['twitter_handle']
+            handle = orig
+            handle = handle.strip().strip('@')
+            handle = handle.split('?')[0]
+            if handle.startswith('#!/'):
+                handle = handle[len('#!/'):]
+            if orig != handle:
+                print('[WARN] Sanitized handle {} to {}'.format(orig, handle))
+            detail['twitter_handle'] = handle
         yield detail
 
 
