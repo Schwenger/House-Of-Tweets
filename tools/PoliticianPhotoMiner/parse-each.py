@@ -317,7 +317,10 @@ def get_details_all(entries):
             continue
         with open(e['page_file'], 'r') as fp:
             the_soup = BeautifulSoup(fp.read(), 'html.parser')
-        yield detailer(e, the_soup)
+        detail = detailer(e, the_soup)
+        if 'twitter_handle' in detail:
+            detail['twitter_handle'] = detail['twitter_handle'].strip('@')
+        yield detail
 
 
 if __name__ == '__main__':
