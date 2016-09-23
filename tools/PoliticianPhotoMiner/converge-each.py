@@ -99,13 +99,6 @@ recently_joined = {
     },
 }
 
-# NOTE: silent assumption: name==full_name for these entries!
-allow_spurious_poli = {
-    'Barack Obama',
-    'François Hollande',
-    'House Of Tweets',
-}
-
 twitter_stats = {'neither': 0, 'poli': 0, 'agg': 0, 'both': 0}
 
 
@@ -139,7 +132,7 @@ def merge_handle(old_twittering, new_handle):
             return old_twittering
 
 
-def merge(agg, poli):
+def merge_single(agg, poli):
     if 'party' in poli:
         assert poli['party'] == agg['party'], (poli['party'], agg['party'])
 
@@ -159,20 +152,6 @@ def merge(agg, poli):
     return new_poli
 
 
-def merge_pseudo(name, poli):
-    new_poli = {'name': name, 'full_name': name}  # Hope for the best
-    for key in ['self_bird', 'pid', 'cv', 'citizen_bird', 'party', 'images']:
-        new_poli[key] = poli[key]
-
-    twit = merge_handle(poli.get('twittering'), None)
-    if twit is not None:
-        new_poli['twittering'] = twit
-    else:
-        print('[WARN] No twitter found for pseudo-MdB ' + name)
-
-    return new_poli
-
-
 def merge_all(by_name, padded_polis):
     all_merged = []
     spurious_poli = []
@@ -181,10 +160,9 @@ def merge_all(by_name, padded_polis):
         name = poli['name']
         if name in recently_renamed:
             name = recently_renamed[name]
-        if name in recently_ejected:
-            continue
-        if name in allow_spurious_poli:
-            all_merged.append(merge_pseudo(name, poli))
+        if name in recently_ejected or name == 'House Of Tweets':
+            # "House Of Tweets" will be injected back later on,
+            # but for now it's in the way.
             continue
         agg = by_name.get(name)
         if agg is None:
@@ -193,7 +171,7 @@ def merge_all(by_name, padded_polis):
             # in finding out whether it's "just" a rename, or maybe someone got ejected.
             continue
         del by_name[name]
-        all_merged.append(merge(agg, poli))
+        all_merged.append(merge_single(agg, poli))
 
     # Check whether merging worked fine
     assert len(by_name) == 0 and len(spurious_poli) == 0,\
@@ -223,7 +201,7 @@ def load_padded_polis():
             continue
         max_pid = max(max_pid, this_pid)
 
-    for name, j in recently_joined.items():
+    for name, j in sorted(recently_joined.items(), key=lambda x: x[0]):
         j['name'] = name
         max_pid += 1
         j['pid'] = str(max_pid)

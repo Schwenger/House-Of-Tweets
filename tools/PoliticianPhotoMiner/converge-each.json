@@ -837,9 +837,12 @@
       "en": "Fran\u00e7ois Hollande is a German politician. He is a member of the Parti socialiste."
     },
     "full_name": "Fran\u00e7ois Hollande",
-    "images": {
-      "pathToImage": "hollande.jpg",
-      "pathToThumb": "hollandeThumb.jpg"
+    "imgs": {
+      "wiki": {
+        "copyright": "COP Paris",
+        "license": "CC0 1.0",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Francois_Hollande_2015.jpeg"
+      }
     },
     "name": "Fran\u00e7ois Hollande",
     "party": "Parti socialiste",
@@ -2869,26 +2872,6 @@
     "twittering": {
       "twitterId": 22125770,
       "twitterUserName": "ekindeligoez"
-    }
-  },
-  {
-    "citizen_bird": "amsel",
-    "cv": {
-      "de": "Das sind wir",
-      "en": "HoT is an ordinary German politician. He is a member of the Gr\u00fcn."
-    },
-    "full_name": "House Of Tweets",
-    "images": {
-      "pathToImage": "group_greengr\u00fcn.jpg",
-      "pathToThumb": "tgroup_greengr\u00fcn.jpg"
-    },
-    "name": "House Of Tweets",
-    "party": "Gr\u00fcn",
-    "pid": "hot",
-    "self_bird": "amsel",
-    "twittering": {
-      "twitterId": "4718199753",
-      "twitterUserName": "HouseOfTweetsSB"
     }
   },
   {
@@ -13167,9 +13150,12 @@
       "en": "Barack Hussein Obama is an American politician. He is a member of the Democrats."
     },
     "full_name": "Barack Obama",
-    "images": {
-      "pathToImage": "obama.jpg",
-      "pathToThumb": "obamaThumb.jpg"
+    "imgs": {
+      "wiki": {
+        "copyright": "Official White House Photo by Pete Souza",
+        "license": "public domain",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg"
+      }
     },
     "name": "Barack Obama",
     "party": "Demokraten",
@@ -15656,6 +15642,19 @@
     }
   },
   {
+    "citizen_bird": "fitis",
+    "cv": {
+      "de": "Iris Ripsam ist eine deutsche Politikerin. Sie ist Mitglied der CDU.",
+      "en": "Iris Ripsam is a German politician. She is a member of the CDU."
+    },
+    "full_name": "Iris Ripsam",
+    "imgs": {},
+    "name": "Iris Ripsam",
+    "party": "CDU",
+    "pid": "650",
+    "self_bird": "goldammer"
+  },
+  {
     "citizen_bird": "rotkehlchen",
     "cv": {
       "de": "J\u00fcrgen Co\u00dfe (* 16. August 1969) ist ein deutscher Politiker (SPD). Er ist seit 1986 Mitglied der SPD. Dort ist er Vorsitzender des Unterbezirkes Steinfurt und geh\u00f6rt zurzeit dem Ortsverein Neuenkirchen an.",
@@ -15671,11 +15670,30 @@
     },
     "name": "J\u00fcrgen Co\u00dfe",
     "party": "SPD",
-    "pid": "650",
+    "pid": "651",
     "self_bird": "rauchschwalbe",
     "twittering": {
       "twitterUserName": "juergencosse"
     }
+  },
+  {
+    "citizen_bird": "mehlschwalbe",
+    "cv": {
+      "de": "Karl-Heinz Helmut Wange ist ein deutscher Politiker. Er ist Mitglied der CDU.",
+      "en": "Karl-Heinz Helmut Wange is a German politician. He is a member of the CDU."
+    },
+    "full_name": "Karl-Heinz Helmut Wange",
+    "imgs": {
+      "cxu": {
+        "copyright": "Deutscher Bundestag/von Saldern",
+        "license": "CC-BY-SA-3.0",
+        "url": "https://www.cducsu.de/download/file/fid/52283"
+      }
+    },
+    "name": "Karl-Heinz Helmut Wange",
+    "party": "CDU",
+    "pid": "652",
+    "self_bird": "tukan"
   },
   {
     "citizen_bird": "bachstelze",
@@ -15698,39 +15716,7 @@
     },
     "name": "Kathrin R\u00f6sel",
     "party": "CDU",
-    "pid": "651",
-    "self_bird": "dohle"
-  },
-  {
-    "citizen_bird": "fitis",
-    "cv": {
-      "de": "Iris Ripsam ist eine deutsche Politikerin. Sie ist Mitglied der CDU.",
-      "en": "Iris Ripsam is a German politician. She is a member of the CDU."
-    },
-    "full_name": "Iris Ripsam",
-    "imgs": {},
-    "name": "Iris Ripsam",
-    "party": "CDU",
-    "pid": "652",
-    "self_bird": "goldammer"
-  },
-  {
-    "citizen_bird": "mehlschwalbe",
-    "cv": {
-      "de": "Karl-Heinz Helmut Wange ist ein deutscher Politiker. Er ist Mitglied der CDU.",
-      "en": "Karl-Heinz Helmut Wange is a German politician. He is a member of the CDU."
-    },
-    "full_name": "Karl-Heinz Helmut Wange",
-    "imgs": {
-      "cxu": {
-        "copyright": "Deutscher Bundestag/von Saldern",
-        "license": "CC-BY-SA-3.0",
-        "url": "https://www.cducsu.de/download/file/fid/52283"
-      }
-    },
-    "name": "Karl-Heinz Helmut Wange",
-    "party": "CDU",
     "pid": "653",
-    "self_bird": "tukan"
+    "self_bird": "dohle"
   }
 ]

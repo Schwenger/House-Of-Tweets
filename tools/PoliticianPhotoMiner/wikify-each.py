@@ -196,6 +196,7 @@ KNOWN_LICENSES = {
     'GNU-Lizenz für freie Dokumentation, Version 1.2,': 'GFDL 1.2',
     'GNU-Lizenz für freie Dokumentation, Version 1.2 oder einer späteren Version': 'GFDL 1.2+',
     '\nPublic domainPublic domainfalsefalse\n\n': 'public domain',
+    'Creative-Commons-Lizenz „CC0 1.0 Verzicht auf das Copyright“': 'CC0 1.0',
     # Include the closing quotation mark to ensure unambiguous identification.
     'Creative-Commons-Lizenz „Namensnennung 2.0 generisch“': 'CC-BY-2.0',
     'Creative-Commons-Lizenz „Namensnennung 3.0 nicht portiert“': 'CC-BY-3.0 unported',
@@ -216,6 +217,7 @@ KNOWN_LICENSES = {
 
 LICENSE_PREFERENCE_ORDER = [
     'public domain',
+    'CC0 1.0',
     'CC-BY-SA-4.0 int',
     'CC-BY-4.0 int',
     'CC-BY-SA-3.0 de',
@@ -305,6 +307,13 @@ WHITELIST_AMBIGUOUS = {
 }
 
 
+SPOOF_POLITICIANS = [
+    ('Barack Obama', 'Demokraten', 'barackobama'),
+    ('François Hollande', 'Parti socialiste', 'fhollande'),
+    # Can't spoof HoT sufficiently well
+]
+
+
 def run():
     with open("aggregate-each.json", 'r') as fp:
         entries = json.load(fp)
@@ -325,6 +334,18 @@ def run():
         if img_desc_url is None:
             # No image?  Okay :(
             continue
+        e['imgs']['wiki'] = get_img_desc(img_desc_url)
+    for name, party, handle in SPOOF_POLITICIANS:
+        e = dict(name=name, full_name=name, party=party, handle=handle,
+                 srcs=dict(), imgs=dict())
+        entries.append(e)
+        findings = get_page_for(name, e['party'])
+        assert findings is not None
+        page_url, page_soup = findings
+        e['srcs']['wiki'] = page_url
+        # ignore 'bksicon'
+        img_desc_url = get_img_desc_link(name, page_soup)
+        assert img_desc_url is not None
         e['imgs']['wiki'] = get_img_desc(img_desc_url)
 
     with open("wikify-each.json", 'w') as fp:
