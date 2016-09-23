@@ -141,16 +141,20 @@ def merge_all(by_name, padded_polis):
             continue
         del by_name[name]
         all_merged.append(merge(agg, poli))
-    assert len(by_name) == 0, "unmatched: agg={}, poli={}".format(by_name, spurious_poli)
+
+    # Check whether merging worked fine
+    assert len(by_name) == 0 and len(spurious_poli) == 0,\
+        "unexpectedly unmatched: agg={}, poli={}".format(by_name, spurious_poli)
+
+    # All "new" entries were already spoofed into the polis list.
 
     return all_merged
 
 
-def load_agg_by_name():
-    with open('aggregate-each.json', 'r') as fp:
+def load_by_name():
+    with open('wikify-each.json', 'r') as fp:
         # TODO: In later versions, don't use 'name' but rather 'full_name'
         return {e['name']: e for e in json.load(fp)}
-        # if e['name'] not in recently_ejected}  # TODO: Necessary?
 
 
 def load_padded_polis():
@@ -176,11 +180,11 @@ def load_padded_polis():
 
 
 def run():
-    by_name = load_agg_by_name()
+    by_name = load_by_name()
     polis = load_padded_polis()
     merged = merge_all(by_name, polis)
     # FIXME: Sort before writing!
-    with open('fill-in.json', 'w') as fp:
+    with open('converge-each.json', 'w') as fp:
         json.dump(merged, fp, sort_keys=True, indent=2)
 
 

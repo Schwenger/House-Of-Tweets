@@ -2,7 +2,8 @@
 
 This file tries to document what each file is supposed to do.
 
-Intermediate results (roughly 60 MiB) are stored in the `cache` submodule.
+Intermediate results (roughly 60 MiB) and all raw image files (roughly 3.6 GiB)
+are stored in the `cache` submodule.
 So instead of running `crawl-*.py` from scratch, please contact me for access to it,
 to go easy on their websites.
 
@@ -102,10 +103,42 @@ The format of `imgs` is:
     the `imgs` entry, and `wiki` is added to the `srcs` list/set.  
     Note that this doesn't actually download the image, just determine its URL.
 
-### Converging with existing `polis.json` (`fill-in.py`)
+### Converging with existing `pols.json` (`converge-each.py`)
 
-Hmm.  Bad order.  Should crawl Wikipedia first.
+- agree with `pols.json` on all data, and spell out every addition/deletion
+- input: `wikify-each.json` (hard-coded) *and* the currently used `/backend/pols.json`
+- output: `polify-each.json` (hard-coded)
+- output format of each entry:
+  - same order and same fields as `pols.json`, except:
+  - `images` gets replaced by `imgs` (see "Aggregation")
+  - `twitterId` may be left unassigned
 
-In case this is necessary: some `jsonpatch`
 
-NOT EVEN THOUGHT ABOUT
+### Creating a new `pols.json` (`pols.py`)
+
+FIXME: find out "which" images to use, where "which" means:
+- resolution (rescaling necessary?)
+- manual blacklist of source-politician pairs
+- after pairing with pols.json, chuck out files!
+
+
+## About the cache
+
+All web requests go through `nice.py`, which uses some kind of "cache", namely the subfolder `./cache/`.
+In `cache_index_TEMPLATE.json` you can see how to initialize the cache by yourself.
+Just drop it into the `cache` folder, drop the `_TEPLATE` part, and you're good to go.
+
+But again, that's a horrible idea.  Please re-use the files I already have cached, at least for the
+heavy stuff like image data.
+
+### Checks
+
+There's `check-cache.py` to assert that every file mentioned in the index is actually there.
+However, it doesn't check any of these things:
+- whether the file is actually valid (which is a pretty difficult thing)
+- whether the file is what we *indended* (impossible)
+- whether the file is still up-to-date (impossible, without contacting the server again)
+- whether identical files could be re-used
+- whether every file in the filesystem is referenced by the index
+
+So please don't expect too much of it.
