@@ -16,8 +16,7 @@ url_override = {
     # Bad default:
     'https://de.wikipedia.org/wiki/Andreas_Rimkus': 'https://de.wikipedia.org/wiki/Andreas_Rimkus_(Politiker)',
     'https://de.wikipedia.org/wiki/Karl_Lamers': 'https://de.wikipedia.org/wiki/Karl_A._Lamers',
-    'https://de.wikipedia.org/wiki/Michael_Gro%C3%9F':
-        'https://de.wikipedia.org/wiki/Michael_Gro%C3%9F_%28Politiker%29',
+    'https://de.wikipedia.org/wiki/Michael_Groß': 'https://de.wikipedia.org/wiki/Michael_Gro%C3%9F_%28Politiker%29',
     'https://de.wikipedia.org/wiki/Peter_Stein': 'https://de.wikipedia.org/wiki/Peter_Stein_%28Politiker%29',
 }
 
@@ -67,10 +66,6 @@ def get_disambiguated_url(soup, expect_party):
             # Don't just print 'text', as I might need that URL.
             print('[WARN] Found someone of wrong party: {}'.format(li))
             continue
-        if '(MdL)' in text:
-            # Don't just print 'text', as I might need that URL.
-            print('[WARN] Ignore Landtag politician: {}'.format(li))
-            continue
         if pattern.match(text) is not None:
             # Don't just print 'text', as I might need that URL.
             print('[WARN] Ignore dead person: {}'.format(li))
@@ -84,7 +79,7 @@ def get_disambiguated_url(soup, expect_party):
         return found_urls[0]
     assert found_mdb is not None, (found_urls, ul)
     print('[WARN] Using MdB override')
-    return found_urls[0]
+    return found_mdb
 
 
 def as_soup(path):
@@ -113,7 +108,7 @@ def get_page_for(name, expect_party):
         return None
     disambig_url = get_disambiguated_url(soup, expect_party)
     if disambig_url is None:
-        return soup
+        return url, soup
     url = disambig_url
     path = nice.get(url)
     soup = as_soup(path)
@@ -126,7 +121,7 @@ def get_page_for(name, expect_party):
     # politician for each name.  Note that other parts of this toolchain fail
     # horribly in this case anyway.
     assert get_disambiguated_url(soup, expect_party) is None, 'name'
-    return soup
+    return url, soup
 
 
 def get_img_desc_link(name, page_soup):
@@ -208,6 +203,7 @@ KNOWN_LICENSES = {
     'Creative-Commons-Lizenz „Namensnennung 4.0 international“': 'CC-BY-4.0 int',
     'Creative-Commons-Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 2.0 generisch“': 'CC-BY-SA-2.0',
     'Creative-Commons-Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 2.0 Deutschland“': 'CC-BY-SA-2.0 de',
+    'http://creativecommons.org/licenses/by-sa/2.0/de/legalcode': 'CC-BY-SA-2.0 de',
     'Creative-Commons-Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 2.5 generisch“': 'CC-BY-SA-2.5',
     # If multiple versions available, use the first one
     'Creative-Commons-Lizenzen „Namensnennung – Weitergabe unter gleichen Bedingungen 3.0 nicht portiert“': 'CC-BY-SA-3.0- unported',
@@ -218,13 +214,37 @@ KNOWN_LICENSES = {
     'Creative-Commons-Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 international“': 'CC-BY-SA-4.0 int',
 }
 
+LICENSE_PREFERENCE_ORDER = [
+    'public domain',
+    'CC-BY-SA-4.0 int',
+    'CC-BY-4.0 int',
+    'CC-BY-SA-3.0 de',
+    'CC-BY-SA-3.0 unported',
+    'CC-BY-SA-3.0 at',
+    'CC-BY-SA-3.0- unported',
+    'CC-BY-3.0 de',
+    'CC-BY-3.0 unported',
+    'CC-BY-SA-2.5',
+    'CC-BY-SA-2.0 de',
+    'CC-BY-SA-2.0',
+    'CC-BY-2.0',
+    'GFDL 1.2+',
+    'GFDL 1.2',
+    'custom: attribution (FAL)',
+    'custom: attribution',
+]
+
+
+def assert_license_sanity():
+    # With that function name, I'm very willing to just write "assert False"
+    for lid in KNOWN_LICENSES.values():
+        assert lid in LICENSE_PREFERENCE_ORDER, lid
+
 
 # Parse "the" license of the file.
-# TODO: What about multi-licensed photos?
-# (Ideal: prefer CC licenses, see 'parse_license'.)
 def parse_license(soup):
     all_licenses = []
-    for license_table in soup.find_all('table', 'licensetpl'):
+    for license_table in soup.find_all(None, 'licensetpl'):  # not always a table
         license_text = license_table.get_text()
         found = False
         for text, lid in KNOWN_LICENSES.items():
@@ -232,10 +252,14 @@ def parse_license(soup):
                 assert not found, 'Multiple contradicting licenses within same paragraph?!'
                 all_licenses.append(lid)
                 found = True
+                assert lid in LICENSE_PREFERENCE_ORDER, lid
                 # Don't break, check for duplicates!
         assert found, license_text  # If this fails, add a new entry in KNOWN_LICENSES
-    # FIXME: Choose *ONE* from the licenses!  (Or change file format.)
-    return all_licenses
+    assert len(all_licenses) > 0
+    for l in LICENSE_PREFERENCE_ORDER:
+        if l in all_licenses:
+            return l
+    assert False, all_licenses
 
 
 def parse_img_url(soup):
@@ -290,9 +314,11 @@ def run():
         name = re.sub(' [A-ZÖÄÜ]\. ', ' ', name)
         if name != orig_name:
             print('[WARN] Sanitized name {} to {}'.format(orig_name, name))
-        page_soup = get_page_for(name, e['party'])
-        if page_soup is None:
+        findings = get_page_for(name, e['party'])
+        if findings is None:
             continue
+        page_url, page_soup = findings
+        e['srcs']['wiki'] = page_url
         if page_soup.find(id='bksicon') is not None and name not in WHITELIST_AMBIGUOUS:
             print('[WARN] Name {} is ambiguous, but wasn\'t asked to choose'.format(name))
         img_desc_url = get_img_desc_link(name, page_soup)
@@ -306,4 +332,5 @@ def run():
 
 
 if __name__ == '__main__':
+    assert_license_sanity()
     run()
