@@ -236,7 +236,7 @@ class RealTwitterInterface(TwitterInterface):
         try:
             return str(self.api.get_user(username).id)
         except Exception as e:
-            print("Couldn't resolve username: " + str(e))
+            print("Couldn't resolve username '{}': {}".format(username, e))
             return None
 
     def maybe_reply(self, tweet_id: str, content: str):
