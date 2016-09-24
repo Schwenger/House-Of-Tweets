@@ -23,23 +23,18 @@ FRONTEND_POLI_DB = '../coffee/model/model_polis.coffee'
 
 class PoliticianBackend:
 	def __init__(self):
-		self.poliList = json.load(open(BACKEND_POLI_DB))
+		self.polByPid = json.load(open(BACKEND_POLI_DB))
 		self.lock = threading.RLock()
-
-		self.polByPid = dict()
-		for poli in self.poliList:
-			self.polByPid[poli["pid"]] = poli
 
 		# This references the same politician dicts, just like pointers.
 		# In other words: updates will always be reflected in both lookup tables.
 		self.polByTid = dict()
-		for poli in self.poliList:
-			if poli["twittering"] is None:
-				continue
-			self.polByTid[str(poli["twittering"]["twitterId"])] = poli
+		#for poli in self.polByPid:
+		#	assert "twittering" in poli, poli['pid']
+		#	self.polByTid[str(poli["twittering"]["twitterId"])] = poli
 
-		print("Loaded {} polititians; {} of them have a TID, {} have a PID"
-			  .format(len(self.poliList), len(self.polByTid), len(self.polByPid)))
+		print("Loaded {} polititians; {} of them have a TID"
+			  .format(len(self.polByPid), len(self.polByTid)))
 
 	def getAllTwitteringPoliticians(self):
 		with self.lock:
@@ -81,11 +76,11 @@ class PoliticianBackend:
 			return
 
 		with open(BACKEND_POLI_DB, 'w') as outfile:
-			json.dump(self.poliList, outfile, indent=2)
+			json.dump(self.polByPid, outfile, sort_keys=True, indent=2)
 
 		with open(FRONTEND_POLI_DB, "w") as out:
 			out.write("@politicians = ")
-			json.dump(self.polByPid, out, indent="\t")
+			json.dump(self.polByPid, out, sort_keys=True, indent="\t")
 		for line in fileinput.input([FRONTEND_POLI_DB], inplace=True):
 			print('\t' + line.rstrip('\n'))
 
@@ -107,11 +102,20 @@ def poli_modify():
 	#         if 'fr' in cv:
 	#             print('Purged the French out of ' + poli['name'])
 	#             del cv['fr']
+
+	import time, twitter
+	tw = twitter.RealTwitterInterface()
+	for poli in pb.polByPid.values():
+		account = poli['twittering']
+		if 'twitterId' not in account:
+			print('Resolving ' + poli['name'])
+			time.sleep(2)
+			account['twitterId'] = tw.resolve_name(account['twitterUserName'])
+
 	# Note:
 	# - setBird automatically calls dumpToFile.
 	#   In all other cases, you'll need to call __dumpToFile by hand, like this:
 	pb._dumpToFile()
-	# - This causes a HUGE diff.  Please commit responsibly.
 
 	print("Now check by hand.")
 
