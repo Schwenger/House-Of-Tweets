@@ -14749,10 +14749,7 @@
     "name": "Bernhard Kaster",
     "party": "CDU",
     "pid": "256",
-    "self_bird": "tukan",
-    "twittering": {
-      "twitterUserName": "bernhardkaster"
-    }
+    "self_bird": "tukan"
   },
   {
     "citizen_bird": "tukan",
