@@ -4726,7 +4726,13 @@
       "en": "Helmut Nowak is a German politician. He is a member of the CDU."
     },
     "full_name": "Helmut Nowak",
-    "imgs": {},
+    "imgs": {
+      "spoofed": {
+        "copyright": "Helmut Nowak / Jutta Hartmann",
+        "license": "unknown-bundestag",
+        "url": "https://www.bundestag.de/image/242050/Hochformat__2x3/177/265/399f0e3ef04b5cae4f0eb804f3dbee72/sy/nowak_helmut_fedor_gross.jpg"
+      }
+    },
     "name": "Helmut Nowak",
     "party": "CDU",
     "pid": "400",
@@ -6273,7 +6279,13 @@
       "en": "Heiko Schmelzle is a German politician. He is a member of the CDU."
     },
     "full_name": "Heiko Schmelzle",
-    "imgs": {},
+    "imgs": {
+      "spoofed": {
+        "copyright": "Heiko Schmelzle / Martinus Ekkenga",
+        "license": "unknown-bundestag",
+        "url": "https://www.bundestag.de/image/241662/Hochformat__2x3/177/265/d596b81b20c8069cc73e47d21e38971d/fz/schmelzle_heiko_gross.jpg"
+      }
+    },
     "name": "Heiko Schmelzle",
     "party": "CDU",
     "pid": "494",

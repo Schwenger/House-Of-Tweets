@@ -326,6 +326,19 @@ recently_joined = {
 
 twitter_stats = {'poli': 0, 'both': 0}
 
+spoof_images = {
+    'Helmut Nowak': {
+        "copyright": "Helmut Nowak / Jutta Hartmann",
+        "license": "unknown-bundestag",
+        "url": "https://www.bundestag.de/image/242050/Hochformat__2x3/177/265/399f0e3ef04b5cae4f0eb804f3dbee72/sy/nowak_helmut_fedor_gross.jpg"
+    },
+    'Heiko Schmelzle': {
+        "copyright": "Heiko Schmelzle / Martinus Ekkenga",
+        "license": "unknown-bundestag",
+        "url": "https://www.bundestag.de/image/241662/Hochformat__2x3/177/265/d596b81b20c8069cc73e47d21e38971d/fz/schmelzle_heiko_gross.jpg"
+    },
+}
+
 
 def merge_handle(old_twittering, new_handle):
     # Set of known-outdated Twitter-accounts:
@@ -408,7 +421,13 @@ def merge_all(by_name, padded_polis):
 def load_by_name():
     with open('wikify-each.json', 'r') as fp:
         # TODO: In later versions, don't use 'name' but rather 'full_name'
-        return {e['name']: e for e in json.load(fp)}
+        by_name = {e['name']: e for e in json.load(fp)}
+    for name, img in spoof_images.items():
+        poli = by_name[name]
+        imgs = poli['imgs']
+        assert len(imgs) == 0
+        imgs['spoofed'] = img
+    return by_name
 
 
 def load_padded_polis():
