@@ -95,6 +95,7 @@ KNOWN_NEGATIVE = {
     'Hendrik Hoppenstedt',  # Früher war mehr Lametta!
     'Gustav Herzog',
     'Karl-Heinz Helmut Wange',
+    'Bernhard Kaster',
 }
 
 with open('converge-each.json', 'r') as fp:

@@ -107,6 +107,7 @@ def merge_handle(old_twittering, new_handle):
     twitter_outdated = {
         'peternachberlin',
         'GabiKatzmarek',
+        'bernhardkaster',
     }
     if new_handle in twitter_outdated:
         new_handle = None
