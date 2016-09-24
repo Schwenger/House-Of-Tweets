@@ -311,7 +311,7 @@ def prune_convert(pols):
 
 
 def run():
-    with open('converge-each.json', 'r') as fp:
+    with open('twitter-each.json', 'r') as fp:
         wikified = json.load(fp)
 
     for e in wikified:
