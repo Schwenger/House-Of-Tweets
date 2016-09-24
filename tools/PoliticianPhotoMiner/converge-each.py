@@ -324,7 +324,7 @@ recently_joined = {
     # },
 }
 
-twitter_stats = {'neither': 0, 'poli': 0, 'agg': 0, 'both': 0}
+twitter_stats = {'poli': 0, 'both': 0}
 
 
 def merge_handle(old_twittering, new_handle):
@@ -336,28 +336,19 @@ def merge_handle(old_twittering, new_handle):
     }
     if new_handle in twitter_outdated:
         new_handle = None
-    if old_twittering is not None and old_twittering['twitterUserName'] in twitter_outdated:
-        old_twittering = None
+    assert old_twittering is not None
 
     # Actual logic:
-    if old_twittering is None:
-        if new_handle is None:
-            twitter_stats['neither'] += 1
-            return None
-        else:
-            twitter_stats['agg'] += 1
-            return {'twitterUserName': new_handle}
+    if new_handle is None:
+        twitter_stats['poli'] += 1
+        return old_twittering
     else:
-        if new_handle is None:
-            twitter_stats['poli'] += 1
-            return old_twittering
-        else:
-            twitter_stats['both'] += 1
-            # false positive
-            # noinspection PyUnresolvedReferences
-            old_handle = old_twittering['twitterUserName']
-            assert old_handle.lower() == new_handle.lower(), (old_handle, new_handle)
-            return old_twittering
+        twitter_stats['both'] += 1
+        # false positive
+        # noinspection PyUnresolvedReferences
+        old_handle = old_twittering['twitterUserName']
+        assert old_handle.lower() == new_handle.lower(), (old_handle, new_handle)
+        return old_twittering
 
 
 def merge_single(agg, poli):
@@ -385,6 +376,7 @@ def merge_all(by_name, padded_polis):
     spurious_poli = []
 
     for poli in padded_polis:
+        assert 'twittering' in poli
         name = poli['name']
         if name in recently_renamed:
             name = recently_renamed[name]
@@ -451,7 +443,8 @@ def run():
     print('Merge stats:')
     for k, v in twitter_stats.items():
         print('    {}: {}'.format(k, v))
-    # FIXME: Sort before writing!
+    print('    agg: {}'.format(len(recently_joined)))
+    print('    neither: {}'.format(len(KNOWN_NO_TWITTER) + len(PROBABLY_NO_TWITTER)))
     with open('converge-each.json', 'w') as fp:
         json.dump(merged, fp, sort_keys=True, indent=2)
 

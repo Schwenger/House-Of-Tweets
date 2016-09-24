@@ -224,6 +224,8 @@ def convert(*args):
 
 def checkout(pid, fields):
     img_prefix = os.path.join(DIR_PREFIX, pid)
+    if True:
+        return img_prefix
     dl_path = nice.get(fields['url'])
     freshest_path = dl_path
 
@@ -311,10 +313,10 @@ def prune_convert(pols):
 
 
 def run():
-    with open('twitter-each.json', 'r') as fp:
-        wikified = json.load(fp)
+    with open('converge-each.json', 'r') as fp:
+        pols = json.load(fp)
 
-    for e in wikified:
+    for e in pols:
         if 'twittering' not in e:
             print('[INFO] Skipping (not twittering) ' + e['full_name'])
             continue
@@ -332,7 +334,7 @@ def run():
 
     if not CHOICE_MODE:
         print('[INFO] CHOICE_MODE = False, so I\'ll write out pols.json')
-        pols = prune_convert(wikified)
+        pols = prune_convert(pols)
         with open('pols.json', 'w') as fp:
             json.dump(pols, fp, sort_keys=True, indent=2)
     else:

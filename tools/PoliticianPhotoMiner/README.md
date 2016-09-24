@@ -112,13 +112,6 @@ The format of `imgs` is:
   - `images` gets replaced by `imgs` (see "Aggregation")
   - `twitterId` may be left unassigned
 
-### Twitter-fillup: `twitter-each.py`
-
-- fill up on twitter-handles, report where it's still unknown
-- input: `converge-each.json` (hard-coded)
-- output: `twitter-each.json` (hard-coded)
-- output format stays exactly the same
-
 ### Checkout images, generate pols.json: `checkout-images.py`
 
 - checkout preview/for-use images, and link to them "properly"
