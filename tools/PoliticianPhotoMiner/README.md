@@ -112,20 +112,19 @@ The format of `imgs` is:
   - `images` gets replaced by `imgs` (see "Aggregation")
   - `twitterId` may be left unassigned
 
-### Twitter-crawling: `twitter-each.py`
+### Twitter-fillup: `twitter-each.py`
 
 - fill up on twitter-handles, report where it's still unknown
 - input: `converge-each.json` (hard-coded)
 - output: `twitter-each.json` (hard-coded)
 - output format stays exactly the same
 
-### Creating a new `pols.json` (`pols.py`)
+### Checkout images, generate pols.json: `checkout-images.py`
 
-FIXME: find out "which" images to use, where "which" means:
-- resolution (rescaling necessary?)
-- manual blacklist of source-politician pairs
-- after pairing with pols.json, chuck out files!
-
+- checkout preview/for-use images, and link to them "properly"
+- input: `twitter-each.json` (hard-coded)
+- output: `pols.json` (hard-coded; note: in this directory, not in `/backend/`)
+- output format: see `/backend/README.md`
 
 ## About the cache
 

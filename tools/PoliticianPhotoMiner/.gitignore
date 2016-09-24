@@ -1,3 +1,7 @@
 # Can't use these intermediate results without accompanying directories anyway.
 # Either re-crawl them from scratch (not recommended) or use "the cache".
 /crawl-*.json
+# Should be either in secrets or not there at all.
+/preview/
+# Either copy it over or it's useless
+/pols.json
