@@ -199,6 +199,26 @@
       "twitterUserName": "ABaerbock"
     }
   },
+  "121": {
+    "citizen_bird": "gartenrotschwanz",
+    "cv": {
+      "de": "Astrid Freudenstein (* 9. Oktober 1973 in Bad Griesbach im Rottal) ist eine deutsche Politikerin (CSU).",
+      "en": "Astrid Freudenstein is a German politician. She is a member of the CSU."
+    },
+    "full_name": "Dr. Astrid Freudenstein",
+    "images": {
+      "pathToImage": "121.jpg",
+      "pathToThumb": "121_t.jpg"
+    },
+    "name": "Astrid Freudenstein",
+    "party": "CSU",
+    "pid": "121",
+    "self_bird": "mehlschwalbe",
+    "twittering": {
+      "twitterId": "704024372940513280",
+      "twitterUserName": "dieFreudenstein"
+    }
+  },
   "122": {
     "citizen_bird": "zilpzalp",
     "cv": {
@@ -377,6 +397,26 @@
     "twittering": {
       "twitterId": 140821364,
       "twitterUserName": "DoroBaer"
+    }
+  },
+  "141": {
+    "citizen_bird": "star",
+    "cv": {
+      "de": "Angelika Gl\u00f6ckner (* 5. Februar 1962 in Pirmasens, Rheinland-Pfalz) ist eine deutsche Politikerin (SPD) und seit 2014 Abgeordnete im Deutschen Bundestag.",
+      "en": "Angelika Gl\u00f6ckner is a German politician. She is a member of the SPD."
+    },
+    "full_name": "Angelika Gl\u00f6ckner",
+    "images": {
+      "pathToImage": "141.jpg",
+      "pathToThumb": "141_t.jpg"
+    },
+    "name": "Angelika Gl\u00f6ckner",
+    "party": "SPD",
+    "pid": "141",
+    "self_bird": "tuerkentaube",
+    "twittering": {
+      "twitterId": "976421048",
+      "twitterUserName": "A_Gloeckner"
     }
   },
   "142": {
@@ -617,6 +657,26 @@
     "twittering": {
       "twitterId": 888289790,
       "twitterUserName": "GregorGysi"
+    }
+  },
+  "17": {
+    "citizen_bird": "blaumeise",
+    "cv": {
+      "de": "Katarina Barley [\u02c8ba:\u0250\u032fl\u025b\u026a\u032f] (* 19. November 1968 in K\u00f6ln) ist eine deutsche Juristin, Politikerin (SPD) und Abgeordnete im 18. Deutschen Bundestag. Am 11. Dezember 2015 wurde sie auf dem SPD-Bundesparteitag zur Generalsekret\u00e4rin gew\u00e4hlt.",
+      "en": "Katarina Barley is a German politician. She is a member of the SPD."
+    },
+    "full_name": "Dr. Katarina Barley",
+    "images": {
+      "pathToImage": "17.jpg",
+      "pathToThumb": "17_t.jpg"
+    },
+    "name": "Katarina Barley",
+    "party": "SPD",
+    "pid": "17",
+    "self_bird": "haussperling",
+    "twittering": {
+      "twitterId": "4097559143",
+      "twitterUserName": "katarinabarley"
     }
   },
   "171": {
@@ -959,6 +1019,46 @@
       "twitterUserName": "FrankHeinrich"
     }
   },
+  "192": {
+    "citizen_bird": "zaunkoenig",
+    "cv": {
+      "de": "Gabriela Heinrich (* 18. April 1963 in Berlin) ist eine deutsche Politikerin (SPD). Seit der Bundestagswahl 2013 ist sie Mitglied des deutschen Bundestages.",
+      "en": "Gabriela Heinrich is a German politician. She is a member of the SPD."
+    },
+    "full_name": "Gabriela Heinrich",
+    "images": {
+      "pathToImage": "192.jpg",
+      "pathToThumb": "192_t.jpg"
+    },
+    "name": "Gabriela Heinrich",
+    "party": "SPD",
+    "pid": "192",
+    "self_bird": "tuerkentaube",
+    "twittering": {
+      "twitterId": "296121556",
+      "twitterUserName": "GaHeinrich"
+    }
+  },
+  "193": {
+    "citizen_bird": "klappergrasmuecke",
+    "cv": {
+      "de": "Marcus Held (* 15. Oktober 1977 in Ludwigshafen am Rhein) ist ein deutscher Politiker (SPD), Stadtb\u00fcrgermeister von Oppenheim und Mitglied des Deutschen Bundestages.",
+      "en": "Marcus Held is a German politician. He is a member of the SPD."
+    },
+    "full_name": "Marcus Held",
+    "images": {
+      "pathToImage": "193.jpg",
+      "pathToThumb": "193_t.jpg"
+    },
+    "name": "Marcus Held",
+    "party": "SPD",
+    "pid": "193",
+    "self_bird": "girlitz",
+    "twittering": {
+      "twitterId": "2860802891",
+      "twitterUserName": "MarcusHeld_SPD"
+    }
+  },
   "196": {
     "citizen_bird": "fitis",
     "cv": {
@@ -1119,6 +1219,26 @@
       "twitterUserName": "ToniHofreiter"
     }
   },
+  "216": {
+    "citizen_bird": "kiwi",
+    "cv": {
+      "de": "Inge Dora Minna H\u00f6ger[1][2] (* 29. Oktober 1950 in Diepholz) ist eine deutsche Politikerin (Die Linke).",
+      "en": "Inge H\u00f6ger is a German politician. She is a member of the DIE LINKE."
+    },
+    "full_name": "Inge H\u00f6ger",
+    "images": {
+      "pathToImage": "216.jpg",
+      "pathToThumb": "216_t.jpg"
+    },
+    "name": "Inge H\u00f6ger",
+    "party": "DIE LINKE",
+    "pid": "216",
+    "self_bird": "rabenkraehe",
+    "twittering": {
+      "twitterId": "1595306917",
+      "twitterUserName": "Scheringer_W"
+    }
+  },
   "217": {
     "citizen_bird": "grauschnaepper",
     "cv": {
@@ -1177,6 +1297,26 @@
     "twittering": {
       "twitterId": 3376953843,
       "twitterUserName": "matthiasbartke"
+    }
+  },
+  "220": {
+    "citizen_bird": "weisskopfseeadler",
+    "cv": {
+      "de": "Franz-Josef Holzenkamp (* 8. Januar 1960 in Kamperfehn) ist ein deutscher Politiker (CDU).",
+      "en": "Franz-Josef Holzenkamp is a German politician. He is a member of the CDU."
+    },
+    "full_name": "Franz-Josef Holzenkamp",
+    "images": {
+      "pathToImage": "220.jpg",
+      "pathToThumb": "220_t.jpg"
+    },
+    "name": "Franz-Josef Holzenkamp",
+    "party": "CDU",
+    "pid": "220",
+    "self_bird": "kleiber",
+    "twittering": {
+      "twitterId": "2158321941",
+      "twitterUserName": "fj_josef"
     }
   },
   "223": {
@@ -1999,6 +2139,26 @@
       "twitterUserName": "BabettesChefin"
     }
   },
+  "286": {
+    "citizen_bird": "moenchsgrasmuecke",
+    "cv": {
+      "de": "Anette Kramme (* 10. Oktober 1967 in Essen) ist eine deutsche Politikerin (SPD).",
+      "en": "Anette Kramme is a German politician. She is a member of the SPD."
+    },
+    "full_name": "Anette Kramme",
+    "images": {
+      "pathToImage": "286.jpg",
+      "pathToThumb": "286_t.jpg"
+    },
+    "name": "Anette Kramme",
+    "party": "SPD",
+    "pid": "286",
+    "self_bird": "goldammer",
+    "twittering": {
+      "twitterId": "1461705757",
+      "twitterUserName": "AnetteKramme"
+    }
+  },
   "287": {
     "citizen_bird": "grauschnaepper",
     "cv": {
@@ -2799,6 +2959,26 @@
       "twitterUserName": "ManderlaGisela"
     }
   },
+  "353": {
+    "citizen_bird": "klappergrasmuecke",
+    "cv": {
+      "de": "Matern Freiherr Marschall von Bieberstein (* 3. August 1962 in Freiburg im Breisgau) ist ein deutscher Politiker (CDU). In der \u00d6ffentlichkeit ist er unter dem Namen Matern von Marschall bekannt. Seit Oktober 2013 ist er Mitglied des Bundestages f\u00fcr den Wahlkreis Freiburg.",
+      "en": "Matern von Marschall is a German politician. He is a member of the CDU."
+    },
+    "full_name": "Matern von Marschall",
+    "images": {
+      "pathToImage": "353.jpg",
+      "pathToThumb": "353_t.jpg"
+    },
+    "name": "Matern von Marschall",
+    "party": "CDU",
+    "pid": "353",
+    "self_bird": "blaumeise",
+    "twittering": {
+      "twitterId": "1227428528",
+      "twitterUserName": "Von_Marschall"
+    }
+  },
   "356": {
     "citizen_bird": "ringeltaube",
     "cv": {
@@ -2919,6 +3099,26 @@
       "twitterUserName": "IreneMihalic"
     }
   },
+  "372": {
+    "citizen_bird": "amsel",
+    "cv": {
+      "de": "Susanne Mittag (* 25. Juli 1958 in Cleveland, Ohio, USA) ist eine deutsche Politikerin (SPD) und wurde bei der Bundestagswahl am 22. September 2013 \u00fcber die nieders\u00e4chsische Landesliste ihrer Partei in den Deutschen Bundestag gew\u00e4hlt. Sie trat im Bundestagswahlkreis Delmenhorst \u2013 Wesermarsch \u2013 Oldenburg-Land (Wahlkreis 28) an.",
+      "en": "Susanne Mittag is a German politician. She is a member of the SPD."
+    },
+    "full_name": "Susanne Mittag",
+    "images": {
+      "pathToImage": "372.jpg",
+      "pathToThumb": "372_t.jpg"
+    },
+    "name": "Susanne Mittag",
+    "party": "SPD",
+    "pid": "372",
+    "self_bird": "fitis",
+    "twittering": {
+      "twitterId": "939034891",
+      "twitterUserName": "susanne_mittag"
+    }
+  },
   "373": {
     "citizen_bird": "hausrotschwanz",
     "cv": {
@@ -3017,6 +3217,26 @@
     "twittering": {
       "twitterId": 2443895924,
       "twitterUserName": "BetMueller"
+    }
+  },
+  "383": {
+    "citizen_bird": "ara",
+    "cv": {
+      "de": "Gerhard \u201eGerd\u201c M\u00fcller (* 25. August 1955 in Krumbach (Schwaben)) ist seit 1978 ein deutscher Politiker (CSU). Er ist seit Dezember 2013 Bundesminister f\u00fcr wirtschaftliche Zusammenarbeit und Entwicklung.",
+      "en": "Gerd M\u00fcller is a German politician. He is a member of the CSU."
+    },
+    "full_name": "Dr. Gerd M\u00fcller",
+    "images": {
+      "pathToImage": "383.jpg",
+      "pathToThumb": "383_t.jpg"
+    },
+    "name": "Gerd M\u00fcller",
+    "party": "CSU",
+    "pid": "383",
+    "self_bird": "dohle",
+    "twittering": {
+      "twitterId": "43111409",
+      "twitterUserName": "Gerdbillen"
     }
   },
   "384": {
@@ -3357,6 +3577,26 @@
     "twittering": {
       "twitterId": 293066780,
       "twitterUserName": "ThomasOppermann"
+    }
+  },
+  "405": {
+    "citizen_bird": "haussperling",
+    "cv": {
+      "de": "Florian O\u00dfner (* 5. Juli 1980 in Vilsbiburg) ist ein deutscher Politiker (CSU) und Mitglied des Deutschen Bundestages.",
+      "en": "Florian O\u00dfner is a German politician. He is a member of the CSU."
+    },
+    "full_name": "Florian O\u00dfner",
+    "images": {
+      "pathToImage": "405.jpg",
+      "pathToThumb": "405_t.jpg"
+    },
+    "name": "Florian O\u00dfner",
+    "party": "CSU",
+    "pid": "405",
+    "self_bird": "weisskopfseeadler",
+    "twittering": {
+      "twitterId": "1294532364",
+      "twitterUserName": "Florian_Ossner"
     }
   },
   "406": {
@@ -4099,6 +4339,26 @@
       "twitterUserName": "TabeaRoessner"
     }
   },
+  "464": {
+    "citizen_bird": "haussperling",
+    "cv": {
+      "de": "Claudia Benedikta Roth (* 15. Mai 1955 in Ulm) ist eine deutsche Politikerin und war von 2001 bis 2002 sowie von 2004 bis 2013 eine von zwei Bundesvorsitzenden der Partei B\u00fcndnis 90/Die Gr\u00fcnen, 2008 bis 2013 neben Cem \u00d6zdemir. Seit dem 22.\u00a0Oktober 2013 ist sie Vizepr\u00e4sidentin des Deutschen Bundestages.",
+      "en": "Claudia Roth is a German politician. She is a member of the GR\u00dcNE."
+    },
+    "full_name": "Claudia Roth",
+    "images": {
+      "pathToImage": "464.jpg",
+      "pathToThumb": "464_t.jpg"
+    },
+    "name": "Claudia Roth",
+    "party": "GR\u00dcNE",
+    "pid": "464",
+    "self_bird": "goldammer",
+    "twittering": {
+      "twitterId": "70627400",
+      "twitterUserName": "GreenClaudia"
+    }
+  },
   "465": {
     "citizen_bird": "amsel",
     "cv": {
@@ -4279,6 +4539,26 @@
       "twitterUserName": "SchickGerhard"
     }
   },
+  "487": {
+    "citizen_bird": "gartenrotschwanz",
+    "cv": {
+      "de": "Udo Schiefner (* 7. August 1959 in Kempen, Niederrhein) ist ein deutscher Politiker der SPD. Seit dem 22. Oktober 2013 geh\u00f6rt er dem Deutschen Bundestag an.",
+      "en": "Udo Schiefner is a German politician. He is a member of the SPD."
+    },
+    "full_name": "Udo Schiefner",
+    "images": {
+      "pathToImage": "487.jpg",
+      "pathToThumb": "487_t.jpg"
+    },
+    "name": "Udo Schiefner",
+    "party": "SPD",
+    "pid": "487",
+    "self_bird": "tukan",
+    "twittering": {
+      "twitterId": "3823042877",
+      "twitterUserName": "UdoSchiefner"
+    }
+  },
   "489": {
     "citizen_bird": "rabenkraehe",
     "cv": {
@@ -4297,6 +4577,26 @@
     "twittering": {
       "twitterId": 728990858,
       "twitterUserName": "JanaSchimke"
+    }
+  },
+  "49": {
+    "citizen_bird": "rauchschwalbe",
+    "cv": {
+      "de": "Maria B\u00f6hmer (* 23. April 1950 in Mainz) ist eine deutsche Politikerin (CDU). Vom November 2005 bis zum Dezember 2013 war sie Staatsministerin bei der Bundeskanzlerin und Beauftragte der Bundesregierung f\u00fcr Migration, Fl\u00fcchtlinge und Integration. Ihre Nachfolgerin in dieser Funktion ist Aydan \u00d6zo\u011fuz. Im Kabinett Merkel\u00a0III ist sie seit Dezember 2013 Staatsministerin im Ausw\u00e4rtigen Amt und f\u00fcr Ausw\u00e4rtige Kultur- und Bildungspolitik zust\u00e4ndig.[1]",
+      "en": "Maria B\u00f6hmer is a German politician. She is a member of the CDU."
+    },
+    "full_name": "Prof. Dr. Maria B\u00f6hmer",
+    "images": {
+      "pathToImage": "49.jpg",
+      "pathToThumb": "49_t.jpg"
+    },
+    "name": "Maria B\u00f6hmer",
+    "party": "CDU",
+    "pid": "49",
+    "self_bird": "amsel",
+    "twittering": {
+      "twitterId": "2898896728",
+      "twitterUserName": "MariaBoehmer"
     }
   },
   "491": {
@@ -4337,6 +4637,26 @@
     "twittering": {
       "twitterId": 151173601,
       "twitterUserName": "mschlecht"
+    }
+  },
+  "494": {
+    "citizen_bird": "moenchsgrasmuecke",
+    "cv": {
+      "de": "Heiko Schmelzle (* 24. M\u00e4rz 1970 in Westerstede) ist ein deutscher Politiker (CDU) und Mitglied des Deutschen Bundestages.",
+      "en": "Heiko Schmelzle is a German politician. He is a member of the CDU."
+    },
+    "full_name": "Heiko Schmelzle",
+    "images": {
+      "pathToImage": "placeholder.png",
+      "pathToThumb": "tplaceholder.jpg"
+    },
+    "name": "Heiko Schmelzle",
+    "party": "CDU",
+    "pid": "494",
+    "self_bird": "haussperling",
+    "twittering": {
+      "twitterId": "24158261",
+      "twitterUserName": "HeikoMaas"
     }
   },
   "496": {
@@ -4797,6 +5117,26 @@
     "twittering": {
       "twitterId": 26869088,
       "twitterUserName": "franksteffel"
+    }
+  },
+  "540": {
+    "citizen_bird": "haussperling",
+    "cv": {
+      "de": "Wolfgang Stefinger (* 20. April 1985 in M\u00fcnchen) ist ein deutscher Politiker (CSU). Seit dem 22. September 2013 ist er Mitglied des Deutschen Bundestages und vertritt den Bundestagswahlkreis M\u00fcnchen-Ost.",
+      "en": "Wolfgang Stefinger is a German politician. He is a member of the CSU."
+    },
+    "full_name": "Dr. Wolfgang Stefinger",
+    "images": {
+      "pathToImage": "540.jpg",
+      "pathToThumb": "540_t.jpg"
+    },
+    "name": "Wolfgang Stefinger",
+    "party": "CSU",
+    "pid": "540",
+    "self_bird": "rauchschwalbe",
+    "twittering": {
+      "twitterId": "4866955749",
+      "twitterUserName": "StefingerMdB"
     }
   },
   "543": {
