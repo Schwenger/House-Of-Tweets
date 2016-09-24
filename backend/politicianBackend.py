@@ -29,9 +29,9 @@ class PoliticianBackend:
 		# This references the same politician dicts, just like pointers.
 		# In other words: updates will always be reflected in both lookup tables.
 		self.polByTid = dict()
-		#for poli in self.polByPid:
-		#	assert "twittering" in poli, poli['pid']
-		#	self.polByTid[str(poli["twittering"]["twitterId"])] = poli
+		for poli in self.polByPid.values():
+			assert "twittering" in poli, poli['pid']
+			self.polByTid[str(poli["twittering"]["twitterId"])] = poli
 
 		print("Loaded {} polititians; {} of them have a TID"
 			  .format(len(self.polByPid), len(self.polByTid)))
@@ -102,15 +102,6 @@ def poli_modify():
 	#         if 'fr' in cv:
 	#             print('Purged the French out of ' + poli['name'])
 	#             del cv['fr']
-
-	import time, twitter
-	tw = twitter.RealTwitterInterface()
-	for poli in pb.polByPid.values():
-		account = poli['twittering']
-		if 'twitterId' not in account:
-			print('Resolving ' + poli['name'])
-			time.sleep(2)
-			account['twitterId'] = tw.resolve_name(account['twitterUserName'])
 
 	# Note:
 	# - setBird automatically calls dumpToFile.
