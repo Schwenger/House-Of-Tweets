@@ -106,12 +106,18 @@ The format of `imgs` is:
 
 - agree with `pols.json` on all data, and spell out every addition/deletion
 - input: `wikify-each.json` (hard-coded) *and* the currently used `/backend/pols.json`
-- output: `polify-each.json` (hard-coded)
+- output: `converge-each.json` (hard-coded)
 - output format of each entry:
   - same order and same fields as `pols.json`, except:
   - `images` gets replaced by `imgs` (see "Aggregation")
   - `twitterId` may be left unassigned
 
+### Twitter-crawling: `twitter-each.py`
+
+- fill up on twitter-handles, report where it's still unknown
+- input: `converge-each.json` (hard-coded)
+- output: `twitter-each.json` (hard-coded)
+- output format stays exactly the same
 
 ### Creating a new `pols.json` (`pols.py`)
 
