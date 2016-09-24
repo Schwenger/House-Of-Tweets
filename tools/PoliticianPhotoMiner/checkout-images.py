@@ -224,8 +224,6 @@ def convert(*args):
 
 def checkout(pid, fields):
     img_prefix = os.path.join(DIR_PREFIX, pid)
-    if True:
-        return img_prefix
     dl_path = nice.get(fields['url'])
     freshest_path = dl_path
 
@@ -240,9 +238,18 @@ def checkout(pid, fields):
         # Need '../' to get out of 'preview/'
         os.symlink('../' + dl_path, raw_dst_path)
 
+    # Something about digitally rotated images (Michael Grosse-Brömer, 154)
+    # doesn't work as it should.
+    inject = []
+    if '154' in pid:
+        inject = ['-rotate', '-90']
+
     # Provide ready-to-use image
     convert(freshest_path,
             '-resize', '330x330^>',
+            '-gravity', 'center',
+            '-extent', '330x330',
+            *inject,
             img_prefix + '.jpg')
 
     if not CHOICE_MODE:
@@ -251,6 +258,7 @@ def checkout(pid, fields):
                '-thumbnail', '75x75^',
                '-gravity', 'center',
                '-extent', '75x75',
+               *inject,
                img_prefix + '_t.jpg')
 
     # Retract '_raw'
