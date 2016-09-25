@@ -12,8 +12,7 @@ Both files are essentially just JSON objects, with the politician ID being the k
 Currently, `backend/pols.json` actually is a list of such entries, but that will change.  # FIXME
 
 Each politician entry has:
-- `twittering` (optional): JSON object, contact information on Twitter if existing  
-  FIXME: currently `null` if no such contact
+- `twittering` (optional): JSON object, contact information on Twitter if existing
     - `twitterId`: integer/string, Twitter-internal ID, e.g. `569166756`
     - `twitterUserName`: string, Twitter-Handle, e.g. `"lisapaus"`
 - `self_bird`, `citizen_bird`: string, bird-IDs of the politician-chosen and citizen-chosen birds, respectively, e.g. `"gartenbaumlaeufer"`
@@ -26,6 +25,15 @@ Each politician entry has:
 - `images`: JSON object, profile photo
   - `pathToImage`, `pathToThumb`: string, filename of the normal and thumb image, e.g. `"t418.jpg"`  
     Note that this is not really a path, but rather relative to `/ext/images/politicians/`
+  - `copyright` (optional): string, the holder of the copyright ("Urheber"), e.g. `spdfraktion.de (Susie Knoll / Florian J\u00e4nicke)`
+  - `license`: string, describes the license under which we use this image, possible values:
+    - `unknown-bundestag`, `custom-linke`, `custom-gruene`, `custom-spd`
+    - `public domain`
+    - `CC0 1.0`
+    - `CC-BY-SA-4.0 int`, `CC-BY-4.0 int`
+    - `CC-BY-SA-3.0 de`, `CC-BY-SA-3.0 unported`, `CC-BY-SA-3.0 at`, `CC-BY-SA-3.0- unported`, `CC-BY-3.0 de`, `CC-BY-3.0 unported`, `CC-BY-SA-2.5`, `CC-BY-SA-2.0 de`, `CC-BY-SA-2.0`, `CC-BY-2.0`
+    - `GFDL 1.2+`, `GFDL 1.2`
+    - `custom: attribution (FAL)`, `custom: attribution`
 
 
 ### Queue "tweets"

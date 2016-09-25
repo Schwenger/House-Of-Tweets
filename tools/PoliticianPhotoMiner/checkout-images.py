@@ -264,7 +264,14 @@ def checkout(pid, fields):
     # Retract '_raw'
     os.remove(raw_dst_path)
 
-    return img_prefix
+    entry = {
+        'pathToImage': pid + '.jpg',
+        'pathToThumb': pid + '_t.jpg',
+        'license': fields['license'],
+    }
+    if 'copyright' in fields:
+        entry['copyright'] = fields['copyright']
+    return entry
 
 
 def choose_img(pid, imgs):
@@ -304,18 +311,7 @@ SPOOF_HOT_USER = {
 def prune_convert(pols):
     pols = {poli['pid']: poli for poli in pols if 'twittering' in poli}
     for poli in pols.values():
-        have_imgs = len(poli['imgs']) != 0
         del poli['imgs']
-        if have_imgs:
-            poli['images'] = {
-                'pathToImage': poli['pid'] + '.jpg',
-                'pathToThumb': poli['pid'] + '_t.jpg',
-            }
-        else:
-            poli['images'] = {
-                'pathToImage': 'placeholder.png',
-                'pathToThumb': 'tplaceholder.jpg',
-            }
     pols['hot'] = SPOOF_HOT_USER
     return pols
 
@@ -335,7 +331,7 @@ def run():
         print('[INFO] Checking out files for ' + e['full_name'])
         if not CHOICE_MODE:
             fields = choose_img(e['pid'], e['imgs'])
-            checkout(e['pid'], fields)
+            e['images'] = checkout(e['pid'], fields)
         elif len(e['imgs']) >= 2 and e['pid'] not in CHOICES_OVERRIDE:
             for slug, fields in e['imgs'].items():
                 checkout(e['pid'] + slug, fields)
