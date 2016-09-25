@@ -247,7 +247,7 @@ def checkout(pid, fields):
     # Provide ready-to-use image
     convert(freshest_path,
             '-resize', '330x330^>',
-            '-gravity', 'center',
+            '-gravity', 'north',
             '-extent', '330x330',
             *inject,
             img_prefix + '.jpg')
@@ -256,7 +256,7 @@ def checkout(pid, fields):
         # Provide thumbnail
         convert(freshest_path,
                '-thumbnail', '75x75^',
-               '-gravity', 'center',
+               '-gravity', 'north',
                '-extent', '75x75',
                *inject,
                img_prefix + '_t.jpg')
