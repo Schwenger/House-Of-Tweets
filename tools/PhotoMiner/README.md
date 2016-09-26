@@ -1,11 +1,21 @@
-## Workflow
+# Crawler, parser, preprocessing
+
+This directory contains all "new" tools.
+These tools care about correctness, safety, and copyright,
+and allow for manual overrides in just about any step.
 
 This file tries to document what each file is supposed to do.
 
-Intermediate results (roughly 60 MiB) and all raw image files (roughly 3.6 GiB)
+Intermediate results and all raw image files (together roughly 4+ GiB)
 are stored in the `cache` submodule.
-So instead of running `crawl_*.py` or `checkout_images.py` from scratch, please contact me for access to it,
+So instead of running `crawl_*.py` or `checkout_*.py` from scratch,
+please contact me for access to it,
 to go easy on their websites.
+
+## Workflow (politicians)
+
+This is the subset of files that deal with the regeneration of `pols.json`
+and `model_polis.json`.
 
 If there ever are politicians with duplicate name, you'll need to modify the
 "sanitization"  code in `parse_each.py` so that it generates strictly unique
@@ -113,6 +123,28 @@ The format of `imgs` is:
   - `twitterId` may be left unassigned
 
 ### Checkout images, generate pols.json: `checkout_images.py`
+
+- checkout preview/for-use images, and link to them "properly"
+- input: `twitter_each.json` (hard-coded)
+- output: `pols.json` (hard-coded; note: in this directory, not in `/backend/`)
+- output format: see `/backend/README.md`
+
+## Bird images
+
+The public-facing website needed new images, as we're not sure enough
+about the license situation of the old images.
+
+### Crawl image information: `fetch_birds.py`
+
+- reliably locate exactly one image (including license infos) for each bird
+- input: `birds.json` (hard-coded)
+- output: `fetch_birds.json` (hard-coded)
+- output format: list of JSON objects:
+  - all fields of birds.json are preserved, out of laziness
+  - `img`: JSON object, image meta-information, just like an entry in the politician
+    crawler (`url`, `license`, and optionally `copyright`)
+
+### Checkout images, generate HTML: `checkout_images.py`
 
 - checkout preview/for-use images, and link to them "properly"
 - input: `twitter_each.json` (hard-coded)
