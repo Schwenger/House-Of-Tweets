@@ -50,7 +50,7 @@ def get_disambiguated_url(soup, expect_party):
     found_urls = []
     # FIXME: why does pattern.match require the leading and trailing .*?
     # I would expect that behavior with fullmatch, but not with match.
-    pattern = re.compile('.*\(\d{4}[-–—]\d{4}\).*')
+    death_pattern = re.compile('.*\(\d{4}[-–—]\d{4}\).*')
     found_mdb = None
     for li in ul.find_all('li'):
         text = li.get_text()
@@ -66,7 +66,7 @@ def get_disambiguated_url(soup, expect_party):
             # Don't just print 'text', as I might need that URL.
             print('[WARN] Found someone of wrong party: {}'.format(li))
             continue
-        if pattern.match(text) is not None:
+        if death_pattern.match(text) is not None:
             # Don't just print 'text', as I might need that URL.
             print('[WARN] Ignore dead person: {}'.format(li))
             continue
@@ -181,6 +181,7 @@ def parse_copyright(soup):
     prefixes = ['\nUrheber\n',
                 '\nUrheber bzw.\nNutzungsrechtinhaber\n',
                 '\nFotograf\n',
+                '\nAuthor\n'
                 ]
     for prefix in prefixes:
         if author_text.startswith(prefix):
@@ -203,9 +204,11 @@ KNOWN_LICENSES = {
     'Creative-Commons-Lizenz „Namensnennung 3.0 Deutschland“': 'CC-BY-3.0 de',
     'Creative-Commons-Lizenz „Namensnennung 4.0 international“': 'CC-BY-4.0 int',
     'Creative-Commons-Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 2.0 generisch“': 'CC-BY-SA-2.0',
+    'Creative Commons Attribution-Share Alike 2.0 Generic license.': 'CC-BY-SA-2.0',
     'Creative-Commons-Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 2.0 Deutschland“': 'CC-BY-SA-2.0 de',
     'http://creativecommons.org/licenses/by-sa/2.0/de/legalcode': 'CC-BY-SA-2.0 de',
     'Creative-Commons-Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 2.5 generisch“': 'CC-BY-SA-2.5',
+    'Creative-Commons-Lizenzen „Namensnennung – Weitergabe unter gleichen Bedingungen 2.5 generisch“': 'CC-BY-SA-2.5',
     # If multiple versions available, use the first one
     'Creative-Commons-Lizenzen „Namensnennung – Weitergabe unter gleichen Bedingungen 3.0 nicht portiert“': 'CC-BY-SA-3.0- unported',
     'http://creativecommons.org/licenses/by-sa/3.0/legalcode': 'CC-BY-SA-3.0 unported',
