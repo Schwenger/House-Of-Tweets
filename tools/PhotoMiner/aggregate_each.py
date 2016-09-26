@@ -34,7 +34,7 @@ def load_filtered_entries():
 
     by_full_name = dict()
 
-    with open('parse-each.json', 'r') as fp:
+    with open('parse_each.json', 'r') as fp:
         for entry in json.load(fp):
             full_name = entry['full_name']
             resolved_name = resolutions.get(full_name)
@@ -95,6 +95,6 @@ aggregated = sorted(aggregated, key=lambda x: x['full_name'])
 
 assert len(aggregated) == 630, 'Expected 630 in the Budnestag, but found {}'.format(len(aggregated))
 
-with open('aggregate-each.json', 'w') as fp:
+with open('aggregate_each.json', 'w') as fp:
     json.dump(aggregated, fp, sort_keys=True, indent=2)
 print('Done.')

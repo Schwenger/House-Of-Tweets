@@ -63,5 +63,5 @@ if __name__ == '__main__':
     all_entries.extend(fetch_spd())
     all_entries.extend(fetch_cxu())
     all_entries.extend(fetch_bundestag())  # Slowest last
-    with open("crawl-roots.json", 'w') as fp:
+    with open("crawl_roots.json", 'w') as fp:
         json.dump(all_entries, fp, sort_keys=True, indent=2)

@@ -317,7 +317,7 @@ def prune_convert(pols):
 
 
 def run():
-    with open('converge-each.json', 'r') as fp:
+    with open('converge_each.json', 'r') as fp:
         pols = json.load(fp)
 
     for e in pols:

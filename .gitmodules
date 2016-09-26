@@ -4,6 +4,6 @@
 [submodule ".secrets"]
 	path = .secrets
 	url = ssh://gitolite3@wiederhake.privatedns.org:1374/hot_secrets.git
-[submodule "tools/PoliticianPhotoMiner/cache"]
-	path = tools/PoliticianPhotoMiner/cache
+[submodule "tools/PhotoMiner/cache"]
+	path = tools/PhotoMiner/cache
 	url = ssh://gitolite3@wiederhake.privatedns.org:1374/hot_crawl_cache.git

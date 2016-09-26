@@ -33,7 +33,7 @@ def get_details_bundestag(old_entry, soup):
         entry['ejected'] = True
 
     # Sanitize full_name.
-    # TODO: Should have probably happened in parse-roots.py, but whatever.
+    # TODO: Should have probably happened in parse_roots.py, but whatever.
     if entry['full_name'].endswith(')'):
         parts = entry['full_name'].split('(')[:-1]
         entry['full_name'] = ' '.join(parts).strip()
@@ -164,7 +164,7 @@ def get_details_spd(old_entry, soup):
     entry['img'] = imgdata
 
     # Sanitize full_name.
-    # TODO: Should have probably happened in parse-roots.py, but whatever.
+    # TODO: Should have probably happened in parse_roots.py, but whatever.
     entry['full_name'] = " ".join(entry['full_name'].split())
     if entry['full_name'].endswith(')'):
         parts = entry['full_name'].split('(')[:-1]
@@ -333,13 +333,13 @@ def get_details_all(entries):
 
 if __name__ == '__main__':
     # Reading
-    with open('crawl-each.json', 'r') as json_fp:
+    with open('crawl_each.json', 'r') as json_fp:
         all_entries = json.load(json_fp)
 
     # Parsing
     detailed = list(get_details_all(all_entries))
 
     # Write it out.
-    with open('parse-each.json', 'w') as fp:
+    with open('parse_each.json', 'w') as fp:
         json.dump(detailed, fp, sort_keys=True, indent=2)
     print('Done.')

@@ -419,7 +419,7 @@ def merge_all(by_name, padded_polis):
 
 
 def load_by_name():
-    with open('wikify-each.json', 'r') as fp:
+    with open('wikify_each.json', 'r') as fp:
         # TODO: In later versions, don't use 'name' but rather 'full_name'
         by_name = {e['name']: e for e in json.load(fp)}
     for name, img in spoof_images.items():
@@ -464,7 +464,7 @@ def run():
         print('    {}: {}'.format(k, v))
     print('    agg: {}'.format(len(recently_joined)))
     print('    neither: {}'.format(len(KNOWN_NO_TWITTER) + len(PROBABLY_NO_TWITTER)))
-    with open('converge-each.json', 'w') as fp:
+    with open('converge_each.json', 'w') as fp:
         json.dump(merged, fp, sort_keys=True, indent=2)
 
 

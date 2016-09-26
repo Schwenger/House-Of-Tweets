@@ -146,7 +146,7 @@ def get_polis_cxu(soup):
 
 if __name__ == '__main__':
     # Reading
-    with open('crawl-roots.json', 'r') as json_fp:
+    with open('crawl_roots.json', 'r') as json_fp:
         roots = json.load(json_fp)
 
     # Parsing (setup)
@@ -171,6 +171,6 @@ if __name__ == '__main__':
         all_pols.extend(resolver(the_soup))
 
     # Write it out.
-    with open('parse-roots.json', 'w') as fp:
+    with open('parse_roots.json', 'w') as fp:
         json.dump(all_pols, fp, sort_keys=True, indent=2)
     print('Done.')

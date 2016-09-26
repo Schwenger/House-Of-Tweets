@@ -4,28 +4,28 @@ This file tries to document what each file is supposed to do.
 
 Intermediate results (roughly 60 MiB) and all raw image files (roughly 3.6 GiB)
 are stored in the `cache` submodule.
-So instead of running `crawl-*.py` from scratch, please contact me for access to it,
+So instead of running `crawl_*.py` or `checkout_images.py` from scratch, please contact me for access to it,
 to go easy on their websites.
 
 If there ever are politicians with duplicate name, you'll need to modify the
-"sanitization"  code in `parse-each.py` so that it generates strictly unique
+"sanitization"  code in `parse_each.py` so that it generates strictly unique
 names for each politician, and optionally adapt the full-to-bare name conversion.
 `aggregate.py` and all later stages assume that a `full_name` is strictly unique.
 
-### First crawling: `crawl-roots.json`
+### First crawling: `crawl_roots.json`
 
 - crawls the few "root" websites (roughly 30)
 - input: none (duh)
-- output: `crawl-roots.json`
+- output: `crawl_roots.json`
 - output format of each entry:
   - filename and URL of respective root website
   - owning party of the website (`bundestag.de` is `None`)
 
-### First parsing: `parse-roots.py`
+### First parsing: `parse_roots.py`
 
 - parse them to generate a preliminary list of politicians.  Not presentable yet.
-- input: `crawl-roots.json` (hard-coded)
-- output: `parse-roots.json` (hard-coded)
+- input: `crawl_roots.json` (hard-coded)
+- output: `parse_roots.json` (hard-coded)
 - output format of each entry:
   - `page`: URL of respective politician (not downloaded or parsed yet)
   - `src`: owning party of the website (`bundestag.de` is `bundestag`)
@@ -33,20 +33,20 @@ names for each politician, and optionally adapt the full-to-bare name conversion
   - if from bundestag: `detect_party`, `name`  
     FIXME: kick `name`
 
-### Second crawling: `crawl-each.py`
+### Second crawling: `crawl_each.py`
 
 - crawls each politician-specific page, hosted on a party's website (where `bundestag.de` counts as a party)
-- input: `parse-roots.json` (hard-coded)
-- output: `crawl-each.json` (hard-coded)
+- input: `parse_roots.json` (hard-coded)
+- output: `crawl_each.json` (hard-coded)
 - output format of each entry:
-  - same as `parse-roots.json`
+  - same as `parse_roots.json`
   - plus `page_file`, the relative path to the downloaded page
 
-### Second parsing: `parse-each.py`
+### Second parsing: `parse_each.py`
 
 - parse them, extract all interesting infos
-- input: `crawl-each.json` (hard-coded)
-- output: `parse-each.json` (hard-coded)
+- input: `crawl_each.json` (hard-coded)
+- output: `parse_each.json` (hard-coded)
 - output format of each entry:
   - `full_name`: same as above
   - `name`: optional, if from bundestag  
@@ -67,11 +67,11 @@ Where the format for `img`
   - `is_compressed`: presence indicates that the download is a compressed file which
     has to be uncompressed to get an image file.
 
-### Aggregation: `aggregate-each.py`
+### Aggregation: `aggregate_each.py`
 
 - aggregate by name, remove ejected politicians completely, make sure everything matches
-- input: `parse-each.json` (hard-coded)
-- output: `aggregate-each.json` (hard-coded)
+- input: `parse_each.json` (hard-coded)
+- output: `aggregate_each.json` (hard-coded)
 - output format of each entry:
   - `full_name`: verified and consistent (else it throws)
   - `name`: simple name (derived from `full_name` by removing titles)
@@ -91,31 +91,31 @@ The format of `imgs` is:
   - `is_compressed`: presence indicates that the download is a compressed file which
     has to be uncompressed to get an image file.
 
-### Third Crawling: `wikify-each.py`
+### Third Crawling: `wikify_each.py`
 
 - download the Wikipedia pages for each politician
-- input: `aggregate-each.json` (hard-coded)
-- output: `wikify-each.json` (hard-coded)
+- input: `aggregate_each.json` (hard-coded)
+- output: `wikify_each.json` (hard-coded)
 - output format of each entry:
-  - same as `aggregate-each.json`
+  - same as `aggregate_each.json`
   - if a Wikipedia entry with image exists, the image URL is added to
     the `imgs` entry, and `wiki` is added to the `srcs` list/set.  
     Note that this doesn't actually download the image, just determine its URL.
 
-### Converging with existing `pols.json` (`converge-each.py`)
+### Converging with existing `pols.json` (`converge_each.py`)
 
 - agree with `pols.json` on all data, and spell out every addition/deletion
-- input: `wikify-each.json` (hard-coded) *and* the currently used `/backend/pols.json`
-- output: `converge-each.json` (hard-coded)
+- input: `wikify_each.json` (hard-coded) *and* the currently used `/backend/pols.json`
+- output: `converge_each.json` (hard-coded)
 - output format of each entry:
   - same order and same fields as `pols.json`, except:
   - `images` gets replaced by `imgs` (see "Aggregation")
   - `twitterId` may be left unassigned
 
-### Checkout images, generate pols.json: `checkout-images.py`
+### Checkout images, generate pols.json: `checkout_images.py`
 
 - checkout preview/for-use images, and link to them "properly"
-- input: `twitter-each.json` (hard-coded)
+- input: `twitter_each.json` (hard-coded)
 - output: `pols.json` (hard-coded; note: in this directory, not in `/backend/`)
 - output format: see `/backend/README.md`
 
@@ -130,7 +130,7 @@ heavy stuff like image data.
 
 ### Checks
 
-There's `check-cache.py` to assert that every file mentioned in the index is actually there.
+There's `check_cache.py` to assert that every file mentioned in the index is actually there.
 However, it doesn't check any of these things:
 - whether the file is actually valid (which is a pretty difficult thing)
 - whether the file is what we *indended* (impossible)

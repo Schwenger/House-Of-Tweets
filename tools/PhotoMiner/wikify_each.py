@@ -315,7 +315,7 @@ SPOOF_POLITICIANS = [
 
 
 def run():
-    with open("aggregate-each.json", 'r') as fp:
+    with open("aggregate_each.json", 'r') as fp:
         entries = json.load(fp)
     for e in entries:
         name = e['name']
@@ -348,7 +348,7 @@ def run():
         assert img_desc_url is not None
         e['imgs']['wiki'] = get_img_desc(img_desc_url)
 
-    with open("wikify-each.json", 'w') as fp:
+    with open("wikify_each.json", 'w') as fp:
         json.dump(entries, fp, sort_keys=True, indent=2)
 
 

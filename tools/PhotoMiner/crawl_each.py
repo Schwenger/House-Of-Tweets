@@ -11,9 +11,9 @@ def crawl_pages_inplace(data):
 
 
 if __name__ == '__main__':
-    with open("parse-roots.json", 'r') as fp:
+    with open("parse_roots.json", 'r') as fp:
         pages = json.load(fp)
     # Modifies 'pages':
     crawl_pages_inplace(pages)
-    with open("crawl-each.json", 'w') as fp:
+    with open("crawl_each.json", 'w') as fp:
         json.dump(pages, fp, sort_keys=True, indent=2)
