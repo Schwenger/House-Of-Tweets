@@ -1,0 +1,317 @@
+[
+  {
+    "bid": "amsel",
+    "copyright": "Andreas Trepte",
+    "de_name": "Amsel",
+    "filename": "amsel.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "ara",
+    "copyright": "Luc Viatour",
+    "de_name": "Ara",
+    "filename": "ara.jpg",
+    "license": "CC-BY-SA-3.0- unported"
+  },
+  {
+    "bid": "bachstelze",
+    "copyright": "Andreas Trepte",
+    "de_name": "Bachstelze",
+    "filename": "bachstelze.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "blaumeise",
+    "copyright": "Maximilian Dorsch",
+    "de_name": "Blaumeise",
+    "filename": "blaumeise.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "buchfink",
+    "copyright": "Self: Commons user MichaelMaggs",
+    "de_name": "Buchfink",
+    "filename": "buchfink.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "buntspecht",
+    "copyright": "S\u0142awomir Staszczuk (info [AT] photoss.net)",
+    "de_name": "Buntspecht",
+    "filename": "buntspecht.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "stieglitz",
+    "copyright": "Francis C. Franklin",
+    "de_name": "Distelfink",
+    "filename": "stieglitz.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "dohle",
+    "copyright": "Frank Liebig \n\n\n\n\n\nBeschreibung\n\ndeutscher Tierarzt\n\n\n\nWirkungsst\u00e4tte\nR\u00f6bel/M\u00fcritz, Deutschland",
+    "de_name": "Dohle",
+    "filename": "dohle.jpg",
+    "license": "CC-BY-SA-3.0 de"
+  },
+  {
+    "bid": "eichelhaeher",
+    "copyright": "Luc Viatour",
+    "de_name": "Eichelh\u00e4her",
+    "filename": "eichelhaeher.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "elster",
+    "copyright": "User:diginatur",
+    "de_name": "Elster",
+    "filename": "elster.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "feldsperling",
+    "copyright": "Andreas Trepte",
+    "de_name": "Feldsperling",
+    "filename": "feldsperling.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "fitis",
+    "copyright": "Andreas Trepte",
+    "de_name": "Fitis",
+    "filename": "fitis.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "gartenbaumlaeufer",
+    "copyright": "\u05d0 (Aleph)",
+    "de_name": "Gartenbauml\u00e4ufer",
+    "filename": "gartenbaumlaeufer.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "gartengrasmuecke",
+    "copyright": "Biillyboy",
+    "de_name": "Gartengrasm\u00fccke",
+    "filename": "gartengrasmuecke.jpg",
+    "license": "CC-BY-2.0"
+  },
+  {
+    "bid": "gartenrotschwanz",
+    "copyright": "Thomas Kraft (ThKraft)",
+    "de_name": "Gartenrotschwanz",
+    "filename": "gartenrotschwanz.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "gimpel",
+    "copyright": "Sp.herp",
+    "de_name": "Gimpel",
+    "filename": "gimpel.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "girlitz",
+    "copyright": "Andreas Trepte",
+    "de_name": "Girlitz",
+    "filename": "girlitz.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "goldammer",
+    "copyright": "Andreas Trepte",
+    "de_name": "Goldammer",
+    "filename": "goldammer.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "grauschnaepper",
+    "copyright": "Andrew Easton",
+    "de_name": "Grauschn\u00e4pper",
+    "filename": "grauschnaepper.jpg",
+    "license": "custom: attribution"
+  },
+  {
+    "bid": "gruenfink",
+    "copyright": "Andreas Trepte",
+    "de_name": "Gr\u00fcnfink",
+    "filename": "gruenfink.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "hausrotschwanz",
+    "copyright": "Gunther Hasler, Augsburg",
+    "de_name": "Hausrotschwanz",
+    "filename": "hausrotschwanz.jpg",
+    "license": "CC-BY-SA-3.0 de"
+  },
+  {
+    "bid": "haussperling",
+    "copyright": "Arnold Paul",
+    "de_name": "Haussperling",
+    "filename": "haussperling.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "heckenbraunelle",
+    "copyright": "Smalljim",
+    "de_name": "Heckenbraunelle",
+    "filename": "heckenbraunelle.jpg",
+    "license": "CC-BY-3.0 unported"
+  },
+  {
+    "bid": "kiwi",
+    "copyright": "The.Rohit",
+    "de_name": "Kiwi",
+    "filename": "kiwi.jpg",
+    "license": "CC-BY-2.0"
+  },
+  {
+    "bid": "klappergrasmuecke",
+    "copyright": "Martin Mecnarowski (http://www.photomecan.eu/)",
+    "de_name": "Klappergrasm\u00fccke",
+    "filename": "klappergrasmuecke.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "kleiber",
+    "copyright": "Dave Menke (1946\u20132011) \u00a0\n\n\nBeschreibung\n\nUS-amerikanischer Fotograf\nPhotographer with the United States Fish and Wildlife Service\n\n\nGeburts-/Todesdatum\n1946\n2011\n\n\nNormdaten\n\n\n\n: Q26235785",
+    "de_name": "Kleiber",
+    "filename": "kleiber.jpg",
+    "license": "public domain"
+  },
+  {
+    "bid": "kohlmeise",
+    "copyright": "Luc Viatour from Bruxelles, Belgique",
+    "de_name": "Kohlmeise",
+    "filename": "kohlmeise.jpg",
+    "license": "CC-BY-SA-2.0"
+  },
+  {
+    "bid": "mauersegler",
+    "copyright": "Keta",
+    "de_name": "Mauersegler",
+    "filename": "mauersegler.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "mehlschwalbe",
+    "copyright": "Andreas Trepte",
+    "de_name": "Mehlschwalbe",
+    "filename": "mehlschwalbe.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "moenchsgrasmuecke",
+    "copyright": "Arnstein R\u00f8nning",
+    "de_name": "M\u00f6nchsgrasm\u00fccke",
+    "filename": "moenchsgrasmuecke.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "rabenkraehe",
+    "copyright": "ponafotkas",
+    "de_name": "Rabenkr\u00e4he",
+    "filename": "rabenkraehe.jpg",
+    "license": "CC-BY-SA-2.0"
+  },
+  {
+    "bid": "rauchschwalbe",
+    "copyright": "Andreas Trepte",
+    "de_name": "Rauchschwalbe",
+    "filename": "rauchschwalbe.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "ringeltaube",
+    "copyright": "Tristan Ferne from UK",
+    "de_name": "Ringeltaube",
+    "filename": "ringeltaube.jpg",
+    "license": "CC-BY-2.0"
+  },
+  {
+    "bid": "rotkehlchen",
+    "copyright": "Joefrei",
+    "de_name": "Rotkehlchen",
+    "filename": "rotkehlchen.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "saatkraehe",
+    "copyright": "Andreas Trepte",
+    "de_name": "Saatkr\u00e4he",
+    "filename": "saatkraehe.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "schneeeule",
+    "copyright": "Michael G\u00e4bler",
+    "de_name": "Schneeeule",
+    "filename": "schneeeule.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "schwanzmeise",
+    "copyright": "Vogelartinfo",
+    "de_name": "Schwanzmeise",
+    "filename": "schwanzmeise.jpg",
+    "license": "GFDL 1.2"
+  },
+  {
+    "bid": "singdrossel",
+    "copyright": "Andreas Trepte",
+    "de_name": "Singdrossel",
+    "filename": "singdrossel.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "star",
+    "copyright": "Tim Felce (Airwolfhound)",
+    "de_name": "Star",
+    "filename": "star.jpg",
+    "license": "CC-BY-SA-2.0"
+  },
+  {
+    "bid": "tannenmeise",
+    "copyright": "This illustration was made by Marek Szczepanek\nIf you are interested in high resolution pictures, please contact author in order to negotiate condition of use.\nMore pictures can be found on here and in the gallery www.naturephotos.com.pl\n info@naturephotos.com.pl \u00a0\u00a0\u00a0  marek458@wp.pl\nJe\u015bli jeste\u015b zainteresowany zdj\u0119ciami w wysokiej rozdzielczo\u015bci, skontaktuj si\u0119 z autorem w celu negocjacji warunk\u00f3w u\u017cywania lub zakupu.\nWi\u0119cej zdj\u0119\u0107 autora dost\u0119pnych jest tutaj oraz na stronie www.naturephotos.com.pl",
+    "de_name": "Tannenmeise",
+    "filename": "tannenmeise.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "tukan",
+    "copyright": "WIllze",
+    "de_name": "Tukan",
+    "filename": "tukan.jpg",
+    "license": "CC-BY-2.0"
+  },
+  {
+    "bid": "tuerkentaube",
+    "copyright": "Joefrei",
+    "de_name": "T\u00fcrkentaube",
+    "filename": "tuerkentaube.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "weisskopfseeadler",
+    "copyright": "Yathin S Krishnappa",
+    "de_name": "Wei\u00dfkopfseeadler",
+    "filename": "weisskopfseeadler.jpg",
+    "license": "CC-BY-SA-3.0 unported"
+  },
+  {
+    "bid": "zaunkoenig",
+    "copyright": "Andreas Trepte",
+    "de_name": "Zaunk\u00f6nig",
+    "filename": "zaunkoenig.jpg",
+    "license": "CC-BY-SA-2.5"
+  },
+  {
+    "bid": "zilpzalp",
+    "copyright": "Andreas Trepte",
+    "de_name": "Zilpzalp",
+    "filename": "zilpzalp.jpg",
+    "license": "CC-BY-SA-2.5"
+  }
+]

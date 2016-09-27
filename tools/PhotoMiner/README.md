@@ -128,6 +128,8 @@ The format of `imgs` is:
 - input: `twitter_each.json` (hard-coded)
 - output: `pols.json` (hard-coded; note: in this directory, not in `/backend/`)
 - output format: see `/backend/README.md`
+- SIDE-EFFECTS: all images will be put into the `preview` directory,
+  which must not already exist.
 
 ## Bird images
 
@@ -144,18 +146,26 @@ about the license situation of the old images.
   - `img`: JSON object, image meta-information, just like an entry in the politician
     crawler (`url`, `license`, and optionally `copyright`)
 
-### Checkout images, generate HTML: `checkout_images.py`
+### Checkout images: `checkout_images.py`
 
 - checkout preview/for-use images, and link to them "properly"
-- input: `twitter_each.json` (hard-coded)
-- output: `pols.json` (hard-coded; note: in this directory, not in `/backend/`)
-- output format: see `/backend/README.md`
+- input: `fetch_birds.json` (hard-coded)
+- output: `checkout_images.json` (hard-coded)
+- output format: list of JSON objects, sorted by German name:
+  - `filename`: string, location inside the `preview` directory, currently just bid plus `.jpg`, e.g. `"gartenbaumlaeufer.jpg"`
+  - `bid`: string, internal bird-ID, probably not needed, e.g. `"gartenbaumlaeufer"`
+  - `de_name`: string, German name that both humans and the backend will recognize, e.g. `"Gartenbaumläufer"`  
+    Note: not HTML escaped!
+  - `license`: string, e.g. `"CC-BY-SA-3.0"`
+  - `copyright` (optional): string, e.g. `"Andreas Trepte"`
+- SIDE-EFFECTS: all images will be put into the `preview` directory,
+  which must not already exist.
 
 ## About the cache
 
 All web requests go through `nice.py`, which uses some kind of "cache", namely the subfolder `./cache/`.
 In `cache_index_TEMPLATE.json` you can see how to initialize the cache by yourself.
-Just drop it into the `cache` folder, drop the `_TEPLATE` part, and you're good to go.
+Just drop it into the `cache` folder, drop the `_TEMPLATE` part, and you're good to go.
 
 But again, that's a horrible idea.  Please re-use the files I already have cached, at least for the
 heavy stuff like image data.
