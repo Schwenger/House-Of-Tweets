@@ -3,6 +3,7 @@
     "bid": "amsel",
     "copyright": "Andreas Trepte",
     "de_name": "Amsel",
+    "en_name": "Common blackbird",
     "filename": "amsel.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -10,6 +11,7 @@
     "bid": "ara",
     "copyright": "Luc Viatour",
     "de_name": "Ara",
+    "en_name": "Ara",
     "filename": "ara.jpg",
     "license": "CC-BY-SA-3.0- unported"
   },
@@ -17,6 +19,7 @@
     "bid": "bachstelze",
     "copyright": "Andreas Trepte",
     "de_name": "Bachstelze",
+    "en_name": "White wagtail",
     "filename": "bachstelze.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -24,13 +27,15 @@
     "bid": "blaumeise",
     "copyright": "Maximilian Dorsch",
     "de_name": "Blaumeise",
+    "en_name": "Eurasian blue tit",
     "filename": "blaumeise.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
   {
     "bid": "buchfink",
-    "copyright": "Self: Commons user MichaelMaggs",
+    "copyright": "Michael Maggs",
     "de_name": "Buchfink",
+    "en_name": "Common chaffinch",
     "filename": "buchfink.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -38,6 +43,7 @@
     "bid": "buntspecht",
     "copyright": "S\u0142awomir Staszczuk (info [AT] photoss.net)",
     "de_name": "Buntspecht",
+    "en_name": "Great spotted woodpecker",
     "filename": "buntspecht.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
@@ -45,13 +51,15 @@
     "bid": "stieglitz",
     "copyright": "Francis C. Franklin",
     "de_name": "Distelfink",
+    "en_name": "European goldfinch",
     "filename": "stieglitz.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
   {
     "bid": "dohle",
-    "copyright": "Frank Liebig \n\n\n\n\n\nBeschreibung\n\ndeutscher Tierarzt\n\n\n\nWirkungsst\u00e4tte\nR\u00f6bel/M\u00fcritz, Deutschland",
+    "copyright": "Frank Liebig",
     "de_name": "Dohle",
+    "en_name": "Western jackdaw",
     "filename": "dohle.jpg",
     "license": "CC-BY-SA-3.0 de"
   },
@@ -59,6 +67,7 @@
     "bid": "eichelhaeher",
     "copyright": "Luc Viatour",
     "de_name": "Eichelh\u00e4her",
+    "en_name": "Eurasian jay",
     "filename": "eichelhaeher.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
@@ -66,6 +75,7 @@
     "bid": "elster",
     "copyright": "User:diginatur",
     "de_name": "Elster",
+    "en_name": "Eurasian magpie",
     "filename": "elster.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
@@ -73,6 +83,7 @@
     "bid": "feldsperling",
     "copyright": "Andreas Trepte",
     "de_name": "Feldsperling",
+    "en_name": "Eurasian tree sparrow",
     "filename": "feldsperling.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -80,6 +91,7 @@
     "bid": "fitis",
     "copyright": "Andreas Trepte",
     "de_name": "Fitis",
+    "en_name": "Willow warbler",
     "filename": "fitis.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -87,6 +99,7 @@
     "bid": "gartenbaumlaeufer",
     "copyright": "\u05d0 (Aleph)",
     "de_name": "Gartenbauml\u00e4ufer",
+    "en_name": "Short-toed treecreeper",
     "filename": "gartenbaumlaeufer.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -94,6 +107,7 @@
     "bid": "gartengrasmuecke",
     "copyright": "Biillyboy",
     "de_name": "Gartengrasm\u00fccke",
+    "en_name": "Garden warbler",
     "filename": "gartengrasmuecke.jpg",
     "license": "CC-BY-2.0"
   },
@@ -101,6 +115,7 @@
     "bid": "gartenrotschwanz",
     "copyright": "Thomas Kraft (ThKraft)",
     "de_name": "Gartenrotschwanz",
+    "en_name": "Common redstart",
     "filename": "gartenrotschwanz.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -108,6 +123,7 @@
     "bid": "gimpel",
     "copyright": "Sp.herp",
     "de_name": "Gimpel",
+    "en_name": "Eurasian bullfinch",
     "filename": "gimpel.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
@@ -115,6 +131,7 @@
     "bid": "girlitz",
     "copyright": "Andreas Trepte",
     "de_name": "Girlitz",
+    "en_name": "European serin",
     "filename": "girlitz.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -122,6 +139,7 @@
     "bid": "goldammer",
     "copyright": "Andreas Trepte",
     "de_name": "Goldammer",
+    "en_name": "Yellowhammer",
     "filename": "goldammer.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -129,6 +147,7 @@
     "bid": "grauschnaepper",
     "copyright": "Andrew Easton",
     "de_name": "Grauschn\u00e4pper",
+    "en_name": "spotted flycatcher",
     "filename": "grauschnaepper.jpg",
     "license": "custom: attribution"
   },
@@ -136,6 +155,7 @@
     "bid": "gruenfink",
     "copyright": "Andreas Trepte",
     "de_name": "Gr\u00fcnfink",
+    "en_name": "European greenfinch",
     "filename": "gruenfink.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -143,20 +163,23 @@
     "bid": "hausrotschwanz",
     "copyright": "Gunther Hasler, Augsburg",
     "de_name": "Hausrotschwanz",
+    "en_name": "Black Redstart",
     "filename": "hausrotschwanz.jpg",
     "license": "CC-BY-SA-3.0 de"
   },
   {
     "bid": "haussperling",
-    "copyright": "Arnold Paul",
+    "copyright": "Adamo",
     "de_name": "Haussperling",
+    "en_name": "House sparrow",
     "filename": "haussperling.jpg",
-    "license": "CC-BY-SA-2.5"
+    "license": "CC-BY-2.0 de"
   },
   {
     "bid": "heckenbraunelle",
     "copyright": "Smalljim",
     "de_name": "Heckenbraunelle",
+    "en_name": "Dunnock",
     "filename": "heckenbraunelle.jpg",
     "license": "CC-BY-3.0 unported"
   },
@@ -164,6 +187,7 @@
     "bid": "kiwi",
     "copyright": "The.Rohit",
     "de_name": "Kiwi",
+    "en_name": "Kiwi",
     "filename": "kiwi.jpg",
     "license": "CC-BY-2.0"
   },
@@ -171,13 +195,15 @@
     "bid": "klappergrasmuecke",
     "copyright": "Martin Mecnarowski (http://www.photomecan.eu/)",
     "de_name": "Klappergrasm\u00fccke",
+    "en_name": "Lesser whitethroat",
     "filename": "klappergrasmuecke.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
   {
     "bid": "kleiber",
-    "copyright": "Dave Menke (1946\u20132011) \u00a0\n\n\nBeschreibung\n\nUS-amerikanischer Fotograf\nPhotographer with the United States Fish and Wildlife Service\n\n\nGeburts-/Todesdatum\n1946\n2011\n\n\nNormdaten\n\n\n\n: Q26235785",
+    "copyright": "Dave Menke",
     "de_name": "Kleiber",
+    "en_name": "Eurasian nuthatch",
     "filename": "kleiber.jpg",
     "license": "public domain"
   },
@@ -185,27 +211,31 @@
     "bid": "kohlmeise",
     "copyright": "Luc Viatour from Bruxelles, Belgique",
     "de_name": "Kohlmeise",
+    "en_name": "Great tit",
     "filename": "kohlmeise.jpg",
     "license": "CC-BY-SA-2.0"
   },
   {
     "bid": "mauersegler",
-    "copyright": "Keta",
+    "copyright": "pau.artigas",
     "de_name": "Mauersegler",
+    "en_name": "Common swift",
     "filename": "mauersegler.jpg",
-    "license": "CC-BY-SA-3.0 unported"
+    "license": "CC-BY-SA-2.0"
   },
   {
     "bid": "mehlschwalbe",
-    "copyright": "Andreas Trepte",
+    "copyright": "Aelwyn",
     "de_name": "Mehlschwalbe",
+    "en_name": "Common house martin",
     "filename": "mehlschwalbe.jpg",
-    "license": "CC-BY-SA-2.5"
+    "license": "CC-BY-SA-3.0 unported"
   },
   {
     "bid": "moenchsgrasmuecke",
     "copyright": "Arnstein R\u00f8nning",
     "de_name": "M\u00f6nchsgrasm\u00fccke",
+    "en_name": "Eurasian blackcap",
     "filename": "moenchsgrasmuecke.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
@@ -213,6 +243,7 @@
     "bid": "rabenkraehe",
     "copyright": "ponafotkas",
     "de_name": "Rabenkr\u00e4he",
+    "en_name": "Carrion crow",
     "filename": "rabenkraehe.jpg",
     "license": "CC-BY-SA-2.0"
   },
@@ -220,6 +251,7 @@
     "bid": "rauchschwalbe",
     "copyright": "Andreas Trepte",
     "de_name": "Rauchschwalbe",
+    "en_name": "Barn swallow",
     "filename": "rauchschwalbe.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -227,6 +259,7 @@
     "bid": "ringeltaube",
     "copyright": "Tristan Ferne from UK",
     "de_name": "Ringeltaube",
+    "en_name": "Common wood pigeon",
     "filename": "ringeltaube.jpg",
     "license": "CC-BY-2.0"
   },
@@ -234,6 +267,7 @@
     "bid": "rotkehlchen",
     "copyright": "Joefrei",
     "de_name": "Rotkehlchen",
+    "en_name": "European robin",
     "filename": "rotkehlchen.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
@@ -241,20 +275,23 @@
     "bid": "saatkraehe",
     "copyright": "Andreas Trepte",
     "de_name": "Saatkr\u00e4he",
+    "en_name": "Rook",
     "filename": "saatkraehe.jpg",
     "license": "CC-BY-SA-2.5"
   },
   {
     "bid": "schneeeule",
-    "copyright": "Michael G\u00e4bler",
+    "copyright": "julubecka",
     "de_name": "Schneeeule",
+    "en_name": "Snowy owl",
     "filename": "schneeeule.jpg",
-    "license": "CC-BY-SA-3.0 unported"
+    "license": "CC-BY-SA-3.0 de"
   },
   {
     "bid": "schwanzmeise",
     "copyright": "Vogelartinfo",
     "de_name": "Schwanzmeise",
+    "en_name": "Long-tailed bushtit",
     "filename": "schwanzmeise.jpg",
     "license": "GFDL 1.2"
   },
@@ -262,6 +299,7 @@
     "bid": "singdrossel",
     "copyright": "Andreas Trepte",
     "de_name": "Singdrossel",
+    "en_name": "Song thrush",
     "filename": "singdrossel.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -269,13 +307,15 @@
     "bid": "star",
     "copyright": "Tim Felce (Airwolfhound)",
     "de_name": "Star",
+    "en_name": "Common starling",
     "filename": "star.jpg",
     "license": "CC-BY-SA-2.0"
   },
   {
     "bid": "tannenmeise",
-    "copyright": "This illustration was made by Marek Szczepanek\nIf you are interested in high resolution pictures, please contact author in order to negotiate condition of use.\nMore pictures can be found on here and in the gallery www.naturephotos.com.pl\n info@naturephotos.com.pl \u00a0\u00a0\u00a0  marek458@wp.pl\nJe\u015bli jeste\u015b zainteresowany zdj\u0119ciami w wysokiej rozdzielczo\u015bci, skontaktuj si\u0119 z autorem w celu negocjacji warunk\u00f3w u\u017cywania lub zakupu.\nWi\u0119cej zdj\u0119\u0107 autora dost\u0119pnych jest tutaj oraz na stronie www.naturephotos.com.pl",
+    "copyright": "Marek Szczepanek",
     "de_name": "Tannenmeise",
+    "en_name": "Coal tit",
     "filename": "tannenmeise.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
@@ -283,13 +323,15 @@
     "bid": "tukan",
     "copyright": "WIllze",
     "de_name": "Tukan",
+    "en_name": "Toucan",
     "filename": "tukan.jpg",
     "license": "CC-BY-2.0"
   },
   {
     "bid": "tuerkentaube",
-    "copyright": "Joefrei",
+    "copyright": "Rovdyr",
     "de_name": "T\u00fcrkentaube",
+    "en_name": "Eurasian collared dove",
     "filename": "tuerkentaube.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
@@ -297,6 +339,7 @@
     "bid": "weisskopfseeadler",
     "copyright": "Yathin S Krishnappa",
     "de_name": "Wei\u00dfkopfseeadler",
+    "en_name": "Bald eagle",
     "filename": "weisskopfseeadler.jpg",
     "license": "CC-BY-SA-3.0 unported"
   },
@@ -304,6 +347,7 @@
     "bid": "zaunkoenig",
     "copyright": "Andreas Trepte",
     "de_name": "Zaunk\u00f6nig",
+    "en_name": "Eurasian wren",
     "filename": "zaunkoenig.jpg",
     "license": "CC-BY-SA-2.5"
   },
@@ -311,6 +355,7 @@
     "bid": "zilpzalp",
     "copyright": "Andreas Trepte",
     "de_name": "Zilpzalp",
+    "en_name": "Common chiffchaff",
     "filename": "zilpzalp.jpg",
     "license": "CC-BY-SA-2.5"
   }

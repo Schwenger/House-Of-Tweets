@@ -200,6 +200,7 @@ KNOWN_LICENSES = {
     'Creative-Commons-Lizenz „CC0 1.0 Verzicht auf das Copyright“': 'CC0 1.0',
     # Include the closing quotation mark to ensure unambiguous identification.
     'Creative-Commons-Lizenz „Namensnennung 2.0 generisch“': 'CC-BY-2.0',
+    'Creative-Commons-Lizenz „Namensnennung 2.0 Deutschland“': 'CC-BY-2.0 de',
     'Creative-Commons-Lizenz „Namensnennung 3.0 nicht portiert“': 'CC-BY-3.0 unported',
     'Creative-Commons-Lizenz „Namensnennung 3.0 Deutschland“': 'CC-BY-3.0 de',
     'Creative-Commons-Lizenz „Namensnennung 4.0 international“': 'CC-BY-4.0 int',
@@ -232,6 +233,7 @@ LICENSE_PREFERENCE_ORDER = [
     'CC-BY-SA-2.5',
     'CC-BY-SA-2.0 de',
     'CC-BY-SA-2.0',
+    'CC-BY-2.0 de',
     'CC-BY-2.0',
     'GFDL 1.2+',
     'GFDL 1.2',

@@ -242,7 +242,7 @@
     "img": {
       "copyright": "Andreas Trepte",
       "license": "CC-BY-SA-2.5",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Greenfinch.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Greenfinch_Carduelis_chloris.jpg"
     },
     "latin_name": "Chloris chloris"
   },
@@ -266,9 +266,9 @@
     "en_name": "House sparrow",
     "has_drawing": false,
     "img": {
-      "copyright": "Arnold Paul",
-      "license": "CC-BY-SA-2.5",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Passer_domesticus_03.jpg"
+      "copyright": "Adamo",
+      "license": "CC-BY-2.0 de",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Passer_domesticus_male_%2815%29.jpg"
     },
     "latin_name": "Passer domesticus"
   },
@@ -344,9 +344,9 @@
     "en_name": "Common swift",
     "has_drawing": false,
     "img": {
-      "copyright": "Keta",
-      "license": "CC-BY-SA-3.0 unported",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Apus_apus_flock_flying_1.jpg"
+      "copyright": "pau.artigas",
+      "license": "CC-BY-SA-2.0",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Apus_apus_-Barcelona%2C_Spain-8_%281%29.jpg"
     },
     "latin_name": "Apus apus"
   },
@@ -357,9 +357,9 @@
     "en_name": "Common house martin",
     "has_drawing": false,
     "img": {
-      "copyright": "Andreas Trepte",
-      "license": "CC-BY-SA-2.5",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Mehlschwalbe_Delichon_urbicum.jpg"
+      "copyright": "English: Uploaded by Aelwyn with the permission of the Author, who works with an expert in a bird ringing station in northern Italy (no harm was done to the animals depicted).\nItaliano: Caricata da Aelwyn con il permesso dell' Autore, che lavora con un esperto in una stazione di inanellamento del nord Italia (nessun maltrattamento \u00e8 stato affto nei confronti degli animali ritratti.)",
+      "license": "CC-BY-SA-3.0 unported",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Delichon_urbica_NRM.jpg"
     },
     "latin_name": "Delichon urbicum"
   },
@@ -448,9 +448,9 @@
     "en_name": "Snowy owl",
     "has_drawing": false,
     "img": {
-      "copyright": "Michael G\u00e4bler",
-      "license": "CC-BY-SA-3.0 unported",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Bubo_scandiacus_%28Linnaeus%2C_1758%29_Male.jpg"
+      "copyright": "julubecka",
+      "license": "CC-BY-SA-3.0 de",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Schneeeule.JPG"
     },
     "latin_name": "Bubo scandiacus"
   },
@@ -526,9 +526,9 @@
     "en_name": "Eurasian collared dove",
     "has_drawing": false,
     "img": {
-      "copyright": "Joefrei",
+      "copyright": "Rovdyr",
       "license": "CC-BY-SA-3.0 unported",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/T%C3%BCrkentaube_im_Flug_beim_Nestbau.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Streptopelia_decaocto%3B_Szczecin%2C_Poland_3.JPG"
     },
     "latin_name": "Streptopelia decaocto"
   },

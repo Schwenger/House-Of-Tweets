@@ -154,7 +154,8 @@ about the license situation of the old images.
 - output format: list of JSON objects, sorted by German name:
   - `filename`: string, location inside the `preview` directory, currently just bid plus `.jpg`, e.g. `"gartenbaumlaeufer.jpg"`
   - `bid`: string, internal bird-ID, probably not needed, e.g. `"gartenbaumlaeufer"`
-  - `de_name`: string, German name that both humans and the backend will recognize, e.g. `"Gartenbaumläufer"`  
+  - `de_name`, `en_name`: string, German and English name respectively,
+    that will be recognized both by humans and the backend, e.g. `"Gartenbaumläufer"`  
     Note: not HTML escaped!
   - `license`: string, e.g. `"CC-BY-SA-3.0"`
   - `copyright` (optional): string, e.g. `"Andreas Trepte"`

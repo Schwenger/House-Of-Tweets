@@ -105,10 +105,16 @@ def get_img_desc_link(name, page_soup):
 
 def run():
     IMG_OVERRIDE = {
-        'Haussperling': 'https://de.wikipedia.org/wiki/Datei:Passer_domesticus_03.jpg',
-        'Schneeeule': 'https://de.wikipedia.org/wiki/Datei:Bubo_scandiacus_(Linnaeus,_1758)_Male.jpg',
+        'Haussperling': 'https://de.wikipedia.org/wiki/Datei:Passer_domesticus_male_%2815%29.jpg',
+        # 'Schneeeule': 'https://de.wikipedia.org/wiki/Datei:Bubo_scandiacus_(Linnaeus,_1758)_Male.jpg', # Bad image!
+        'Schneeeule': 'https://de.wikipedia.org/wiki/Datei:Schneeeule.JPG',
+        'Türkentaube': 'https://de.wikipedia.org/wiki/Datei:Streptopelia_decaocto;_Szczecin,_Poland_3.JPG',
         # FIXME: There's so many "Star"s out there, which one does the common citizen recognize best?
         'Star': 'https://en.wikipedia.org/wiki/File:Starling_(5503763150).jpg',
+        'Grünfink': 'https://de.wikipedia.org/wiki/Datei:Greenfinch_Carduelis_chloris.jpg',
+        'Mauersegler': 'https://de.wikipedia.org/wiki/Datei:Apus_apus_-Barcelona,_Spain-8_%281%29.jpg',
+        # Optional, not sure if a good idea:
+        'Mehlschwalbe': 'https://de.wikipedia.org/wiki/Datei:Delichon_urbica_NRM.jpg',
     }
 
     with open('../../backend/birds.json') as fp:
@@ -120,12 +126,14 @@ def run():
             # No warning as this is a "human" choice
             print('[INFO] Human selection, so not even looking at article: ' + name)
             img_desc_url = IMG_OVERRIDE[name]
+            del IMG_OVERRIDE[name]
         else:
             page_url, page_soup = get_page_for(bird)
             img_desc_url = get_img_desc_link(name, page_soup)
         assert img_desc_url is not None, name
         bird['img'] = wikify_each.get_img_desc(img_desc_url)
 
+    assert len(IMG_OVERRIDE) == 0, IMG_OVERRIDE
     with open("fetch_birds.json", 'w') as fp:
         json.dump(birds, fp, sort_keys=True, indent=2)
 
