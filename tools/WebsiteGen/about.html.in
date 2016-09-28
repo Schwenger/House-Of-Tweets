@@ -84,7 +84,10 @@
       <p>{about_team_text}</p>
 
       <h3>{about_copyright}</h3>
+      <p>{copyright_pre}</p>
+      <ul>
       {about_copyright_html}
+      </ul>
 
       <div style="display: none">
       <h3>{about_thanks}</h3>
