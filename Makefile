@@ -1,4 +1,6 @@
 FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat ext/node_modules/less
+PUBWEB_DEP:=ext/node_modules/browserify ext/node_modules/coffeescript-concat ext/node_modules/jquery-on-infinite-scroll
+# FIXME: install and use pubweb dependencies
 BACKEND_DEP:=bs4 pika pydub requests tweepy typing
 
 BROWSERIFY?=ext/node_modules/.bin/browserify
