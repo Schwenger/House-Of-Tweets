@@ -1,6 +1,7 @@
 .DS_Store
 *~
-out
+out/
+out_pubweb/
 legacy
 node_modules/
 ext/sounds/processed

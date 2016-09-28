@@ -13,7 +13,7 @@ LESS=less
 COFFEE=coffee
 MODEL=${COFFEE}/model
 HTML=html
-DIRS=${OUT} ${TEMP}
+DIRS=${OUT} ${TEMP} out_pubweb/imgs out_pubweb/css out_pubweb/js
 MODELS:=$(wildcard ${MODEL}/*.coffee)
 
 
@@ -56,6 +56,45 @@ ${COFFEE}/model.coffee: ${COFFEE}/model_empty.coffee ${MODELS} | ${DIRS}
 .PHONY: backend
 backend:
 # Needs no building.
+
+# PUBWEB
+# TODO: Dependencies?
+
+# Yes, this feels a lot like "Please put me into my own namespace".
+# No, due to the shared npm accesses it just so doesn't make sense to
+# create a different Makefile for that.
+PUBWEB_HTML_NAMES:=index index_en about about_en
+PUBWEB_HTML_SRC:=${patsubst %,tools/WebsiteGen/autogen/%.html,${PUBWEB_HTML_NAMES}}
+PUBWEB_HTML_DST:=${patsubst %,out_pubweb/%.html,${PUBWEB_HTML_NAMES}}
+PUBWEB_STATIC_SRC:=$(wildcard pubweb/static/*.*) $(wildcard pubweb/static/*/*.*)
+# PUBWEB_STATIC_DST should also include the images, but:
+# FIXME: Come up with a clever way to "regenerate"/cache the chosen bird images
+#        (WITHOUT pulling from hot_crawler_cache)
+PUBWEB_STATIC_DST:=${patsubst pubweb/static/%,out_pubweb/%,${PUBWEB_STATIC_SRC}}
+PUBWEB_DYNAMIC_DST:=out_pubweb/js/main.js ${PUBWEB_HTML_DST}
+
+.PHONY: pubweb
+pubweb: ${PUBWEB_DYNAMIC_DST} ${PUBWEB_STATIC_DST}
+
+.PHONY: pubweb_dyn
+pubweb_dyn: ${PUBWEB_DYNAMIC_DST}
+
+${PUBWEB_HTML_DST}: out_pubweb/%: tools/WebsiteGen/autogen/% | ${DIRS}
+	cp $< $@
+
+# Slightly overzealous, but whatever
+${PUBWEB_HTML_SRC}: %: tools/WebsiteGen/about.html.in tools/WebsiteGen/index.html.in tools/WebsiteGen/mk_html.py
+	( cd tools/WebsiteGen && ./mk_html.py )
+
+out_pubweb/js/main.js: pubweb/main.coffee tools/WebsiteGen/birds.coffee | ${DIRS}
+# Can't do anything meaningful yet
+	touch $@  # FIXME
+
+tools/WebsiteGen/birds.coffee: tools/WebsiteGen/mk_json.py tools/PhotoMiner/checkout_birds.json
+	( cd tools/WebsiteGen && ./mk_json.py )
+
+${PUBWEB_STATIC_DST}: out_pubweb/%: pubweb/static/% | ${DIRS}
+	cp $< $@
 
 # DEPENDENCIES
 

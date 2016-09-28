@@ -30,6 +30,7 @@ before_install:
   - tools/minimal_sound/provide.sh
 script:
   - make frontend
+  - make pubweb
   # ( Makefile is currently unimplemented for backend )
   # Is rabbitmq running already?
   - ( cd backend && ./tests.py test_ben )
