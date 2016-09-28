@@ -17,6 +17,8 @@ OVERRIDE_COPYRIGHT = {
 }
 UNUSED_COPYRIGHT = dict(OVERRIDE_COPYRIGHT)
 
+RESOLUTION = '200x150'
+
 
 def checkout(bid, fields):
     GRAVITY_NORTH = {
@@ -40,11 +42,12 @@ def checkout(bid, fields):
     #   for 16x9 you need 146.
     #   So I went with
     checkout_images.convert(freshest_path,
-        '-resize', '259x194^>',
+        '-resize', RESOLUTION + '^>',
+        '-strip',
         # It shouldn't ever be necessary to actually cut down the image vertically.
         # However, the code should still do something reasonable.
         '-gravity', gravity,
-        '-extent', '259x194>',
+        '-extent', RESOLUTION + '>',
         img_prefix + '.jpg')
 
     entry = {
