@@ -86,9 +86,15 @@ ${PUBWEB_HTML_DST}: out_pubweb/%: tools/WebsiteGen/autogen/% | ${DIRS}
 ${PUBWEB_HTML_SRC}: %: tools/WebsiteGen/about.html.in tools/WebsiteGen/index.html.in tools/WebsiteGen/mk_html.py
 	( cd tools/WebsiteGen && ./mk_html.py )
 
-out_pubweb/js/main.js: pubweb/main.coffee tools/WebsiteGen/birds.coffee | ${DIRS}
-# Can't do anything meaningful yet
-	touch $@  # FIXME
+out_pubweb/js/main.js: ${TEMP}/pubweb_bundled.js | ${DIRS}
+# FIXME: Minify?
+	${BROWSERIFY} $< > $@
+
+${TEMP}/pubweb_bundled.js: ${TEMP}/pubweb_bundled.coffee | ${DIRS}
+	coffee --output ${TEMP} --compile $<
+
+${TEMP}/pubweb_bundled.coffee: pubweb/main.coffee tools/WebsiteGen/birds.coffee | ${DIRS}
+	${COFFEESCRIPT_CONCAT} -I tools/WebsiteGen/ $< -o $@
 
 tools/WebsiteGen/birds.coffee: tools/WebsiteGen/mk_json.py tools/PhotoMiner/checkout_birds.json
 	( cd tools/WebsiteGen && ./mk_json.py )
