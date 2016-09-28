@@ -1,6 +1,7 @@
 .DS_Store
 *~
 out/
+temp/
 out_pubweb/
 legacy
 node_modules/

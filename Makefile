@@ -8,7 +8,7 @@ COFFEESCRIPT_CONCAT?=ext/node_modules/.bin/coffeescript-concat
 LESSC?=ext/node_modules/.bin/lessc
 
 OUT=out
-TEMP=out/temp
+TEMP=temp
 LESS=less
 COFFEE=coffee
 MODEL=${COFFEE}/model
@@ -39,14 +39,14 @@ ${OUT}/main.html: ${HTML}/main.html
 .PHONY: js
 js: ${OUT}/main.js | ${DIRS}
 
-${OUT}/main.js: ${OUT}/bundled.js | ${DIRS}
+${OUT}/main.js: ${TEMP}/bundled.js | ${DIRS}
 	${BROWSERIFY} $< > $@
 
-${OUT}/bundled.js: ${TEMP}/bundled.coffee | ${DIRS}
-	coffee --output ${OUT} --compile $^
+${TEMP}/bundled.js: ${TEMP}/bundled.coffee | ${DIRS}
+	coffee --output ${TEMP} --compile $<
 
 ${TEMP}/bundled.coffee: ${COFFEE}/model.coffee $(wildcard ${COFFEE}/*.coffee) | ${DIRS}
-	${COFFEESCRIPT_CONCAT} -I ${COFFEE} ${COFFEE}/main.coffee -o ${TEMP}/bundled.coffee
+	${COFFEESCRIPT_CONCAT} -I ${COFFEE} $< -o $@
 
 ${COFFEE}/model.coffee: ${COFFEE}/model_empty.coffee ${MODELS} | ${DIRS}
 	cat ${COFFEE}/model_empty.coffee ${MODELS} > $@
