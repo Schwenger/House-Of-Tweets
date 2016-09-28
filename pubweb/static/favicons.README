@@ -1,0 +1,4 @@
+This is a public-facing website, so the favicons *must* be compatible with about anything.
+realfavicongenerator.net explains quite well why it's a really good idea
+to keep all these files top-level:
+https://realfavicongenerator.net/faq#why_icons_in_root
