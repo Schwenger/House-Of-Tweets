@@ -6,10 +6,9 @@ require('../ext/node_modules/jquery-on-infinite-scroll')
 	<!-- &url=https%3A%2F%2FHouseOfTweets.github.io -->
 
 		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
-			<a href="https://twitter.com/intent/tweet?text=Ara&button_hashtag=HouseOfTweets">
-				<!-- &url=https%3A%2F%2FHouseOfTweets.github.io -->
-				<img src="https://placekitten.com/200/150" alt="Ara" />
-				<span>Tweet #HouseOfTweets</span>
+			<a href="https://twitter.com/intent/tweet?text=#{name}&button_hashtag=HouseOfTweets">
+				<img src="imgs/#{bid}.jpg" alt="#{name}" width="200" height="150">
+				<span>#{name} #HouseOfTweets</span>
 			</a>
 		</div>
 ###
