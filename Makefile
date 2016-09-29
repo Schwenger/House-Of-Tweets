@@ -1,7 +1,5 @@
-FRONTEND_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat ext/node_modules/less
-PUBWEB_DEP:=ext/node_modules/browserify ext/node_modules/coffeescript-concat ext/node_modules/jquery-on-infinite-scroll
-# FIXME: install and use pubweb dependencies
-BACKEND_DEP:=bs4 pika pydub requests tweepy typing
+NPM_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat ext/node_modules/less ext/node_modules/jquery-on-infinite-scroll
+PIP_DEP:=bs4 pika pydub requests tweepy typing
 
 BROWSERIFY?=ext/node_modules/.bin/browserify
 COFFEESCRIPT_CONCAT?=ext/node_modules/.bin/coffeescript-concat
@@ -74,7 +72,7 @@ PUBWEB_STATIC_DST:=${patsubst pubweb/static/%,out_pubweb/%,${PUBWEB_STATIC_SRC}}
 PUBWEB_DYNAMIC_DST:=out_pubweb/js/main.js ${PUBWEB_HTML_DST}
 
 .PHONY: pubweb
-pubweb: ${PUBWEB_DYNAMIC_DST} ${PUBWEB_STATIC_DST}
+pubweb: pubweb_dyn pubweb_static
 
 .PHONY: pubweb_dyn
 pubweb_dyn: ${PUBWEB_DYNAMIC_DST}
@@ -99,27 +97,30 @@ ${TEMP}/pubweb_bundled.coffee: pubweb/main.coffee tools/WebsiteGen/birds.coffee 
 tools/WebsiteGen/birds.coffee: tools/WebsiteGen/mk_json.py tools/PhotoMiner/checkout_birds.json
 	( cd tools/WebsiteGen && ./mk_json.py )
 
+.PHONY: pubweb_static
+pubweb_static: ${PUBWEB_STATIC_DST}
+
 ${PUBWEB_STATIC_DST}: out_pubweb/%: pubweb/static/% | ${DIRS}
 	cp $< $@
 
 # DEPENDENCIES
 
 .PHONY: install_dependencies
-install_dependencies: ${FRONTEND_DEP}
+install_dependencies: ${NPM_DEP}
 	@if command -v pip3 &> /dev/null ; \
 	then \
-		echo pip3 install ${BACKEND_DEP} ; \
-		pip3 install ${BACKEND_DEP} ; \
+		echo pip3 install ${PIP_DEP} ; \
+		pip3 install ${PIP_DEP} ; \
 	elif command -v pip &> /dev/null ; \
 	then \
-		echo pip install ${BACKEND_DEP} ; \
-		pip install ${BACKEND_DEP} ; \
+		echo pip install ${PIP_DEP} ; \
+		pip install ${PIP_DEP} ; \
 	else \
 		echo "# Can't find pip or pip3.  Is it installed?" ; \
 		false ; \
 	fi
 
-${FRONTEND_DEP}: ext/node_modules/%:
+${NPM_DEP}: ext/node_modules/%:
 	@mkdir -p ext/node_modules
 	npm install --prefix ./ext/ $(patsubst ext/node_modules/%,%,$@)
 
