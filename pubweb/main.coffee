@@ -1,4 +1,5 @@
-#= require <birds.coffee>
+#= require <birds_de_dyn.coffee>
+#= require <birds_en_dyn.coffee>
 
 require('../ext/node_modules/jquery-on-infinite-scroll')
 

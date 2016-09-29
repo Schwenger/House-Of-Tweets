@@ -78,34 +78,9 @@
       <p>{index_function_2_2}</p>
 
       <h3 id="liste">{index_list_title}</h3>
-      <div class="row">
-        <!-- TODO: Should probably contain the first few elements already, in order to "load on open".
-             Latency is a bitch! -->
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%201%20%23HoT">Hallo Welt 1</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%202%20%23HoT">Hallo Welt 2</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%203%20%23HoT">Hallo Welt 3</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%204%20%23HoT">Hallo Welt 4</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%205%20%23HoT">Hallo Welt 5</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%206%20%23HoT">Hallo Welt 6</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%207%20%23HoT">Hallo Welt 7</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%208%20%23HoT">Hallo Welt 8</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%209%20%23HoT">Hallo Welt 9</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%2010%20%23HoT">Hallo Welt 10</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%2011%20%23HoT">Hallo Welt 11</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%2012%20%23HoT">Hallo Welt 12</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%2013%20%23HoT">Hallo Welt 13</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%2014%20%23HoT">Hallo Welt 14</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%2015%20%23HoT">Hallo Welt 15</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%2016%20%23HoT">Hallo Welt 16</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%2017%20%23HoT">Hallo Welt 17</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%2018%20%23HoT">Hallo Welt 18</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%2019%20%23HoT">Hallo Welt 19</a></div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2FHouseOfTweets.github.io%2F&text=Ich%20will%20klingen%20wie%20ein%20Wei&szlig;kopfseeadler%21%2020%20%23HoT">Hallo Welt 20</a></div>
-      </div>
-
-      <h3 id="liste">FIXME: DYNAMIC TEST</h3>
       <div id="hot-birdslist" class="row">
-        <!-- Will be filled dynamically -->
+        {index_init_content}<!-- Will be filled dynamically -->
+        <!-- FIXME: some kind of 'loading' symbol in case the user *does* see this? -->
       </div>
 
     </div> <!-- /container -->

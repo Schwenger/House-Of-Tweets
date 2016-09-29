@@ -71,6 +71,9 @@ PUBWEB_STATIC_SRC:=$(wildcard pubweb/static/*.*) $(wildcard pubweb/static/*/*.*)
 PUBWEB_STATIC_DST:=${patsubst pubweb/static/%,out_pubweb/%,${PUBWEB_STATIC_SRC}}
 PUBWEB_DYNAMIC_DST:=out_pubweb/js/main.js ${PUBWEB_HTML_DST}
 
+PUBWEB_JSON_DYN:=$(patsubst %,tools/WebsiteGen/birds_%_dyn.coffee,de en)
+PUBWEB_JSON_INIT:=$(patsubst %,tools/WebsiteGen/birds_%_init.json,de en)
+
 .PHONY: pubweb
 pubweb: pubweb_dyn pubweb_static
 
@@ -81,7 +84,9 @@ ${PUBWEB_HTML_DST}: out_pubweb/%: tools/WebsiteGen/autogen/% | ${DIRS}
 	cp $< $@
 
 # Slightly overzealous, but whatever
-${PUBWEB_HTML_SRC}: %: tools/WebsiteGen/about.html.in tools/WebsiteGen/index.html.in tools/WebsiteGen/mk_html.py
+# (If about.html.in changes, then technically index.html doesn't need to
+#  be regenerated, but mk_html.py is too coarse for that anyway.)
+${PUBWEB_HTML_SRC}: %: tools/WebsiteGen/about.html.in tools/WebsiteGen/index.html.in tools/WebsiteGen/mk_html.py ${PUBWEB_JSON_INIT}
 	( cd tools/WebsiteGen && ./mk_html.py )
 
 out_pubweb/js/main.js: ${TEMP}/pubweb_bundled.js | ${DIRS}
@@ -91,10 +96,10 @@ out_pubweb/js/main.js: ${TEMP}/pubweb_bundled.js | ${DIRS}
 ${TEMP}/pubweb_bundled.js: ${TEMP}/pubweb_bundled.coffee | ${DIRS}
 	coffee --output ${TEMP} --compile $<
 
-${TEMP}/pubweb_bundled.coffee: pubweb/main.coffee tools/WebsiteGen/birds.coffee | ${DIRS}
+${TEMP}/pubweb_bundled.coffee: pubweb/main.coffee ${PUBWEB_JSON_DYN} | ${DIRS}
 	${COFFEESCRIPT_CONCAT} -I tools/WebsiteGen/ $< -o $@
 
-tools/WebsiteGen/birds.coffee: tools/WebsiteGen/mk_json.py tools/PhotoMiner/checkout_birds.json
+${PUBWEB_JSON_INIT} ${PUBWEB_JSON_DYN}: %: tools/WebsiteGen/mk_json.py tools/PhotoMiner/checkout_birds.json
 	( cd tools/WebsiteGen && ./mk_json.py )
 
 .PHONY: pubweb_static
