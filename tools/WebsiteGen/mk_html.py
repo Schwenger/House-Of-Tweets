@@ -143,7 +143,7 @@ def spoof_copyright_single(entry, lang: str):
     birds = ', '.join(['{} ({})'.format(bird[name_key], bird['license'])
                        for bird in sorted_birds])
     content = '{}: {}'.format(holder, birds)
-    return '<li>{}</li>'.format(content)
+    return '<li>{}</li>'.format(html_escape(content))
 
 
 def spoof_copyright(by_name, lang):
