@@ -148,6 +148,8 @@ ${DIRS}:
 
 .PHONY: clean
 clean:
+# Don't remove or "clean" out_pubweb!  It might be the official repo itself,
+# and errors there would be bad.
 	rm -rf ${OUT}
 
 .PHONY: clean_temp
