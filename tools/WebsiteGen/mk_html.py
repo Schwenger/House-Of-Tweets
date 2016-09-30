@@ -154,11 +154,11 @@ def spoof_bird(bid, name):
     # Technically, I have to properly URI-component-escape the bid string.
     # Factually, I know that it's just plain ascii, so there's nothing to do.
     return """<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
-			<a href="https://twitter.com/intent/tweet?text={name}&button_hashtag=HouseOfTweets">
-				<img src="imgs/{bid}.jpg" alt="{name}" width="200" height="150">
-				<span>{name} #HouseOfTweets</span>
-			</a>
-		</div>
+            <a href="https://twitter.com/intent/tweet?text={name}&button_hashtag=HouseOfTweets">
+                <img src="imgs/{bid}.jpg" alt="{name}" width="200" height="150">
+                <p>{name} #HouseOfTweets</p>
+            </a>
+        </div>
         """.format(bid=bid, name=html_escape(name))
 
 
