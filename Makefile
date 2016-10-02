@@ -46,7 +46,7 @@ ${TEMP}/bundled.js: ${TEMP}/bundled.coffee | ${DIRS}
 	coffee --output ${TEMP} --compile $<
 
 ${TEMP}/bundled.coffee: ${COFFEE}/model.coffee $(wildcard ${COFFEE}/*.coffee) | ${DIRS}
-	${COFFEESCRIPT_CONCAT} -I ${COFFEE} $< -o $@
+	${COFFEESCRIPT_CONCAT} -I ${COFFEE} coffee/main.coffee -o $@
 
 ${COFFEE}/model.coffee: ${COFFEE}/model_empty.coffee ${MODELS} | ${DIRS}
 	cat ${COFFEE}/model_empty.coffee ${MODELS} > $@
