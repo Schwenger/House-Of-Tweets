@@ -17,8 +17,7 @@ require('../ext/node_modules/jquery-on-infinite-scroll')
 placeBird = (name, bid) ->
 	console.log "Loadin' moar"
 	# Although I call it "_tag", it's always a jQuery wrapped tag, not a "raw" tag.
-	#img_tag = $("<img src=\"imgs/#{bid}\" alt=\"#{name}\" width=\"200\" height=\"150\">")
-	img_tag = $("<img src=\"imgs/flag_de.png?#{bid}\" alt=\"#{name}\" width=\"200\" height=\"150\">")
+	img_tag = $("<img src=\"imgs/#{bid}.jpg\" alt=\"#{name}\" width=\"200\" height=\"150\">")
 	p_tag = $("<p class=\"custom-bird-caption\">")
 	# TODO: Why can't I just write the text in the jQuery call?
 	p_tag.text("#{name} #HouseOfTweets")
@@ -31,9 +30,30 @@ placeBird = (name, bid) ->
 	div_tag.append(a_tag)
 	$("#hot-birdslist").append(div_tag)
 
-placePseudoBird = ->
-	placeBird("Weißkopfseeländer", "argh")
+BirdFeeder =
+	birds: null
+	nextBirdIdx: 0
 
-# A single cell is ${image height} + 52 pixels high
-# (unless there's word wrap, but we'll assume there isn't)
-$.onInfiniteScroll(placePseudoBird, { offset: 202 + 20 })
+	init: ->
+		# FIXME: assert(nextBirds is null)
+		console.log "Auto-detect language"
+		lang_tags = $("ul.navbar-right > li.active img")
+		# FIXME: assert(len(lang_tags) == 1)
+		lang_tag = $(lang_tags[0])
+		lang = lang_tag.attr("alt")
+		@birds = {"Deutsch": RawBirds_de, "English": RawBirds_en}[lang]
+		# FIXME: assert(not @birds is undefined)
+		# A single cell is ${image height} + 52 = 202 pixels high
+		# (unless there's word wrap, but we'll assume there isn't)
+		$.onInfiniteScroll((() -> BirdFeeder.push()), { offset: 202 + 20 })
+
+	push: ->
+		# I'm sure there's a proper
+		if @nextBirdIdx < @birds.length
+			[bid, name] = @birds[@nextBirdIdx]
+			@nextBirdIdx += 1
+			placeBird(name, bid)
+		else
+			$.destroyInfiniteScroll()
+
+BirdFeeder.init()
