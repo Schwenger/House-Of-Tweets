@@ -30,7 +30,13 @@ STRINGS_DE = {
     # Appears on both pages
     'index_title': 'Vogelauswahl',
     'about_title': '&Uuml;ber',
-    'toggle_nav': 'Navigation ein-/ausblenden',
+    'nav_toggle': 'Navigation ein-/ausblenden',
+    'nav_index': 'index.html',
+    'nav_about': 'about.html',
+    'nav_index_de': '#',
+    'nav_about_de': '#',
+    'nav_index_en': 'index_en.html',
+    'nav_about_en': 'about_en.html',
     'de_active': ' class="active"',  # Must start with a space
     'en_active': '',
     # Appears on index.html only:
@@ -68,7 +74,13 @@ STRINGS_EN = {
     # Appears on both pages
     'index_title': 'Bird selection',
     'about_title': 'About',
-    'toggle_nav': 'Toggle navigation',
+    'nav_toggle': 'Toggle navigation',
+    'nav_index': 'index_en.html',
+    'nav_about': 'about_en.html',
+    'nav_index_de': 'index.html',
+    'nav_about_de': 'about.html',
+    'nav_index_en': '#',
+    'nav_about_en': '#',
     'de_active': '',
     'en_active': ' class="active"',  # Must start with a space
     # Appears on index.html only:

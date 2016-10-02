@@ -44,7 +44,7 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                   data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">{toggle_nav}</span>
+            <span class="sr-only">{nav_toggle}</span>
             <!-- FIXME: What are these spans used for?  Accessability, or template? -->
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -54,12 +54,16 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">{index_title}</a></li>
+            <li><a href="{nav_index}">{index_title}</a></li>
             <li class="active"><a href="#">{about_title}</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li{de_active}><a href="#"><img src="imgs/flag_de.png" width="81" height="50" alt="Deutsch" class="custom-nav-flag" /></a></li>
-            <li{en_active}><a href="#"><img src="imgs/flag_en.png" width="85" height="50" alt="English" class="custom-nav-flag" /></a></li>
+            <li{de_active}><a href="{nav_about_de}">
+                <img src="imgs/flag_de.png" width="81" height="50" alt="Deutsch" class="custom-nav-flag" />
+            </a></li>
+            <li{en_active}><a href="{nav_about_en}">
+                <img src="imgs/flag_en.png" width="85" height="50" alt="English" class="custom-nav-flag" />
+            </a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
