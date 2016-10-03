@@ -40,11 +40,11 @@ STRINGS_DE = {
     'de_active': ' class="active"',  # Must start with a space
     'en_active': '',
     # Appears on index.html only:
-    'index_lead': 'Alle Vogelstimmen, die im Rahmen des Projects House of Tweets zur Verf&uuml;gung stehen.',
+    'index_lead': 'Alle Vogelstimmen, die im Rahmen des Projekts House of Tweets zur Verf&uuml;gung stehen.',
     'index_function_title': 'Funktionsweise',
     'index_function_1_2':
         'Jedem Bundestagsabgeordneten wurde eine Vogelstimme zugeordnet.'
-        ' Diese k&ouml;nnen sie ganz leicht &auml;ndern! Ein Klick auf einen untenstehenden Vogel,'
+        ' Diese k&ouml;nnen sie ganz leicht &auml;ndern! Ein Klick auf einen der nachfolgenden Vögel,'
         ' ein abgesetzter Tweet, und schon erkennen unsere Systeme ihren &Auml;nderungswunsch!',
     'index_function_2_2':
         'Der Tweet muss nur den Vogel und das Hashtag <strong>#HouseOfTweets</strong> enthalten.'
@@ -89,7 +89,7 @@ STRINGS_EN = {
     'index_function_1_2':
         'Each member of the parliament has been assigned a bird\'s voice.'
         ' You can easily change that! A single click on one of the birds below,'
-        ' a Tweet sent, and our systems recognize your preferences!',
+        ' a Tweet sent, and our systems recognise your preferences!',
     'index_function_2_2':
         'Your Tweet only needs to contain the name of the bird and the hashtag <strong>#HouseOfTweets</strong>.'
         ' Or <strong>#Hot</strong>, if that\'s too long for you.',
