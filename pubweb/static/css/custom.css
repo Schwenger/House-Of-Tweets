@@ -19,10 +19,6 @@ hr {
   margin-bottom: 40px;
 }
 
-/* navbar-fixed-top.css */
-body {
-  padding-top: 70px;
-}
 .custom-nav-flag {
   /* Don't increase navbar's overall height. */
   margin-bottom: -15px;
