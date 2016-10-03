@@ -8174,7 +8174,7 @@
     }
   },
   {
-    "citizen_bird": "rauchschwalbe",
+    "citizen_bird": "gimpel",
     "cv": {
       "de": "Agnieszka Brugger geb. Malczak (auch Agnes Brugger; * 8. Februar 1985 in Legnica, Polen) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen) polnischer Herkunft.",
       "en": "Agnieszka Brugger is a German politician. She is a member of the GR\u00dcNE."
@@ -8195,7 +8195,7 @@
     "name": "Agnieszka Brugger",
     "party": "GR\u00dcNE",
     "pid": "62",
-    "self_bird": "grauschnaepper",
+    "self_bird": "buntspecht",
     "twittering": {
       "twitterId": 172269309,
       "twitterUserName": "agnieszka_mdb"
