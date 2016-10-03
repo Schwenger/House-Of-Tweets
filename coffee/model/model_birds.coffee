@@ -164,7 +164,7 @@
 			"de_cv": "Der Buntspecht (Dendrocopos major Syn Picoides major) ist eine Vogelart aus der Familie der Spechte (Picidae). Der kleine Specht besiedelt gro\u00dfe Teile des n\u00f6rdlichen Eurasiens sowie Nordafrika und bewohnt W\u00e4lder fast jeder Art sowie Parks und baumreiche G\u00e4rten. Die Nahrung wird in allen (au\u00dfer im Boden des Waldes) Strata des Waldes gesucht, jedoch vor allem in den Baumkronen. Sie besteht sowohl aus tierischen Anteilen als auch, vor allem im Winter, aus pflanzlichem Material. Das Nahrungsspektrum ist sehr breit und umfasst verschiedenste Insekten und andere Wirbellose ebenso wie kleine Wirbeltiere und Vogeleier, Samen, Beeren und andere Fr\u00fcchte sowie Baums\u00e4fte.",
 			"en_cv": "The great spotted woodpecker (Dendrocopos major) is a bird species of the woodpecker family (Picidae). It is distributed throughout Europe and northern Asia, and usually resident year-round except in the colder parts of its range. It is not considered a threatened species by the IUCN, being widely distributed and quite common. A significant recent increase in the British population has resulted in the recolonisation of Ireland.",
 			"latin_name": "Dendrocopos major Syn Picoides major",
-			"en_name": "Great spotted woodpecker",
+			"en_name": "Spotted woodpecker",
 			"has_drawing": false
 		},
 		"gartengrasmuecke": {
