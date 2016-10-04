@@ -47,6 +47,8 @@ BirdFeeder =
 		#     + 20 (div margin) + 145 (loading anim height)
 		#     + (20+10) (loading anim description) = 397 pixels high
 		$.onInfiniteScroll((() -> BirdFeeder.push()), { offset: 397 + 20 })
+		# Trigger an initial check.  See https://github.com/artsy/jquery-on-infinite-scroll/issues/8
+		$(window).trigger('scroll.infinite') for [1..4]
 
 	push: ->
 		# I'm sure there's a proper way to do it.
@@ -54,6 +56,8 @@ BirdFeeder =
 			[bid, name] = @birds[@nextBirdIdx]
 			@nextBirdIdx += 1
 			placeBird(name, bid)
+			# Trigger another check.  See https://github.com/artsy/jquery-on-infinite-scroll/issues/8
+			$(window).trigger('scroll.infinite') for [1..4]
 		else
 			$("#hot-load-gif").remove()
 			$.destroyInfiniteScroll()
