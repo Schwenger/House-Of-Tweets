@@ -27,7 +27,7 @@ CitizenUser =
 		$('#citizen-user-name-input').val("")
 
 	translateBirds: ->
-		@_dropdownList?.children().each(() -> $(this).remove())
+		@_dropdownList?.children().each(() -> $(@).remove())
 		list = $('#bird-dropdown-list')
 		for own id, bird of Model.birds 
 			do(id, bird) ->

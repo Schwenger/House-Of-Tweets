@@ -12,7 +12,7 @@ here = "You should never forget quotation marks."
 # Setup #################################################################################
 
 enforceConsistencyConstraints = ->
-	# we cannot [...] set height in relative to relative width value
+	# we cannot [...] set height relative to relative width value
 	w = $("#voice-profile-picture").width()
 	$("#voice-profile-picture").css("height", w + "px")
 	$("#voice-profile-cv").css("height", w + "px")
