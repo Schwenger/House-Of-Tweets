@@ -43,17 +43,19 @@ BirdFeeder =
 		lang = lang_tag.attr("alt")
 		@birds = {"Deutsch": RawBirds_de, "English": RawBirds_en}[lang]
 		# FIXME: assert(not @birds is undefined)
-		# A single cell is ${image height} + 52 = 202 pixels high
-		# (unless there's word wrap, but we'll assume there isn't)
-		$.onInfiniteScroll((() -> BirdFeeder.push()), { offset: 202 + 20 })
+		# A single cell is 150 (image height) + 52 (text, padding, border)
+		#     + 20 (div margin) + 145 (loading anim height)
+		#     + (20+10) (loading anim description) = 397 pixels high
+		$.onInfiniteScroll((() -> BirdFeeder.push()), { offset: 397 + 20 })
 
 	push: ->
-		# I'm sure there's a proper
+		# I'm sure there's a proper way to do it.
 		if @nextBirdIdx < @birds.length
 			[bid, name] = @birds[@nextBirdIdx]
 			@nextBirdIdx += 1
 			placeBird(name, bid)
 		else
+			$("#hot-load-gif").remove()
 			$.destroyInfiniteScroll()
 
 BirdFeeder.init()

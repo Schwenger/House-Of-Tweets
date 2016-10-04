@@ -80,8 +80,13 @@
       <h3 id="liste">{index_list_title}</h3>
       <div id="hot-birdslist" class="row">
         {index_init_content}<!-- Will be filled dynamically -->
-        <!-- FIXME: some kind of 'loading' symbol in case the user *does* see this? -->
       </div>
+
+      <!-- TODO: Resize server-side -->
+      <span id="hot-load-gif" class="text-center">
+        <img src="imgs/loading.gif" alt="Loading ..." class="img-responsive center-block" width="220" height="145" />
+        <p>Javascript?</p>
+      </span>
 
     </div> <!-- /container -->
 
