@@ -104,6 +104,7 @@ Get RabbitMQ running:
     * `--online` means: fail if rabbitmq isn't running
     * `rabbitmq_web_stomp` enables communication with the frontend
     * `rabbitmq_management` is optional, and provides [a web interface](http://localhost:15672)
+  
   In Windows use the rabbit-mq console shipped with the installer or the GUI.
 - useful for: running the project, running tests
   
