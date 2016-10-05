@@ -14,8 +14,15 @@ HTML=html
 DIRS=${OUT} ${TEMP} out_pubweb/imgs out_pubweb/css out_pubweb/js
 MODELS:=$(wildcard ${MODEL}/*.coffee)
 
-
 all: frontend backend
+
+# WINDOWS
+
+.PHONY: windows
+windows: all
+	mv .secrets/images/birds ext/images/birds
+	mv .secrets/images/politicians ext/images/politicians
+
 
 # FRONTEND
 
