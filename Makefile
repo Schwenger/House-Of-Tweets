@@ -20,8 +20,8 @@ all: frontend backend
 
 .PHONY: windows
 windows: all
-	mv .secrets/images/birds ext/images/birds
-	mv .secrets/images/politicians ext/images/politicians
+	mv .secrets/images/birds ext/images
+	mv .secrets/images/politicians ext/images
 
 
 # FRONTEND
