@@ -3,6 +3,7 @@
 import fileinput
 import threading
 import json
+import os
 
 _SKIP_WRITEBACK = False
 
@@ -18,7 +19,7 @@ def check_writeback():
 
 
 BACKEND_POLI_DB = 'pols.json'
-FRONTEND_POLI_DB = '../coffee/model/model_polis.coffee'
+FRONTEND_POLI_DB = os.path.join('..', 'coffee', 'model', 'model_polis.coffee')
 
 
 class PoliticianBackend:
