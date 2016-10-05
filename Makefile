@@ -14,15 +14,21 @@ HTML=html
 DIRS=${OUT} ${TEMP} out_pubweb/imgs out_pubweb/css out_pubweb/js
 MODELS:=$(wildcard ${MODEL}/*.coffee)
 
+WINDOWSSHARE=/Volumes/TF
+EXPORTDIR=ext out backend tools
+
 all: frontend backend
 
 # WINDOWS
 
 .PHONY: windows
 windows: all
-	mv .secrets/images/birds ext/images
-	mv .secrets/images/politicians ext/images
-
+	echo Copying files to ${WINDOWSSHARE}.
+	mkdir -p $(WINDOWSSHARE)/HoT
+	# "Processing... This might take a while."
+	for dir in $(EXPORTDIR) ; do \
+		rsync $$dir ${WINDOWSSHARE}/HoT -a --copy-links ; \
+	done
 
 # FRONTEND
 
