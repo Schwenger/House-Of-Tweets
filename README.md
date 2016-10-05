@@ -16,21 +16,22 @@ Install instructions:
 
 For the tersest but also most platform-specific instructions, read the `.travis.yml` script.
 
+
 ### Get all secrets
 
-If you're one of us, then you have access to the repository referenced
-in `.gitmodules`, and all you need to do is `git submodule update
---init .secrets`.
+To be able to establish a connection to twitter, you need to provide information about your twitter account in the `backend/credentials.py` files. This is a short Python "module" that defines a map `CREDENTIALS`.
 
-If not, you should probably overwrite the `credentials.py` with a short Python "module" that defines a map `CREDENTIALS`.
-- the format is pretty obvious
-- see `credentials_TEMPLATE.py` for an example
+Refer to `backend/credentials_TEMPLATE.py` for an example and follow the format.
+
+You can obtain the necessary values by creating a [twitter app](https://apps.twitter.com/).
+
 
 ### Get heavy
 
-You'll need the heavy files stored in `.heavy`, so so a `git submodule update --init .heavy`
+Large binary files are stored in a separate repository. To download the files run `git submodule update --init .heavy`. 
 
-Or just update all submodules in one go with `git submodule update --init`
+This repository includes all sounds and images which have appropriate licensing such that they can be made public.
+
 
 ### OS-dependent packages
 
@@ -39,19 +40,14 @@ In general, you'll need:
 - npm
 - rabbitmq
 - coffeescript
+- less
 - Python 3
 - pip (sometimes "pip3", should be running on Python 3)
 - script (as in "typescript", appeared in BSD 3.0)
 
-Install like this:
+##### Linux
 - Ubuntu: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript` (python, pip, and bsdutils?)
 - Debian: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript python3-dev python3-pip bsdutils`
-- MacOS X: `brew install rabbitmq node python3 libav bsdutils`
-Afterwards add the following to your `.bashrc`
-```
-export NODE_PATH=/usr/local/lib/node_modules
-```
-Then, run `npm install -g coffee-script`.
 
 Some systems (Ubuntu and Debian, at least) install the `node` binary in
 a way that is incompatible with npm.  To resolve this, do this on
@@ -60,21 +56,41 @@ Debian and Ubuntu:
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
+##### Mac OS X
+In case you have not installed homebrew yet, run 
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+to install homebrew and `brew install rabbitmq node python3 libav bsdutils` to install the dependencies.
+
+Afterwards add the following to your `.bashrc`
+```
+export NODE_PATH=/usr/local/lib/node_modules
+```
+Then, run `npm install -g coffee-script`.
+
+##### Windows
+It wouldn't be Windows if there would not be a graphical installer for most of the needed programs. 
+- [Erlang](http://www.erlang.org/downloads) for rabbitmq
+- [RabbitMQ](https://www.rabbitmq.com/install-windows.html)
+- [Python](https://www.python.org/downloads/windows/)
+- [ffmpeg](https://ffmpeg.org/download.html) This is the only program without a graphical installer. Download and extract the program. Afterwards add the path to the `ffmpeg/bin` directory to your PATH variable ([instructions](http://stackoverflow.com/questions/23400030/windows-7-add-path)).
+
+As it is windows, you most certainly have to restart your system, potentially several times during the installations.
+
 ### OS-independent packages
 
-Frontend-dependencies will be installed automatically by running
+FrontEnd-dependencies will be installed automatically by running
 `make install_dependencies`.
-This will essentially run
-```
-npm install --prefix=./ext/ stompjs browserify coffeescript-concat less
-pip3 install pika pydub tweepy typing
-```
 
-Note that Ubuntu calls it `pip`.
-Check with `--version` which Python version it is addressing.
+This will install `stompjs, browserify, coffeescript-concat, less, pip3, install, pika, pydub, tweepy, typing` using `npm` and `pip`.
 
-Note that under Debian, you may need to install the pip packages as sudo.
+Note 1: In Ubuntu the `pip3` package is simply called `pip`.
+Check with `--version` which Python version it is addressing and make sure it is Python 3.
 
+Note 2: Under Debian, you may need to install the pip packages as sudo.
+
+Note 3: Under Windows you need to install the dependencies manually. Use the GUI for `npm`, and the command line for `pip`. Both are shipped with the before-mentioned installers. For the latter, you need to run the command line as an administrator.
 
 Normal workflow:
 ================
@@ -88,8 +104,9 @@ Get RabbitMQ running:
     * `--online` means: fail if rabbitmq isn't running
     * `rabbitmq_web_stomp` enables communication with the frontend
     * `rabbitmq_management` is optional, and provides [a web interface](http://localhost:15672)
+  In Windows use the rabbit-mq console shipped with the installer or the GUI.
 - useful for: running the project, running tests
-
+  
 Build the frontend:
 - preconditions: none
 - execute: `make frontend` or just `make`
@@ -97,12 +114,12 @@ Build the frontend:
 
 Run the backend:
 - preconditions: RabbitMQ is running
-- start: `( cd backend && ./backend.py )`
+- start: `( cd backend && ./startBackend.py ${SOME_KEY})` with `SOME_KEY` being a key defined in `credentials.py`.
 - useful for: running the project
 
 Run the tests:
 - preconditions: RabbitMQ is running (unless you changed `MANUAL_TESTS` in `tests.py`)
-- start: `( cd backend && ./tests.py )`
+- start: `( cd backend && ./tests.py ${SOME_KEY})`
 
 Run the project / presentation:
 - preconditions: backend and RabbitMQ are running
@@ -112,16 +129,20 @@ Run the project / presentation:
 Authors:
 ========
 
-* Michaela Klauck (s9miklau@stud.uni-saarland.de)
-* Christopher Schommer (s9crscho@stud.uni-saarland.de)
+The application is developed and maintained by
 * Maximilian Schwenger (schwenger@stud.uni-saarland.de)
-* s9saster@stud.uni-saarland.de
 * Ben Wiederhake (s9bewied@stud.uni-saarland.de, Ben.Wiederhake@gmail.com)
 
 Sounds are extracted from [xeno-canto](http://www.xeno-canto.org/about/terms), thank you very much!
 Images can be extracted from wikipedia, for legal reasons, they are not included online.
 
+The first version was additionally developed by 
+* Michaela Klauck (s9miklau@stud.uni-saarland.de)
+* Christopher Schommer (s9crscho@stud.uni-saarland.de)
+* s9saster@stud.uni-saarland.de
 
 Troubleshooting:
 ================
-In case there are any troubles running the application on windows, we are aware of this but we do not intend to fix it. The application is designed for unix systems.
+In case there are any troubles developing on windows, we do not intend to fix it. The workflow is designed for Unix systems.
+
+A fully built project will run on Windows, as well as Unix systems. However, the FrontEnd is designed for and only fully tested on Chrome for Windows 7 and Mac OS 10.10 or later.
