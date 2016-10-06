@@ -20,10 +20,10 @@
 }
 
 .submit-citizen-bird {
-	background: @citizen-bird-color;
-    color:  white;
+	background: @citizen-bird-background;
+    color:  @citizen-bird-color;
     &:hover, &:focus {
-    	color: white;
+    	color: @citizen-bird-color;
     }
 }
 
@@ -32,9 +32,9 @@
 	width: 30%;
 
 	& .bird-dropdown-button {
-	    background: @citizen-bird-color;
+	    background: @citizen-bird-background;
 	    border: none;
-	    color:  white;
+	    color:  @citizen-bird-color;
 	    cursor: pointer;
 	    font-size: 30px;
 	    line-height: 40px;
@@ -61,15 +61,11 @@
 	    width: 100%;
 
 	    & > li {
-	    	background: @citizen-bird-color;
-	    	color:  white;
+	    	background: @citizen-bird-background;
+	    	color:  @citizen-bird-color;
 	    	cursor: pointer;
 	    	font-size: 14px;
 	    	line-height: 25px;
-
-	    	&:hover {
-	    		background: #aaa;
-	    	}
 
 	    }
 
