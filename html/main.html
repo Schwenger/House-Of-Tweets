@@ -17,6 +17,7 @@
 
 <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
 
+  <!-- SCREENSAVER -->
   <div id="screensaver-element-0" class="screen-saver"> 
     <img src="../ext/images/screensaver.gif">
   </div>
@@ -24,13 +25,14 @@
   <!-- CAROUSEL CONTENT-->
   <div class="carousel-inner page-container" role="listbox">
 
-    <!-- VOICES LISTS PAGE-->
+    <!-- VOICES LISTS PAGE -->
     <div id="voices" class="page item">
       <img class="background" src="../ext/images/backgrounds/background-left.jpg" alt="background-left">
 
-      <!-- VOICES LISTS -->
+      <!-- VOICES LISTS VIEW (LISTS/PROFILES) -->
       <div class="voices-container" id="voices-container">
 
+        <!-- NAME -->
         <div class="voices-list-container" id="voices-list-container">
           <!-- POLITICIANS -->
           <div class="voices-list-wrapper voices-list-wrapper-left">
@@ -54,27 +56,39 @@
           </div>
         </div>
 
-        <!-- Politician Profile Page -->
+        <!-- POLITICIAN PROFILE PAGE -->
         <div class="voices-profile-container invisible" id="voices-profile-container-politician">
+          
+          <!-- NAME -->
           <div class="name" id="voices-profile-name-politician">
-            Pete Altmeierle
+            Dr. err. Or Page
           </div>
+          
+          <!-- IMAGE AND SOURCE -->
           <div class="picture-wrapper">
             <img class="picture" id="voices-profile-picture-politician" src="../ext/images/default.png"></img>
             <span class="src" id="voices-profile-picture-politician-src"> SOURCE</span>
           </div>
+
+          <!-- BACK -->
           <div class="profile-back-button clickable-text" id="profile-back-button-politician">
               <i class="fa fa-arrow-left"></i> <span translatestring stringID="rot_zurück"> @rot_zurück </span>
           </div>
-
+          
+          <!-- RIGHT SIDE -->
           <div class="cv-and-selection-wrapper right-profile-wrapper" id="cv-and-selection-wrapper">
             
+            <!-- CV AND SOURCE -->
             <div class="cv" id="voices-profile-cv-politician">
-              On the eighth day He, who must not be named, thought 'Screw it, ain't serious today!'. Fly, you fools, for there he is.
+              Oops, you have encountered an error. Please stand by. Or don't. At this point, you are basically free to do whatever you want. Maybe notify an admin.
+              <br> Don't do drugs, tho.
             </div>
-            <span class="src" id="voices-profile-cv-politician-src">SOURCE</span>
+            <span class="src" id="voices-profile-cv-politician-src"></span>
 
+            <!-- SELECTED BIRDS -->
             <div class="selection-container" id="voices-bird-selection-container">
+
+              <!-- OWN BIRD -->
               <div class="x-selection self-selection">
                 <div class="header">
                   <span  translatestring stringID="own_bird" class="header"> @own_bird </span>
@@ -82,9 +96,11 @@
                 <img id="voices-profile-self-selection-image-politician" src="../ext/images/default.png">
                 </img>
                 <div class="text" id="voices-profile-self-selection-text-politician">
-                  Schwan
+                  Missing No.
                 </div>
               </div>
+
+              <!-- CITIZEN BIRD -->
               <div class="x-selection citizen-selection">
                 <div class="header">
                   <span  translatestring stringID="citizen_bird" class="header"> @citizen_bird </span>
@@ -92,24 +108,24 @@
                 <img id="voices-profile-citizen-selection-image-politician" src="../ext/images/default.png">
                 </img>
                 <div class="text" id="voices-profile-citizen-selection-text-politician">
-                  Schwan
+                  Missing No.
                 </div>
                 <div class="change-button clickable-text" id="voices-profile-citizen-selection-change-button">
                   <span translatestring stringID="rot_ändern"> @rot_ändern </span>
                 </div>
               </div>
+
             </div>
+          </div> <!-- END OF RIGHT SIDE -->
 
-          </div>
-
+          <!-- CITIZEN BIRD CHANGER -->
           <div class="change-citizen-bird-wrapper right-profile-wrapper invisible" id="change-citizen-bird-wrapper">
             <span translatestring stringID="select_bird" class="header"> @select_bird </span>
-           <!-- to be filled dynamically -->
+            <!-- to be filled dynamically -->
           </div>
+        </div> <!-- END OF POLITICIAN PROFILE PAGE -->
 
-        </div>
-
-        <!-- Bird Profile Page -->
+        <!-- BIRD PROFILE PAGE -->
         <div class="voices-profile-container invisible" id="voices-profile-container-bird">
           <div class="name" id="voices-profile-name-bird">
             Pete Altmeierle
@@ -147,11 +163,11 @@
           <div class="cv-birds cv" id="voices-profile-cv-bird">
             On the eighth day He, who must not be named, thought 'Screw it, ain't serious today!'. Fly, you fools, for there he is.
           </div>
-        </div>
-      </div>
-    </div>
+        </div> <!-- END OF BIRD PROFILE PAGE -->
+      </div> <!-- END OF VOICES LISTS VIEW -->
+    </div> <!-- END OF VOIDES LISTS PAGE -->
 
-    <!-- TWEETS -->
+    <!-- CENTER PAGE -->
     <div class="page item active" id="tweets">
       <img class="background" src="../ext/images/backgrounds/background-center.jpg" alt="background-center">
 
@@ -255,9 +271,9 @@
       <div id="impressum-button-container" class="impressum-button-container">
       <span id="impressum-button" class="impressum-button-text clickable-text"> impressum </span>
       </div>
-    </div>
+    </div> <!-- END OF CENTER PAGE -->
 
-    <!-- Login with your own twitter account -->
+    <!-- CITIZEN USER PAGE -->
     <div class="page item" id="owntweets">
       <img class="background" src="../ext/images/backgrounds/background-right.jpg" alt="background-right"></img>
       
@@ -274,9 +290,9 @@
         <input type="submit" class="btn submit-citizen-bird" id="submit-citizen-bird" value="Submit"></input>
         
       </div>
-    </div>
+    </div> <!-- END OF CITIZEN USER PAGE -->
 
-    <!-- IMPRESSUM Not reachable by carousel -->
+    <!-- IMPRESSUM -->
     <div class="page item" id="impressum">
       <img class="background" src="../ext/images/backgrounds/background-bottom.jpg" alt="background-bottom">
       <div class="impressum-container" id="impressum-container">
@@ -329,7 +345,7 @@
         </div>
 
       </div>	
-	  </div>
+	  </div> <!-- END OF IMPRESSUM -->
 
     <!-- ADMIN PAGE Not reachable by carousel but only via impressum -->
     <div class="page item" id="admin-page">
@@ -444,7 +460,7 @@
 
   </div>
 
-  <!-- CAROUSEL CONTROL -->
+  <!-- LEFT SIDEBAR -->
   <a id="carousel-control-prev" class="left carousel-control carousel-prev sidebar-left-coloring sidebar" href="#carousel" role="button" data-slide="prev">
     <div class="left-sidebar">
       <span class="text" id="carousel-control-prev-text">
@@ -453,7 +469,9 @@
         <i class="fa fa-arrow-left"></i> 
       </span>
     </div>
-  </a>
+  </a> <!-- END OF LEFT SIDEBAR -->
+
+  <!-- RIGHT SIDEBAR -->
   <a id="carousel-control-next" class="right carousel-control carousel-next sidebar-right-coloring sidebar" href="#carousel" role="button" data-slide="next">
     <div class="right-sidebar">
       <span class="text" id="carousel-control-next-text">
@@ -462,19 +480,18 @@
         <i class="fa fa-arrow-left"></i> 
       </span>
     </div>
-  </a>
+  </a> <!-- END OF RIGHT SIDEBAR -->
 
+  <!-- ARCHIVE -->
   <div id="archive-container">
-  </div>
+    <!-- FILLED DYNAMICALLY -->
   </div>
 
   <!-- FOOTER -->
   <script src="../ext/js/jquery.min.js" type="text/javascript"></script>
-  <!-- <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script> -->
   <script src="http://cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
   <script src="../ext/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="../ext/js/sha256.js" type="text/javascript"></script>
-  <!-- // <script src="../ext/js/sockjs.min.js" type="text/javascript"></script> -->
   <script src="../ext/js/bad_words.js" type="text/javascript"></script>
   <script src="../out/main.js" type="text/javascript"></script>
   </body>
