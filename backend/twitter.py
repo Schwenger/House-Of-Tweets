@@ -114,14 +114,15 @@ class StreamListenerAdapter(StreamListener):
             self.on_tweet(tweet)
 
     def on_exception(self, exception):
-        # tweepy has lots of bugs.  Backend and tweepy exception will
-        # result in this code being called, so use it as a trampoline.
-        print("{} on_exception {!r}".format(self.desc, exception))
-        print("(You'll see the same error immediately again, but don't"
-              " worry, I'm a Phoenix, I'll get revived in a few seconds.)")
         # Fun fact: even if no thread is runnable,
         # the existence of a Timer keeps Python alive.
         threading.Timer(RESPAWN_PERIOD, self.restarter.restart_now).start()
+        # tweepy has lots of bugs.  Backend and tweepy exception will
+        # result in this code being called, so use it as a trampoline.
+        print("{} on_exception!  Trying to print it:".format(self.desc))
+        print("(You'll see the same error immediately again, but don't"
+              " worry, I'm a Phoenix, I'll get revived in a few seconds.)")
+        print(exception)
 
     def on_delete(self, status_id, user_id):
         print("{} on_delete".format(self.desc))
