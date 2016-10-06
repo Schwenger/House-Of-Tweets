@@ -69,7 +69,7 @@ def find_pair(bird: Union[None, str], mood: str, retweet: bool, length: int):
 				print("[INFO] Found at {}".format(candidSource))
 			return candidSource, path_processed(b, m, r, length)
 		else:
-			print("[WARN] Source file {} missing, falling back …".format(candidSource))
+			print("[WARN] Source file {} missing, falling back ...".format(candidSource))
 			verbose = True
 	print("[ERR ] All sources and fallbacks missing.  Giving up.")
 	return None

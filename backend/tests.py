@@ -24,15 +24,26 @@ def test_mq():
         conn = maker("test_mq")
         if hasattr(conn, 'expect'):
             conn.expect([])
-        conn.post("My lovely message")
-        if hasattr(conn, 'expect'):
-            conn.expect(["My lovely message"])
+        for s in ["My lovely message", "Ümläöts Partyß! Or … what¿"]:
+            conn.post(s)
+            if hasattr(conn, 'expect'):
+                conn.expect([s])
     print("Testing mq.PrintQueue:")
     run_with(mq.PrintQueue.new)
     print("[MANU] Testing mq.RealQueue. Check http://localhost:15672/#/queues/%2F/test_mq")
     run_with(mq.RealQueue.new)
 
 all_tests.append(test_mq)
+
+
+def test_json_sanity():
+    obj = {'füßli … thing': 'Schemel¿', 'Köpflı': ['ohr', 'ohr', 'auge', 'stroh']}
+    expected = '{\n  "K\\u00f6pfl\\u0131": [\n    "ohr",\n    "ohr",\n    "auge",\n    "stroh"\n  ],' \
+               '\n  "f\\u00fc\\u00dfli \\u2026 thing": "Schemel\\u00bf"\n}'
+    actual = json.dumps(obj, sort_keys=True, indent=2)
+    assert actual == expected, (actual, expected)
+
+all_tests.append(test_json_sanity)
 
 
 def test_batching_x(n, batch):
@@ -356,7 +367,7 @@ def test_twitter_listener():
     polBack = politicianBackend.PoliticianBackend()
     follow = ["4718199753", "813286", "774336282101178368"]
     queue = mq.PrintQueue("twitter_lis_test")
-    print("[INFO] Preparing for integration test …")
+    print("[INFO] Preparing for integration test ...")
 
     fakeTwitter = twitter.FakeTwitterInterface()
     twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack, fakeTwitter)
@@ -367,7 +378,7 @@ def test_twitter_listener():
     assert twi.citizens.keys() == {'987654'}
     sounds = soundGenerator.SOUND_ROOT
 
-    print("[INFO] Testing reactions to various tweets …")
+    print("[INFO] Testing reactions to various tweets ...")
 
     fakeTwitter.send({'content': 'content1',
                       'profile_img': 'img_url',
