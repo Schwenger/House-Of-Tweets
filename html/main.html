@@ -26,35 +26,50 @@
   <div class="carousel-inner page-container" role="listbox">
 
     <!-- VOICES LISTS PAGE -->
-    <div id="voices" class="page item">
+    <div id="voices" class="page item voices-list-page">
       <img class="background" src="../ext/images/backgrounds/background-left.jpg" alt="background-left">
 
-      <!-- VOICES LISTS VIEW (LISTS/PROFILES) -->
-      <div class="voices-container" id="voices-container">
+      <!-- VOICES LISTS CONTENT (LISTS/PROFILES) -->
+      <div class="content" id="voices-container">
 
-        <!-- NAME -->
-        <div class="voices-list-container" id="voices-list-container">
+        <!-- VOICES LISTS WRAPPER (becomes invisible to make room for profiles) -->
+        <div id="voices-lists-wrapper" class="wrapper">
+
           <!-- POLITICIANS -->
-          <div class="voices-list-wrapper voices-list-wrapper-left">
-            <div class="voices-list" id="voices-list-politicians">
-              <!-- HEADLINE -->
-              <span  translatestring stringID="rot_Abgeordnete" class="header"> @rot_Abgeordnete </span>
+          <div class="list-container list-container-left">
+
+            <!-- HEADLINE -->
+            <div class="headline">
+              <span translatestring stringID="rot_Abgeordnete" class="header"> @rot_Abgeordnete </span>
+            </div>
+
+            <!-- SCROLLABLE LIST -->
+            <div class="list" id="voices-list-politicians">
               <!-- SEARCH BAR -->
-              <div class="voices-list-search-bar-container">
-                <input class="input" id="voices-list-search-bar">
+              <div class="search-bar">
+                <input class="input" id="voices-list-search-bar" placeholder="IF YOU READ THIS, YOU ARE GOING TO DIE">
               </div>
               <!-- ROOM FOR ENTRIES -->
             </div>
-          </div>
+
+          </div> <!-- END OF SCROLLABLE LIST -->
+
           <!-- BIRDS -->
-          <div class="voices-list-wrapper voices-list-wrapper-right">
-            <div class="voices-list" id="voices-list-birds">
-              <!-- HEADLINE -->
+          <div class="list-container list-container-right">
+
+            <!-- HEADLINE -->
+            <div class="headline">
               <span  translatestring stringID="rot_Vögel" class="header"> @rot_Vögel </span>
+            </div>
+
+            <!-- SCROLLABLE LIST -->
+            <div class="list" id="voices-list-birds">
               <!-- ROOM FOR ENTRIES -->
             </div>
-          </div>
-        </div>
+
+          </div> <!-- END OF SCROLLABLE LIST -->
+
+        </div> <!-- VOICES LISTS WRAPPER -->
 
         <!-- POLITICIAN PROFILE PAGE -->
         <div class="voices-profile-container invisible" id="voices-profile-container-politician">
@@ -164,7 +179,7 @@
             On the eighth day He, who must not be named, thought 'Screw it, ain't serious today!'. Fly, you fools, for there he is.
           </div>
         </div> <!-- END OF BIRD PROFILE PAGE -->
-      </div> <!-- END OF VOICES LISTS VIEW -->
+      </div> <!-- END OF VOICES LISTS CONTENT -->
     </div> <!-- END OF VOIDES LISTS PAGE -->
 
     <!-- CENTER PAGE -->
