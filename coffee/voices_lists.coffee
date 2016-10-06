@@ -107,14 +107,12 @@ VoicesLists =
 		second_line_o.text(second_line)
 
 		image_o = $("<img src='#{image}'>")
-		twitter_image_o = $("<img class='twitter-bird-overlay' src='#{Global.twitterIconPath}'>") if twitterBird
 
 		span_o.append first_line_o
 		span_o.append lineBreak_o
 		span_o.append second_line_o
 
 		item_o.append image_o
-		item_o.append twitter_image_o if twitterBird
 		item_o.append span_o
 
 		return item_o
