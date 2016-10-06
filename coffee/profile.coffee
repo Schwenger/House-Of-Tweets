@@ -59,13 +59,13 @@ Profiles =
 
 	close: ->
 		Profiles.closeCitizenBirdSelection()
-		$("#voices-list-container").css("opacity", 1)
+		$("#voices-lists-wrapper").css("opacity", 1)
 		$("#voices-profile-container-politician").addClass "invisible"
 		$("#voices-profile-container-bird").addClass "invisible"
 		Profiles._switchVisibility(Profiles.birdPhoto, Profiles.birdDrawing)
 
 	openPoliticianPage: (id) ->
-		$("#voices-list-container").css("opacity", 0)
+		$("#voices-lists-wrapper").css("opacity", 0)
 		$("#voices-profile-container-politician").removeClass "invisible"
 
 		poli = Model.politicians[id]
@@ -105,7 +105,7 @@ Profiles =
 			selectionContainer.addClass "invisible"
 
 	openBirdPage: (id) ->
-		$("#voices-list-container").css("opacity", 0)
+		$("#voices-lists-wrapper").css("opacity", 0)
 		$("#voices-profile-container-bird").removeClass "invisible"
 
 		picObj = $("#voices-profile-picture-bird")
