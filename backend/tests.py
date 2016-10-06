@@ -279,8 +279,8 @@ all_tests.append(test_twitter_citizenship)
 def test_sound_gen():
     # Don't even attempt to prevent writing to disk.  Overwriting is perfectly
     # fine, as we don't overwrite anything important, and everything is in git.
-    mylog.warning("Please check by hand whether this generates the file on the\n"
-                  "first call and uses the cached version on the second:")
+    mylog.warning("Please check by hand whether this generates the file on the")
+    mylog.warning("first call and uses the cached version on the second:")
     actual = soundGenerator.generate_sound('Cheerio, buddy', False, 'amsel', 'amsel')
     # Set as 'warning' so that the user always sees both (or neither).
     mylog.warning("(end of manual part)")
@@ -491,6 +491,8 @@ def test_all():
 
 if __name__ == '__main__':
     line = "=" * 80
-    mylog.info("{line}\nUSING REAL TWITTER API!\nSlow tests = {slow}\n{line}"
-               .format(line=line, slow=RUN_SLOW_TESTS))
+    mylog.info(line)
+    mylog.info("USING REAL TWITTER API!")
+    mylog.info("Slow tests = {slow}".format(slow=RUN_SLOW_TESTS))
+    mylog.info(line)
     test_all()

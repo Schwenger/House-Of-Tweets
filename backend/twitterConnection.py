@@ -68,8 +68,8 @@ class TwitterListener(TweetConsumer):
 
 	def consumeTweet(self, tweet):
 		self.prev_msg_id += 1
-		mylog.info("{line}\nReceived tweet #{msg_id}:"
-			       .format(line="("*80, msg_id=self.prev_msg_id))
+		mylog.info("(" * 80)
+		mylog.info("Received tweet #{msg_id}:".format(msg_id=self.prev_msg_id))
 		mylog.debug(tweet)
 
 		# Boring stuff
@@ -101,14 +101,16 @@ class TwitterListener(TweetConsumer):
 
 		# Make a sound
 		if birds is None:
-			mylog.info("=> drop tweet, DONE\n" + ")"*80)
+			mylog.info("=> drop tweet, DONE")
+			mylog.info(")" * 80)
 			return
 		cBird, pBird = birds
 		msg['sound'] = generate_sound(tweet['content'], tweet['retweet'], cBird, pBird)
 
 		# Send it
 		self.sendingQueue.post(msg)
-		mylog.info("Done with this tweet, DONE\n" + ")"*80)
+		mylog.info("Done with this tweet, DONE")
+		mylog.info(")" * 80)
 
 	# For consistency.
 	# noinspection PyMethodMayBeStatic
@@ -138,8 +140,8 @@ class TwitterListener(TweetConsumer):
 			pBird_name = self.birdBack.getName(pBird)
 			bird_id = find_bird(tweet['content'], self.birdBack)
 			if bird_id is None:
-				mylog.warning('I saw that command, but no valid bird!\n'
-					          'pid={pid!r} content={ct}'
+				mylog.warning('I saw that command, but no valid bird!')
+				mylog.warning('pid={pid!r} content={ct}'
 					          .format(ct=tweet['content'], pid=pid))
 				reply = responseBuilder.build_some_nack(handle, pBird_name)
 			else:
