@@ -1,73 +1,73 @@
 .tweet-list-header {
-	position: absolute;
-	width: 80%;
-	height: 15%;
-	top: 0px;
-	margin-left: 10%;
 	display: flex;
+	height: 15%;
+	margin-left: 10%;
+	position: absolute;
+	top: 0px;
+	width: 80%;
 	&-text{
 		.hover-element;
 		color: @language_header_color;
-		width: 100%;
 		font-size: 45px;
 		text-align: center;
+		width: 100%;
   		text-shadow: 3px 3px 7px @language_shadow_color;
 	}
 }
 
 .language-control {
-	position: absolute;
-    left: 0;
-	z-index: 10;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
 	align-content: center;
 	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	position: absolute;
+	width: 100%;
+	z-index: 10;
+    left: 0;
 
 	& > .flag {
-		width: 500px;
 		height: 260px;
-		z-index: 10;
-		padding-right: 40px;
 		padding-left: 40px;
+		padding-right: 40px;
+		width: 500px;
+		z-index: 10;
 	}
 }
 
 .language-bg {
-	position: absolute;
-	left: 0px;
-	width: 100%;
 	height: 100%;
+	left: 0px;
+	position: absolute;
+	width: 100%;
 }
 
 .screen-saver {
-	opacity: 0;
-	z-index: 5;
 	background-color: rgba(200,200,200, 0.7);
+	height: 0%;
+	opacity: 0;
 	position: absolute;
 	width: 0%;
-	height: 0%;
+	z-index: 5;
 
 	& > img {
-		width: 0%;
 		height: 0%;
+		width: 0%;
 		&.load {
-			width: 100%;
 			height: 100%;
 			opacity: 1;
+			width: 100%;
 		}
 	}
 }
 
 .fade-in {
-	animation: fadein 2s;
 	-webkit-animation: fadein 2s; 
+	animation: fadein 2s;
 
-	width: 100%;
 	height: 100%;
 	opacity: 1;
+	width: 100%;
 }
 
 @keyframes fadein {

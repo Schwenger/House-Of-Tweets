@@ -1,22 +1,22 @@
 
 .citizen-bird-page {
-	text-align: center;
-	width: 70%;
-	margin-left: 15%;
+	align-items: center;
 	color: @citizen-bird-color;
-	font-size: 30px;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
+	font-size: 30px;
 	height: 100%;
-	padding-top: 10%;
+	justify-content: space-around;
+	margin-left: 15%;
 	padding-bottom: 10%;
+	padding-top: 10%;
+	text-align: center;
+	width: 70%;
 }
 
 .citizen-user-name-input{
-	width: 30%;
 	padding: 3px;
+	width: 30%;
 }
 
 .submit-citizen-bird {
@@ -28,18 +28,18 @@
 }
 
 .bird-dropdown-container {
-	width: 30%;
 	position: relative;
+	width: 30%;
 
 	& .bird-dropdown-button {
-	    width: 100%;
 	    background: @citizen-bird-color;
-	    color:  white;
-	    line-height: 40px;
-	    font-size: 30px;
-	    padding: 0 10px;
-	    cursor: pointer;
 	    border: none;
+	    color:  white;
+	    cursor: pointer;
+	    font-size: 30px;
+	    line-height: 40px;
+	    padding: 0 10px;
+	    width: 100%;
 
 	    &:focus {
 	    	outline: none;
@@ -48,24 +48,24 @@
 
 	& > ul {
 		.hover-element;
-	    display: none;
-	    margin: 0;
-	    padding: 0px;
 	    background: #dddddd;
-	    width: 100%;
-	    list-style: none;
-	    position: absolute;
+	    display: none;
 	    font-size: 25px;
 	    height: 200px;
-	    overflow: hidden;
+	    list-style: none;
+	    margin: 0;
 	    overflow-y: scroll;
+	    overflow: hidden;
+	    padding: 0px;
+	    position: absolute;
+	    width: 100%;
 
 	    & > li {
 	    	background: @citizen-bird-color;
 	    	color:  white;
-	    	line-height: 25px;
-	    	font-size: 14px;
 	    	cursor: pointer;
+	    	font-size: 14px;
+	    	line-height: 25px;
 
 	    	&:hover {
 	    		background: #aaa;

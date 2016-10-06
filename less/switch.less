@@ -5,56 +5,64 @@
 @thumb-width: 32px;
 
 .onoffswitch {
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
     position: relative; 
     width: @overall-width;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
     display: none;
 }
 .onoffswitch-label {
+    border-radius: 20px;
+    border: 2px solid #999999; 
+    cursor: pointer;
     display: block; 
     overflow: hidden; 
-    cursor: pointer;
-    border: 2px solid #999999; 
-    border-radius: 20px;
 }
 .onoffswitch-inner {
     display: block; 
-    width: 200%; 
     margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
+    width: 200%; 
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-    font-size: 15px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
     box-sizing: border-box;
+    color: white; 
+    display: block; 
+    float: left; 
+    font-family: Trebuchet, Arial, sans-serif; 
+    font-size: 15px; 
+    font-weight: bold;
+    height: 30px; 
+    line-height: 30px;
+    padding: 0; 
+    width: 50%; 
 }
 .onoffswitch-inner:before {
+    background-color: #EEEEEE; color: #FFFFFF;
     content: "";
     padding-left: 10px;
-    background-color: #EEEEEE; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
+    background-color: #EEEEEE; color: #999999;
     content: "";
     padding-right: 10px;
-    background-color: #EEEEEE; color: #999999;
     text-align: right;
 }
 .onoffswitch-switch {
-    display: block; 
-    width: @thumb-width; 
-    margin: 0px;
     background: #A1A1A1;
+    border: 2px solid #999999; border-radius: 20px;
+    display: block; 
+    margin: 0px;
     position: absolute; top: 0; bottom: 0;
     right: @overall-width - @thumb-width;
-    border: 2px solid #999999; border-radius: 20px;
     transition: all 0.3s ease-in 0s; 
+    width: @thumb-width; 
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
     background-color: #A1A1A1; 
+    right: 0px; 
 }
