@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
 import fileinput
-import threading
 import json
+import mylog
 import os
+import threading
 
 _SKIP_WRITEBACK = False
 
@@ -11,11 +12,11 @@ _SKIP_WRITEBACK = False
 def set_skip_writeback(to: bool):
 	global _SKIP_WRITEBACK
 	_SKIP_WRITEBACK = to
-	print("politicianBackend: UPDATE SKIP_WRITEBACK = {}".format(_SKIP_WRITEBACK))
+	mylog.warning("politicianBackend: UPDATE SKIP_WRITEBACK = {}".format(_SKIP_WRITEBACK))
 
 
 def check_writeback():
-	print("politicianBackend: SKIP_WRITEBACK is currently {}".format(_SKIP_WRITEBACK))
+	mylog.info("politicianBackend: SKIP_WRITEBACK is currently {}".format(_SKIP_WRITEBACK))
 
 
 BACKEND_POLI_DB = 'pols.json'
@@ -34,8 +35,8 @@ class PoliticianBackend:
 			assert "twittering" in poli, poli['pid']
 			self.polByTid[str(poli["twittering"]["twitterId"])] = poli
 
-		print("Loaded {} polititians; {} of them have a TID"
-			  .format(len(self.polByPid), len(self.polByTid)))
+		mylog.info("Loaded {} polititians; {} of them have a TID"
+			  	   .format(len(self.polByPid), len(self.polByTid)))
 
 	def getAllTwitteringPoliticians(self):
 		with self.lock:
@@ -62,18 +63,18 @@ class PoliticianBackend:
 				# setPoliticianBird comes in.
 				poli = self.polByPid[pid]
 			except KeyError:
-				print("ERROR: Tried to update non-existent politician {pid}"
-					  " to bird {bid}, actor={actor}"
-					  .format(pid=pid, bid=bid, actor=actor))
+				mylog.error("ERROR: Tried to update non-existent politician {pid}"
+					        " to bird {bid}, actor={actor}"
+					        .format(pid=pid, bid=bid, actor=actor))
 				return
 			poli[bird_key] = bid
 			self._dumpToFile()
 
 	def _dumpToFile(self):
 		if _SKIP_WRITEBACK:
-			print("=" * 77)
-			print("politicianBackend: skipping write-back <THIS SHOULD NOT HAPPEN IN PRODUCTION>")
-			print("=" * 77)
+			mylog.warning("=" * 77)
+			mylog.warning("politicianBackend: skipping write-back <THIS SHOULD NOT HAPPEN IN PRODUCTION>")
+			mylog.warning("=" * 77)
 			return
 
 		with open(BACKEND_POLI_DB, 'w') as outfile:
@@ -83,7 +84,7 @@ class PoliticianBackend:
 			out.write("@politicians = ")
 			json.dump(self.polByPid, out, sort_keys=True, indent="\t")
 		for line in fileinput.input([FRONTEND_POLI_DB], inplace=True):
-			print('\t' + line.rstrip('\n'))
+			print('\t' + line.rstrip('\n'))  # WHITELISTED PRINT
 
 
 # Use this if you need to make some processing / regeneration.
@@ -91,7 +92,7 @@ def poli_modify():
 	check_writeback()
 	set_skip_writeback(False)
 	check_writeback()
-	print("Fiddling with politicianBackend.")
+	mylog.warning("Fiddling with politicianBackend.")
 	pb = PoliticianBackend()
 
 	# Do your thing here, e.g.:
@@ -101,7 +102,7 @@ def poli_modify():
 	#     for poli in pb.poliList:
 	#         cv = poli['cv']
 	#         if 'fr' in cv:
-	#             print('Purged the French out of ' + poli['name'])
+	#             mylog.info('Purged the French out of ' + poli['name'])
 	#             del cv['fr']
 
 	# Note:
@@ -109,11 +110,11 @@ def poli_modify():
 	#   In all other cases, you'll need to call __dumpToFile by hand, like this:
 	pb._dumpToFile()
 
-	print("Now check by hand.")
+	mylog.warning("Now check by hand.")
 
 
 if __name__ == '__main__':
-	print("Are you sure you want to rewrite pols.json?")
-	print("Uncomment me, I'm not gonna let ya!")
+	mylog.warning("Are you sure you want to rewrite pols.json?")
+	mylog.error("Uncomment me, I'm not gonna let ya!")
 	# Uncomment to run:
 	# poli_modify()

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import mq
+import mylog
 
 from twitterConnection import TwitterConnection
 from politicianBackend import PoliticianBackend
@@ -12,7 +13,7 @@ from twitter import RealTwitterInterface
 birdBack = BirdBackend()
 polBack = PoliticianBackend()
 follow = polBack.getAllTwitteringPoliticians()
-print("Configured to follow {} accounts.".format(len(follow)))
+mylog.info("Configured to follow {} accounts.".format(len(follow)))
 
 queue = mq.Batcher(mq.RealQueue("tweets"))
 twi = TwitterConnection(queue, follow, polBack, birdBack, RealTwitterInterface())
@@ -23,4 +24,4 @@ c.start()
 cbq = CitizenBirdQueueAdapter(polBack)
 cbq.start()
 
-print('Backend started ("heeere")')
+mylog.info('Backend started ("heeere")')

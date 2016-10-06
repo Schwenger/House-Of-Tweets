@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 
+import birdBackend
 import json
 import mq
+import mylog
 import os
-import time
-import twitter
-import twitterConnection
-import birdBackend
 import politicianBackend
 import responseBuilder
 import soundGenerator
+import time
+import twitter
+import twitterConnection
 
 all_tests = []
 
@@ -28,9 +29,9 @@ def test_mq():
             conn.post(s)
             if hasattr(conn, 'expect'):
                 conn.expect([s])
-    print("Testing mq.PrintQueue:")
+    mylog.info("Testing mq.PrintQueue:")
     run_with(mq.PrintQueue.new)
-    print("[MANU] Testing mq.RealQueue. Check http://localhost:15672/#/queues/%2F/test_mq")
+    mylog.warning("[MANU] Testing mq.RealQueue. Check http://localhost:15672/#/queues/%2F/test_mq")
     run_with(mq.RealQueue.new)
 
 all_tests.append(test_mq)
@@ -48,10 +49,10 @@ all_tests.append(test_json_sanity)
 
 def test_batching_x(n, batch):
     if not RUN_SLOW_TESTS:
-        print("[SKIP] Skipping slow test")
+        mylog.warning("[SKIP] Skipping slow test")
         return
 
-    print("Testing batching.TweetBatcher:")
+    mylog.info("Testing batching.TweetBatcher:")
     conn = mq.PrintQueue.new('test_batching')
     batcher = mq.Batcher(conn)
     expected = []
@@ -118,8 +119,8 @@ def test_responses():
     responses.extend(responseBuilder.build_worst_nacks())
     # Not a dict to preserve order
     lengths = [(len(r), r) for r in responses]
-    print("Worst-case response lengths: {}"
-          .format([len(r) for r in responses]))
+    mylog.info("Worst-case response lengths: {}"
+               .format([len(r) for r in responses]))
     for (l, r) in lengths:
         assert l <= MAX_RESPONSE_LENGTH, (l, r)
 
@@ -136,8 +137,8 @@ def test_name_resolution():
     twi = twitter.RealTwitterInterface()
     for (user, expect_id) in ids.items():
         actual_id = twi.resolve_name(user)
-        print('resolve {u} to {a!r} (expected {e!r})'
-              .format(u=user, e=expect_id, a=actual_id))
+        mylog.info('resolve {u} to {a!r} (expected {e!r})'
+                   .format(u=user, e=expect_id, a=actual_id))
         assert actual_id == expect_id
 
 all_tests.append(test_name_resolution)
@@ -200,8 +201,8 @@ all_tests.append(test_bird_recognition)
 
 
 def long_wait(secs):
-    print("[INFO] Waiting for {} seconds.  Note that Travis kills".format(secs))
-    print("       you after 600 seconds of no output.")
+    mylog.info("Waiting for {} seconds.  Note that Travis kills".format(secs))
+    mylog.info("you after 600 seconds of no output.")
     time.sleep(secs)
 
 
@@ -241,7 +242,7 @@ def test_twitter_citizenship():
     queue.expect([])
 
     if RUN_SLOW_TESTS:
-        print("[INFO] This wakeup should be completely silent.")
+        mylog.info("This wakeup should be completely silent.")
         long_wait(twitterConnection.REMOVE_CITIZEN_TIME / 2)
 
     twi.addCitizen("Heinz3", 'zilpzalp', tid="12345679")
@@ -252,11 +253,11 @@ def test_twitter_citizenship():
     assert twi.citizens.keys() == {'12345679'}
 
     if not RUN_SLOW_TESTS:
-        print("[SKIP] The slow part of test_twitter_citizenship().")
-        print("       You might see several stray 'citizen removed' messages.")
+        mylog.warning("The slow part of test_twitter_citizenship().")
+        mylog.warning("You might see several stray 'citizen removed' messages.")
         return
 
-    print("[INFO] This wakeup should be a no-op.")
+    mylog.info("This wakeup should be a no-op.")
     long_wait(twitterConnection.REMOVE_CITIZEN_TIME / 2 + 10)
     queue.expect([])
     assert not twi.isPoli("12345679")
@@ -264,8 +265,8 @@ def test_twitter_citizenship():
     assert twi.getCitizen("12345679")['birdId'] == 'zilpzalp'
     assert twi.citizens.keys() == {'12345679'}
 
-    print("[INFO] This wakeup should remove it, as citizen deletion")
-    print("       has been deferred when the bird was updated.")
+    mylog.info("This wakeup should remove it, as citizen deletion")
+    mylog.info("has been deferred when the bird was updated.")
     long_wait(twitterConnection.REMOVE_CITIZEN_TIME / 2 + 10)
     queue.expect([])
     assert not twi.isPoli("12345679")
@@ -278,10 +279,11 @@ all_tests.append(test_twitter_citizenship)
 def test_sound_gen():
     # Don't even attempt to prevent writing to disk.  Overwriting is perfectly
     # fine, as we don't overwrite anything important, and everything is in git.
-    print("[MANU] Please check by hand whether this generates the file on the\n"
-          "       first call and uses the cached version on the second:")
+    mylog.warning("Please check by hand whether this generates the file on the\n"
+                  "first call and uses the cached version on the second:")
     actual = soundGenerator.generate_sound('Cheerio, buddy', False, 'amsel', 'amsel')
-    print("[MANU] (end)")
+    # Set as 'warning' so that the user always sees both (or neither).
+    mylog.warning("(end of manual part)")
     path_amsel = os.path.join(soundGenerator.SOUND_ROOT, 'processed', 'amsel-neutral-10000.mp3')
     desc_amsel = {'natural': path_amsel, 'synth': path_amsel, 'bid': 'amsel'}
     expected = {'duration': 10000, 'citizen': desc_amsel, 'poli': desc_amsel}
@@ -343,8 +345,8 @@ def test_sound_pairing():
                # Negative examples, ignore all:
                ('invalid', 'neutral', False, 'amsel-neutral'),
                ('invalid', 'aufgebracht', True, 'amsel-neutral')]
-    print("You can safely ignore the following warnings about missing files,")
-    print("  because that's exactly what this test is checking.")
+    mylog.info("You can safely ignore the following warnings about missing files,")
+    mylog.info("  because that's exactly what this test is checking.")
     sounds = soundGenerator.SOUND_ROOT
     for (b, m, r, expect_body) in battery:
         actual_source, actual_dest = soundGenerator.find_pair(b, m, r, 6001)
@@ -352,7 +354,7 @@ def test_sound_pairing():
         expect_dest = os.path.join(sounds, 'processed', expect_body + "-6001.mp3")
         assert actual_source == expect_source, (actual_source, expect_source)
         assert actual_dest == expect_dest, (actual_dest, expect_dest)
-    print("Done.  Warnings about missing files after this are bad.")
+        mylog.info("Done.  Warnings about missing files after this are bad.")
 
 all_tests.append(test_sound_pairing)
 
@@ -367,7 +369,7 @@ def test_twitter_listener():
     polBack = politicianBackend.PoliticianBackend()
     follow = ["4718199753", "813286", "774336282101178368"]
     queue = mq.PrintQueue("twitter_lis_test")
-    print("[INFO] Preparing for integration test ...")
+    mylog.info("Preparing for integration test ...")
 
     fakeTwitter = twitter.FakeTwitterInterface()
     twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack, fakeTwitter)
@@ -378,7 +380,7 @@ def test_twitter_listener():
     assert twi.citizens.keys() == {'987654'}
     sounds = soundGenerator.SOUND_ROOT
 
-    print("[INFO] Testing reactions to various tweets ...")
+    mylog.info("Testing reactions to various tweets ...")
 
     fakeTwitter.send({'content': 'content1',
                       'profile_img': 'img_url',
@@ -479,17 +481,16 @@ all_tests.append(test_twitter_listener)
 
 def test_all():
     # This might show weird behavior if you modify MANUAL_TESTS by hand
-    print('[TEST] -- Running all tests --')
+    mylog.info('[TEST] -- Running all tests --')
     for t in all_tests:
-        print("[TEST] {}".format(t))
+        mylog.info("[TEST] {}".format(t))
         t()
-        print("[DONE] {}".format(t))
-    print('[DONE] -- Done with all tests --')
+        mylog.info("[DONE] {}".format(t))
+    mylog.info('[DONE] -- Done with all tests --')
 
 
 if __name__ == '__main__':
     line = "=" * 80
-    print("{line}\nUSING REAL TWITTER API!\nSlow tests = {slow}\n{line}"
-          .format(line=line, slow=RUN_SLOW_TESTS))
-
+    mylog.info("{line}\nUSING REAL TWITTER API!\nSlow tests = {slow}\n{line}"
+               .format(line=line, slow=RUN_SLOW_TESTS))
     test_all()

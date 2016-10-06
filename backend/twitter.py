@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 from typing import List
-
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 import tweepy
 import json
+import mylog
 import threading
 
 
@@ -41,7 +41,7 @@ class TwitterInterface(object):
 
 class TweetPrinter(TweetConsumer):
     def consumeTweet(self, tweet: dict):
-        print("incoming tweet {}".format(tweet))
+        mylog.info("incoming tweet {}".format(tweet))
 
 
 # Turn a giant "Tweet" JSON into a more easily spoofable and printable format.
@@ -82,34 +82,34 @@ class StreamListenerAdapter(StreamListener):
     # Intercept on_data calls because we want the raw data later on.
     def on_data(self, raw_data):
         if self.raw_data is not None:
-            print("StreamListenerAdapter.raw_data was unclean.  Ignoring.")
+            mylog.warning("StreamListenerAdapter.raw_data was unclean.  Ignoring.")
         self.raw_data = raw_data
         ret = StreamListener.on_data(self, raw_data)
         self.raw_data = None
         return ret
 
     def on_connect(self):
-        print("{}: on_connect".format(self.desc))
+        mylog.info("{}: on_connect".format(self.desc))
 
     def keep_alive(self):
         # Just ignore
         pass
 
     def on_tweet(self, tweet):
-        print("{}: on_tweet".format(self.desc))
+        mylog.info("{}: on_tweet".format(self.desc))
         self.consumer.consumeTweet(tweet)
 
     # A tweet arrived.  The retweet filtering happens here.
     def on_status(self, status):
         if self.raw_data is None:
-            print("ERROR: on_status called without going through on_data?!")
+            mylog.error("on_status called without going through on_data?!")
             return
         tweet = parse_tweet(json.loads(self.raw_data))
         if tweet is None:
-            print("{}: on_tweet BROKEN! (skip)".format(self.desc))
+            mylog.error("{}: on_tweet BROKEN! (skip)".format(self.desc))
         elif tweet['uid'] not in self.sensitive:
-            print("{}: dropped irrelevant tweet from user {} at time {}"
-                  .format(self.desc, tweet['uid'], tweet['time']))
+            mylog.info("{}: dropped irrelevant tweet from user {} at time {}"
+                       .format(self.desc, tweet['uid'], tweet['time']))
         else:
             self.on_tweet(tweet)
 
@@ -119,40 +119,41 @@ class StreamListenerAdapter(StreamListener):
         threading.Timer(RESPAWN_PERIOD, self.restarter.restart_now).start()
         # tweepy has lots of bugs.  Backend and tweepy exception will
         # result in this code being called, so use it as a trampoline.
-        print("{} on_exception!  Trying to print it:".format(self.desc))
-        print("(You'll see the same error immediately again, but don't"
-              " worry, I'm a Phoenix, I'll get revived in a few seconds.)")
-        print(exception)
+        # Log it 'only' as a warning, since if we get here, this isn't too bad anyway.
+        mylog.warning("{} on_exception!  Trying to print it:".format(self.desc))
+        mylog.warning("(You'll see the same error immediately again, but don't"
+                      " worry, I'm a Phoenix, I'll get revived in a few seconds.)")
+        mylog.warning(exception)
 
     def on_delete(self, status_id, user_id):
-        print("{} on_delete".format(self.desc))
+        mylog.info("{} on_delete".format(self.desc))
 
     def on_event(self, status):
-        print("{} on_event".format(self.desc))
+        mylog.info("{} on_event".format(self.desc))
 
     def on_direct_message(self, status):
-        print("{} on_direct_message".format(self.desc))
+        mylog.info("{} on_direct_message".format(self.desc))
 
     def on_friends(self, friends):
-        print("{} on_friends".format(self.desc))
+        mylog.info("{} on_friends".format(self.desc))
 
     def on_limit(self, track):
-        print("{} on_limit".format(self.desc))
+        mylog.info("{} on_limit".format(self.desc))
 
     def on_error(self, status_code):
-        print("{} on_error: {}".format(self.desc, status_code))
+        mylog.info("{} on_error: {}".format(self.desc, status_code))
 
     def on_timeout(self):
-        print("{} on_timeout".format(self.desc))
+        mylog.info("{} on_timeout".format(self.desc))
 
     def on_disconnect(self, notice):
-        print("{} on_disconnect: {}".format(self.desc, notice))
+        mylog.info("{} on_disconnect: {}".format(self.desc, notice))
         """
         https://dev.twitter.com/docs/streaming-apis/messages#Disconnect_messages_disconnect
         """
 
     def on_warning(self, notice):
-        print("{} on_warning: {}".format(self.desc, notice))
+        mylog.warning("{} on_warning: {}".format(self.desc, notice))
 
 
 # tweepy has lots of bugs.  This is essentially a wrapper that automatically
@@ -191,10 +192,10 @@ class RestartingStream:
 
 def show_usage(keys):
     from sys import exit
-    print('Start it like this:')
-    print('( cd backend && ./startBackend.py ${SOME_KEY} )')
-    print('Where the following values are accepted for ${SOME_KEY}:')
-    print('{}'.format(keys))
+    mylog.error('Start it like this:')
+    mylog.error('( cd backend && ./startBackend.py ${SOME_KEY} )')
+    mylog.error('Where the following values are accepted for ${SOME_KEY}:')
+    mylog.error('{}'.format(keys))
     exit(1)
 
 
@@ -206,11 +207,11 @@ class RealTwitterInterface(TwitterInterface):
 
         show_keys = set(CREDENTIALS.keys())  # Copy to be extra safe
         if len(argv) != 2:
-            print('Must specify exactly one argument, but {} provided.'.format(len(argv) - 1))
+            mylog.error('Must specify exactly one argument, but {} provided.'.format(len(argv) - 1))
             show_usage(show_keys)
         self.key = argv[1]
         if self.key not in CREDENTIALS:
-            print('Unknown key {} provided.'.format(self.key))
+            mylog.error('Unknown key {} provided.'.format(self.key))
             show_usage(show_keys)
 
         creds = CREDENTIALS[self.key]
@@ -227,7 +228,7 @@ class RealTwitterInterface(TwitterInterface):
     def deregister(self, usernames: List[str]):
         with self.lock:
             if tuple(usernames) not in self.streams:
-                print("Tried to remove nonexistent usernames entry {}".format(usernames))
+                mylog.warning("Tried to remove nonexistent usernames entry {}".format(usernames))
                 return
             s = self.streams[tuple(usernames)]
             del self.streams[tuple(usernames)]
@@ -237,20 +238,20 @@ class RealTwitterInterface(TwitterInterface):
         try:
             return str(self.api.get_user(username).id)
         except Exception as e:
-            print("Couldn't resolve username '{}': {}".format(username, e))
+            mylog.warning("Couldn't resolve username '{}': {}".format(username, e))
             return None
 
     def maybe_reply(self, tweet_id: str, content: str):
-        print("-" * 40)
-        print("About to respond ({} chars): {}".format(len(content), content))
+        mylog.info("-" * 40)
+        mylog.info("About to respond ({} chars): {}".format(len(content), content))
         if self.key not in MAY_POST:
-            print("Not posting this reply, as key {} is not permitted.  Try one of {} instead."
-                  .format(self.key, MAY_POST))
+            mylog.info("Not posting this reply, as key {} is not permitted.  Try one of {} instead."
+                       .format(self.key, MAY_POST))
         else:
-            print("Actually writing to Twitter!")
+            mylog.info("Actually writing to Twitter!")
             # self.api.update_status(status=content, in_reply_to_status_id=tweet_id)
-            print("Hah!  Gotcha.  :notyet:")
-        print("-" * 40)
+            mylog.error("Hah!  Gotcha.  :notyet:")
+        mylog.info("-" * 40)
 
 
 class FakeTwitterInterface(TwitterInterface):
@@ -273,7 +274,7 @@ class FakeTwitterInterface(TwitterInterface):
     def deregister(self, usernames: List[str]):
         with self.lock:
             if tuple(usernames) not in self.consumers:
-                print("Tried to remove nonexistent usernames entry {}".format(usernames))
+                mylog.warning("Tried to remove nonexistent usernames entry {}".format(usernames))
                 return
             del self.consumers[tuple(usernames)]
 
@@ -292,18 +293,18 @@ class FakeTwitterInterface(TwitterInterface):
 
 def manual_test_incoming():
     from time import sleep
-    print("Reading from Twitter in stand-alone mode.")
+    mylog.info("Reading from Twitter in stand-alone mode.")
     twi = RealTwitterInterface()
-    print("Now following @HoT *and* Ben's throwaway account")
+    mylog.info("Now following @HoT *and* Ben's throwaway account")
     twi.register(["4718199753"], TweetPrinter())
     twi.register(["774336282101178368"], TweetPrinter())
-    print("sleeping...")
+    mylog.info("sleeping...")
     sleep(50)
-    print("Sleep nearly over!")
+    mylog.info("Sleep nearly over!")
     sleep(10)
-    print("Sleep over.  Unsubscribing Ben's throwaway account.")
+    mylog.info("Sleep over.  Unsubscribing Ben's throwaway account.")
     twi.deregister(["774336282101178368"])
-    print("Kill with Ctrl-C")
+    mylog.info("Kill with Ctrl-C")
 
 
 # Only test for RealTwitterInterface.deregister

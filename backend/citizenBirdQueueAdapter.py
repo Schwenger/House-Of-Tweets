@@ -1,5 +1,6 @@
 import pika
 import json
+import mylog
 import threading
 
 
@@ -19,5 +20,5 @@ class CitizenBirdQueueAdapter(threading.Thread):
 
 	def callback(self, ch, method, properties, body):
 		body = json.loads(body.decode('utf-8'))
-		print("set !!!!!!!!!!!!!!!!!!!!!!!" + str(body))
+		mylog.info("set citizen bird: {}".format(body))
 		self.politicianBackend.setBird(body["politicianid"], body["birdid"], actor='c')

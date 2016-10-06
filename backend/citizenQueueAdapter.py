@@ -1,5 +1,6 @@
 import json
 import mq
+import mylog
 import pika
 import threading
 
@@ -21,7 +22,7 @@ class CitizenQueueAdapter(threading.Thread):
 		
 	def callback(self, ch, method, properties, body):
 		body = json.loads(body.decode('utf-8'))
-		print(body)
+		mylog.info("Add/set citizen user: {}".format(body))
 		user = body["twittername"]
 		bird = body["birdid"]
 		err = self.twitterConnection.addCitizen(user, bird)

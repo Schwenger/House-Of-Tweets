@@ -1,4 +1,5 @@
 import json
+import mylog
 import pika
 import threading
 
@@ -20,19 +21,20 @@ class RealQueue(SendQueueInterface):
         self.channel.queue_declare(queue=name, durable=True)
 
     def post(self, message):
-        print('Publishing on queue {name}: {data!r}'
-              .format(name=self.name, data=message))
+        mylog.info('Publishing on queue {name}: {data!r}'
+                   .format(name=self.name, data=message))
         if self.connection.is_closed:
-            print("Whoops, connection is closed; reopen.")
+            mylog.warning("Whoops, connection is closed; reopen.")
             self.connection = connection()
             self.channel = self.connection.channel()
         try:
             self.channel.basic_publish(exchange='', routing_key=self.name,
                                        body=json.dumps(message))
         except Exception as e:
-            print("Connection failed anyway?  Make sure RabbitMQ is running! (is_closed = {})".format(self.connection.is_closed))
-            print(e.__repr__())
-            print("Message dropped.")
+            mylog.error("Connection failed anyway?  Make sure RabbitMQ is running! (is_closed = {})"
+                        .format(self.connection.is_closed))
+            mylog.error(e.__repr__())
+            mylog.info("Message dropped.")
 
     @staticmethod
     def new(name):
@@ -47,8 +49,8 @@ class PrintQueue(SendQueueInterface):
         self.msgs = []
 
     def post(self, message):
-        print('Would send this to MQ {name}: {data!r}'
-              .format(name=self.name, data=message))
+        mylog.info('Would send this to MQ {name}: {data!r}'
+                   .format(name=self.name, data=message))
         self.msgs.append(message)
 
     @staticmethod

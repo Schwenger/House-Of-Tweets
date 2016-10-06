@@ -31,8 +31,9 @@ def _setup():
 
 _setup()
 
-# Reduce all the functionality of 'logging' to these three functions,
+# Reduce all the functionality of 'logging' to these few functions,
 # since I don't want to care about the rest:
+debug = _logger.debug
 info = _logger.info
 warning = _logger.warning
 error = _logger.error

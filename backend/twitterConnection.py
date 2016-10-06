@@ -5,6 +5,8 @@ from soundGenerator import generate_sound
 import responseBuilder
 from twitter import TwitterInterface, TweetConsumer
 import mq
+import mylog
+
 
 # Seconds
 REMOVE_CITIZEN_TIME = 5 * 60
@@ -66,8 +68,9 @@ class TwitterListener(TweetConsumer):
 
 	def consumeTweet(self, tweet):
 		self.prev_msg_id += 1
-		print("{line}\nReceived tweet #{msg_id}:\n{tweet}"
-			  .format(line="("*80, tweet=tweet, msg_id=self.prev_msg_id))
+		mylog.info("{line}\nReceived tweet #{msg_id}:"
+			       .format(line="("*80, msg_id=self.prev_msg_id))
+		mylog.debug(tweet)
 
 		# Boring stuff
 		msg = dict()
@@ -85,27 +88,27 @@ class TwitterListener(TweetConsumer):
 
 		# Resolve politician/citizen specifics
 		if poli is not None:
-			print("This is definitely a politician.")
+			mylog.info("This is definitely a politician.")
 			msg['poli'] = poli['pid']
 			birds = self.handle_poli(tweet, msg)
 		elif citi is not None:
-			print("This is definitely a citizen.")
+			mylog.info("This is definitely a citizen.")
 			msg['poli'] = None
 			birds = self.handle_citizen(citi, msg)
 		else:
-			print("Outdated tweet by no-longer citizen {}".format(tweet['uid']))
+			mylog.info("Outdated tweet by no-longer citizen {}".format(tweet['uid']))
 			birds = None
 
 		# Make a sound
 		if birds is None:
-			print("=> drop tweet, DONE\n" + ")"*80)
+			mylog.info("=> drop tweet, DONE\n" + ")"*80)
 			return
 		cBird, pBird = birds
 		msg['sound'] = generate_sound(tweet['content'], tweet['retweet'], cBird, pBird)
 
 		# Send it
 		self.sendingQueue.post(msg)
-		print("Done with this tweet, DONE\n" + ")"*80)
+		mylog.info("Done with this tweet, DONE\n" + ")"*80)
 
 	# For consistency.
 	# noinspection PyMethodMayBeStatic
@@ -118,7 +121,7 @@ class TwitterListener(TweetConsumer):
 		# Careful: we have a copy, so any changes due to setBird aren't reflected!
 		poli = self.pb.getPolitician(tweet['uid'])
 		if poli is None:
-			print("No poli for tracked poli-uid {} found".format(tweet['uid']))
+			mylog.error("No poli for tracked poli-uid {} found".format(tweet['uid']))
 			return None
 
 		msg['partycolor'] = party_to_color(poli['party'])
@@ -129,20 +132,20 @@ class TwitterListener(TweetConsumer):
 
 		# Check for any updates
 		if tweet['content'].lower().startswith('@houseoftweets'):
-			print("Ignoring my own tweet, as it starts with '@HouseOfTweets'")
+			mylog.warning("Ignoring my own tweet, as it starts with '@HouseOfTweets'")
 		elif contains_command(tweet['hashtags']):
 			pid = poli['pid']
 			pBird_name = self.birdBack.getName(pBird)
 			bird_id = find_bird(tweet['content'], self.birdBack)
 			if bird_id is None:
-				print('I saw that command, but no valid bird!\n'
-					  'pid={pid!r} content={ct}'
-					  .format(ct=tweet['content'], pid=pid))
+				mylog.warning('I saw that command, but no valid bird!\n'
+					          'pid={pid!r} content={ct}'
+					          .format(ct=tweet['content'], pid=pid))
 				reply = responseBuilder.build_some_nack(handle, pBird_name)
 			else:
 				bird_name = self.birdBack.getName(bird_id)
-				print('politician "{}" ({}) gets new bird {}'
-						.format(tweet['userscreen'], pid, bird_id))
+				mylog.info('politician "{}" ({}) gets new bird {}'
+						   .format(tweet['userscreen'], pid, bird_id))
 				msg['refresh'] = dict()
 				msg['refresh']['politicianId'] = pid
 				msg['refresh']['birdId'] = bird_id
@@ -190,18 +193,18 @@ class TwitterConnection(object):
 		if tid is None:
 			tid = self.twitter.resolve_name(twittername)
 		if tid is None:
-			print("citizen user ignored, invalid name: " + twittername)
+			mylog.warning("citizen user ignored, invalid name: " + twittername)
 			return "unknown-user"
 		if birdid not in self.birdBack.bJson:
-			print("citizen user ignored, invalid bird: " + birdid)
+			mylog.warning("citizen user ignored, invalid bird: " + birdid)
 			return "unknown-bird"
 
 		with self.lock:
 			if tid in self.citizens:
 				entry = self.citizens[tid]
-				print("Updating existing citizen's bird from {}".format(entry))
+				mylog.info("Updating existing citizen's bird from {}".format(entry))
 			else:
-				print("Creating new citizen's bird")
+				mylog.info("Creating new citizen's bird")
 				entry = dict()
 				entry["userId"] = tid
 				entry["party"] = 'neutral'
@@ -214,7 +217,7 @@ class TwitterConnection(object):
 			entry["birdId"] = birdid
 			token = poll_counter()
 			entry["token"] = token
-			print("Resulting citizen entry: {}".format(entry))
+			mylog.debug("Resulting citizen entry: {}".format(entry))
 			timer = threading.Timer(REMOVE_CITIZEN_TIME,
 									self._remove_citizen, [tid, token])
 			# Don't prevent shutting down
@@ -224,16 +227,16 @@ class TwitterConnection(object):
 
 	def _remove_citizen(self, tid, token):
 		with self.lock:
-			print("Want to remove citizen {}, token {}".format(tid, token))
+			mylog.info("Want to remove citizen {}, token {}".format(tid, token))
 			if tid not in self.citizens:
-				print("=> Already deleted (huh?)")
+				mylog.warning("=> Already deleted (huh?)")
 			elif self.citizens[tid]['token'] != token:
-				print("=> Token mismatch, db has {}"
-					  .format(self.citizens[tid]['token']))
+				mylog.info("=> Token mismatch, db has {}"
+					       .format(self.citizens[tid]['token']))
 			else:
-				print("=> Yup")
+				mylog.info("=> Yup")
 				del self.citizens[tid]
-			print("Remaining citizens: {}".format(self.citizens.keys()))
+				mylog.info("Remaining citizens: {}".format(self.citizens.keys()))
 
 	def isPoli(self, uid):
 		with self.lock:

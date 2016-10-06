@@ -1,5 +1,6 @@
 import os
 import math
+import mylog
 from typing import Union
 from pydub import *
 
@@ -31,7 +32,7 @@ def get_parent(path):
 
 HOT_ROOT = get_parent(get_parent(__file__))
 SOUND_ROOT = os.path.join(HOT_ROOT, "ext", "sounds")
-print("SOUND_ROOT = " + SOUND_ROOT)
+mylog.info("SOUND_ROOT = " + SOUND_ROOT)
 
 
 # Determine where we *expect* the file, without checking it
@@ -66,12 +67,12 @@ def find_pair(bird: Union[None, str], mood: str, retweet: bool, length: int):
 		candidSource = path_raw(b, m, r)
 		if os.path.isfile(candidSource):
 			if verbose:
-				print("[INFO] Found at {}".format(candidSource))
+				mylog.info("Found at {}".format(candidSource))
 			return candidSource, path_processed(b, m, r, length)
 		else:
-			print("[WARN] Source file {} missing, falling back ...".format(candidSource))
+			mylog.warning("Source file {} missing, falling back ...".format(candidSource))
 			verbose = True
-	print("[ERR ] All sources and fallbacks missing.  Giving up.")
+	mylog.error("All sources and fallbacks missing.  Giving up.")
 	return None
 
 
@@ -93,10 +94,10 @@ def createOrCached(paths, length_ms):
 		return
 	src_path, dst_path = paths
 	if os.path.exists(dst_path):
-		print("soundGenerator: using cached file: " + dst_path)
+		mylog.info("soundGenerator: using cached file: " + dst_path)
 		# no-op
 	else:
-		print("soundGenerator: creating new file: " + dst_path)
+		mylog.info("soundGenerator: creating new file: " + dst_path)
 		createNewSoundfile(src_path, dst_path, length_ms)
 
 

@@ -1,4 +1,5 @@
 import json
+import mylog
 
 
 class BirdBackend:
@@ -14,11 +15,10 @@ class BirdBackend:
 	def getName(self, bid):
 		b = self.bJson.get(bid)
 		if b is None:
-			print('Tried to resolve invalid Bird-ID "{}",'
-				  ' will go with "Goldammer" instead'.format(bid))
+			mylog.error('Tried to resolve invalid Bird-ID "{}",'
+				        ' will go with "Goldammer" instead'.format(bid))
 			return 'Goldammer'
 		return b['de_name']
-
 
 	def getAllBirds(self):
 		return self.bList
