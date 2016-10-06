@@ -27,6 +27,8 @@
 			"""
 			us_header: "Das sind wir"
 
+			search_placeholder: "Suche einen Politiker"
+
 			birdsObl: "Vögeln"
 			musicianObl: "Musikern"
 			chirpingOf: "Zwitschern von"
@@ -122,6 +124,8 @@
 
 			"""
 			us_header: "This is us"
+
+			search_placeholder: "Find a politician"
 
 			birdsObl: "Birds"
 			musicianObl: "Musicians"

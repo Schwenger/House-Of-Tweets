@@ -24,5 +24,9 @@ class LanguageController
 			string = Model.msg.get(identifier)
 			obj.text(string)
 			)
+
+		placeholder = Model.msg.get("search_placeholder")
+		$("#voices-list-search-bar").attr("placeholder", placeholder).val("").focus().blur();
+		
 		VoicesLists.translateBirds()
 		CitizenUser.translateBirds()
