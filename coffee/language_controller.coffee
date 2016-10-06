@@ -6,13 +6,11 @@
 class LanguageController 
 
 	@init: (lang) ->
-		$("#tweet-list-header").click (-> $("#language-control").removeClass "invisible")
-		$("#language-control").click (-> $("#language-control").addClass "invisible")
-		LanguageController._addLanguageClickHandler l for l in ["german", "english"]
-		LanguageController.changeLanguage(lang) if lang?
-
-	@_addLanguageClickHandler: (lang) ->
-		$("##{lang}-flag").click (-> LanguageController.changeLanguage(lang))
+		$("#change-language-flag").click (-> 
+			newLang = if Global.language is "german" then "english" else "german"
+			LanguageController.changeLanguage(newLang)
+			)
+		LanguageController.changeLanguage(lang)
 
 	@changeLanguage: (langString) ->
 		Global.language = langString
