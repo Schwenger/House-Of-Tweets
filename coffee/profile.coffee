@@ -57,6 +57,17 @@ Profiles =
 
 	# PROFILE PAGE
 
+	_licenseString: (obj) ->
+		intro = if Global.language is "german" then "bereitgestellt durch: " else "provided by: "
+		res = switch obj.license
+			when "unknown-bundestag" then intro + "Bundestag"
+			when "custom-linke" then intro + "Linke"
+			when "custom-gruene" then intro + "Grüne"
+			when "custom-spd" then intro + "SPD"
+			else obj.license
+		res += "/" + obj.copyright if obj.copyright?
+		res
+
 	close: ->
 		Profiles.closeCitizenBirdSelection()
 		$("#voices-lists-wrapper").css("opacity", 1)
@@ -89,7 +100,8 @@ Profiles =
 		imagepath = Util.politicianPath poli.images?.pathToImage
 		$("#voices-profile-picture-politician").attr("src", imagepath)
 		imgSrcObj = $("#voices-profile-picture-politician-src")
-		imgSrcObj.text(if poli.images.src? then poli.images.src else "")
+		license = Profiles._licenseString(poli.images)
+		imgSrcObj.text(license)
 		$("#voices-profile-self-selection-image-politician").attr("src", Util.birdPath poli.self_bird)
 		$("#voices-profile-citizen-selection-image-politician").attr("src", Util.birdPath poli.citizen_bird)
 		
@@ -123,3 +135,4 @@ Profiles =
 			$("#voices-profile-picture-bird-drawing").attr("src", Util.birdPath(id, "-drawing"))
 		else
 			$("#bird-photo-switch-container").addClass "invisible" 
+
