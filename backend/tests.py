@@ -285,14 +285,14 @@ def test_sound_gen():
     # Set as 'warning' so that the user always sees both (or neither).
     mylog.warning("(end of manual part)")
     path_amsel = os.path.join(soundGenerator.SOUND_ROOT, 'processed', 'amsel-neutral-10000.mp3')
-    desc_amsel = {'natural': path_amsel, 'synth': path_amsel, 'bid': 'amsel'}
+    desc_amsel = {'natural': path_amsel, 'bid': 'amsel'}
     expected = {'duration': 10000, 'citizen': desc_amsel, 'poli': desc_amsel}
     assert actual == expected, (actual, expected)
 
     content = "How can mirrors be real if our eyes aren't real?"
     actual = soundGenerator.generate_sound(content, True, 'zilpzalp', None)
     path_zz = os.path.join(soundGenerator.SOUND_ROOT, 'processed', 'zilpzalp-fragend-r-12000.mp3')
-    desc_zz = {'natural': path_zz, 'synth': path_zz, 'bid': 'zilpzalp'}
+    desc_zz = {'natural': path_zz, 'bid': 'zilpzalp'}
     expected = {'duration': 12000, 'citizen': desc_zz, 'poli': None}
     assert actual == expected, (actual, expected)
     soundGenerator.processed_tweets = 0
@@ -398,8 +398,8 @@ def test_twitter_listener():
                    'retweet': False, 'sound':
                    {
                      'duration': 10000,
-                     'citizen': {'natural': expect_amsel, 'synth': expect_amsel, 'bid': 'amsel'},
-                     'poli': {'natural': expect_amsel, 'synth': expect_amsel, 'bid': 'amsel'},
+                     'citizen': {'natural': expect_amsel, 'bid': 'amsel'},
+                     'poli': {'natural': expect_amsel, 'bid': 'amsel'},
                    },
                    'time': '1473446404525', 'twitterName': 'HouseOfTweets'
                    }])
@@ -421,7 +421,7 @@ def test_twitter_listener():
                    'retweet': True, 'sound':
                    {
                      'duration': 10750,
-                     'citizen': {'natural': expect_zz, 'synth': expect_zz, 'bid': 'zilpzalp'},
+                     'citizen': {'natural': expect_zz, 'bid': 'zilpzalp'},
                      'poli': None,
                    },
                    'time': '1473446404527', 'twitterName': 'Yoyo'
@@ -467,8 +467,8 @@ def test_twitter_listener():
                    'retweet': False, 'sound':
                    {
                      'duration': 10000,
-                     'citizen': {'natural': expect_amsel, 'synth': expect_amsel, 'bid': 'amsel'},
-                     'poli': {'natural': expect_amsel, 'synth': expect_amsel, 'bid': 'amsel'},
+                     'citizen': {'natural': expect_amsel, 'bid': 'amsel'},
+                     'poli': {'natural': expect_amsel, 'bid': 'amsel'},
                    },
                    'time': '1473446404527', 'twitterName': 'RealBarackObama'
                    }])

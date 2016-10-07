@@ -112,7 +112,7 @@ def sanitize_bird(b):
 def dup(path, idealBid):
 	if path is None:
 		return None
-	return {'natural': path, 'synth': path, 'bid': idealBid}
+	return {'natural': path, 'bid': idealBid}
 
 
 def get_dst(p):
