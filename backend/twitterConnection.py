@@ -127,6 +127,7 @@ class TwitterListener(TweetConsumer):
 			return None
 
 		msg['partycolor'] = party_to_color(poli['party'])
+		msg['party'] = poli['party']
 		pBird = poli['self_bird']
 		# In case it changed, use the one provided by twitter
 		handle = msg['twitterName']

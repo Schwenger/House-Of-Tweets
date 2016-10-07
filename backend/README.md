@@ -48,6 +48,7 @@ Direction: backend → frontend
 - `image`: string, valid URL to Twitter profile image, e.g. `"- `https`://pbs.twimg.com/profile_images/573488117560295424/5qsXbC5W.jpeg"`
 - `name`: string, e.g. `"Angela Merkel"`
 - `partycolor`: string, any valid CSS color as a string, e.g. `"#00cc00"`
+- `party` (optional): string, official name of the party (not present if a citizen), e.g. `"GR\u00dcNE"`
 - `refresh`: JSON object, only present if the backend detected a valid usage of `#HoT`
     - `politicianId`: string, only present if 'byPoli' is true, HoT-defined ID, e.g. `"hot"` or `"384"`
     - `birdId`: string, the newly assigned bird, e.g. `"amsel"` (always a valid key in birds.json)

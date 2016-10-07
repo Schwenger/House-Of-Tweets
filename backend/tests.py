@@ -393,7 +393,7 @@ def test_twitter_listener():
     expect_amsel = os.path.join(sounds, 'processed', 'amsel-neutral-10000.mp3')
     queue.expect([{'poli': 'hot', 'content': 'content1',
                    'hashtags': ['NiceExample', 'TotallyRealistic'],
-                   'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#00cc00',
+                   'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#00cc00', 'party': 'Grün',
                    # No 'refresh'
                    'retweet': False, 'sound':
                    {
@@ -416,7 +416,7 @@ def test_twitter_listener():
     expect_zz = os.path.join(sounds, 'processed', 'zilpzalp-fragend-r-10750.mp3')
     queue.expect([{'poli': None, 'content': 'guy who writes long(?) tweets says whaaaat?',
                    'hashtags': [],
-                   'id': 43, 'image': 'img_url', 'name': 'Heinzi', 'partycolor': '#257E9C',
+                   'id': 43, 'image': 'img_url', 'name': 'Heinzi', 'partycolor': '#257E9C',  # No 'party'
                    # No 'refresh'
                    'retweet': True, 'sound':
                    {
@@ -459,7 +459,7 @@ def test_twitter_listener():
                       'retweet': False})
     queue.expect([{'poli': '648', 'content': 'such an #amsel #HoT',
                    'hashtags': ['amsel', 'HoT'],
-                   'id': 44, 'image': 'img_url', 'name': 'The Barack', 'partycolor': '#429EE2',
+                   'id': 44, 'image': 'img_url', 'name': 'The Barack', 'partycolor': '#429EE2', 'party': 'Demokraten',
                    'refresh': {
                        'politicianId': '648',
                        'birdId': 'amsel',  # Must be the new bird
