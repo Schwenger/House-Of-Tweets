@@ -2,6 +2,7 @@
 #= require <model.coffee>
 #= require <voices_lists.coffee>
 #= require <citizen_user.coffee>
+#= require <tweet_controller.coffee>
 
 class LanguageController 
 
@@ -28,3 +29,4 @@ class LanguageController
 		
 		VoicesLists.translateBirds()
 		CitizenUser.translateBirds()
+		TweetController.translateBirds()

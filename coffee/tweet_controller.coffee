@@ -41,6 +41,9 @@ TweetController =
 		Global.manualTweetID = (Global.manualTweetID + 1) % Model.manualTweets.length
 		@consume(incoming)
 
+	translateBirds: () ->
+		@_updateBirdNames()
+
 	# ARCHIVE
 	_addToArchive: (entry) ->
 		@_archiveRoot.append entry.obj
@@ -54,11 +57,7 @@ TweetController =
 		poli = $(@).prop('checked')
 		TweetController._usePoliBirds = poli
 		SoundCtrl.setBirdMode(if poli then "P" else "C")
-		for own key, list of TweetController._tLists
-			for elem in list
-				mode = if poli then "poli" else "citizen"
-				bird = Model.birds[elem.bid[mode]][Util.addLang("name")]
-				$("#tweet-#{elem.id}-bird").text(bird)
+		TweetController._updateBirdNames()
 
 	_changeShownTweets: ->
 		TweetController._poliTweetsOnly = $(@).prop('checked')
@@ -122,6 +121,13 @@ TweetController =
 		@_updatePoliBird(tweet.refresh) if tweet.refresh?
 		@_tLists.mixed.push transformed 
 		@_tLists.poli.push transformed if tweet.sound.poli?
+
+	_updateBirdNames: ->
+		for own key, list of TweetController._tLists
+			for elem in list
+				mode = if TweetController._usePoliBirds then "poli" else "citizen"
+				bird = Model.birds[elem.bid[mode]][Util.addLang("name")]
+				$("#tweet-#{elem.id}-bird").text(bird)
 
 	_updatePoliBird: (info) ->
 		pid = info.politicianId
