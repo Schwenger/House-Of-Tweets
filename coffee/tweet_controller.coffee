@@ -121,7 +121,7 @@ TweetController =
 		@_addToArchive(transformed)
 		@_updatePoliBird(tweet.refresh) if tweet.refresh?
 		@_tLists.mixed.push transformed 
-		@_tLists.poli.push transformed if tweet.byPoli
+		@_tLists.poli.push transformed if tweet.sound.poli?
 
 	_updatePoliBird: (info) ->
 		pid = info.politicianId
