@@ -66,6 +66,7 @@ CitizenUser =
 			
 	_submitCitizenBird: (event) ->
 		event.preventDefault()
+		$('#citizen-tweets-switch').prop('checked', false);
 		username = $('#citizen-user-name-input').val()
 		data = {twittername: username, birdid: CitizenUser._citizenBirdSelection}
 		CitizenUser._citizenBirdMQ.sendToQueue(data)
