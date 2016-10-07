@@ -27,7 +27,8 @@
 			"""
 			us_header: "Das sind wir"
 
-			search_placeholder: "Suche einen Politiker"
+			search_placeholder_poli: "Suche einen Politiker"
+			search_placeholder_bird: "Suche einen Vogel"
 
 			birdsObl: "Vögeln"
 			musicianObl: "Musikern"
@@ -125,7 +126,8 @@
 			"""
 			us_header: "This is us"
 
-			search_placeholder: "Find a politician"
+			search_placeholder_poli: "Find a politician"
+			search_placeholder_bird: "Find a bird"
 
 			birdsObl: "Birds"
 			musicianObl: "Musicians"
