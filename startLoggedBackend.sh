@@ -33,5 +33,11 @@ esac
     # No need to resolve OUTFILE, 'script' is clever enough.
     echo "View this log interactively by calling:"
     echo "scriptreplay --timing=${OUTFILE}.timing --typescript=${OUTFILE} --maxdelay=10"
-    script -c "./startBackend.py $1" --timing="${OUTFILE}.timing" "${OUTFILE}"
+    
+    if [[ $OSTYPE == darwin* ]]
+    then
+        script "${OUTFILE}" "./startBackend.py $1"
+    else 
+        script -c "./startBackend.py $1" --timing="${OUTFILE}.timing" "${OUTFILE}"
+    fi
 }
