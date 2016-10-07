@@ -20,7 +20,6 @@ TweetController =
 		size: 10
 	_poliTweetsOnly: true
 	_threshold: 6
-	_sanityPattern: /\w*/
 
 	init: ->
 		$('#play-tweets-1-button').click(() -> TweetController._timeTravel(1))
@@ -153,19 +152,40 @@ TweetController =
 	_playTweets: (list, mode) ->
 		tweet.play(mode) for tweet in list
 
-	_sanitize: (tags) ->
+	_nyahNyah: [
+		"kitty", "rainbow", "tippytoe", "jibberjabber", "#IHideMyInsecurityBehindCurses", "pinky",
+		"Kätzchen", "Regenbogen", "BlaBlaBla", "#InnerlichTot", "Wattebällchen", "#ILikeTrains"
+		"$@*$@!#", "#$@&%*!", "$@*$@!#", "#$@&%*!" # double occurrences intended
+	]
+	_sanitize: (content, byPoli) ->
+		if not byPoli
+			for baddy in bad_words
+				replacement = @_getRandom(@_nyahNyah)
+				content = content.replace(baddy, replacement)
+		content = content[..140]
+		$("<span>").text(content).html() # should not be necessary, but can't hurt as well.
+		content
+
+	_tagPattern: /\w*/i
+	_sanitizeTags: (tags) ->
 		for tag in tags
-			if tag.match @_sanityPattern then tag else "--warning--"
+			if tag.match @_tagPattern then tag else "--NOPE--" 
+
+	_getRandom: (collection) ->
+		collection[Math.floor(Math.random() * collection.length)]
 
 	_transform: (tweet) ->
 
 		choice = if @_usePoliBirds and tweet.poli? then "poli" else "citizen"
 		bid = tweet.sound[choice].bid
+		sanitized = @_sanitize(tweet.content, tweet.sound.poli?)
+		tags = @_sanitizeTags tweet.hashtags
+		enhanced = @_enhance sanitized, tags
 
 		data = 
 			time: Util.transformTime tweet.time
 			bird: Model.birds[bid][Util.addLang("name")]
-			content: @_enhance tweet.content, tweet.hashtags
+			content: enhanced
 			name: tweet.name
 			twitterName: tweet.twitterName
 			id: tweet.id
@@ -233,8 +253,7 @@ TweetController =
 		return tweetCompound
 
 	_enhance: (tweet, hashtags) ->
-		return tweet unless hashtags?
-		for hashtag in @_sanitize hashtags
+		for hashtag in hashtags
 			tweet = tweet.replace('#'+hashtag, "<span style='color: blue'>##{hashtag}</span>")
 		return tweet
 
