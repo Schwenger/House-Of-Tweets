@@ -12,7 +12,7 @@ VoicesLists =
 		@_initPoliticianList()
 		@_initBirdList()
 		Profiles.init(@_displayBirdList)
-		@_initSearchBar()
+		@_initSearchBars()
 
 	update: ->
 		# no need to do anything because the profile is re-created each time anyway.
@@ -31,19 +31,36 @@ VoicesLists =
 
 	# SEARCH BAR
 
-	_searchString: ""
-	_initSearchBar: ->
-		searchBar = $("#voices-list-search-bar")
-		handler = (event) ->
-			return if VoicesLists._searchString is searchBar.val().toLowerCase()
-			VoicesLists._searchString = searchBar.val().toLowerCase()
-			pred = (poli) -> 
-				poli.name.toLowerCase().indexOf(VoicesLists._searchString) isnt -1
-			VoicesLists._removePolis()
-			remaining = {}
-			remaining[pid] = poli for pid, poli of Model.politicians when pred(poli)
-			VoicesLists._display VoicesLists.politicianListRoot, "voices-list-item", remaining
-		$(document).keyup handler
+	_searchString: 
+		poli: ""
+		bird: ""
+	_initSearchBars: ->
+		handler = (which) ->
+			searchBar = $("#voices-list-#{which}-search-bar")
+			if which is "poli"
+				model = Model.politicians
+				root = VoicesLists.politicianListRoot
+				display = VoicesLists._displayPolis
+			else
+				model = Model.birds
+				root = VoicesLists.birdListRoot
+				display = VoicesLists._displayBirds
+			(event) ->
+				return if VoicesLists._searchString[which] is searchBar.val().toLowerCase()
+				VoicesLists._searchString[which] = searchBar.val().toLowerCase()
+				if which is "poli"
+					pred = (poli) -> 
+						poli.name.toLowerCase().indexOf(VoicesLists._searchString[which]) isnt -1
+					VoicesLists._removePolis()
+				else 
+					pred = (bird) ->
+						bird[Util.addLang("name")].toLowerCase().indexOf(VoicesLists._searchString[which]) isnt -1
+					VoicesLists._removeBirds()
+				remaining = {}
+				remaining[id] = entity for id, entity of model when pred(entity)
+				display root, "voices-list-item", remaining
+		$(document).keyup handler("poli")
+		$(document).keyup handler("bird")
 
 	# CREATE AND DISPLAY LISTS
 
@@ -60,9 +77,9 @@ VoicesLists =
 		@_displayPoliticians @politicianListRoot, "voices-list-item"
 
 	_displayPoliticians: (root, prefix) ->
-		@_display(root, prefix, Model.politicians)
+		@_displayPolis(root, prefix, Model.politicians)
 
-	_display: (root, prefix, list) ->
+	_displayPolis: (root, prefix, list) ->
 		for own id, p of list
 			do(id, p) ->
 				firstLine = p.name
@@ -71,18 +88,22 @@ VoicesLists =
 				root.append obj
 				obj.click () -> Profiles.openPoliticianPage id
 
+	_displayBirds: (root, prefix, list) ->
+		VoicesLists._displayBirdList root, prefix, ((id) -> Profiles.openBirdPage(id)), list
+
 	_initBirdList: ->
 		@_displayBirdList @birdListRoot, "voices-list-item", (id) -> Profiles.openBirdPage(id)
 
 	# NB: This method is called from within profile, thus avoid using @.
-	_displayBirdList: (root, prefix, handler) ->
+	_displayBirdList: (root, prefix, handler, list = Model.birds) ->
 		respName = Util.addLang "name"
 		cmp = (a,b) ->
 			if a[1][respName] < b[1][respName] then -1
 			else if b[1][respName] < a[1][respName] then 1
 			else 0
-		sortable = ([id, bird] for own id, bird of Model.birds)
+		sortable = ([id, bird] for own id, bird of list)
 		sortable.sort(cmp)
+		sortable
 		for [id, b] in sortable
 			do(id, b) ->
 				image = Util.birdPath id
