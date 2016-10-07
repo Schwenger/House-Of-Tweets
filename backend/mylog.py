@@ -1,4 +1,5 @@
 import logging
+import os.path
 import time
 
 
@@ -7,7 +8,8 @@ _logger = None
 
 def _setup():
     # Let's hope this is unique enough
-    FILE = "log_%d.txt" % int(time.time() * 1000)
+    NAME = "log_%d.txt" % int(time.time() * 1000)
+    FILE = os.path.join('log', NAME)
     print('Writing to file: ' + FILE)  # WHITELISTED PRINT
 
     # create logger with 'spam_application'
