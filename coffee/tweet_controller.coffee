@@ -165,7 +165,7 @@ TweetController =
 			id: tweet.id
 			borderColor: tweet.partycolor
 			imageSrc: tweet.image
-			retweetSrc: Global.basePath + "/images/vogel2.png"
+			retweetSrc: if tweet.retweet then Global.basePath + "/images/vogel2.png" else ""
 			party: tweet.party
 
 		html = """
@@ -197,7 +197,6 @@ TweetController =
       <span class="time-stamp"> {{time}} </span>
       <span class="bird" id="tweet-{{id}}-bird"> {{bird}} </span>
     </div>
-
 
   </div>
 </div> 
