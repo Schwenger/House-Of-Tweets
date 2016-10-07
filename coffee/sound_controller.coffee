@@ -3,7 +3,6 @@
 SoundCtrl = 
 
 	bird: "P" # P or C for politician or citizen
-	sound: "B" # B or M for bird or musician
 
 	setBirdMode: (mode) ->
 		@bird = mode

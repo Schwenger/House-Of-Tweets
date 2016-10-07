@@ -49,9 +49,6 @@ TweetController =
 		@_archive = @_archive[..@_archiveThreshold]
 
 	# USER SETTINGS
-	_changeSoundOrigin: ->
-		bird = $(@).prop('checked')
-		SoundCtrl.setSoundMode(if bird then "B" else "M")
 
 	_changeBirdSelection: ->
 		poli = $(@).prop('checked')
@@ -209,10 +206,8 @@ TweetController =
 		tweetElement = $(Mustache.render(html, data))
 
 		audioElems = [
-			$("<audio id='audio-#{tweet.id}-PB' src='#{tweet.sound.poli.natural}'>") if tweet.sound.poli?,
-			$("<audio id='audio-#{tweet.id}-PM' src='#{tweet.sound.poli.synth}'>") if tweet.sound.poli?,
-			$("<audio id='audio-#{tweet.id}-CB' src='#{tweet.sound.citizen.natural}'>"),
-			$("<audio id='audio-#{tweet.id}-CM' src='#{tweet.sound.citizen.synth}'>")
+			$("<audio id='audio-#{tweet.id}-P' src='#{tweet.sound.poli.natural}'>") if tweet.sound.poli?,
+			$("<audio id='audio-#{tweet.id}-C' src='#{tweet.sound.citizen.natural}'>"),
 		]
 
 		for audio in audioElems
