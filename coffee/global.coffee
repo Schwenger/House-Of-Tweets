@@ -5,7 +5,6 @@ Global = {
 	basePath:  "../ext/"
 	birdPath:  "../ext/images/birds/"
 	politicianPath: "../ext/images/politicians/"
-	twitterIconPath: "../ext/images/twitter-icon.png"
 
 	_transform: (langString) ->
 		switch(langString)
