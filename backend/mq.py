@@ -19,22 +19,35 @@ class RealQueue(SendQueueInterface):
         self.channel = self.connection.channel()
         self.name = name
         self.channel.queue_declare(queue=name, durable=True)
+        self.lock = threading.RLock()
+        # We never "close" a connection, so thankfully we don't need to ever stop the "heart":
+        self._heartbeat()
 
-    def post(self, message):
+    def post(self, message, isRetry=False):
         mylog.info('Publishing on queue {name}: {data!r}'
                    .format(name=self.name, data=message))
-        if self.connection.is_closed:
-            mylog.warning("Whoops, connection is closed; reopen.")
-            self.connection = connection()
-            self.channel = self.connection.channel()
-        try:
-            self.channel.basic_publish(exchange='', routing_key=self.name,
-                                       body=json.dumps(message))
-        except Exception as e:
-            mylog.error("Connection failed anyway?  Make sure RabbitMQ is running! (is_closed = {})"
-                        .format(self.connection.is_closed))
-            mylog.error(e.__repr__())
-            mylog.info("Message dropped.")
+        with self.lock:
+            if self.connection.is_closed:
+                mylog.warning("Whoops, connection is closed; reopen.")
+                self.connection = connection()
+                self.channel = self.connection.channel()
+            try:
+                self.channel.basic_publish(exchange='', routing_key=self.name,
+                                           body=json.dumps(message))
+            except Exception as e:
+                mylog.error("Connection failed anyway?  Make sure RabbitMQ is running! (is_closed = {})"
+                            .format(self.connection.is_closed))
+                mylog.error(e.__repr__())
+                mylog.error(e.args)
+                mylog.info("Message dropped.")
+                if not isRetry:
+                    self.post(message, True)
+
+    def _heartbeat(self):
+        with self.lock:
+            mylog.debug('pump: ' + self.name)
+            self.connection.process_data_events()
+            threading.Timer(30, self._heartbeat).start()
 
     @staticmethod
     def new(name):
