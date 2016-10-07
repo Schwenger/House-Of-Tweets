@@ -47,7 +47,10 @@ class RealQueue(SendQueueInterface):
         with self.lock:
             mylog.debug('pump: ' + self.name)
             self.connection.process_data_events()
-            threading.Timer(30, self._heartbeat).start()
+            # RabbitMQ expects a heartbeat every 60 seconds, so send one every 30 seconds.
+            timer = threading.Timer(30, self._heartbeat)
+            timer.daemon = True
+            timer.start()
 
     @staticmethod
     def new(name):
