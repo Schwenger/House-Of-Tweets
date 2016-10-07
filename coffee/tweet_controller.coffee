@@ -55,7 +55,13 @@ TweetController =
 
 	_changeBirdSelection: ->
 		poli = $(@).prop('checked')
+		TweetController._usePoliBirds = poli
 		SoundCtrl.setBirdMode(if poli then "P" else "C")
+		for own key, list of TweetController._tLists
+			for elem in list
+				mode = if poli then "poli" else "citizen"
+				bird = Model.birds[elem.bid[mode]][Util.addLang("name")]
+				$("#tweet-#{elem.id}-bird").text(bird)
 
 	_changeShownTweets: ->
 		TweetController._poliTweetsOnly = $(@).prop('checked')
@@ -150,9 +156,12 @@ TweetController =
 
 	_transform: (tweet) ->
 
+		choice = if @_usePoliBirds and tweet.poli? then "poli" else "citizen"
+		bid = tweet.sound[choice].bid
+
 		data = 
 			time: Util.transformTime tweet.time
-			bird: Model.birds[tweet.sound.poli.bid][Util.addLang("name")]
+			bird: Model.birds[bid][Util.addLang("name")]
 			content: @_enhance tweet.content, tweet.hashtags
 			name: tweet.name
 			twitterName: tweet.twitterName
@@ -214,9 +223,12 @@ TweetController =
 			play: (mode, duration = tweet.sound.duration) -> SoundCtrl.play(tweet.id, duration, mode)
 			time: tweet.time
 			id: tweet.id
+			bid:
+				poli: tweet.sound.poli?.bid
+				citizen: tweet.sound.citizen.bid
 
 		speakerElement = tweetElement.find("#tweet-#{tweet.id}-speaker")
-		speakerElement.click () -> console.log here; tweetCompound.play(SoundCtrl.getMode())
+		speakerElement.click () -> tweetCompound.play(SoundCtrl.getMode())
 
 		return tweetCompound
 
