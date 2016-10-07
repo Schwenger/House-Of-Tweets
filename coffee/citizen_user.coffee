@@ -22,9 +22,11 @@ CitizenUser =
 		@_resetDropdownTrigger()
 
 	leavePage: ->
-		@_resetDropdownTrigger()
-		@_closeDropdown()
-		$('#citizen-user-name-input').val("")
+		setTimeout (() ->
+			CitizenUser._resetDropdownTrigger()
+			CitizenUser._closeDropdown()
+			$('#citizen-user-name-input').val("")
+		), Display.pageMoveDelay
 
 	translateBirds: ->
 		@_dropdownList?.children().each(() -> $(@).remove())
