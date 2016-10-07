@@ -149,43 +149,55 @@ TweetController =
 			if tag.match @_sanityPattern then tag else "--warning--"
 
 	_transform: (tweet) ->
-		retweetImage = $("<img class='retweet-bird' src='#{Global.basePath}/images/vogel2.png'>") if tweet.retweet
-		tweetElement = $("<div id='tweet-#{tweet.id}' class='tweet' tweetid='#{tweet.id}'>")
 
-		tweetProfileInfo = $("<div id='tweet-#{tweet.id}-profile' class='tweet-profile-info'>")
-		tweetContent = $("<div id='tweet-#{tweet.id}-content' class='tweet-content'>")
-		birdNameContainer = $("<span class='bird-name-container'>")
-		birdNamePoli = $("<span translatestring stringID='birds:#{tweet.sound.poli.bid}'>") if tweet.sound.poli?
-		birdNamePoli.text(Model.birds[tweet.sound.poli.bid][Util.addLang("name")]) if tweet.sound.poli?
-		birdNameCitizen = $("<span translatestring stringID='birds:#{tweet.sound.citizen.bid}'>") 
-		birdNameCitizen.text(Model.birds[tweet.sound.citizen.bid][Util.addLang("name")])
-		speakerElement = $("<i class='speaker fa fa-music fa-2x' id='tweet-#{tweet.id}-speaker'>")
-		profileImg = $("<img src=#{tweet.image}>")
-		profileName = $("<div class='profile-name'>")
-		profileName.text(tweet.name)
-		twitterName = $("<div class='twitter-name'>")
-		tweetText = $("<div class='textfield'>")
-		tweetTime = $("<div class='time'>")
+		data = 
+			time: Util.transformTime tweet.time
+			bird: Model.birds[tweet.sound.poli.bid][Util.addLang("name")]
+			content: @_enhance tweet.content, tweet.hashtags
+			name: tweet.name
+			twitterName: tweet.twitterName
+			id: tweet.id
+			borderColor: tweet.partycolor
+			imageSrc: tweet.image
+			retweetSrc: Global.basePath + "/images/vogel2.png"
+			party: tweet.party
 
-		birdNameContainer.append(birdNamePoli) if tweet.sound.poli?
-		birdNameContainer.append(birdNameCitizen)
+		html = """
+<div class="entry" id="tweet-{{id}}">
+  <div class="retweet">
+    <img src="{{retweetSrc}}"/>
+  </div>
+  <div class="tweet">
 
-		tweetProfileInfo.append(profileImg)
-		tweetProfileInfo.append(speakerElement)
-		tweetProfileInfo.append(tweetTime)
+    <div class="top">
+      <div class="author-img">
+        <img src="{{imageSrc}}" style="border-color: {{borderColor}}"/>
+      </div>
+      <div class="author-info">
+        <div class="name"> {{name}} </div>
+        <div class="twitter-name"> @{{twitterName}} </div>
+        <div class="party"> {{party}} </div>
+      </div>
+      <div class="replay">
+        <span class="speaker fa fa-play-circle fa-3x" id="tweet-{{id}}-speaker"/>
+      </div>
+    </div>
 
-		tweetContent.append(profileName)
-		tweetContent.append(twitterName)
-		tweetContent.append(tweetText)
+    <div class="content">
+      {{{content}}}
+    </div>
 
-		tweetText.html(@_enhance tweet.content, tweet.hashtags)
-		tweetTime.text(Util.transformTime tweet.time)
-		twitterName.text("@" + tweet.twitterName)
+    <div class="footer">
+      <span class="time-stamp"> {{time}} </span>
+      <span class="bird" id="tweet-{{id}}-bird"> {{bird}} </span>
+    </div>
 
-		tweetElement.append(retweetImage) if tweet.retweet
-		tweetElement.append(tweetProfileInfo)
-		tweetElement.append(tweetContent)
-		tweetElement.append(birdNameContainer)
+
+  </div>
+</div> 
+"""
+	
+		tweetElement = $(Mustache.render(html, data))
 
 		audioElems = [
 			$("<audio id='audio-#{tweet.id}-PB' src='#{tweet.sound.poli.natural}'>") if tweet.sound.poli?,
@@ -197,15 +209,14 @@ TweetController =
 		for audio in audioElems
 			tweetElement.append(audio)
 
-		profileImg.css("border-color", "#{tweet.partycolor}") if tweet.partycolor?
-
 		tweetCompound = 
 			obj: tweetElement
 			play: (mode, duration = tweet.sound.duration) -> SoundCtrl.play(tweet.id, duration, mode)
 			time: tweet.time
 			id: tweet.id
 
-		speakerElement.click () -> tweetCompound.play(SoundCtrl.getMode())
+		speakerElement = tweetElement.find("#tweet-#{tweet.id}-speaker")
+		speakerElement.click () -> console.log here; tweetCompound.play(SoundCtrl.getMode())
 
 		return tweetCompound
 
