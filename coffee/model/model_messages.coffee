@@ -198,7 +198,7 @@
 			imageurl: "Link to image"
 
 			own_bird: "Own Bird"
-			citizen_bird: "Citizens' Bird"
+			citizen_bird: "Citizen-chosen Bird"
 			
 			a_project_by: "A project by:"
 			leader: "Marco Speicher (DFKI) and Volker Sieben (artist)"
