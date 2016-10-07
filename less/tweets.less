@@ -1,95 +1,137 @@
 
+@tweet-width: 340px;
+@tweet-height: 210px;
+@tweet-top-height: 60px;
+@tweet-content-height: @tweet-height - 2 * @tweet-padding - @tweet-top-height - @tweet-footer-height;
+@tweet-footer-height: 20px;
+@tweet-padding: 15px;
+
 .tweet-list {
+
 	align-content: center;
 	align-items: center;
 	display: flex;
 	flex-direction: row-reverse;
 	flex-wrap: wrap-reverse;
-	height: 90%;
+	height: 100%;
 	justify-content: center;
-	list-style: none;
-	padding-top: 2%;
-}
-
-.tweet {
-	background-color: @default_tweet_background_color;
-	border-color: @default_tweet_border_color;
-	border-radius: 8px;
-	border-style: solid;
-	border: 1px;
-	float: left;
-	height: 200px;
-	margin-bottom: 30px;
-	margin-right: 15px;
-	padding: 15px;
-	width: 340px;
-}
-
-.tweet-profile-info {
-	float: left;
-	height: 100%;
-	margin-right: 15px;
-	width: @profile-info-width;
-}
-
-.tweet-profile-info > img {
-	border-style: solid;
-	border-width: 3px;
-	display: block;
-	height: 56px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 56px;
-}
-
-.tweet-content > .profile-name {
-	font-size: 17px;
-	margin-top: -2px;
-	text-align: left;
+	padding: 0% 7% 10% 7%;
 	width: 100%;
-}
 
-.tweet-content > .twitter-name {
-	color: @tweet-id-color;
-	font-size: 10px;
-	margin-top: -3px;
-}
+	& .entry {
 
-.tweet-content {
-	float: right;
-	height: 100%;
-	width: 233px;
-	word-wrap: break-word;
-}
+		height: 40px + @tweet-height;
+		margin-left: 6px;
+		margin-right: 6px;
+		margin-top: 20px;
 
-.tweet-profile-info > .time {
-	color: @secondary-text-color;
-	font-size: 12px;
-	margin-top: 20px;
-	text-align: center;
-}
+		& .retweet {
 
-.tweet-content > .textfield {
-	border-color: @secondary-text-color;
-	height: 100px;
-	margin-top: 5px;
-}
+				height: 40px;
+				padding-right: 20px;
+				width: 100%;
 
-.speaker {
-	color: @tweet-speaker-default-color;
-	color: gray;
-	font-size: 1.8em;              //TODO convert in px
-	padding-top: 19px;
-	text-align: center;
-	width: @profile-info-width;
+			& > img {
 
-	&-active {
-		color: @tweet-speaker-active-color;
+				float: right;
+				height: 100%;
+				margin-top: 8px;
+
+			}
+		}
+
+		& .tweet {
+
+			background-color: @default_tweet_background_color;
+			border-radius: 8px;
+			border: 2px solid @default_tweet_border_color;
+			height: @tweet-height;
+			padding: @tweet-padding;
+			width: @tweet-width;
+
+			& .top {
+
+				align-content: center;
+				align-items: center;
+				display: flex;
+				height: @tweet-top-height;
+				justify-content: center;
+
+				& .author-img {
+
+					height: 56px;
+					width: 56px;
+
+					& > img {
+
+						border-radius: 2px;
+						border-style: solid;
+						border-width: 3px;
+						height: 100%;
+						width: 100%;
+
+					}
+				}
+
+				& .author-info {
+
+					flex-grow: 1;
+					padding-left: 10px;
+
+					& .name {
+
+						font-size: 17px;
+						width: 100%;
+
+					}
+					& .twitter-name {
+
+						color: @tweet-id-color;
+						font-size: 10px;
+						margin-top: -3px;
+
+					}
+					& .party {/* intentionally left blank */}
+				}
+				& .replay {
+
+					text-align: center;
+					width: 50px;
+
+					& .speaker {
+
+						color: @tweet-speaker-default-color;
+
+						&-active {
+							color: @tweet-speaker-active-color;
+						}	
+					}
+				}
+
+			}
+			& .content {
+
+				border-color: @secondary-text-color;
+				height: @tweet-content-height;
+				word-wrap: break-word;
+
+			}
+			& .footer {
+
+				color: @secondary-text-color;
+				font-size: 12px;
+				height: @tweet-footer-height;
+
+				& .time-stamp {
+					float: left;
+				}
+
+				& .bird {
+					float: right;
+				}
+
+			}
+		}
+
 	}
-}
-
-.retweet-bird {
-	margin-top: -40px;
-	position: absolute;
-	width: 30px;
 }
