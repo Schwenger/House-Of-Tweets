@@ -257,7 +257,7 @@ def checkout(pid, fields):
 
     # Provide ready-to-use image
     convert(freshest_path,
-            '-resize', '330x330^>',
+            '-resize', '330x330^',
             '-gravity', 'north',
             '-extent', '330x330',
             *inject,
