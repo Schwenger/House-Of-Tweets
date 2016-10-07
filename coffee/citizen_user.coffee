@@ -16,7 +16,7 @@ CitizenUser =
 		@_dropdownList = $('#bird-dropdown-list')
 		@_dropdownTrigger.click @_toggleDropdown
 		@translateBirds()
-
+		$('#owntweets').click () -> CitizenUser._closeDropdown()
 
 		$("submit-citizen-bird").click @_submitCitizenBird
 		@_resetDropdownTrigger()
@@ -48,7 +48,9 @@ CitizenUser =
 			# We are only interested in the first element.
 			break
 		
-	_toggleDropdown: ->
+	_toggleDropdown: (e) ->
+		event = e || window.event
+		event.stopPropagation()
 		CitizenUser._dropdownTrigger.toggleClass('active')
 		CitizenUser._dropdownList.slideToggle(200)
 
