@@ -95,7 +95,7 @@ VoicesLists =
 		@_displayBirdList @birdListRoot, "voices-list-item", (id) -> Profiles.openBirdPage(id)
 
 	# NB: This method is called from within profile, thus avoid using @.
-	_displayBirdList: (root, prefix, handler, list = Model.birds) ->
+	_displayBirdList: (root, prefix, handler, button = false, list = Model.birds) ->
 		respName = Util.addLang "name"
 		cmp = (a,b) ->
 			if a[1][respName] < b[1][respName] then -1
@@ -107,17 +107,24 @@ VoicesLists =
 		for [id, b] in sortable
 			do(id, b) ->
 				image = Util.birdPath id
-				obj = VoicesLists._createListEntry id, b[respName], b.latin_name, image, prefix, false
+				obj = VoicesLists._createListEntry id, b[respName], b.latin_name, image, prefix, false, button, handler
 				root.append obj
-				obj.click () -> handler(id)
+				obj.click () -> handler(id) unless button
 
-	_createListEntry: (id, first_line, second_line, image, prefix, twitterBird) ->
+	_createListEntry: (id, first_line, second_line, image, prefix, twitterBird, button = false, handler) ->
+		console.log handler
+		btnTemplate = """
+		<div class="button btn">
+			<span translateString stringid="select">@Auswählen</span>
+		</div>
+		"""
 		data = 
 			id: id
 			imagePath: image
 			firstLine: first_line
 			secondLine: second_line
 			firstLineStyle: if first_line.length >= 30 then "font-size: 25px;" else ""
+			button: if button then btnTemplate else ""
 
 		template = """
 		<div id="{{prefix}}-{{id}}" class="voices-list-entry">
@@ -127,9 +134,12 @@ VoicesLists =
 				<br>
 				<span class="second-line">{{secondLine}}</span>
 			</div>
+			{{{button}}}
 		</div>
 		"""
 
-		item = Mustache.render(template, data)
+		item = $(Mustache.render(template, data))
+		if button
+			item.find('.button').each () -> $(@).click(handler)
 
-		return $(item)
+		item

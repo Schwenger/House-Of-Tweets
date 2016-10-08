@@ -53,7 +53,7 @@ Profiles =
 		handler = (bid) -> 
 			Profiles.changeCitizenBird(bid, pid)
 			Profiles.closeCitizenBirdSelection
-		Profiles.createBirdList root, "change-bird-list-entry", handler
+		Profiles.createBirdList root, "change-bird-list-entry", handler, button = true
 
 	# PROFILE PAGE
 
