@@ -112,7 +112,6 @@ VoicesLists =
 				obj.click () -> handler(id) unless button
 
 	_createListEntry: (id, first_line, second_line, image, prefix, twitterBird, button = false, handler) ->
-		console.log handler
 		btnTemplate = """
 		<div class="button btn">
 			<span translateString stringid="select">@Auswählen</span>
@@ -140,6 +139,6 @@ VoicesLists =
 
 		item = $(Mustache.render(template, data))
 		if button
-			item.find('.button').each () -> $(@).click(handler)
+			item.find('.button').each () -> $(@).click(() -> handler(id))
 
 		item
