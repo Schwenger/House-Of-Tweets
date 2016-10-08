@@ -7,11 +7,8 @@ SoundCtrl =
 	setBirdMode: (mode) ->
 		@bird = mode
 
-	setSoundMode: (mode) ->
-		@sound = mode
-
 	getMode: ->
-		@bird + @sound
+		@bird
 
 	play: (tweetId, duration, mode) ->
 		audio = @getAudio(tweetId, mode)
