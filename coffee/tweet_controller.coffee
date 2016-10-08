@@ -159,34 +159,12 @@ TweetController =
 	_playTweets: (list, mode) ->
 		tweet.play(mode) for tweet in list
 
-	_nyahNyah: [
-		"kitty", "rainbow", "tippytoe", "jibberjabber", "#IHideMyInsecurityBehindCurses", "pinky",
-		"Kätzchen", "Regenbogen", "BlaBlaBla", "#InnerlichTot", "Wattebällchen", "#ILikeTrains"
-		"$@*$@!#", "#$@&%*!", "$@*$@!#", "#$@&%*!" # double occurrences intended
-	]
-	_sanitize: (content, byPoli) ->
-		if not byPoli
-			for baddy in bad_words
-				replacement = @_getRandom(@_nyahNyah)
-				content = content.replace(new RegExp("(\\s|^)#{baddy}(\\s|$)"), " #{replacement} ")
-		content = content[..140]
-		$("<span>").text(content).html() # should not be necessary, but can't hurt as well.
-		content
-
-	_tagPattern: /\w*/i
-	_sanitizeTags: (tags) ->
-		for tag in tags
-			if tag.match @_tagPattern then tag else "--NOPE--" 
-
-	_getRandom: (collection) ->
-		collection[Math.floor(Math.random() * collection.length)]
-
 	_transform: (tweet) ->
 
 		choice = if @_usePoliBirds and tweet.poli? then "poli" else "citizen"
 		bid = tweet.sound[choice].bid
-		sanitized = @_sanitize(tweet.content, tweet.sound.poli?)
-		tags = @_sanitizeTags tweet.hashtags
+		sanitized = Util.sanitize(tweet.content, tweet.sound.poli?)
+		tags = Util.sanitizeTags tweet.hashtags
 		enhanced = @_enhance sanitized, tags
 
 		data = 
