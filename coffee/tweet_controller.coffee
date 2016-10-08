@@ -161,7 +161,7 @@ TweetController =
 		if not byPoli
 			for baddy in bad_words
 				replacement = @_getRandom(@_nyahNyah)
-				content = content.replace(baddy, replacement)
+				content = content.replace(new RegExp("(\\s|^)#{baddy}(\\s|$)"), " #{replacement} ")
 		content = content[..140]
 		$("<span>").text(content).html() # should not be necessary, but can't hurt as well.
 		content
