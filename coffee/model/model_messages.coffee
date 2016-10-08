@@ -33,6 +33,12 @@
 			register: "Abschicken"
 			select: "Auswählen"
 
+			positive_feedback_pre: "Nutzer"
+			positive_feedback_post: "wurde erfolgreich hinzugefügt. Frohes Tweeten!"
+
+			negative_feedback_pre: "Nutzer"
+			negative_feedback_post: "konnte nicht gefunden werden. Vertippt?"
+
 			birdsObl: "Vögeln"
 			musicianObl: "Musikern"
 			chirpingOf: "Zwitschern von"
@@ -134,6 +140,12 @@
 
 			register: "Submit"
 			select: "Select"
+
+			negative_feedback_pre: "User"
+			negative_feedback_post: "cannot be found. Typo?"
+			
+			positive_feedback_pre: "User"
+			positive_feedback_post: "added successfully. Happy Tweeting!"
 
 			birdsObl: "Birds"
 			musicianObl: "Musicians"
