@@ -49,7 +49,7 @@ Util = {
 	sanitize: (content, byPoli) ->
 		if not byPoli
 			for baddy in bad_words
-				replacement = @_getRandom(@_nyahNyah)
+				replacement = Util._getRandom(Util.nyahNyah)
 				content = content.replace(new RegExp("(\\s|^)#{baddy}(\\s|$)"), " #{replacement} ")
 		content = content[..140]
 		$("<span>").text(content).html() # should not be necessary, but can't hurt as well.
@@ -58,6 +58,6 @@ Util = {
 	tagPattern: /\w*/i
 	sanitizeTags: (tags) ->
 		for tag in tags
-			if tag.match @_tagPattern then tag else "--NOPE--" 
+			if tag.match Util.tagPattern then tag else "--NOPE--" 
 
 }
