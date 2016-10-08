@@ -112,11 +112,7 @@ VoicesLists =
 				obj.click () -> handler(id) unless button
 
 	_createListEntry: (id, first_line, second_line, image, prefix, twitterBird, button = false, handler) ->
-		btnTemplate = """
-		<div class="button btn">
-			<span translateString stringid="select">@Auswählen</span>
-		</div>
-		"""
+		btnTemplate = "<div class='button btn'> #{Model.msg.get('select')} </div>"
 		data = 
 			id: id
 			imagePath: image
