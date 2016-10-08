@@ -148,14 +148,16 @@ TweetController =
 		tweet.obj.remove() for tweet in oldL
 		root = $('#tweet-list')
 		root.append tweet.obj for tweet in newL
-		@_playTweets(newL)
+		@_playTweets(newL, SoundCtrl.getMode())
 
 	_removeTweets: (tweets) ->
 		tweet.obj.remove() for tweet in tweets
 
 	_displayTweets: (tweets) ->
 		domList = $('#tweet-list')
-		domList.append tweet.obj for tweet in tweets
+		for tweet in tweets
+			domList.append tweet.obj
+			@_attachClickHandler(tweet)
 
 	_playTweets: (list, mode) ->
 		tweet.play(mode) for tweet in list
@@ -233,9 +235,6 @@ TweetController =
 				poli: tweet.sound.poli?.bid
 				citizen: tweet.sound.citizen.bid
 
-		speakerElement = tweetElement.find("#tweet-#{tweet.id}-speaker")
-		speakerElement.click () -> tweetCompound.play(SoundCtrl.getMode())
-
 		return tweetCompound
 
 	_enhance: (tweet, hashtags) ->
@@ -243,8 +242,11 @@ TweetController =
 			tweet = tweet.replace('#'+hashtag, "<span style='color: blue'>##{hashtag}</span>")
 		return tweet
 
-
-
+	_attachClickHandler: (tweetCompound) ->
+		speakerElement = tweetCompound.obj.find("#tweet-#{tweetCompound.id}-speaker")
+		speakerElement.click () -> 
+			console.log "playing sound" 
+			tweetCompound.play(SoundCtrl.getMode())
 
 
 
