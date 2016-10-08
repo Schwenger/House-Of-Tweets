@@ -20,6 +20,7 @@ CitizenUser =
 
 		$("submit-citizen-bird").click @_submitCitizenBird
 		@_resetDropdownTrigger()
+		new Connector(Connector.config.acknowledgeQueue, @_consumeFeedback)
 
 	leavePage: ->
 		setTimeout (() ->
@@ -38,6 +39,31 @@ CitizenUser =
 				list.append(optionObject)
 				optionObject.click(() -> CitizenUser._selectCitizenBird(id))
 		@_resetDropdownTrigger()
+
+	_consumeFeedback: (msg) ->
+		if msg.error?
+			console.log "Error adding user #{msg.twittername}. Reason: #{msg.error}"
+		kind = if msg.error? then "negative" else "positive"
+		data = 
+			kind: kind
+			name: msg.twittername
+			pre: Model.msg.get("#{kind}_feedback_pre")
+			post: Model.msg.get("#{kind}_feedback_post")
+		template = """
+			<div class="entry {{kind}}"> 
+      			<div>
+        			<span translatestring stringID="{{kind}}_feedback_pre"> {{pre}} </span>
+        			<span class="twittername"> {{name}} </span>
+        			<span translatestring stringID="{{kind}}_feedback_post"> {{post}} </span>
+      			</div>
+    		</div>
+		"""
+		elem = $(Mustache.render(template, data))
+		$('#citizen-user-feedback-list').append(elem)
+		setTimeout (() -> 
+			elem.addClass("fade-out")
+			setTimeout (() -> elem.remove()), 1500
+		), 10000
 
 	_leave: () ->
 		@leavePage()
