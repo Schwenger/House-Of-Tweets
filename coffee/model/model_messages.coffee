@@ -155,7 +155,7 @@
 			drawing: "drawing"
 
 			sprachen: "Languages",
-			vogelstimmen: "Birdsounds",
+			vogelstimmen: "Bird Calls",
 			eigeneT: "Own Tweets",
 			zurückZuT: "Back to Tweets",
 			
