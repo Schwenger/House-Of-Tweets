@@ -112,30 +112,24 @@ VoicesLists =
 				obj.click () -> handler(id)
 
 	_createListEntry: (id, first_line, second_line, image, prefix, twitterBird) ->
-		item_o = $("<div id='#{prefix}-#{id}' class='voices-list-entry'>")
-		
-		if first_line.length >= 30
-			first_line_o = $("<span class='first-line' style='font-size: 25px;'>")
-		else
-			first_line_o = $("<span class='first-line'>")
-		first_line_o.text(first_line)
-		
-		lineBreak_o = $("<br>")
-		
-		span_o = $("<div class='two-line-wrapper'>")
+		data = 
+			id: id
+			imagePath: image
+			firstLine: first_line
+			secondLine: second_line
+			firstLineStyle: if first_line.length >= 30 then "font-size: 25px;" else ""
 
-		second_line_o = $("<span class='second-line'>")
-		second_line_o.text(second_line)
+		template = """
+		<div id="{{prefix}}-{{id}}" class="voices-list-entry">
+			<img src="{{imagePath}}">
+			<div class="two-line-wrapper">
+				<span class="first-line" style="{{firstLineStyle}}">{{firstLine}}</span>
+				<br>
+				<span class="second-line">{{secondLine}}</span>
+			</div>
+		</div>
+		"""
 
-		image_o = $("<img src='#{image}'>")
+		item = Mustache.render(template, data)
 
-		span_o.append first_line_o
-		span_o.append lineBreak_o
-		span_o.append second_line_o
-
-		item_o.append image_o
-		item_o.append span_o
-
-		return item_o
-
-
+		return $(item)
