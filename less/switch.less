@@ -66,3 +66,63 @@
     background-color: #A1A1A1; 
     right: 0px; 
 }
+
+// The following is not by https://proto.io/freebies/onoff/
+
+.switch-container {
+
+    position: relative;
+    height: 100%;
+
+    & > .switch-label {
+        float: left;
+        padding-top: 17px;
+        position: absolute;
+        text-align: center;
+        width: 30%;
+        height: 100%;
+
+        &-voices {
+            &-left {
+                left: 4%;
+            }
+            &-right {
+                left: 65%;
+            }
+        }
+
+        &-tweets {
+            &-left {
+                left: 8%;
+            }
+            &-right {
+                left: 61%;
+            }
+        }
+
+        &-image {
+            &-left {
+                left: 6%;
+            }
+            &-right {
+                left: 63%;
+            }
+        }
+
+        & .icon {
+            font-size: 40px;
+            height: 66%;
+            & .switch-small-icon {
+                font-size: 50px;
+            }
+        }
+        & .text {
+            font-size: 20px;
+            height: 33%;
+        }
+    }
+    & > .switch {
+        float: left;
+        height: 30px;
+    }
+}
