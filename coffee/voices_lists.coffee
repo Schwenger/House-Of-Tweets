@@ -120,6 +120,7 @@ VoicesLists =
 			secondLine: second_line
 			firstLineStyle: if first_line.length >= 30 then "font-size: 25px;" else ""
 			button: if button then btnTemplate else ""
+			prefix: prefix
 
 		template = """
 		<div id="{{prefix}}-{{id}}" class="voices-list-entry">
