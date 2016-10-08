@@ -38,10 +38,7 @@
 
 				& > .list {
 					align-items: center;
-					display: flex;
-					flex-direction: column;
 					height: 90%;
-					justify-content: flex-start;
 					overflow-x: hidden;
 					overflow-y: scroll;
 					width: 100%;
@@ -72,12 +69,14 @@
 	padding-left: 5%;
 	position: relative;
 	width: 100%;
+	display: flex;
+	align-items: center;
 
-	.two-line-wrapper {
-		float: left;
+	& .two-line-wrapper {
 		height: 100%;
 		margin-left: 95px;
-
+		flex-grow: 1;
+		height: 100%;
 		& > .first-line {
 			font-size: 30px;
 			color: @voices_list_item_title_color;
@@ -102,6 +101,14 @@
 		position: absolute;
 		width: 40px;
 		z-index: 3;
+	}
+
+	& .button {
+		width: 20%;
+		margin-right: 10%;
+		height: 40%;
+		border: 1px solid gray;
+		background-color: @voices-page-background-color;
 	}
 }
 
