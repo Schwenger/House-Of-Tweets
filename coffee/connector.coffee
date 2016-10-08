@@ -9,7 +9,7 @@ class Connector
 		persistQueue: "/queue/persist"
 		citizenBirdQueue: "/queue/citizenbirds"
 		citizenUserQueue: "/queue/citizenuser"
-		acknowledgeQueue: "/queue/ack"
+		acknowledgeQueue: "/queue/userBirdNack"
 		url: "127.0.0.1" # localhost
 		port: "15674"
 		uname: "guest"
