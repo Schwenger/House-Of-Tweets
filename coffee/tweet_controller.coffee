@@ -64,6 +64,7 @@ TweetController =
 		TweetController._usePoliBirds = poli
 		SoundCtrl.setBirdMode(if poli then "P" else "C")
 		TweetController._updateBirdNames()
+		TweetController._switchView()
 
 	_changeShownTweets: ->
 		TweetController._poliTweetsOnly = $(@).prop('checked')
