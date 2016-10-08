@@ -203,16 +203,20 @@
         
       <div id="tweet-list-footer" class="tweet-list-footer">
         <div id="tweet-list-footer-options" class="tweet-list-footer-options">
-          
+
           <!-- VOICES OF -->
           <div class="footer-container">
             <div class="header"> 
             <span translatestring stringID="stimmenVon"> @stimmenVon </span>
             </div>
             <div class="switch-container sub-container">
-              <div class="switch-label left">
-                <span class="fa fa-users"></span> <br>
-                <span translatestring stringID="bürgern" class="text"> @bürgern </span>
+              <div class="switch-label switch-label-voices-left">
+                <div class="icon">
+                  <span class="fa fa-users"></span>
+                </div>
+                <div class="text">
+                  <span translatestring stringID="bürgern" class="text"> @bürgern </span>
+                </div>
               </div>
               <div class="switch">
                 <div class="onoffswitch">
@@ -223,22 +227,30 @@
                   </label>
                 </div>
               </div>
-              <div class="switch-label right">
-                <span class="fa fa-university"></span> <br>
-                <span translatestring stringID="politikern" class="text"> @politikern </span>
+              <div class="switch-label switch-label-voices-right">
+                <div class="icon">
+                  <span class="fa fa-university"></span>
+                </div>
+                <div class="text">
+                  <span translatestring stringID="politikern" class="text"> @politikern </span>
+                </div>
               </div>
             </div>
           </div> <!-- END OF VOICES OF -->
-          
+
           <!-- CITIZEN's TWEETS -->
           <div class="footer-container">
             <div class="header"> 
             <span translatestring stringID="tweetsVonBürgern"> @tweetsVonBürgern </span>
             </div>
             <div class="switch-container sub-container">
-              <div class="switch-label left">
-                <span class="fa fa-check fa-2x" style="font-size: 1.5em;"></span><br>
-                <span translatestring stringID="footerAn" class="text" style="margin-right:14px;"> @footerAn </span>
+              <div class="switch-label switch-label-tweets-left">
+                <div class="icon">
+                  <span class="fa fa-check"></span>
+                </div>
+                <div>
+                  <span translatestring stringID="footerAn" class="text"> @footerAn </span>
+                </div>
               </div>
               <div class="switch">
                 <div class="onoffswitch">
@@ -249,9 +261,13 @@
                   </label>
                 </div>
               </div>
-              <div class="switch-label right">
-                <span class="fa fa-times fa-2x" style="font-size: 1.5em;"></span> <br>
-                <span translatestring stringID="footerAus" class="text"> @footerAus </span>
+              <div class="switch-label switch-label-tweets-right">
+                <div class="icon">
+                  <span class="fa fa-times"></span>
+                </div>
+                <div class="text">
+                  <span translatestring stringID="footerAus" class="text"> @footerAus </span>
+                </div>
               </div>
             </div>
           </div> <!-- END OF CITIZEN's TWEETS -->
