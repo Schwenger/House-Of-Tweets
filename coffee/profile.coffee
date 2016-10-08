@@ -65,7 +65,7 @@ Profiles =
 			when "custom-gruene" then intro + "Grüne"
 			when "custom-spd" then intro + "SPD"
 			else obj.license
-		res += "/" + obj.copyright if obj.copyright?
+		res += "\n" + obj.copyright if obj.copyright?
 		res
 
 	close: ->
