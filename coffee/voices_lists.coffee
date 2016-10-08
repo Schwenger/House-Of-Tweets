@@ -89,10 +89,10 @@ VoicesLists =
 				obj.click () -> Profiles.openPoliticianPage id
 
 	_displayBirds: (root, prefix, list) ->
-		VoicesLists._displayBirdList root, prefix, ((id) -> Profiles.openBirdPage(id)), list
+		VoicesLists._displayBirdList root, prefix, ((id) -> Profiles.openBirdPage(id)), button = false, list
 
 	_initBirdList: ->
-		@_displayBirdList @birdListRoot, "voices-list-item", (id) -> Profiles.openBirdPage(id)
+		@_displayBirdList @birdListRoot, "voices-list-item", ((id) -> Profiles.openBirdPage(id)), false
 
 	# NB: This method is called from within profile, thus avoid using @.
 	_displayBirdList: (root, prefix, handler, button = false, list = Model.birds) ->
