@@ -30,6 +30,9 @@
 			search_placeholder_poli: "Suche einen Politiker"
 			search_placeholder_bird: "Suche einen Vogel"
 
+			register: "Abschicken"
+			select: "Auswählen"
+
 			birdsObl: "Vögeln"
 			musicianObl: "Musikern"
 			chirpingOf: "Zwitschern von"
@@ -128,6 +131,9 @@
 
 			search_placeholder_poli: "Find a politician"
 			search_placeholder_bird: "Find a bird"
+
+			register: "Submit"
+			select: "Select"
 
 			birdsObl: "Birds"
 			musicianObl: "Musicians"
