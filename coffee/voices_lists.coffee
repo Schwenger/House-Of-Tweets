@@ -84,7 +84,7 @@ VoicesLists =
 			do(id, p) ->
 				firstLine = p.name
 				image = Util.politicianPath p.images?.pathToThumb
-				obj = VoicesLists._createListEntry id, firstLine, p.party, image, prefix, (p.twittering? and p.twittering isnt null) # TODO
+				obj = VoicesLists._createListEntry id, firstLine, p.party, image, prefix
 				root.append obj
 				obj.click () -> Profiles.openPoliticianPage id
 
@@ -107,11 +107,11 @@ VoicesLists =
 		for [id, b] in sortable
 			do(id, b) ->
 				image = Util.birdPath id
-				obj = VoicesLists._createListEntry id, b[respName], b.latin_name, image, prefix, false, button, handler
+				obj = VoicesLists._createListEntry id, b[respName], b.latin_name, image, prefix, button, handler
 				root.append obj
 				obj.click () -> handler(id) unless button
 
-	_createListEntry: (id, first_line, second_line, image, prefix, twitterBird, button = false, handler) ->
+	_createListEntry: (id, first_line, second_line, image, prefix, button = false, handler) ->
 		btnTemplate = "<div class='button btn'> #{Model.msg.get('select')} </div>"
 		data = 
 			id: id
