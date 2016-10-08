@@ -22,16 +22,24 @@ TweetController =
 	_threshold: 6
 
 	init: ->
+		@initSwitches()
+		@initTimeTravel()
+		new Connector(Connector.config.tweetsQueue, (data) -> TweetController.consume(data))
+
+	initTimeTravel: ->
 		$('#play-tweets-1-button').click(() -> TweetController._timeTravel(1))
 		$('#play-tweets-6-button').click(() -> TweetController._timeTravel(6))
 		$('#play-tweets-24-button').click(() -> TweetController._timeTravel(24))
-		$('#voices-switch').change(@_changeBirdSelection)
-		$('#citizen-tweets-switch').change(@_changeShownTweets)
 
-		@_poliTweetsOnly = $("citizen-tweets-switch").prop('checked')
-		@_usePoliBirds = $("voices-switch").prop('checked')
-
-		new Connector(Connector.config.tweetsQueue, (data) -> TweetController.consume(data))
+	initSwitches: ->
+		voicesSwitch = $('#voices-switch')
+		voicesSwitch.prop('checked', true)
+		voicesSwitch.change(@_changeBirdSelection)
+		@_usePoliBirds = voicesSwitch.prop('checked')
+		shownTweetsSwitch = $('#citizen-tweets-switch')
+		shownTweetsSwitch.prop('checked', true)
+		shownTweetsSwitch.change(@_changeShownTweets)
+		@_poliTweetsOnly = shownTweetsSwitch.prop('checked')
 
 	# Interface
 	triggerTweetManually: () ->
