@@ -25,7 +25,6 @@ TweetController =
 		$('#play-tweets-1-button').click(() -> TweetController._timeTravel(1))
 		$('#play-tweets-6-button').click(() -> TweetController._timeTravel(6))
 		$('#play-tweets-24-button').click(() -> TweetController._timeTravel(24))
-		$('#chirping-of-switch').change(@_changeSoundOrigin)
 		$('#voices-switch').change(@_changeBirdSelection)
 		$('#citizen-tweets-switch').change(@_changeShownTweets)
 
