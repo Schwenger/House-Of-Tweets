@@ -9,6 +9,8 @@ CitizenUser =
 	_dropdownTrigger: undefined
 	_dropdownList: undefined
 
+	maxTwitterNameLength: 15
+
 	init: ->
 		@_citizenBirdMQ = new Connector(Connector.config.citizenUserQueue, undefined)
 		$('#submit-citizen-bird').click(@_submitCitizenBird)
@@ -46,7 +48,7 @@ CitizenUser =
 		kind = if msg.error? then "negative" else "positive"
 		data = 
 			kind: kind
-			name: msg.twittername
+			name: Util.sanitze(msg.twittername[..CitizenUser.maxTwitterNameLength])
 			pre: Model.msg.get("#{kind}_feedback_pre")
 			post: Model.msg.get("#{kind}_feedback_post")
 		template = """
@@ -93,7 +95,7 @@ CitizenUser =
 	_submitCitizenBird: (event) ->
 		event.preventDefault()
 		$('#citizen-tweets-switch').prop('checked', false);
-		username = $('#citizen-user-name-input').val()
+		username = $('#citizen-user-name-input').val()[..CitizenUser.maxTwitterNameLength]
 		data = {twittername: username, birdid: CitizenUser._citizenBirdSelection}
 		CitizenUser._citizenBirdMQ.sendToQueue(data)
 		CitizenUser._leave()
