@@ -37,9 +37,4 @@ Util = {
 			when "english" then "en_" + str
 			when "german"  then "de_" + str
 
-	createError: (msg, time) ->
-		errorObj = $("<div class='error-message'>")
-		errorObj.text(msg)
-		$("#carousel").append(errorObj)
-		setTimeout (-> errorObj.remove()), time
 }
