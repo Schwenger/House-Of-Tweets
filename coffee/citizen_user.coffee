@@ -14,33 +14,30 @@ CitizenUser =
 	init: ->
 		@_citizenBirdMQ = new Connector(Connector.config.citizenUserQueue, undefined)
 		$('#submit-citizen-bird').click(@_submitCitizenBird)
-		@_dropdownTrigger = $('#bird-dropdown-button')
-		@_dropdownList = $('#bird-dropdown-list')
-		@_dropdownTrigger.click @_toggleDropdown
-		@translateBirds()
-		$('#owntweets').click () -> CitizenUser._closeDropdown()
+
+		@_initSearchbar()
+		@_initBirdList()
 
 		$("submit-citizen-bird").click @_submitCitizenBird
-		@_resetDropdownTrigger()
 		new Connector(Connector.config.acknowledgeQueue, @_consumeFeedback)
 
 	leavePage: ->
 		setTimeout (() ->
-			CitizenUser._resetDropdownTrigger()
-			CitizenUser._closeDropdown()
 			$('#citizen-user-name-input').val("")
 		), Display.pageMoveDelay
 
 	translateBirds: ->
-		@_dropdownList?.children().each(() -> $(@).remove())
-		list = $('#bird-dropdown-list')
-		for own id, bird of Model.birds 
-			do(id, bird) ->
-				optionObject = $("<li class='bird-dropdown-entry' value=#{id}>")
-				optionObject.text(bird[Util.addLang "name"])
-				list.append(optionObject)
-				optionObject.click(() -> CitizenUser._selectCitizenBird(id))
-		@_resetDropdownTrigger()
+		CitizenUser._removeBirds()
+		CitizenUser._initBirdList()
+
+	_initSearchbar: ->
+		# TODO
+
+	_removeBirds: ->
+		# TODO
+
+	_initBirdList: ->
+		# TODO
 
 	_consumeFeedback: (msg) ->
 		if msg.error?
