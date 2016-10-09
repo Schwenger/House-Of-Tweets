@@ -37,7 +37,7 @@ VoicesLists =
 			bird[Util.addLang("name")].toLowerCase().indexOf(search) isnt -1
 		birdRemove = () -> VoicesLists._removeBirds()
 		Util.initSearchBar("bird", Model.birds, birdAdd, birdRemove, birdQualifies)
-		#poli search bar
+		# poli search bar
 		poliAdd = (polis) -> 
 			VoicesLists._displayPolis(VoicesLists.politicianListRoot, "voices-list-item", polis)
 		poliQualifies = (poli, search) ->
