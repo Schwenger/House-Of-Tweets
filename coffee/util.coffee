@@ -104,4 +104,17 @@ Util = {
 		"""
 		$(Mustache.render(template, data))
 
+	initSearchBar: (id, model, add, remove, qualifies) ->
+		searchBar = $("##{id}-search-bar")
+		handler = (event) ->
+			oldString = Global.searchString[id]
+			newString = searchBar.val().toLowerCase()
+			return if oldString is newString
+			Global.searchString[id] = newString
+			remaining = {}
+			remaining[id] = entity for id, entity of model when qualifies(entity, newString)
+			remove()
+			add remaining
+		$(document).keyup handler
+
 }

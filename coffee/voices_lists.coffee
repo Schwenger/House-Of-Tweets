@@ -29,38 +29,22 @@ VoicesLists =
 		@_removePolis()
 		@_initPoliticianList()
 
-	# SEARCH BAR
-
-	_searchString: 
-		poli: ""
-		bird: ""
 	_initSearchBars: ->
-		handler = (which) ->
-			searchBar = $("#voices-list-#{which}-search-bar")
-			if which is "poli"
-				model = Model.politicians
-				root = VoicesLists.politicianListRoot
-				display = VoicesLists._displayPolis
-			else
-				model = Model.birds
-				root = VoicesLists.birdListRoot
-				display = VoicesLists._displayBirds
-			(event) ->
-				return if VoicesLists._searchString[which] is searchBar.val().toLowerCase()
-				VoicesLists._searchString[which] = searchBar.val().toLowerCase()
-				if which is "poli"
-					pred = (poli) -> 
-						poli.name.toLowerCase().indexOf(VoicesLists._searchString[which]) isnt -1
-					VoicesLists._removePolis()
-				else 
-					pred = (bird) ->
-						bird[Util.addLang("name")].toLowerCase().indexOf(VoicesLists._searchString[which]) isnt -1
-					VoicesLists._removeBirds()
-				remaining = {}
-				remaining[id] = entity for id, entity of model when pred(entity)
-				display root, "voices-list-item", remaining
-		$(document).keyup handler("poli")
-		$(document).keyup handler("bird")
+		# bird search bar
+		birdAdd = (birds) -> 
+			VoicesLists._displayBirds(VoicesLists.birdListRoot, "voices-list-item", birds)
+		birdQualifies = (bird, search) -> 
+			bird[Util.addLang("name")].toLowerCase().indexOf(search) isnt -1
+		birdRemove = () -> VoicesLists._removeBirds()
+		Util.initSearchBar("bird", Model.birds, birdAdd, birdRemove, birdQualifies)
+		#poli search bar
+		poliAdd = (polis) -> 
+			VoicesLists._displayPolis(VoicesLists.politicianListRoot, "voices-list-item", polis)
+		poliQualifies = (poli, search) ->
+			poli.name.toLowerCase().indexOf(search) isnt -1
+		poliRemove = () -> VoicesLists._removePolis()
+		Util.initSearchBar("poli", Model.politicians, poliAdd, poliRemove, poliQualifies)
+
 
 	# CREATE AND DISPLAY LISTS
 
