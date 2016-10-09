@@ -149,11 +149,15 @@
 
 	& > .cv-and-selection-wrapper {
 
+		display: flex;
+		flex-direction: column;
+
 		& > .cv {
 			height: 40%;
 			margin-bottom: 20px;
-			overflow-y: scroll;
 			overflow-x: hidden;
+			overflow-y: scroll;
+			flex-grow: 1;
 		}
 		& > .selection-container {
 			display: flex;
@@ -193,5 +197,5 @@
 }
 
 .cv-birds {
-	height: 70%;
+	height: 75%;
 }
