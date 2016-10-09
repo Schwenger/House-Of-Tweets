@@ -39,6 +39,8 @@
 			negative_feedback_pre: "Nutzer"
 			negative_feedback_post: "konnte nicht gefunden werden. Vertippt?"
 
+			choose_bird_prompt: "Jetzt noch den Lieblingsvogel aussuchen und abschicken!"
+
 			birdsObl: "Vögeln"
 			musicianObl: "Musikern"
 			chirpingOf: "Zwitschern von"
@@ -146,6 +148,8 @@
 			
 			positive_feedback_pre: "User"
 			positive_feedback_post: "added successfully. Happy Tweeting!"
+
+			choose_bird_prompt: "Now choose you favourite bird and submit!"
 
 			birdsObl: "Birds"
 			musicianObl: "Musicians"
