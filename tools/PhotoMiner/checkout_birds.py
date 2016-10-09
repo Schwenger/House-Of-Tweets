@@ -17,15 +17,24 @@ os.mkdir(HOT_DIR_PREFIX)  # If this fails: you should always start from scratch 
 
 
 def checkout(bid, fields):
-    GRAVITY_NORTH = {
-        'buntspecht',
-        'girlitz',
-        'grauschnaepper',
-        'mehlschwalbe',
+    GRAVITY_OVERRIDE = {
+        'buntspecht': 'north',
+        'girlitz': 'north',
+        'grauschnaepper': 'north',
+        'mehlschwalbe': 'northeast',
+        'amsel': 'west',
+        'haussperling': 'west',
+        'rauchschwalbe': 'west',
+        'rotkehlchen': 'east',
+        'weisskopfseeadler': 'west',
+        'hausrotschwanz': 'east',
+        'star': 'east',
+        'stieglitz': 'west',
+        'tuerkentaube': 'east',
     }
     gravity = 'center'
-    if bid in GRAVITY_NORTH:
-        gravity = 'north'
+    if bid in GRAVITY_OVERRIDE:
+        gravity = GRAVITY_OVERRIDE[bid]
 
     pubweb_prefix = os.path.join(checkout_hot_poli.DIR_PREFIX, bid)
     hot_prefix = os.path.join(HOT_DIR_PREFIX, bid)
