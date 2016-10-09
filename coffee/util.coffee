@@ -92,7 +92,7 @@ Util = {
 			prefix: prefix
 
 		template = """
-		<div id="{{prefix}}-{{id}}" class="voices-list-entry">
+		<div id="{{prefix}}-{{id}}" class="list-entry">
 			<img src="{{imagePath}}">
 			<div class="two-line-wrapper">
 				<span class="first-line" style="{{firstLineStyle}}">{{firstLine}}</span>

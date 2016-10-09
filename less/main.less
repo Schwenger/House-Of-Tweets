@@ -16,3 +16,37 @@ body, html {
 .invisible {
 	display: none;
 }
+
+.list-entry {
+	height: 85px;
+	margin-bottom: 10px;
+	padding-left: 5%;
+	position: relative;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	text-align: left;
+
+	& .two-line-wrapper {
+		height: 100%;
+		margin-left: 95px;
+		flex-grow: 1;
+		height: 100%;
+		& > .first-line {
+			font-size: 30px;
+		}
+		& > .second-line {
+			font-size: 15px;
+		}
+	}
+	& > img {
+		border-radius: 20px;
+		float: left;
+		height: 75px;
+		margin-right: 10px;
+		position: absolute;
+		width: 75px;
+		z-index: 1;
+	}
+
+}

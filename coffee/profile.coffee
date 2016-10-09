@@ -51,7 +51,7 @@ Profiles =
 		$('#change-citizen-bird-wrapper').removeClass "invisible"
 
 		# prepare new list entries
-		addon = (id) -> "<div class='button btn'> #{Model.msg.get('select')} </div>"
+		addon = (id) -> "<div class='select-citizen-bird-button btn'> #{Model.msg.get('select')} </div>"
 		handler = (bid) -> 
 			Profiles.changeCitizenBird(bid, pid)
 			Profiles.closeCitizenBirdSelection
