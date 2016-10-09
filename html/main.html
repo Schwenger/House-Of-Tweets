@@ -317,18 +317,47 @@
     <div class="page item" id="owntweets">
       <img class="background" src="../ext/images/backgrounds/background-right.jpg" alt="background-right"/>
       
-      <div class="citizen-bird-page"> <span translatestring stringID="gelb_text1"> @gelb_text1 </span>
-        <input type="text" name="twitterName" id="citizen-user-name-input" class="citizen-user-name-input" placeholder="Twitter name">
+      <div class="citizen-bird-page"> 
+        <div class="left">
 
-        <span translatestring stringID="gelb_text2"> @gelb_text2 </span> 
-        <div class="bird-dropdown-container">
-          <button class="bird-dropdown-button" id="bird-dropdown-button">Placeholder</button>
-          <ul id="bird-dropdown-list">
+          <div class="explanation">
+            <span translatestring stringID="gelb_text1"> @gelb_text1 </span>
+          </div>
 
-          </ul>
+          <div class="twitter-name-input">
+            <input type="text" name="twitterName" id="citizen-user-name-input" placeholder="Twitter name">
+          </div>
+
+          <div class="prompt">
+            <span translatestring stringID="choose-bird-prompt"> @chooseBirdPrompt </span>
+            <span class="fa fa-arrow-right"></span>
+          </div>
+
+          <div class="btn submit" id="submit-citizen-bird">
+            <span translateString stringID="register"> @register </span>
+          </div>
+
         </div>
-        <div class="btn submit-citizen-bird" id="submit-citizen-bird">
-          <span translateString stringID="register"> @register </span>
+        <div class="right">
+          <!--div class="header">
+            <span translateString stringID="chooseBird"> @chooseBird </span>
+          </div-->
+            <div class="search-bar">
+              <input class="input" id="citizen-user-search-bar" placeholder="IF YOU READ THIS, YOU ARE GOING TO DIE">
+            </div>
+          <div class="bird-list" id="citizen-user-bird-list">
+            <!-- to be filled dynamically -->
+
+            <div id="citizen-user-bird-selection-list-item-amsel" class="list-entry">
+              <img src="../ext/images/birds/kiwi.jpg">
+              <div class="two-line-wrapper">
+                <span class="first-line" style="">Kiwi</span>
+                <br>
+                <span class="second-line">Kiwius Magnus</span>
+              </div>            
+            </div>
+
+          </div>
         </div>
         
       </div>
