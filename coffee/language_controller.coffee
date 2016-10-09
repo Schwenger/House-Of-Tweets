@@ -26,9 +26,9 @@ class LanguageController
 
 		placeholderPoli = Model.msg.get("search_placeholder_poli")
 		placeholderBird = Model.msg.get("search_placeholder_bird")
-		$("#voices-list-poli-search-bar").attr("placeholder", placeholderPoli).val("").focus().blur();
-		$("#voices-list-bird-search-bar").attr("placeholder", placeholderBird).val("").focus().blur();
-		$("#citizen-user-search-bar").attr("placeholder", placeholderBird).val("").focus().blur();
+		$("#poli-search-bar").attr("placeholder", placeholderPoli).val("").focus().blur();
+		$("#bird-search-bar").attr("placeholder", placeholderBird).val("").focus().blur();
+		$("#citizen-search-bar").attr("placeholder", placeholderBird).val("").focus().blur();
 		
 		VoicesLists.translateBirds()
 		CitizenUser.translateBirds()
