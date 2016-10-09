@@ -70,27 +70,6 @@ CitizenUser =
 	_leave: () ->
 		@leavePage()
 		$("carousel-control-prev").click()
-
-	_resetDropdownTrigger: ->
-		for own id, bird of Model.birds
-			@_citizenBirdSelection = id
-			@_dropdownTrigger.text(bird[Util.addLang "name"])
-			# We are only interested in the first element.
-			break
-		
-	_toggleDropdown: (e) ->
-		event = e || window.event
-		event.stopPropagation()
-		CitizenUser._dropdownTrigger.toggleClass('active')
-		CitizenUser._dropdownList.slideToggle(200)
-
-	_closeDropdown: ->
-		@_toggleDropdown() if @_dropdownTrigger.hasClass('active')
-
-	_selectCitizenBird: (id) ->
-		@_citizenBirdSelection = id
-		@_dropdownTrigger.text(Model.birds[id][Util.addLang("name")])
-		@_toggleDropdown()
 			
 	_submitCitizenBird: (event) ->
 		event.preventDefault()
