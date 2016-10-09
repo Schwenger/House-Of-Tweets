@@ -8,6 +8,7 @@ CitizenUser =
 	_citizenBirdSelection: undefined
 	_dropdownTrigger: undefined
 	_dropdownList: undefined
+	_listRoot: $('#citizen-user-bird-list')
 
 	maxTwitterNameLength: 15
 
@@ -38,7 +39,10 @@ CitizenUser =
 		# TODO
 
 	_initBirdList: ->
-		root = $('#citizen-user-bird-list')
+		@_fillBirdList(Model.birds)
+
+	_fillBirdList: (list) ->
+		root = @_listRoot
 		prefix = 'citizen-user-list-item'
 		addon = (id) -> "<div class='select btn'> Auswählen </div>"
 		addClickHandlers = (obj, id) ->
@@ -47,9 +51,8 @@ CitizenUser =
 				root.children().each () -> $(@).removeClass(c)
 				obj.addClass c
 				CitizenUser._citizenBirdSelection = id
-				console.log CitizenUser._citizenBirdSelection
-		Util.createBirdList(root, prefix, Model.birds, addon, addClickHandlers, latinName = false)
-		root.children()[0].click()
+		Util.createBirdList(root, prefix, list, addon, addClickHandlers, latinName = false)
+		root.children()[0]?.click()
 
 	_consumeFeedback: (msg) ->
 		if msg.error?
