@@ -3,5 +3,6 @@
 /crawl_*.json
 # Should be either in secrets or not there at all.
 /preview/
+/preview_hb/
 # Either copy it over or it's useless
 /pols.json

@@ -146,7 +146,7 @@ about the license situation of the old images.
   - `img`: JSON object, image meta-information, just like an entry in the politician
     crawler (`url`, `license`, and optionally `copyright`)
 
-### Checkout images: `checkout_pubweb_birds.py`
+### Checkout images: `checkout_birds.py`
 
 - checkout for-use images, and link to them "properly"
 - input: `fetch_birds.json` (hard-coded)
@@ -159,7 +159,9 @@ about the license situation of the old images.
     Note: not HTML escaped!
   - `license`: string, e.g. `"CC-BY-SA-3.0"`
   - `copyright` (optional): string, e.g. `"Andreas Trepte"`
-- SIDE-EFFECTS: all images will be put into the `preview` directory,
+- SIDE-EFFECTS: all images for use in pubweb will be put into the `preview` directory,
+  which must not already exist.
+- SIDE-EFFECTS: all images for use in HoT will be put into the `preview_hb` directory,
   which must not already exist.
 
 ## About the cache

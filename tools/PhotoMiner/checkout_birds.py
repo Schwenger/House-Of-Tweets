@@ -7,8 +7,13 @@ import json
 import nice
 import os
 import checkout_hot_poli
+from shutil import copyfile
 
-RESOLUTION = '200x150'
+RESOLUTION_PUBWEB = '200x150'
+RESOLUTION_HOT = '330x330'
+
+HOT_DIR_PREFIX = 'preview_hb'
+os.mkdir(HOT_DIR_PREFIX)  # If this fails: you should always start from scratch here!
 
 
 def checkout(bid, fields):
@@ -22,24 +27,30 @@ def checkout(bid, fields):
     if bid in GRAVITY_NORTH:
         gravity = 'north'
 
-    img_prefix = os.path.join(checkout_hot_poli.DIR_PREFIX, bid)
+    pubweb_prefix = os.path.join(checkout_hot_poli.DIR_PREFIX, bid)
+    hot_prefix = os.path.join(HOT_DIR_PREFIX, bid)
     dl_path = nice.get(fields['url'])
-    freshest_path = dl_path
 
-    # Provide ready-to-use image
-    # A width of *exactly* 259 pixels is imposed by the table layout switching.
-    # The minimum height of 152 is arbitrary, but for reference:
-    #   for 4x3 you need 194 vertical pixels,
-    #   for 16x9 you need 146.
-    #   So I went with
-    checkout_hot_poli.convert(freshest_path,
-        '-resize', RESOLUTION + '^>',
+    # Provide ready-to-use image for pubweb
+    checkout_hot_poli.convert(dl_path,
+        '-resize', RESOLUTION_PUBWEB + '^>',
         '-strip',
         # It shouldn't ever be necessary to actually cut down the image vertically.
         # However, the code should still do something reasonable.
         '-gravity', gravity,
-        '-extent', RESOLUTION + '>',
-        img_prefix + '.jpg')
+        '-extent', RESOLUTION_PUBWEB + '>',
+        pubweb_prefix + '.jpg')
+
+    # Provide ready-to-use images for HoT
+    checkout_hot_poli.convert(dl_path,
+        '-resize', RESOLUTION_HOT + '^>',
+        '-strip',
+        # It shouldn't ever be necessary to actually cut down the image vertically.
+        # However, the code should still do something reasonable.
+        '-gravity', gravity,
+        '-extent', RESOLUTION_HOT + '>',
+        hot_prefix + '.jpg')
+    copyfile(hot_prefix + '.jpg', hot_prefix + '-drawing.jpg')
 
     entry = {
         'filename': bid + '.jpg',
