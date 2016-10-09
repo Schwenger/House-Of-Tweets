@@ -30,7 +30,8 @@ CitizenUser =
 	translateBirds: ->
 		CitizenUser._removeBirds()
 		CitizenUser._initBirdList()
-		# TODO translate buttons
+
+	_translateSelectButton: ->
 		@_listRoot.children().each () ->
 			$(@).find(".select").text(Model.msg.get("select"))
 
@@ -62,6 +63,7 @@ CitizenUser =
 				CitizenUser._citizenBirdSelection = id
 		Util.createBirdList(root, prefix, list, addon, addClickHandlers, latinName = false)
 		root.children()[0]?.click()
+		@_translateSelectButton()
 
 	_consumeFeedback: (msg) ->
 		if msg.error?
