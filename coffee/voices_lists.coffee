@@ -49,10 +49,10 @@ VoicesLists =
 	# CREATE AND DISPLAY LISTS
 
 	_removePolis: ->
-		@_removeEntries(@politicianListRoot, ".voices-list-entry")
+		@_removeEntries(@politicianListRoot, ".list-entry")
 
 	_removeBirds: ->
-		@_removeEntries(@birdListRoot, ".voices-list-entry")
+		@_removeEntries(@birdListRoot, ".list-entry")
 
 	_removeEntries: (root, selector) ->
 		root.children(selector).each -> $(this).remove()
