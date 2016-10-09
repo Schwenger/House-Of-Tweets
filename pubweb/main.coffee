@@ -7,22 +7,22 @@ require('../ext/node_modules/jquery-on-infinite-scroll')
 	<!-- &url=https%3A%2F%2FHouseOfTweets.github.io -->
 
 		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
-			<a href="https://twitter.com/intent/tweet?text=#{name}&button_hashtag=HouseOfTweets">
-				<img src="imgs/#{bid}.jpg" alt="#{name}" width="200" height="150">
-				<p>#{name} #HouseOfTweets</p>
-			</a>
-		</div>
+            <a href="https://twitter.com/intent/tweet?text={tweet}&button_hashtag=HouseOfTweets">
+                <img src="imgs/{bid}.jpg" alt="{display}" width="200" height="150" />
+                <p class="custom-bird-caption">{display} #HouseOfTweets</p>
+            </a>
+        </div>
 ###
 
-placeBird = (name, bid) ->
+placeBird = (bid, display, tweet) ->
 	console.log "Loadin' moar"
 	# Although I call it "_tag", it's always a jQuery wrapped tag, not a "raw" tag.
-	img_tag = $("<img src=\"imgs/#{bid}.jpg\" alt=\"#{name}\" width=\"200\" height=\"150\">")
+	img_tag = $("<img src=\"imgs/#{bid}.jpg\" alt=\"#{display}\" width=\"200\" height=\"150\">")
 	p_tag = $("<p class=\"custom-bird-caption\">")
 	# TODO: Why can't I just write the text in the jQuery call?
-	p_tag.text("#{name} #HouseOfTweets")
+	p_tag.text("#{display} #HouseOfTweets")
 	a_tag = $("<a>")
-	name_for_href = encodeURIComponent(name)
+	name_for_href = encodeURIComponent(tweet)
 	a_tag.attr("href", "https://twitter.com/intent/tweet?text=#{name_for_href}&button_hashtag=HouseOfTweets")
 	a_tag.append(img_tag)
 	a_tag.append(p_tag)
@@ -53,9 +53,10 @@ BirdFeeder =
 	push: ->
 		# I'm sure there's a proper way to do it.
 		if @nextBirdIdx < @birds.length
-			[bid, name] = @birds[@nextBirdIdx]
+			[bid, display, tweet] = @birds[@nextBirdIdx]
+			console.log @birds[@nextBirdIdx]
 			@nextBirdIdx += 1
-			placeBird(name, bid)
+			placeBird(bid, display, tweet)
 			# Trigger another check.  See https://github.com/artsy/jquery-on-infinite-scroll/issues/8
 			$(window).trigger('scroll.infinite') for [1..4]
 		else

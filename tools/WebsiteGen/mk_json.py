@@ -13,7 +13,8 @@ INIT_DISPLAY_AMOUNT = 9
 
 
 def strip_bird(bird, lang):
-    return [bird['bid'], bird[lang + '_name']]
+    # BID, display name, Tweet name
+    return [bird['bid'], bird[lang + '_name'], bird['de_name']]
 
 
 def deal_birds(birds, lang):

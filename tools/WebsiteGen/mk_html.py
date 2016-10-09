@@ -162,28 +162,28 @@ def spoof_copyright(by_name, lang):
     return '\n      '.join([spoof_copyright_single(entry, lang) for entry in by_name])
 
 
-def spoof_bird(bid, name):
+def spoof_bird(bid, display_name, tweet_name):
     # Technically, I have to properly URI-component-escape the bid string.
     # Factually, I know that it's just plain ascii, so there's nothing to do.
     return """<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
-            <a href="https://twitter.com/intent/tweet?text={name}&button_hashtag=HouseOfTweets">
-                <img src="imgs/{bid}.jpg" alt="{name}" width="200" height="150" />
-                <p class="custom-bird-caption">{name} #HouseOfTweets</p>
+            <a href="https://twitter.com/intent/tweet?text={tweet}&button_hashtag=HouseOfTweets">
+                <img src="imgs/{bid}.jpg" alt="{display}" width="200" height="150" />
+                <p class="custom-bird-caption">{display} #HouseOfTweets</p>
             </a>
         </div>
-        """.format(bid=bid, name=html_escape(name))
+        """.format(bid=bid, display=html_escape(display_name), tweet=html_escape(tweet_name))
 
 
 def run():
-    with open('../PhotoMiner/checkout_birds.json', 'r') as fp:
+    with open('../PhotoMiner/checkout_pubweb_birds.json', 'r') as fp:
         birds = json.load(fp)
     by_name = birds_by_name(birds)
     for strings, lang in [(STRINGS_DE, 'de'), (STRINGS_EN, 'en')]:
         strings['about_copyright_html'] = spoof_copyright(by_name, lang)
         with open('birds_' + lang + '_init.json', 'r') as fp:
             init_birds = json.load(fp)
-        strings['index_init_content'] = ''.join([spoof_bird(bid, name)
-                                                 for bid, name in init_birds])
+        strings['index_init_content'] = ''.join([spoof_bird(bid, display_name, tweet_name)
+                                                 for bid, display_name, tweet_name in init_birds])
 
     # FIXME: Spoof "init" images properly
     generate('index')
