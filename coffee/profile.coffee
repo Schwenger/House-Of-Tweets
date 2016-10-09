@@ -125,12 +125,19 @@ Profiles =
 		$("#voices-lists-wrapper").css("opacity", 0)
 		$("#voices-profile-container-bird").removeClass "invisible"
 
+		bird = Model.birds[id]
+
+		# picture
 		picObj = $("#voices-profile-picture-bird")
 		picObj.css("height", picObj.width() + "px")
 		picObjDrawing = $("#voices-profile-picture-bird-drawing")
 		picObjDrawing.css("height", picObj.width() + "px")
 
-		bird = Model.birds[id]
+		# license
+		imgSrcObj = $("#voices-profile-picture-bird-src")
+		license = Profiles._licenseString(bird.img) # TODO
+		imgSrcObj.text(license)
+
 		$("#voices-profile-name-bird").text(bird[Util.addLang "name"])
 		$("#voices-profile-cv-bird").text(bird[Util.addLang "cv"])
 		$("#voices-profile-picture-bird").attr("src", Util.birdPath id)
