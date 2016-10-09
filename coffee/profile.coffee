@@ -6,13 +6,11 @@
 Profiles =
 
 	voicesMQ: undefined
-	createBirdList: undefined
 
 	birdPhoto: $("#voices-profile-picture-bird")
 	birdDrawing: $("#voices-profile-picture-bird-drawing")
 
-	init: (createBirdList) ->
-		@createBirdList = createBirdList
+	init: ->
 		@voicesMQ = new Connector(Connector.config.citizenBirdQueue, undefined)
 		$("#profile-back-button-politician").click @close
 		$("#profile-back-button-bird").click @close
@@ -47,13 +45,20 @@ Profiles =
 
 	openCitizenBirdSelection: (bid, pid) ->
 		root = $("#change-citizen-bird-wrapper")
+		# prepare list
 		o.remove() for o in root.children(".voices-list-entry")
 		$('#cv-and-selection-wrapper').addClass "invisible"
 		$('#change-citizen-bird-wrapper').removeClass "invisible"
+
+		# prepare new list entries
+		addon = (id) -> "<div class='button btn'> #{Model.msg.get('select')} </div>"
 		handler = (bid) -> 
 			Profiles.changeCitizenBird(bid, pid)
 			Profiles.closeCitizenBirdSelection
-		Profiles.createBirdList root, "change-bird-list-entry", handler, button = true
+		addClickHandler = (obj, bid) ->
+			obj.find('.button').each () -> $(@).click(() -> handler(bid))
+		prefix = "change-bird-list-entry"
+		Util.createBirdList root, prefix, Model.birds, addon, addClickHandler
 
 	# PROFILE PAGE
 
