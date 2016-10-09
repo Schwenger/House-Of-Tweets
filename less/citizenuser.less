@@ -70,28 +70,21 @@
 			margin-bottom: 20px;
 		}
 		& .list-entry {
-
-			> .addon {
-				align-items: center;
-				display: flex;
-				height: 100%;
-				padding-right: 5%;
-				width: 40%;
-
-				& .select {
-					background: @citizen-bird-background;
-    				border: 1px solid black;
-    				color:  @citizen-bird-color;
-    				font-size: 18px;
-    				height: 35px;
-    				line-height: 35px;
-    				padding: 0;
-    				width: 100%;
-				}
-				& .play {
-					font-size: 1.3em;
-					padding: 0px 20px 0px 0px;
-				}
+			padding-right: 5%;
+			& .select {
+				background: @citizen-bird-background;
+				border: 1px solid black;
+				color:  @citizen-bird-color;
+				font-size: 18px;
+				height: 35px;
+				line-height: 35px;
+				padding: 0;
+				width: 30%;
+			}
+			&-selected {
+				background-color: hsla(219, 82.5%, 20%, 0.5);
+				border: 1px solid gray;
+				border-radius: 20px;
 			}
 		}
 	}

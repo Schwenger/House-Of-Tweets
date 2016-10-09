@@ -29,6 +29,7 @@ CitizenUser =
 	translateBirds: ->
 		CitizenUser._removeBirds()
 		CitizenUser._initBirdList()
+		# TODO translate buttons
 
 	_initSearchbar: ->
 		# TODO
@@ -37,7 +38,18 @@ CitizenUser =
 		# TODO
 
 	_initBirdList: ->
-		# TODO
+		root = $('#citizen-user-bird-list')
+		prefix = 'citizen-user-list-item'
+		addon = (id) -> "<div class='select btn'> Auswählen </div>"
+		addClickHandlers = (obj, id) ->
+			obj.click () ->
+				c = "list-entry-selected"
+				root.children().each () -> $(@).removeClass(c)
+				obj.addClass c
+				CitizenUser._citizenBirdSelection = id
+				console.log CitizenUser._citizenBirdSelection
+		Util.createBirdList(root, prefix, Model.birds, addon, addClickHandlers)
+		root.children()[0].click()
 
 	_consumeFeedback: (msg) ->
 		if msg.error?
