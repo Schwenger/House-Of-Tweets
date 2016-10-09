@@ -208,17 +208,6 @@ CHOICES_PRIORITY = [
     'cxu',  # Often enough worse than Wikipedia's images
 ]
 
-COPYRIGHT_SANITIZE = {
-    "Achtung: Dieses Bild ist nicht gemeinfrei. Es ist zwar frei benutzbar aber gesetzlich"
-    " gesch\u00fctzt.\n\n\nNote: this image is not in the Public Domain. It is free to use"
-    " but protected by law.\n\n\n\n\n\n\n\nBitte benutzen sie nach M\u00f6glichkeit als"
-    " Bildbeschreibung:\nBl\u00f6mke/Kosinsky/Tsch\u00f6pe\n": 'Blömke/Kosinsky/Tschöpe',
-    "\u00a9\u00a0Ralf Roletschek\n": 'Ralf Roletschek',
-    "spdfraktion.de (Susie Knoll / Florian Jänicke)": 'Susie Knoll / Florian Jänicke',
-    "spdfraktion.de (Susie Knoll)": 'Susie Knoll',
-    "Christine Buchholz (full rights of use)": 'Christine Buchholz',
-}
-
 DIR_PREFIX = 'preview'
 os.mkdir(DIR_PREFIX)  # If this fails: you should always start from scratch here!
 
@@ -282,14 +271,6 @@ def checkout(pid, fields):
     }
     if 'copyright' in fields:
         entry['copyright'] = fields['copyright']
-        for expect_start, replacement in COPYRIGHT_SANITIZE.items():
-            if entry['copyright'].startswith(expect_start):
-                entry['copyright'] = replacement
-                break
-        DUMB_PREFIXES = ['Fotograf: ', 'Official White House Photo by ']
-        for prefix in DUMB_PREFIXES:
-            if entry['copyright'].startswith(prefix):
-                entry['copyright'] = entry['copyright'][len(prefix):]
     return entry
 
 

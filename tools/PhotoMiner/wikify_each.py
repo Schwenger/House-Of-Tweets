@@ -171,6 +171,21 @@ def get_img_desc_link(name, page_soup):
 # Retrieve the copyright *holder* information, or in German: "Urheber".
 # This is orthogonal to the license/permissions information.
 def parse_copyright(soup):
+    COPYRIGHT_SANITIZE = {
+        # Politicians
+        "Achtung: Dieses Bild ist nicht gemeinfrei. Es ist zwar frei benutzbar aber gesetzlich"
+        " gesch\u00fctzt.\n\n\nNote: this image is not in the Public Domain. It is free to use"
+        " but protected by law.\n\n\n\n\n\n\n\nBitte benutzen sie nach M\u00f6glichkeit als"
+        " Bildbeschreibung:\nBl\u00f6mke/Kosinsky/Tsch\u00f6pe\n": 'Blömke/Kosinsky/Tschöpe',
+        "\u00a9\u00a0Ralf Roletschek\n": 'Ralf Roletschek',
+        "Christine Buchholz (full rights of use)": 'Christine Buchholz',
+        # Birds
+        "English: Uploaded by Aelwyn with": "Aelwyn",
+        "This illustration was made by Marek Szczepanek\n": "Marek Szczepanek",
+        "Frank Liebig \n\n\n": "Frank Liebig",
+        "Dave Menke (1946\u20132011) \u00a0\n\n": "Dave Menke",
+        "Self: Commons user MichaelMaggs": "Michael Maggs",
+    }
     # "_aut" means: author information.  This is what we are looking for.
     author_td = soup.find(id='fileinfotpl_aut')  # Sometimes td, sometimes th
     assert author_td is not None, "No copyright holder for file?!"
@@ -183,9 +198,20 @@ def parse_copyright(soup):
                 '\nFotograf\n',
                 '\nAuthor\n'
                 ]
+    DUMB_PREFIXES = ['Fotograf: ', 'Official White House Photo by ']
+
+    assert 'Susie' not in author_text, author_text
     for prefix in prefixes:
-        if author_text.startswith(prefix):
-            return author_text[len(prefix):].strip()
+        if not author_text.startswith(prefix):
+            continue
+        found = author_text[len(prefix):].strip()
+        for expect_start, replacement in COPYRIGHT_SANITIZE.items():
+            if found.startswith(expect_start):
+                found = replacement
+        for dumb in DUMB_PREFIXES:
+            if found.startswith(dumb):
+                found = found[len(dumb):]
+        return found
     assert False, author_text
 
 

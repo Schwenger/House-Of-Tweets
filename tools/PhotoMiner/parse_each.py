@@ -328,6 +328,20 @@ def get_details_all(entries):
             if orig != handle:
                 print('[WARN] Sanitized handle {} to {}'.format(orig, handle))
             detail['twitter_handle'] = handle
+        if 'img' in  detail and 'copyright' in detail['img']:
+            copy_text = detail['img']['copyright']
+            COPYRIGHT_SANATIZE = {
+                "spdfraktion.de (Susie Knoll / Florian J\u00e4nicke)": 'Susie Knoll / Florian J\u00e4nicke',
+                "spdfraktion.de (Susie Knoll)": 'Susie Knoll',
+            }
+            DUMB_PREFIXES = ['Fotograf: ', 'Official White House Photo by ']
+            if copy_text in COPYRIGHT_SANATIZE:
+                copy_text = COPYRIGHT_SANATIZE[copy_text]
+            for dumb in DUMB_PREFIXES:
+                if copy_text.startswith(dumb):
+                    copy_text = copy_text[len(dumb):]
+            detail['img']['copyright'] = copy_text
+
         yield detail
 
 

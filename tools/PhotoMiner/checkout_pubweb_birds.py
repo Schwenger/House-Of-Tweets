@@ -8,15 +8,6 @@ import nice
 import os
 import checkout_hot_poli
 
-OVERRIDE_COPYRIGHT = {
-    'mehlschwalbe': ('English: Uploaded by Aelwyn with', 'Aelwyn'),
-    'tannenmeise': ('This illustration was made by Marek Szczepanek\n', 'Marek Szczepanek'),
-    'dohle': ('Frank Liebig \n\n\n', 'Frank Liebig'),
-    'kleiber': ('Dave Menke (1946\u20132011) \u00a0\n\n', 'Dave Menke'),
-    'buchfink': ('Self: Commons user MichaelMaggs', 'Michael Maggs'),
-}
-UNUSED_COPYRIGHT = dict(OVERRIDE_COPYRIGHT)
-
 RESOLUTION = '200x150'
 
 
@@ -57,13 +48,6 @@ def checkout(bid, fields):
     if 'copyright' in fields:
         entry['copyright'] = fields['copyright']
 
-    if bid in OVERRIDE_COPYRIGHT:
-        expected_start, copyright_new = OVERRIDE_COPYRIGHT[bid]
-        actual = entry['copyright']
-        if actual is not None and actual.startswith(expected_start):
-            print('[WARN] Overriding copyright for ' + bid)
-            entry['copyright'] = copyright_new
-            del UNUSED_COPYRIGHT[bid]
     return entry
 
 
@@ -80,7 +64,6 @@ def run():
         entry['de_name'] = bird['de_name']
         entry['en_name'] = bird['en_name']
         result.append(entry)
-    assert len(UNUSED_COPYRIGHT) == 0, UNUSED_COPYRIGHT
 
     with open('checkout_pubweb_birds.json', 'w') as fp:
         json.dump(result, fp, sort_keys=True, indent=2)
