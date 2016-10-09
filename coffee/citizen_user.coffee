@@ -48,7 +48,7 @@ CitizenUser =
 				obj.addClass c
 				CitizenUser._citizenBirdSelection = id
 				console.log CitizenUser._citizenBirdSelection
-		Util.createBirdList(root, prefix, Model.birds, addon, addClickHandlers)
+		Util.createBirdList(root, prefix, Model.birds, addon, addClickHandlers, latinName = false)
 		root.children()[0].click()
 
 	_consumeFeedback: (msg) ->

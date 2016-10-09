@@ -65,7 +65,7 @@ Util = {
 	# `addon` had to provide html given an id. The result is positioned 
 	# on the right hand side of the name.
 	# After each element's creation, modifier is called on them and the id. 
-	createBirdList: (root, prefix, list, addon, modifier) ->
+	createBirdList: (root, prefix, list, addon, modifier, latinName = true) ->
 		respName = Util.addLang "name"
 		cmp = (a,b) ->
 			if a[1][respName] < b[1][respName] then -1
@@ -77,7 +77,8 @@ Util = {
 		for [id, b] in sortable
 			do(id, b) ->
 				image = Util.birdPath id
-				obj = Util.createListEntry id, b[respName], b.latin_name, image, prefix, addon
+				secondLine = if latinName then b.latin_name else ""
+				obj = Util.createListEntry id, b[respName], secondLine, image, prefix, addon
 				root.append obj
 				modifier(obj, id) if modifier?
 
@@ -95,9 +96,8 @@ Util = {
 		<div id="{{prefix}}-{{id}}" class="list-entry">
 			<img src="{{imagePath}}">
 			<div class="two-line-wrapper">
-				<span class="first-line" style="{{firstLineStyle}}">{{firstLine}}</span>
-				<br>
-				<span class="second-line">{{secondLine}}</span>
+				<div class="first-line" style="{{firstLineStyle}}">{{firstLine}}</div>
+				<div class="second-line">{{secondLine}}</div>
 			</div>
 			{{{addon}}}
 		</div>
