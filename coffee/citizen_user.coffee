@@ -31,6 +31,8 @@ CitizenUser =
 		CitizenUser._removeBirds()
 		CitizenUser._initBirdList()
 		# TODO translate buttons
+		@_listRoot.children().each () ->
+			$(@).find(".select").text(Model.msg.get("select"))
 
 	_initSearchbar: ->
 		# TODO
@@ -44,7 +46,7 @@ CitizenUser =
 	_fillBirdList: (list) ->
 		root = @_listRoot
 		prefix = 'citizen-user-list-item'
-		addon = (id) -> "<div class='select btn'> Auswählen </div>"
+		addon = (id) -> "<div class='select btn'> @select </div>"
 		addClickHandlers = (obj, id) ->
 			obj.click () ->
 				c = "list-entry-selected"
