@@ -3,6 +3,7 @@
 # This is *a lot* like wikify_each.
 # TODO: Some refactoring to abstract away the common parts?
 
+import fileinput
 import json
 import nice
 import wikify_each
@@ -136,7 +137,13 @@ def run():
     assert len(IMG_OVERRIDE) == 0, IMG_OVERRIDE
     with open("fetch_birds.json", 'w') as fp:
         json.dump(birds, fp, sort_keys=True, indent=2)
+    # Use fetch_birds.json for ../../backend/pols.json
 
+    with open('model_birds.coffee', "w") as out:
+        out.write("@birds = ")
+        json.dump(birds, out, sort_keys=True, indent="\t")
+    for line in fileinput.input(['model_birds.coffee'], inplace=True):
+        print('\t' + line.rstrip('\n'))  # WHITELISTED PRINT
 
 if __name__ == '__main__':
     run()
