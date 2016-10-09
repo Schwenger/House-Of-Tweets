@@ -35,10 +35,16 @@ CitizenUser =
 			$(@).find(".select").text(Model.msg.get("select"))
 
 	_initSearchbar: ->
-		# TODO
+		id = "citizen"
+		model = Model.birds
+		add = (list) -> CitizenUser._fillBirdList(list)
+		remove = () -> CitizenUser._removeBirds()
+		qualifies = (bird, search) -> 
+			bird[Util.addLang("name")].toLowerCase().indexOf(search) isnt -1
+		Util.initSearchBar(id, model, add, remove, qualifies)
 
 	_removeBirds: ->
-		# TODO
+		@_listRoot.children().each () -> $(@).remove()
 
 	_initBirdList: ->
 		@_fillBirdList(Model.birds)
