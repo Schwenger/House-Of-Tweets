@@ -11,7 +11,7 @@ VoicesLists =
 	init: ->
 		@_initPoliticianList()
 		@_initBirdList()
-		Profiles.init(@_displayBirdList)
+		Profiles.init()
 		@_initSearchBars()
 
 	update: ->
@@ -84,58 +84,13 @@ VoicesLists =
 			do(id, p) ->
 				firstLine = p.name
 				image = Util.politicianPath p.images?.pathToThumb
-				obj = VoicesLists._createListEntry id, firstLine, p.party, image, prefix
+				obj = Util.createListEntry id, firstLine, p.party, image, prefix, undefined
 				root.append obj
 				obj.click () -> Profiles.openPoliticianPage id
 
 	_displayBirds: (root, prefix, list) ->
-		VoicesLists._displayBirdList root, prefix, ((id) -> Profiles.openBirdPage(id)), button = false, list
+		handler = (obj, id) -> obj.click(() -> Profiles.openBirdPage(id))
+		Util.createBirdList root, prefix, list, undefined, handler
 
 	_initBirdList: ->
-		@_displayBirdList @birdListRoot, "voices-list-item", ((id) -> Profiles.openBirdPage(id)), false
-
-	# NB: This method is called from within profile, thus avoid using @.
-	_displayBirdList: (root, prefix, handler, button = false, list = Model.birds) ->
-		respName = Util.addLang "name"
-		cmp = (a,b) ->
-			if a[1][respName] < b[1][respName] then -1
-			else if b[1][respName] < a[1][respName] then 1
-			else 0
-		sortable = ([id, bird] for own id, bird of list)
-		sortable.sort(cmp)
-		sortable
-		for [id, b] in sortable
-			do(id, b) ->
-				image = Util.birdPath id
-				obj = VoicesLists._createListEntry id, b[respName], b.latin_name, image, prefix, button, handler
-				root.append obj
-				obj.click () -> handler(id) unless button
-
-	_createListEntry: (id, first_line, second_line, image, prefix, button = false, handler) ->
-		btnTemplate = "<div class='button btn'> #{Model.msg.get('select')} </div>"
-		data = 
-			id: id
-			imagePath: image
-			firstLine: first_line
-			secondLine: second_line
-			firstLineStyle: if first_line.length >= 30 then "font-size: 25px;" else ""
-			button: if button then btnTemplate else ""
-			prefix: prefix
-
-		template = """
-		<div id="{{prefix}}-{{id}}" class="voices-list-entry">
-			<img src="{{imagePath}}">
-			<div class="two-line-wrapper">
-				<span class="first-line" style="{{firstLineStyle}}">{{firstLine}}</span>
-				<br>
-				<span class="second-line">{{secondLine}}</span>
-			</div>
-			{{{button}}}
-		</div>
-		"""
-
-		item = $(Mustache.render(template, data))
-		if button
-			item.find('.button').each () -> $(@).click(() -> handler(id))
-
-		item
+		@_displayBirds(@birdListRoot, "voices-list-item", Model.birds)

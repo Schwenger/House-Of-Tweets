@@ -60,4 +60,48 @@ Util = {
 		for tag in tags
 			if tag.match Util.tagPattern then tag else "--NOPE--" 
 
+	# Transforms `list`'s elements into entries and appends them to the `root`. 
+	# The entries' ids start with `prefix` and end with the bird's id.
+	# `addon` had to provide html given an id. The result is positioned 
+	# on the right hand side of the name.
+	# After each element's creation, modifier is called on them and the id. 
+	createBirdList: (root, prefix, list, addon, modifier) ->
+		respName = Util.addLang "name"
+		cmp = (a,b) ->
+			if a[1][respName] < b[1][respName] then -1
+			else if b[1][respName] < a[1][respName] then 1
+			else 0
+		sortable = ([id, bird] for own id, bird of list)
+		sortable.sort(cmp)
+		sortable
+		for [id, b] in sortable
+			do(id, b) ->
+				image = Util.birdPath id
+				obj = Util.createListEntry id, b[respName], b.latin_name, image, prefix, addon
+				root.append obj
+				modifier(obj, id) if modifier?
+
+	createListEntry: (id, first_line, second_line, image, prefix, addon) ->		
+		data = 
+			id: id
+			imagePath: image
+			firstLine: first_line
+			secondLine: second_line
+			firstLineStyle: if first_line.length >= 30 then "font-size: 25px;" else ""
+			addon: if addon? then addon(id) else ""
+			prefix: prefix
+
+		template = """
+		<div id="{{prefix}}-{{id}}" class="voices-list-entry">
+			<img src="{{imagePath}}">
+			<div class="two-line-wrapper">
+				<span class="first-line" style="{{firstLineStyle}}">{{firstLine}}</span>
+				<br>
+				<span class="second-line">{{secondLine}}</span>
+			</div>
+			{{{addon}}}
+		</div>
+		"""
+		$(Mustache.render(template, data))
+
 }
