@@ -28,7 +28,7 @@ def deal_birds(birds, lang):
 
 
 def run():
-    with open('../PhotoMiner/checkout_birds.json', 'r') as fp:
+    with open('../PhotoMiner/checkout_pubweb_birds.json', 'r') as fp:
         birds = json.load(fp)
     deal_birds(birds, 'de')
     deal_birds(birds, 'en')

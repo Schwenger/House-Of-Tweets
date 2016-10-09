@@ -112,7 +112,7 @@ ${TEMP}/pubweb_bundled.js: ${TEMP}/pubweb_bundled.coffee | ${DIRS}
 ${TEMP}/pubweb_bundled.coffee: pubweb/main.coffee ${PUBWEB_JSON_DYN} | ${DIRS}
 	${COFFEESCRIPT_CONCAT} -I tools/WebsiteGen/ $< -o $@
 
-${PUBWEB_JSON_INIT} ${PUBWEB_JSON_DYN}: %: tools/WebsiteGen/mk_json.py tools/PhotoMiner/checkout_birds.json
+${PUBWEB_JSON_INIT} ${PUBWEB_JSON_DYN}: %: tools/WebsiteGen/mk_json.py tools/PhotoMiner/checkout_pubweb_birds.json
 	( cd tools/WebsiteGen && ./mk_json.py )
 
 .PHONY: pubweb_static

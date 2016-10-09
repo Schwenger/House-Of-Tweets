@@ -6,7 +6,7 @@
 import json
 import nice
 import os
-import checkout_images
+import checkout_hot_poli
 
 OVERRIDE_COPYRIGHT = {
     'mehlschwalbe': ('English: Uploaded by Aelwyn with', 'Aelwyn'),
@@ -31,7 +31,7 @@ def checkout(bid, fields):
     if bid in GRAVITY_NORTH:
         gravity = 'north'
 
-    img_prefix = os.path.join(checkout_images.DIR_PREFIX, bid)
+    img_prefix = os.path.join(checkout_hot_poli.DIR_PREFIX, bid)
     dl_path = nice.get(fields['url'])
     freshest_path = dl_path
 
@@ -41,7 +41,7 @@ def checkout(bid, fields):
     #   for 4x3 you need 194 vertical pixels,
     #   for 16x9 you need 146.
     #   So I went with
-    checkout_images.convert(freshest_path,
+    checkout_hot_poli.convert(freshest_path,
         '-resize', RESOLUTION + '^>',
         '-strip',
         # It shouldn't ever be necessary to actually cut down the image vertically.
@@ -82,7 +82,7 @@ def run():
         result.append(entry)
     assert len(UNUSED_COPYRIGHT) == 0, UNUSED_COPYRIGHT
 
-    with open('checkout_birds.json', 'w') as fp:
+    with open('checkout_pubweb_birds.json', 'w') as fp:
         json.dump(result, fp, sort_keys=True, indent=2)
 
 

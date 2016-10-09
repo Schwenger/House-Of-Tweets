@@ -122,7 +122,7 @@ The format of `imgs` is:
   - `images` gets replaced by `imgs` (see "Aggregation")
   - `twitterId` may be left unassigned
 
-### Checkout images, generate pols.json: `checkout_images.py`
+### Checkout images, generate pols.json: `checkout_hot_poli.py`
 
 - checkout preview/for-use images, and link to them "properly"
 - input: `twitter_each.json` (hard-coded)
@@ -146,11 +146,11 @@ about the license situation of the old images.
   - `img`: JSON object, image meta-information, just like an entry in the politician
     crawler (`url`, `license`, and optionally `copyright`)
 
-### Checkout images: `checkout_images.py`
+### Checkout images: `checkout_pubweb_birds.py`
 
-- checkout preview/for-use images, and link to them "properly"
+- checkout for-use images, and link to them "properly"
 - input: `fetch_birds.json` (hard-coded)
-- output: `checkout_images.json` (hard-coded)
+- output: `checkout_pubweb_birds.json` (hard-coded)
 - output format: list of JSON objects, sorted by German name:
   - `filename`: string, location inside the `preview` directory, currently just bid plus `.jpg`, e.g. `"gartenbaumlaeufer.jpg"`
   - `bid`: string, internal bird-ID, probably not needed, e.g. `"gartenbaumlaeufer"`
