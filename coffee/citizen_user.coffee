@@ -54,7 +54,8 @@ CitizenUser =
 		prefix = 'citizen-user-list-item'
 		addon = (id) -> "<div class='select btn'> @select </div>"
 		addClickHandlers = (obj, id) ->
-			obj.click () ->
+			obj.click (e) -> 
+				e.stopPropagation()
 				c = "list-entry-selected"
 				root.children().each () -> $(@).removeClass(c)
 				obj.addClass c
