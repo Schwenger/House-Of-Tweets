@@ -56,7 +56,7 @@ Profiles =
 			Profiles.changeCitizenBird(bid, pid)
 			Profiles.closeCitizenBirdSelection
 		addClickHandler = (obj, bid) ->
-			obj.find('.button').each () -> $(@).click(() -> handler(bid))
+			obj.click () -> handler(bid)
 		prefix = "change-bird-list-entry"
 		Util.createBirdList root, prefix, Model.birds, addon, addClickHandler
 
