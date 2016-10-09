@@ -56,18 +56,43 @@
 	}
 
 	& .right {
-		width: 50%;
-		float: right;
 		background-color: hsla(219, 82.5%, 60%, 0.5);
+		float: right;
 		height: 100%;
 		padding: 2%;
+		width: 50%;
 
 		& .header {
 			font-size: 40px;
 		}
 		& .search-bar {
-			margin-bottom: 20px;
 			color: @citizen-bird-background;
+			margin-bottom: 20px;
+		}
+		& .list-entry {
+
+			> .addon {
+				align-items: center;
+				display: flex;
+				height: 100%;
+				padding-right: 5%;
+				width: 40%;
+
+				& .select {
+					background: @citizen-bird-background;
+    				border: 1px solid black;
+    				color:  @citizen-bird-color;
+    				font-size: 18px;
+    				height: 35px;
+    				line-height: 35px;
+    				padding: 0;
+    				width: 100%;
+				}
+				& .play {
+					font-size: 1.3em;
+					padding: 0px 20px 0px 0px;
+				}
+			}
 		}
 	}
 }
