@@ -1,7 +1,10 @@
 import logging
 import os.path
+import sys
 import time
 
+
+RELEASE = False  # FIXME: Set to  True to restart instead of crash on error
 
 _logger = None
 
@@ -33,6 +36,7 @@ def _setup():
 
 _setup()
 
+
 # Reduce all the functionality of 'logging' to these few functions,
 # since I don't want to care about the rest:
 debug = _logger.debug
@@ -41,3 +45,21 @@ warning = _logger.warning
 error = _logger.error
 
 info('Logging started.')  # Self-test
+
+
+def with_exceptions(run_fn, restart_fn=None, *run_args):
+    if restart_fn is None:
+        warning('No restart function given for invocation of {}'.format(run_fn))
+    try:
+        run_fn(*run_args)
+    except (KeyboardInterrupt, SystemExit):
+        raise
+    except:
+        error('Unexpected error: {}'.format(sys.exc_info()[0]))
+        if not RELEASE:
+            error('Not restarting to make error obvious.')
+        elif restart_fn is not None:
+            restart_fn()
+        else:
+            error('No restart function given.')
+        raise

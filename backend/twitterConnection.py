@@ -222,11 +222,14 @@ class TwitterConnection(object):
 			entry["token"] = token
 			mylog.debug("Resulting citizen entry: {}".format(entry))
 			timer = threading.Timer(REMOVE_CITIZEN_TIME,
-									self._remove_citizen, [tid, token])
+									self._remove_citizen_wrap, [tid, token])
 			# Don't prevent shutting down
 			timer.daemon = True
 			timer.start()
 		return None
+
+	def _remove_citizen_wrap(self, tid, token):
+		mylog.with_exceptions(self._remove_citizen, None, tid, token)
 
 	def _remove_citizen(self, tid, token):
 		with self.lock:

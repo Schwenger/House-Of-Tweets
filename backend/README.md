@@ -92,8 +92,10 @@ Direction: frontend → backend
 
 ## Known Threads
 
-- `batching.py` creates a Timer.  Concurrency between this Timer and the owner of the `TweetBatcher` is synchronized
-  via a lock inside the `TweetBatcher`.  However, nobody else should access the same connection.
+- `mq.py` creates a Timer for the batcher and for heartbeats.
+  Concurrency between this Timer and the owner of the `TweetBatcher`/`RealQueue` is synchronized
+  via a lock inside the `TweetBatcher`/`RealQueue`.
+  However, nobody else should access the same connection.
 - Each "incoming" RabbitMQ queue has its own thread. Locking: must happen in the called functions,
   namely `TwitterConnection.addCitizen` and `PoliticianBackend.setBird`
 - *unsure*: The twitter connection itself spawns at least one thread. Locking: *unknown*

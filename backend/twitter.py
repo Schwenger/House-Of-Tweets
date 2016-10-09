@@ -172,6 +172,9 @@ class RestartingStream:
         self.restart_now()
 
     def restart_now(self):
+        mylog.with_exceptions(self._restart_now)
+
+    def _restart_now(self):
         with self.lock:
             if not self.active:
                 return

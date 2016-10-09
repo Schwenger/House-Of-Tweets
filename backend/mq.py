@@ -43,12 +43,15 @@ class RealQueue(SendQueueInterface):
                 if not isRetry:
                     self.post(message, True)
 
+    def _heartbeat_wrap(self):
+        mylog.with_exceptions(self._heartbeat)
+
     def _heartbeat(self):
         with self.lock:
             mylog.debug('pump: ' + self.name)
             self.connection.process_data_events()
             # RabbitMQ expects a heartbeat every 60 seconds, so send one every 30 seconds.
-            timer = threading.Timer(30, self._heartbeat)
+            timer = threading.Timer(30, self._heartbeat_wrap)
             timer.daemon = True
             timer.start()
 
@@ -93,10 +96,13 @@ class Batcher(SendQueueInterface):
             self.tweets.append(msg)
             if self.timer is None:
                 self.timer = \
-                    threading.Timer(BATCH_TIMEOUT, self.__send)
+                    threading.Timer(BATCH_TIMEOUT, self._send_wrap)
                 self.timer.start()
 
-    def __send(self):
+    def _send_wrap(self):
+        mylog.with_exceptions(self._send)
+
+    def _send(self):
         with self.lock:
             toSend = self.tweets
             self.tweets = []
