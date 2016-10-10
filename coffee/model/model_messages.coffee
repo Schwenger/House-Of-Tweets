@@ -30,7 +30,6 @@
 			search_placeholder_poli: "Suche einen Politiker"
 			search_placeholder_bird: "Suche einen Vogel"
 
-			register: "Abschicken"
 			select: "Auswählen"
 
 			positive_feedback_pre: "Nutzer"
@@ -41,82 +40,41 @@
 
 			choose_bird_prompt: "Jetzt noch den Lieblingsvogel aussuchen und abschicken!"
 
-			birdsObl: "Vögeln"
-			musicianObl: "Musikern"
-			chirpingOf: "Zwitschern von"
-
 			photo: "Foto"
 			drawing: "Zeichnung" #Kunst?
 			
-			sprachen: "Sprachen",
-			vogelstimmen: "Vogelstimmen",
-			eigeneT: "Eigene Tweets",
-			zurückZuT: "Zurück zu den Tweets",
+			bird_calls: "Vogelstimmen",
+			own_tweets: "Eigene Tweets",
+			back_to_tweets: "Zurück zu den Tweets",
 			
-			stimmenVon: "Stimmen von", 
-			politikern: "Politikern",
-			bürgern: "Bürgern",
+			voices_of: "Stimmen von", 
+			politicians: "Politikern",
+			citizens: "Bürgern",
 			
-			tweetsVonBürgern: "Tweets von Bürgern",
-			footerAn: "an",
-			footerAus: "aus",
+			citizens_tweets: "Tweets von Bürgern",
+			footer_on: "an",
+			footer_off: "aus",
 			
-			dieLetzten24: "die letzten 24 h",
-			echtzeit: "Echtzeit",
-			
-			gelb_text1: "Geben Sie Ihren Twitternamen an, um für mindestens 5 Minuten Ihre eigenen Tweets zu sehen und zu hören!",
-			gelb_text2: "Wähle deinen Vogel aus:",
+			twitter_name_prompt: "Geben Sie Ihren Twitternamen an, um für mindestens 5 Minuten Ihre eigenen Tweets zu sehen und zu hören!",
+			bird_prompt: "Wählen Sie Ihren Vogel aus:",
 			button_text: "Vögel",
 			
-			rot_Abgeordnete: "Abgeordnete",
-			rot_Vögel: "Vögel",
-			
-			rot_zurück: "zurück",
-			rot_ändern: "ändern",
-
-			missing_uname: "Bitte gib deinen Nutzernamen an.",
-			missing_pw: "Bitte gib ein Passwort an.",
-
-			admin_page: "Admin Seite",
-			open: "Öffnen",
-			back: "Zurück",
-			username: "Nutzername",
-			password: "Passwort",
-			save_changes: "Änderungen speichern",
-			logout: "Abmelden",
-			politicians: "Politiker",
+			deputies: "Abgeordnete",
 			birds: "Vögel",
-			add_politician: "Politiker hinzufügen",
-			remove_politician: "Politiker entfernen",
-			first_name: "Vorname",
-			last_name: "Nachname",
+			
+			back: "zurück",
+			change: "ändern",
+
+			open: "Öffnen",
 			party: "Partei",
-			description: "Beschreibung",
-			tweets_q: "Twittert?",
-			yes: "Ja",
-			no: "Nein",
-			add: "Hinzufügen",
-			add_bird: "Vogel hinzufügen",
-			remove_bird: "Vogel entfernen",
-			latin: "Latein",
-			name: "Name"
 
-			playlastxsounds: "Tweets der letzten"
+			play_last_x_sounds: "Tweets der letzten"
 			select_bird: "Wählen Sie einen Vogel aus:"
-
-			male: "männlich"
-			female: "weiblich"
-
-			imageurl: "Link zum Bild"
 
 			tweetername: "Twitter Username"
 
 			own_bird: "Eigener Vogel"
 			citizen_bird: "Bürgervogel"
-			
-			a_project_by: "Ein Projekt von:"
-			leader: "Marco Speicher (DFKI) und Volker Sieben (Künstler)"
-			members: "HOT Mitglieder"
 		}
 
 		_en: {
@@ -151,79 +109,38 @@
 
 			choose_bird_prompt: "Now choose you favourite bird and submit!"
 
-			birdsObl: "Birds"
-			musicianObl: "Musicians"
-			chirpingOf: "Chirping of"
-
 			photo: "photo"
 			drawing: "drawing"
 
-			sprachen: "Languages",
-			vogelstimmen: "Bird Calls",
-			eigeneT: "Own Tweets",
-			zurückZuT: "Back to Tweets",
+			bird_calls: "Bird Calls",
+			own_tweets: "Own Tweets",
+			back_to_tweets: "Back to Tweets",
 			
-			stimmenVon: "Sounds of", 
-			politikern: "Politicians",
-			bürgern: "Citizens",
+			voices_of: "Sounds of", 
+			politicians: "Politicians",
+			citizens: "Citizens",
 			
-			tweetsVonBürgern: "Tweets of Citizens",
-			footerAn: "on",
-			footerAus: "off",
+			citizens_tweets: "Tweets of Citizens",
+			footer_on: "on",
+			footer_off: "off",
 			
-			dieLetzten24: "the last 24 h",
-			echtzeit: "Real-time",
-			
-			gelb_text1: "Fill in your Twittername to hear and see your own tweets for at least 5 minutes!",
-			gelb_text2: "Choose your bird:",
+			twitter_name_prompt: "Fill in your Twittername to hear and see your own tweets for at least 5 minutes!",
+			bird_prompt: "Choose your bird:",
 			button_text: "birds",
 			
-			rot_Abgeordnete: "Deputies",
-			rot_Vögel: "Birds",
-			
-			rot_zurück: "back",
-			rot_ändern: "change",
-
-			missing_uname: "Please insert a user name.",
-			missing_password: "Please insert a password.",
-
-			admin_page: "Admin Page",
-			open: "Open",
-			back: "back",
-			username: "Username",
-			password: "Password",
-			save_changes: "Save changes",
-			logout: "logout",
-			politicians: "Politicians",
+			deputies: "Deputies",
 			birds: "Birds",
-			add_politician: "Add politician",
-			remove_politician: "Remove politician",
-			first_name: "First name",
-			last_name: "Last name",
+			
+			back: "back",
+			change: "change",
+
+			open: "Open",
 			party: "Party",
-			description: "Description",
-			tweets_q: "Tweets?",
-			yes: "Yes",
-			no: "No",
-			add: "Add",
-			add_bird: "Add bird",
-			remove_bird: "Remove bird",
-			latin: "Latin",
-			name: "Name"
 
-			playlastxsounds: "Tweets of last"
+			play_last_x_sounds: "Tweets of last"
 			select_bird: "Select a bird:"
-
-			male: "male"
-			female: "female"
-
-			imageurl: "Link to image"
 
 			own_bird: "Own Bird"
 			citizen_bird: "Citizen-chosen Bird"
-			
-			a_project_by: "A project by:"
-			leader: "Marco Speicher (DFKI) and Volker Sieben (artist)"
-			members: "HOT members"
 		}
 	}

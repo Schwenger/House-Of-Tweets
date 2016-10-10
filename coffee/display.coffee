@@ -21,12 +21,12 @@ Display =
 
 	right: {
 		color: "sidebar-right-coloring"
-		getText: () -> Model.msg.get("eigeneT")
+		getText: () -> Model.msg.get("bird_calls")
 		textContainer: $("#carousel-control-right-text-string")
 	}
 	left: {
 		color: "sidebar-left-coloring"
-		getText: () -> Model.msg.get("vogelstimmen")
+		getText: () -> Model.msg.get("bird_calls")
 		textContainer: $("#carousel-control-left-text-string")
 	}
 
@@ -75,7 +75,7 @@ Display =
 		ctrl.addClass(@[side].color)
 		ctrl.removeClass(@[otherSide].color)
 
-		text = Model.msg.get("zurückZuT")
+		text = Model.msg.get("back_to_tweets")
 		@[otherSide].textContainer.text(text)
 		# I'm not entirely certain why we need an explicit return here.
 		# W/o, container.text(text)'s will be returned which should be valid as well.
