@@ -5,65 +5,35 @@
 CitizenUser = 
 
 	_citizenBirdMQ: undefined
-	_citizenBirdSelection: undefined
-	_dropdownTrigger: undefined
-	_dropdownList: undefined
-	_listRoot: $('#citizen-user-bird-list')
+	_listRoot: $('.main-gallery')
+	_twitterNameInput: $('#citizen-user-name-input')
 
 	maxTwitterNameLength: 15
 
 	init: ->
 		@_citizenBirdMQ = new Connector(Connector.config.citizenUserQueue, undefined)
-		$('#submit-citizen-bird').click(@_submitCitizenBird)
-
-		@_initSearchbar()
-		@_initBirdList()
-
-		$("submit-citizen-bird").click @_submitCitizenBird
 		new Connector(Connector.config.acknowledgeQueue, @_consumeFeedback)
+
+		@_listRoot.flickity({
+  			draggable: true
+  			freeScroll: true
+  			freeScrollFriction: 0.05
+  			lazyLoad: true
+  			wrapAround: true
+  			pageDots: false
+		})
+
+		@_initBirdList()
+		$(document).keyup () -> CitizenUser._notifySelectButtons()
 
 	leavePage: ->
 		setTimeout (() ->
-			$('#citizen-user-name-input').val("")
+			CitizenUser._twitterNameInput.val("")
 		), Display.pageMoveDelay
 
 	translateBirds: ->
 		CitizenUser._removeBirds()
 		CitizenUser._initBirdList()
-
-	_translateSelectButton: ->
-		@_listRoot.children().each () ->
-			$(@).find(".select").text(Model.msg.get("select"))
-
-	_initSearchbar: ->
-		id = "citizen"
-		model = Model.birds
-		add = (list) -> CitizenUser._fillBirdList(list)
-		remove = () -> CitizenUser._removeBirds()
-		qualifies = (bird, search) -> 
-			bird[Util.addLang("name")].toLowerCase().indexOf(search) isnt -1
-		Util.initSearchBar(id, model, add, remove, qualifies)
-
-	_removeBirds: ->
-		@_listRoot.children().each () -> $(@).remove()
-
-	_initBirdList: ->
-		@_fillBirdList(Model.birds)
-
-	_fillBirdList: (list) ->
-		root = @_listRoot
-		prefix = 'citizen-user-list-item'
-		addon = (id) -> "<div class='select btn'> @select </div>"
-		addClickHandlers = (obj, id) ->
-			obj.click (e) -> 
-				e.stopPropagation()
-				c = "list-entry-selected"
-				root.children().each () -> $(@).removeClass(c)
-				obj.addClass c
-				CitizenUser._citizenBirdSelection = id
-		Util.createBirdList(root, prefix, list, addon, addClickHandlers, latinName = false)
-		root.children()[0]?.click()
-		@_translateSelectButton()
 
 	_consumeFeedback: (msg) ->
 		if msg.error?
@@ -93,13 +63,58 @@ CitizenUser =
 	_leave: () ->
 		@leavePage()
 		$("carousel-control-prev").click()
-			
-	_submitCitizenBird: (event) ->
-		event.preventDefault()
+
+	_disableSelectButtons: () ->
+		for own bid, bird of Model.birds
+			btn = $("#citizen-user-select-bird-#{bid}")
+			btn.addClass("btn-disabled")
+			btn.attr('disabled', true)
+	_enableSelectButtons: () ->
+		for own bid, bird of Model.birds
+			btn = $("#citizen-user-select-bird-#{bid}")
+			btn.removeClass("btn-disabled")
+			btn.attr('disabled', false)
+
+	_notifySelectButtons: () ->
+		enable = $('#citizen-user-name-input').val().length > 0
+		if enable then @_enableSelectButtons() else @_disableSelectButtons()
+
+	_submitCitizenBird: (bid) ->
 		$('#citizen-tweets-switch').prop('checked', false);
-		username = $('#citizen-user-name-input').val()[...CitizenUser.maxTwitterNameLength]
-		data = {twittername: username, birdid: CitizenUser._citizenBirdSelection}
+		username = @_twitterNameInput.val()[...CitizenUser.maxTwitterNameLength]
+		data = {twittername: username, birdid: bid}
 		CitizenUser._citizenBirdMQ.sendToQueue(data)
 		CitizenUser._leave()
 		$("#carousel-control-prev").click()
+
+	_removeBirds: ->
+		@_listRoot.find('.gallery-cell').each () ->
+			CitizenUser._listRoot.flickity('remove', $(@))
+
+	_initBirdList: ->
+		template = """
+			  <div class="gallery-cell">
+	            <div class="image">
+	              <img src="../ext/images/birds/{{bird}}.jpg">
+	            </div>
+	            <div class="name">
+	              {{name}}
+	            </div>
+	            <div class="btn" id="citizen-user-select-bird-{{bird}}"> 
+	              <span translatestring stringID="select"> {{select}} </span>
+	            </div>
+	          </div>
+			"""
+		for own bid, bird of Model.birds
+			data = 
+				bird: bid
+				name: bird[Util.addLang("name")]
+				select: Model.msg.get("select")
+			entry = $(Mustache.render(template, data))
+			@_listRoot.flickity('append', entry)
+			entry.find("#citizen-user-select-bird-#{bid}").click (
+				() -> CitizenUser._submitCitizenBird(bid)
+			)
+
+		@_notifySelectButtons()
 
