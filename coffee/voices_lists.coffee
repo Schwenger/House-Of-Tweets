@@ -13,6 +13,7 @@ VoicesLists =
 		@_initBirdList()
 		Profiles.init()
 		@_initSearchBars()
+		@_initScrollHandler()
 
 	update: ->
 		# no need to do anything because the profile is re-created each time anyway.
@@ -47,6 +48,34 @@ VoicesLists =
 		poliRemove = () -> VoicesLists._removePolis()
 		Util.initSearchBar("poli", Model.politicians, poliAdd, poliRemove, poliQualifies)
 
+	_scroll:
+		bird:
+			top: $("#voices-list-top-blur-bird")
+			bot: $("#voices-list-bot-blur-bird")
+			list: $("#voices-list-birds")
+		poli:
+			top: $("#voices-list-top-blur-poli")
+			bot: $("#voices-list-bot-blur-poli")
+			list: $("#voices-list-politicians")
+
+	_initScrollHandler: () ->
+		@birdListRoot.scroll () -> VoicesLists._handleScroll("bird")
+		@politicianListRoot.scroll () -> VoicesLists._handleScroll("poli")
+
+	_handleScroll: (mode) ->
+		list = @_scroll[mode].list
+		top = @_scroll[mode].top
+		bot = @_scroll[mode].bot
+		maxHeight = list.prop("scrollHeight")
+		height = list.height()
+		current = list.scrollTop()
+		onTop = current == 0
+		onBot = current >= maxHeight - height - 1
+		top.remove()
+		bot.remove()
+		list.append(top) unless onTop
+		list.append(bot) unless onBot
+
 
 	# CREATE AND DISPLAY LISTS
 
@@ -73,10 +102,12 @@ VoicesLists =
 				obj = Util.createListEntry id, firstLine, p.party, image, prefix, undefined
 				root.append obj
 				obj.click () -> Profiles.openPoliticianPage id
+		@_handleScroll("poli")
 
 	_displayBirds: (root, prefix, list) ->
 		handler = (obj, id) -> obj.click(() -> Profiles.openBirdPage(id))
 		Util.createBirdList root, prefix, list, undefined, handler
+		@_handleScroll("bird")
 
 	_initBirdList: ->
 		@_displayBirds(@birdListRoot, "voices-list-item", Model.birds)
