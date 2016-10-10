@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title data-message="title">House of Tweets</title>
     <link href="../ext/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../ext/css/flickity.css" rel="stylesheet" type="text/css">
     <link href="../ext/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="../out/main.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="../ext/images/favicon.png">
@@ -314,50 +315,40 @@
     </div> <!-- END OF CENTER PAGE -->
 
     <!-- CITIZEN USER PAGE -->
-    <div class="page item" id="owntweets">
-      <img class="background" src="../ext/images/backgrounds/background-right.jpg" alt="background-right"/>
+
+    <div class="page item active" id="owntweets"> <!-- active for carousel; turned inactive in js -->
+ 
+      <img class="background" src="../ext/images/backgrounds/background-right.jpg" alt="background-right"></img>
       
       <div class="citizen-bird-page"> 
-        <div class="left">
 
-          <div class="explanation">
-            <span translatestring stringID="gelb_text1"> @gelb_text1 </span>
-          </div>
-
-          <div class="twitter-name-input">
-            <input type="text" name="twitterName" id="citizen-user-name-input" placeholder="Twitter name">
-          </div>
-
-          <div class="prompt">
-            <div class="icon">
-              <span class="fa fa-arrow-right"></span>
-            </div>
-            <div class="text">
-              <span translatestring stringID="choose_bird_prompt"> @chooseBirdPrompt </span>
-            </div>
-            <div class="icon">
-              <span class="fa fa-arrow-right"></span>
-            </div>
-          </div>
-
-          <div class="btn submit" id="submit-citizen-bird">
-            <span translateString stringID="register"> @register </span>
-          </div>
-
+        <div class="introduction">
+          <span translatestring stringID="gelb_text1"> @gelb_text1 </span>
         </div>
-        <div class="right">
-          <!--div class="header">
-            <span translateString stringID="chooseBird"> @chooseBird </span>
+        <div class="twitter-name-input">
+          <input type="text" name="twitterName" id="citizen-user-name-input" class="citizen-user-name-input" placeholder="Twitter name">
+        </div>
+
+        <div class="prompt">
+          <span translatestring stringID="gelb_text2"> @gelb_text2 </span> 
+        </div>
+
+        <div class="main-gallery" id="citizen-user-bird-list">
+          <!-- Example entry -->
+          <!--div class="gallery-cell">
+            <div class="image">
+              <img src="../ext/images/birds/zoidberg.jpg">
+            </div>
+            <div class="name">
+              Zoidberg
+            </div>
+            <div class="btn"> 
+              <span translatestring stringID="select"> @select </span>
+            </div>
           </div-->
-            <div class="search-bar">
-              <input class="input" id="citizen-search-bar" placeholder="IF YOU READ THIS, YOU ARE GOING TO DIE">
-            </div>
-          <div class="bird-list" id="citizen-user-bird-list">
-            <!-- to be filled dynamically -->
-
-          </div>
+          <!-- End of Example entry -->
         </div>
-        
+
       </div>
     </div> <!-- END OF CITIZEN USER PAGE -->
 
@@ -450,6 +441,7 @@
   <script src="http://cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
   <script src="../ext/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="../ext/js/bad_words.js" type="text/javascript"></script>
+  <script src="../ext/js/flickity.pkgd.js" type="text/javascript"></script>
   <script src="../ext/js/mustache.js" type="text/javascript"></script>
   <script src="../out/main.js" type="text/javascript"></script>
   </body>
