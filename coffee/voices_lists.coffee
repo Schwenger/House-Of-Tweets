@@ -24,8 +24,10 @@ VoicesLists =
 
 	leavePage: ->
 		Profiles.close()
-		_searchString = ""
-		$("#voices-list-search-bar").val("")
+		$("#bird-search-bar").val("")
+		$("#poli-search-bar").val("")
+		Global.searchString.bird = ""
+		Global.searchString.poli = ""
 		@_removePolis()
 		@_initPoliticianList()
 

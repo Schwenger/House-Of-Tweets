@@ -8,7 +8,6 @@ Global = {
 	searchString: 
 		poli: ""
 		bird: ""
-		citizen: ""
 
 	_transform: (langString) ->
 		switch(langString)
