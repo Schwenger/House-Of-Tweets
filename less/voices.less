@@ -19,6 +19,8 @@
 			height: 100%;
 			& .list-container {
 				background-color: rgba(217,217,217, 0.6);
+				display: flex;
+				flex-direction: column;
 				float: left;
 				height: 100%;
 				width: 48%;
@@ -38,9 +40,10 @@
 
 				& > .list {
 					align-items: center;
-					height: 90%;
+					flex-grow: 1;
 					overflow-x: hidden;
 					overflow-y: auto;
+					position: relative;
 					width: 100%;
 				}
 
