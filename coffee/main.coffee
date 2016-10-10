@@ -26,13 +26,12 @@ initMain = ->
 	VoicesLists.init()
 	TweetController.init()
 	LanguageController.init("german")
-	# $(document).keydown((e) -> 
-	# 	switch e?.which
-	# 		when 34 then TweetController.triggerTweetManually() # page down
-	# 		when 84 then TweetController.triggerTweetManually() # t
-	# 		when 123 then Screensaver.start() # f12
-	# 		when 121 then SoundCtrl.toggleAmbient() # f11
-	# 	)
+	# the nested carousel demands to not be `display: none`'ed. 
+	# We obey and simply remove the active class in time.
+	setTimeout (() ->
+		$('#owntweets').removeClass("active")
+		$('body').css('opacity', '1')
+		), 1000
 
 initMain()
 
