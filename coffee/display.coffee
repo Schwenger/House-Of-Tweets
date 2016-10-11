@@ -77,9 +77,9 @@ Display =
 
 		text = Model.msg.get("back_to_tweets")
 		@[otherSide].textContainer.text(text)
-		# I'm not entirely certain why we need an explicit return here.
-		# W/o, container.text(text)'s will be returned which should be valid as well.
-		return
+
+		# notify page that it is now opened.
+		if side is "left" then VoicesLists.open() else CitizenUser.open()
 
 	_openCenter: ->
 		#reset colors & text

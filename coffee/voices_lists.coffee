@@ -32,6 +32,10 @@ VoicesLists =
 		@_removePolis()
 		@_initPoliticianList()
 
+	open: ->
+		@_handleScroll "bird"
+		@_handleScroll "poli"
+
 	_initSearchBars: ->
 		# bird search bar
 		birdAdd = (birds) -> 

@@ -35,6 +35,9 @@ CitizenUser =
 		CitizenUser._removeBirds()
 		CitizenUser._initBirdList()
 
+	open: ->
+		# Nothing to do.
+
 	_consumeFeedback: (msg) ->
 		if msg.error?
 			console.log "Error adding user #{msg.twittername}. Reason: #{msg.error}"
