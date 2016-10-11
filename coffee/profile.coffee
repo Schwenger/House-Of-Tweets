@@ -46,7 +46,7 @@ Profiles =
 	openCitizenBirdSelection: (bid, pid) ->
 		root = $("#change-citizen-bird-wrapper")
 		# prepare list
-		o.remove() for o in root.children(".voices-list-entry")
+		o.remove() for o in root.children(".list-entry")
 		$('#cv-and-selection-wrapper').addClass "invisible"
 		$('#change-citizen-bird-wrapper').removeClass "invisible"
 
