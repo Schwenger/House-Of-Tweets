@@ -280,6 +280,7 @@ class FakeTwitterInterface(TwitterInterface):
                 mylog.warning("Tried to remove nonexistent usernames entry {}".format(usernames))
                 return
             del self.consumers[tuple(usernames)]
+            mylog.info("Successfully removed {}".format(usernames))
 
     def resolve_name(self, username: str):
         raise AssertionError('FakeTwitterInterface is *only* for generating tweets.')

@@ -241,6 +241,7 @@ class TwitterConnection(object):
 					       .format(self.citizens[tid]['token']))
 			else:
 				mylog.info("=> Yup")
+				self.twitter.deregister([tid])
 				del self.citizens[tid]
 				mylog.info("Remaining citizens: {}".format(self.citizens.keys()))
 
