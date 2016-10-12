@@ -102,32 +102,42 @@ TweetController =
 	# CONSUME INCOMING TWEETS
 
 	consume: (incomingTweets) ->
-		console.log "Tweets incoming!"
-		@_removeTweets(@_tLists.mixed)
-		@_removeTweets(@_tLists.poli)
+		[newPoli, newMixed] = @_process(incomingTweets)
 
-		@_process tweet for tweet in incomingTweets
-		@_trimLists()
-		
-		list = if @_poliTweetsOnly then @_tLists.poli else @_tLists.mixed
+		@_tLists.poli.concat newPoli
+		@_tLists.mixed.concat newMixed
+
+		[evictedPoli, evictedMixed] = @_trimLists()
+
+		@_removeTweets(evictedPoli)
+		@_removeTweets(evictedMixed) 
+
+		list = if @_poliTweetsOnly then newPoli else newMixed
 
 		@_displayTweets(list)
-		byPoli = Util.count(list, (t) -> t.byPoli) # I miss lazy variables.
-		toPlay = if @_poliTweetsOnly then byPoli else incomingTweets.length
-		@_playTweets(list[-toPlay...], SoundCtrl.getMode())
+		@_playTweets(list, SoundCtrl.getMode())
 
-	# selects the last @_threshold elements
+	# selects the last @_threshold elements, returns evicted ones
 	_trimLists: () ->
-		@_tLists.mixed = @_tLists.mixed[-@_threshold...]
-		@_tLists.poli = @_tLists.poli[-@_threshold...]
+		numEvictedPoli = Math.max(0, @_tLists.poli.length - @_threshold)
+		numEvictedMixed = Math.max(0, @_tLists.mixed.length - @_threshold)
+		evictedPoli = @_tLists.poli[...numEvictedPoli]
+		evictedMixed = @_tLists.mixed[...numEvictedMixed]
+		@_tLists.poli = @_tLists.poli[numEvictedPoli...]
+		@_tLists.mixed = @_tLists.mixed[numEvictedMixed...]
+		[evictedPoli, evictedMixed]
 
-	_process: (tweet) ->
-		tweet.time = new Date(parseInt tweet.time) 
-		transformed = @_transform(tweet)
-		@_addToArchive(transformed)
-		@_updatePoliBird(tweet.refresh) if tweet.refresh?
-		@_tLists.mixed.push transformed 
-		@_tLists.poli.push transformed if tweet.sound.poli?
+	_process: (tweets) ->
+		poli = []
+		mixed = []
+		for tweet in tweets
+			tweet.time = new Date(parseInt tweet.time) 
+			transformed = @_transform(tweet)
+			@_addToArchive(transformed)
+			@_updatePoliBird(tweet.refresh) if tweet.refresh?
+			poli.push transformed if tweet.poli?
+			mixed.push transformed
+		[poli, mixed]
 
 	_updateBirdNames: ->
 		for own key, list of TweetController._tLists
