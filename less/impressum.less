@@ -1,24 +1,4 @@
-.impressum-container {
-	color: @footer_label_color;
-	height: 100%;
-	left:0px;
-	padding: 2% 5% 1% 5%;
-	position: absolute;
-	text-shadow: 3px 3px 7px @footer_label_shadow_color;
-	top: 0px;
-	width: 100%;
-}
-
-#impressum-back-button {
-	bottom: 0px;
-	font-size: 25px;
-	left: 0px;
-	padding-bottom: 50px;
-	padding-left:50px;
-	position: absolute;
-}
-
-// Main Page
+// Impressum button on main page
 .impressum-button-container {
 	bottom: 10px;
 	color: @footer_label_color;
@@ -32,4 +12,135 @@
 
 .impressum-button-text {
 	width: 100%;
+}
+
+.impressum-page {
+	height: 100%;
+	left:0px;
+	padding: 3% 6% 3% 5%;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+
+	.back-button {
+		font-size: 60px;
+		position: absolute;
+		right: 23px;
+		top: 0px;
+	}
+
+
+	.top-container {
+
+		height: 75%;
+		width: 100%;
+
+		.concept {
+
+			.top-container-content;
+			margin-right: 2%;
+			width: 61%;
+
+			.header {
+				font-size: 30px;
+				text-align: center;
+			}
+
+			.text {
+				font-size: 17px;
+
+			}
+
+		}
+
+		.us-container {
+
+			.top-container-content;
+			margin-left: 2%;
+			width: 35%;
+
+			.header {
+				font-size: 30px;
+			}
+
+			.one-of-us {
+
+				align-items: center;
+				display: flex;
+				height: 150px;
+				width: 100%;
+
+				& > img {
+					height:  100px;
+					width: 100px;
+				}
+
+				.us-name {
+					font-size: 20px;
+					margin-left: 40px;
+				}
+
+			}
+
+		}
+
+	}
+
+	.bottom-container {
+
+		height: 100%;
+		padding-top: 4%;
+
+		.supporters-container {
+
+			.impressum-container-box;
+			align-items: flex-start;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			display: flex;
+			height: 26%;
+			justify-content: space-between;
+			padding: 2%;
+
+			.supporter {
+				align-items: center;
+				display: flex;
+				width: 100%;
+
+				> img {
+					height: 90px;
+					width: 90px;
+				}
+				.name {
+					font-size: 20px;
+					margin: 5px 0px 5px 0px;
+					text-align: center;
+				}
+
+				&-odd {
+					flex-direction: column;
+				}
+
+				&-even {
+					align-self: flex-end;
+					flex-direction: column-reverse;
+				}
+			}
+		}
+	}
+}
+
+.top-container-content {
+	.impressum-container-box;
+	border-radius: 20px;
+	float: left;
+	height: 100%;
+	padding: 2%;
+}
+
+.impressum-container-box {
+	background-color: rgba(20, 20, 20, 0.6);
+	border: 1px solid black;
+	box-shadow: 1px 1px 7px black;
+	color: white;
 }
