@@ -50,7 +50,7 @@ Util = {
 		if not byPoli
 			for baddy in bad_words
 				replacement = Util._getRandom(Util.nyahNyah)
-				content = content.replace(new RegExp("(\\s|^)#{baddy}(\\s|$)"), " #{replacement} ")
+				content = content.replace(new RegExp("(\\s|^)#{baddy}(\\s|$)", "i"), " #{replacement} ")
 		content = content[...140]
 		$("<span>").text(content).html() # should not be necessary, but can't hurt as well.
 		content
