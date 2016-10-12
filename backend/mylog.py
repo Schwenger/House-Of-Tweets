@@ -4,8 +4,6 @@ import sys
 import time
 
 
-RELEASE = False  # FIXME: Set to  True to restart instead of crash on error
-
 _logger = None
 
 
@@ -48,18 +46,16 @@ info('Logging started.')  # Self-test
 
 
 def with_exceptions(run_fn, restart_fn=None, *run_args):
-    if restart_fn is None:
-        warning('No restart function given for invocation of {}'.format(run_fn))
     try:
         run_fn(*run_args)
     except (KeyboardInterrupt, SystemExit):
         raise
     except:
-        error('Unexpected error: {}'.format(sys.exc_info()[0]))
-        if not RELEASE:
-            error('Not restarting to make error obvious.')
-        elif restart_fn is not None:
-            restart_fn()
-        else:
+        error('Unexpected error in {}({}): {}'
+              .format(run_fn, run_args, sys.exc_info()[0]))
+        if restart_fn is None:
             error('No restart function given.')
+        else:
+            error('Restarting, but this should have a better handler!')
+            restart_fn()
         raise
