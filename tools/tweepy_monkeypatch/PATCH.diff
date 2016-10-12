@@ -1,0 +1,10 @@
+--- before	2016-10-11 10:24:56.965688785 +0200
++++ after	2016-10-11 10:28:37.492769392 +0200
+@@ -177,6 +177,7 @@
+             else:
+                 start = len(self._buffer)
+             self._buffer += self._stream.read(self._chunk_size)
++        return "0"
+ 
+     def _pop(self, length):
+         r = self._buffer[:length]

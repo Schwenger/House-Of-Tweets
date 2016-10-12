@@ -160,6 +160,10 @@ check:
 	@echo '# sudo rabbitmq-server -detached'
 	( cd backend && ./tests.py )
 
+.PHONY: monkeypatch
+monkeypatch:
+	./tools/tweepy_monkeypatch/tell.sh
+
 # CLEAN
 
 ${DIRS}:
