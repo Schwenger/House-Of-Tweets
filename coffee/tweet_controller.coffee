@@ -177,7 +177,7 @@ TweetController =
 
 		choice = if @_usePoliBirds and tweet.poli? then "poli" else "citizen"
 		bid = tweet.sound[choice].bid
-		sanitized = Util.sanitize(tweet.content, tweet.sound.poli?)
+		sanitized = Util.sanitize(tweet.content, tweet.poli?)
 		tags = Util.sanitizeTags tweet.hashtags
 		enhanced = @_enhance sanitized, tags
 
