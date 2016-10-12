@@ -31,6 +31,8 @@ before_install:
 script:
   - make frontend
   - make pubweb
+  # For fun, let's see which version is used on Travis.
+  - make monkeypatch
   # ( Makefile is currently unimplemented for backend )
   # Is rabbitmq running already?
   - ( cd backend && ./tests.py test_ben )
