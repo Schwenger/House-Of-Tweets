@@ -11,7 +11,7 @@ Display =
 		left: $('#carousel-control-prev')
 		right: $('#carousel-control-next')
 		down: $("#impressum-button")
-		up: $("#impressum-back-button")
+		up: $("#impressum-back")
 	}
 
 	pages: {
