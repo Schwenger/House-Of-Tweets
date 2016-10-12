@@ -39,8 +39,8 @@ Util = {
 
 	nyahNyah: [
 		"kitty", "rainbow", "tippytoe", "jibberjabber", "#IHideMyInsecurityBehindCurses", "pinky",
-		"Kätzchen", "Regenbogen", "BlaBlaBla", "#InnerlichTot", "Wattebällchen", "#ILikeTrains"
-		"$@*$@!#", "#$@&%*!", "$@*$@!#", "#$@&%*!" # double occurrences intended
+		"Kätzchen", "Regenbogen", "BlaBlaBla", "#InnerlichTot", "Wattebällchen", "#ILikeTrains",
+		"UNICORN", "Einhorn", "$@*$@!#", "#$@&%*!", "$@*$@!#", "#$@&%*!" # double occurrences intended
 	]
 
 	_getRandom: (collection) ->
