@@ -104,8 +104,8 @@ TweetController =
 	consume: (incomingTweets) ->
 		[newPoli, newMixed] = @_process(incomingTweets)
 
-		@_tLists.poli.concat newPoli
-		@_tLists.mixed.concat newMixed
+		@_tLists.poli = @_tLists.poli.concat newPoli
+		@_tLists.mixed = @_tLists.mixed.concat newMixed
 
 		[evictedPoli, evictedMixed] = @_trimLists()
 
