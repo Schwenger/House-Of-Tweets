@@ -12,7 +12,7 @@ SoundCtrl =
 
 	play: (tweetId, duration, mode) ->
 		audio = @getAudio(tweetId, mode)
-		audio[0]?.play()
+		audio[0]?.play() if audio[0]?.paused
 		$("#tweet-#{tweetId}-speaker").addClass("speaker-active")
 		setTimeout (() -> SoundCtrl.stop(tweetId, mode)),  duration
 		return
@@ -24,7 +24,7 @@ SoundCtrl =
 		# This has no significant impact in the user experience but 
 		# prevents the console to be flooded with the respective exception.
 		setTimeout ( ->
-			audio[0]?.pause()
+			audio[0]?.pause() unless audio[0]?.paused 
 			$("#tweet-#{tweetId}-speaker")?.removeClass("speaker-active")
 			), 150
 		return
