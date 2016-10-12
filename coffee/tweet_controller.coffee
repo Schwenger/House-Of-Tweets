@@ -166,8 +166,9 @@ TweetController =
 	_displayTweets: (tweets) ->
 		domList = $('#tweet-list')
 		for tweet in tweets
-			domList.append tweet.obj
-			@_attachClickHandler(tweet)
+			do (tweet) ->
+				domList.append tweet.obj
+				TweetController._attachClickHandler(tweet)
 
 	_playTweets: (list, mode) ->
 		tweet.play(mode) for tweet in list
@@ -255,7 +256,6 @@ TweetController =
 	_attachClickHandler: (tweetCompound) ->
 		speakerElement = tweetCompound.obj.find("#tweet-#{tweetCompound.id}-speaker")
 		speakerElement.click () -> 
-			console.log "playing sound" 
 			tweetCompound.play(SoundCtrl.getMode())
 
 
