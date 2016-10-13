@@ -132,10 +132,9 @@ class TwitterListener(TweetConsumer):
 		# In case it changed, use the one provided by twitter
 		handle = msg['twitterName']
 
-
 		# Check for any updates
-		if tweet['content'].lower().startswith('@houseoftweets'):
-			mylog.warning("Ignoring my own tweet, as it starts with '@HouseOfTweets'")
+		if 'house' in tweet['username'].lower() and tweet['content'].startswith('@'):
+			mylog.warning("Ignoring my own tweet for commands, as it starts with '@'")
 		elif contains_command(tweet['hashtags']):
 			pid = poli['pid']
 			pBird_name = self.birdBack.getName(pBird)
