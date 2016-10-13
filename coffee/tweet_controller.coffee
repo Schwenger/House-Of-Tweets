@@ -109,7 +109,6 @@ TweetController =
 
 		[evictedPoli, evictedMixed] = @_trimLists()
 
-
 		if @_poliTweetsOnly
 			list = newPoli
 			@_removeTweets(evictedPoli)
@@ -162,6 +161,7 @@ TweetController =
 		root = $('#tweet-list')
 		root.append tweet.obj for tweet in newL
 		@_playTweets(newL, SoundCtrl.getMode())
+		@_attachClickHandler tweet for tweet in newL 
 
 	_removeTweets: (tweets) ->
 		tweet.obj.remove() for tweet in tweets
