@@ -8,7 +8,7 @@ CitizenUser =
 	_listRoot: $('.main-gallery')
 	_twitterNameInput: $('#citizen-user-name-input')
 
-	maxTwitterNameLength: 15
+	maxTwitterNameLength: 20
 
 	init: ->
 		@_citizenBirdMQ = new Connector(Connector.config.citizenUserQueue, undefined)
