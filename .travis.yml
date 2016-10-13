@@ -32,7 +32,12 @@ script:
   - make frontend
   - make pubweb
   # For fun, let's see which version is used on Travis.
-  - make monkeypatch
+  # Note: 2 means "old version, update needed"
+  - ./tools/tweepy_monkeypatch/tell.sh || [ $? = 2 ]
+  # Highly Travis-dependent:
+  - sudo cp 'tools/tweepy_monkeypatch/after' '/home/travis/virtualenv/python3.5.0/lib/python3.5/site-packages/tweepy/streaming.py'
+  # Check again (but without any failure)
+  - ./tools/tweepy_monkeypatch/tell.sh
   # ( Makefile is currently unimplemented for backend )
   # Is rabbitmq running already?
   - ( cd backend && ./tests.py test_ben )
