@@ -242,7 +242,9 @@ TweetController =
 
 		tweetCompound = 
 			obj: tweetElement
-			play: (mode, duration = tweet.sound.duration) -> SoundCtrl.play(tweet.id, duration, mode)
+			play: (mode, duration) -> 
+				effectiveDuration = TweetController._getDuration(duration, tweet, mode)
+				SoundCtrl.play(tweet.id, effectiveDuration, mode)
 			time: tweet.time
 			id: tweet.id
 			bid:
@@ -255,6 +257,12 @@ TweetController =
 		for hashtag in hashtags
 			tweet = tweet.replace('#'+hashtag, "<span style='color: blue'>##{hashtag}</span>")
 		return tweet
+
+	_getDuration: (suggestion, tweet, mode) ->
+		return suggestion if suggestion?
+		return tweet.sound.citizen.duration unless tweet.poli?
+		selector = if mode is "P" then "poli" else "citizen"
+		tweet.sound[selector].duration
 
 	_attachClickHandler: (tweetCompound) ->
 		speakerElement = tweetCompound.obj.find("#tweet-#{tweetCompound.id}-speaker")
