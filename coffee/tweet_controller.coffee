@@ -109,10 +109,13 @@ TweetController =
 
 		[evictedPoli, evictedMixed] = @_trimLists()
 
-		@_removeTweets(evictedPoli)
-		@_removeTweets(evictedMixed) 
 
-		list = if @_poliTweetsOnly then newPoli else newMixed
+		if @_poliTweetsOnly
+			list = newPoli
+			@_removeTweets(evictedPoli)
+		else 
+			list = newMixed
+			@_removeTweets(evictedMixed) 
 
 		@_displayTweets(list)
 		@_playTweets(list, SoundCtrl.getMode())
