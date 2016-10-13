@@ -58,11 +58,13 @@ Display =
 
 	_panUp: ->
 		@_addSidebars()
-		$('#impressum').slideUp() 
+		$('#carousel').carousel 1 # tweets
+		setTimeout (() -> $('#carousel').removeClass "vertical"), Display.pageMoveDelay
 
 	_panDown: ->
 		@_removeSidebars()
-		$('#impressum').slideDown() 
+		$('#carousel').addClass "vertical"
+		$('#carousel').carousel 3 # impressum
 
 	_openSide: (side, otherSide) ->
 		ctrl = @controls[otherSide]
