@@ -36,10 +36,10 @@ TweetController =
 		voicesSwitch.prop('checked', true)
 		voicesSwitch.change(@_changeBirdSelection)
 		@_usePoliBirds = voicesSwitch.prop('checked')
-		shownTweetsSwitch = $('#citizen-tweets-switch')
-		shownTweetsSwitch.prop('checked', true)
-		shownTweetsSwitch.change(@_changeShownTweets)
-		@_poliTweetsOnly = shownTweetsSwitch.prop('checked')
+		poliTweetsOnlySwitch = $('#citizen-tweets-switch')
+		poliTweetsOnlySwitch.prop('checked', false)
+		poliTweetsOnlySwitch.change(@_changeShownTweets)
+		@_poliTweetsOnly = poliTweetsOnlySwitch.prop('checked')
 
 	# Interface
 	triggerTweetManually: () ->
