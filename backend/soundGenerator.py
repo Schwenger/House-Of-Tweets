@@ -85,41 +85,28 @@ def createNewSoundfile(src_path, dst_path, length_ms):
 		middle_ms = origDuration_ms / 2
 		sound = sound[:math.floor(middle_ms + finDuration_ms / 2)]
 		sound = sound[-math.floor(finDuration_ms):]
+	else:
+		finDuration_ms = origDuration_ms
 	sound = sound.fade_in(2000).fade_out(2000)
 	sound.export(dst_path, format="mp3")
+	return finDuration_ms
 
 
-def createOrCached(paths, length_ms):
-	if paths is None:
-		return
-	src_path, dst_path = paths
+def createOrCached(src_path, dst_path, length_ms):
 	if os.path.exists(dst_path):
 		mylog.info("soundGenerator: using cached file: " + dst_path)
 		# no-op
+		return length_ms
 	else:
 		mylog.info("soundGenerator: creating new file: " + dst_path)
-		createNewSoundfile(src_path, dst_path, length_ms)
+		return createNewSoundfile(src_path, dst_path, length_ms)
 
 
-# There must be a cleverer None-aware approach to this.
-
-def sanitize_bird(b):
-	if b is None:
-		return None
-	return b.replace('ß', 'ss')
-
-
-def dup(path, idealBid):
-	if path is None:
-		return None
-	return {'natural': path, 'bid': idealBid}
-
-
-def get_dst(p):
-	if p is None:
-		return None
-	_, dst = p
-	return dst
+def gen_bird(bird, mood, retweet, length_ms):
+	use_bird = bird.replace('ß', 'ss')  # TODO: Still needed?
+	path_src, path_dst = find_pair(use_bird, mood, retweet, length_ms)
+	real_ms = createOrCached(path_src, path_dst, length_ms)
+	return {'natural': path_dst, 'bid': bird, 'duration': real_ms}
 
 
 # Public interface.  Get the conversion rolling, and return a JSON struct with the results.
@@ -127,14 +114,8 @@ def get_dst(p):
 def generate_sound(content: str, retweet: bool, cBird, pBird):
 	length_ms = max(len(content) * 250, 10000)
 	mood = get_mood(content)
-	birds_sanit = [sanitize_bird(cBird), sanitize_bird(pBird)]
-	birds_paths = [find_pair(b, mood, retweet, length_ms) for b in birds_sanit]
 
-	for paths in birds_paths:
-		createOrCached(paths, length_ms)
-
-	cDst, pDst = [get_dst(p) for p in birds_paths]
-
-	return {'duration': length_ms,
-			'citizen': dup(cDst, cBird),
-			'poli': dup(pDst, pBird)}
+	ret = {'citizen': gen_bird(cBird, mood, retweet, length_ms)}
+	if pBird is not None:
+		ret['poli'] = gen_bird(pBird, mood, retweet, length_ms)
+	return ret
