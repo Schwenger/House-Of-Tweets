@@ -70,26 +70,27 @@
 				height: 150px;
 				width: 100%;
 
-				& > img {
+				.img-wrapper {
 					height:  100px;
 					width: 100px;
+
+					> img {
+						width: 100%;
+					}
 				}
 
 				.us-name {
 					font-size: 20px;
 					margin-left: 40px;
 				}
-
 			}
-
 		}
-
 	}
 
 	.bottom-container {
 
 		height: 100%;
-		padding-top: 4%;
+		padding-top: 2%;
 
 		.supporters-container {
 
@@ -100,19 +101,31 @@
 			display: flex;
 			height: 26%;
 			justify-content: space-between;
-			padding: 2%;
+			padding: 2% 2% 0% 2%;
 
 			.supporter {
 				align-items: center;
 				display: flex;
 				width: 100%;
 
-				> img {
+				.img-wrapper {
 					height: 90px;
 					width: 90px;
+
+					> img {
+						vertical-align: middle;
+						max-height: 90px;
+						max-width: 90px;
+					}
+
+					&:before {
+						content: "";
+						height: 100%;
+						vertical-align: middle;
+					}
 				}
 				.name {
-					font-size: 20px;
+					font-size: 16px;
 					margin: 5px 0px 5px 0px;
 					text-align: center;
 				}
@@ -135,7 +148,7 @@
 	border-radius: 20px;
 	float: left;
 	height: 100%;
-	padding: 2%;
+	padding: 0.5% 2% 1% 2%;
 }
 
 .impressum-container-box {
