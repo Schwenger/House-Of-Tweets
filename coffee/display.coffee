@@ -58,14 +58,11 @@ Display =
 
 	_panUp: ->
 		@_addSidebars()
-		@_resetImpressum()
-		@_deactivate(@pages.impressum)
-		@_activate(@pages.tweets)
+		$('#impressum').slideUp() 
 
 	_panDown: ->
 		@_removeSidebars()
-		@_deactivate(@pages.tweets)
-		@_activate(@pages.impressum)
+		$('#impressum').slideDown() 
 
 	_openSide: (side, otherSide) ->
 		ctrl = @controls[otherSide]
@@ -89,9 +86,6 @@ Display =
 		@_addSidebars()
 		VoicesLists.leavePage()
 		CitizenUser.leavePage()
-
-	_resetImpressum: ->
-		return
 
 	# AUXILIARY
 	_removeSidebars: ->
