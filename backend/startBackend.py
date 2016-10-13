@@ -24,4 +24,4 @@ c.start()
 cbq = CitizenBirdQueueAdapter(polBack)
 cbq.start()
 
-mylog.info('Backend started ("heeere")')
+mylog.info('Backend started')
