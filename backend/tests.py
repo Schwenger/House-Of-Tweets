@@ -95,20 +95,84 @@ all_tests.append(test_batching7)
 
 
 def test_parse_tweet():
-    with open("raw_tweet.json", "r") as fp:
-        status = json.load(fp)
-    actual = twitter.parse_tweet(status)
+    import raw_status
     # Somewhat fragile test, but at least it shows you what the internal format looks like
-    expected = {'content': 'Blarghi v2.0 #Improved #Harder #Faster #Stronger https:\\/\\/t.co\\/qzF99STdcU',
-                'profile_img': 'https:\\/\\/pbs.twimg.com\\/profile_images\\/774232619248746500\\/5wvBHiHp_normal.jpg',
-                'userscreen': 'HouseOfTweets',
-                'hashtags': ['Improved', 'Harder', 'Faster', 'Stronger'],
-                'username': 'HouseOfTweetsSB',
-                'time': '1473446404525',
-                'tweet_id': '774316458742583296',
-                'uid': '4718199753',
-                'retweet': True}
-    assert actual == expected
+    EXPECT_OWN_1 = [{'hashtags': [], 'userscreen': 'HouseOfTweets', 'retweet': False,
+                     'content': '1 Arsch + 2 Arsch = 23 Arsch.aftermath!', 'time': 1476367749,
+                     'tweet_id': '786569467262152705',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/774232619248746500/5wvBHiHp_normal.jpg',
+                     'uid': '4718199753', 'username': 'HouseOfTweetsSB'},
+                    {'hashtags': [], 'userscreen': 'HouseOfTweets', 'retweet': True,
+                     'content': 'RT @HouseOfTweetsSB: @HouseOfTweetsSB röchel?', 'time': 1476366917,
+                     'tweet_id': '786565978612043776',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/774232619248746500/5wvBHiHp_normal.jpg',
+                     'uid': '4718199753', 'username': 'HouseOfTweetsSB'},
+                    {'hashtags': [], 'userscreen': 'HouseOfTweets', 'retweet': True,
+                     'content': 'RT @HouseOfTweetsSB: *keuch*', 'time': 1476364933, 'tweet_id': '786557654604709889',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/774232619248746500/5wvBHiHp_normal.jpg',
+                     'uid': '4718199753', 'username': 'HouseOfTweetsSB'},
+                    {'hashtags': [], 'userscreen': 'HouseOfTweets', 'retweet': True,
+                     'content': 'RT @HouseOfTweetsSB: test', 'time': 1476364900, 'tweet_id': '786557518218604545',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/774232619248746500/5wvBHiHp_normal.jpg',
+                     'uid': '4718199753', 'username': 'HouseOfTweetsSB'},
+                    {'hashtags': [], 'userscreen': 'HouseOfTweets', 'retweet': False, 'content': '*keuch*',
+                     'time': 1476364463, 'tweet_id': '786555686310121472',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/774232619248746500/5wvBHiHp_normal.jpg',
+                     'uid': '4718199753', 'username': 'HouseOfTweetsSB'},
+                    {'hashtags': [], 'userscreen': 'HouseOfTweets', 'retweet': True,
+                     'content': 'RT @HouseOfTweetsSB: @eeQu0Ae4 Faszınierenð', 'time': 1476358846,
+                     'tweet_id': '786532126304772097',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/774232619248746500/5wvBHiHp_normal.jpg',
+                     'uid': '4718199753', 'username': 'HouseOfTweetsSB'},
+                    {'hashtags': ['HouseOfTweets'], 'userscreen': 'HouseOfTweets', 'retweet': False,
+                     'content': '&lt;- Das sind übrigens wir! #HouseOfTweets', 'time': 1476357170,
+                     'tweet_id': '786525094117908480',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/774232619248746500/5wvBHiHp_normal.jpg',
+                     'uid': '4718199753', 'username': 'HouseOfTweetsSB'},
+                    {'hashtags': [], 'userscreen': 'HouseOfTweets', 'retweet': False, 'content': 'test',
+                     'time': 1476355359, 'tweet_id': '786517501865713664',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/774232619248746500/5wvBHiHp_normal.jpg',
+                     'uid': '4718199753', 'username': 'HouseOfTweetsSB'},
+                    {'hashtags': [], 'userscreen': 'HouseOfTweets', 'retweet': False,
+                     'content': '@eeQu0Ae4 Faszınierenð', 'time': 1476316309, 'tweet_id': '786353713946300416',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/774232619248746500/5wvBHiHp_normal.jpg',
+                     'uid': '4718199753', 'username': 'HouseOfTweetsSB'},
+                    {'hashtags': ['berlinbrandenburgrockt'], 'userscreen': 'Jana Schimke', 'retweet': True,
+                     'content': 'RT @TinaSchwarzer: Unterwegs mit @JanaSchimke #berlinbrandenburgrockt http://t.co/6dD1Vd4fik',
+                     'time': 1384376607, 'tweet_id': '400730651919667200',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/378800000185260949/ef03b8ab0b81ab3415ef1cba7627fbf1_normal.jpeg',
+                     'uid': '728990858', 'username': 'JanaSchimke'},
+                    ]
+    EXPECT_OWN_2 = [{'hashtags': [], 'userscreen': 'HouseOfTweets', 'retweet': False,
+                     'content': 'This was tweeted on 2016-10-14-16-32-30', 'time': 1476455550,
+                     'tweet_id': '786937731515609088',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/774232619248746500/5wvBHiHp_normal.jpg',
+                     'uid': '4718199753', 'username': 'HouseOfTweetsSB'},
+                    {'hashtags': [], 'userscreen': 'HouseOfTweets', 'retweet': False,
+                     'content': '1 Arsch + 2 Arsch = 23 Arsch.aftermath!', 'time': 1476367749,
+                     'tweet_id': '786569467262152705',
+                     'profile_img': 'https://pbs.twimg.com/profile_images/774232619248746500/5wvBHiHp_normal.jpg',
+                     'uid': '4718199753', 'username': 'HouseOfTweetsSB'},
+                    ]
+    EXPECT_OWN_their = [{'hashtags': ['berlinbrandenburgrockt'], 'userscreen': 'Jana Schimke', 'retweet': True,
+                         'content': 'RT @TinaSchwarzer: Unterwegs mit @JanaSchimke #berlinbrandenburgrockt http://t.co/6dD1Vd4fik',
+                         'time': 1384376607, 'tweet_id': '400730651919667200',
+                         'profile_img': 'https://pbs.twimg.com/profile_images/378800000185260949/ef03b8ab0b81ab3415ef1cba7627fbf1_normal.jpeg',
+                         'uid': '728990858', 'username': 'JanaSchimke'},
+                        {'hashtags': ['Blankenfelde'], 'userscreen': 'Jana Schimke', 'retweet': False,
+                         'content': 'TV Duell mit den Freunden der CDU #Blankenfelde-Mahlow#', 'time': 1378060346,
+                         'tweet_id': '374238335189139456',
+                         'profile_img': 'https://pbs.twimg.com/profile_images/378800000185260949/ef03b8ab0b81ab3415ef1cba7627fbf1_normal.jpeg',
+                         'uid': '728990858', 'username': 'JanaSchimke'},
+                        ]
+
+    for given_l, expected_l in [(raw_status.example_own2, EXPECT_OWN_2),
+                                (raw_status.example_their, EXPECT_OWN_their),
+                                (raw_status.example_own, EXPECT_OWN_1),
+                                ]:
+        for given, expected in zip(given_l, expected_l):
+            actual = twitter.parse_tweet_status(given)
+            assert actual == expected
 
 all_tests.append(test_parse_tweet)
 

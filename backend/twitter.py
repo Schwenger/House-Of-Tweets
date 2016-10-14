@@ -44,8 +44,13 @@ class TweetPrinter(TweetConsumer):
         mylog.info("incoming tweet {}".format(tweet))
 
 
+def datetime_to_unix(dt):
+    import datetime
+    return int(dt.replace(tzinfo=datetime.timezone.utc).timestamp())
+
+
 # Turn a giant "Tweet" JSON into a more easily spoofable and printable format.
-def parse_tweet(status):
+def parse_tweet_json(status):
     try:
         report = dict()
         report['uid'] = str(status["user"]["id"])
@@ -63,6 +68,32 @@ def parse_tweet(status):
         report['retweet'] = status["is_quote_status"]
         return report
     except KeyError:
+        return None
+
+
+# Turn a very giant "Tweet" object (tweepy.models.Status)
+# into a more easily spoofable and printable format.
+def parse_tweet_status(status):
+    try:
+        report = dict()
+        report['uid'] = status.user.id_str
+        hh = status.entities["hashtags"]
+        # For each element, only view 'text' subelement
+        report['hashtags'] = []
+        for h in hh:
+            report['hashtags'].append(h['text'])
+        report['content'] = status.text
+        report['username'] = status.user.screen_name
+        report['userscreen'] = status.user.name
+        # FIXME: Slap Tweepy-developer for deleting the perfectly good 'timestamp_ms' property
+        report['time'] = datetime_to_unix(status.created_at)
+        report['tweet_id'] = status.id_str
+        report['profile_img'] = status.user.profile_image_url_https
+        report['retweet'] = status.__dict__.get('retweeted_status') is not None
+        return report
+    except (KeyError, AttributeError) as e:
+        mylog.debug('Failed to parse status {}'.format(status))
+        mylog.error('Something when wrong while parsing status: {}'.format(e))
         return None
 
 
@@ -104,7 +135,7 @@ class StreamListenerAdapter(StreamListener):
         if self.raw_data is None:
             mylog.error("on_status called without going through on_data?!")
             return
-        tweet = parse_tweet(json.loads(self.raw_data))
+        tweet = parse_tweet_json(json.loads(self.raw_data))
         if tweet is None:
             mylog.error("{}: on_tweet BROKEN! (skip)".format(self.desc))
         elif tweet['uid'] not in self.sensitive:
