@@ -25,10 +25,16 @@
 
 				Durch die stattfindende Überlagerung der Tonspuren entsteht ein Soundmix, der sich autark - je nach Traffic, jeden Moment neu generiert. Es erwächst eine soziale Plastik, die -auditiv wahrgenommen- interaktiv eine sinnliche Form annimmt. 
 			"""
-			us_header: "Das sind wir"
+			us_header: "Die Gesichter dahinter"
 
 			search_placeholder_poli: "Suche einen Politiker"
 			search_placeholder_bird: "Suche einen Vogel"
+
+			special_thanks: "Mit bestem Dank an:"
+			
+			purpose_volker: "Idee und Konzept"
+			purpose_max: "Design und technische Umsetzung"
+			purpose_ben: "Design und technische Umsetzung"
 
 			select: "Auswählen"
 
@@ -93,10 +99,16 @@
 				By taking place superposition of soundtracks a symphony, a sound mix, the autarkic be created - depending on traffic, at any moment regenerated. It rises to a social sculpture that auditive-perceived interactively assumes a sensual form.
 
 			"""
-			us_header: "This is us"
+			us_header: "The faces behind it"
 
 			search_placeholder_poli: "Find a politician"
 			search_placeholder_bird: "Find a bird"
+
+			special_thanks: "Special thanks to:"
+			
+			purpose_volker: "Idea and Concept"
+			purpose_max: "Design and technical Implementation"
+			purpose_ben: "Design and technical Implementation"
 
 			register: "Submit"
 			select: "Select"
