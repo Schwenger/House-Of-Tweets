@@ -57,12 +57,15 @@ Display =
 				setTimeout(timeoutAction, @pageMoveDelay)
 
 	_panUp: ->
-		@_addSidebars()
 		$('#carousel').carousel 1 # tweets
-		setTimeout (() -> $('#carousel').removeClass "vertical"), Display.pageMoveDelay
+		setTimeout (() -> 
+			Display.controls["down"].removeClass "invisible"
+			Display._addSidebars()
+			$('#carousel').removeClass "vertical"), Display.pageMoveDelay
 
 	_panDown: ->
 		@_removeSidebars()
+		@controls["down"].addClass "invisible"
 		$('#carousel').addClass "vertical"
 		$('#carousel').carousel 3 # impressum
 
