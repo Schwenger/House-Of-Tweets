@@ -45,27 +45,29 @@ Display =
 
 	_trigger: (dir) ->
 		@state = @_delta(@state, dir)
-		switch dir
-			when "up" then @_panUp()
-			when "down" then @_panDown()
-			else
-				@_removeSidebars()
-				timeoutAction = switch @state
-					when "center" then () -> Display._openCenter()
-					when "right" then () -> Display._openSide("right", "left")
-					when "left" then () -> Display._openSide("left", "right")
-				setTimeout(timeoutAction, @pageMoveDelay)
+		@_removeSidebars()
+		Display.controls["down"].addClass "invisible"
+		if dir is "up"
+			@_panUp()
+		if dir is "down"
+			@_panDown()
 
+		timeoutAction = switch @state
+			when "center" then -> 
+				Display._openCenter()
+				VoicesLists.leavePage()
+				CitizenUser.leavePage()
+			when "right" then -> Display._openSide("right", "left")
+			when "left" then -> Display._openSide("left", "right")
+
+		setTimeout(timeoutAction, @pageMoveDelay) if timeoutAction?
+				
 	_panUp: ->
 		$('#carousel').carousel 1 # tweets
 		setTimeout (() -> 
-			Display.controls["down"].removeClass "invisible"
-			Display._addSidebars()
 			$('#carousel').removeClass "vertical"), Display.pageMoveDelay
 
 	_panDown: ->
-		@_removeSidebars()
-		@controls["down"].addClass "invisible"
 		$('#carousel').addClass "vertical"
 		$('#carousel').carousel 3 # impressum
 
@@ -88,9 +90,9 @@ Display =
 		for side in ["right", "left"]
 			@controls[side].addClass @[side].color
 			@[side].textContainer.text(@[side].getText())
+		# reset control elements
+		Display.controls["down"].removeClass "invisible"
 		@_addSidebars()
-		VoicesLists.leavePage()
-		CitizenUser.leavePage()
 
 	# AUXILIARY
 	_removeSidebars: ->
