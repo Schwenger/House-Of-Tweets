@@ -14,16 +14,20 @@ Profiles =
 		@voicesMQ = new Connector(Connector.config.citizenBirdQueue, undefined)
 		$("#profile-back-button-politician").click @close
 		$("#profile-back-button-bird").click @close
-		$("#picture-artist-image-switch").click @_changeArtStyle
+		imageSwitch = $("#picture-artist-image-switch")
+		imageSwitch.prop('checked', false)
+		imageSwitch.change @_changeArtStyle
 
 	# CHANGE IMAGE DISPLAY
 
 	_changeArtStyle: () ->
-		picture = $(@).prop('checked')
-		if picture 
-			Profiles._switchVisibility(Profiles.birdPhoto, Profiles.birdDrawing)
-		else 
+		console.log "clicked"
+		drawing = $(@).prop('checked')
+		console.log drawing
+		if drawing 
 			Profiles._switchVisibility(Profiles.birdDrawing, Profiles.birdPhoto)
+		else 
+			Profiles._switchVisibility(Profiles.birdPhoto, Profiles.birdDrawing)
 
 	_switchVisibility: (vis, invis) ->
 		invis.addClass "invisible"
