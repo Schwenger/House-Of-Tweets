@@ -106,12 +106,6 @@ Display =
 	_addSidebar: (sb) ->
 		sb.removeClass "invisible"
 
-	_activate: (page) ->
-		page.addClass "active"
-
-	_deactivate: (page) ->
-		page.removeClass "active"
-
 	_delta: (state, dir) ->
 		switch dir
 			when "up" then "center"
