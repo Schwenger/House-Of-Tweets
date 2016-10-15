@@ -21,7 +21,7 @@ Display =
 
 	right: {
 		color: "sidebar-right-coloring"
-		getText: () -> Model.msg.get("bird_calls")
+		getText: () -> Model.msg.get("own_tweets")
 		textContainer: $("#carousel-control-right-text-string")
 	}
 	left: {
