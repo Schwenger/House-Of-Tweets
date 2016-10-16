@@ -239,7 +239,7 @@ def show_usage(keys):
 # Formula:
 # (15 minutes * 60 seconds per minutes * 2 calls per wakeup) / 200 calls
 # = 9 seconds per wakeup
-SHORT_POLL_PERIOD = 9
+SHORT_POLL_PERIOD = 9.1
 
 
 class RealTwitterInterface(TwitterInterface):
