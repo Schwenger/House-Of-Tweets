@@ -40,7 +40,8 @@ Each politician entry has:
 
 Direction: backend → frontend
 
-- `poli`: string, the HoT-internal ID of the politician or `null` if citizen, e.g. `null` or `"649"`
+- `poli` (optional): string, the HoT-internal ID of the politician, e.g. `"649"`
+	Only present if author is a politician.
 - `content`: string, e.g. `"Wir dürfen uns nicht auseinander dividieren lassen!"`
 - `hashtags`: possibly empty array, each element is a string, containing a single hashtag, without the leading hash, e.g. `[]` or `["what", "doomed"]`
     Note that frontend should NOT parse this for `HoT` or something.
@@ -70,7 +71,7 @@ Direction: backend → frontend
 - `twittername`: same as from the `citizenuser` request
 - `birdid`: same as from the `citizenuser` request
 - `error`: string, contains the id of any error.  Possible values are:
-    - `null`: no error occurred
+    - `undefined`: no error occurred
     - `"unknown-user"`: couldn't resolve `twittername` (note that inclusion of the
       initial `@` does not matter, and twitter-handles are case-insensitive)
     - `"unknown-bird"`: couldn't resolve `birdid`

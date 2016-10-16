@@ -35,4 +35,7 @@ class CitizenQueueAdapter(threading.Thread):
 		user = body["twittername"]
 		bird = body["birdid"]
 		err = self.twitterConnection.addCitizen(user, bird)
-		self.nackQueue.post({'twittername': user, "birdid": bird, "error": err})
+		response = {'twittername': user, "birdid": bird}
+		if err is not None:
+			response['error'] = err
+		self.nackQueue.post(response)
