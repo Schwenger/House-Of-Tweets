@@ -99,7 +99,11 @@ Direction: frontend → backend
   However, nobody else should access the same connection.
 - Each "incoming" RabbitMQ queue has its own thread. Locking: must happen in the called functions,
   namely `TwitterConnection.addCitizen` and `PoliticianBackend.setBird`
-- *unsure*: The twitter connection itself spawns at least one thread. Locking: *unknown*
+- Tweepy: the streaming part of the twitter connection itself spawns at least one thread,
+  and we're accessing it concurrently for the REST API.  Locking: `RealTwitterInterface.self.lock`,
+  but *not* when the stream needs to be restarted.  So essentially we might crash/UB whenever this
+  happens.
+- RealTwitterInterface: (re)spawns a thread every few seconds to do the REST poll if necessary.
 - Note that `TwitterConnection` creates one `filter` for all politicians
   together, and then one for *each* active citizen. `TwitterConnection`
   also creates threads (`Timer` objects) to remove citizens.

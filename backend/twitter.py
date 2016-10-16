@@ -23,7 +23,7 @@ class TweetConsumer(object):
 
 
 class TwitterInterface(object):
-    def register(self, usernames: List[str], listener: TweetConsumer):
+    def register(self, usernames: List[str], listener: TweetConsumer, long_lived: bool):
         raise NotImplementedError("Should have implemented this")
 
     def deregister(self, usernames: List[str]):
@@ -85,7 +85,7 @@ def parse_tweet_status(status):
         report['content'] = status.text
         report['username'] = status.user.screen_name
         report['userscreen'] = status.user.name
-        # FIXME: Slap Tweepy-developer for deleting the perfectly good 'timestamp_ms' property
+        # FIXME: Slap Twitter-developer for not delivering a 'timestamp_ms' property
         report['time'] = datetime_to_unix(status.created_at)
         report['tweet_id'] = status.id_str
         report['profile_img'] = status.user.profile_image_url_https
@@ -233,6 +233,12 @@ def show_usage(keys):
     exit(1)
 
 
+# We have a budget of 300 calls per 15 minutes, that's one call per 3 seconds.
+# Allow up to two citizens.
+# To be on the safe side, extend the period slightly.
+SHORT_POLL_PERIOD = 6.2
+
+
 class RealTwitterInterface(TwitterInterface):
     def __init__(self):
         # Read argv to determine which credentials to use
@@ -254,19 +260,38 @@ class RealTwitterInterface(TwitterInterface):
         self.streams = dict()
         self.lock = threading.RLock()
         self.api = tweepy.API(self.auth)
+        self.short_poll = []
+        self.run_short_poll_wrap()
 
-    def register(self, usernames, consumer: TweetConsumer) -> object:
+    def register(self, usernames, consumer: TweetConsumer, long_lived) -> object:
         with self.lock:
-            self.streams[tuple(usernames)] = RestartingStream(consumer, usernames, self.auth)
+            if long_lived:
+                self.streams[tuple(usernames)] = RestartingStream(consumer, usernames, self.auth)
+            else:
+                assert len(usernames) == 1
+                user = usernames[0]
+                mylog.info('Adding short-poll for {}'.format(user))
+                # Note: no 'last_tweet' set.
+                self.short_poll.append({'user': user, 'consumer': consumer})
 
     def deregister(self, usernames: List[str]):
         with self.lock:
-            if tuple(usernames) not in self.streams:
-                mylog.warning("Tried to remove nonexistent usernames entry {}".format(usernames))
+            if tuple(usernames) in self.streams:
+                s = self.streams[tuple(usernames)]
+                del self.streams[tuple(usernames)]
+                s.disconnect()
+            else:
+                # Technically, this is only pruned by run_short_poll, so no guarantees.
+                # Practically, if we hit this limit, something has gone very wrong.
+                assert len(self.short_poll) < 100, self.short_poll
+                filtered = [e for e in self.short_poll if e['user'] not in usernames]
+                if len(filtered) + len(usernames) != len(self.short_poll):
+                    mylog.warning("Tried to remove nonexistent usernames entry {}".format(usernames))
+                    # Sorry for being uninformative here, but it would be hard to go into more details.
+                if len(filtered) < len(self.short_poll):
+                    mylog.info("Some short-polls removed.".format(usernames))
+                    self.short_poll = filtered
                 return
-            s = self.streams[tuple(usernames)]
-            del self.streams[tuple(usernames)]
-            s.disconnect()
 
     def resolve_name(self, username: str):
         try:
@@ -287,6 +312,55 @@ class RealTwitterInterface(TwitterInterface):
             mylog.error("Hah!  Gotcha.  :notyet:")
         mylog.info("-" * 40)
 
+    def run_short_poll_wrap(self):
+        # TODO: Think of a safer way to do the restarting.
+        try:
+            mylog.with_exceptions(self.run_short_poll)
+        finally:
+            # Precisely one execution per iteration returns without exception
+            timer = threading.Timer(SHORT_POLL_PERIOD, self.run_short_poll_wrap)
+            timer.daemon = True
+            timer.start()
+
+    def poll_user(self, e):
+        query_params = dict(user_id=e['user'], count=2)
+        seen_tweets = []
+        if 'last_id' in e:
+            query_params['since_id'] = e['last_id']
+            is_new = False
+            seen_tweets.append(e['last_id'])
+        else:
+            is_new = True
+        mylog.debug('[POLL] on REST with {} (new={})'.format(query_params, is_new))
+        statuses = self.api.user_timeline(**query_params)
+        for status in statuses:
+            tweet = parse_tweet_status(status)
+            seen_tweets.append(tweet['tweet_id'])
+            if not is_new:
+                e['consumer'].consumeTweet(tweet)
+        assert len(seen_tweets) > 0, e
+        # Oh god.  I'm so sorry.
+        e['last_id'] = str(max([int(tid) for tid in seen_tweets]))
+
+    def run_short_poll(self):
+        # Need to hold the lock *all* the time, as the self.api object might be modified
+        # by the other objects.
+        # WARNING: This opens up a convoluted but definite attack vector:
+        # If you can manage to delay a REST call for a very long time, then the backend grinds to a halt.
+        # Then again, with this level of network control you can always do that.
+        # This is why I actually ignore this attack vector.
+        with self.lock:
+            if len(self.short_poll) == 0:
+                return
+            if len(self.short_poll) > 2:
+                retained = self.short_poll[-2:]  # The two last entries
+                dropped = self.short_poll[:-2]  # Other entries
+                mylog.warning('Lots of citizens!  Dropping {}, retaining {} ...'.format(dropped, retained))
+                self.short_poll = retained
+            assert len(self.short_poll) <= 2, self.short_poll
+            for e in self.short_poll:
+                self.poll_user(e)
+
 
 class FakeTwitterInterface(TwitterInterface):
     def __init__(self):
@@ -301,7 +375,7 @@ class FakeTwitterInterface(TwitterInterface):
                 if tid in users:
                     consumer.consumeTweet(fake_tweet)
 
-    def register(self, usernames, consumer: TweetConsumer) -> object:
+    def register(self, usernames, consumer: TweetConsumer, long_lived) -> object:
         with self.lock:
             self.consumers[tuple(usernames)] = consumer
 
