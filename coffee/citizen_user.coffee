@@ -109,15 +109,15 @@ CitizenUser =
 	          </div>
 			"""
 		for own bid, bird of Model.birds
-			data = 
-				bird: bid
-				name: bird[Util.addLang("name")]
-				select: Model.msg.get("select")
-			entry = $(Mustache.render(template, data))
-			@_listRoot.flickity('append', entry)
-			entry.find("#citizen-user-select-bird-#{bid}").click (
-				() -> CitizenUser._submitCitizenBird(bid)
-			)
-
+			do(bid, bird) ->
+				data = 
+					bird: bid
+					name: bird[Util.addLang("name")]
+					select: Model.msg.get("select")
+				entry = $(Mustache.render(template, data))
+				CitizenUser._listRoot.flickity('append', entry)
+				entry.find("#citizen-user-select-bird-#{bid}").click (
+					() -> CitizenUser._submitCitizenBird(bid)
+				)
 		@_notifySelectButtons()
 
