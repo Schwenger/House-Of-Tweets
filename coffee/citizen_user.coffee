@@ -83,7 +83,7 @@ CitizenUser =
 		if enable then @_enableSelectButtons() else @_disableSelectButtons()
 
 	_submitCitizenBird: (bid) ->
-		$('#citizen-tweets-switch').prop('checked', false);
+		TweetController.showAllTweets()
 		username = @_twitterNameInput.val()[...CitizenUser.maxTwitterNameLength]
 		data = {twittername: username, birdid: bid}
 		CitizenUser._citizenBirdMQ.sendToQueue(data)

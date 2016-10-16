@@ -50,6 +50,10 @@ TweetController =
 	translateBirds: () ->
 		@_updateBirdNames()
 
+	showAllTweets: () ->
+		$('#citizen-tweets-switch').prop('checked', false);
+		@_changeShownTweets()
+
 	# ARCHIVE
 	_addToArchive: (entry) ->
 		@_archiveRoot.append entry.obj
