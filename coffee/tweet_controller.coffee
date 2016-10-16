@@ -244,6 +244,7 @@ TweetController =
 			obj: tweetElement
 			play: (mode, duration) -> 
 				effectiveDuration = TweetController._getDuration(duration, tweet, mode)
+				mode = "C" unless tweet.poli? # there is no P mode for citizens
 				SoundCtrl.play(tweet.id, effectiveDuration, mode)
 			time: tweet.time
 			id: tweet.id
