@@ -85,7 +85,7 @@ def parse_tweet_status(status):
         report['content'] = status.text
         report['username'] = status.user.screen_name
         report['userscreen'] = status.user.name
-        # FIXME: Slap Twitter-developer for not delivering a 'timestamp_ms' property
+        # Slap Twitter-developer for not delivering a 'timestamp_ms' property
         report['time'] = datetime_to_unix(status.created_at)
         report['tweet_id'] = status.id_str
         report['profile_img'] = status.user.profile_image_url_https

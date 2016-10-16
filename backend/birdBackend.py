@@ -13,8 +13,7 @@ class BirdBackend:
 		self.keyword2bid = dict()
 
 		for bid, bird in self.bJson.items():
-			# TODO: find a way to resolve English names
-			# self._update(bird['en_name'], bid)  # English name are multi-word!
+			# English name are multi-word, and thus not suppoerted.
 			self._update(bird['de_name'], bid)
 
 	def _update(self, name, bid):
