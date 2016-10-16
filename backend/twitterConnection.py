@@ -90,7 +90,7 @@ class TwitterListener(TweetConsumer):
 		if poli is not None:
 			mylog.info("This is definitely a politician.")
 			msg['poli'] = poli['pid']
-			birds = self.handle_poli(tweet, msg)
+			birds = self.handle_poli(tweet, msg, poli)
 		elif citi is not None:
 			mylog.info("This is definitely a citizen.")
 			msg['poli'] = None
@@ -119,12 +119,8 @@ class TwitterListener(TweetConsumer):
 		# Don't define msg['refresh']
 		return [citizen['birdId'], None]
 
-	def handle_poli(self, tweet, msg):
-		# Careful: we have a copy, so any changes due to setBird aren't reflected!
-		poli = self.pb.getPolitician(tweet['uid'])
-		if poli is None:
-			mylog.error("No poli for tracked poli-uid {} found".format(tweet['uid']))
-			return None
+	def handle_poli(self, tweet, msg, poli):
+		# Careful: 'poli' is a copy, so any changes due to setBird aren't reflected!
 
 		msg['partycolor'] = party_to_color(poli['party'])
 		msg['party'] = poli['party']
