@@ -24,9 +24,9 @@ NACK_TEMPLATES = [
     'Leider haben wir nicht alle Vogelstimmen, aber hier ist unsere Auswahl:',
 ]
 
-# FIXME: both currently point to the github repo.  That's bad.
-ACK_LINK = 'https://t.co/2FCr67spc6'
-NACK_LINK = 'https://t.co/BLE25414ym'
+# https://houseoftweets.github.io/
+ACK_LINK = 'https://t.co/Jh0JMFWHWK'
+NACK_LINK = ACK_LINK
 
 
 def _build_ack(handle, bird_from, bird_to, template):
