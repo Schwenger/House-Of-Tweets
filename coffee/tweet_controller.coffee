@@ -43,7 +43,7 @@ TweetController =
 
 	# Interface
 	triggerTweetManually: () ->
-		incoming =  [Model.manualTweets[Global.manualTweetID]]
+		incoming = [Model.manualTweets[Global.manualTweetID]]
 		Global.manualTweetID = (Global.manualTweetID + 1) % Model.manualTweets.length
 		@consume(incoming)
 
