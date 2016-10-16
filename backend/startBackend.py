@@ -18,7 +18,7 @@ mylog.info("Configured to follow {} accounts.".format(len(follow)))
 queue = mq.Batcher(mq.RealQueue("tweets"))
 twi = TwitterConnection(queue, follow, polBack, birdBack, RealTwitterInterface())
 
-c = CitizenQueueAdapter(twi, mq.RealQueue("userBirdNack"))
+c = CitizenQueueAdapter(twi, mq.RealQueue("citizenUserFeedbackQueue"))
 c.start()
 
 cbq = CitizenBirdQueueAdapter(polBack)
