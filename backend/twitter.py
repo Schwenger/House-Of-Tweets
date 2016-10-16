@@ -233,10 +233,13 @@ def show_usage(keys):
     exit(1)
 
 
-# We have a budget of 300 calls per 15 minutes, that's one call per 3 seconds.
+# We have a budget of 180 calls per 15 minutes, that's one call per 3 seconds.
 # Allow up to two citizens.
-# To be on the safe side, extend the period slightly.
-SHORT_POLL_PERIOD = 6.2
+# Since that's ridiculously small, hope that we can get away with 200 per 15 minutes.
+# Formula:
+# (15 minutes * 60 seconds per minutes * 2 calls per wakeup) / 200 calls
+# = 9 seconds per wakeup
+SHORT_POLL_PERIOD = 9
 
 
 class RealTwitterInterface(TwitterInterface):
