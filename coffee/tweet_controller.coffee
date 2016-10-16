@@ -145,6 +145,7 @@ TweetController =
 		for own key, list of TweetController._tLists
 			for elem in list
 				mode = if TweetController._usePoliBirds then "poli" else "citizen"
+				mode = "citizen" unless elem.bid.poli?
 				bird = Model.birds[elem.bid[mode]][Util.addLang("name")]
 				$("#tweet-#{elem.id}-bird").text(bird)
 
