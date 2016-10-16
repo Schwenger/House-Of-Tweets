@@ -404,19 +404,14 @@ class FakeTwitterInterface(TwitterInterface):
 
 
 def manual_test_incoming():
-    from time import sleep
     mylog.info("Reading from Twitter in stand-alone mode.")
     twi = RealTwitterInterface()
     mylog.info("Now following @HoT *and* Ben's throwaway account")
     twi.register(["4718199753"], TweetPrinter(), True)
     twi.register(["774336282101178368"], TweetPrinter(), False)
-    mylog.info("sleeping...")
-    sleep(50)
-    mylog.info("Sleep nearly over!")
-    sleep(10)
-    mylog.info("Sleep over.  Unsubscribing Ben's throwaway account.")
-    twi.deregister(["774336282101178368"])
-    mylog.info("Kill with Ctrl-C")
+    twi.register(["139407967"], TweetPrinter(), False)
+    mylog.info("Kill with Enter")
+    input()
 
 
 # Only test for RealTwitterInterface.deregister
