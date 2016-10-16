@@ -142,7 +142,8 @@ about the license situation of the old images.
 - input: `birds.json` (hard-coded)
 - output: `fetch_birds.json` (hard-coded)
 - output format: list of JSON objects:
-  - all fields of birds.json are preserved, out of laziness
+  - all fields of birds.json are preserved
+    (can and shall be used as drop-in replacement for `birds.json`)
   - `img`: JSON object, image meta-information, just like an entry in the politician
     crawler (`url`, `license`, and optionally `copyright`)
 

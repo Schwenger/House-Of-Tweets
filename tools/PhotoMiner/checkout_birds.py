@@ -16,7 +16,7 @@ HOT_DIR_PREFIX = 'preview_hb'
 os.mkdir(HOT_DIR_PREFIX)  # If this fails: you should always start from scratch here!
 
 
-def checkout(bid, fields):
+def checkout(bid, fields, has_drawing: bool):
     GRAVITY_OVERRIDE = {
         'buntspecht': 'north',
         'girlitz': 'north',
@@ -59,7 +59,10 @@ def checkout(bid, fields):
         '-gravity', gravity,
         '-extent', RESOLUTION_HOT + '>',
         hot_prefix + '.jpg')
-    copyfile(hot_prefix + '.jpg', hot_prefix + '-drawing.jpg')
+    if has_drawing:
+        print('[INFO] skipped {}-drawing.jpg: we have an actual drawing!'.format(bid))
+    else:
+        copyfile(hot_prefix + '.jpg', hot_prefix + '-drawing.jpg')
 
     entry = {
         'filename': bid + '.jpg',
@@ -79,7 +82,7 @@ def run():
     # Arbitrary order for reproducability
     for bid, bird in sorted(birds.items(), key=lambda x: x[1]['de_name']):
         print('[INFO] Checking out files for ' + bird['de_name'])
-        entry = checkout(bid, bird['img'])
+        entry = checkout(bid, bird['img'], bird['has_drawing'])
         entry['bid'] = bid
         entry['de_name'] = bird['de_name']
         entry['en_name'] = bird['en_name']
