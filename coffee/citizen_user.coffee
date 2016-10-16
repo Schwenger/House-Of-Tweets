@@ -29,6 +29,7 @@ CitizenUser =
 	leavePage: ->
 		setTimeout (() ->
 			CitizenUser._twitterNameInput.val("")
+			CitizenUser._disableSelectButtons()
 		), Display.pageMoveDelay
 
 	translateBirds: ->
