@@ -193,6 +193,8 @@ class TwitterConnection(object):
 		if tid is None:
 			mylog.warning("citizen user ignored, invalid name: " + twittername)
 			return "unknown-user"
+		if self.polBack.getPolitician(tid) is not None:
+			return "is-politician"
 		if birdid not in self.birdBack.bJson:
 			mylog.warning("citizen user ignored, invalid bird: " + birdid)
 			return "unknown-bird"

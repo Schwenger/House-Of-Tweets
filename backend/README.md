@@ -63,7 +63,7 @@ Direction: backend → frontend
 - `time`: string, containing unix timestamp (seconds since 1970-01-01), e.g. `"1453840647"`
 - `twitterName`: string, twitter-handle without '@' char, e.g. `"pes04"`
 
-### Queue "userBirdNack"
+### Queue "citizenUserFeedbackQueue"
 
 Direction: backend → frontend
 
@@ -74,6 +74,7 @@ Direction: backend → frontend
     - `"unknown-user"`: couldn't resolve `twittername` (note that inclusion of the
       initial `@` does not matter, and twitter-handles are case-insensitive)
     - `"unknown-bird"`: couldn't resolve `birdid`
+    - `"is-politician"`: user already is a politician
 
 ### Queue "citizenbirds"
 
