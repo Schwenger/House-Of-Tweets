@@ -165,12 +165,16 @@ def spoof_copyright(by_name, lang):
 def spoof_bird(bid, display_name, tweet_name):
     # Technically, I have to properly URI-component-escape the bid string.
     # Factually, I know that it's just plain ascii, so there's nothing to do.
+    # FIXME: Properly share resources between this python code and the generating JS code.
     return """<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
             <a href="https://twitter.com/intent/tweet?text={tweet}&button_hashtag=HouseOfTweets">
                 <img src="imgs/{bid}.jpg" alt="{display}" width="200" height="150"></img>
-                <p class="tw-widget" style="width: 200px;">
-                    <i class="tw-img"></i>
-                    <span class="tw-label">Tweet <b class="tw-b">{display}</b></span>
+                <p class="custom-bird-caption">
+                    <span class="caption-text">{display}</span>
+                    <span class="tw-widget" style="width: 60px;">
+                        <i class="tw-img"></i>
+                        <span class="tw-label">Tweet</span>
+                    </span>
                 </p>
             </a>
         </div>

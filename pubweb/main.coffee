@@ -3,39 +3,6 @@
 
 require('../ext/node_modules/jquery-on-infinite-scroll')
 
-###
-	<!-- &url=https%3A%2F%2FHouseOfTweets.github.io -->
-
-		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
-            <a href="https://twitter.com/intent/tweet?text={tweet}&button_hashtag=HouseOfTweets">
-                <img src="imgs/{bid}.jpg" alt="{display}" width="200" height="150" />
-                <p class="custom-bird-caption tw-btn">
-                    <i class="twitter" />
-                    <span>Tweet {display} #HoT</span>
-                </p>
-            </a>
-        </div>
-###
-
-placeBird = (bid, display, tweet) ->
-	console.log "Loadin' moar"
-	# Although I call it "_tag", it's always a jQuery wrapped tag, not a "raw" tag.
-	img_tag = $("<img src=\"imgs/#{bid}.jpg\" alt=\"#{display}\" width=\"200\" height=\"150\">")
-	inner_span = $("<span>")
-	# TODO: Why can't I just write the text in the jQuery call?
-	inner_span.text("Tweet #{display} #HoT")
-	p_tag = $("<p class=\"custom-bird-caption tw-btn\">")
-	p_tag.append($("<i class=\"twitter\" />"))
-	p_tag.append(inner_span)
-	a_tag = $("<a>")
-	name_for_href = encodeURIComponent(tweet)
-	a_tag.attr("href", "https://twitter.com/intent/tweet?text=#{name_for_href}&button_hashtag=HouseOfTweets")
-	a_tag.append(img_tag)
-	a_tag.append(p_tag)
-	div_tag = $('<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">')
-	div_tag.append(a_tag)
-	$("#hot-birdslist").append(div_tag)
-
 BirdFeeder =
 	birds: null
 	nextBirdIdx: 0
@@ -56,13 +23,34 @@ BirdFeeder =
 		# Trigger an initial check.  See https://github.com/artsy/jquery-on-infinite-scroll/issues/8
 		$(window).trigger('scroll.infinite') for [1..4]
 
+	bird_template: (bid, display, tweet) ->
+		"""
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
+			<a href="https://twitter.com/intent/tweet?text=#{tweet}&button_hashtag=HouseOfTweets">
+				<img src="imgs/#{bid}.jpg" alt="#{display}" width="200" height="150" />
+                <p class="custom-bird-caption">
+                    <span class="caption-text">#{display}</span>
+                    <span class="tw-widget" style="width: 60px;">
+                        <i class="tw-img"></i>
+                        <span class="tw-label">Tweet</span>
+                    </span>
+                </p>
+			</a>
+		</div>
+		"""
+
+	placeBird: (bid, display, tweet) ->
+		console.log "Loadin' moar"
+		div_tag = $(BirdFeeder.bird_template(bid, display, tweet))
+		$("#hot-birdslist").append(div_tag)
+
 	push: ->
 		# I'm sure there's a proper way to do it.
 		if @nextBirdIdx < @birds.length
 			[bid, display, tweet] = @birds[@nextBirdIdx]
 			console.log @birds[@nextBirdIdx]
 			@nextBirdIdx += 1
-			placeBird(bid, display, tweet)
+			BirdFeeder.placeBird(bid, display, tweet)
 			# Trigger another check.  See https://github.com/artsy/jquery-on-infinite-scroll/issues/8
 			$(window).trigger('scroll.infinite') for [1..4]
 		else

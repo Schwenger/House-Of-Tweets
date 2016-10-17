@@ -26,6 +26,11 @@ hr {
 }
 .custom-bird-caption {
   margin-bottom: 0px;
+  text-align: center;
+  width: 200px;
+}
+.caption-text {
+  text-align: left;
 }
 
 /* Twitter buttons.
@@ -42,7 +47,7 @@ hr {
 	/* Boring stuff */
     font: normal normal normal 11px/18px 'Helvetica Neue',Arial,sans-serif;
     overflow: hidden;
-    text-align: center;
+    text-align: right;
     white-space: nowrap;
     max-width: 100%;
     vertical-align: top;
@@ -60,11 +65,6 @@ hr {
 }
 .tw-widget:active {
     box-shadow: inset 0 3px 5px rgba(0,0,0,0.1);
-}
-.tw-b {
-	/* FIXME: Understand and check or chuck */
-    text-decoration: none;
-    outline: 0;
 }
 .tw-img {
 	/* FIXME: Understand and check or chuck */
