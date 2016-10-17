@@ -116,6 +116,25 @@ STRINGS_EN = {
 
 assert STRINGS_DE.keys() == STRINGS_EN.keys()
 
+# Technically, I have to properly URI-component-escape the bid string.
+# Factually, I know that it's just plain ascii, so there's nothing to do.
+# FIXME: Properly share resources between this python code and the generating JS code.
+BIRD_HTML_TEMPLATE = """<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
+          <div class="bird-entry">
+            <div class="bird-image">
+              <img src="imgs/{bid}.jpg" alt="{display}"/>
+            </div>
+            <div class="caption">
+              <span class="caption-text">{display}</span>
+              <a class="tw-widget" href="https://twitter.com/intent/tweet?text={tweet}&button_hashtag=HouseOfTweets">
+                <span class="tw-img"></span>
+                <span class="tw-label"> Tweet </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        """
+
 
 def generate(slug):
     with open(slug + '.html.in', 'r') as fp:
@@ -163,22 +182,7 @@ def spoof_copyright(by_name, lang):
 
 
 def spoof_bird(bid, display_name, tweet_name):
-    # Technically, I have to properly URI-component-escape the bid string.
-    # Factually, I know that it's just plain ascii, so there's nothing to do.
-    # FIXME: Properly share resources between this python code and the generating JS code.
-    return """<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
-            <a href="https://twitter.com/intent/tweet?text={tweet}&button_hashtag=HouseOfTweets">
-                <img src="imgs/{bid}.jpg" alt="{display}" width="200" height="150"></img>
-                <p class="custom-bird-caption">
-                    <span class="caption-text">{display}</span>
-                    <span class="tw-widget" style="width: 60px;">
-                        <i class="tw-img"></i>
-                        <span class="tw-label">Tweet</span>
-                    </span>
-                </p>
-            </a>
-        </div>
-        """.format(bid=bid, display=html_escape(display_name), tweet=html_escape(tweet_name))
+    return BIRD_HTML_TEMPLATE.format(bid=bid, display=html_escape(display_name), tweet=html_escape(tweet_name))
 
 
 def run():

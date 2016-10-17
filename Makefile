@@ -109,8 +109,11 @@ out_pubweb/js/main.js: ${TEMP}/pubweb_bundled.js | ${DIRS}
 ${TEMP}/pubweb_bundled.js: ${TEMP}/pubweb_bundled.coffee | ${DIRS}
 	coffee --output ${TEMP} --compile $<
 
-${TEMP}/pubweb_bundled.coffee: pubweb/main.coffee ${PUBWEB_JSON_DYN} | ${DIRS}
+${TEMP}/pubweb_bundled.coffee: pubweb/main.coffee pubweb/template.coffee ${PUBWEB_JSON_DYN} | ${DIRS}
 	${COFFEESCRIPT_CONCAT} -I pubweb/ $< -o $@
+
+pubweb/template.coffee: pubweb/template.coffee.gen pubweb/mk_html.py
+	( cd pubweb && ./template.coffee.gen )
 
 ${PUBWEB_JSON_INIT} ${PUBWEB_JSON_DYN}: %: pubweb/mk_json.py tools/PhotoMiner/checkout_pubweb_birds.json
 	( cd pubweb && ./mk_json.py )

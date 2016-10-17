@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+from mk_html import BIRD_HTML_TEMPLATE
+
+# This is getting too meta.
+CS_TEMPLATE_TEMPLATE = """
+bird_template = (bid, display, tweet) ->
+\t\"""{template}\"""
+"""
+
+cs_template = BIRD_HTML_TEMPLATE.format(bid='#{bid}', display='#{display}', tweet='#{tweet}')
+cs_code = CS_TEMPLATE_TEMPLATE.format(template=cs_template)
+with open('template.coffee', 'w') as fp:
+    fp.write(cs_code)

@@ -1,5 +1,6 @@
 #= require <birds_de_dyn.coffee>
 #= require <birds_en_dyn.coffee>
+#= require <template.coffee>
 
 require('../ext/node_modules/jquery-on-infinite-scroll')
 
@@ -23,27 +24,10 @@ BirdFeeder =
 		# Trigger an initial check.  See https://github.com/artsy/jquery-on-infinite-scroll/issues/8
 		$(window).trigger('scroll.infinite') for [1..4]
 
-	bird_template: (bid, display, tweet) ->
-		"""
-		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
-			<div class="bird-entry">
-				<div class="bird-image">
-					<img src="imgs/#{bid}.jpg" alt="#{display}"/>
-				</div>
-				<div class="caption">
-					<span class="caption-text">#{display}</span>
-	                <a class="tw-widget" href="https://twitter.com/intent/tweet?text=#{tweet}&button_hashtag=HouseOfTweets">
-	                	<span class="tw-img"></span>
-	                	<span class="tw-label"> Tweet </span>
-	                </a>
-	            </div>
-            </div>
-		</div>
-		"""
-
 	placeBird: (bid, display, tweet) ->
 		console.log "Loadin' moar"
-		div_tag = $(BirdFeeder.bird_template(bid, display, tweet))
+		# Can't use imported "bird_template" function.  Why?
+		div_tag = $(bird_template(bid, display, tweet))
 		$("#hot-birdslist").append(div_tag)
 
 	push: ->
