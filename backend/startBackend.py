@@ -15,7 +15,7 @@ polBack = PoliticianBackend()
 follow = polBack.getAllTwitteringPoliticians()
 mylog.info("Configured to follow {} accounts.".format(len(follow)))
 
-queue = mq.Batcher(mq.RealQueue("tweets"))
+queue = mq.Batcher(mq.RealQueue("tweets", log_file='all_tweets.json'))
 twi = TwitterConnection(queue, follow, polBack, birdBack, RealTwitterInterface())
 
 c = CitizenQueueAdapter(twi, mq.RealQueue("citizenUserFeedbackQueue"))

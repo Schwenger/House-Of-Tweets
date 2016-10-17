@@ -4,6 +4,9 @@ import pika
 import threading
 
 
+WRITE_TWEETS = True
+
+
 class SendQueueInterface(object):
     def post(self, _):
         raise NotImplementedError("Should have implemented this")
@@ -14,14 +17,31 @@ def connection():
 
 
 class RealQueue(SendQueueInterface):
-    def __init__(self, name):
+    def __init__(self, name, log_file = None):
         self.connection = connection()
         self.channel = self.connection.channel()
         self.name = name
         self.channel.queue_declare(queue=name, durable=True)
         self.lock = threading.RLock()
+        self.log_file = log_file
         # We never "close" a connection, so thankfully we don't need to ever stop the "heart":
         self._heartbeat()
+
+    def maybe_log_message(self, msg):
+        import os.path
+        if self.log_file is None:
+            return
+        if not WRITE_TWEETS:
+            return
+        mylog.debug('Writing to {}: {}'.format(self.log_file, msg))
+        old = []
+        # Let's hope there are never two backend running simultaneously
+        if os.path.exists(self.log_file):
+            with open(self.log_file, 'r') as fp:
+                old = json.load(fp)
+        old.append(msg)
+        with open(self.log_file, 'w') as fp:
+            json.dump(old, fp, sort_keys=True, indent=1)
 
     def post(self, message, isRetry=False):
         mylog.info('Publishing on queue {name}: {data!r}'
@@ -34,6 +54,7 @@ class RealQueue(SendQueueInterface):
             try:
                 self.channel.basic_publish(exchange='', routing_key=self.name,
                                            body=json.dumps(message))
+                self.maybe_log_message(message)
             except Exception as e:
                 mylog.error("Connection failed anyway?  Make sure RabbitMQ is running! (is_closed = {})"
                             .format(self.connection.is_closed))
