@@ -12,7 +12,8 @@ import mylog
 REMOVE_CITIZEN_TIME = 5 * 60
 
 # Must be lowercase.  The incoming hashtags will be lowercased before comparison.
-COMMAND_HASHTAGS = {'houseoftweets', 'house_of_tweets', 'hot', 'house-of-tweets'}
+COMMAND_HASHTAGS_DEFINITE = {'houseoftweets', 'house_of_tweets', 'house-of-tweets'}
+COMMAND_HASHTAGS_ACKONLY = {'hot'}
 
 
 def party_to_color(party: str):
@@ -40,8 +41,11 @@ def party_to_color(party: str):
 
 def contains_command(hashtags):
 	for h in hashtags:
-		if h.lower() in COMMAND_HASHTAGS:
+		if h.lower() in COMMAND_HASHTAGS_DEFINITE:
 			return True
+	for h in hashtags:
+		if h.lower() in COMMAND_HASHTAGS_ACKONLY:
+			return COMMAND_HASHTAGS_ACKONLY  # True-ish value, and self documenting arbitrary constant
 	return False
 
 
@@ -127,20 +131,18 @@ class TwitterListener(TweetConsumer):
 		pBird = poli['self_bird']
 		# In case it changed, use the one provided by twitter
 		handle = msg['twitterName']
+		has_command = contains_command(tweet['hashtags'])
 
 		# Check for any updates
 		if 'house' in tweet['username'].lower() and tweet['content'].startswith('@'):
 			mylog.warning("Ignoring my own tweet for commands, as it starts with '@'")
-		elif contains_command(tweet['hashtags']):
+		elif has_command:
 			pid = poli['pid']
 			pBird_name = self.birdBack.getName(pBird)
 			bird_id = find_bird(tweet['content'], self.birdBack)
-			if bird_id is None:
-				mylog.warning('I saw that command, but no valid bird!')
-				mylog.warning('pid={pid!r} content={ct}'
-					          .format(ct=tweet['content'], pid=pid))
-				reply = responseBuilder.build_some_nack(handle, pBird_name)
-			else:
+			reply = None
+			if bird_id is not None:
+				# Ack
 				bird_name = self.birdBack.getName(bird_id)
 				mylog.info('politician "{}" ({}) gets new bird {}'
 						   .format(tweet['userscreen'], pid, bird_id))
@@ -151,7 +153,14 @@ class TwitterListener(TweetConsumer):
 				reply = responseBuilder.build_some_ack(handle, pBird_name, bird_name)
 				# Again, 'poli' is a copy, so it wasn't updated by the call to 'setBird'.
 				pBird = bird_id
-			self.tw.twitter.maybe_reply(tweet['tweet_id'], reply)
+			elif has_command != COMMAND_HASHTAGS_ACKONLY:
+				# NACK
+				mylog.warning('I saw that command, but no valid bird!')
+				mylog.warning('pid={pid!r} content={ct}'
+					          .format(ct=tweet['content'], pid=pid))
+				reply = responseBuilder.build_some_nack(handle, pBird_name)
+			if reply is not None:
+				self.tw.twitter.maybe_reply(tweet['tweet_id'], reply)
 
 		# In case of 'refresh', poli already contains the update:
 		return [poli['citizen_bird'], pBird]

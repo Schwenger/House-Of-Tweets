@@ -535,6 +535,7 @@ def test_twitter_listener():
     fakeTwitter.expect([('bullshit', expect_response)])
 
     # FIXME: Test negative replies!
+    # FIXME: Test *absence* of negative replies in case of #hot!
 
 all_tests.append(test_twitter_listener)
 
