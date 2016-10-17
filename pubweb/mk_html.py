@@ -182,7 +182,7 @@ def spoof_bird(bid, display_name, tweet_name):
 
 
 def run():
-    with open('../PhotoMiner/checkout_pubweb_birds.json', 'r') as fp:
+    with open('../tools/PhotoMiner/checkout_pubweb_birds.json', 'r') as fp:
         birds = json.load(fp)
     by_name = birds_by_name(birds)
     for strings, lang in [(STRINGS_DE, 'de'), (STRINGS_EN, 'en')]:

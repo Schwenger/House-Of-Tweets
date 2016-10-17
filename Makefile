@@ -75,7 +75,7 @@ backend:
 # No, due to the shared npm accesses it just so doesn't make sense to
 # create a different Makefile for that.
 PUBWEB_HTML_NAMES:=index index_en about about_en
-PUBWEB_HTML_SRC:=${patsubst %,tools/WebsiteGen/autogen/%.html,${PUBWEB_HTML_NAMES}}
+PUBWEB_HTML_SRC:=${patsubst %,pubweb/autogen/%.html,${PUBWEB_HTML_NAMES}}
 PUBWEB_HTML_DST:=${patsubst %,out_pubweb/%.html,${PUBWEB_HTML_NAMES}}
 PUBWEB_STATIC_SRC:=$(wildcard pubweb/static/*.*) $(wildcard pubweb/static/*/*.*)
 # PUBWEB_STATIC_DST should also include the images, but:
@@ -84,8 +84,8 @@ PUBWEB_STATIC_SRC:=$(wildcard pubweb/static/*.*) $(wildcard pubweb/static/*/*.*)
 PUBWEB_STATIC_DST:=${patsubst pubweb/static/%,out_pubweb/%,${PUBWEB_STATIC_SRC}}
 PUBWEB_DYNAMIC_DST:=out_pubweb/js/main.js ${PUBWEB_HTML_DST}
 
-PUBWEB_JSON_DYN:=$(patsubst %,tools/WebsiteGen/birds_%_dyn.coffee,de en)
-PUBWEB_JSON_INIT:=$(patsubst %,tools/WebsiteGen/birds_%_init.json,de en)
+PUBWEB_JSON_DYN:=$(patsubst %,pubweb/birds_%_dyn.coffee,de en)
+PUBWEB_JSON_INIT:=$(patsubst %,pubweb/birds_%_init.json,de en)
 
 .PHONY: pubweb
 pubweb: pubweb_dyn pubweb_static
@@ -93,14 +93,14 @@ pubweb: pubweb_dyn pubweb_static
 .PHONY: pubweb_dyn
 pubweb_dyn: ${PUBWEB_DYNAMIC_DST}
 
-${PUBWEB_HTML_DST}: out_pubweb/%: tools/WebsiteGen/autogen/% | ${DIRS}
+${PUBWEB_HTML_DST}: out_pubweb/%: pubweb/autogen/% | ${DIRS}
 	cp $< $@
 
 # Slightly overzealous, but whatever
 # (If about.html.in changes, then technically index.html doesn't need to
 #  be regenerated, but mk_html.py is too coarse for that anyway.)
-${PUBWEB_HTML_SRC}: %: tools/WebsiteGen/about.html.in tools/WebsiteGen/index.html.in tools/WebsiteGen/mk_html.py ${PUBWEB_JSON_INIT}
-	( cd tools/WebsiteGen && ./mk_html.py )
+${PUBWEB_HTML_SRC}: %: pubweb/about.html.in pubweb/index.html.in pubweb/mk_html.py ${PUBWEB_JSON_INIT}
+	( cd pubweb && ./mk_html.py )
 
 out_pubweb/js/main.js: ${TEMP}/pubweb_bundled.js | ${DIRS}
 # FIXME: Minify?
@@ -110,10 +110,10 @@ ${TEMP}/pubweb_bundled.js: ${TEMP}/pubweb_bundled.coffee | ${DIRS}
 	coffee --output ${TEMP} --compile $<
 
 ${TEMP}/pubweb_bundled.coffee: pubweb/main.coffee ${PUBWEB_JSON_DYN} | ${DIRS}
-	${COFFEESCRIPT_CONCAT} -I tools/WebsiteGen/ $< -o $@
+	${COFFEESCRIPT_CONCAT} -I pubweb/ $< -o $@
 
-${PUBWEB_JSON_INIT} ${PUBWEB_JSON_DYN}: %: tools/WebsiteGen/mk_json.py tools/PhotoMiner/checkout_pubweb_birds.json
-	( cd tools/WebsiteGen && ./mk_json.py )
+${PUBWEB_JSON_INIT} ${PUBWEB_JSON_DYN}: %: pubweb/mk_json.py tools/PhotoMiner/checkout_pubweb_birds.json
+	( cd pubweb && ./mk_json.py )
 
 .PHONY: pubweb_static
 pubweb_static: ${PUBWEB_STATIC_DST}
