@@ -42,12 +42,14 @@ CitizenUser =
 	_consumeFeedback: (msg) ->
 		if msg.error?
 			console.log "Error adding user #{msg.twittername}. Reason: #{msg.error}"
-		kind = if msg.error? then "negative" else "positive"
+		[kind, msg_key] = switch msg.error
+			when undefined then ["error", "error"]
+			else ["success", "success"]
 		data = 
 			kind: kind
 			name: Util.sanitize(msg.twittername[...CitizenUser.maxTwitterNameLength])
-			pre: Model.msg.get("#{kind}_feedback_pre")
-			post: Model.msg.get("#{kind}_feedback_post")
+			pre: Model.msg.get("#{msg_key}_feedback_pre")
+			post: Model.msg.get("#{msg_key}_feedback_post")
 		template = """
 			<div class="entry {{kind}}"> 
       			<div>
