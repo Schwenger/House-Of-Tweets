@@ -170,7 +170,7 @@ def spoof_bird(bid, display_name, tweet_name):
                 <img src="imgs/{bid}.jpg" alt="{display}" width="200" height="150"></img>
                 <p class="tw-widget" style="width: 200px;">
                     <i class="tw-img"></i>
-                    <span class="tw-label">Tweet <b class="tw-b">{display} #HoT</b></span>
+                    <span class="tw-label">Tweet <b class="tw-b">{display}</b></span>
                 </p>
             </a>
         </div>
