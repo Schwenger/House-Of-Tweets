@@ -167,8 +167,11 @@ def spoof_bird(bid, display_name, tweet_name):
     # Factually, I know that it's just plain ascii, so there's nothing to do.
     return """<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
             <a href="https://twitter.com/intent/tweet?text={tweet}&button_hashtag=HouseOfTweets">
-                <img src="imgs/{bid}.jpg" alt="{display}" width="200" height="150" />
-                <p class="custom-bird-caption">{display} #HouseOfTweets</p>
+                <img src="imgs/{bid}.jpg" alt="{display}" width="200" height="150"></img>
+                <p class="tw-widget" style="width: 200px;">
+                    <i class="tw-img"></i>
+                    <span class="tw-label">Tweet <b class="tw-b">{display} #HoT</b></span>
+                </p>
             </a>
         </div>
         """.format(bid=bid, display=html_escape(display_name), tweet=html_escape(tweet_name))

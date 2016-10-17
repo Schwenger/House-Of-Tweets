@@ -9,7 +9,10 @@ require('../ext/node_modules/jquery-on-infinite-scroll')
 		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
             <a href="https://twitter.com/intent/tweet?text={tweet}&button_hashtag=HouseOfTweets">
                 <img src="imgs/{bid}.jpg" alt="{display}" width="200" height="150" />
-                <p class="custom-bird-caption">{display} #HouseOfTweets</p>
+                <p class="custom-bird-caption tw-btn">
+                    <i class="twitter" />
+                    <span>Tweet {display} #HoT</span>
+                </p>
             </a>
         </div>
 ###
@@ -18,9 +21,12 @@ placeBird = (bid, display, tweet) ->
 	console.log "Loadin' moar"
 	# Although I call it "_tag", it's always a jQuery wrapped tag, not a "raw" tag.
 	img_tag = $("<img src=\"imgs/#{bid}.jpg\" alt=\"#{display}\" width=\"200\" height=\"150\">")
-	p_tag = $("<p class=\"custom-bird-caption\">")
+	inner_span = $("<span>")
 	# TODO: Why can't I just write the text in the jQuery call?
-	p_tag.text("#{display} #HouseOfTweets")
+	inner_span.text("Tweet #{display} #HoT")
+	p_tag = $("<p class=\"custom-bird-caption tw-btn\">")
+	p_tag.append($("<i class=\"twitter\" />"))
+	p_tag.append(inner_span)
 	a_tag = $("<a>")
 	name_for_href = encodeURIComponent(tweet)
 	a_tag.attr("href", "https://twitter.com/intent/tweet?text=#{name_for_href}&button_hashtag=HouseOfTweets")
