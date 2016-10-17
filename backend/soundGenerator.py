@@ -61,6 +61,8 @@ def find_pair(bird: Union[None, str], mood: str, retweet: bool, length: int):
 		return None
 	candidates = [(bird, mood, retweet),
 				  (bird, 'neutral', retweet),
+				  (bird, 'fragend', retweet),
+				  (bird, 'aufgebracht', retweet),
 				  ('amsel', 'neutral', False)]
 	verbose = False
 	for (b, m, r) in candidates:
