@@ -44,6 +44,9 @@
 			error_feedback_pre: "Nutzer"
 			error_feedback_post: "konnte nicht gefunden werden. Vertippt?"
 
+			is_poli_feedback_pre: "Nutzer"
+			is_poli_feedback_post: "ist ein Politiker und wird bereits angezeigt."
+
 			choose_bird_prompt: "Jetzt noch den Lieblingsvogel aussuchen und abschicken!"
 
 			photo: "Foto"
@@ -118,6 +121,9 @@
 			
 			success_feedback_pre: "User"
 			success_feedback_post: "added successfully. Happy Tweeting!"
+
+			is_poli_feedback_pre: "User"
+			is_poli_feedback_post: "is a politician and being followed already."
 
 			choose_bird_prompt: "Now choose you favourite bird and submit!"
 

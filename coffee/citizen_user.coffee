@@ -44,6 +44,7 @@ CitizenUser =
 			console.log "Error adding user #{msg.twittername}. Reason: #{msg.error}"
 		[kind, msg_key] = switch msg.error
 			when undefined then ["error", "error"]
+			when "is-politician" then ["info", "is_poli"]
 			else ["success", "success"]
 		data = 
 			kind: kind
