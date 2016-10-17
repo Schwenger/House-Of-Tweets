@@ -94,12 +94,12 @@ Util = {
 
 		template = """
 		<div id="{{prefix}}-{{id}}" class="list-entry">
+			{{{addon}}}
 			<img src="{{imagePath}}">
 			<div class="two-line-wrapper">
 				<div class="first-line" style="{{firstLineStyle}}">{{firstLine}}</div>
 				<div class="second-line">{{secondLine}}</div>
 			</div>
-			{{{addon}}}
 		</div>
 		"""
 		$(Mustache.render(template, data))
