@@ -26,16 +26,18 @@ BirdFeeder =
 	bird_template: (bid, display, tweet) ->
 		"""
 		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
-			<a href="https://twitter.com/intent/tweet?text=#{tweet}&button_hashtag=HouseOfTweets">
-				<img src="imgs/#{bid}.jpg" alt="#{display}" width="200" height="150" />
-                <p class="custom-bird-caption">
-                    <span class="caption-text">#{display}</span>
-                    <span class="tw-widget" style="width: 60px;">
-                        <i class="tw-img"></i>
-                        <span class="tw-label">Tweet</span>
-                    </span>
-                </p>
-			</a>
+			<div class="bird-entry">
+				<div class="bird-image">
+					<img src="imgs/#{bid}.jpg" alt="#{display}"/>
+				</div>
+				<div class="caption">
+					<span class="caption-text">#{display}</span>
+	                <a class="tw-widget" href="https://twitter.com/intent/tweet?text=#{tweet}&button_hashtag=HouseOfTweets">
+	                	<span class="tw-img"></span>
+	                	<span class="tw-label"> Tweet </span>
+	                </a>
+	            </div>
+            </div>
 		</div>
 		"""
 
