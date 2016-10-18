@@ -17,7 +17,7 @@ def connection():
 
 
 class RealQueue(SendQueueInterface):
-    def __init__(self, name, log_file = None):
+    def __init__(self, name, log_file=None):
         self.connection = connection()
         self.channel = self.connection.channel()
         self.name = name
