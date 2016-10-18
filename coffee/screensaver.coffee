@@ -42,7 +42,7 @@ Screensaver =
 		saver.children().each () -> $(@).addClass "load"
 			
 	stop: ->
-		return unless @active
+		console.log "Inconsistent state of screensaver." unless @active
 		@active = false
 		saver = $("#screensaver-element-0")
 		saver.addClass "invisible"
