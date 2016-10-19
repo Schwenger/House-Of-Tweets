@@ -11,6 +11,8 @@ here = "You should never forget quotation marks."
 
 # Setup #################################################################################
 
+citizenUserLoadingTime = 1000
+
 enforceConsistencyConstraints = ->
 	# we cannot [...] set height relative to relative width value
 	w = $("#voice-profile-picture").width()
@@ -31,7 +33,7 @@ initMain = ->
 	setTimeout (() ->
 		$('#owntweets').removeClass("active")
 		$('body').css('opacity', '1')
-		), 1000
+		), citizenUserLoadingTime
 
 initMain()
 
