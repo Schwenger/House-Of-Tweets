@@ -27,6 +27,8 @@
 			"""
 			us_header: "Die Gesichter dahinter"
 
+			dfki: "Deutsches Forschungszentrum für Künstliche Intelligenz"
+
 			search_placeholder_poli: "Suche einen Politiker"
 			search_placeholder_bird: "Suche einen Vogel"
 
@@ -103,6 +105,8 @@
 
 			"""
 			us_header: "The faces behind it"
+
+			dfki: "German Research Center for Artificial Intelligence"
 
 			search_placeholder_poli: "Find a politician"
 			search_placeholder_bird: "Find a bird"
