@@ -76,12 +76,6 @@
       <h3>{index_function_title}</h3>
       <p>{index_function_1_2}</p>
       <p>{index_function_2_2}</p>
-      <p>Awfully heavy button
-         <a href="https://twitter.com/intent/tweet?text=Amsel&button_hashtag=HouseOfTweets"
-            class="twitter-hashtag-button" data-show-count="false">Tweet #HouseOfTweets</a>
-         <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </p>
-
       <h3 id="liste">{index_list_title}</h3>
       <div id="hot-birdslist" class="row">
         {index_init_content}<!-- Will be filled dynamically -->
