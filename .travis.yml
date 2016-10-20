@@ -11,7 +11,7 @@ python:
   - "3.5"
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript openssl
+  - sudo apt-get install -qq libav-tools npm rabbitmq-server openssl
   - rm backend/credentials.py
   - openssl aes-256-cbc -K $encrypted_3804c810c01a_key -iv $encrypted_3804c810c01a_iv -in tools/minimal_sound/test-cred.py.enc -out backend/credentials.py -d
   - sudo rabbitmq-server -detached

@@ -39,15 +39,14 @@ In general, you'll need:
 - some form of libav for pydub (see below)
 - npm
 - rabbitmq
-- coffeescript
 - less
 - Python 3
 - pip (sometimes "pip3", should be running on Python 3)
 - script (as in "typescript", appeared in BSD 3.0)
 
 ##### Linux
-- Ubuntu: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript` (python, pip, and bsdutils?)
-- Debian: `sudo apt-get install -qq libav-tools npm rabbitmq-server coffeescript python3-dev python3-pip bsdutils`
+- Ubuntu: `sudo apt-get install -qq libav-tools npm rabbitmq-server` (python, pip, and bsdutils?)
+- Debian: `sudo apt-get install -qq libav-tools npm rabbitmq-server python3-dev python3-pip bsdutils`
 
 Some systems (Ubuntu and Debian, at least) install the `node` binary in
 a way that is incompatible with npm.  To resolve this, do this on
@@ -63,14 +62,8 @@ In case you have not installed homebrew yet, run
 ```
 to install homebrew and `brew install rabbitmq node python3 libav bsdutils` to install the dependencies.
 
-Afterwards add the following to your `.bashrc`
-```
-export NODE_PATH=/usr/local/lib/node_modules
-```
-Then, run `npm install -g coffee-script`.
-
 ##### Windows
-It wouldn't be Windows if there would not be a graphical installer for most of the needed programs. 
+It wouldn't be Windows if there weren't a graphical installer for most of the required programs.
 - [Erlang](http://www.erlang.org/downloads) for rabbitmq
 - [RabbitMQ](https://www.rabbitmq.com/install-windows.html)
 - [Python](https://www.python.org/downloads/windows/)
@@ -78,19 +71,25 @@ It wouldn't be Windows if there would not be a graphical installer for most of t
 
 As it is windows, you most certainly have to restart your system, potentially several times during the installations.
 
+Thankfully, you can avoid npm, coffee-script, and other JS-related steps, because Windows is just for running the final product.
+
 ### OS-independent packages
 
 FrontEnd-dependencies will be installed automatically by running
 `make install_dependencies`.
 
-This will install `stompjs, browserify, coffeescript-concat, less, pip3, install, pika, pydub, tweepy, typing` using `npm` and `pip`.
+This will install the npm packages `stompjs, browserify, coffee-script, coffeescript-concat,
+less` and pip packages `pika, pydub, tweepy, typing`.
 
 Note 1: In Ubuntu the `pip3` package is simply called `pip`.
 Check with `--version` which Python version it is addressing and make sure it is Python 3.
 
 Note 2: Under Debian, you may need to install the pip packages as sudo.
 
-Note 3: Under Windows you need to install the dependencies manually. Use the GUI for `npm`, and the command line for `pip`. Both are shipped with the before-mentioned installers. For the latter, you need to run the command line as an administrator.
+Note 3: Under Windows you need to install the dependencies manually.
+Use the command line with administrator rights for `pip`.
+If you need to `make frontend` on Windows, use the GUI for `npm`.
+Both are shipped with the aforementioned installers.
 
 Normal workflow:
 ================
