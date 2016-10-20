@@ -21,7 +21,7 @@ class LanguageController
 			obj = $(this)
 			identifier = obj.attr("stringID")
 			string = Model.msg.get(identifier)
-			obj.text(string)
+			obj.html(string)
 			)
 
 		placeholderPoli = Model.msg.get("search_placeholder_poli")
