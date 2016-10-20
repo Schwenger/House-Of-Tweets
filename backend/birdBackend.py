@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json
 import mylog
 
@@ -33,3 +35,20 @@ class BirdBackend:
 
 	def getBid(self, name):
 		return self.keyword2bid.get(_simplify(name))
+
+
+def rewrite_coffee_model():
+	import fileinput
+	MODEL_FILE = "../coffee/model/model_birds.coffee"
+	print('Overwriting {} ...'.format(MODEL_FILE))
+	with open("birds.json", 'r') as fp:
+		birds = json.load(fp)
+	with open(MODEL_FILE, "w") as out:
+		out.write("@birds = ")
+		json.dump(birds, out, sort_keys=True, indent="\t")
+	for line in fileinput.input([MODEL_FILE], inplace=True):
+		print('\t' + line.rstrip('\n'))  # WHITELISTED PRINT
+
+
+if __name__ == '__main__':
+	rewrite_coffee_model()
