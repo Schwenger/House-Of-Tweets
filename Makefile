@@ -1,15 +1,16 @@
-NPM_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat ext/node_modules/less ext/node_modules/jquery-on-infinite-scroll
+NPM_DEP:=ext/node_modules/stompjs ext/node_modules/browserify ext/node_modules/coffeescript-concat ext/node_modules/less ext/node_modules/jquery-on-infinite-scroll ext/node_modules/coffee-script
 PIP_DEP:=bs4 pika pydub requests tweepy typing
 
 BROWSERIFY?=ext/node_modules/.bin/browserify
 COFFEESCRIPT_CONCAT?=ext/node_modules/.bin/coffeescript-concat
 LESSC?=ext/node_modules/.bin/lessc
+COFFEE_BIN?=ext/node_modules/.bin/coffee
 
 OUT=out
 TEMP=temp
 LESS=less
-COFFEE=coffee
-MODEL=${COFFEE}/model
+COFFEE_DIR=coffee
+MODEL=${COFFEE_DIR}/model
 HTML=html
 DIRS=${OUT} ${TEMP} out_pubweb/imgs out_pubweb/css out_pubweb/js
 MODELS:=$(wildcard ${MODEL}/*.coffee)
@@ -55,13 +56,13 @@ ${OUT}/main.js: ${TEMP}/bundled.js | ${DIRS}
 	${BROWSERIFY} $< > $@
 
 ${TEMP}/bundled.js: ${TEMP}/bundled.coffee | ${DIRS}
-	coffee --output ${TEMP} --compile $<
+	${COFFEE_BIN} --output ${TEMP} --compile $<
 
-${TEMP}/bundled.coffee: ${COFFEE}/model.coffee $(wildcard ${COFFEE}/*.coffee) | ${DIRS}
-	${COFFEESCRIPT_CONCAT} -I ${COFFEE} coffee/main.coffee -o $@
+${TEMP}/bundled.coffee: ${COFFEE_DIR}/model.coffee $(wildcard ${COFFEE_DIR}/*.coffee) | ${DIRS}
+	${COFFEESCRIPT_CONCAT} -I ${COFFEE_DIR} coffee/main.coffee -o $@
 
-${COFFEE}/model.coffee: ${COFFEE}/model_empty.coffee ${MODELS} | ${DIRS}
-	cat ${COFFEE}/model_empty.coffee ${MODELS} > $@
+${COFFEE_DIR}/model.coffee: ${COFFEE_DIR}/model_empty.coffee ${MODELS} | ${DIRS}
+	cat ${COFFEE_DIR}/model_empty.coffee ${MODELS} > $@
 
 # BACKEND
 
@@ -108,7 +109,7 @@ out_pubweb/js/main.js: ${TEMP}/pubweb_bundled.js | ${DIRS}
 	${BROWSERIFY} $< > $@
 
 ${TEMP}/pubweb_bundled.js: ${TEMP}/pubweb_bundled.coffee | ${DIRS}
-	coffee --output ${TEMP} --compile $<
+	${COFFEE_BIN} --output ${TEMP} --compile $<
 
 ${TEMP}/pubweb_bundled.coffee: pubweb/main.coffee pubweb/template.coffee ${PUBWEB_JSON_DYN} | ${DIRS}
 	${COFFEESCRIPT_CONCAT} -I pubweb/ $< -o $@
@@ -181,5 +182,5 @@ clean:
 
 .PHONY: clean_temp
 clean_temp:
-	rm -f ${COFFEE}/model.coffee
+	rm -f ${COFFEE_DIR}/model.coffee
 	rm -rf ${TEMP}
