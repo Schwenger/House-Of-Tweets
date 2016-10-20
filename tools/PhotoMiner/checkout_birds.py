@@ -9,7 +9,7 @@ import os
 import checkout_hot_poli
 from shutil import copyfile
 
-RESOLUTION_PUBWEB = '200x150'
+RESOLUTION_PUBWEB = '240x180'
 RESOLUTION_HOT = '330x330'
 
 HOT_DIR_PREFIX = 'preview_hb'
