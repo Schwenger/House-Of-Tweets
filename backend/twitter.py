@@ -112,6 +112,9 @@ class StreamListenerAdapter(StreamListener):
 
     # Intercept on_data calls because we want the raw data later on.
     def on_data(self, raw_data):
+        if raw_data is None:
+            mylog.error("Tweepy says raw_data=None.  Wat.  Dropping tweet, or whatever it was.")
+            return
         if self.raw_data is not None:
             mylog.warning("StreamListenerAdapter.raw_data was unclean.  Ignoring.")
         self.raw_data = raw_data
