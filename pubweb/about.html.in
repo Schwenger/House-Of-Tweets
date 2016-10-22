@@ -54,7 +54,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{nav_index}">{index_title}</a></li>
+            <li><a href="{nav_birds}">{birds_title}</a></li>
             <li class="active"><a href="#">{about_title}</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">

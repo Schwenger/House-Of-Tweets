@@ -4,7 +4,7 @@ import html
 import json
 
 # Core concept: HTML doesn't usually contain curly braces.
-# Thus, we can read the file "index.html.in" as a very large format string and
+# Thus, we can read the file "birds.html.in" as a very large format string and
 # call '.format' on it with the following dictionaries as argument, and we're done.
 # PRO: Unmatched strings in the HTML code (i.e., typos in either this or the HTML file)
 #      would cause an immediate error.
@@ -14,32 +14,32 @@ import json
 #      amount changes, mistakes becomes obvious (either by compilation error or by
 #      "wait, why is there a '_8_3'?")
 # PRO: Superfluous strings are not detected.
-#      (So we can use the same dictionary for both about.html and index.html)
+#      (So we can use the same dictionary for both about.html and birds.html)
 
 STRINGS_DE = {
     # Appears on both pages
-    'index_title': 'Vogelauswahl',
+    'birds_title': 'Vogelauswahl',
     'about_title': '&Uuml;ber',
     'nav_toggle': 'Navigation ein-/ausblenden',
-    'nav_index': 'index.html',
+    'nav_birds': 'birds.html',
     'nav_about': 'about.html',
-    'nav_index_de': '#',
+    'nav_birds_de': '#',
     'nav_about_de': '#',
-    'nav_index_en': 'index_en.html',
+    'nav_birds_en': 'birds_en.html',
     'nav_about_en': 'about_en.html',
     'de_active': ' class="active"',  # Must start with a space
     'en_active': '',
-    # Appears on index.html only:
-    'index_lead': 'Alle Vogelstimmen, die im Rahmen des Projekts House of Tweets zur Verf&uuml;gung stehen.',
-    'index_function_title': 'Funktionsweise',
-    'index_function_1_2':
+    # Appears on birds.html only:
+    'birds_lead': 'Alle Vogelstimmen, die im Rahmen des Projekts House of Tweets zur Verf&uuml;gung stehen.',
+    'birds_function_title': 'Funktionsweise',
+    'birds_function_1_2':
         'Jedem Bundestagsabgeordneten wurde eine Vogelstimme zugeordnet.'
         ' Diese k&ouml;nnen sie ganz leicht &auml;ndern! Ein Klick auf einen der nachfolgenden Vögel,'
         ' ein abgesetzter Tweet, und schon erkennen unsere Systeme ihren &Auml;nderungswunsch!',
-    'index_function_2_2':
+    'birds_function_2_2':
         'Der Tweet muss nur den Vogel und das Hashtag <strong>#HouseOfTweets</strong> enthalten.'
         ' Oder <strong>#Hot</strong>, wem das zu lang ist.',
-    'index_list_title': 'Vogelliste',
+    'birds_list_title': 'Vogelliste',
     # Appears on about.html only:
     'about_lead': 'Wer wir sind, wor&uuml;ber dieses Projekt geht, und unsere Sponsoren.',
     'about_concept': 'Konzept',
@@ -93,28 +93,28 @@ STRINGS_DE = {
 
 STRINGS_EN = {
     # Appears on both pages
-    'index_title': 'Bird selection',
+    'birds_title': 'Bird selection',
     'about_title': 'About',
     'nav_toggle': 'Toggle navigation',
-    'nav_index': 'index_en.html',
+    'nav_birds': 'birds_en.html',
     'nav_about': 'about_en.html',
-    'nav_index_de': 'index.html',
+    'nav_birds_de': 'birds.html',
     'nav_about_de': 'about.html',
-    'nav_index_en': '#',
+    'nav_birds_en': '#',
     'nav_about_en': '#',
     'de_active': '',
     'en_active': ' class="active"',  # Must start with a space
-    # Appears on index.html only:
-    'index_lead': 'All bird voices that can be selected, in the context of the project House of Tweets.',
-    'index_function_title': 'How it works',
-    'index_function_1_2':
+    # Appears on birds.html only:
+    'birds_lead': 'All bird voices that can be selected, in the context of the project House of Tweets.',
+    'birds_function_title': 'How it works',
+    'birds_function_1_2':
         'Each member of the parliament has been assigned a bird\'s voice.'
         ' You can easily change that! A single click on one of the birds below,'
         ' a Tweet sent, and our systems recognise your preferences!',
-    'index_function_2_2':
+    'birds_function_2_2':
         'Your Tweet only needs to contain the name of the bird and the hashtag <strong>#HouseOfTweets</strong>.'
         ' Or <strong>#Hot</strong>, if that\'s too long for you.',
-    'index_list_title': 'List of recognised birds',
+    'birds_list_title': 'List of recognised birds',
     # Appears on about.html only:
     'about_lead': 'Who we are, what this project is about, and our sponsors.',
     'about_concept': 'Concept',
@@ -245,11 +245,11 @@ def run():
         strings['about_copyright_html'] = spoof_copyright(by_name, lang)
         with open('birds_' + lang + '_init.json', 'r') as fp:
             init_birds = json.load(fp)
-        strings['index_init_content'] = ''.join([spoof_bird(bid, display_name, tweet_name)
+        strings['birds_init_content'] = ''.join([spoof_bird(bid, display_name, tweet_name)
                                                  for bid, display_name, tweet_name in init_birds])
 
     # FIXME: Spoof "init" images properly
-    generate('index')
+    generate('birds')
     generate('about')
 
 

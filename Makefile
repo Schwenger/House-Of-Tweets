@@ -76,7 +76,7 @@ backend:
 # Yes, this feels a lot like "Please put me into my own namespace".
 # No, due to the shared npm accesses it just so doesn't make sense to
 # create a different Makefile for that.
-PUBWEB_HTML_NAMES:=index index_en about about_en
+PUBWEB_HTML_NAMES:=birds birds_en about about_en
 PUBWEB_HTML_SRC:=${patsubst %,pubweb/autogen/%.html,${PUBWEB_HTML_NAMES}}
 PUBWEB_HTML_DST:=${patsubst %,out_pubweb/%.html,${PUBWEB_HTML_NAMES}}
 PUBWEB_STATIC_SRC:=$(wildcard pubweb/static/*.*) $(wildcard pubweb/static/*/*.*)
@@ -99,9 +99,9 @@ ${PUBWEB_HTML_DST}: out_pubweb/%: pubweb/autogen/% | ${DIRS}
 	cp $< $@
 
 # Slightly overzealous, but whatever
-# (If about.html.in changes, then technically index.html doesn't need to
+# (If about.html.in changes, then technically birds.html doesn't need to
 #  be regenerated, but mk_html.py is too coarse for that anyway.)
-${PUBWEB_HTML_SRC}: %: pubweb/about.html.in pubweb/index.html.in pubweb/mk_html.py ${PUBWEB_JSON_INIT}
+${PUBWEB_HTML_SRC}: %: pubweb/about.html.in pubweb/birds.html.in pubweb/mk_html.py ${PUBWEB_JSON_INIT}
 	( cd pubweb && ./mk_html.py )
 
 out_pubweb/js/main.js: ${TEMP}/pubweb_bundled.js | ${DIRS}

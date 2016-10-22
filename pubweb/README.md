@@ -3,7 +3,7 @@
 ### Visible layout (sitemap-ish)
 
 There is:
-- `index`, the bird selection, intended for use by politicians.  
+- `birds`, the bird selection, intended for use by politicians.  
   TODO: rename to something saner, like `birds`
 - `about`, listing copyright credits and "the concept"
 - TODO: `index`, the page that will host preview screenshots,
@@ -23,14 +23,14 @@ Each page is available in both German and English.
 
 ### Workflow
 
-Just run `make pubweb`, and point your browser at `out_pubweb/index.html`.
+Just run `make pubweb`, and point your browser at `out_pubweb/birds.html`.
 
 - In order to publish the webpage, push to
   `https://github.com/HouseOfTweets/HouseOfTweets.github.io`
 - In order to test it out for yourself, *fork* the repository
   on GitHub, then you can see it "basically live" at
-  `https://YOUR_GITHUB_NAME.github.io/HouseOfTweets.github.io/index.html`,
-  e.g., https://benwiederhake.github.io/HouseOfTweets.github.io/index.html
+  `https://YOUR_GITHUB_NAME.github.io/HouseOfTweets.github.io/birds.html`,
+  e.g., https://benwiederhake.github.io/HouseOfTweets.github.io/birds.html
 - Protip: replace `out_pubweb/` by your actual repo:
   ```
   rm -rf out_pubweb/ && \
