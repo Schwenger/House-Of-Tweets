@@ -556,4 +556,9 @@ def test_all():
 
 
 if __name__ == '__main__':
-    test_name_resolution()
+    line = "=" * 80
+    mylog.info(line)
+    mylog.info("USING REAL TWITTER API!")
+    mylog.info("Slow tests = {slow}".format(slow=RUN_SLOW_TESTS))
+    mylog.info(line)
+    test_all()
