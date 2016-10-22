@@ -80,11 +80,11 @@
       <h3>{about_concept}</h3>
       <p>{about_concept_text}</p>
 
-      <h3>{about_sponsors}</h3>
-      <p>{about_sponsors_text}</p>
-
       <h3>{about_team}</h3>
       <p>{about_team_text}</p>
+
+      <h3>{about_sponsors}</h3>
+      <p>{about_sponsors_text}</p>
 
       <h3>{about_copyright}</h3>
       <p>{copyright_pre}</p>
