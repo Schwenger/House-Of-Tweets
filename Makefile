@@ -89,8 +89,23 @@ PUBWEB_DYNAMIC_DST:=out_pubweb/js/main.js ${PUBWEB_HTML_DST}
 PUBWEB_JSON_DYN:=$(patsubst %,pubweb/birds_%_dyn.coffee,de en)
 PUBWEB_JSON_INIT:=$(patsubst %,pubweb/birds_%_init.json,de en)
 
+# Handles "\"\"" as a string (the string containing two characters,
+# each of them is a double-quote).  This results in an eventually-correct
+# call, as 'index"".html' will be parsed by bash.
+PUBWEB_SPOOF:=$(patsubst %,out_pubweb/index%.html,"" _en)
+#Artifact from this:
+.PHONY: out_pubweb/birds"".html
+out_pubweb/birds"".html: out_pubweb/birds.html
+
 .PHONY: pubweb
-pubweb: pubweb_dyn pubweb_static
+pubweb: pubweb_dyn pubweb_static ${PUBWEB_SPOOF}
+
+# Goal: overwrite old "proper file" index.html if existing.
+# Problem: no way to tell make that "check outdated-ness by filetype".
+# Observation: make follows symlinks to determine a timestamp.
+# Solution: bind it to the faked destination
+${PUBWEB_SPOOF}: out_pubweb/index%.html: out_pubweb/birds%.html
+	ln -sf $(notdir $<) $@  # Relative path!
 
 .PHONY: pubweb_dyn
 pubweb_dyn: ${PUBWEB_DYNAMIC_DST}
