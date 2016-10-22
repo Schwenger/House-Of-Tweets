@@ -197,7 +197,12 @@ def test_name_resolution():
            '@MissesVlog': '50712079',
            'eeQu0Ae4': '774336282101178368',
            'SarcasticTester': '720224609560371201',
-           'HopefullyNotARealTwitterAccount': None}
+           'HopefullyNotARealTwitterAccount': None,
+           'thisismyspacesofkoff': None,
+           '@thisismyspacesofkoff': None,
+           '@nowgetinside': '776147921146445824',
+           'nowgetinside': '776147921146445824',
+           }
     twi = twitter.RealTwitterInterface()
     for (user, expect_id) in ids.items():
         actual_id = twi.resolve_name(user)
@@ -551,9 +556,4 @@ def test_all():
 
 
 if __name__ == '__main__':
-    line = "=" * 80
-    mylog.info(line)
-    mylog.info("USING REAL TWITTER API!")
-    mylog.info("Slow tests = {slow}".format(slow=RUN_SLOW_TESTS))
-    mylog.info(line)
-    test_all()
+    test_name_resolution()
