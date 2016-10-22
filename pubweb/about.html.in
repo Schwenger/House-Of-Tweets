@@ -78,8 +78,7 @@
       <!-- Implicit <hr> -->
 
       <h3>{about_concept}</h3>
-      <p>{about_concept_text_1_2}</p>
-      <p>{about_concept_text_2_2}</p>
+      <p>{about_concept_text}</p>
 
       <h3>{about_sponsors}</h3>
       <p>{about_sponsors_text}</p>
@@ -93,10 +92,8 @@
       {about_copyright_html}
       </ul>
 
-      <div style="display: none">
       <h3>{about_thanks}</h3>
       <p>{about_thanks_text}</p>
-      </div>
 
     </div> <!-- /container -->
 
