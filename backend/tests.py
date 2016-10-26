@@ -217,7 +217,7 @@ def test_party_color():
     # Currently, these are *all* parties in our dataset:
     # CDU, CSU, Demokraten, DIE LINKE, GR\u00dcNE, Gr\u00fcn,
     # Parti socialiste, SPD
-    known_results = {'GR\u00dcNE': '#00cc00', 'CDU': '#000000',
+    known_results = {'GR\u00dcNE': '#46962b', 'CDU': '#000000',
                      'CSU': '#000000', 'SPD': '#ff0000',
                      'DIE LINKE': '#c82864',
                      'Demokraten': '#429EE2',
@@ -462,7 +462,7 @@ def test_twitter_listener():
     expect_amsel = os.path.join(sounds, 'processed', 'amsel-neutral-10000.mp3')
     queue.expect([{'poli': 'hot', 'content': 'content1',
                    'hashtags': ['NiceExample', 'TotallyRealistic'],
-                   'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#00cc00', 'party': 'Grün',
+                   'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#46962b', 'party': 'Grün',
                    # No 'refresh'
                    'retweet': False, 'sound':
                    {

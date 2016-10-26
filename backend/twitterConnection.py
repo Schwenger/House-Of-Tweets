@@ -26,7 +26,7 @@ def party_to_color(party: str):
 	elif party.startswith("s"):  # SPD
 		color = "#ff0000"
 	elif party.startswith("g"):  # GRÜNE, Grün
-		color = "#00cc00"
+		color = "#46962b"
 	elif party.startswith("di"):  # DIE LINKE
 		color = "#c82864"
 	elif party.startswith("de"):  # Demokraten (Obama, USA)
