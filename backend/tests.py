@@ -353,14 +353,14 @@ def test_sound_gen():
     actual = soundGenerator.generate_sound('Cheerio, buddy', False, 'amsel', 'amsel')
     # Set as 'warning' so that the user always sees both (or neither).
     mylog.warning("(end of manual part)")
-    path_amsel = os.path.join(soundGenerator.SOUND_ROOT, 'processed', 'amsel-neutral-10000.mp3')
+    path_amsel = os.path.join(soundGenerator.SOUND_ROOT, 'processed', 'amsel-neutral-10000_v2.mp3')
     desc_amsel = {'natural': path_amsel, 'bid': 'amsel', 'duration': 10000}
     expected = {'citizen': desc_amsel, 'poli': desc_amsel}
     assert actual == expected, (actual, expected)
 
     content = "How can mirrors be real if our eyes aren't real?"
     actual = soundGenerator.generate_sound(content, True, 'zilpzalp', None)
-    path_zz = os.path.join(soundGenerator.SOUND_ROOT, 'processed', 'zilpzalp-fragend-r-12000.mp3')
+    path_zz = os.path.join(soundGenerator.SOUND_ROOT, 'processed', 'zilpzalp-fragend-r-12000_v2.mp3')
     desc_zz = {'natural': path_zz, 'bid': 'zilpzalp', 'duration': 12000}
     expected = {'citizen': desc_zz}
     assert actual == expected, (actual, expected)
@@ -420,7 +420,7 @@ def test_sound_pairing():
     for (b, m, r, expect_body) in battery:
         actual_source, actual_dest = soundGenerator.find_pair(b, m, r, 6001)
         expect_source = os.path.join(sounds, expect_body + ".mp3")
-        expect_dest = os.path.join(sounds, 'processed', expect_body + "-6001.mp3")
+        expect_dest = os.path.join(sounds, 'processed', expect_body + "-6001_v2.mp3")
         assert actual_source == expect_source, (actual_source, expect_source)
         assert actual_dest == expect_dest, (actual_dest, expect_dest)
         mylog.info("Done.  Warnings about missing files after this are bad.")
@@ -459,7 +459,7 @@ def test_twitter_listener():
                       'time': '1473446404525',
                       'uid': 4718199753, 'tweet_id': 'bullshit',
                       'retweet': False})
-    expect_amsel = os.path.join(sounds, 'processed', 'amsel-neutral-10000.mp3')
+    expect_amsel = os.path.join(sounds, 'processed', 'amsel-neutral-10000_v2.mp3')
     queue.expect([{'poli': 'hot', 'content': 'content1',
                    'hashtags': ['NiceExample', 'TotallyRealistic'],
                    'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#46962b', 'party': 'Grün',
@@ -481,7 +481,7 @@ def test_twitter_listener():
                       'time': '1473446404527',
                       'uid': 987654, 'tweet_id': 'bullshit',
                       'retweet': True})
-    expect_zz = os.path.join(sounds, 'processed', 'zilpzalp-fragend-r-10750.mp3')
+    expect_zz = os.path.join(sounds, 'processed', 'zilpzalp-fragend-r-10750_v2.mp3')
     queue.expect([{'poli': None, 'content': 'guy who writes long(?) tweets says whaaaat?',
                    'hashtags': [],
                    'id': 43, 'image': 'img_url', 'name': 'Heinzi', 'partycolor': '#257E9C',  # No 'party'
