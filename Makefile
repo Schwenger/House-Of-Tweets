@@ -76,7 +76,7 @@ backend:
 # Yes, this feels a lot like "Please put me into my own namespace".
 # No, due to the shared npm accesses it just so doesn't make sense to
 # create a different Makefile for that.
-PUBWEB_HTML_NAMES:=birds birds_en about about_en
+PUBWEB_HTML_NAMES:=index index_en birds birds_en about about_en
 PUBWEB_HTML_SRC:=${patsubst %,pubweb/autogen/%.html,${PUBWEB_HTML_NAMES}}
 PUBWEB_HTML_DST:=${patsubst %,out_pubweb/%.html,${PUBWEB_HTML_NAMES}}
 PUBWEB_STATIC_SRC:=$(wildcard pubweb/static/*.*) $(wildcard pubweb/static/*/*.*)
@@ -88,14 +88,6 @@ PUBWEB_DYNAMIC_DST:=out_pubweb/js/main.js ${PUBWEB_HTML_DST}
 
 PUBWEB_JSON_DYN:=$(patsubst %,pubweb/birds_%_dyn.coffee,de en)
 PUBWEB_JSON_INIT:=$(patsubst %,pubweb/birds_%_init.json,de en)
-
-# Handles "\"\"" as a string (the string containing two characters,
-# each of them is a double-quote).  This results in an eventually-correct
-# call, as 'index"".html' will be parsed by bash.
-PUBWEB_SPOOF:=$(patsubst %,out_pubweb/index%.html,"" _en)
-#Artifact from this:
-.PHONY: out_pubweb/birds"".html
-out_pubweb/birds"".html: out_pubweb/birds.html
 
 .PHONY: pubweb
 pubweb: pubweb_dyn pubweb_static ${PUBWEB_SPOOF}
@@ -116,7 +108,7 @@ ${PUBWEB_HTML_DST}: out_pubweb/%: pubweb/autogen/% | ${DIRS}
 # Slightly overzealous, but whatever
 # (If about.html.in changes, then technically birds.html doesn't need to
 #  be regenerated, but mk_html.py is too coarse for that anyway.)
-${PUBWEB_HTML_SRC}: %: pubweb/about.html.in pubweb/birds.html.in pubweb/mk_html.py ${PUBWEB_JSON_INIT}
+${PUBWEB_HTML_SRC}: %: pubweb/index.html.in pubweb/about.html.in pubweb/birds.html.in pubweb/mk_html.py ${PUBWEB_JSON_INIT}
 	( cd pubweb && ./mk_html.py )
 
 out_pubweb/js/main.js: ${TEMP}/pubweb_bundled.js | ${DIRS}

@@ -41,7 +41,7 @@
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <div class="navbar-header">
+        <div class="navbar-header navbar-nav">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                   data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">{nav_toggle}</span>
@@ -50,18 +50,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{nav_index}">House of Tweets</a>
+          <span class="active">
+            <a class="navbar-brand" href="#">House of Tweets</a>
+          </span>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="{nav_birds}">{birds_title}</a></li>
-            <li class="active"><a href="#">{about_title}</a></li>
+            <li><a href="{nav_about}">{about_title}</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li{de_active}><a href="{nav_about_de}">
+            <li{de_active}><a href="{nav_index_de}">
                 <img src="imgs/flag_de.png" width="81" height="50" alt="Deutsch" class="custom-nav-flag" />
             </a></li>
-            <li{en_active}><a href="{nav_about_en}">
+            <li{en_active}><a href="{nav_index_en}">
                 <img src="imgs/flag_en.png" width="85" height="50" alt="English" class="custom-nav-flag" />
             </a></li>
           </ul>
@@ -71,26 +73,19 @@
 
     <div class="container">
       <div class="page-header">
-        <h1>{about_title}</h1>
-        <p class="lead">{about_lead}</p>
+        <h1>House of Tweets</h1>
+        <p class="lead">{index_lead}</p>
       </div>
 
       <!-- Implicit <hr> -->
 
-      <h3>{about_team}</h3>
-      <p>{about_team_text}</p>
+      <h3>{index_concept}</h3>
+      <p>{index_concept_text}</p>
 
-      <h3>{about_sponsors}</h3>
-      <p>{about_sponsors_text}</p>
-
-      <h3>{about_copyright}</h3>
-      <p>{copyright_pre}</p>
-      <ul>
-      {about_copyright_html}
-      </ul>
-
-      <h3>{about_thanks}</h3>
-      <p>{about_thanks_text}</p>
+      <h3>{index_demo}</h3>
+      <!-- FIXME -->
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/fe4fyhzS3UM"
+              frameborder="0" allowfullscreen></iframe>
 
     </div> <!-- /container -->
 

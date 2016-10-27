@@ -21,14 +21,32 @@ STRINGS_DE = {
     'birds_title': 'Vogelauswahl',
     'about_title': '&Uuml;ber',
     'nav_toggle': 'Navigation ein-/ausblenden',
+    'nav_index': 'index.html',
     'nav_birds': 'birds.html',
     'nav_about': 'about.html',
+    'nav_index_de': '#',
     'nav_birds_de': '#',
     'nav_about_de': '#',
+    'nav_index_en': 'index_en.html',
     'nav_birds_en': 'birds_en.html',
     'nav_about_en': 'about_en.html',
     'de_active': ' class="active"',  # Must start with a space
     'en_active': '',
+    # Appears on index.html only:
+    'index_lead': 'Worum es bei dem Projekt geht',
+    'index_concept': 'Konzept',
+    'index_concept_text': """
+        Bei House of Tweets handelt es sich um eine interdisziplinäre und interaktive Klangskulptur für den Deutschen Bundestag.
+        <br>
+        Jeder Politiker kann sich eine stellvertretende Vogelstimme auswählen, die genutzt wird um Tweets auditiv darzustellen. Diese Stimme reflektiert dann den Gefühlszustand des Politikers beim Tweeten; ein aggresiver Tweet wird in einen aggressiven Ton übersetzt.
+        <br>
+        So werden hitzige Bundestagsdebatten zu einem Konzert der Vögel, ein berauschender Mix verschiedener Stimmen, der sich stets ändert und niemals still steht.
+        <br>
+        Zudem können Besucher der Ausstellung den Politikern selbst einen passenden Vogel zuweisen und die folgenden Tweets mit den neuen Stimmen erleben.
+        <br>
+        Sie können auch für Ihren eigenen Twitteraccount einen Vogel aussuchen und selbst Teil der Ausstellung werden. Ihre Tweets werden nicht nur zusammen mit den der Politiker angezeigt, sondern sind auch zu hören und tragen zum Klangerlebnis bei.
+        """,
+    'index_demo': 'Vorschau',
     # Appears on birds.html only:
     'birds_lead': 'Alle Vogelstimmen, die im Rahmen des Projekts House of Tweets zur Verf&uuml;gung stehen.',
     'birds_function_title': 'Funktionsweise',
@@ -41,19 +59,7 @@ STRINGS_DE = {
         ' Oder <strong>#Hot</strong>, wem das zu lang ist.',
     'birds_list_title': 'Vogelliste',
     # Appears on about.html only:
-    'about_lead': 'Wer wir sind, wor&uuml;ber dieses Projekt geht, und unsere Sponsoren.',
-    'about_concept': 'Konzept',
-    'about_concept_text': """
-        Bei House of Tweets handelt es sich um eine interdisziplinäre und interaktive Klangskulptur für den Deutschen Bundestag.
-        <br>
-        Jeder Politiker kann sich eine stellvertretende Vogelstimme auswählen, die genutzt wird um Tweets auditiv darzustellen. Diese Stimme reflektiert dann den Gefühlszustand des Politikers beim Tweeten; ein aggresiver Tweet wird in einen aggressiven Ton übersetzt.
-        <br>
-        So werden hitzige Bundestagsdebatten zu einem Konzert der Vögel, ein berauschender Mix verschiedener Stimmen, der sich stets ändert und niemals still steht.
-        <br>
-        Zudem können Besucher der Ausstellung den Politikern selbst einen passenden Vogel zuweisen und die folgenden Tweets mit den neuen Stimmen erleben.
-        <br>
-        Sie können auch für Ihren eigenen Twitteraccount einen Vogel aussuchen und selbst Teil der Ausstellung werden. Ihre Tweets werden nicht nur zusammen mit den der Politiker angezeigt, sondern sind auch zu hören und tragen zum Klangerlebnis bei.
-        """,
+    'about_lead': 'Wer wir sind, und unsere Sponsoren.',
     'about_sponsors': 'Sponsoren',
     'about_sponsors_text': """
         <ul>
@@ -96,14 +102,32 @@ STRINGS_EN = {
     'birds_title': 'Bird selection',
     'about_title': 'About',
     'nav_toggle': 'Toggle navigation',
+    'nav_index': 'index_en.html',
     'nav_birds': 'birds_en.html',
     'nav_about': 'about_en.html',
+    'nav_index_de': 'index.html',
     'nav_birds_de': 'birds.html',
     'nav_about_de': 'about.html',
+    'nav_index_en': '#',
     'nav_birds_en': '#',
     'nav_about_en': '#',
     'de_active': '',
     'en_active': ' class="active"',  # Must start with a space
+    # Appears on index.html only:
+    'index_lead': 'What this project is about',
+    'index_concept': 'Concept',
+    'index_concept_text': """
+        House of Tweets is a interdisciplinary and interactive sound sculpture for the German Bundestag.
+        <br>
+        Each politician can choose a representative bird. The bird's voice will then be used to depict tweets aurally. It reflects the politician's mood while tweeting: an aggressive tweet will be translated into an aggressive bird call.
+        <br>
+        During a fiery debate in the Bundestag a concert of birds arises, a befuddling mix of different voices, constantly changing, never subsiding.
+        <br>
+        In addition, visitors of the exhibit can assign their own ideas of birds to the politicians and experience upcoming tweets with the new voice.
+        <br>
+        They can also add their own twitter account, choose a bird, and become themselves part of the exhibit. Their tweets will not only be displayed among the politicians', but become audible and contribute to the sound experience.
+        """,
+    'index_demo': 'Preview',
     # Appears on birds.html only:
     'birds_lead': 'All bird voices that can be selected, in the context of the project House of Tweets.',
     'birds_function_title': 'How it works',
@@ -116,19 +140,7 @@ STRINGS_EN = {
         ' Or <strong>#Hot</strong>, if that\'s too long for you.',
     'birds_list_title': 'List of recognised birds',
     # Appears on about.html only:
-    'about_lead': 'Who we are, what this project is about, and our sponsors.',
-    'about_concept': 'Concept',
-    'about_concept_text': """
-        House of Tweets is a interdisciplinary and interactive sound sculpture for the German Bundestag.
-        <br>
-        Each politician can choose a representative bird. The bird's voice will then be used to depict tweets aurally. It reflects the politician's mood while tweeting: an aggressive tweet will be translated into an aggressive bird call.
-        <br>
-        During a fiery debate in the Bundestag a concert of birds arises, a befuddling mix of different voices, constantly changing, never subsiding.
-        <br>
-        In addition, visitors of the exhibit can assign their own ideas of birds to the politicians and experience upcoming tweets with the new voice.
-        <br>
-        They can also add their own twitter account, choose a bird, and become themselves part of the exhibit. Their tweets will not only be displayed among the politicians', but become audible and contribute to the sound experience.
-        """,
+    'about_lead': 'Who we are, and our sponsors.',
     'about_sponsors': 'Sponsors',
     'about_sponsors_text': """
         <ul>
@@ -248,7 +260,7 @@ def run():
         strings['birds_init_content'] = ''.join([spoof_bird(bid, display_name, tweet_name)
                                                  for bid, display_name, tweet_name in init_birds])
 
-    # FIXME: Spoof "init" images properly
+    generate('index')
     generate('birds')
     generate('about')
 
