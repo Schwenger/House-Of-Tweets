@@ -52,11 +52,14 @@ STRINGS_DE = {
     'birds_function_title': 'Funktionsweise',
     'birds_function_1_2':
         'Jedem Bundestagsabgeordneten wurde eine Vogelstimme zugeordnet.'
-        ' Diese k&ouml;nnen sie ganz leicht &auml;ndern! Ein Klick auf einen der nachfolgenden Vögel,'
-        ' ein abgesetzter Tweet, und schon erkennen unsere Systeme ihren &Auml;nderungswunsch!',
+        ' Um Ihre Vogelstimme zu ändern müssen Sie lediglich den Namen'
+        ' des Vogels zusammen mit dem Hashtag'
+        ' <strong>#HouseOfTweets</strong> tweeten, oder kurz <strong>#Hot</strong>.',
     'birds_function_2_2':
-        'Der Tweet muss nur den Vogel und das Hashtag <strong>#HouseOfTweets</strong> enthalten.'
-        ' Oder <strong>#Hot</strong>, wem das zu lang ist.',
+        'Um das so einfach wie möglich zu gestalten ist hier eine Auswahl aller Vogelnamen,'
+        ' die unser System erkennt. Jeder Politiker kann ganz einfach einen Vogel anklicken,'
+        ' einen Tweet absenden, und seine Wunsch-Vogelstimme wird von'
+        ' unseren Systemen &uuml;bernommen.',
     'birds_list_title': 'Vogelliste',
     # Appears on about.html only:
     'about_lead': 'Wer wir sind, und unsere Sponsoren.',
@@ -133,12 +136,14 @@ STRINGS_EN = {
     'birds_function_title': 'How it works',
     'birds_function_1_2':
         'Each member of the parliament has been assigned a bird\'s voice.'
-        ' You can easily change that! A single click on one of the birds below,'
-        ' a Tweet sent, and our systems recognise your preferences!',
+        ' To change their bird, they just have to tweet their preferred bird'
+        ' alongside the hashtag <strong>#HouseOfTweets</strong>'
+        ' (or <strong>#HoT</strong>, for short).',
     'birds_function_2_2':
-        'Your Tweet only needs to contain the name of the bird and the hashtag <strong>#HouseOfTweets</strong>.'
-        ' Or <strong>#Hot</strong>, if that\'s too long for you.',
-    'birds_list_title': 'List of recognised birds',
+        'To make this as easy as possible, here\'s a selection of all bird names'
+        ' our systems recognize. Any member of the parliament can simply click on one of the birds,'
+        ' send a Tweet, and their preferred bird voice will be applied by our systems',
+    'birds_list_title': 'List of recognised birds.',
     # Appears on about.html only:
     'about_lead': 'Who we are, and our sponsors.',
     'about_sponsors': 'Sponsors',
