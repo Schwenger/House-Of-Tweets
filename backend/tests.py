@@ -451,14 +451,16 @@ def test_twitter_listener():
 
     mylog.info("Testing reactions to various tweets ...")
 
-    fakeTwitter.send({'content': 'content1',
+    fakeTwitter.send({'content': 'RT content1',
                       'profile_img': 'img_url',
                       'userscreen': 'userscreen',
                       'hashtags': ['NiceExample', 'TotallyRealistic'],
                       'username': 'HouseOfTweets',
                       'time': '1473446404525',
                       'uid': 4718199753, 'tweet_id': 'bullshit',
-                      'retweet': False})
+                      'retweet': False  # Not marked as retweet, but IS a retweet
+                                        # just like Twitter's shitty(!) retweet recognition
+                      })
     expect_amsel = os.path.join(sounds, 'processed', 'amsel-neutral-10000_v2.mp3')
     queue.expect([{'poli': 'hot', 'content': 'RT content1',
                    'hashtags': ['NiceExample', 'TotallyRealistic'],
