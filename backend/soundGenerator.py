@@ -15,6 +15,9 @@ def get_mood(text: str) -> str:
 	# Unwanted side-effect: "Hello!?!?" counts as exclamation, not as question
 
 	caps = len([w for w in text.split() if w.isupper()])
+	if text.startswith('RT '):
+		# "RT" (short for retweet) shouldn't count as anger.
+		caps -= 1
 
 	if caps + exclamationmarks > multidots + questionmarks:
 		mood = 'aufgebracht'
