@@ -19,6 +19,10 @@ hr {
   margin-bottom: 40px;
 }
 
+body {
+  margin-bottom: 30px;
+}
+
 .bird-entry > .bird-image > img {
   width: 100%;
   height: 180px;
