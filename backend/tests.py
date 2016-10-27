@@ -460,11 +460,11 @@ def test_twitter_listener():
                       'uid': 4718199753, 'tweet_id': 'bullshit',
                       'retweet': False})
     expect_amsel = os.path.join(sounds, 'processed', 'amsel-neutral-10000_v2.mp3')
-    queue.expect([{'poli': 'hot', 'content': 'content1',
+    queue.expect([{'poli': 'hot', 'content': 'RT content1',
                    'hashtags': ['NiceExample', 'TotallyRealistic'],
                    'id': 42, 'image': 'img_url', 'name': 'userscreen', 'partycolor': '#46962b', 'party': 'Grün',
                    # No 'refresh'
-                   'retweet': False, 'sound':
+                   'retweet': True, 'sound':
                    {
                      'citizen': {'natural': expect_amsel, 'bid': 'amsel', 'duration': 10000},
                      'poli': {'natural': expect_amsel, 'bid': 'amsel', 'duration': 10000},

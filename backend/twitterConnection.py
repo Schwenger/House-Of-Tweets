@@ -83,7 +83,7 @@ class TwitterListener(TweetConsumer):
 		msg['id'] = self.prev_msg_id
 		msg['image'] = tweet['profile_img']
 		msg['name'] = tweet['userscreen']
-		msg['retweet'] = tweet['retweet']
+		msg['retweet'] = tweet['retweet'] or tweet['content'].startswith('RT ')
 		msg['time'] = tweet['time']
 		msg['twitterName'] = tweet['username']
 
