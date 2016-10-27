@@ -42,14 +42,6 @@
     <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                  data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">{nav_toggle}</span>
-            <!-- FIXME: What are these spans used for?  Accessability, or template? -->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand" href="{nav_index}">House of Tweets</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
