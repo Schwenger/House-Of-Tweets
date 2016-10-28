@@ -36,15 +36,25 @@ STRINGS_DE = {
     'index_lead': 'Worum es bei dem Projekt geht',
     'index_concept': 'Konzept',
     'index_concept_text': """
-        Bei House of Tweets handelt es sich um eine interdisziplinäre und interaktive Klangskulptur für den Deutschen Bundestag.
+        Bei House of Tweets handelt es sich um eine interdisziplin&auml;re
+        und interaktive Klangskulptur f&uuml;r den Deutschen Bundestag.
         <br>
-        Jeder Politiker kann sich eine stellvertretende Vogelstimme auswählen, die genutzt wird um Tweets auditiv darzustellen. Diese Stimme reflektiert dann den Gefühlszustand des Politikers beim Tweeten; ein aggresiver Tweet wird in einen aggressiven Ton übersetzt.
+        Jeder Politiker kann sich eine stellvertretende Vogelstimme ausw&auml;hlen,
+        die genutzt wird um Tweets auditiv darzustellen. Diese Stimme reflektiert
+        dann den Gef&uuml;hlszustand des Politikers beim Tweeten; ein aggresiver Tweet
+        wird in einen aggressiven Ton &uuml;bersetzt.
         <br>
-        So werden hitzige Bundestagsdebatten zu einem Konzert der Vögel, ein berauschender Mix verschiedener Stimmen, der sich stets ändert und niemals still steht.
+        So werden hitzige Bundestagsdebatten zu einem Konzert der V&ouml;gel,
+        ein berauschender Mix verschiedener Stimmen, der sich stets &auml;ndert
+        und niemals still steht.
         <br>
-        Zudem können Besucher der Ausstellung den Politikern selbst einen passenden Vogel zuweisen und die folgenden Tweets mit den neuen Stimmen erleben.
+        Zudem k&ouml;nnen Besucher der Ausstellung den Politikern selbst einen
+        passenden Vogel zuweisen und die folgenden Tweets mit den neuen Stimmen erleben.
         <br>
-        Sie können auch für Ihren eigenen Twitteraccount einen Vogel aussuchen und selbst Teil der Ausstellung werden. Ihre Tweets werden nicht nur zusammen mit den der Politiker angezeigt, sondern sind auch zu hören und tragen zum Klangerlebnis bei.
+        Sie k&ouml;nnen auch f&uuml;r Ihren eigenen Twitteraccount einen Vogel
+        aussuchen und selbst Teil der Ausstellung werden. Ihre Tweets werden nicht
+        nur zusammen mit den der Politiker angezeigt, sondern sind auch zu h&ouml;ren
+        und tragen zum Klangerlebnis bei.
         """,
     'index_demo': 'Vorschau',
     # Appears on birds.html only:
@@ -52,11 +62,11 @@ STRINGS_DE = {
     'birds_function_title': 'Funktionsweise',
     'birds_function_1_2':
         'Jedem Bundestagsabgeordneten wurde eine Vogelstimme zugeordnet.'
-        ' Um Ihre Vogelstimme zu ändern müssen Sie lediglich den Namen'
+        ' Um Ihre Vogelstimme zu &auml;ndern m&uuml;ssen Sie lediglich den Namen'
         ' des Vogels zusammen mit dem Hashtag'
         ' <strong>#HouseOfTweets</strong> tweeten, oder kurz <strong>#Hot</strong>.',
     'birds_function_2_2':
-        'Um das so einfach wie möglich zu gestalten ist hier eine Auswahl aller Vogelnamen,'
+        'Um das so einfach wie m&ouml;glich zu gestalten ist hier eine Auswahl aller Vogelnamen,'
         ' die unser System erkennt. Jeder Politiker kann ganz einfach einen Vogel anklicken,'
         ' einen Tweet absenden, und seine Wunsch-Vogelstimme wird von'
         ' unseren Systemen &uuml;bernommen.',
@@ -97,7 +107,7 @@ STRINGS_DE = {
     'about_thanks_text':
         'Wir danken Bootstrap, Github Pages, CoffeeScript, Wikipedia und NodeJS'
         ' f&uuml;r diese wundervollen Projekte, und der Universit&auml;t des Saarlandes'
-        ' sowie der Hochschule der Bildenen Künste Saar für ihre Unterstützung.',
+        ' sowie der Hochschule der Bildenen K&uuml;nste Saar f&uuml;r ihre Unterst&uuml;tzung.',
 }
 
 STRINGS_EN = {
@@ -180,7 +190,7 @@ STRINGS_EN = {
     'about_thanks_text':
         'We thank Bootstrap, Github Pages, CoffeeScript, Wikipedia and NodeJS'
         ' for their awesome projects, and the University of Saarlandes'
-        ' and the Hochschule der Bildenen Künste Saar for their support.',
+        ' and the Hochschule der Bildenen K&uuml;nste Saar for their support.',
 }
 
 assert STRINGS_DE.keys() == STRINGS_EN.keys()
