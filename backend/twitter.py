@@ -4,7 +4,6 @@ from typing import List
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 import tweepy
-import json
 import mylog
 import threading
 
@@ -49,28 +48,6 @@ def datetime_to_unix(dt):
     return int(dt.replace(tzinfo=datetime.timezone.utc).timestamp())
 
 
-# Turn a giant "Tweet" JSON into a more easily spoofable and printable format.
-def parse_tweet_json(status):
-    try:
-        report = dict()
-        report['uid'] = str(status["user"]["id"])
-        hh = status["entities"]["hashtags"]
-        # For each element, only view 'text' subelement
-        report['hashtags'] = []
-        for h in hh:
-            report['hashtags'].append(h['text'])
-        report['content'] = status["text"]
-        report['username'] = status["user"]["screen_name"]
-        report['userscreen'] = status["user"]["name"]
-        report['time'] = status["timestamp_ms"]
-        report['tweet_id'] = status["id_str"]
-        report['profile_img'] = status["user"]["profile_image_url_https"]
-        report['retweet'] = status["is_quote_status"]
-        return report
-    except KeyError:
-        return None
-
-
 # Turn a very giant "Tweet" object (tweepy.models.Status)
 # into a more easily spoofable and printable format.
 def parse_tweet_status(status):
@@ -103,8 +80,6 @@ def parse_tweet_status(status):
 class StreamListenerAdapter(StreamListener):
     def __init__(self, consumer: TweetConsumer, users: List[str], restarter):
         super().__init__()
-        # bypass the "parsing" done by StreamListener
-        self.raw_data = None
         self.consumer = consumer
         self.desc = "{} ({} users)".format(list(users)[:2], len(users))
         self.sensitive = set(users)
@@ -115,12 +90,7 @@ class StreamListenerAdapter(StreamListener):
         if raw_data is None:
             mylog.error("Tweepy says raw_data=None.  Wat.  Dropping tweet, or whatever it was.")
             return
-        if self.raw_data is not None:
-            mylog.warning("StreamListenerAdapter.raw_data was unclean.  Ignoring.")
-        self.raw_data = raw_data
-        ret = StreamListener.on_data(self, raw_data)
-        self.raw_data = None
-        return ret
+        return StreamListener.on_data(self, raw_data)
 
     def on_connect(self):
         mylog.info("{}: on_connect".format(self.desc))
@@ -135,10 +105,7 @@ class StreamListenerAdapter(StreamListener):
 
     # A tweet arrived.  The retweet filtering happens here.
     def on_status(self, status):
-        if self.raw_data is None:
-            mylog.error("on_status called without going through on_data?!")
-            return
-        tweet = parse_tweet_json(json.loads(self.raw_data))
+        tweet = parse_tweet_status(status)
         if tweet is None:
             mylog.error("{}: on_tweet BROKEN! (skip)".format(self.desc))
         elif tweet['uid'] not in self.sensitive:
