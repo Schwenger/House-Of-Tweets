@@ -86,7 +86,7 @@ def parse_tweet_status(status):
         report['username'] = status.user.screen_name
         report['userscreen'] = status.user.name
         # Slap Twitter-developer for not delivering a 'timestamp_ms' property
-        report['time'] = datetime_to_unix(status.created_at)
+        report['time'] = datetime_to_unix(status.created_at) * 1000
         report['tweet_id'] = status.id_str
         report['profile_img'] = status.user.profile_image_url_https
         report['retweet'] = status.__dict__.get('retweeted_status') is not None
