@@ -10,6 +10,9 @@ We do not want to bother anyone with unnecessarily many words, so feel free to p
 
 ![main_page_overview](https://github.com/Schwenger/House-Of-Tweets/blob/master/preview.png)
 
+Note that the project has been put on ice,
+and instructions on how to revive it are in `CONTINUE.md`.
+
 
 Install instructions:
 =====================
