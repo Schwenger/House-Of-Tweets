@@ -377,11 +377,13 @@ def manual_test_incoming():
     mylog.info("Reading from Twitter in stand-alone mode.")
     twi = RealTwitterInterface()
     mylog.info("Now following @HoT *and* Ben's throwaway account")
+    # If commented out, add 'while True: input()' at the very end:
     twi.register(["4718199753"], TweetPrinter(), True)
     twi.register(["774336282101178368"], TweetPrinter(), False)
     twi.register(["139407967"], TweetPrinter(), False)
-    mylog.info("Kill with Enter")
-    input()
+    mylog.info("Kill with Ctrl-C")
+    # while True:
+    #     input()
 
 
 # Only test for RealTwitterInterface.deregister
