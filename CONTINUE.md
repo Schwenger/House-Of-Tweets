@@ -15,22 +15,25 @@
 - Fetch all submodules.
   - `.heavy` is the largest and easiest one, since it's hosted on GitHub
     and mirrored by us (well, by Ben, at least).
-  - `.secrets` might be a problem.  Note that most of these files are CC-licensed
-    or similar by now, so we should probably push them to `.heavy`.  But we didn't.
+  - `.secrets` takes a bit more effort.
     The repo is currently "only" hosted on our
     private computers, so here's how to rebuild that repository:
     - Create `/.secrets/credentials.py` as documented in `/backend/credentiels_TEMPLATE.py`
     - `/.secrets/tweets/` is an archive of received tweets.  Not important,
       as you can re-collect fresh data easily.
-    - `/.secrets/images/logos/` and `/.secrets/images/profile/` are erroneous.  
-      I hope nobody reads this.  If you do: those are the logos and "our" pictures.  
-      FIXME: Move these files to main repository.
-    - `/.secrets/images/politicians/` and `/.secrets/images/birds/` can mostly be
-      rebuilt by running the crawlers, so do that first.  
-    - `/.secrets/images/politicians/` additionally needs `group_greengrün.jpg`, `placeholder.png`,
-      and their thumbnail versions.  FIXME
-    - `/.secrets/images/birds/` additionally needs all "private" drawings,
-      and the `unsorted` subfolder.
+    - `/.secrets/images/logos/` and `/.secrets/images/profile/` have unclear copyright situation,
+      and won't be made public.  They only contain the sponsors' logos and our pictures anyway:
+      ```
+$ ls logos profile
+logos:
+dfki.jpg  hbk-o.png  ministerium.png  saartoto.pdf  spielbanken.pdf  unieule.png
+dfki.png  hbk.png    saarland.jpg     saartoto.png  spielbanken.png
+
+profile:
+ben-o.png  ben.png  max.jpg  volker.jpg
+```
+    - `/.secrets/images/birds_secret/` contain all "private" drawings
+      (currently only `kiwi-drawing.jpg`), including the `unsorted` subfolder.
   - `/tools/PhotoMiner/cache` should be ignored, since it's probably totally out-of-date
     when you read this.  For the worst case scenario, Ben has a backup.
     (Because it's *huge*, Max doesn't have a backup.)
