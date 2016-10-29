@@ -51,6 +51,7 @@ def datetime_to_unix(dt):
 # Turn a very giant "Tweet" object (tweepy.models.Status)
 # into a more easily spoofable and printable format.
 def parse_tweet_status(status):
+    # mylog.debug('Now parsing status {}'.format(status))
     try:
         report = dict()
         report['uid'] = status.user.id_str
@@ -66,7 +67,38 @@ def parse_tweet_status(status):
         report['time'] = datetime_to_unix(status.created_at) * 1000
         report['tweet_id'] = status.id_str
         report['profile_img'] = status.user.profile_image_url_https
-        report['retweet'] = status.__dict__.get('retweeted_status') is not None
+        if 'retweeted_status' in status.__dict__:
+            # Actual "Retweet" (retweet with no additional text or media)
+            sub = status.retweeted_status
+            report['retweet'] = dict(
+                # Skip uid (available on request!)
+                # Skip hashtags (available on request!)
+                content=sub.text,
+                username=sub.user.screen_name,
+                userscreen=sub.user.name,
+                # Skip time (available on request -- but difficult for quotes, see below)
+                tweet_id=sub.id_str,
+                profile_img=status.user.profile_image_url_https,
+                # No recursive retweet detection -- would require POST requests.
+                )
+        elif 'quoted_status' in status.__dict__:
+            # "Quote" (retweet with some additional text or media)
+            # Dear tweepy, why don't you parse this JSON?!
+            # I would create a new issue, but it's "no longer maintained" anyway.
+            sub = status.quoted_status
+            report['retweet'] = dict(
+                # Skip uid (available on request!)
+                # Skip hashtags (available on request!)
+                content=sub['text'],
+                username=sub['user']['screen_name'],
+                userscreen=sub['user']['name'],
+                # Skip time (available on request -- but would need non-trivial parsing)
+                tweet_id=sub['id_str'],
+                profile_img=sub['user']['profile_image_url_https'],
+                )
+        # else: not a retweet in either meaning.
+        # For initial compatibility with the current tests: throw away most of the info.
+        report['retweet'] = report.get('retweet') is not None
         return report
     except (KeyError, AttributeError) as e:
         mylog.debug('Failed to parse status {}'.format(status))
