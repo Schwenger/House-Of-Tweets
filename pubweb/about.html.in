@@ -70,10 +70,10 @@
       <!-- Implicit <hr> -->
 
       <h3>{about_team}</h3>
-      <p>{about_team_text}</p>
+      {about_team_html}
 
       <h3>{about_sponsors}</h3>
-      <p>{about_sponsors_text}</p>
+      {about_sponsors_html}
 
       <h3>{about_copyright}</h3>
       <p>{copyright_pre}</p>
