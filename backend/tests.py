@@ -195,6 +195,7 @@ def test_parse_tweet():
                                 (raw_status.example_own, EXPECT_OWN_1),
                                 (raw_status.example_retweets, EXPECT_retweets),
                                 ]:
+        assert len(given_l) == len(expected_l)
         for given, expected in zip(given_l, expected_l):
             actual = twitter.parse_tweet_status(given)
             assert actual == expected, (actual, expected)
