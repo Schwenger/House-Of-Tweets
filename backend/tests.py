@@ -165,14 +165,39 @@ def test_parse_tweet():
                          'profile_img': 'https://pbs.twimg.com/profile_images/378800000185260949/ef03b8ab0b81ab3415ef1cba7627fbf1_normal.jpeg',
                          'uid': '728990858', 'username': 'JanaSchimke'},
                         ]
+    EXPECT_retweets = [{'uid': '774336282101178368',
+                        'content': "71 This is a boring, normal tweet.  The next one will be a plain retweet,"
+                                   " without any additional text, so it can't say that by itself.",
+                        'time': 1477748757000,
+                        'profile_img': 'https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png',
+                        'username': 'eeQu0Ae4', 'userscreen': 'eeQu0Ae4', 'hashtags': [],
+                        'tweet_id': '792361833822842880', 'retweet': False},
+                       {'uid': '774336282101178368', 'content': 'RT @eeQu0Ae4: 53 Orly?!', 'time': 1477748769000,
+                        'profile_img': 'https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png',
+                        'username': 'eeQu0Ae4', 'userscreen': 'eeQu0Ae4', 'hashtags': [],
+                        'tweet_id': '792361883722477569', 'retweet': True},
+                       {'uid': '774336282101178368',
+                        'content': '73 Yup, because this is a quoting retweet. https://t.co/3P9sfLXBRb',
+                        'time': 1477748797000,
+                        'profile_img': 'https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png',
+                        'username': 'eeQu0Ae4', 'userscreen': 'eeQu0Ae4', 'hashtags': [],
+                        'tweet_id': '792362001280499712', 'retweet': True},
+                       {'uid': '774336282101178368',
+                        'content': '74 Retweet of a retweet https://t.co/yebVfsmY7r',
+                        'time': 1477753442000,
+                        'profile_img': 'https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png',
+                        'username': 'eeQu0Ae4', 'userscreen': 'eeQu0Ae4', 'hashtags': [],
+                        'tweet_id': '792381485537976321', 'retweet': True},
+                       ]
 
     for given_l, expected_l in [(raw_status.example_own2, EXPECT_OWN_2),
                                 (raw_status.example_their, EXPECT_OWN_their),
                                 (raw_status.example_own, EXPECT_OWN_1),
+                                (raw_status.example_retweets, EXPECT_retweets),
                                 ]:
         for given, expected in zip(given_l, expected_l):
             actual = twitter.parse_tweet_status(given)
-            assert actual == expected
+            assert actual == expected, (actual, expected)
 
 all_tests.append(test_parse_tweet)
 
