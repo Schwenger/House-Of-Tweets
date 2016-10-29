@@ -23,7 +23,7 @@ def check(tweets):
 
 
 # Waiting period, in milliseconds, between each sent batch
-PERIOD_MS = 50
+PERIOD_MS = 3000
 
 
 def vomit(tweets):

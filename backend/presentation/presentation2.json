@@ -1,0 +1,50 @@
+[
+ [
+  {
+   "content": "Ich bin ein User-Tweet!",
+   "hashtags": [],
+   "id": 47,
+   "image": "https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png",
+   "name": "eeQu0Ae4",
+   "partycolor": "#257E9C",
+   "poli": null,
+   "retweet": false,
+   "sound": {
+    "citizen": {
+     "bid": "blaumeise",
+     "duration": 10000,
+     "natural": "/home/eispin/workspace/House-Of-Tweets/ext/sounds/processed/blaumeise-neutral-10000_v2.mp3"
+    }
+   },
+   "time": 1477774008000,
+   "twitterName": "eeQu0Ae4"
+  }
+ ],
+ [
+  {
+   "content": "Ein SPD-Tweet, um den User-Tweet zu umschließen",
+   "hashtags": [],
+   "id": 48,
+   "image": "https://abs.twimg.com/sticky/default_profile_images/default_profile_2_normal.png",
+   "name": "Purpur Roth",
+   "partycolor": "#ff0000",
+   "party": "GRÜNE",
+   "poli": "76",
+   "retweet": false,
+   "sound": {
+    "citizen": {
+     "bid": "eichelhaeher",
+     "duration": 10000,
+     "natural": "/home/eispin/workspace/House-Of-Tweets/ext/sounds/processed/eichelhaeher-neutral-10000_v2.mp3"
+    },
+    "poli": {
+     "bid": "kohlmeise",
+     "duration": 10000,
+     "natural": "/home/eispin/workspace/House-Of-Tweets/ext/sounds/processed/kohlmeise-fragend-10000_v2.mp3"
+    }
+   },
+   "time": 1477774059000,
+   "twitterName": "prprroth"
+  }
+ ]
+]
