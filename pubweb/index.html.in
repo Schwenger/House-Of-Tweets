@@ -74,6 +74,9 @@
       <h3>{index_concept}</h3>
       <p>{index_concept_text}</p>
 
+      <h3>{index_spacetime}</h3>
+      <p>{index_spacetime_text}</p>
+
       <h3>{index_demo}</h3>
       <!-- FIXME -->
       <iframe width="560" height="315" src="https://www.youtube.com/embed/fe4fyhzS3UM"

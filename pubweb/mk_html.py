@@ -56,6 +56,9 @@ STRINGS_DE = {
         nur zusammen mit den der Politiker angezeigt, sondern sind auch zu h&ouml;ren
         und tragen zum Klangerlebnis bei.
         """,
+    'index_spacetime': 'Ort und Zeit',
+    'index_spacetime_text': 'Aufgrund von Krankheit ist die Ausstellung'
+                            ' vorerst auf unbestimmte Zeit verschoben.',
     'index_demo': 'Vorschau',
     # Appears on birds.html only:
     'birds_lead': 'Alle Vogelstimmen, die im Rahmen des Projekts House of Tweets zur Verf&uuml;gung stehen.',
@@ -136,6 +139,9 @@ STRINGS_EN = {
         <br>
         They can also add their own twitter account, choose a bird, and become themselves part of the exhibit. Their tweets will not only be displayed among the politicians', but become audible and contribute to the sound experience.
         """,
+    'index_spacetime': 'Place and time',
+    'index_spacetime_text': 'Due to illness, the exhibition is postponed'
+                            ' indefinitely at the moment.',
     'index_demo': 'Preview',
     # Appears on birds.html only:
     'birds_lead': 'All bird voices that can be selected, in the context of the project House of Tweets.',
