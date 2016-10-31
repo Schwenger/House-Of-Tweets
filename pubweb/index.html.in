@@ -78,9 +78,11 @@
       <p>{index_spacetime_text}</p>
 
       <h3>{index_demo}</h3>
-      <!-- FIXME -->
+      <p>TODO: Preview video</p>
+      <!-- FIXME
       <iframe width="560" height="315" src="https://www.youtube.com/embed/fe4fyhzS3UM"
               frameborder="0" allowfullscreen></iframe>
+          -->
 
     </div> <!-- /container -->
 
