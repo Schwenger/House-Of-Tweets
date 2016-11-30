@@ -14,7 +14,7 @@ before_install:
   - sudo apt-get install -qq libav-tools npm rabbitmq-server openssl
   - rm backend/credentials.py
   - openssl aes-256-cbc -K $encrypted_3804c810c01a_key -iv $encrypted_3804c810c01a_iv -in tools/minimal_sound/test-cred.py.enc -out backend/credentials.py -d
-  - sudo rabbitmq-server -detached
+  - sudo rabbitmqctl start_app
   # ( Skip rabbitmq_management, because Travis doesn't
   #   offer this kind of web interface anyway.)
   # - sudo rabbitmq-plugins enable rabbitmq_management
