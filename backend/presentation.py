@@ -7,7 +7,7 @@ import vomit  # Aww yiss
 
 def fake_ack():
     q = mq.RealQueue('citizenUserFeedbackQueue')
-    q.post(dict(twittername='equu0ae4', birdid='fitis'))
+    q.post(dict(twittername='equu0ae4', birdid='fitis', error='antibug'))
     sleep(3)
 
 
@@ -15,6 +15,7 @@ def fake_backend():
     vomit.transfer_file('presentation/presentation.json')
     print('Press return to continue with the other part')
     input()
+    fake_ack()
     vomit.transfer_file('presentation/presentation2.json')
 
 
