@@ -43,9 +43,9 @@ CitizenUser =
 		if msg.error?
 			console.log "Error adding user #{msg.twittername}. Reason: #{msg.error}"
 		[kind, msg_key] = switch msg.error
-			when undefined then ["error", "error"]
+			when undefined then ["success", "success"]
 			when "is-politician" then ["info", "is_poli"]
-			else ["success", "success"]
+			else ["error", "error"]
 		data = 
 			kind: kind
 			name: Util.sanitize(msg.twittername[...CitizenUser.maxTwitterNameLength])
