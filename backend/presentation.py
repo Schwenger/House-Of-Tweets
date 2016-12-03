@@ -7,7 +7,7 @@ import vomit  # Aww yiss
 
 def fake_ack():
     q = mq.RealQueue('citizenUserFeedbackQueue')
-    q.post(dict(twittername='equu0ae4', birdid='fitis', error='antibug'))
+    q.post(dict(twittername='equu0ae4', birdid='fitis'))
     sleep(3)
 
 
