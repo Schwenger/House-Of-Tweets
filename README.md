@@ -99,7 +99,7 @@ Normal workflow:
 
 Get RabbitMQ running:
 - preconditions: none
-- make sure it's running: `rabbitmqctl start_app` (successful no-op if already running)
+- if not already started: `sudo rabbitmq-server -detached` (the `-detached` part starts it "into the background")
 - wait a second (RabbitMQ doesn't like being rushed at this point)
 - load plugin: `sudo rabbitmq-plugins enable --online rabbitmq_web_stomp rabbitmq_management`  
   Explanation:
