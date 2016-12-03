@@ -35,7 +35,7 @@ script:
   # Note: 2 means "old version, update needed"
   - ./tools/tweepy_monkeypatch/tell.sh || [ $? = 2 ]
   # Highly Travis-dependent:
-  - sudo cp 'tools/tweepy_monkeypatch/after' '/home/travis/virtualenv/python3.5.0/lib/python3.5/site-packages/tweepy/streaming.py'
+  - sudo cp 'tools/tweepy_monkeypatch/after' '/home/travis/virtualenv/python3.5.2/lib/python3.5/site-packages/tweepy/streaming.py'
   # Check again (but without any failure)
   - ./tools/tweepy_monkeypatch/tell.sh
   # ( Makefile is currently unimplemented for backend )
