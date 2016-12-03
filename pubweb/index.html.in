@@ -78,11 +78,9 @@
       <p>{index_spacetime_text}</p>
 
       <h3>{index_demo}</h3>
-      <p>TODO: Preview video</p>
-      <!-- FIXME
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/fe4fyhzS3UM"
+      <!-- Use aspect ratio of original video (1268x801), and use the auto-suggested width of 560. -->
+      <iframe width="560" height="355" src="https://www.youtube.com/embed/aKnMPeV4t_Y"
               frameborder="0" allowfullscreen></iframe>
-          -->
 
     </div> <!-- /container -->
 
