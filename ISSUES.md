@@ -19,6 +19,7 @@ and Etherpad for their wonderful work!
     - maybe force-sort politicians? (Frontend thinks they are sorted by pid, but new politicians are inserted sequentially)
 - [Ben] Enable forwarding of retweet data (2 lines in twitter.py, plus adapting the tests)
 - [Ben] Gaaanz zum Schluss: Wirklich die replies aktivieren
+- [Ben] Properly handle removal of the two politicians
 
 Both: Come up with a "protocol" to sanely display to a user when the tweeting can start.
 Suggestion:
@@ -71,6 +72,13 @@ Absence indicates "not a retweet".  Fields:
   Note: I'll only provide you with the "directly previous" author.  If @A tweets "msgA", @B retweets
   that, and @C retweets *from @B*, then I can only tell you "@B" as previous author, because fuck recursion.
   See "retweet protocol" discussion in Backend.
+- M "Add Citizen User" löst ein Abspielen der Vogel-Sounds der existierenden Tweets aus (?!)
+- M Add Citizen User, Vogelauswahl: initialer Style der "Pfeil-Buttons" ist anders als "nach Benutzung".
+- M Impressum, Bilder von Max und Volker: fix aspect ratio!
+- M Bird page: our only "drawing" is a collage of newspaper, and therefore not a drawing.  Find a different name.
+- M Bird page: Wenn man den Kiwi auf Zeichnung stellt, dann zurück zum Hauptfenster, dann Sprache umstellt,
+    dann zurück zum Kiwi, dann steht der Slider auf "Zeichnung", aber man sieht das Foto des echten Kiwi.
+
 
 ## Model
 
@@ -78,6 +86,8 @@ Stephan Schweitzer hinzufügen:
 - Twitter-Handle: @sc_ontour
 - Bild: Ich warte noch auf das Bild.
 - Beschreibungstext: Ich warte noch auf das Beschreibungstext.
+
+- Update crawler to properly handle removal of the two politicians
 
 ## Publicity (public-facing page)
 
