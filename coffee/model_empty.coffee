@@ -1,11 +1,16 @@
 #= require <util.coffee>
 #= require <global.coffee>
 
+# Template for the model class. Will be enriched by data in the model/ directory
+# automatically.
+
 class Model
 
 	@name2id: (name) ->
+		# Removed spaces for a string by replacing them with an underscore.
 		name.replace(" ", "_").toLowerCase()
 
+	# For debugging only.
 	@manualTweets: [{
 		name:"Group Green", 
 		content: "Hmm, wenn die Tagesschau beim NPD-Verbotsverfahren ne Schalte zu ihrem 'Rechtsexperten' macht, ist das irgendwie doppeldeutig...", 

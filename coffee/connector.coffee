@@ -15,6 +15,7 @@ class Connector
 		uname: "guest"
 		passcode: "guest"
 
+	# Public
 	constructor: (qname, callback) ->
 		console.log "Opening connection to #{qname}" + (if callback? then "; Subscribing..." else ".")
 
@@ -55,6 +56,8 @@ class Connector
 		tweets = Connector._extractContent msg
 		console.log(" [x] Received %s", tweet.content) for tweet in tweets
 
+	# Public
 	sendToQueue: (data) ->
+		# Publishes data on the queue
 		console.log "Sending data to " + @name
 		@client.send(@name, {}, Util.obj2str(data))

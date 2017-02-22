@@ -6,23 +6,31 @@
 #= require <language_controller.coffee>
 #= require <citizen_user.coffee>
 
+# Debug variables: When typing `console.log "here"` to check whether a certain
+# line of code is reached and forgetting the quotation marks in despair, this
+# will prevent an error from occurring.
 called = "You should never forget quotation marks."
 here = "You should never forget quotation marks."
 
 # Setup #################################################################################
 
+# Needed to provide enough time for the carousels to set up without messing up
+# the spacing.
 citizenUserLoadingTime = 1000
 
+# Public
 enforceConsistencyConstraints = ->
 	# we cannot [...] set height relative to relative width value
 	w = $("#voice-profile-picture").width()
 	$("#voice-profile-picture").css("height", w + "px")
 	$("#voice-profile-cv").css("height", w + "px")
 
-# NB: Language needs CitizenUser and VoicesLists to be initialized.
+
+# Public
 initMain = ->
+	# NB: Language needs CitizenUser and VoicesLists to be initialized.
 	CitizenUser.init()
-	# SoundCtrl.turnOnAmbientSound()
+	# SoundCtrl.turnOnAmbientSound() # TODO: TURN ON
 	Screensaver.init()
 	Display.init()
 	VoicesLists.init()

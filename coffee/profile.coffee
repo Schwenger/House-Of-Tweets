@@ -14,6 +14,7 @@ Profiles =
 		@voicesMQ = new Connector(Connector.config.citizenBirdQueue, undefined)
 		$("#profile-back-button-politician").click @close
 		$("#profile-back-button-bird").click @close
+		# Turn artist's image off
 		imageSwitch = $("#picture-artist-image-switch")
 		imageSwitch.prop('checked', false)
 		imageSwitch.change @_changeArtStyle
@@ -21,21 +22,24 @@ Profiles =
 	# CHANGE IMAGE DISPLAY
 
 	_changeArtStyle: () ->
-		console.log "clicked"
+		# Applies change in the display mode by turning photos on or off.
 		drawing = $(@).prop('checked')
-		console.log drawing
 		if drawing 
 			Profiles._switchVisibility(Profiles.birdDrawing, Profiles.birdPhoto)
 		else 
 			Profiles._switchVisibility(Profiles.birdPhoto, Profiles.birdDrawing)
 
 	_switchVisibility: (vis, invis) ->
+		# Makes `vis` invisible and `invis` visible.
 		invis.addClass "invisible"
 		vis.removeClass "invisible"
 
 	# CHANGE BIRD LOGIC
 
+	# Public
 	changeCitizenBird: (bid, pid) ->
+		# Applies a change in citizen bird for a politician by sending a message
+		# to the queue.
 		Model.politicians[pid].citizen_bird = bid
 		data = {politicianid: pid, birdid: bid}
 		@voicesMQ.sendToQueue(data)
@@ -43,18 +47,22 @@ Profiles =
 		@close()
 		@openPoliticianPage pid
 
+	# Public
 	closeCitizenBirdSelection: (bid, pid)->
+		# Closes the list of birds to chose from for a politician.
 		$('#cv-and-selection-wrapper').removeClass "invisible"
 		$('#change-citizen-bird-wrapper').addClass "invisible"
 
+	# Public
 	openCitizenBirdSelection: (bid, pid) ->
+		# Opens the list of birds to chose from for a politician.
 		root = $("#change-citizen-bird-wrapper")
 		# prepare list
 		o.remove() for o in root.children(".list-entry")
 		$('#cv-and-selection-wrapper').addClass "invisible"
 		$('#change-citizen-bird-wrapper').removeClass "invisible"
 
-		# prepare new list entries
+		# prepare list entries
 		addon = (id) -> "<div class='select-citizen-bird-button btn'> #{Model.msg.get('select')} </div>"
 		handler = (bid) -> 
 			Profiles.changeCitizenBird(bid, pid)
@@ -62,11 +70,14 @@ Profiles =
 		addClickHandler = (obj, bid) ->
 			obj.click () -> handler(bid)
 		prefix = "change-bird-list-entry"
+
+		# Put entries in list.
 		Util.createBirdList root, prefix, Model.birds, addon, addClickHandler
 
 	# PROFILE PAGE
 
 	_licenseString: (obj) ->
+		# Puts the appropriate license information together. Language sensitive.
 		intro = if Global.language is "german" then "bereitgestellt durch: " else "provided by: "
 		res = switch obj.license
 			when "unknown-bundestag" then intro + "Bundestag"
@@ -77,14 +88,18 @@ Profiles =
 		res += "\n" + obj.copyright if obj.copyright?
 		res
 
+	# Public
 	close: ->
+		# Closes the currently open profile page.
 		Profiles.closeCitizenBirdSelection()
 		$("#voices-lists-wrapper").css("opacity", 1)
 		$("#voices-profile-container-politician").addClass "invisible"
 		$("#voices-profile-container-bird").addClass "invisible"
 		Profiles._switchVisibility(Profiles.birdPhoto, Profiles.birdDrawing)
 
+	# Public
 	openPoliticianPage: (id) ->
+		# Opens and sets up one politician's profile page. 
 		$("#voices-lists-wrapper").css("opacity", 0)
 		$("#voices-profile-container-politician").removeClass "invisible"
 
@@ -125,7 +140,9 @@ Profiles =
 		else
 			selectionContainer.addClass "invisible"
 
+	# Public
 	openBirdPage: (id) ->
+		# Opens and sets up one birds's profile page. 
 		$("#voices-lists-wrapper").css("opacity", 0)
 		$("#voices-profile-container-bird").removeClass "invisible"
 

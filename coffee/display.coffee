@@ -32,18 +32,25 @@ Display =
 
 	state: "center" # center, right, left, U1
 
+	# Public
 	init: ->
 		for own id, ctrl of @controls
 			do(id, ctrl) ->
 				ctrl.click(() -> Display._trigger(id))
 
+	# Public
 	center: ->
+		# Displays the center page regardless of the current state.
 		switch @state
 			when "right" then @controls.left.click()
 			when "left" then @controls.right.click()
 			when "U1" then @_trigger("up")
 
 	_trigger: (dir) ->
+		# Triggers a movement in a specified direction.
+		# Assumption: No invalid movement.
+		# 
+		# TODO: Check for invalid movements, stay if so, warn on console.
 		@state = @_delta(@state, dir)
 		@_removeSidebars()
 		Display.controls["down"].addClass "invisible"
@@ -63,15 +70,19 @@ Display =
 		setTimeout(timeoutAction, @pageMoveDelay) if timeoutAction?
 				
 	_panUp: ->
+		# Switches from U1/impress to center.
 		$('#carousel').carousel 1 # tweets
 		setTimeout (() -> 
 			$('#carousel').removeClass "vertical"), Display.pageMoveDelay
 
 	_panDown: ->
+		# Switches from center to U1/impress.
 		$('#carousel').addClass "vertical"
 		$('#carousel').carousel 3 # impressum
 
 	_openSide: (side, otherSide) ->
+		# Switches from center page to left/right.
+		# In the process, the sidebar's appearances have to be adapted.
 		ctrl = @controls[otherSide]
 		@_addSidebar(ctrl)
 
@@ -107,6 +118,7 @@ Display =
 		sb.removeClass "invisible"
 
 	_delta: (state, dir) ->
+		# Computes the state transition.
 		switch dir
 			when "up" then "center"
 			when "down" then "U1"

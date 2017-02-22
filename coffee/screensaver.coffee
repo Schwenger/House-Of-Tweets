@@ -10,7 +10,9 @@ Screensaver =
 		checkFrequency: 500000,
 		languageChangeDelay: 2500
 
+	# Public
 	init: ->
+		# Initializes the screen saver by setting timeouts and interval checks.
 		$(document).click (->
 			Screensaver.lastTouch = Util.time()
 			Screensaver.stop()
@@ -22,7 +24,12 @@ Screensaver =
 		setInterval(checkActivation, @config.checkFrequency)
 		@lastTouch = Util.time()
 
+	# Public
 	start: ->
+		# Turns the screen saver on by overlaying the screen with the saver, 
+		# changing the language to German and switching to the center page.
+		# No-op if already active.
+		
 		return if @active
 		@active = true
 
@@ -36,12 +43,15 @@ Screensaver =
 		setTimeout(@_turnOn, delay)
 
 	_turnOn: ->
+		# Overlays the screen saver element.
 		saver = $("#screensaver-element-0")
 		saver.removeClass "invisible"
 		saver.addClass "fade-in"
 		saver.children().each () -> $(@).addClass "load"
 			
+	# Public
 	stop: ->
+		# Turns the screensaver off by removing the respective element.
 		console.log "Inconsistent state of screensaver." unless @active
 		@active = false
 		saver = $("#screensaver-element-0")

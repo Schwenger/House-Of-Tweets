@@ -22,16 +22,16 @@ TweetController =
 	_threshold: 6
 
 	init: ->
-		@initSwitches()
-		@initTimeTravel()
+		@_initSwitches()
+		@_initTimeTravel()
 		new Connector(Connector.config.tweetsQueue, (data) -> TweetController.consume(data))
 
-	initTimeTravel: ->
+	_initTimeTravel: ->
 		$('#play-tweets-1-button').click(() -> TweetController._timeTravel(1))
 		$('#play-tweets-6-button').click(() -> TweetController._timeTravel(6))
 		$('#play-tweets-24-button').click(() -> TweetController._timeTravel(24))
 
-	initSwitches: ->
+	_initSwitches: ->
 		voicesSwitch = $('#voices-switch')
 		voicesSwitch.prop('checked', true)
 		voicesSwitch.change(@_changeBirdSelection)
@@ -42,15 +42,22 @@ TweetController =
 		@_poliTweetsOnly = poliTweetsOnlySwitch.prop('checked')
 
 	# Interface
+
+	# Public
 	triggerTweetManually: () ->
+		# Debug only
 		incoming = [Model.manualTweets[Global.manualTweetID]]
 		Global.manualTweetID = (Global.manualTweetID + 1) % Model.manualTweets.length
 		@consume(incoming)
 
+	# Public
 	translateBirds: () ->
+		# Translates all language specific data in the displayed tweets.
 		@_updateBirdNames()
 
+	# Public
 	showAllTweets: () ->
+		# Displays politician tweets as well as citizen user tweets.
 		$('#citizen-tweets-switch').prop('checked', false);
 		@_changeShownTweets()
 
@@ -88,14 +95,18 @@ TweetController =
 
 	# ARCHIVE
 	_addToArchive: (entry) ->
+		# Adds entry to the archive for the time travel function.
 		@_archiveRoot.append entry.obj
 		@_archive.push entry
+		# Evict far-too-old tweets irreversibly.
 		@_removeTweets(@_archive[@_archiveThreshold..])
 		@_archive = @_archive[..@_archiveThreshold]
 
 	# USER SETTINGS
 
 	_changeBirdSelection: ->
+		# Changes display mode: Either only politicians' tweets or all.
+		# Notifies the sound controller.
 		poli = $(@).prop('checked')
 		TweetController._usePoliBirds = poli
 		SoundCtrl.setBirdMode(if poli then "P" else "C")
@@ -103,12 +114,16 @@ TweetController =
 		TweetController._switchView()
 
 	_changeShownTweets: ->
+		# Adapts the list of tweets w.r.t. the selected mode.
 		TweetController._poliTweetsOnly = $(@).prop('checked')
 		TweetController._switchView()
 
 	# TIME TRAVEL
 
 	_timeTravel: (timeSpan) ->
+		# Starts the time travel, i.e. batches tweets and starts playing
+		# tweets of a batch for a fixed amount of time before turning them off
+		# again automatically. Batches overlap.
 		now = Util.time()
 		diff = timeSpan * 60 * 60 * 1000
 		thresholdTime = now - diff
@@ -117,6 +132,8 @@ TweetController =
 		@_startPlaybackHandler(@_timeTravelId, agenda)
 
 	_createBatches: (pred) ->
+		# Batches the archive in reverse arrival time order until `pred` is 
+		# violated once.
 		result = []
 		batch = []
 		for tweet in @_archive
@@ -129,13 +146,21 @@ TweetController =
 		return result
 
 	_startPlaybackHandler: (id, agenda) ->
+		# Picks the last batch in the agenda-queue and plays all tweets sounds.
+		# Waits a fixed amount of time before working the other batches 
+		# recursively.
+
+		# If a different time travel has been started in the mean time -> stop
+		# starting new tweets. The already playing ones will keep playing.
 		return if agenda.length is 0 or @_timeTravelId != id
+
 		[upcoming..., current] = agenda
 		tweet.play(SoundCtrl.getMode(), @_batch.duration) for tweet in current
 		startNext = () -> TweetController._startPlaybackHandler(id, upcoming)
 		setTimeout startNext, @_batch.interval
 
 	_trimLists: () ->
+		# selects the last @_threshold elements, returns evicted ones
 		numEvictedPoli = Math.max(0, @_tLists.poli.length - @_threshold)
 		numEvictedMixed = Math.max(0, @_tLists.mixed.length - @_threshold)
 		evictedPoli = @_tLists.poli[...numEvictedPoli]
@@ -161,6 +186,7 @@ TweetController =
 		tweet.obj.remove() for tweet in tweets
 
 	_updateBirdNames: ->
+		# Removes and re-adds the bird name in tweets. Language sensitive.
 		for own key, list of TweetController._tLists
 			for elem in list
 				mode = if TweetController._usePoliBirds then "poli" else "citizen"
@@ -169,12 +195,14 @@ TweetController =
 				$("#tweet-#{elem.id}-bird").text(bird)
 
 	_updatePoliBird: (info) ->
+		# Applies a change in the politician's bird.
 		pid = info.politicianId
 		bid = info.birdId
 		Model.politicians[pid].self_bird = bid
 		VoicesLists.update()
 
 	_switchView: ->
+		# Switches view from "politicians only" to "all" or back.
 		oldL = if @_poliTweetsOnly then @_tLists.mixed else @_tLists.poli
 		newL = if @_poliTweetsOnly then @_tLists.poli else @_tLists.mixed
 		tweet.obj.remove() for tweet in oldL
@@ -184,6 +212,8 @@ TweetController =
 		@_attachClickHandler tweet for tweet in newL 
 
 	_displayTweets: (tweets) ->
+		# Adds `tweets` to the list of displayed birds and attaches the click
+		# handler.
 		domList = $('#tweet-list')
 		for tweet in tweets
 			do (tweet) ->
@@ -191,10 +221,12 @@ TweetController =
 				TweetController._attachClickHandler(tweet)
 
 	_playTweets: (list, mode) ->
+		# Plays all passed tweets' sounds in the respective mode.
 		tweet.play(mode) for tweet in list
 
 	_transform: (tweet) ->
-
+		# Transforms a tweets from the backend into a tweet in the internal
+		# representation including the DOM object.
 		choice = if @_usePoliBirds and tweet.poli? then "poli" else "citizen"
 		bid = tweet.sound[choice].bid
 		sanitized = Util.sanitize(tweet.content, tweet.poli?)
@@ -272,17 +304,22 @@ TweetController =
 		return tweetCompound
 
 	_enhance: (tweet, hashtags) ->
+		# Turns hashtags in the tweet green.
 		for hashtag in hashtags
 			tweet = tweet.replace('#'+hashtag, "<span style='color: green'>##{hashtag}</span>")
 		return tweet
 
 	_getDuration: (suggestion, tweet, mode) ->
+		# Computes the play-duration for a tweet. Uses the suggestion if 
+		# possible. Otherwise returns the length of the sound referenced by
+		# the tweet.
 		return suggestion if suggestion?
 		return tweet.sound.citizen.duration unless tweet.poli?
 		selector = if mode is "P" then "poli" else "citizen"
 		tweet.sound[selector].duration
 
 	_attachClickHandler: (tweetCompound) ->
+		# Attaches click handler playing the sound to the speaker icon.
 		speakerElement = tweetCompound.obj.find("#tweet-#{tweetCompound.id}-speaker")
 		speakerElement.click () -> 
 			tweetCompound.play(SoundCtrl.getMode())

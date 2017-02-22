@@ -12,6 +12,7 @@ VoicesLists =
 		poli: ""
 		bird: ""
 
+	# Public
 	init: ->
 		@_initPoliticianList()
 		@_initBirdList()
@@ -19,43 +20,54 @@ VoicesLists =
 		@_initSearchBars()
 		@_initScrollHandler()
 
+	# Public
 	update: ->
 		# no need to do anything because the profile is re-created each time anyway.
 		return
 
+	# Public
 	translateBirds: ->
+		# Translates all bird names.
 		VoicesLists._removeBirds()
 		VoicesLists._initBirdList()
 
+	# Public
 	leavePage: ->
+		# Resets all input fields, closes an open profile.
 		Profiles.close()
 		$("#bird-search-bar").val("")
 		$("#poli-search-bar").val("")
 		@searchString.bird = ""
 		@searchString.poli = ""
+		# TODO: Why?
 		@_removePolis()
 		@_initPoliticianList()
 
+	# Public
 	open: ->
+		# Prepare scroll bars.
 		@_handleScroll "bird"
 		@_handleScroll "poli"
 
 	_initSearchBars: ->
+		# Initializes both search bars.
+
 		# bird search bar
 		birdAdd = (birds) -> 
 			VoicesLists._displayBirds(VoicesLists.birdListRoot, "voices-list-item", birds)
 		birdQualifies = (bird, search) -> 
 			bird[Util.addLang("name")].toLowerCase().indexOf(search) isnt -1
 		birdRemove = () -> VoicesLists._removeBirds()
-		Util.initSearchBar("bird", Model.birds, birdAdd, birdRemove, birdQualifies)
+		@_initSearchBar("bird", Model.birds, birdAdd, birdRemove, birdQualifies)
 		# poli search bar
 		poliAdd = (polis) -> 
 			VoicesLists._displayPolis(VoicesLists.politicianListRoot, "voices-list-item", polis)
 		poliQualifies = (poli, search) ->
 			poli.name.toLowerCase().indexOf(search) isnt -1
 		poliRemove = () -> VoicesLists._removePolis()
-		Util.initSearchBar("poli", Model.politicians, poliAdd, poliRemove, poliQualifies)
+		@_initSearchBar("poli", Model.politicians, poliAdd, poliRemove, poliQualifies)
 
+	# Provides convenient access to scrollbar-related elements.
 	_scroll:
 		bird:
 			top: $("#voices-list-top-blur-bird")
@@ -67,10 +79,12 @@ VoicesLists =
 			list: $("#voices-list-politicians")
 
 	_initScrollHandler: () ->
+		# Attaches handlers to lists.
 		@birdListRoot.scroll () -> VoicesLists._handleScroll("bird")
 		@politicianListRoot.scroll () -> VoicesLists._handleScroll("poli")
 
 	_handleScroll: (mode) ->
+		# Removes or displays Not-End-Of-List indicators.
 		list = @_scroll[mode].list
 		top = @_scroll[mode].top
 		bot = @_scroll[mode].bot
@@ -88,15 +102,20 @@ VoicesLists =
 	# CREATE AND DISPLAY LISTS
 
 	_removePolis: ->
+		# Removes all politicians from the list.
 		@_removeEntries(@politicianListRoot, ".list-entry")
 
 	_removeBirds: ->
+		# Removes all birds from the list.
 		@_removeEntries(@birdListRoot, ".list-entry")
 
 	_removeEntries: (root, selector) ->
+		# Removes all entries which are children of `root` and are matched by
+		# the `selector`.
 		root.children(selector).each -> $(this).remove()
 
 	_initPoliticianList: ->
+		# Displays all birds. Attach respective handlers.
 		@_displayPoliticians @politicianListRoot, "voices-list-item"
 
 	_displayPoliticians: (root, prefix) ->
@@ -118,4 +137,19 @@ VoicesLists =
 		@_handleScroll("bird")
 
 	_initBirdList: ->
+		# Displays all birds. Attach respective handlers.
 		@_displayBirds(@birdListRoot, "voices-list-item", Model.birds)
+
+	_initSearchBar: (id, model, add, remove, qualifies) ->
+		# Attaches handler for keystrokes updating the search bars.
+		searchBar = $("##{id}-search-bar")
+		handler = (event) ->
+			oldString = VoicesLists.searchString[id]
+			newString = searchBar.val().toLowerCase()
+			return if oldString is newString
+			VoicesLists.searchString[id] = newString
+			remaining = {}
+			remaining[id] = entity for id, entity of model when qualifies(entity, newString)
+			remove()
+			add remaining
+		$(document).keyup handler

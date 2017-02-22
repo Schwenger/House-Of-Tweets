@@ -3,12 +3,16 @@
 Util = {
 
 	count: (list, pred) ->
+		# Counts the number of elements satisfying `pred`.
 		list.reduce (sum, elem) -> sum += pred(elem)
 
 	birdPath: (id, add) ->
+		# Returns the path to the bird's image. Attaches `add` to the id if 
+		# specified.
 		Global.birdPath + id + (if add? then add else "") + ".jpg"
 
 	politicianPath: (id) ->
+		# Returns the path to the politician's image.
 		Global.politicianPath + if id? then id else "placeholder.png"
 
 	composeFunctions: (functions...) ->
@@ -33,10 +37,12 @@ Util = {
 		JSON.parse(JSON.stringify(o))
 
 	addLang: (str) -> 
+		# Adds a language prefix w.r.t. the globally set time.
 		switch Global.language
 			when "english" then "en_" + str
 			when "german"  then "de_" + str
 
+	# List of potential replacements for swear words.
 	nyahNyah: [
 		"kitty", "rainbow", "tippytoe", "jibberjabber", "#IHideMyInsecurityBehindCurses", "pinky",
 		"Kätzchen", "Regenbogen", "BlaBlaBla", "#InnerlichTot", "Wattebällchen", "#ILikeTrains",
@@ -47,6 +53,8 @@ Util = {
 		collection[Math.floor(Math.random() * collection.length)]
 
 	sanitize: (content, byPoli) ->
+		# Replaces bad words and sanitizes the input string.
+		# When tweet is by a politician, no replacement will take place.
 		if not byPoli
 			for baddy in bad_words
 				replacement = Util._getRandom(Util.nyahNyah)
@@ -57,15 +65,16 @@ Util = {
 
 	tagPattern: /\w*/i
 	sanitizeTags: (tags) ->
+		# Replaces all `tags` by a safe replacement string.
 		for tag in tags
 			if tag.match Util.tagPattern then tag else "--NOPE--" 
 
-	# Transforms `list`'s elements into entries and appends them to the `root`. 
-	# The entries' ids start with `prefix` and end with the bird's id.
-	# `addon` had to provide html given an id. The result is positioned 
-	# on the right hand side of the name.
-	# After each element's creation, modifier is called on them and the id. 
 	createBirdList: (root, prefix, list, addon, modifier, latinName = true) ->
+		# Transforms `list`'s elements into entries and appends them to the `root`. 
+		# The entries' ids start with `prefix` and end with the bird's id.
+		# `addon` had to provide html given an id. The result is positioned 
+		# on the right hand side of the name.
+		# After each element's creation, modifier is called on them and the id. 
 		respName = Util.addLang "name"
 		cmp = (a,b) ->
 			if a[1][respName] < b[1][respName] then -1
@@ -82,7 +91,8 @@ Util = {
 				root.append obj
 				modifier(obj, id) if modifier?
 
-	createListEntry: (id, first_line, second_line, image, prefix, addon) ->		
+	createListEntry: (id, first_line, second_line, image, prefix, addon) ->	
+		# Creates an entry suitable for a bird/politician list.
 		data = 
 			id: id
 			imagePath: image
@@ -103,18 +113,5 @@ Util = {
 		</div>
 		"""
 		$(Mustache.render(template, data))
-
-	initSearchBar: (id, model, add, remove, qualifies) ->
-		searchBar = $("##{id}-search-bar")
-		handler = (event) ->
-			oldString = VoicesLists.searchString[id]
-			newString = searchBar.val().toLowerCase()
-			return if oldString is newString
-			VoicesLists.searchString[id] = newString
-			remaining = {}
-			remaining[id] = entity for id, entity of model when qualifies(entity, newString)
-			remove()
-			add remaining
-		$(document).keyup handler
 
 }

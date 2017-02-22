@@ -10,10 +10,12 @@ CitizenUser =
 
 	maxTwitterNameLength: 20
 
+	# Public
 	init: ->
 		@_citizenBirdMQ = new Connector(Connector.config.citizenUserQueue, undefined)
 		new Connector(Connector.config.acknowledgeQueue, @_consumeFeedback)
 
+		# Set up the scrollable bird list.
 		@_listRoot.flickity({
   			draggable: true
   			freeScroll: true
@@ -26,20 +28,31 @@ CitizenUser =
 		@_initBirdList()
 		$(document).keyup () -> CitizenUser._notifySelectButtons()
 
+	# Public
 	leavePage: ->
+		# Waits until the citizen user page is invisible, then resets all inputs.
 		setTimeout (() ->
 			CitizenUser._twitterNameInput.val("")
 			CitizenUser._disableSelectButtons()
 		), Display.pageMoveDelay
 
+	# Public
 	translateBirds: ->
+		# Translates the bird names by removing and re-adding them. Adding
+		# always selects the currently set language.
 		CitizenUser._removeBirds()
 		CitizenUser._initBirdList()
 
+	# Public
 	open: ->
-		# Nothing to do.
+		# No further initialization.
 
 	_consumeFeedback: (msg) ->
+		# Consumes a message from the feedback queue. That means, with respect
+		# to the status, an appropriately colored message field shall be added
+		# to the page.
+		
+		# TODO
 		if msg.error?
 			console.log "Error adding user #{msg.twittername}. Reason: #{msg.error}"
 		[kind, msg_key] = switch msg.error
@@ -68,37 +81,47 @@ CitizenUser =
 		), 10000
 
 	_leave: () ->
+		# Leave the page without further user interaction.
 		@leavePage()
 		$("carousel-control-prev").click()
 
 	_disableSelectButtons: () ->
+		# All buttons in the bird list will become disabled.
 		for own bid, bird of Model.birds
 			btn = $("#citizen-user-select-bird-#{bid}")
 			btn.addClass("btn-disabled")
 			btn.attr('disabled', true)
+
 	_enableSelectButtons: () ->
+		# All buttons in the bird list will become enabled.
 		for own bid, bird of Model.birds
 			btn = $("#citizen-user-select-bird-#{bid}")
 			btn.removeClass("btn-disabled")
 			btn.attr('disabled', false)
 
 	_notifySelectButtons: () ->
+		# Updates the status of the select buttons in the bird list.
+		# When there is no input, disable. Otherwise enable.
 		enable = $('#citizen-user-name-input').val().length > 0
 		if enable then @_enableSelectButtons() else @_disableSelectButtons()
 
 	_submitCitizenBird: (bid) ->
+		# a) Notify backend about new citizen user.
+		# b) Turn to center page.
+		# c) Enable citizen user tweets on center page.
 		TweetController.showAllTweets()
 		username = @_twitterNameInput.val()[...CitizenUser.maxTwitterNameLength]
 		data = {twittername: username, birdid: bid}
 		CitizenUser._citizenBirdMQ.sendToQueue(data)
 		CitizenUser._leave()
-		$("#carousel-control-prev").click()
 
 	_removeBirds: ->
+		# Completely empties the bird list.
 		@_listRoot.find('.gallery-cell').each () ->
 			CitizenUser._listRoot.flickity('remove', $(@))
 
 	_initBirdList: ->
+		# Initialized the bird list with all bird in the respective language.
 		template = """
 			  <div class="gallery-cell">
 	            <div class="image">
