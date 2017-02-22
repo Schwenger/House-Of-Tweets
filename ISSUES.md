@@ -5,18 +5,24 @@ and Etherpad for their wonderful work!
 
 ## Open Questions
 
-- Keyboard situation
-- Retweet information/details
+[Volker]
 - French?
-- Wording
-- Curse Word Replacements
-- Imprint "button" placement
-- Paper?
-- Prepare removing "drawing" feature
-- Bird list -> allow to show drawings???
+- Paper? - Paper!
 - Poke Volker: Picture<Schweizer> from twitter? Looks not all too serious. Description?
 - Poke Volker: How does the hall look.
+
+[Max]
+- Imprint "button" placement
+- Prepare removing "drawing" feature
+- Bird list -> allow to show drawings???
+
+[Both]
+- Keyboard situation
+- Retweet information/details
+- Wording
+- Curse Word Replacements
 - About page on public facing site.
+- TeamViewer?
 
 ## Windows setup:
 
@@ -38,18 +44,8 @@ and Etherpad for their wonderful work!
 - [Ben] Maybe force-sort politicians? (Front-End thinks they are sorted by pid, but new politicians are inserted sequentially)
 - [Ben] Enable forwarding of retweet data (2 lines in twitter.py, plus adapting the tests)
 - [Ben] Properly handle removal of the two politicians
-
-Both: Come up with a "protocol" to sanely display to a user when the tweeting can start.
-Suggestion:
-- if something is wrong, send `{"user":"foo","bird":"bar","state":"error"}`
-- if data entry succeeded, send `{"user":"foo","bird":"bar","state":"connecting"}`
-- *when* (not if) the user can start tweeting, send
-  `{"user":"foo","bird":"bar","state":"ready"}`
-
-    I just have to think about how to implement that sanely and safely.
-    Note that I can't* send you notifications when the user is removed.  
-    *: well, of course I can, but it's unnecessarily complicated.
-    (Not implemented in this way.  This would replace the "userFeedbackQueue".)
+- [Ben] Adapt data structure for citizen user feedback queue, see README.
+      Provide *short* messages. French message encouraged, not mandatory.
 
 ## Frontend:
 
@@ -62,7 +58,6 @@ Suggestion:
 - [Max] bird on tweet more prominent
 - [Max] disallow opening profile before lists are displayed  
 - [Max] rename deputy -> poli
-- [Max] sort english birds
 - [Max] impressum/impress -> imprint
 - [Max] Re-check whether switch-icons are correctly aligned with the switch-text (e.g. "stimmen von")
 - [Max] "Add Citizen User" should not play sound of already displayed tweets
@@ -70,6 +65,7 @@ Suggestion:
 - [Max] Remove "Foto"/"Zeichnung" from bird profile
 - [Max] Reset filtered bird/poli list after leaving voiceslists page.
 - [Max] keep switch and image consistent when leaving bird profile page
+- [Max] Adapt data structure for citizen user feedback queue, see README
 
 ## Model
 
