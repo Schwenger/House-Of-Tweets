@@ -4,10 +4,10 @@ so we can undo/redo anything needed.
 
 =======================[ Driver Installation ]=======================
 T1? T2? Task
-[_] [_] get `.exe` files for drivers from medion website
-[_] [_] extract each of them
-[_] [_] open device manager, install each missing driver. NB: One will fail
-[_] [_] restart machine
+[X] [_] get `.exe` files for drivers from medion website
+[X] [_] extract each of them
+[X] [_] open device manager, install each missing driver. NB: One will fail
+[X] [_] restart machine
 
 =======================[ System configuration ]======================
 T1? T2? Task
@@ -15,34 +15,25 @@ T1? T2? Task
         change adapter settings
         right-click Wireless Network Connection/Local Area Connection
         open properties, IPv4 -> properties
-[_] [_] check 'Use the following IP address:'
-[_] [_] insert the respective values
-[_] [_] use `8.8.8.8` and `8.8.4.4` as 
+[X] [_] check 'Use the following IP address:'
+[X] [_] insert the respective values
+[X] [_] use `8.8.8.8` and `8.8.4.4` as 
         DNS addresses.
         save and exit. Run `cmd` from the start menu and type `ipconfig`. 
-[_] [_] Make sure the changes have been applied.
+[X] [_] Make sure the changes have been applied.
         open energy options, change plan settings
-[_] [_] turn off the display: never
+[X] [_] turn off the display: never
         -> change advanced settings for this plan
         leave as is except: 
-[_] [_] Sleep -> hibernate after -> never
-[_] [_] Display -> turn off display after: never
-[_] [_] open the settings for All Control Panel Items -> Notification Area Icons
-[_] [_] hide all notifications
+[X] [_] Sleep -> hibernate after -> never
+[X] [_] Display -> turn off display after: never
+[X] [_] open the settings for All Control Panel Items -> Notification Area Icons
+[X] [_] hide all notifications
 
 ========================[ Key Lock ]========================
 T1? T2? Task
-[_] [_] download and install "kid key lock"
+[X] [_] download and install "kid key lock"
         open setup
-[_] [_] lock middle and right mouse button
-[_] [_] lock all keys except character keys, space, enter and arrow keys
-[_] [_] set passwords, disable reminder, and save.
-
-============================[ Dropbox ]=============================
-T1? T2? Task
-[_] [_] download and install dropbox
-        create new machine with 
-[_] [_] one core  
-[_] [_] 1536MB RAM
-[_] [_] 20 GB hard drive
-[_] [_] set up debian
+[X] [_] lock middle and right mouse button
+[X] [_] lock all keys except character keys, space, enter and arrow keys
+[X] [_] set passwords, disable reminder, and save.
