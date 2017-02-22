@@ -99,7 +99,7 @@
 				<br>
 				During a fiery debate in the Bundestag a concert of birds arises, a befuddling mix of different voices, constantly changing, never subsiding.
 				<br>
-				In addition, visitors of the exhibit can assign their own ideas of birds to the politicians and experience upcoming tweets with the new voice.
+				In addition, visitors of the exhibit can interactively assign a bird of their own choice to the politicians and experience upcoming tweets with the new voice.
 				<br>
 				They can also add their own twitter account, choose a bird, and become themselves part of the exhibit. Their tweets will not only be displayed among the politicians', but become audible and contribute to the sound experience.
 				"""
@@ -114,8 +114,8 @@
 			special_thanks: "Special thanks to:"
 			
 			purpose_volker: "Idea and Concept"
-			purpose_max: "Design and technical Implementation"
-			purpose_ben: "Design and technical Implementation"
+			purpose_max: "Design and Technical Implementation"
+			purpose_ben: "Design and Technical Implementation"
 
 			register: "Submit"
 			select: "Select"
