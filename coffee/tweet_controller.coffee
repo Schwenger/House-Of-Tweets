@@ -54,6 +54,38 @@ TweetController =
 		$('#citizen-tweets-switch').prop('checked', false);
 		@_changeShownTweets()
 
+	# Public
+	consume: (incomingTweets) ->
+		# Consumes an incoming tweets, i.e.
+		# a) Archiving them.
+		# b) Adding them to the respective tList(s).
+		# c) Evicting displayed tweets if necessary.
+		# d) Displaying the tweet and playing the sound if the mode is
+		# 	 appropriate.
+
+		newMixed = @_transform(incomingTweets)
+		[newPoli, birdChange] = @_classify(newMixed)
+
+		@_updatePoliBird(tweet.refresh) for tweet in birdChange
+		@_addToArchive(tweet) for tweet in newMixed
+
+		# Update tLists
+		@_tLists.poli = @_tLists.poli.concat newPoli
+		@_tLists.mixed = @_tLists.mixed.concat newMixed
+		[evictedPoli, evictedMixed] = @_trimLists()
+
+		# Select and display tweets w.r.t. the set mode.
+		if @_poliTweetsOnly
+			list = newPoli
+			@_removeTweets(evictedPoli)
+		else
+			list = newMixed
+			@_removeTweets(evictedMixed)
+		@_displayTweets(list)
+
+		# Play sounds.
+		@_playTweets(list, SoundCtrl.getMode())
+
 	# ARCHIVE
 	_addToArchive: (entry) ->
 		@_archiveRoot.append entry.obj
@@ -103,27 +135,6 @@ TweetController =
 		startNext = () -> TweetController._startPlaybackHandler(id, upcoming)
 		setTimeout startNext, @_batch.interval
 
-	# CONSUME INCOMING TWEETS
-
-	consume: (incomingTweets) ->
-		[newPoli, newMixed] = @_process(incomingTweets)
-
-		@_tLists.poli = @_tLists.poli.concat newPoli
-		@_tLists.mixed = @_tLists.mixed.concat newMixed
-
-		[evictedPoli, evictedMixed] = @_trimLists()
-
-		if @_poliTweetsOnly
-			list = newPoli
-			@_removeTweets(evictedPoli)
-		else 
-			list = newMixed
-			@_removeTweets(evictedMixed) 
-
-		@_displayTweets(list)
-		@_playTweets(list, SoundCtrl.getMode())
-
-	# selects the last @_threshold elements, returns evicted ones
 	_trimLists: () ->
 		numEvictedPoli = Math.max(0, @_tLists.poli.length - @_threshold)
 		numEvictedMixed = Math.max(0, @_tLists.mixed.length - @_threshold)
@@ -133,17 +144,21 @@ TweetController =
 		@_tLists.mixed = @_tLists.mixed[numEvictedMixed...]
 		[evictedPoli, evictedMixed]
 
-	_process: (tweets) ->
-		poli = []
-		mixed = []
-		for tweet in tweets
-			tweet.time = new Date(parseInt tweet.time) 
-			transformed = @_transform(tweet)
-			@_addToArchive(transformed)
-			@_updatePoliBird(tweet.refresh) if tweet.refresh?
-			poli.push transformed if tweet.poli?
-			mixed.push transformed
-		[poli, mixed]
+	_transform: (tweets) ->
+		# Transforms tweets in the internal representation.
+		tweet.time = new Date(parseInt tweet.time) for tweet in tweets
+		@_transform(tweet) for tweet in tweets
+
+	_classify: (tweets) ->
+		# Returns a list with tweets by politicians and tweets with a change in 
+		# bird. Potentially overlapping
+		poli = tweet for tweet in tweets when tweet.poli?
+		birdChange = tweet for tweet in tweets when tweet.refresh?
+		[poli, birdChange]
+
+	_removeTweets: (tweets) ->
+		# Remove tweet objects from DOM.
+		tweet.obj.remove() for tweet in tweets
 
 	_updateBirdNames: ->
 		for own key, list of TweetController._tLists
@@ -167,9 +182,6 @@ TweetController =
 		root.append tweet.obj for tweet in newL
 		@_playTweets(newL, SoundCtrl.getMode())
 		@_attachClickHandler tweet for tweet in newL 
-
-	_removeTweets: (tweets) ->
-		tweet.obj.remove() for tweet in tweets
 
 	_displayTweets: (tweets) ->
 		domList = $('#tweet-list')
