@@ -68,14 +68,15 @@ Direction: backend → frontend
 
 Direction: backend → frontend
 
-- `twittername`: same as from the `citizenuser` request
-- `birdid`: same as from the `citizenuser` request
-- `error`: string, contains the id of any error.  Possible values are:
-    - `undefined`: no error occurred
-    - `"unknown-user"`: couldn't resolve `twittername` (note that inclusion of the
-      initial `@` does not matter, and twitter-handles are case-insensitive)
-    - `"unknown-bird"`: couldn't resolve `birdid`
-    - `"is-politician"`: user already is a politician
+- `twittername`: string, same as from the `citizenuser` request
+- `status`: string, any of:
+    - `succ`, probably green in the UI
+    - `info`, probably blue in the UI
+    - `fail`, probably red in the UI
+- `message`: JSON object, localized versions of the message, as it should be displayed (unsanitized!)
+    - `de`: German version
+    - `en`: English version
+    - `fr`: French version?
 
 ### Queue "citizenbirds"
 
