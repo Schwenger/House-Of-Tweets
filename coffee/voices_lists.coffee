@@ -8,6 +8,10 @@ VoicesLists =
 	birdListRoot: $("#voices-list-birds")
 	politicianListRoot: $("#voices-list-politicians")
 
+	searchString: 
+		poli: ""
+		bird: ""
+
 	init: ->
 		@_initPoliticianList()
 		@_initBirdList()
@@ -27,8 +31,8 @@ VoicesLists =
 		Profiles.close()
 		$("#bird-search-bar").val("")
 		$("#poli-search-bar").val("")
-		Global.searchString.bird = ""
-		Global.searchString.poli = ""
+		@searchString.bird = ""
+		@searchString.poli = ""
 		@_removePolis()
 		@_initPoliticianList()
 

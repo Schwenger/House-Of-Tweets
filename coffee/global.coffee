@@ -5,9 +5,6 @@ Global = {
 	basePath:  "../ext/"
 	birdPath:  "../ext/images/birds/"
 	politicianPath: "../ext/images/politicians/"
-	searchString: 
-		poli: ""
-		bird: ""
 
 	_transform: (langString) ->
 		switch(langString)
