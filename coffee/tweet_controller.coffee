@@ -16,7 +16,7 @@ TweetController =
 	_archiveRoot: $('#archive-container')
 	_batch:
 		duration: 10 * 1000
-		intervall: 5 * 1000
+		interval: 5 * 1000
 		size: 10
 	_poliTweetsOnly: true
 	_threshold: 6
@@ -101,7 +101,7 @@ TweetController =
 		[upcoming..., current] = agenda
 		tweet.play(SoundCtrl.getMode(), @_batch.duration) for tweet in current
 		startNext = () -> TweetController._startPlaybackHandler(id, upcoming)
-		setTimeout startNext, @_batch.intervall
+		setTimeout startNext, @_batch.interval
 
 	# CONSUME INCOMING TWEETS
 
@@ -261,7 +261,7 @@ TweetController =
 
 	_enhance: (tweet, hashtags) ->
 		for hashtag in hashtags
-			tweet = tweet.replace('#'+hashtag, "<span style='color: blue'>##{hashtag}</span>")
+			tweet = tweet.replace('#'+hashtag, "<span style='color: green'>##{hashtag}</span>")
 		return tweet
 
 	_getDuration: (suggestion, tweet, mode) ->
