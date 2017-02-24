@@ -10,6 +10,10 @@ and Etherpad for their wonderful work!
 - Paper? - Paper!
 - Poke Volker: Picture<Schweizer> from twitter? Looks not all too serious. Description?
 - Poke Volker: How does the hall look.
+- Make a decision about the "Feetless Akoya"
+    * currently it's pretty bad: the "air holes" are irregular and look improvised – which they are.
+    * getting the real "Standfuß" seems impossible
+    * not desperate enough to ask the devil
 
 [Max]
 - Imprint "button" placement
