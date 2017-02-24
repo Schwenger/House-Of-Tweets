@@ -40,7 +40,8 @@ This repository includes all sounds and images which have appropriate licensing 
 
 In general, you'll need:
 - some form of libav for pydub (see below)
-- npm
+- nodejs
+- npm (ONLY if not already installed automatically by nodejs)
 - rabbitmq
 - less
 - Python 3
@@ -48,7 +49,7 @@ In general, you'll need:
 - script (as in "typescript", appeared in BSD 3.0)
 
 ##### Linux
-- Ubuntu: `sudo apt-get install -qq libav-tools npm rabbitmq-server` (python, pip, and bsdutils?)
+- Ubuntu: `sudo apt-get install -qq libav-tools rabbitmq-server` (python, pip, and bsdutils?)
 - Debian: `sudo apt-get install -qq libav-tools npm rabbitmq-server python3-dev python3-pip bsdutils`
 
 Some systems (Ubuntu and Debian, at least) install the `node` binary in
