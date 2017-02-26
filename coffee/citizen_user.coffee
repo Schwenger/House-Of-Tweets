@@ -46,6 +46,11 @@ CitizenUser =
 	# Public
 	open: ->
 		# No further initialization.
+		0
+	# Public 
+	prepareOpen: ->
+		# No preparation.
+		0
 
 	_consumeFeedback: (msg) ->
 		# Consumes a message from the feedback queue. That means, with respect

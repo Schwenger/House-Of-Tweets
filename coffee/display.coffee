@@ -54,10 +54,13 @@ Display =
 		@state = @_delta(@state, dir)
 		@_removeSidebars()
 		Display.controls["down"].addClass "invisible"
-		if dir is "up"
-			@_panUp()
-		if dir is "down"
-			@_panDown()
+
+		switch @state
+			when "center" 
+				@_panUp() if dir is "up" 
+			when "U1" then @_panDown()
+			when "right" then CitizenUser.prepareOpen()
+			when "left" then VoicesLists.prepareOpen()
 
 		timeoutAction = switch @state
 			when "center" then -> 
