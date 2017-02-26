@@ -6893,28 +6893,6 @@
 				"twitterUserName": "brigittezypries"
 			}
 		},
-		"651": {
-			"citizen_bird": "rotkehlchen",
-			"cv": {
-				"de": "J\u00fcrgen Co\u00dfe (* 16. August 1969) ist ein deutscher Politiker (SPD). Er ist seit 1986 Mitglied der SPD. Dort ist er Vorsitzender des Unterbezirkes Steinfurt und geh\u00f6rt zurzeit dem Ortsverein Neuenkirchen an.",
-				"en": "J\u00fcrgen Co\u00dfe is a German politician. He is a member of the SPD."
-			},
-			"full_name": "J\u00fcrgen Co\u00dfe",
-			"images": {
-				"copyright": "Susie Knoll / Florian J\u00e4nicke",
-				"license": "custom-spd",
-				"pathToImage": "651.jpg",
-				"pathToThumb": "651_t.jpg"
-			},
-			"name": "J\u00fcrgen Co\u00dfe",
-			"party": "SPD",
-			"pid": "651",
-			"self_bird": "rauchschwalbe",
-			"twittering": {
-				"twitterId": "161395160",
-				"twitterUserName": "juergencosse"
-			}
-		},
 		"67": {
 			"citizen_bird": "gartengrasmuecke",
 			"cv": {
@@ -7001,6 +6979,28 @@
 			"twittering": {
 				"twitterId": 17469649,
 				"twitterUserName": "larscastellucci"
+			}
+		},
+		"72": {
+			"citizen_bird": "rotkehlchen",
+			"cv": {
+				"de": "J\u00fcrgen Co\u00dfe (* 16. August 1969) ist ein deutscher Politiker (SPD). Er ist seit 1986 Mitglied der SPD. Dort ist er Vorsitzender des Unterbezirkes Steinfurt und geh\u00f6rt zurzeit dem Ortsverein Neuenkirchen an.",
+				"en": "J\u00fcrgen Co\u00dfe is a German politician. He is a member of the SPD."
+			},
+			"full_name": "J\u00fcrgen Co\u00dfe",
+			"images": {
+				"copyright": "Susie Knoll / Florian J\u00e4nicke",
+				"license": "custom-spd",
+				"pathToImage": "72.jpg",
+				"pathToThumb": "72_t.jpg"
+			},
+			"name": "J\u00fcrgen Co\u00dfe",
+			"party": "SPD",
+			"pid": "72",
+			"self_bird": "rauchschwalbe",
+			"twittering": {
+				"twitterId": "161395160",
+				"twitterUserName": "juergencosse"
 			}
 		},
 		"74": {
