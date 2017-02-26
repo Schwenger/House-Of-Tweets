@@ -39,9 +39,11 @@ VoicesLists =
 		$("#poli-search-bar").val("")
 		@searchString.bird = ""
 		@searchString.poli = ""
-		# Remove filtered list of politicians, re-add all of them.
+		# Remove filtered list of entries, re-add all of them.
 		@_removePolis()
 		@_initPoliticianList()
+		@_removeBirds()
+		@_initBirdList()
 
 	# Public 
 	prepareOpen: ->
