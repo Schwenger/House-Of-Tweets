@@ -64,6 +64,7 @@ and Etherpad for their wonderful work!
 
 - [Ben] Crop images to your liking
 - [Max] switches on center page: Icons clickable
+- [Max] Fix screensaver
 - [Max] auto focus input field
 - [Max] bird on tweet more prominent
 - [Max] disallow opening profile before lists are displayed  
