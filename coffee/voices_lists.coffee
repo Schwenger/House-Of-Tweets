@@ -59,7 +59,7 @@ VoicesLists =
 					# Passing `undefined` here is indistinguishable from no second
 					# argument, so `false` has to do.
 					$(@).attr('frozen', false)
-			setTimeout(reEnableHandler, Display.pageMoveDelay * 10)
+			setTimeout(reEnableHandler, Display.pageMoveDelay)
 		enable("politicianListRoot")
 		enable("birdListRoot")
 
