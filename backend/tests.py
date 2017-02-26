@@ -460,7 +460,7 @@ def test_twitter_listener():
     politicianBackend.check_writeback()
     birdBack = birdBackend.BirdBackend()
     polBack = politicianBackend.PoliticianBackend()
-    follow = ["4718199753", "813286", "774336282101178368"]
+    follow = ["4718199753", "139407967", "774336282101178368"]
     queue = mq.PrintQueue("twitter_lis_test")
     mylog.info("Preparing for integration test ...")
 
@@ -532,36 +532,37 @@ def test_twitter_listener():
     fakeTwitter.expect([])
 
     # Put into some known state
-    polBack.setBird('648', 'amsel', 'c')
-    polBack.setBird('648', 'invalid', 'p')
+    polBack.setBird('74', 'amsel', 'c')
+    polBack.setBird('74', 'invalid', 'p')
     assert responseBuilder.NEXT_ACK == 0, 'You inserted/removed a test without updating this one'
     assert ('Ihre Vogelstimme wurde geändert: {fromm} → {to}', 'https://t.co/Jh0JMFWHWK') \
         == (responseBuilder.ACK_TEMPLATES[0], responseBuilder.ACK_LINK), \
         'You changed responseBuilder.py without updating tests.py'
     expect_response = \
-        '@RealBarackObama: Ihre Vogelstimme wurde geändert: Goldammer → Amsel https://t.co/Jh0JMFWHWK #HouseOfTweets'
+        '@SevimDagdelen: Ihre Vogelstimme wurde geändert: Goldammer → Amsel https://t.co/Jh0JMFWHWK #HouseOfTweets'
     # Test receiving a command:
     fakeTwitter.send({'content': 'such an #amsel #HoT',
                       'profile_img': 'img_url',
-                      'userscreen': 'The Barack',
+                      'userscreen': 'Sevim Da\u011fdelen',
                       'hashtags': ['amsel', 'HoT'],
-                      'username': 'RealBarackObama',
+                      'username': 'SevimDagdelen',
                       'time': '1473446404527',
-                      'uid': 813286, 'tweet_id': 'bullshit',
+                      'uid': 139407967, 'tweet_id': 'bullshit',
                       'retweet': False})
-    queue.expect([{'poli': '648', 'content': 'such an #amsel #HoT',
+    queue.expect([{'poli': '74', 'content': 'such an #amsel #HoT',
                    'hashtags': ['amsel', 'HoT'],
-                   'id': 44, 'image': 'img_url', 'name': 'The Barack', 'partycolor': '#429EE2', 'party': 'Demokraten',
+                   'id': 44, 'image': 'img_url', 'name': 'Sevim Da\u011fdelen',
+                   'partycolor': '#c82864', 'party': 'DIE LINKE',
                    'refresh': {
-                       'politicianId': '648',
+                       'politicianId': '74',
                        'birdId': 'amsel',  # Must be the new bird
                    },
                    'retweet': False, 'sound':
                    {
-                     'citizen': {'natural': expect_amsel, 'bid': 'amsel', 'duration': 10000,},
-                     'poli': {'natural': expect_amsel, 'bid': 'amsel', 'duration': 10000,},
+                     'citizen': {'natural': expect_amsel, 'bid': 'amsel', 'duration': 10000},
+                     'poli': {'natural': expect_amsel, 'bid': 'amsel', 'duration': 10000},
                    },
-                   'time': '1473446404527', 'twitterName': 'RealBarackObama'
+                   'time': '1473446404527', 'twitterName': 'SevimDagdelen'
                    }])
     fakeTwitter.expect([('bullshit', expect_response)])
 

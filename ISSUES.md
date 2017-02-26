@@ -47,7 +47,6 @@ and Etherpad for their wonderful work!
 - [Ben] Re-run all crawlers to get up-to-date information
 - [Ben] Maybe force-sort politicians? (Front-End thinks they are sorted by pid, but new politicians are inserted sequentially)
 - [Ben] Enable forwarding of retweet data (2 lines in twitter.py, plus adapting the tests)
-- [Ben] Properly handle removal of the two politicians
 - [Ben] Check precise color of GRÜNE again, they seem to have adapted their Corporate Identity slightly
 - [Ben] Adapt data structure for citizen user feedback queue, see README.
       Provide *short* messages. French message encouraged, not mandatory.
