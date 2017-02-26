@@ -10,13 +10,13 @@ Display =
 	controls: {
 		left: $('#carousel-control-prev')
 		right: $('#carousel-control-next')
-		down: $("#impressum-button")
-		up: $("#impressum-back")
+		down: $("#imprint-button")
+		up: $("#imprint-back")
 	}
 
 	pages: {
 		tweets: $("#tweets")
-		impressum: $("#impressum")
+		imprint: $("#imprint")
 	}
 
 	right: {
@@ -73,15 +73,15 @@ Display =
 		setTimeout(timeoutAction, @pageMoveDelay) if timeoutAction?
 				
 	_panUp: ->
-		# Switches from U1/impress to center.
+		# Switches from U1/imprint to center.
 		$('#carousel').carousel 1 # tweets
 		setTimeout (() -> 
 			$('#carousel').removeClass "vertical"), Display.pageMoveDelay
 
 	_panDown: ->
-		# Switches from center to U1/impress.
+		# Switches from center to U1/imprint.
 		$('#carousel').addClass "vertical"
-		$('#carousel').carousel 3 # impressum
+		$('#carousel').carousel 3 # imprint
 
 	_openSide: (side, otherSide) ->
 		# Switches from center page to left/right.

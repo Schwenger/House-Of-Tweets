@@ -86,6 +86,8 @@
 
 			own_bird: "Eigener Vogel"
 			citizen_bird: "Bürgervogel"
+
+			imprint: "Impressum"
 		}
 
 		_en: {
@@ -164,5 +166,7 @@
 
 			own_bird: "Own Bird"
 			citizen_bird: "Citizen-chosen Bird"
+
+			imprint: "Imprint"
 		}
 	}
