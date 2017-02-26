@@ -51,9 +51,6 @@
 
 			choose_bird_prompt: "Jetzt noch den Lieblingsvogel aussuchen und abschicken!"
 
-			photo: "Foto"
-			drawing: "Zeichnung" #Kunst?
-			
 			bird_calls: "Vogelstimmen",
 			own_tweets: "Eigene Tweets",
 			back_to_tweets: "Zurück zu den Tweets",
@@ -132,9 +129,6 @@
 			is_poli_feedback_post: "is a politician and being followed already."
 
 			choose_bird_prompt: "Now choose you favourite bird and submit!"
-
-			photo: "photo"
-			drawing: "drawing"
 
 			bird_calls: "Bird Calls",
 			own_tweets: "Own Tweets",
