@@ -245,9 +245,7 @@ def test_party_color():
     # Parti socialiste, SPD
     known_results = {'GR\u00dcNE': '#46962b', 'CDU': '#000000',
                      'CSU': '#000000', 'SPD': '#ff0000',
-                     'DIE LINKE': '#c82864',
-                     'Demokraten': '#429EE2',
-                     'Parti socialiste': '#FFC0DB'}
+                     'DIE LINKE': '#c82864'}
     for (party, expected) in known_results.items():
         actual = twitterConnection.party_to_color(party)
         assert actual == expected

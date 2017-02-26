@@ -29,10 +29,6 @@ def party_to_color(party: str):
 		color = "#46962b"
 	elif party.startswith("di"):  # DIE LINKE
 		color = "#c82864"
-	elif party.startswith("de"):  # Demokraten (Obama, USA)
-		color = "#429EE2"
-	elif party.startswith("p"):  # Partie socialiste (Hollande, France)
-		color = "#FFC0DB"  # Wikipedia page says just "pink", where the page about pink says "#FFC0DB"
 	else:
 		color = "#ffffff"
 
