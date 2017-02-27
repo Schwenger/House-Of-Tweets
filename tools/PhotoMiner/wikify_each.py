@@ -13,6 +13,7 @@ url_override = {
     # Wikipedia doesn't list him with his 'name' as per bundestag.de:
     'https://de.wikipedia.org/wiki/Karl-Heinz_Helmut_Wange': 'https://de.wikipedia.org/wiki/Karl-Heinz_Wange',
     'https://de.wikipedia.org/wiki/Gerd_Müller': 'https://de.wikipedia.org/wiki/Gerd_M%C3%BCller_%28CSU%29',
+    'https://de.wikipedia.org/wiki/Christian_Frhr._von_Stetten': 'https://de.wikipedia.org/wiki/Christian_Freiherr_von_Stetten',
     # Bad default:
     'https://de.wikipedia.org/wiki/Andreas_Rimkus': 'https://de.wikipedia.org/wiki/Andreas_Rimkus_(Politiker)',
     'https://de.wikipedia.org/wiki/Karl_Lamers': 'https://de.wikipedia.org/wiki/Karl_A._Lamers',
@@ -22,7 +23,7 @@ url_override = {
 
 known_missing = {
     'Iris Ripsam',
-    'Karl-Heinz Helmut Wange',
+    'Karl-Heinz Wange',
 }
 
 
@@ -141,7 +142,7 @@ def get_img_desc_link(name, page_soup):
         'Burkhard Lischka',  # bullshit
         'Cajus Caesar',  # Gajus
         'Charles Huber',  # M.
-        'Christian Freiherr von Stetten',  # no 'Freiherr'
+        'Christian Frhr. von Stetten',  # no 'Frhr.'
         'Christian Kühn',  # Chris
         'Johann David Wadephul',  # No 'David'
         'Karl Lamers',  # A.

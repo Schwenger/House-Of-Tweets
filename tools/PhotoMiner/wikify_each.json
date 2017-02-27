@@ -523,6 +523,22 @@
     }
   },
   {
+    "full_name": "Angelika Kr\u00fcger-Lei\u00dfner",
+    "imgs": {
+      "spd": {
+        "copyright": "Susie Knoll / Florian J\u00e4nicke",
+        "license": "custom-spd",
+        "url": "http://www.spdfraktion.de/system/files/images/krueger-leissner_angelika.jpg"
+      }
+    },
+    "name": "Angelika Kr\u00fcger-Lei\u00dfner",
+    "party": "SPD",
+    "srcs": {
+      "spd": "http://www.spdfraktion.de/abgeordnete/krueger-leissner?wp=18",
+      "wiki": "https://de.wikipedia.org/wiki/Angelika_Kr\u00fcger-Lei\u00dfner"
+    }
+  },
+  {
     "full_name": "Anita Sch\u00e4fer",
     "imgs": {
       "cxu": {
@@ -1205,6 +1221,22 @@
     }
   },
   {
+    "full_name": "Bettina B\u00e4hr-Losse",
+    "imgs": {
+      "spd": {
+        "copyright": "Susie Knoll / Florian J\u00e4nicke",
+        "license": "custom-spd",
+        "url": "http://www.spdfraktion.de/system/files/images/baehr-losse-bettina.jpg"
+      }
+    },
+    "name": "Bettina B\u00e4hr-Losse",
+    "party": "SPD",
+    "srcs": {
+      "spd": "http://www.spdfraktion.de/abgeordnete/baehr-losse?wp=18",
+      "wiki": "https://de.wikipedia.org/wiki/Bettina_B\u00e4hr-Losse"
+    }
+  },
+  {
     "full_name": "Bettina Hagedorn",
     "imgs": {
       "spd": {
@@ -1784,7 +1816,7 @@
     "twitter_handle": "ChristianFlisek"
   },
   {
-    "full_name": "Christian Freiherr von Stetten",
+    "full_name": "Christian Frhr. von Stetten",
     "imgs": {
       "cxu": {
         "copyright": "CDU/CSU-Fraktion",
@@ -1797,7 +1829,7 @@
         "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Christian_von_Stetten_Bild_1.jpg"
       }
     },
-    "name": "Christian Freiherr von Stetten",
+    "name": "Christian Frhr. von Stetten",
     "party": "CDU",
     "srcs": {
       "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/S/stetten_christian/259072",
@@ -3068,6 +3100,28 @@
     }
   },
   {
+    "full_name": "Dr. Edelgard Bulmahn",
+    "imgs": {
+      "spd": {
+        "copyright": "Susie Knoll / Florian J\u00e4nicke",
+        "license": "custom-spd",
+        "url": "http://www.spdfraktion.de/system/files/images/bulmahn_edelgard.jpg"
+      },
+      "wiki": {
+        "copyright": "Sven Teschke",
+        "license": "CC-BY-SA-3.0 de",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/2014-09-09_-_Edelgard_Bulmahn_MdB_-_7159.jpg"
+      }
+    },
+    "name": "Edelgard Bulmahn",
+    "party": "SPD",
+    "srcs": {
+      "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/B/bulmahn_edelgard/258178",
+      "spd": "http://www.spdfraktion.de/abgeordnete/bulmahn?wp=18",
+      "wiki": "https://de.wikipedia.org/wiki/Edelgard_Bulmahn"
+    }
+  },
+  {
     "full_name": "Dr. Edgar Franke",
     "imgs": {
       "spd": {
@@ -3632,7 +3686,7 @@
     }
   },
   {
-    "full_name": "Dr. Johann David Wadephul",
+    "full_name": "Dr. Johann Wadephul",
     "imgs": {
       "cxu": {
         "copyright": "Laurence Chaperon",
@@ -3645,12 +3699,12 @@
         "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Wadephul%2C_Johann-1249.jpg"
       }
     },
-    "name": "Johann David Wadephul",
+    "name": "Johann Wadephul",
     "party": "CDU",
     "srcs": {
       "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/W/wadephul_johann/259168",
-      "cxu": "https://www.cducsu.de/abgeordnete/johann-david-wadephul",
-      "wiki": "https://de.wikipedia.org/wiki/Johann_David_Wadephul"
+      "cxu": "https://www.cducsu.de/abgeordnete/johann-wadephul",
+      "wiki": "https://de.wikipedia.org/wiki/Johann_Wadephul"
     }
   },
   {
@@ -3963,6 +4017,22 @@
       "wiki": "https://de.wikipedia.org/wiki/Martin_Rosemann"
     },
     "twitter_handle": "MartinRosemann"
+  },
+  {
+    "full_name": "Dr. Mathias H\u00f6schel",
+    "imgs": {
+      "cxu": {
+        "copyright": "Deutscher Bundestag/Fotograf: Stella von Saldern",
+        "license": "CC-BY-SA-3.0",
+        "url": "https://www.cducsu.de/download/file/fid/54677"
+      }
+    },
+    "name": "Mathias H\u00f6schel",
+    "party": "CDU",
+    "srcs": {
+      "cxu": "https://www.cducsu.de/abgeordnete/mathias-hoeschel",
+      "wiki": "https://de.wikipedia.org/wiki/Mathias_H\u00f6schel"
+    }
   },
   {
     "full_name": "Dr. Mathias Middelberg",
@@ -4863,28 +4933,6 @@
     "twitter_handle": "W_SK"
   },
   {
-    "full_name": "Dr. h. c. Hans Michelbach",
-    "imgs": {
-      "cxu": {
-        "copyright": "Henning Schacht - berlinpressphoto",
-        "license": "CC-BY-SA-3.0",
-        "url": "https://www.cducsu.de/download/file/fid/41537"
-      },
-      "wiki": {
-        "copyright": "Henning Schacht",
-        "license": "CC-BY-SA-3.0 de",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Hans_Michelbach_2012.jpg"
-      }
-    },
-    "name": "Hans Michelbach",
-    "party": "CSU",
-    "srcs": {
-      "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/M/michelbach_hans/258782",
-      "cxu": "https://www.cducsu.de/abgeordnete/hans-michelbach",
-      "wiki": "https://de.wikipedia.org/wiki/Hans_Michelbach"
-    }
-  },
-  {
     "full_name": "Dr. h.c. Albert Weiler",
     "imgs": {
       "cxu": {
@@ -4926,6 +4974,28 @@
       "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/E/erler_gernot/258308",
       "spd": "http://www.spdfraktion.de/abgeordnete/erler?wp=18",
       "wiki": "https://de.wikipedia.org/wiki/Gernot_Erler"
+    }
+  },
+  {
+    "full_name": "Dr. h.c. Hans Michelbach",
+    "imgs": {
+      "cxu": {
+        "copyright": "Henning Schacht - berlinpressphoto",
+        "license": "CC-BY-SA-3.0",
+        "url": "https://www.cducsu.de/download/file/fid/41537"
+      },
+      "wiki": {
+        "copyright": "Henning Schacht",
+        "license": "CC-BY-SA-3.0 de",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Hans_Michelbach_2012.jpg"
+      }
+    },
+    "name": "Hans Michelbach",
+    "party": "CSU",
+    "srcs": {
+      "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/M/michelbach_hans/258782",
+      "cxu": "https://www.cducsu.de/abgeordnete/hans-michelbach",
+      "wiki": "https://de.wikipedia.org/wiki/Hans_Michelbach"
     }
   },
   {
@@ -4989,28 +5059,6 @@
       "wiki": "https://de.wikipedia.org/wiki/Eckhardt_Rehberg"
     },
     "twitter_handle": "eckhardtrehberg"
-  },
-  {
-    "full_name": "Edelgard Bulmahn",
-    "imgs": {
-      "spd": {
-        "copyright": "Susie Knoll / Florian J\u00e4nicke",
-        "license": "custom-spd",
-        "url": "http://www.spdfraktion.de/system/files/images/bulmahn_edelgard.jpg"
-      },
-      "wiki": {
-        "copyright": "Sven Teschke",
-        "license": "CC-BY-SA-3.0 de",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/2014-09-09_-_Edelgard_Bulmahn_MdB_-_7159.jpg"
-      }
-    },
-    "name": "Edelgard Bulmahn",
-    "party": "SPD",
-    "srcs": {
-      "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/B/bulmahn_edelgard/258178",
-      "spd": "http://www.spdfraktion.de/abgeordnete/bulmahn?wp=18",
-      "wiki": "https://de.wikipedia.org/wiki/Edelgard_Bulmahn"
-    }
   },
   {
     "full_name": "Ekin Delig\u00f6z",
@@ -5222,29 +5270,6 @@
       "cxu": "https://www.cducsu.de/abgeordnete/erich-irlstorfer",
       "wiki": "https://de.wikipedia.org/wiki/Erich_Irlstorfer"
     }
-  },
-  {
-    "full_name": "Erika Steinbach",
-    "imgs": {
-      "cxu": {
-        "copyright": "Deutscher Bundestag",
-        "license": "CC-BY-SA-3.0",
-        "url": "https://www.cducsu.de/file/32791/download?token=9wdwbWDA"
-      },
-      "wiki": {
-        "copyright": "Deutscher Bundestag",
-        "license": "CC-BY-SA-3.0 de",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Erika_Steinbach.jpg"
-      }
-    },
-    "name": "Erika Steinbach",
-    "party": "CDU",
-    "srcs": {
-      "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/S/steinbach_erika/258942",
-      "cxu": "https://www.cducsu.de/abgeordnete/erika-steinbach",
-      "wiki": "https://de.wikipedia.org/wiki/Erika_Steinbach"
-    },
-    "twitter_handle": "steinbacherika"
   },
   {
     "full_name": "Erwin R\u00fcddel",
@@ -6284,17 +6309,6 @@
       "wiki": "https://de.wikipedia.org/wiki/Heike_H\u00e4nsel"
     },
     "twitter_handle": "HeikeHaensel"
-  },
-  {
-    "full_name": "Heiko Schmelzle",
-    "imgs": {},
-    "name": "Heiko Schmelzle",
-    "party": "CDU",
-    "srcs": {
-      "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/S/schmelzle_heiko/259004",
-      "cxu": "https://www.cducsu.de/abgeordnete/heiko-schmelzle",
-      "wiki": "https://de.wikipedia.org/wiki/Heiko_Schmelzle"
-    }
   },
   {
     "full_name": "Heinrich Zertik",
@@ -7590,7 +7604,7 @@
     }
   },
   {
-    "full_name": "Karl-Heinz Helmut Wange",
+    "full_name": "Karl-Heinz Wange",
     "imgs": {
       "cxu": {
         "copyright": "Deutscher Bundestag/von Saldern",
@@ -7598,11 +7612,11 @@
         "url": "https://www.cducsu.de/download/file/fid/52283"
       }
     },
-    "name": "Karl-Heinz Helmut Wange",
+    "name": "Karl-Heinz Wange",
     "party": "CDU",
     "srcs": {
       "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/W/-/434696",
-      "cxu": "https://www.cducsu.de/abgeordnete/karl-heinz-helmut-wange"
+      "cxu": "https://www.cducsu.de/abgeordnete/karl-heinz-wange"
     }
   },
   {
@@ -10303,28 +10317,6 @@
     }
   },
   {
-    "full_name": "Peter Hintze",
-    "imgs": {
-      "cxu": {
-        "copyright": "CDU/CSU-Fraktion",
-        "license": "CC-BY-SA-3.0",
-        "url": "https://www.cducsu.de/file/31088/download?token=CGlRe0SY"
-      },
-      "wiki": {
-        "copyright": "Unbekannt",
-        "license": "CC-BY-SA-3.0 de",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Peter_Hintze_2013.jpg"
-      }
-    },
-    "name": "Peter Hintze",
-    "party": "CDU",
-    "srcs": {
-      "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/H/hintze_peter/258524",
-      "cxu": "https://www.cducsu.de/abgeordnete/peter-hintze",
-      "wiki": "https://de.wikipedia.org/wiki/Peter_Hintze"
-    }
-  },
-  {
     "full_name": "Peter Meiwald",
     "imgs": {
       "gruene": {
@@ -10805,6 +10797,16 @@
     }
   },
   {
+    "full_name": "Rainer Hajek",
+    "imgs": {},
+    "name": "Rainer Hajek",
+    "party": "CDU",
+    "srcs": {
+      "cxu": "https://www.cducsu.de/abgeordnete/rainer-hajek",
+      "wiki": "https://de.wikipedia.org/wiki/Rainer_Hajek"
+    }
+  },
+  {
     "full_name": "Rainer Spiering",
     "imgs": {
       "spd": {
@@ -11125,7 +11127,7 @@
     }
   },
   {
-    "full_name": "Ronja Schmitt",
+    "full_name": "Ronja Kemmer",
     "imgs": {
       "cxu": {
         "copyright": "ToKo",
@@ -11133,12 +11135,12 @@
         "url": "https://www.cducsu.de/download/file/fid/50393"
       }
     },
-    "name": "Ronja Schmitt",
+    "name": "Ronja Kemmer",
     "party": "CDU",
     "srcs": {
       "bundestag": "https://www.bundestag.de/bundestag/abgeordnete18/biografien/S/schmitt_ronja/352884",
-      "cxu": "https://www.cducsu.de/abgeordnete/ronja-schmitt",
-      "wiki": "https://de.wikipedia.org/wiki/Ronja_Schmitt"
+      "cxu": "https://www.cducsu.de/abgeordnete/ronja-kemmer",
+      "wiki": "https://de.wikipedia.org/wiki/Ronja_Kemmer"
     },
     "twitter_handle": "RonjaSchmitt"
   },
