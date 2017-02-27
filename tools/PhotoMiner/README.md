@@ -22,7 +22,7 @@ If there ever are politicians with duplicate name, you'll need to modify the
 names for each politician, and optionally adapt the full-to-bare name conversion.
 `aggregate.py` and all later stages assume that a `full_name` is strictly unique.
 
-### First crawling: `crawl_roots.json`
+### First crawling: `crawl_roots.py`
 
 - crawls the few "root" websites (roughly 30)
 - input: none (duh)

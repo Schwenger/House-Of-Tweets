@@ -338,13 +338,6 @@ WHITELIST_AMBIGUOUS = {
 }
 
 
-SPOOF_POLITICIANS = [
-    ('Barack Obama', 'Demokraten', 'barackobama'),
-    ('François Hollande', 'Parti socialiste', 'fhollande'),
-    # Can't spoof HoT sufficiently well
-]
-
-
 def run():
     with open("aggregate_each.json", 'r') as fp:
         entries = json.load(fp)
@@ -365,18 +358,6 @@ def run():
         if img_desc_url is None:
             # No image?  Okay :(
             continue
-        e['imgs']['wiki'] = get_img_desc(img_desc_url)
-    for name, party, handle in SPOOF_POLITICIANS:
-        e = dict(name=name, full_name=name, party=party, handle=handle,
-                 srcs=dict(), imgs=dict())
-        entries.append(e)
-        findings = get_page_for(name, e['party'])
-        assert findings is not None
-        page_url, page_soup = findings
-        e['srcs']['wiki'] = page_url
-        # ignore 'bksicon'
-        img_desc_url = get_img_desc_link(name, page_soup)
-        assert img_desc_url is not None
         e['imgs']['wiki'] = get_img_desc(img_desc_url)
 
     with open("wikify_each.json", 'w') as fp:

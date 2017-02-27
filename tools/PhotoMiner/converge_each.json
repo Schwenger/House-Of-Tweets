@@ -8577,75 +8577,6 @@
     }
   },
   {
-    "citizen_bird": "girlitz",
-    "cv": {
-      "de": "Barack Hussein Obama II (* 4. August 1961 in Honolulu, Hawaii) ist ein US amerikanischer Politiker und seit dem 20. Januar 2009 der 44. Pr\u00e4sident der Vereinigten Staaten.",
-      "en": "Barack Hussein Obama is an American politician. He is a member of the Democrats."
-    },
-    "full_name": "Barack Obama",
-    "imgs": {
-      "wiki": {
-        "copyright": "Pete Souza",
-        "license": "public domain",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg"
-      }
-    },
-    "name": "Barack Obama",
-    "party": "Demokraten",
-    "pid": "648",
-    "self_bird": "weisskopfseeadler",
-    "twittering": {
-      "twitterId": "813286",
-      "twitterUserName": "barackobama"
-    }
-  },
-  {
-    "citizen_bird": "gartenrotschwanz",
-    "cv": {
-      "de": "Fran\u00e7ois G\u00e9rard Georges Nicolas Hollande (* 12. August 1954 in Rouen, Seine-Maritime) ist ein franz\u00f6sischer Politiker der Sozialistischen Partei (PS) und seit dem 15. Mai 2012 der 24. Staatspr\u00e4sident der Franz\u00f6sischen Republik. Damit hat er gleichzeitig das Amt des Kof\u00fcrsten von Andorra inne. Von 1997 bis 2008 war er Vorsitzender der PS.",
-      "en": "Fran\u00e7ois Hollande is a German politician. He is a member of the Parti socialiste."
-    },
-    "full_name": "Fran\u00e7ois Hollande",
-    "imgs": {
-      "wiki": {
-        "copyright": "COP Paris",
-        "license": "CC0 1.0",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Francois_Hollande_2015.jpeg"
-      }
-    },
-    "name": "Fran\u00e7ois Hollande",
-    "party": "Parti socialiste",
-    "pid": "649",
-    "self_bird": "hausrotschwanz",
-    "twittering": {
-      "twitterId": "18814998",
-      "twitterUserName": "fhollande"
-    }
-  },
-  {
-    "citizen_bird": "rotkehlchen",
-    "cv": {
-      "de": "J\u00fcrgen Co\u00dfe (* 16. August 1969) ist ein deutscher Politiker (SPD). Er ist seit 1986 Mitglied der SPD. Dort ist er Vorsitzender des Unterbezirkes Steinfurt und geh\u00f6rt zurzeit dem Ortsverein Neuenkirchen an.",
-      "en": "J\u00fcrgen Co\u00dfe is a German politician. He is a member of the SPD."
-    },
-    "full_name": "J\u00fcrgen Co\u00dfe",
-    "imgs": {
-      "spd": {
-        "copyright": "Susie Knoll / Florian J\u00e4nicke",
-        "license": "custom-spd",
-        "url": "http://www.spdfraktion.de/system/files/images/cosse-juergen_0.jpg"
-      }
-    },
-    "name": "J\u00fcrgen Co\u00dfe",
-    "party": "SPD",
-    "pid": "651",
-    "self_bird": "rauchschwalbe",
-    "twittering": {
-      "twitterId": "161395160",
-      "twitterUserName": "juergencosse"
-    }
-  },
-  {
     "citizen_bird": "gartengrasmuecke",
     "cv": {
       "de": "Marco B\u00fclow (* 14. Juni 1971 in Dortmund) ist ein deutscher Politiker (SPD). Seit 2002 geh\u00f6rt er als direkt gew\u00e4hlter Abgeordneter im Bundestagswahlkreis Dortmund I dem Deutschen Bundestag an. Seine politischen Schwerpunkte sind Transparenz und Lobbyismus sowie Bau- und Umweltpolitik.",
@@ -8755,6 +8686,29 @@
     "twittering": {
       "twitterId": 17469649,
       "twitterUserName": "larscastellucci"
+    }
+  },
+  {
+    "citizen_bird": "rotkehlchen",
+    "cv": {
+      "de": "J\u00fcrgen Co\u00dfe (* 16. August 1969) ist ein deutscher Politiker (SPD). Er ist seit 1986 Mitglied der SPD. Dort ist er Vorsitzender des Unterbezirkes Steinfurt und geh\u00f6rt zurzeit dem Ortsverein Neuenkirchen an.",
+      "en": "J\u00fcrgen Co\u00dfe is a German politician. He is a member of the SPD."
+    },
+    "full_name": "J\u00fcrgen Co\u00dfe",
+    "imgs": {
+      "spd": {
+        "copyright": "Susie Knoll / Florian J\u00e4nicke",
+        "license": "custom-spd",
+        "url": "http://www.spdfraktion.de/system/files/images/cosse-juergen_0.jpg"
+      }
+    },
+    "name": "J\u00fcrgen Co\u00dfe",
+    "party": "SPD",
+    "pid": "72",
+    "self_bird": "rauchschwalbe",
+    "twittering": {
+      "twitterId": "161395160",
+      "twitterUserName": "juergencosse"
     }
   },
   {
