@@ -46,6 +46,11 @@ CitizenUser =
 	# Public
 	open: ->
 		# No further initialization.
+		0
+	# Public 
+	prepareOpen: ->
+		# No preparation.
+		0
 
 	_consumeFeedback: (msg) ->
 		# Consumes a message from the feedback queue. That means, with respect
@@ -123,7 +128,7 @@ CitizenUser =
 	_initBirdList: ->
 		# Initialized the bird list with all bird in the respective language.
 		template = """
-			  <div class="gallery-cell">
+			  <div class="gallery-cell" id="citizen-user-select-bird-{{bird}}-entry">
 	            <div class="image">
 	              <img src="../ext/images/birds/{{bird}}.jpg">
 	            </div>
@@ -143,7 +148,10 @@ CitizenUser =
 					select: Model.msg.get("select")
 				entry = $(Mustache.render(template, data))
 				CitizenUser._listRoot.flickity('append', entry)
-				entry.find("#citizen-user-select-bird-#{bid}").click (
+				selector = "#citizen-user-select-bird-#{bid}"
+				if Global.config.citizen_user_bird_entry_clickable
+					selector += "-entry"
+				entry.find(selector).click (
 					() -> CitizenUser._submitCitizenBird(bid)
 				)
 		@_notifySelectButtons()

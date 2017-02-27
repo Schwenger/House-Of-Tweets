@@ -39,9 +39,31 @@ VoicesLists =
 		$("#poli-search-bar").val("")
 		@searchString.bird = ""
 		@searchString.poli = ""
-		# TODO: Why?
+		# Remove filtered list of entries, re-add all of them.
 		@_removePolis()
 		@_initPoliticianList()
+		@_removeBirds()
+		@_initBirdList()
+
+	# Public 
+	prepareOpen: ->
+		# Temporarily disable click handlers so that no profiles can be opened
+		# before the panning is over.
+		remove = (root) ->
+			root.children('.list-entry').each () ->
+				$(@).attr('frozen', true)
+		remove @politicianListRoot
+		remove @birdListRoot
+		# Re-enable the handlers.
+		enable = (rootName) ->
+			reEnableHandler = ->
+				VoicesLists[rootName].children('.list-entry').each () ->
+					# Passing `undefined` here is indistinguishable from no second
+					# argument, so `false` has to do.
+					$(@).attr('frozen', false)
+			setTimeout(reEnableHandler, Display.pageMoveDelay)
+		enable("politicianListRoot")
+		enable("birdListRoot")
 
 	# Public
 	open: ->
@@ -98,7 +120,6 @@ VoicesLists =
 		list.append(top) unless onTop
 		list.append(bot) unless onBot
 
-
 	# CREATE AND DISPLAY LISTS
 
 	_removePolis: ->
@@ -128,11 +149,16 @@ VoicesLists =
 				image = Util.politicianPath p.images?.pathToThumb
 				obj = Util.createListEntry id, firstLine, p.party, image, prefix, undefined
 				root.append obj
-				obj.click () -> Profiles.openPoliticianPage id
+				obj.click () -> 
+					frozen = $(@).attr("frozen") is "true"
+					Profiles.openPoliticianPage id unless frozen
 		@_handleScroll("poli")
 
 	_displayBirds: (root, prefix, list) ->
-		handler = (obj, id) -> obj.click(() -> Profiles.openBirdPage(id))
+		handler = (obj, id) -> 
+			obj.click () -> 
+				frozen = $(@).attr("frozen") is "true"
+				Profiles.openBirdPage(id) unless frozen
 		Util.createBirdList root, prefix, list, undefined, handler
 		@_handleScroll("bird")
 

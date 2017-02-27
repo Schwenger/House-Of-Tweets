@@ -51,9 +51,6 @@
 
 			choose_bird_prompt: "Jetzt noch den Lieblingsvogel aussuchen und abschicken!"
 
-			photo: "Foto"
-			drawing: "Zeichnung" #Kunst?
-			
 			bird_calls: "Vogelstimmen",
 			own_tweets: "Eigene Tweets",
 			back_to_tweets: "Zurück zu den Tweets",
@@ -86,6 +83,8 @@
 
 			own_bird: "Eigener Vogel"
 			citizen_bird: "Bürgervogel"
+
+			imprint: "Impressum"
 		}
 
 		_en: {
@@ -131,9 +130,6 @@
 
 			choose_bird_prompt: "Now choose you favourite bird and submit!"
 
-			photo: "photo"
-			drawing: "drawing"
-
 			bird_calls: "Bird Calls",
 			own_tweets: "Own Tweets",
 			back_to_tweets: "Back to Tweets",
@@ -164,5 +160,7 @@
 
 			own_bird: "Own Bird"
 			citizen_bird: "Citizen-chosen Bird"
+
+			imprint: "Imprint"
 		}
 	}

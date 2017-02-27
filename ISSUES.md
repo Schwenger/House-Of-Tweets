@@ -5,6 +5,13 @@ and Etherpad for their wonderful work!
 
 ## Open Questions
 
+[Next Meeting]
+> - [Max] citizen bird selection: image clickable
+  -> Really? Selecting is an irreversible action and should thus always be 
+     on purpose. When allowing to click the image, the selection *and* submission
+     might come unexpected for the user.
+  Implemented as feature toggle.
+
 [Volker]
 - French?
 - Paper? - Paper!
@@ -53,8 +60,8 @@ and Etherpad for their wonderful work!
 - [HIGH PRIORITY] INCLUDE REFERENCE TO BIRD PERSON!!!
 
 - [Ben] Crop images to your liking
-- [Max] citizen bird selection: image clickable
 - [Max] switches on center page: Icons clickable
+- [Max] Fix screensaver
 - [Max] auto focus input field
 - [Max] bird on tweet more prominent
 - [Max] disallow opening profile before lists are displayed  

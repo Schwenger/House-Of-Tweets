@@ -19,5 +19,8 @@ Global = {
 
 	# Provides the id for the currently selected language.
 	langId: () -> Global._transform(Global.language)
+
+	config:
+		citizen_user_bird_entry_clickable: false
 }
 

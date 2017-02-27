@@ -17,13 +17,16 @@ Profiles =
 		# Turn artist's image off
 		imageSwitch = $("#picture-artist-image-switch")
 		imageSwitch.prop('checked', false)
-		imageSwitch.change @_changeArtStyle
+		imageSwitch.change @_changeArtStyleHandler
 
 	# CHANGE IMAGE DISPLAY
 
-	_changeArtStyle: () ->
-		# Applies change in the display mode by turning photos on or off.
+	_changeArtStyleHandler: ->
 		drawing = $(@).prop('checked')
+		Profiles._changeArtStyle(drawing)
+
+	_changeArtStyle: (drawing) ->
+		# Applies change in the display mode by turning photos on or off.
 		if drawing 
 			Profiles._switchVisibility(Profiles.birdDrawing, Profiles.birdPhoto)
 		else 
@@ -166,6 +169,9 @@ Profiles =
 		if Model.birds[id].has_drawing
 			$("#bird-photo-switch-container").removeClass "invisible"
 			$("#voices-profile-picture-bird-drawing").attr("src", Util.birdPath(id, "-drawing"))
+			imageSwitch = $("#picture-artist-image-switch")
+			showDrawing = imageSwitch.prop('checked')
+			@_changeArtStyle(showDrawing)
 		else
 			$("#bird-photo-switch-container").addClass "invisible" 
 

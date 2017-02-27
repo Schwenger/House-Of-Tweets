@@ -32,16 +32,53 @@ TweetController =
 		$('#play-tweets-24-button').click(() -> TweetController._timeTravel(24))
 
 	_initSwitches: ->
-		voicesSwitch = $('#voices-switch')
-		voicesSwitch.prop('checked', true)
-		voicesSwitch.change(@_changeBirdSelection)
-		@_usePoliBirds = voicesSwitch.prop('checked')
-		poliTweetsOnlySwitch = $('#citizen-tweets-switch')
-		poliTweetsOnlySwitch.prop('checked', false)
-		poliTweetsOnlySwitch.change(@_changeShownTweets)
-		@_poliTweetsOnly = poliTweetsOnlySwitch.prop('checked')
+		voicesSwitch = 
+			selec: '#voices-switch', 
+			dft: true, 
+			handlerGen: (obj) ->
+				() -> TweetController._toggleBirdSelection(obj)
+		leftLabelV = 
+			selec: '#voices-switch-label-citizens'
+			handlerGen: (obj) ->
+				() -> 
+					console.log "Handler in leftLabelV called."
+					TweetController._selectCitizenBirds(obj)
+		rightLabelV = 
+			selec: '#voices-switch-label-politicians', 
+			handlerGen: (obj) ->
+				() -> TweetController._selectPoliBirds(obj)
+		console.log "Now initializing single switches."
+		@_initSwitch(voicesSwitch, leftLabelV, rightLabelV)
+		@_usePoliBirds = true # Put default in class-global scope.
 
-	# Interface
+		tweetsSwitch = {selec: '#citizen-tweets-switch', dft: false, handlerGen: (obj) ->
+			() -> TweetController._toggleShownTweets(obj)}
+		leftLabelT = {selec: '#tweets-switch-label-on', handlerGen: (obj) ->
+			() -> TweetController._showPoliTweetsOnly(obj)}
+		rightLabelT = {selec: '#tweets-switch-label-off', handlerGen: (obj) ->
+			() -> TweetController._showAllTweets(obj)}
+		@_initSwitch(tweetsSwitch, leftLabelT, rightLabelT)
+		@_poliTweetsOnly = false # Put default in class-global scope.
+
+	_initSwitch: (switchObj, left, right) ->
+		# TODO: DOCUMENTATION
+		# switchObj: {selec, dft, handlerGen}
+		# 	selec: Selector uniquely identifying the respective switch
+		# 	dft: Default value for the switch.
+		# 	handlerGen: SwitchObject -> ClickHandler
+		# left/right: {selec, handlerGen}
+		# 	selec: selector uniquely identifying the switch's left/right label.
+		# 	handlerGen: SwitchObject -> ClickHandler
+		sw = $(switchObj.selec)
+		# Set value to default.
+		sw.prop('checked', switchObj.dft)
+		# Attach change handler
+		sw.change(switchObj.handlerGen(sw))
+		# Attach handlers to labels.
+		leftObj = $(left.selec)
+		leftObj.click (left.handlerGen(sw))
+		rightObj = $(right.selec)
+		rightObj.click (right.handlerGen(sw))
 
 	# Public
 	triggerTweetManually: () ->
@@ -104,18 +141,40 @@ TweetController =
 
 	# USER SETTINGS
 
-	_changeBirdSelection: ->
+	_selectPoliBirds: (switchObj) ->
+		switchObj.prop('checked', true)
+		@_changeBirdSelection (poliBirds=true)
+
+	_selectCitizenBirds: (switchObj) ->
+		switchObj.prop('checked', false)
+		@_changeBirdSelection (poliBirds=false)
+
+	_toggleBirdSelection: (switchObj) ->
+		mode = $(switchObj).prop('checked')
+		@_changeBirdSelection mode
+
+	_changeBirdSelection: (poliBirds) ->
 		# Changes display mode: Either only politicians' tweets or all.
 		# Notifies the sound controller.
-		poli = $(@).prop('checked')
-		TweetController._usePoliBirds = poli
-		SoundCtrl.setBirdMode(if poli then "P" else "C")
+		TweetController._usePoliBirds = poliBirds
+		SoundCtrl.setBirdMode(if poliBirds then "P" else "C")
 		TweetController._updateBirdNames()
 		TweetController._switchView()
 
-	_changeShownTweets: ->
+	_showAllTweets: (switchObj) ->
+		switchObj.prop('checked', true)
+		@_changeShownTweets (all=true)
+
+	_showPoliTweetsOnly: (switchObj) ->
+		switchObj.prop('checked', false)
+		@_changeShownTweets (all=false)
+
+	_toggleShownTweets: (switchObj) ->
+		@_changeShownTweets $(switchObj).prop('checked')
+
+	_changeShownTweets: (all) ->
 		# Adapts the list of tweets w.r.t. the selected mode.
-		TweetController._poliTweetsOnly = $(@).prop('checked')
+		TweetController._poliTweetsOnly = not all
 		TweetController._switchView()
 
 	# TIME TRAVEL
