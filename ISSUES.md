@@ -44,7 +44,6 @@ and Etherpad for their wonderful work!
 
 ## Backend:
 
-- [Ben] Re-run all crawlers to get up-to-date information
 - [Ben] Check precise color of GRÜNE again, they seem to have adapted their Corporate Identity slightly
 - [Ben] Adapt data structure for citizen user feedback queue, see README.
       Provide *short* messages. French message encouraged, not mandatory.
@@ -73,7 +72,6 @@ and Etherpad for their wonderful work!
 
 - [Ben] Stephan Schweitzer hinzufügen:
     Twitter-Handle: @sc_ontour
-- [Ben] Update crawler to properly handle removal of the two politicians
 
 ## Publicity (public-facing page)
 

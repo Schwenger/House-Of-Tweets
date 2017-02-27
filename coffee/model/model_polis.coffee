@@ -5044,28 +5044,6 @@
 				"twitterUserName": "mschlecht"
 			}
 		},
-		"494": {
-			"citizen_bird": "moenchsgrasmuecke",
-			"cv": {
-				"de": "Heiko Schmelzle (* 24. M\u00e4rz 1970 in Westerstede) ist ein deutscher Politiker (CDU) und Mitglied des Deutschen Bundestages.",
-				"en": "Heiko Schmelzle is a German politician. He is a member of the CDU."
-			},
-			"full_name": "Heiko Schmelzle",
-			"images": {
-				"copyright": "Heiko Schmelzle / Martinus Ekkenga",
-				"license": "unknown-bundestag",
-				"pathToImage": "494.jpg",
-				"pathToThumb": "494_t.jpg"
-			},
-			"name": "Heiko Schmelzle",
-			"party": "CDU",
-			"pid": "494",
-			"self_bird": "haussperling",
-			"twittering": {
-				"twitterId": "24158261",
-				"twitterUserName": "HeikoMaas"
-			}
-		},
 		"496": {
 			"citizen_bird": "gimpel",
 			"cv": {
@@ -5116,14 +5094,14 @@
 				"de": "Ronja Schmitt (* 3. Mai 1989 in Esslingen am Neckar) ist eine deutsche Politikerin der CDU und seit Dezember 2014 Mitglied des Deutschen Bundestages.",
 				"en": "Ronja Schmitt is a German politician. She is a member of the CDU."
 			},
-			"full_name": "Ronja Schmitt",
+			"full_name": "Ronja Kemmer",
 			"images": {
 				"copyright": "ToKo",
 				"license": "CC-BY-SA-3.0",
 				"pathToImage": "501.jpg",
 				"pathToThumb": "501_t.jpg"
 			},
-			"name": "Ronja Schmitt",
+			"name": "Ronja Kemmer",
 			"party": "CDU",
 			"pid": "501",
 			"self_bird": "gartenbaumlaeufer",
@@ -5592,28 +5570,6 @@
 				"twitterUserName": "StefingerMdB"
 			}
 		},
-		"543": {
-			"citizen_bird": "rabenkraehe",
-			"cv": {
-				"de": "Erika Steinbach (* 25. Juli 1943 als Erika Hermann in Rahmel, Reichsgau Danzig-Westpreu\u00dfen; seit 1945 wieder Rumia, Polen) ist eine deutsche Politikerin (CDU). Sie ist seit 1990 Mitglied des Deutschen Bundestages und war von 1998 bis November 2014 Pr\u00e4sidentin des Bundes der Vertriebenen (BdV). Dar\u00fcber hinaus ist sie Sprecherin f\u00fcr Menschenrechte und Humanit\u00e4re Hilfe der CDU/CSU-Bundestagsfraktion und geh\u00f6rt dem Fraktionsvorstand an.",
-				"en": "Erika Steinbach is a German politician. She is a member of the CDU."
-			},
-			"full_name": "Erika Steinbach",
-			"images": {
-				"copyright": "Deutscher Bundestag",
-				"license": "CC-BY-SA-3.0 de",
-				"pathToImage": "543.jpg",
-				"pathToThumb": "543_t.jpg"
-			},
-			"name": "Erika Steinbach",
-			"party": "CDU",
-			"pid": "543",
-			"self_bird": "moenchsgrasmuecke",
-			"twittering": {
-				"twitterId": "425845268",
-				"twitterUserName": "steinbacherika"
-			}
-		},
 		"544": {
 			"citizen_bird": "gimpel",
 			"cv": {
@@ -5686,14 +5642,14 @@
 				"de": "Christian Freiherr von Stetten MdB, (* 24. Juli 1970 in Stuttgart) ist ein deutscher Unternehmer und Politiker (CDU).",
 				"en": "Christian von Stetten is a German politician. He is a member of the CDU."
 			},
-			"full_name": "Christian Freiherr von Stetten",
+			"full_name": "Christian Frhr. von Stetten",
 			"images": {
 				"copyright": "Prell",
 				"license": "public domain",
 				"pathToImage": "549.jpg",
 				"pathToThumb": "549_t.jpg"
 			},
-			"name": "Christian Freiherr von Stetten",
+			"name": "Christian Frhr. von Stetten",
 			"party": "CDU",
 			"pid": "549",
 			"self_bird": "buchfink",
@@ -6137,14 +6093,14 @@
 				"de": "Johann David Wadephul (* 10. Februar 1963 in Husum) ist ein deutscher Politiker (CDU). Er war von 2005 bis 2009 Vorsitzender der CDU-Fraktion im Landtag von Schleswig-Holstein und ist seitdem Bundestagsabgeordneter.",
 				"en": "Johann Wadephul is a German politician. He is a member of the CDU."
 			},
-			"full_name": "Dr. Johann David Wadephul",
+			"full_name": "Dr. Johann Wadephul",
 			"images": {
 				"copyright": "Foto-AG Gymnasium Melle",
 				"license": "CC-BY-SA-4.0 int",
 				"pathToImage": "598.jpg",
 				"pathToThumb": "598_t.jpg"
 			},
-			"name": "Johann David Wadephul",
+			"name": "Johann Wadephul",
 			"party": "CDU",
 			"pid": "598",
 			"self_bird": "kohlmeise",
