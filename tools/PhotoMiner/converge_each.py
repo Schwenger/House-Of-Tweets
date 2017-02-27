@@ -4,18 +4,10 @@ import json
 
 recently_renamed = {
     # 'Name in poli.json': 'Crawled Name'
-    'Christian Freiherr von Stetten': 'Christian Frhr. von Stetten',
-    'Johann David Wadephul': 'Johann Wadephul',
-    'Dr. h. c. Hans Michelbach': 'Dr. h.c. Hans Michelbach',
-    'Karl-Heinz Helmut Wange': 'Karl-Heinz Wange',
-    'Ronja Schmitt': 'Ronja Kemmer',
 }
 
 recently_ejected = {
     'Eva Musterfrau',
-    'Erika Steinbach',
-    'Heiko Schmelzle',
-    'Peter Hintze',
 }
 
 PROBABLY_NO_TWITTER = {
