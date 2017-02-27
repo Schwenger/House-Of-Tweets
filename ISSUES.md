@@ -59,7 +59,6 @@ and Etherpad for their wonderful work!
 
 - [HIGH PRIORITY] INCLUDE REFERENCE TO BIRD PERSON!!!
 
-- [Ben] Crop images to your liking
 - [Max] switches on center page: Icons clickable
 - [Max] Fix screensaver
 - [Max] auto focus input field
