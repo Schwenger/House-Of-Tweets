@@ -665,6 +665,12 @@
     "src": "spd"
   },
   {
+    "full_name": "Bettina B\u00e4hr-Losse",
+    "page": "http://www.spdfraktion.de/abgeordnete/baehr-losse?wp=18",
+    "slug": "baehr-losse",
+    "src": "spd"
+  },
+  {
     "full_name": "Heinz-Joachim Barchmann",
     "page": "http://www.spdfraktion.de/abgeordnete/barchmann?wp=18",
     "slug": "barchmann",
@@ -755,7 +761,7 @@
     "src": "spd"
   },
   {
-    "full_name": "Edelgard Bulmahn",
+    "full_name": "Dr. h.c. Edelgard Bulmahn",
     "page": "http://www.spdfraktion.de/abgeordnete/bulmahn?wp=18",
     "slug": "bulmahn",
     "src": "spd"
@@ -1220,6 +1226,12 @@
     "full_name": "Dr. Hans-Ulrich Kr\u00fcger",
     "page": "http://www.spdfraktion.de/abgeordnete/krueger-dr-hans-ulrich?wp=18",
     "slug": "krueger-dr-hans-ulrich",
+    "src": "spd"
+  },
+  {
+    "full_name": "Angelika Kr\u00fcger-Lei\u00dfner",
+    "page": "http://www.spdfraktion.de/abgeordnete/krueger-leissner?wp=18",
+    "slug": "krueger-leissner",
     "src": "spd"
   },
   {
@@ -2238,6 +2250,11 @@
     "src": "cxu"
   },
   {
+    "full_name": "Rainer Hajek",
+    "page": "https://www.cducsu.de/abgeordnete/rainer-hajek",
+    "src": "cxu"
+  },
+  {
     "full_name": "Dr. Stephan Harbarth",
     "page": "https://www.cducsu.de/abgeordnete/stephan-harbarth",
     "src": "cxu"
@@ -2318,11 +2335,6 @@
     "src": "cxu"
   },
   {
-    "full_name": "Peter Hintze",
-    "page": "https://www.cducsu.de/abgeordnete/peter-hintze",
-    "src": "cxu"
-  },
-  {
     "full_name": "Prof. Dr. Heribert Hirte",
     "page": "https://www.cducsu.de/abgeordnete/heribert-hirte",
     "src": "cxu"
@@ -2373,6 +2385,11 @@
     "src": "cxu"
   },
   {
+    "full_name": "Dr. Mathias H\u00f6schel",
+    "page": "https://www.cducsu.de/abgeordnete/mathias-hoeschel",
+    "src": "cxu"
+  },
+  {
     "full_name": "Charles M. Huber",
     "page": "https://www.cducsu.de/abgeordnete/charles-m-huber",
     "src": "cxu"
@@ -2403,6 +2420,11 @@
     "src": "cxu"
   },
   {
+    "full_name": "Xaver Jung",
+    "page": "https://www.cducsu.de/abgeordnete/xaver-jung",
+    "src": "cxu"
+  },
+  {
     "full_name": "Dr. Franz Josef Jung",
     "page": "https://www.cducsu.de/abgeordnete/franz-josef-jung",
     "src": "cxu"
@@ -2410,11 +2432,6 @@
   {
     "full_name": "Andreas Jung",
     "page": "https://www.cducsu.de/abgeordnete/andreas-jung",
-    "src": "cxu"
-  },
-  {
-    "full_name": "Xaver Jung",
-    "page": "https://www.cducsu.de/abgeordnete/xaver-jung",
     "src": "cxu"
   },
   {
@@ -2460,6 +2477,11 @@
   {
     "full_name": "Dr. Stefan Kaufmann",
     "page": "https://www.cducsu.de/abgeordnete/stefan-kaufmann",
+    "src": "cxu"
+  },
+  {
+    "full_name": "Ronja Kemmer",
+    "page": "https://www.cducsu.de/abgeordnete/ronja-kemmer",
     "src": "cxu"
   },
   {
@@ -2553,7 +2575,7 @@
     "src": "cxu"
   },
   {
-    "full_name": "Dr. Karl A. Lamers",
+    "full_name": "Prof. h.c. Dr. Karl A. Lamers",
     "page": "https://www.cducsu.de/abgeordnete/karl-lamers",
     "src": "cxu"
   },
@@ -2738,7 +2760,7 @@
     "src": "cxu"
   },
   {
-    "full_name": "Dr. h. c. Hans Michelbach",
+    "full_name": "Dr. h.c. Hans Michelbach",
     "page": "https://www.cducsu.de/abgeordnete/hans-michelbach",
     "src": "cxu"
   },
@@ -2773,6 +2795,11 @@
     "src": "cxu"
   },
   {
+    "full_name": "Stefan M\u00fcller",
+    "page": "https://www.cducsu.de/abgeordnete/stefan-mueller",
+    "src": "cxu"
+  },
+  {
     "full_name": "Dr. Gerd M\u00fcller",
     "page": "https://www.cducsu.de/abgeordnete/gerd-mueller",
     "src": "cxu"
@@ -2780,11 +2807,6 @@
   {
     "full_name": "Carsten M\u00fcller",
     "page": "https://www.cducsu.de/abgeordnete/carsten-mueller",
-    "src": "cxu"
-  },
-  {
-    "full_name": "Stefan M\u00fcller",
-    "page": "https://www.cducsu.de/abgeordnete/stefan-mueller",
     "src": "cxu"
   },
   {
@@ -2988,11 +3010,6 @@
     "src": "cxu"
   },
   {
-    "full_name": "Heiko Schmelzle",
-    "page": "https://www.cducsu.de/abgeordnete/heiko-schmelzle",
-    "src": "cxu"
-  },
-  {
     "full_name": "Gabriele Schmidt",
     "page": "https://www.cducsu.de/abgeordnete/gabriele-schmidt",
     "src": "cxu"
@@ -3000,11 +3017,6 @@
   {
     "full_name": "Christian Schmidt",
     "page": "https://www.cducsu.de/abgeordnete/christian-schmidt",
-    "src": "cxu"
-  },
-  {
-    "full_name": "Ronja Schmitt",
-    "page": "https://www.cducsu.de/abgeordnete/ronja-schmitt",
     "src": "cxu"
   },
   {
@@ -3018,13 +3030,13 @@
     "src": "cxu"
   },
   {
-    "full_name": "Dr. Ole Schr\u00f6der",
-    "page": "https://www.cducsu.de/abgeordnete/ole-schroeder",
+    "full_name": "Dr. Kristina Schr\u00f6der",
+    "page": "https://www.cducsu.de/abgeordnete/kristina-schroeder",
     "src": "cxu"
   },
   {
-    "full_name": "Dr. Kristina Schr\u00f6der",
-    "page": "https://www.cducsu.de/abgeordnete/kristina-schroeder",
+    "full_name": "Dr. Ole Schr\u00f6der",
+    "page": "https://www.cducsu.de/abgeordnete/ole-schroeder",
     "src": "cxu"
   },
   {
@@ -3123,11 +3135,6 @@
     "src": "cxu"
   },
   {
-    "full_name": "Erika Steinbach",
-    "page": "https://www.cducsu.de/abgeordnete/erika-steinbach",
-    "src": "cxu"
-  },
-  {
     "full_name": "Sebastian Steineke",
     "page": "https://www.cducsu.de/abgeordnete/sebastian-steineke",
     "src": "cxu"
@@ -3138,7 +3145,7 @@
     "src": "cxu"
   },
   {
-    "full_name": "Christian Freiherr von Stetten",
+    "full_name": "Christian Frhr. von Stetten",
     "page": "https://www.cducsu.de/abgeordnete/christian-stetten",
     "src": "cxu"
   },
@@ -3263,8 +3270,8 @@
     "src": "cxu"
   },
   {
-    "full_name": "Dr. Johann David Wadephul",
-    "page": "https://www.cducsu.de/abgeordnete/johann-david-wadephul",
+    "full_name": "Dr. Johann Wadephul",
+    "page": "https://www.cducsu.de/abgeordnete/johann-wadephul",
     "src": "cxu"
   },
   {
@@ -3273,8 +3280,8 @@
     "src": "cxu"
   },
   {
-    "full_name": "Karl-Heinz Helmut Wange",
-    "page": "https://www.cducsu.de/abgeordnete/karl-heinz-helmut-wange",
+    "full_name": "Karl-Heinz Wange",
+    "page": "https://www.cducsu.de/abgeordnete/karl-heinz-wange",
     "src": "cxu"
   },
   {

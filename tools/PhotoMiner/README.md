@@ -31,6 +31,10 @@ names for each politician, and optionally adapt the full-to-bare name conversion
   - filename and URL of respective root website
   - owning party of the website (`bundestag.de` is `None`)
 
+FIXME: `bundestag.de` changed their architecture, and now loads
+all politician-data via JSON.  This crawler currently can't cope with that.
+Contact Ben to get the cached, and (as of Feb 2017 already!) slightly outdated versions.
+
 ### First parsing: `parse_roots.py`
 
 - parse them to generate a preliminary list of politicians.  Not presentable yet.
