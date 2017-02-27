@@ -4,10 +4,18 @@ import json
 
 recently_renamed = {
     # 'Name in poli.json': 'Crawled Name'
+    'Christian Freiherr von Stetten': 'Christian Frhr. von Stetten',
+    'Johann David Wadephul': 'Johann Wadephul',
+    'Dr. h. c. Hans Michelbach': 'Dr. h.c. Hans Michelbach',
+    'Karl-Heinz Helmut Wange': 'Karl-Heinz Wange',
+    'Ronja Schmitt': 'Ronja Kemmer',
 }
 
 recently_ejected = {
     'Eva Musterfrau',
+    'Erika Steinbach',
+    'Heiko Schmelzle',
+    'Peter Hintze',
 }
 
 PROBABLY_NO_TWITTER = {
@@ -69,7 +77,6 @@ PROBABLY_NO_TWITTER = {
     'Dorothee Schlegel',
     'Eberhard Gienger',
     'Eckhard Pols',
-    'Edelgard Bulmahn',
     'Elfi Scho-Antwerpes',
     'Elisabeth Motschmann',
     'Elisabeth Scharfenberg',
@@ -184,7 +191,6 @@ PROBABLY_NO_TWITTER = {
     'Oswin Veith',
     'Paul Lehrieder',
     'Peter Bleser',
-    'Peter Hintze',
     'Peter Stein',
     'Peter Wichtel',
     'Petra Rode-Bosse',
@@ -307,8 +313,13 @@ KNOWN_NO_TWITTER = {
     'Gabriele Lösekrug-Möller',
     'Hendrik Hoppenstedt',  # Früher war mehr Lametta!
     'Gustav Herzog',
-    'Karl-Heinz Helmut Wange',
+    'Karl-Heinz Wange',
     'Bernhard Kaster',
+    'Rainer Hajek',
+    'Mathias H\u00f6schel',
+    'Edelgard Bulmahn',
+    'Bettina B\u00e4hr-Losse',
+    'Angelika Kr\u00fcger-Lei\u00dfner',
 }
 
 # NOTE: silent assumption: name==full_name for these entries!
@@ -319,7 +330,7 @@ recently_joined = {
     #         "en": "Max Mustermann is a German politician. He/She/FIXME is a member of the FIXME.",
     #         "de": "FIXME"
     #     },
-    #     "citizen_bird": "star"
+    #     "citizen_bird": "star",
     #     "twittering": {"twitterUserName": "MusterMax"}
     # },
 }
@@ -331,11 +342,6 @@ spoof_images = {
         "copyright": "Helmut Nowak / Jutta Hartmann",
         "license": "unknown-bundestag",
         "url": "https://www.bundestag.de/image/242050/Hochformat__2x3/177/265/399f0e3ef04b5cae4f0eb804f3dbee72/sy/nowak_helmut_fedor_gross.jpg"
-    },
-    'Heiko Schmelzle': {
-        "copyright": "Heiko Schmelzle / Martinus Ekkenga",
-        "license": "unknown-bundestag",
-        "url": "https://www.bundestag.de/image/241662/Hochformat__2x3/177/265/d596b81b20c8069cc73e47d21e38971d/fz/schmelzle_heiko_gross.jpg"
     },
 }
 
@@ -357,8 +363,6 @@ def merge_handle(old_twittering, new_handle):
         return old_twittering
     else:
         twitter_stats['both'] += 1
-        # false positive
-        # noinspection PyUnresolvedReferences
         old_handle = old_twittering['twitterUserName']
         assert old_handle.lower() == new_handle.lower(), (old_handle, new_handle)
         return old_twittering
