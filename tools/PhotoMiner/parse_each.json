@@ -1752,6 +1752,19 @@
     "src": "spd"
   },
   {
+    "full_name": "Bettina B\u00e4hr-Losse",
+    "img": {
+      "copyright": "Susie Knoll / Florian J\u00e4nicke",
+      "license": "custom-spd",
+      "url": "http://www.spdfraktion.de/system/files/images/baehr-losse-bettina.jpg"
+    },
+    "page": "http://www.spdfraktion.de/abgeordnete/baehr-losse?wp=18",
+    "possible_parties": [
+      "SPD"
+    ],
+    "src": "spd"
+  },
+  {
     "full_name": "Heinz-Joachim Barchmann",
     "img": {
       "copyright": "Susie Knoll / Florian J\u00e4nicke",
@@ -1949,7 +1962,7 @@
     "src": "spd"
   },
   {
-    "full_name": "Edelgard Bulmahn",
+    "full_name": "Dr. h.c. Edelgard Bulmahn",
     "img": {
       "copyright": "Susie Knoll / Florian J\u00e4nicke",
       "license": "custom-spd",
@@ -2979,6 +2992,19 @@
       "url": "http://www.spdfraktion.de/system/files/images/krueger_hans-ulrich.jpg"
     },
     "page": "http://www.spdfraktion.de/abgeordnete/krueger-dr-hans-ulrich?wp=18",
+    "possible_parties": [
+      "SPD"
+    ],
+    "src": "spd"
+  },
+  {
+    "full_name": "Angelika Kr\u00fcger-Lei\u00dfner",
+    "img": {
+      "copyright": "Susie Knoll / Florian J\u00e4nicke",
+      "license": "custom-spd",
+      "url": "http://www.spdfraktion.de/system/files/images/krueger-leissner_angelika.jpg"
+    },
+    "page": "http://www.spdfraktion.de/abgeordnete/krueger-leissner?wp=18",
     "possible_parties": [
       "SPD"
     ],
@@ -5301,6 +5327,14 @@
     "twitter_handle": "hahnflo"
   },
   {
+    "full_name": "Rainer Hajek",
+    "page": "https://www.cducsu.de/abgeordnete/rainer-hajek",
+    "possible_parties": [
+      "CDU"
+    ],
+    "src": "cxu"
+  },
+  {
     "full_name": "Dr. Stephan Harbarth",
     "img": {
       "copyright": "Dr. Stephan Harbarth/Laurence Chaperon",
@@ -5501,19 +5535,6 @@
     "src": "cxu"
   },
   {
-    "full_name": "Peter Hintze",
-    "img": {
-      "copyright": "CDU/CSU-Fraktion",
-      "license": "CC-BY-SA-3.0",
-      "url": "https://www.cducsu.de/file/31088/download?token=CGlRe0SY"
-    },
-    "page": "https://www.cducsu.de/abgeordnete/peter-hintze",
-    "possible_parties": [
-      "CDU"
-    ],
-    "src": "cxu"
-  },
-  {
     "full_name": "Prof. Dr. Heribert Hirte",
     "page": "https://www.cducsu.de/abgeordnete/heribert-hirte",
     "possible_parties": [
@@ -5623,6 +5644,19 @@
     "twitter_handle": "BettinaHornhues"
   },
   {
+    "full_name": "Dr. Mathias H\u00f6schel",
+    "img": {
+      "copyright": "Deutscher Bundestag/Fotograf: Stella von Saldern",
+      "license": "CC-BY-SA-3.0",
+      "url": "https://www.cducsu.de/download/file/fid/54677"
+    },
+    "page": "https://www.cducsu.de/abgeordnete/mathias-hoeschel",
+    "possible_parties": [
+      "CDU"
+    ],
+    "src": "cxu"
+  },
+  {
     "full_name": "Charles M. Huber",
     "img": {
       "copyright": "DBT/Renate Blanke",
@@ -5703,6 +5737,20 @@
     "src": "cxu"
   },
   {
+    "full_name": "Xaver Jung",
+    "img": {
+      "copyright": "Laurence Chaperon",
+      "license": "CC-BY-SA-3.0",
+      "url": "https://www.cducsu.de/file/32988/download?token=6dDyKZhA"
+    },
+    "page": "https://www.cducsu.de/abgeordnete/xaver-jung",
+    "possible_parties": [
+      "CDU"
+    ],
+    "src": "cxu",
+    "twitter_handle": "XaverJung"
+  },
+  {
     "full_name": "Dr. Franz Josef Jung",
     "img": {
       "copyright": "MdB-B\u00fcro Dr. Jung",
@@ -5728,20 +5776,6 @@
       "CDU"
     ],
     "src": "cxu"
-  },
-  {
-    "full_name": "Xaver Jung",
-    "img": {
-      "copyright": "Laurence Chaperon",
-      "license": "CC-BY-SA-3.0",
-      "url": "https://www.cducsu.de/file/32988/download?token=6dDyKZhA"
-    },
-    "page": "https://www.cducsu.de/abgeordnete/xaver-jung",
-    "possible_parties": [
-      "CDU"
-    ],
-    "src": "cxu",
-    "twitter_handle": "XaverJung"
   },
   {
     "full_name": "Prof. Dr. Egon J\u00fcttner",
@@ -5846,6 +5880,20 @@
     ],
     "src": "cxu",
     "twitter_handle": "StefanKaufmann"
+  },
+  {
+    "full_name": "Ronja Kemmer",
+    "img": {
+      "copyright": "ToKo",
+      "license": "CC-BY-SA-3.0",
+      "url": "https://www.cducsu.de/download/file/fid/50393"
+    },
+    "page": "https://www.cducsu.de/abgeordnete/ronja-kemmer",
+    "possible_parties": [
+      "CDU"
+    ],
+    "src": "cxu",
+    "twitter_handle": "RonjaSchmitt"
   },
   {
     "full_name": "Roderich Kiesewetter",
@@ -6081,7 +6129,7 @@
     "src": "cxu"
   },
   {
-    "full_name": "Dr. Karl A. Lamers",
+    "full_name": "Prof. h.c. Dr. Karl A. Lamers",
     "img": {
       "copyright": "Dr. Karl A. Lamers",
       "license": "CC-BY-SA-3.0",
@@ -6523,7 +6571,7 @@
     "src": "cxu"
   },
   {
-    "full_name": "Dr. h. c. Hans Michelbach",
+    "full_name": "Dr. h.c. Hans Michelbach",
     "img": {
       "copyright": "Henning Schacht - berlinpressphoto",
       "license": "CC-BY-SA-3.0",
@@ -6610,6 +6658,20 @@
     "src": "cxu"
   },
   {
+    "full_name": "Stefan M\u00fcller",
+    "img": {
+      "copyright": "Henning Schacht",
+      "license": "CC-BY-SA-3.0",
+      "url": "https://www.cducsu.de/file/32200/download?token=VefQAPpE"
+    },
+    "page": "https://www.cducsu.de/abgeordnete/stefan-mueller",
+    "possible_parties": [
+      "CSU"
+    ],
+    "src": "cxu",
+    "twitter_handle": "smuellermdb"
+  },
+  {
     "full_name": "Dr. Gerd M\u00fcller",
     "img": {
       "copyright": "Gerd M\u00fcller",
@@ -6634,20 +6696,6 @@
       "CDU"
     ],
     "src": "cxu"
-  },
-  {
-    "full_name": "Stefan M\u00fcller",
-    "img": {
-      "copyright": "Henning Schacht",
-      "license": "CC-BY-SA-3.0",
-      "url": "https://www.cducsu.de/file/32200/download?token=VefQAPpE"
-    },
-    "page": "https://www.cducsu.de/abgeordnete/stefan-mueller",
-    "possible_parties": [
-      "CSU"
-    ],
-    "src": "cxu",
-    "twitter_handle": "smuellermdb"
   },
   {
     "full_name": "Dr. Philipp Murmann",
@@ -7136,14 +7184,6 @@
     "twitter_handle": "tschipanski"
   },
   {
-    "full_name": "Heiko Schmelzle",
-    "page": "https://www.cducsu.de/abgeordnete/heiko-schmelzle",
-    "possible_parties": [
-      "CDU"
-    ],
-    "src": "cxu"
-  },
-  {
     "full_name": "Gabriele Schmidt",
     "img": {
       "copyright": "Zettig/Photo Conrads",
@@ -7168,20 +7208,6 @@
       "CSU"
     ],
     "src": "cxu"
-  },
-  {
-    "full_name": "Ronja Schmitt",
-    "img": {
-      "copyright": "ToKo",
-      "license": "CC-BY-SA-3.0",
-      "url": "https://www.cducsu.de/download/file/fid/50393"
-    },
-    "page": "https://www.cducsu.de/abgeordnete/ronja-schmitt",
-    "possible_parties": [
-      "CDU"
-    ],
-    "src": "cxu",
-    "twitter_handle": "RonjaSchmitt"
   },
   {
     "full_name": "Patrick Schnieder",
@@ -7212,19 +7238,6 @@
     "twitter_handle": "NadineSchoen"
   },
   {
-    "full_name": "Dr. Ole Schr\u00f6der",
-    "img": {
-      "copyright": "Laurence Chaperon",
-      "license": "CC-BY-SA-3.0",
-      "url": "https://www.cducsu.de/download/file/fid/32867"
-    },
-    "page": "https://www.cducsu.de/abgeordnete/ole-schroeder",
-    "possible_parties": [
-      "CDU"
-    ],
-    "src": "cxu"
-  },
-  {
     "full_name": "Dr. Kristina Schr\u00f6der",
     "img": {
       "copyright": "Laurence Chaperon",
@@ -7237,6 +7250,19 @@
     ],
     "src": "cxu",
     "twitter_handle": "schroeder_k"
+  },
+  {
+    "full_name": "Dr. Ole Schr\u00f6der",
+    "img": {
+      "copyright": "Laurence Chaperon",
+      "license": "CC-BY-SA-3.0",
+      "url": "https://www.cducsu.de/download/file/fid/32867"
+    },
+    "page": "https://www.cducsu.de/abgeordnete/ole-schroeder",
+    "possible_parties": [
+      "CDU"
+    ],
+    "src": "cxu"
   },
   {
     "full_name": "Bernhard Schulte-Dr\u00fcggelte",
@@ -7489,20 +7515,6 @@
     "src": "cxu"
   },
   {
-    "full_name": "Erika Steinbach",
-    "img": {
-      "copyright": "Deutscher Bundestag",
-      "license": "CC-BY-SA-3.0",
-      "url": "https://www.cducsu.de/file/32791/download?token=9wdwbWDA"
-    },
-    "page": "https://www.cducsu.de/abgeordnete/erika-steinbach",
-    "possible_parties": [
-      "CDU"
-    ],
-    "src": "cxu",
-    "twitter_handle": "steinbacherika"
-  },
-  {
     "full_name": "Sebastian Steineke",
     "img": {
       "copyright": "Sven Bodin",
@@ -7531,7 +7543,7 @@
     "twitter_handle": "josteiniger"
   },
   {
-    "full_name": "Christian Freiherr von Stetten",
+    "full_name": "Christian Frhr. von Stetten",
     "img": {
       "copyright": "CDU/CSU-Fraktion",
       "license": "CC-BY-SA-3.0",
@@ -7840,13 +7852,13 @@
     "src": "cxu"
   },
   {
-    "full_name": "Dr. Johann David Wadephul",
+    "full_name": "Dr. Johann Wadephul",
     "img": {
       "copyright": "Laurence Chaperon",
       "license": "CC-BY-SA-3.0",
       "url": "https://www.cducsu.de/file/36979/download?token=WJDkJpaV"
     },
-    "page": "https://www.cducsu.de/abgeordnete/johann-david-wadephul",
+    "page": "https://www.cducsu.de/abgeordnete/johann-wadephul",
     "possible_parties": [
       "CDU"
     ],
@@ -7867,13 +7879,13 @@
     "twitter_handle": "wanderwitz"
   },
   {
-    "full_name": "Karl-Heinz Helmut Wange",
+    "full_name": "Karl-Heinz Wange",
     "img": {
       "copyright": "Deutscher Bundestag/von Saldern",
       "license": "CC-BY-SA-3.0",
       "url": "https://www.cducsu.de/download/file/fid/52283"
     },
-    "page": "https://www.cducsu.de/abgeordnete/karl-heinz-helmut-wange",
+    "page": "https://www.cducsu.de/abgeordnete/karl-heinz-wange",
     "possible_parties": [
       "CDU"
     ],
