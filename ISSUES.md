@@ -11,6 +11,8 @@ and Etherpad for their wonderful work!
      on purpose. When allowing to click the image, the selection *and* submission
      might come unexpected for the user.
   Implemented as feature toggle.
+> - [Both] About page on public facing site.
+  -> Ehh, an unstylized `<ul>` gotta do the job.
 
 [Volker]
 - French?
@@ -32,7 +34,6 @@ and Etherpad for their wonderful work!
 - Retweet information/details
 - Wording
 - Curse Word Replacements
-- About page on public facing site.
 - TeamViewer?
 
 ## Windows setup:
@@ -51,7 +52,6 @@ and Etherpad for their wonderful work!
 
 ## Backend:
 
-- [Ben] Check precise color of GRÜNE again, they seem to have adapted their Corporate Identity slightly
 - [Ben] Adapt data structure for citizen user feedback queue, see README.
       Provide *short* messages. French message encouraged, not mandatory.
 
