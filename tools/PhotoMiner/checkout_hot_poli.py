@@ -250,6 +250,7 @@ def checkout(pid, fields):
             '-gravity', 'north',
             '-extent', '330x330',
             *inject,
+            '-strip',
             img_prefix + '.jpg')
 
     if not CHOICE_MODE:
