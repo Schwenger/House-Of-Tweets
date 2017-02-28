@@ -6,11 +6,6 @@ and Etherpad for their wonderful work!
 ## Open Questions
 
 [Next Meeting]
-> - [Max] citizen bird selection: image clickable
-  -> Really? Selecting is an irreversible action and should thus always be 
-     on purpose. When allowing to click the image, the selection *and* submission
-     might come unexpected for the user.
-  Implemented as feature toggle.
 > - [Both] About page on public facing site.
   -> Ehh, an unstylized `<ul>` gotta do the job.
 
@@ -25,8 +20,6 @@ and Etherpad for their wonderful work!
     * not desperate enough to ask the devil
 
 [Max]
-- Imprint "button" placement
-- Prepare removing "drawing" feature
 - Bird list -> allow to show drawings???
 
 [Both]
@@ -49,6 +42,7 @@ and Etherpad for their wonderful work!
 - [Ben] Activate replies
 - [Any] Copy over concept text to public facing site
 - [Any] Check language -> British English
+- [Max] Re-check whether switch-icons are correctly aligned with the switch-text (e.g. "stimmen von")
 
 ## Backend:
 
@@ -59,25 +53,20 @@ and Etherpad for their wonderful work!
 
 - [HIGH PRIORITY] INCLUDE REFERENCE TO BIRD PERSON!!!
 
-- [Max] switches on center page: Icons clickable
 - [Max] Fix screensaver
+- [Max] Imprint "button" placement
+- [Max] Prepare removing "drawing" feature
 - [Max] auto focus input field
 - [Max] bird on tweet more prominent
-- [Max] disallow opening profile before lists are displayed  
-- [Max] rename deputy -> poli
-- [Max] impressum/impress -> imprint
-- [Max] Re-check whether switch-icons are correctly aligned with the switch-text (e.g. "stimmen von")
 - [Max] "Add Citizen User" should not play sound of already displayed tweets
 - [Max] Add Citizen User page: After scrolling: Arrows have different opacity -> take the one after scrolling.
-- [Max] Remove "Foto"/"Zeichnung" from bird profile
-- [Max] Reset filtered bird/poli list after leaving voiceslists page.
-- [Max] keep switch and image consistent when leaving bird profile page
 - [Max] Adapt data structure for citizen user feedback queue, see README
 
 ## Model
 
 - [Ben] Stephan Schweitzer hinzufügen:
     Twitter-Handle: @sc_ontour
+- [Ben] Check how long the cv entries are, and enrich short ones.
 
 ## Publicity (public-facing page)
 
