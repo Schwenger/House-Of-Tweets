@@ -38,6 +38,7 @@ and Etherpad for their wonderful work!
 
 - [Any] All the "response" strings in `backend/responseBuilder.py`.
     This will be the most public part of the project, even more so than the text on the monitors.
+- [Ben] Also, strings in `backend/messages.json`
 - [Max] Activate ambient sounds
 - [Ben] Activate replies
 - [Any] Copy over concept text to public facing site

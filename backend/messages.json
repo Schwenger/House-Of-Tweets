@@ -1,0 +1,30 @@
+{
+  "unknown-user": {
+    "de": "Konnte \"{name}\" nicht auf Twitter finden",
+    "en": "Couldn't find \"{name}\" on twitter"
+  },
+  "is-politician": {
+    "de": "Politiker \"{name}\" kann nicht als Besucher eingetragen werden",
+    "en": "Deputy \"{name}\" can't be added as visitor"
+  },
+  "unknown-bird": {
+    "de": "Bitte wähle einen anderen Vogel, {name}",
+    "en": "Please choose a different bird, {name}"
+  },
+  "succ-resolved": {
+    "de": "Account von {name} gefunden.  Synchronisiere …",
+    "en": "Found your account, {name}.  Synchronizing …"
+  },
+  "succ-firstpoll": {
+    "de": "{name} kann loslegen!",
+    "en": "{name} can start tweeting!"
+  },
+  "del-timeout": {
+    "de": "{name} entfernt",
+    "en": "{name} deleted"
+  },
+  "del-toomany": {
+    "de": "{name} entfernt",
+    "en": "{name} deleted"
+  }
+}

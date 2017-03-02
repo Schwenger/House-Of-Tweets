@@ -69,6 +69,7 @@ Direction: backend → frontend
 Direction: backend → frontend
 
 - `twittername`: string, same as from the `citizenuser` request
+- `reason`: string, internal identifier.  Might be interesting for debugging, but you can ignore it for now.
 - `status`: string, any of:
     - `succ`, probably green in the UI
     - `info`, probably blue in the UI

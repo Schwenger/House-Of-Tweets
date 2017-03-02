@@ -2,6 +2,7 @@
 
 import birdBackend
 import json
+import messages
 import mq
 import mylog
 import os
@@ -45,6 +46,32 @@ def test_json_sanity():
     assert actual == expected, (actual, expected)
 
 all_tests.append(test_json_sanity)
+
+
+def test_messages_sanity():
+    mylog.info("Testing messages.phrase (sanity):")
+    for reason in messages.msgs_types.keys():
+        msg = messages.phrase("blaubeere", reason)
+        assert msg.keys() == {'twittername', 'status', 'reason', 'message'}, (reason, msg)
+
+all_tests.append(test_messages_sanity)
+
+
+def test_messages_phrasing():
+    mylog.info("Testing messages.phrase:")
+    expected = {'twittername': 'heinzelmännchen',
+                'status': 'fail',
+                'reason': 'unknown-user',
+                'message': {
+                        "de": 'Konnte "heinzelmännchen" nicht auf Twitter finden',
+                        "en": 'Couldn\'t find "heinzelmännchen" on twitter'
+                    }
+                }
+    actual = messages.phrase("heinzelmännchen", 'unknown-user')
+    assert actual == expected, (actual, expected)
+    mylog.warning("[MANU] Testing mq.RealQueue. Check http://localhost:15672/#/queues/%2F/test_mq")
+
+all_tests.append(test_messages_phrasing)
 
 
 def test_batching_x(n, batch):
