@@ -37,8 +37,8 @@ def phrase(username: str, reason: str):
 class UpdatesQueueAdapter(UpdatesConsumer):
     def __init__(self, q):
         self.lock = RLock()
+        self.q = q
 
     def updateShortpoll(self, username: str, reason: str):
         with self.lock:
-            # Write to q somehow
-            raise NotImplementedError("Should have implemented this")
+            self.q.post(phrase(username, reason))

@@ -74,6 +74,24 @@ def test_messages_phrasing():
 all_tests.append(test_messages_phrasing)
 
 
+def test_messages_send():
+    mylog.info("Testing messages.UpdatesQueueAdapter:")
+    conn = mq.PrintQueue.new('test_msg_send')
+    adapter = messages.UpdatesQueueAdapter(conn)
+    adapter.updateShortpoll('karli', 'succ-firstpoll')
+    expected = {'twittername': 'karli',
+                'status': 'succ',
+                'reason': 'succ-firstpoll',
+                'message': {
+                        "de": 'karli kann loslegen!',
+                        "en": 'karli can start tweeting!'
+                    }
+                }
+    conn.expect([expected])
+
+all_tests.append(test_messages_send)
+
+
 def test_batching_x(n, batch):
     if not RUN_SLOW_TESTS:
         mylog.warning("[SKIP] Skipping slow test")

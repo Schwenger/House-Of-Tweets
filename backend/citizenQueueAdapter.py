@@ -1,5 +1,4 @@
 import json
-import mq
 import mylog
 import pika
 import threading
@@ -7,12 +6,11 @@ import threading
 
 # Listen for a user to enter his handle and favourite bird.
 class CitizenQueueAdapter(threading.Thread):
-	def __init__(self, twitterConnection, nackQueue: mq.SendQueueInterface):
+	def __init__(self, twitterConnection):
 		threading.Thread.__init__(self, daemon=True)
 		self.twitterConnection = twitterConnection
 		self.connection = pika.BlockingConnection(pika.ConnectionParameters(
 		host='localhost'))
-		self.nackQueue = nackQueue
 		self.next = None
 
 	def run(self):
@@ -26,7 +24,7 @@ class CitizenQueueAdapter(threading.Thread):
 
 	def _restart(self):
 		mylog.error('Stacking a new thread.  Please restart soon!')
-		self.next = CitizenQueueAdapter(self.twitterConnection, self.nackQueue)
+		self.next = CitizenQueueAdapter(self.twitterConnection)
 		self.next.start()
 
 	def callback(self, ch, method, properties, body):
@@ -34,8 +32,4 @@ class CitizenQueueAdapter(threading.Thread):
 		mylog.info("Add/set citizen user: {}".format(body))
 		user = body["twittername"]
 		bird = body["birdid"]
-		err = self.twitterConnection.addCitizen(user, bird)
-		response = {'twittername': user, "birdid": bird}
-		if err is not None:
-			response['error'] = err
-		self.nackQueue.post(response)
+		self.twitterConnection.addCitizen(user, bird)
