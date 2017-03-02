@@ -3,7 +3,7 @@ import re
 import threading
 from soundGenerator import generate_sound
 import responseBuilder
-from twitter import TwitterInterface, TweetConsumer
+from twitter import TwitterInterface, TweetConsumer, UpdatesConsumer
 import mq
 import mylog
 
@@ -175,16 +175,19 @@ def poll_counter():
 
 class TwitterConnection(object):
 	def __init__(self, queue: mq.SendQueueInterface, followListPolitician,
-				 polBack, birdBack, twitter: TwitterInterface):
+				 polBack, birdBack, twitter: TwitterInterface,
+				 consumer_updates: UpdatesConsumer):
 		self.birdBack = birdBack
 		self.polBack = polBack
 		self.citizens = dict()
 		self.poList = followListPolitician
 		self.queue = queue
 		self.lock = threading.RLock()
+		self.consumer_updates = consumer_updates
 		self.twitter = twitter
 		self.twitter.consumer_tweets = TwitterListener(self.queue, self, self.polBack, self.birdBack)
 		self.twitter.register_longlived(followListPolitician)
+		self.twitter.consumer_updates = consumer_updates
 
 	# Returns 'None' if not a citizen
 	def getCitizen(self, cid):
@@ -192,17 +195,20 @@ class TwitterConnection(object):
 			res = self.citizens.get(str(cid))
 		return res
 
-	def addCitizen(self, twittername, birdid, tid=None) -> str:
+	def addCitizen(self, twittername, birdid, tid=None):
 		if tid is None:
 			tid = self.twitter.resolve_name(twittername)
 		if tid is None:
 			mylog.warning("citizen user ignored, invalid name: " + twittername)
-			return "unknown-user"
+			self.consumer_updates.updateShortpoll(twittername, "unknown-user")
+			return
 		if self.polBack.getPolitician(tid) is not None:
-			return "is-politician"
+			self.consumer_updates.updateShortpoll(twittername, "is-politician")
+			return
 		if birdid not in self.birdBack.bJson:
 			mylog.warning("citizen user ignored, invalid bird: " + birdid)
-			return "unknown-bird"
+			self.consumer_updates.updateShortpoll(twittername, "unknown-bird")
+			return
 
 		with self.lock:
 			if tid in self.citizens:
@@ -228,7 +234,9 @@ class TwitterConnection(object):
 			# Don't prevent shutting down
 			timer.daemon = True
 			timer.start()
-		return None
+
+		self.consumer_updates.updateShortpoll(twittername, "succ-resolved")
+		return
 
 	def _remove_citizen_wrap(self, tid, token):
 		mylog.with_exceptions(self._remove_citizen, None, tid, token)

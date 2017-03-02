@@ -21,6 +21,12 @@ class TweetConsumer(object):
         raise NotImplementedError("Should have implemented this")
 
 
+class UpdatesConsumer(object):
+    # Implementor must be able to handle calls from different threads.
+    def updateShortpoll(self, username: str, reason: str):
+        raise NotImplementedError("Should have implemented this")
+
+
 class TwitterInterface(object):
     def register_longlived(self, ids: List[str]):
         raise NotImplementedError("Should have implemented this")
@@ -44,6 +50,11 @@ class TwitterInterface(object):
 class TweetPrinter(TweetConsumer):
     def consumeTweet(self, tweet: dict):
         mylog.info("incoming tweet {}".format(tweet))
+
+
+class UpdatesPrinter(UpdatesConsumer):
+    def updateShortpoll(self, username: str, reason: str):
+        mylog.info("update: {} on {}".format(username, reason))
 
 
 def datetime_to_unix(dt):
@@ -263,6 +274,7 @@ class RealTwitterInterface(TwitterInterface):
             show_usage(show_keys)
 
         self.consumer_tweets = TweetPrinter()
+        self.consumer_updates = UpdatesPrinter()
 
         creds = CREDENTIALS[self.key]
         self.auth = OAuthHandler(creds['consumer_key'], creds['consumer_secret'])
@@ -304,16 +316,27 @@ class RealTwitterInterface(TwitterInterface):
                 del self.streams[tuple(usernames)]
                 s.disconnect()
             else:
-                # Technically, this is only pruned by run_short_poll, so no guarantees.
+                # Technically, we don't have any timing guarantees about
+                # when run_short_poll can prune the list down to size 2.
                 # Practically, if we hit this limit, something has gone very wrong.
                 assert len(self.short_poll) < 100, self.short_poll
-                filtered = [e for e in self.short_poll if e['user'] not in usernames]
-                if len(filtered) + len(usernames) != len(self.short_poll):
-                    mylog.warning("Tried to remove nonexistent usernames entry {}".format(usernames))
-                    # Sorry for being uninformative here, but it would be hard to go into more details.
-                if len(filtered) < len(self.short_poll):
-                    mylog.info("Some short-polls removed: {}".format(usernames))
-                    self.short_poll = filtered
+
+                # Split list based on predicate "Should it be removed?"
+                users_pruned = []
+                users_passed = []
+                for e in self.short_poll:
+                    l = users_pruned if e['user'] in usernames else users_passed
+                    l.append(e)
+
+                if len(users_pruned) != len(usernames):
+                    mylog.warning("Tried to remove nonexistent usernames entries.")
+                    mylog.warning("  Actually pruned: {}", users_pruned)
+                    mylog.warning("  Wanted to prune: {}", usernames)
+                if len(users_pruned) > 0:
+                    mylog.info("Some short-polls removed: {}".format(users_pruned))
+                    self.short_poll = users_passed
+                    for e in users_pruned:
+                        self.consumer_updates.updateShortpoll(e['name'], 'del-timeout')
                 return
 
     def resolve_name(self, username: str):
@@ -345,6 +368,7 @@ class RealTwitterInterface(TwitterInterface):
             timer.daemon = True
             timer.start()
 
+    # Poll tweets of a *single* citizen
     def poll_user(self, e):
         query_params = dict(user_id=e['user'], count=2)
         seen_tweets = []  # Collect string representation of Tweet IDs
@@ -364,7 +388,10 @@ class RealTwitterInterface(TwitterInterface):
         assert len(seen_tweets) > 0, e
         # Oh god.  I'm so sorry.
         e['last_id'] = str(max([int(tid) for tid in seen_tweets]))
+        if is_new:
+            self.consumer_updates.updateShortpoll(e['name'], 'succ-firstpoll')
 
+    # Poll tweets of *all* citizens
     def run_short_poll(self):
         # Need to hold the lock *all* the time, as the self.api object might be modified
         # by the other objects.
@@ -377,6 +404,8 @@ class RealTwitterInterface(TwitterInterface):
                 retained = self.short_poll[-2:]  # The two last entries
                 dropped = self.short_poll[:-2]  # Other entries
                 mylog.warning('Lots of citizens!  Dropping {}, retaining {} ...'.format(dropped, retained))
+                for e in dropped:
+                    self.consumer_updates.updateShortpoll(e['name'], 'del-toomany')
                 self.short_poll = retained
             assert len(self.short_poll) <= 2, self.short_poll
             for e in self.short_poll:
@@ -386,6 +415,7 @@ class RealTwitterInterface(TwitterInterface):
 class FakeTwitterInterface(TwitterInterface):
     def __init__(self):
         self.consumer_tweets = TweetPrinter()
+        self.consumer_updates = UpdatesPrinter()  # Can't be used for testing
         self.user_blocks = set()
         self.lock = threading.RLock()
         self.replies = []

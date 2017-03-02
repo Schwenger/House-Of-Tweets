@@ -311,7 +311,8 @@ def test_twitter_citizenship():
     follow = ["4718199753", "774336282101178368"]
     queue = mq.PrintQueue("twitter_conn_test")
     fakeTwitter = twitter.FakeTwitterInterface()
-    twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack, fakeTwitter)
+    twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack,
+                                              fakeTwitter, twitter.UpdatesPrinter())
     queue.expect([])
 
     twi.addCitizen("Heinz1", "Katzastrophe", tid="12345678")
@@ -465,7 +466,8 @@ def test_twitter_listener():
     mylog.info("Preparing for integration test ...")
 
     fakeTwitter = twitter.FakeTwitterInterface()
-    twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack, fakeTwitter)
+    twi = twitterConnection.TwitterConnection(queue, follow, polBack, birdBack,
+                                              fakeTwitter, twitter.UpdatesPrinter())
     queue.expect([])
     twi.addCitizen("Heinz1", "zilpzalp", tid="987654")
     # This should be the last test, so don't care about the
