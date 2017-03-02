@@ -47,8 +47,7 @@ and Etherpad for their wonderful work!
 
 ## Backend:
 
-- [Ben] Adapt data structure for citizen user feedback queue, see README.
-      Provide *short* messages. French message encouraged, not mandatory.
+Nothing to do currently
 
 ## Frontend:
 
