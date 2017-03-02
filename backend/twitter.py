@@ -22,7 +22,7 @@ class TweetConsumer(object):
 
 
 class TwitterInterface(object):
-    def register(self, usernames: List[str], listener: TweetConsumer, long_lived: bool):
+    def register(self, usernames: List[str], long_lived: bool):
         raise NotImplementedError("Should have implemented this")
 
     def deregister(self, usernames: List[str]):
@@ -259,25 +259,40 @@ class RealTwitterInterface(TwitterInterface):
             mylog.error('Unknown key {} provided.'.format(self.key))
             show_usage(show_keys)
 
+        self.consumer_tweets = TweetPrinter()
+
         creds = CREDENTIALS[self.key]
         self.auth = OAuthHandler(creds['consumer_key'], creds['consumer_secret'])
         self.auth.set_access_token(creds['access_key'], creds['access_secret'])
+        # self.streams is a dict of:
+        #   K: tuple of usernames (or Twitter IDs?)
+        #   V: handler, the "TweetConsumer" object
+        # Unless you provide the same TweetConsumer object multiple times,
+        # it appears at most once in this container.
         self.streams = dict()
         self.lock = threading.RLock()
         self.api = tweepy.API(self.auth)
+        # self.short_poll is a list of:
+        #   Entries, which are represented by a dict, which should have been a struct:
+        #     'user': string, required, username (or Twitter ID?)
+        #     'last_id': string, optional, textual representation of the ID of the most recent Tweet
+        # Unless you provide the same TweetConsumer object multiple times,
+        # it appears at most once in this container.
         self.short_poll = []
+
+        # Start the short-poll thread
         self.run_short_poll_wrap()
 
-    def register(self, usernames, consumer: TweetConsumer, long_lived) -> object:
+    def register(self, usernames, long_lived):
         with self.lock:
             if long_lived:
-                self.streams[tuple(usernames)] = RestartingStream(consumer, usernames, self.auth)
+                self.streams[tuple(usernames)] = RestartingStream(self.consumer_tweets, usernames, self.auth)
             else:
                 assert len(usernames) == 1
                 user = usernames[0]
                 mylog.info('Adding short-poll for {}'.format(user))
                 # Note: no 'last_tweet' set.
-                self.short_poll.append({'user': user, 'consumer': consumer})
+                self.short_poll.append({'user': user})
 
     def deregister(self, usernames: List[str]):
         with self.lock:
@@ -294,7 +309,7 @@ class RealTwitterInterface(TwitterInterface):
                     mylog.warning("Tried to remove nonexistent usernames entry {}".format(usernames))
                     # Sorry for being uninformative here, but it would be hard to go into more details.
                 if len(filtered) < len(self.short_poll):
-                    mylog.info("Some short-polls removed.".format(usernames))
+                    mylog.info("Some short-polls removed: {}".format(usernames))
                     self.short_poll = filtered
                 return
 
@@ -329,7 +344,7 @@ class RealTwitterInterface(TwitterInterface):
 
     def poll_user(self, e):
         query_params = dict(user_id=e['user'], count=2)
-        seen_tweets = []
+        seen_tweets = []  # Collect string representation of Tweet IDs
         if 'last_id' in e:
             query_params['since_id'] = e['last_id']
             is_new = False
@@ -342,7 +357,7 @@ class RealTwitterInterface(TwitterInterface):
             tweet = parse_tweet_status(status)
             seen_tweets.append(tweet['tweet_id'])
             if not is_new:
-                e['consumer'].consumeTweet(tweet)
+                self.consumer_tweets.consumeTweet(tweet)
         assert len(seen_tweets) > 0, e
         # Oh god.  I'm so sorry.
         e['last_id'] = str(max([int(tid) for tid in seen_tweets]))
@@ -355,8 +370,6 @@ class RealTwitterInterface(TwitterInterface):
         # Then again, with this level of network control you can always do that.
         # This is why I actually ignore this attack vector.
         with self.lock:
-            if len(self.short_poll) == 0:
-                return
             if len(self.short_poll) > 2:
                 retained = self.short_poll[-2:]  # The two last entries
                 dropped = self.short_poll[:-2]  # Other entries
@@ -369,27 +382,30 @@ class RealTwitterInterface(TwitterInterface):
 
 class FakeTwitterInterface(TwitterInterface):
     def __init__(self):
-        self.consumers = dict()
+        self.consumer_tweets = TweetPrinter()
+        self.user_blocks = set()
         self.lock = threading.RLock()
         self.replies = []
 
     def send(self, fake_tweet: dict):
         tid = str(fake_tweet['uid'])
         with self.lock:
-            for (users, consumer) in self.consumers.items():
+            # Would have sent a tweet twice if the setup is bad,
+            # just like in reality.
+            for users in self.user_blocks:
                 if tid in users:
-                    consumer.consumeTweet(fake_tweet)
+                    self.consumer_tweets.consumeTweet(fake_tweet)
 
-    def register(self, usernames, consumer: TweetConsumer, long_lived) -> object:
+    def register(self, usernames, long_lived):
         with self.lock:
-            self.consumers[tuple(usernames)] = consumer
+            self.user_blocks.add(tuple(usernames))
 
     def deregister(self, usernames: List[str]):
         with self.lock:
-            if tuple(usernames) not in self.consumers:
+            if tuple(usernames) not in self.user_blocks:
                 mylog.warning("Tried to remove nonexistent usernames entry {}".format(usernames))
                 return
-            del self.consumers[tuple(usernames)]
+            self.user_blocks.remove(tuple(usernames))
             mylog.info("Successfully removed {}".format(usernames))
 
     def resolve_name(self, username: str):
@@ -410,14 +426,14 @@ def manual_test_incoming():
     twi = RealTwitterInterface()
     mylog.info("Now following @HoT *and* Ben's throwaway account")
     # If commented out, add 'while True: input()' at the very end:
-    twi.register(["4718199753"], TweetPrinter(), True)
-    twi.register(["774336282101178368"], TweetPrinter(), False)
-    twi.register(["139407967"], TweetPrinter(), False)
+    twi.register(["4718199753"], True)  # HouseOfTweetsSB
+    twi.register(["774336282101178368"], False)  # eeQu0Ae4
+    twi.register(["139407967"], False)  # SevimDagdelen
     mylog.info("Kill with Ctrl-C")
     # while True:
     #     input()
 
 
-# Only test for RealTwitterInterface.deregister
+# Only test for RealTwitterInterface
 if __name__ == '__main__':
     manual_test_incoming()
