@@ -184,7 +184,7 @@ class TwitterConnection(object):
 		self.lock = threading.RLock()
 		self.twitter = twitter
 		self.twitter.consumer_tweets = TwitterListener(self.queue, self, self.polBack, self.birdBack)
-		self.twitter.register(followListPolitician, True)
+		self.twitter.register_longlived(followListPolitician)
 
 	# Returns 'None' if not a citizen
 	def getCitizen(self, cid):
@@ -217,7 +217,7 @@ class TwitterConnection(object):
 				# Even if a tweet comes in instantly, getCitizen syncs on
 				# self.lock, so it's fine.  That's also why getCitizen() will
 				# never see an incomplete citizen.
-				self.twitter.register([tid], False)
+				self.twitter.register_shortlived(tid, twittername)
 
 			entry["birdId"] = birdid
 			token = poll_counter()

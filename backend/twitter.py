@@ -22,7 +22,10 @@ class TweetConsumer(object):
 
 
 class TwitterInterface(object):
-    def register(self, usernames: List[str], long_lived: bool):
+    def register_longlived(self, ids: List[str]):
+        raise NotImplementedError("Should have implemented this")
+
+    def register_shortlived(self, id: str, username: str):
         raise NotImplementedError("Should have implemented this")
 
     def deregister(self, usernames: List[str]):
@@ -265,7 +268,7 @@ class RealTwitterInterface(TwitterInterface):
         self.auth = OAuthHandler(creds['consumer_key'], creds['consumer_secret'])
         self.auth.set_access_token(creds['access_key'], creds['access_secret'])
         # self.streams is a dict of:
-        #   K: tuple of usernames (or Twitter IDs?)
+        #   K: tuple of Twitter IDs
         #   V: handler, the "TweetConsumer" object
         # Unless you provide the same TweetConsumer object multiple times,
         # it appears at most once in this container.
@@ -274,7 +277,8 @@ class RealTwitterInterface(TwitterInterface):
         self.api = tweepy.API(self.auth)
         # self.short_poll is a list of:
         #   Entries, which are represented by a dict, which should have been a struct:
-        #     'user': string, required, username (or Twitter ID?)
+        #     'user': string, required, Twitter ID
+        #     'name': string, required, screen name
         #     'last_id': string, optional, textual representation of the ID of the most recent Tweet
         # Unless you provide the same TweetConsumer object multiple times,
         # it appears at most once in this container.
@@ -283,16 +287,15 @@ class RealTwitterInterface(TwitterInterface):
         # Start the short-poll thread
         self.run_short_poll_wrap()
 
-    def register(self, usernames, long_lived):
+    def register_longlived(self, ids: List[str]):
         with self.lock:
-            if long_lived:
-                self.streams[tuple(usernames)] = RestartingStream(self.consumer_tweets, usernames, self.auth)
-            else:
-                assert len(usernames) == 1
-                user = usernames[0]
-                mylog.info('Adding short-poll for {}'.format(user))
-                # Note: no 'last_tweet' set.
-                self.short_poll.append({'user': user})
+            self.streams[tuple(ids)] = RestartingStream(self.consumer_tweets, ids, self.auth)
+
+    def register_shortlived(self, id: str, username: str):
+        with self.lock:
+            mylog.info('Adding short-poll for {}'.format(id))
+            # Note: no 'last_tweet' set.
+            self.short_poll.append({'user': id, 'name': username})
 
     def deregister(self, usernames: List[str]):
         with self.lock:
@@ -396,7 +399,13 @@ class FakeTwitterInterface(TwitterInterface):
                 if tid in users:
                     self.consumer_tweets.consumeTweet(fake_tweet)
 
-    def register(self, usernames, long_lived):
+    def register_longlived(self, ids: List[str]):
+        self.register_(ids)
+
+    def register_shortlived(self, id: str, username: str):
+        self.register_([id])
+
+    def register_(self, usernames):
         with self.lock:
             self.user_blocks.add(tuple(usernames))
 
@@ -426,9 +435,9 @@ def manual_test_incoming():
     twi = RealTwitterInterface()
     mylog.info("Now following @HoT *and* Ben's throwaway account")
     # If commented out, add 'while True: input()' at the very end:
-    twi.register(["4718199753"], True)  # HouseOfTweetsSB
-    twi.register(["774336282101178368"], False)  # eeQu0Ae4
-    twi.register(["139407967"], False)  # SevimDagdelen
+    twi.register_longlived(["4718199753"])  # HouseOfTweetsSB
+    twi.register_shortlived("774336282101178368", "eeQu0Ae4")
+    twi.register_shortlived("139407967", "SevimDagdelen")
     mylog.info("Kill with Ctrl-C")
     # while True:
     #     input()
