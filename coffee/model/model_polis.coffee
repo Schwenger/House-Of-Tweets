@@ -3,7 +3,7 @@
 			"citizen_bird": "buntspecht",
 			"cv": {
 				"de": "Jan Paul van Aken (* 1. Mai 1961 in Reinbek) ist ein deutscher Aktivist f\u00fcr Greenpeace und Politiker (Die Linke). Er ist Mitglied des Ausw\u00e4rtigen Ausschusses und des Unterausschusses f\u00fcr Abr\u00fcstung, R\u00fcstungskontrolle und Nichtverbreitung im Deutschen Bundestag. Van Aken zog 2009 \u00fcber die Hamburger Landesliste seiner Partei in den 17. Deutschen Bundestag ein. Von 2012 bis 2014 war er stellvertretender Parteivorsitzender der Partei Die Linke. Er war einer der acht Spitzenkandidaten seiner Partei f\u00fcr die Bundestagswahl 2013 und wurde durch diese in den 18. Deutschen Bundestag gew\u00e4hlt.",
-				"en": "Jan van Aken is a German politician. He is a member of the DIE LINKE."
+				"en": "Jan Paul van Aken (born 1 May 1961 in Reinbek) is a German activist for Greenpeace and a politician with the Left Party. He is a member of the Foreign Affairs Committee and the Subcommittee on Disarmament, Arms Control and Non-Proliferation in the German Bundestag. Jan van Aken entered the 17th Bundestag in 2009 after he was listed on the Left electoral lists in Hamburg. Since June 2012 he has been a deputy chairperson of the Left Party. He was one of the eight lead candidates for the Left in the 2013 federal election and was therefore also elected to the 18th Bundestag."
 			},
 			"full_name": "Jan van Aken",
 			"images": {
@@ -24,7 +24,7 @@
 			"citizen_bird": "blaumeise",
 			"cv": {
 				"de": "Bernd-Bernhard Fabritius (* 14. Mai 1965 in Agnetheln, Rum\u00e4nien) ist ein deutscher Politiker (CSU) und Pr\u00e4sident des Bundes der Vertriebenen. Der promovierte Jurist und Politologe ist seit 2013 Mitglied des Deutschen Bundestages und seit 2007 Bundesvorsitzender des Verbandes der Siebenb\u00fcrger Sachsen in Deutschland e.\u00a0V. und Pr\u00e4sident der weltweiten F\u00f6deration der Siebenb\u00fcrger Sachsen.",
-				"en": "Bernd Fabritius is a German politician. He is a member of the CSU."
+				"en": "Bernd Fabritius (born 14 May 1965) is a German politician from Bavaria who is currently serving as a Member of the Bundestag for the Christian Social Union of Bavaria (CSU)."
 			},
 			"full_name": "Dr. Bernd Fabritius",
 			"images": {
@@ -68,7 +68,7 @@
 			"citizen_bird": "rotkehlchen",
 			"cv": {
 				"de": "Thomas Wolfgang Feist (* 8. April 1965 in Leipzig) ist ein deutscher Politiker der CDU. Der Musik- und Kulturwissenschaftler war Referent f\u00fcr Kulturarbeit, interkulturelle Arbeit und Musik bei der evangelischen Landeskirche Sachsen und auch Vorsitzender des Bundesverband Kulturarbeit in der evangelischen Jugend.",
-				"en": "Thomas Feist is a German politician. He is a member of the CDU."
+				"en": "Thomas Wolfgang Feist (born 8 April 1965 in Leipzig, Germany) is a German politician (CDU) as well as musicologist and cultural scientist. Thomas Feist is a member of the parliamentary association German-Israeli Parliamentary Friendship Group and German-Iranian Parliamentary Friendship Group."
 			},
 			"full_name": "Dr. Thomas Feist",
 			"images": {
@@ -111,8 +111,8 @@
 		"111": {
 			"citizen_bird": "feldsperling",
 			"cv": {
-				"de": "Axel Eduard Fischer (* 5. Mai 1966 in Karlsruhe) ist ein deutscher Politiker (CDU).",
-				"en": "Axel Fischer is a German politician. He is a member of the CDU."
+				"de": "Axel Eduard Fischer (* 5. Mai 1966 in Karlsruhe) ist ein deutscher Politiker (CDU).  Seit 1998 ist er Mitglied des Deutschen Bundestages.  Fischer ist seit 2009 Mitglied des Haushaltsausschusses, Berichterstatter der CDU/CSU f\u00fcr den Etat Arbeit und Soziales und Mitglied des Fraktionsvorstandes der CDU/CSU-Bundestagsfraktion. Au\u00dferdem ist er stellvertretendes Mitglied des Ausw\u00e4rtigen Ausschusses und des Ausschusses f\u00fcr Angelegenheiten der Europ\u00e4ischen Union.  Fischer leitete von Mai 2010 bis April 2013 die Enquete-Kommission \"Internet und digitale Gesellschaft\" des Bundestages.",
+				"en": "Axel Eduard Fischer (born May 5, 1966 in Karlsruhe, Baden-W\u00fcrttemberg) is a German politician. He is a member of the CDU and has been a member of the German parliament since 1998, representing Karlsruhe-Land since 2002. He is married for the second time and has six children.  Axel E. Fischer is Member of the Council of Europe Parliamentary Assembly and the Western European Union. On January 1, 2009, Fischer succeeded Edward O'Hara as Chairman of the committee for Technology and Aerospace."
 			},
 			"full_name": "Axel E. Fischer",
 			"images": {
@@ -133,7 +133,7 @@
 		"114": {
 			"citizen_bird": "kohlmeise",
 			"cv": {
-				"de": "Christian Flisek (* 15. April 1974 in Bochum) ist ein deutscher Politiker (SPD) und Abgeordneter im 18. Deutschen Bundestag.",
+				"de": "Christian Flisek (* 15. April 1974 in Bochum) ist ein deutscher Politiker (SPD) und Abgeordneter im 18. Deutschen Bundestag.  Nachdem Flisek 2012 als Bundestagskandidat der SPD in Passau nominiert worden war, zog er nach der Bundestagswahl 2013 erfolgreich in den 18. Bundestag ein.  Flisek belegt zahlreiche politische \u00c4mter. Unter anderem ist er Obmann der SPD im NSA-Untersuchungsausschuss; er h\u00e4lt eine Befragung von Edward Snowden in Berlin f\u00fcr rechtlich m\u00f6glich. Des Weiteren ist er Beauftragter f\u00fcr Existenzgr\u00fcndungen der SPD-Bundestagsfraktion und Bundesvorsitzender der Arbeitsgemeinschaft der Selbst\u00e4ndigen in der SPD. Seit 2014 ist Christian Flisek Stadtrat in Passau.",
 				"en": "Christian Flisek is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Christian Flisek",
@@ -155,7 +155,7 @@
 		"117": {
 			"citizen_bird": "kohlmeise",
 			"cv": {
-				"de": "Edgar Konrad Hartmut Franke (* 21. Januar 1960 in Gudensberg) ist ein deutscher Politiker (SPD). Seit 2009 ist er Abgeordneter des Deutschen Bundestages, wo er seit 2014 Vorsitzender des Ausschusses f\u00fcr Gesundheit ist.",
+				"de": "Edgar Konrad Hartmut Franke (* 21. Januar 1960 in Gudensberg) ist ein deutscher Politiker (SPD). Seit 2009 ist er Abgeordneter des Deutschen Bundestages, wo er seit 2014 Vorsitzender des Ausschusses f\u00fcr Gesundheit ist.  Franke ist stellvertretender Vorsitzender der Kurt-Schumacher-Gesellschaft, Mitglied der Europa-Union Parlamentariergruppe Deutscher Bundestag und im Vorstand der Deutschen Parlamentarischen Gesellschaft, au\u00dferdem Mitglied in der Deutsch-T\u00fcrkischen Gesellschaft und in der entsprechenden Parlamentariergruppe.",
 				"en": "Edgar Franke is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Dr. Edgar Franke",
@@ -177,7 +177,7 @@
 		"118": {
 			"citizen_bird": "buchfink",
 			"cv": {
-				"de": "Ulrich Ronald Freese (* 12. April 1951 in Drevenack, damals Kreis Rees, Nordrhein-Westfalen) ist ein deutscher Gewerkschafter (IG BCE), Politiker (SPD) und Kohlelobbyist.",
+				"de": "Ulrich Ronald Freese (* 12. April 1951 in Drevenack, damals Kreis Rees, Nordrhein-Westfalen) ist ein deutscher Gewerkschafter (IG BCE), Politiker (SPD) und Kohlelobbyist.  2013 zog er \u00fcber die brandenburgische Landesliste in den Deutschen Bundestag ein. Freese ist im 18. Deutschen Bundestag Mitglied im Ausschuss f\u00fcr Wirtschaft und Energie, dem Ausschuss f\u00fcr Gesundheit, Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft sowie dem Haushaltsausschuss. Ulrich Freese ist als Abgeordneter des Wahlkreises Cottbus/Spree-Nei\u00dfe Mitglied der SPD-Landesgruppe Brandenburg.",
 				"en": "Ulrich Freese is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Ulrich Freese",
@@ -199,7 +199,7 @@
 		"12": {
 			"citizen_bird": "klappergrasmuecke",
 			"cv": {
-				"de": "Annalena Charlotte Alma Baerbock (* 15. Dezember 1980 in Hannover) ist eine deutsche Politikerin der Gr\u00fcnen und Bundestagsabgeordnete. Sie ist Mitglied des Parteirats von B\u00fcndnis 90/Die Gr\u00fcnen und war von 2009 bis 2013 Vorsitzende des Landesverbands Brandenburg. Sie ist verheiratet, hat zwei T\u00f6chter und lebt in Potsdam.",
+				"de": "Annalena Charlotte Alma Baerbock (* 15. Dezember 1980 in Hannover) ist eine deutsche Politikerin der Gr\u00fcnen und Bundestagsabgeordnete. Sie ist Mitglied des Parteirats von B\u00fcndnis 90/Die Gr\u00fcnen und war von 2009 bis 2013 Vorsitzende des Landesverbands Brandenburg. Von November 2012 bis November 2015 geh\u00f6rte sie dem 16-k\u00f6pfigen Parteirat von B\u00fcndnis 90/Die Gr\u00fcnen an.[2] Am 26. Januar 2013 wurde sie zur Direktkandidatin f\u00fcr den Bundestagswahlkreis Potsdam \u2013 Potsdam-Mittelmark II \u2013 Teltow-Fl\u00e4ming II zur Bundestagswahl 2013 gew\u00e4hlt.  Am 26. November 2016 wurde sie erneut als Kandidatin zur Bundestagswahl 2017 gew\u00e4hlt.",
 				"en": "Annalena Baerbock is a German politician. She is a member of the GR\u00dcNE."
 			},
 			"full_name": "Annalena Baerbock",
@@ -220,7 +220,7 @@
 		"121": {
 			"citizen_bird": "gartenrotschwanz",
 			"cv": {
-				"de": "Astrid Freudenstein (* 9. Oktober 1973 in Bad Griesbach im Rottal) ist eine deutsche Politikerin (CSU).",
+				"de": "Astrid Freudenstein (* 9. Oktober 1973 in Bad Griesbach im Rottal) ist eine deutsche Politikerin (CSU).  Astrid Freudenstein ist stellvertretende Vorsitzende des CSU-Kreisverbandes Regensburg-Stadt und Mitglied im CSU-Bezirksvorstand Oberpfalz. Dar\u00fcber hinaus ist sie Mitglied im Landesvorstand der Frauen-Union Bayern.",
 				"en": "Astrid Freudenstein is a German politician. She is a member of the CSU."
 			},
 			"full_name": "Dr. Astrid Freudenstein",
@@ -243,7 +243,7 @@
 			"citizen_bird": "zilpzalp",
 			"cv": {
 				"de": "Hans-Peter Friedrich (* 10. M\u00e4rz 1957 in Naila) ist ein deutscher Politiker der CSU. Vom 3. M\u00e4rz 2011 bis zum 17. Dezember 2013 war er Bundesminister des Innern sowie seit dem 30. September 2013 kommissarischer Bundesminister f\u00fcr Ern\u00e4hrung, Landwirtschaft und Verbraucherschutz bis zum Ende des Kabinetts Merkel II. Im Kabinett Merkel III war er vom 17. Dezember 2013 bis zum 17. Februar 2014, als er seine Entlassungsurkunde erhielt, Bundesminister f\u00fcr Ern\u00e4hrung und Landwirtschaft. Aufgrund der Edathy-Aff\u00e4re hatte er am 14. Februar 2014 seinen R\u00fccktritt vom Amt erkl\u00e4rt. Von 2005 bis 2011 war Friedrich stellvertretender Vorsitzender der CDU/CSU-Bundestagsfraktion und von Oktober 2009 bis M\u00e4rz 2011 Vorsitzender der CSU-Landesgruppe. Seit dem 17. Februar 2014 ist Friedrich erneut einer der zw\u00f6lf stellvertretenden Vorsitzenden der CDU/CSU-Bundestagsfraktion.",
-				"en": "Hans-Peter Friedrich is a German politician. He is a member of the CSU."
+				"en": "Hans-Peter Friedrich (born March 10, 1957) is a German politician, representative of the Christian Social Union (CSU). On 3 March 2011 he succeeded Thomas de Maizi\u00e8re as Federal Minister of the Interior[1] and held this ministry until 17 December 2013 when he was appointed Federal Minister for Food and Agriculture. Friedrich resigned from that position in February 2014. Friedrich has a controversial history with minorities in Germany, causing outrage in 2013 after telling journalists that Islam in Germany is not something supported by history at any point."
 			},
 			"full_name": "Dr. Hans-Peter Friedrich",
 			"images": {
@@ -264,7 +264,7 @@
 		"124": {
 			"citizen_bird": "zilpzalp",
 			"cv": {
-				"de": "Michael Franz Wilhelm Fuchs (* 6. Februar 1949 in Koblenz) ist ein deutscher Politiker (CDU).",
+				"de": "Michael Franz Wilhelm Fuchs (* 6. Februar 1949 in Koblenz) ist ein deutscher Politiker (CDU).  Er ist seit 2009 einer der stellvertretenden Vorsitzenden der CDU/CSU-Bundestagsfraktion, dort derzeit zust\u00e4ndig f\u00fcr Wirtschaft und Energie, Mittelstand und Tourismus.",
 				"en": "Michael Fuchs is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Dr. Michael Fuchs",
@@ -308,8 +308,8 @@
 		"127": {
 			"citizen_bird": "weisskopfseeadler",
 			"cv": {
-				"de": "Sigmar Gabriel (* 12. September 1959 in Goslar) ist ein deutscher Politiker (SPD), seit dem Jahr 2009 SPD-Parteivorsitzender und seit dem 17. Dezember 2013 Stellvertreter der Bundeskanzlerin sowie Bundesminister f\u00fcr Wirtschaft und Energie im Kabinett Merkel III. Er ist der am l\u00e4ngsten amtierende SPD-Parteivorsitzende seit Willy Brandt.",
-				"en": "Sigmar Gabriel is a German politician. He is a member of the SPD."
+				"de": "Sigmar Hartmut Gabriel (* 12. September 1959 in Goslar) ist ein deutscher Politiker, seit dem 13. November 2009 Vorsitzender der SPD und seit dem 17. Dezember 2013 Stellvertreter der Bundeskanzlerin (deutscher Vizekanzler). Vom 17. Dezember 2013 bis zum 26. Januar 2017 war er Bundesminister f\u00fcr Wirtschaft und Energie im Kabinett Merkel III.  Seit dem 27. Januar 2017 ist Sigmar Gabriel Bundesau\u00dfenminister, nachdem der bisherige Amtsinhaber Frank-Walter Steinmeier sein Amt aufgrund der anstehenden Wahl zum Bundespr\u00e4sidenten aufgegeben hat.",
+				"en": "Sigmar Hartmut Gabriel (born 12 September 1959) is a German politician who currently serves as Minister for Foreign Affairs and Vice Chancellor. He has been chairman of the Social Democratic Party of Germany (SPD) since 2009, which makes him the party\u2019s longest-serving leader since Willy Brandt. He was the Federal Minister of the Environment from 2005 to 2009 and the Federal Minister for Economic Affairs and Energy from 2013 to 2017."
 			},
 			"full_name": "Sigmar Gabriel",
 			"images": {
@@ -330,7 +330,7 @@
 		"130": {
 			"citizen_bird": "singdrossel",
 			"cv": {
-				"de": "Matthias Gastel (* 26. Dezember 1970 in Stuttgart) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen) und Unternehmer.",
+				"de": "Matthias Gastel (* 26. Dezember 1970 in Stuttgart) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen) und Unternehmer.  Bei der Bundestagswahl 2013 kandidierte er im Wahlkreis N\u00fcrtingen und zog \u00fcber die Landesliste in den Deutschen Bundestag ein.  Er ist Mitglied im Ausschuss f\u00fcr Verkehr und digitale Infrastruktur und dort bahnpolitischer Sprecher seiner Fraktion.",
 				"en": "Matthias Gastel is a German politician. He is a member of the GR\u00dcNE."
 			},
 			"full_name": "Matthias Gastel",
@@ -352,7 +352,7 @@
 		"132": {
 			"citizen_bird": "mehlschwalbe",
 			"cv": {
-				"de": "Thomas Gebhart (* 20. Dezember 1971 in Kandel) ist ein deutscher Politiker der CDU. Seit 2009 ist er Mitglied des Deutschen Bundestages f\u00fcr den Wahlkreis S\u00fcdpfalz.",
+				"de": "Thomas Gebhart (* 20. Dezember 1971 in Kandel) ist ein deutscher Politiker der CDU. Seit 2009 ist er Mitglied des Deutschen Bundestages f\u00fcr den Wahlkreis S\u00fcdpfalz.  Gebhart ist Mitglied der Europa-Union Parlamentariergruppe Deutscher Bundestag. Er ist seit der Bundestagswahl 2009 ordentliches Mitglied im Ausschuss f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit, Schriftf\u00fchrer und stellvertretendes Mitglied im Haushaltsausschuss.  Er ist dar\u00fcber hinaus Mitglied in der Deutsch-Britischen und Deutsch-Schweizerischen Parlamentariergruppe sowie im Parlamentarischen Freundeskreis Berlin-Taipei. F\u00fcr die Unionsfraktion ist Gebhart Berichterstatter f\u00fcr Kreislaufwirtschaft und Ressourceneffizienz sowie Ko-Berichterstatter f\u00fcr Klimaschutz.",
 				"en": "Thomas Gebhart is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Dr. Thomas Gebhart",
@@ -374,7 +374,7 @@
 		"133": {
 			"citizen_bird": "schwanzmeise",
 			"cv": {
-				"de": "Wolfgang Gehrcke-Reymann (* 8. September 1943 in Reichau) ist ein deutscher Politiker (Die Linke).",
+				"de": "Wolfgang Gehrcke-Reymann (* 8. September 1943 in Reichau) ist ein deutscher Politiker (Die Linke).  Er war von 1998 bis 2002 stellvertretender Vorsitzender der PDS-Bundestagsfraktion.  Seit Oktober 2002 war Gehrcke Mitglied des Parteivorstands der PDS und von Juni 2007 bis 2012 des Parteivorstands der Partei Die Linke.",
 				"en": "Wolfgang Gehrcke is a German politician. He is a member of the DIE LINKE."
 			},
 			"full_name": "Wolfgang Gehrcke",
@@ -395,8 +395,8 @@
 		"134": {
 			"citizen_bird": "goldammer",
 			"cv": {
-				"de": "Kai Boris Gehring (* 26. Dezember 1977 in M\u00fclheim an der Ruhr) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen).",
-				"en": "Kai Gehring is a German politician. He is a member of the GR\u00dcNE."
+				"de": "Kai Boris Gehring (* 26. Dezember 1977 in M\u00fclheim an der Ruhr) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen).  Von Juni 2011 bis September 2013 war er in der Fraktion Sprecher f\u00fcr Bildungs- und Hochschulpolitik. Seit Oktober 2013 ist Gehring Sprecher f\u00fcr Hochschule, Wissenschaft und Forschung. Er ist Obmann seiner Fraktion im Ausschuss f\u00fcr Bildung, Forschung und Technikfolgenabsch\u00e4tzung und stellvertretendes Mitglied im Haushaltsausschuss. Zudem ist er stellvertretender Vorsitzender der Deutsch-Griechischen Parlamentariergruppe.",
+				"en": "Kai Gehring (born 26 December 1977 in M\u00fclheim an der Ruhr) is a German politician.  Having joined the liberal party Alliance '90/The Greens in 1998, Gehring was elected to the Bundestag in the 2005 federal election. He was able to retain his seat in the 2009 election."
 			},
 			"full_name": "Kai Gehring",
 			"images": {
@@ -417,8 +417,8 @@
 		"14": {
 			"citizen_bird": "stieglitz",
 			"cv": {
-				"de": "Dorothee B\u00e4r (* 19. April 1978 in Bamberg als Dorothee Mantel) ist eine deutsche Politikerin (CSU).",
-				"en": "Dorothee B\u00e4r is a German politician. She is a member of the CSU."
+				"de": "Dorothee B\u00e4r (* 19. April 1978 in Bamberg als Dorothee Mantel) ist eine deutsche Politikerin (CSU).  Seit 2010 ist sie Vorsitzende des CSU Netzrates und seit 2011 Vorsitzende des CSUnet. Au\u00dferdem wurde Dorothee B\u00e4r 2011 zur stellvertretenden Bezirksvorsitzenden der CSU Unterfranken gew\u00e4hlt. Im Jahr 2012 war Dorothee B\u00e4r Teil der Versuchsgruppe einer Studie, die im Auftrag des Instituts f\u00fcr Medien- und Kommunikationspolitik (IfM) durchgef\u00fchrt wurde und das Twitter-Verhalten von Politikern untersucht hat.",
+				"en": "Dorothee B\u00e4r (n\u00e9e Mantel, born 19 April 1978[1] in Bamberg, Bavaria) is a German politician that has served as the National Deputy Secretary General of the Christian Social Union of Bavaria since 2009."
 			},
 			"full_name": "Dorothee B\u00e4r",
 			"images": {
@@ -439,7 +439,7 @@
 		"141": {
 			"citizen_bird": "star",
 			"cv": {
-				"de": "Angelika Gl\u00f6ckner (* 5. Februar 1962 in Pirmasens, Rheinland-Pfalz) ist eine deutsche Politikerin (SPD) und seit 2014 Abgeordnete im Deutschen Bundestag.",
+				"de": "Angelika Gl\u00f6ckner (* 5. Februar 1962 in Pirmasens, Rheinland-Pfalz) ist eine deutsche Politikerin (SPD) und seit 2014 Abgeordnete im Deutschen Bundestag.  Sie ist seit dem 20. September 2014 stellvertretende Vorsitzende des SPD Unterbezirks Pirmasens-Zweibr\u00fccken.  Sie ist ordentliches Mitglied im Ausschuss f\u00fcr die Angelegenheiten der Europ\u00e4ischen Union und im Ausschuss f\u00fcr Menschenrechte und humanit\u00e4re Hilfe. Dar\u00fcber hinaus arbeitet Gl\u00f6ckner innerhalb der SPD-Fraktion des Bundestages in der Arbeitsgruppe Kommunalpolitik mit.",
 				"en": "Angelika Gl\u00f6ckner is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Angelika Gl\u00f6ckner",
@@ -483,7 +483,7 @@
 			"citizen_bird": "schwanzmeise",
 			"cv": {
 				"de": "Katrin Dagmar G\u00f6ring-Eckardt (geb. Eckardt; * 3. Mai 1966 in Friedrichroda) ist eine deutsche Politikerin von B\u00fcndnis 90/Die Gr\u00fcnen. Von Oktober 2005 bis Oktober 2013 amtierte sie f\u00fcr die Fraktion von B\u00fcndnis 90/Die Gr\u00fcnen als Vizepr\u00e4sidentin des Deutschen Bundestages. Bei der Urwahl im November 2012 w\u00e4hlte die gr\u00fcne Parteibasis sie \u2013 zusammen mit J\u00fcrgen Trittin \u2013 zur Spitzenkandidatin der Gr\u00fcnen f\u00fcr die Bundestagswahl 2013. Seit Oktober 2013 ist sie neben Anton Hofreiter Vorsitzende der Bundestagsfraktion ihrer Partei, ein Amt, das sie bereits von 2002 bis 2005 neben Krista Sager bekleidet hatte. Dar\u00fcber hinaus war G\u00f6ring-Eckardt von 2009 bis September 2013 Pr\u00e4ses der Synode der Evangelischen Kirche in Deutschland (EKD) und somit Mitglied im Rat der EKD.",
-				"en": "Katrin G\u00f6ring-Eckardt is a German politician. She is a member of the GR\u00dcNE."
+				"en": "Katrin Dagmar G\u00f6ring-Eckardt (born Katrin Dagmar Eckardt on 3 May 1966 in Friedrichroda, Thuringia [then part of East Germany]), better known as Katrin G\u00f6ring-Eckardt, is a German politician from the German Green Party (officially known as Alliance '90/The Greens; German: B\u00fcndnis 90/Die Gr\u00fcnen). Starting her political activity in the now-former German Democratic Republic (East Germany) in the late 1980s, she has been a member of the German Bundestag since 1998. She became co-chair of her party caucus in the Bundestag (2002\u20132005) and the Greens' Vice President of the Bundestag on 18 October 2005, a position that she has held since then. In the November 2012 primary election, the Green Party chose her and J\u00fcrgen Trittin as the top two candidates for the Greens for the 2013 German federal election that took place on 22 September 2013. She is once again standing to be one of the top two candidates for the Greens for the 2017 German federal election."
 			},
 			"full_name": "Katrin G\u00f6ring-Eckardt",
 			"images": {
@@ -504,7 +504,7 @@
 		"147": {
 			"citizen_bird": "kleiber",
 			"cv": {
-				"de": "Kerstin Griese (* 6. Dezember 1966 in M\u00fcnster) ist eine deutsche Politikerin (SPD). Sie ist Mitglied des Deutschen Bundestages und Vorsitzende des Ausschusses f\u00fcr Arbeit und Soziales. Au\u00dferdem geh\u00f6rt sie dem Rat der Evangelischen Kirche in Deutschland (EKD) an.",
+				"de": "Kerstin Griese (* 6. Dezember 1966 in M\u00fcnster) ist eine deutsche Politikerin (SPD). Sie ist seit 2014 Mitglied des Deutschen Bundestages und Vorsitzende des Ausschusses f\u00fcr Arbeit und Soziales.  Von 2006 bis 2009 und seit 2011 ist sie Beauftragte der SPD-Bundestagsfraktion f\u00fcr Kirchen und Religionsgemeinschaften.",
 				"en": "Kerstin Griese is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Kerstin Griese",
@@ -526,8 +526,8 @@
 		"150": {
 			"citizen_bird": "gimpel",
 			"cv": {
-				"de": "Hermann Gr\u00f6he (* 25. Februar 1961 in Uedem) ist ein deutscher Politiker (CDU) und seit dem 17. Dezember 2013 Bundesminister f\u00fcr Gesundheit im Kabinett Merkel III.",
-				"en": "Hermann Gr\u00f6he is a German politician. He is a member of the CDU."
+				"de": "Hermann Gr\u00f6he (* 25. Februar 1961 in Uedem) ist ein deutscher Politiker (CDU) und seit dem 17. Dezember 2013 Bundesminister f\u00fcr Gesundheit im Kabinett Merkel III.  Am 1. Oktober 2008 \u00fcbernahm Gr\u00f6he die Nachfolge Hildegard M\u00fcllers als Staatsminister bei der Bundeskanzlerin (Kabinett Merkel I). Nach der Wahl zum CDU-Generalsekret\u00e4r legte er im Oktober 2009 das Amt nieder.",
+				"en": "Hermann Gr\u00f6he (born 25 February 1961) is a German politician of the Christian Democratic Union (CDU) who has been serving as Minister of Health in the third cabinet of Chancellor Angela Merkel since 2013.   March 2016, Gr\u00f6he was appointed by United Nations Secretary-General Ban Ki-moon to the High-Level Commission on Health Employment and Economic Growth, which was co-chaired by presidents Fran\u00e7ois Hollande of France and Jacob Zuma of South Africa.  He later led Germany's delegation to the 2016 High Level Meeting on Ending AIDS in New York."
 			},
 			"full_name": "Hermann Gr\u00f6he",
 			"images": {
@@ -548,7 +548,7 @@
 		"153": {
 			"citizen_bird": "buchfink",
 			"cv": {
-				"de": "Michael Peter Gro\u00df (* 26. Juli 1956 in Marl) ist ein deutscher Politiker (SPD). Gro\u00df ist seit Oktober 2009 Mitglied des Deutschen Bundestages. Daneben ist er Stadtverbandsvorsitzender der Marler SPD und stellvertretender Vorsitzender des SPD-Kreisverbandes Recklinghausen. Gro\u00df ist verheiratet und hat zwei Kinder.",
+				"de": "Michael Peter Gro\u00df (* 26. Juli 1956 in Marl) ist ein deutscher Politiker (SPD). Gro\u00df ist seit Oktober 2009 Mitglied des Deutschen Bundestages. Daneben ist er Stadtverbandsvorsitzender der Marler SPD und stellvertretender Vorsitzender des SPD-Kreisverbandes Recklinghausen. Seit Januar 2016 ist Michael Gro\u00df Mitglied im Ausschuss f\u00fcr Recht und Verbraucherschutz. Er sitzt in der \u00c4ltestenratskommission f\u00fcr Bau- und Raumangelegenheiten.",
 				"en": "Michael Gro\u00df is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Michael Gro\u00df",
@@ -570,8 +570,8 @@
 		"154": {
 			"citizen_bird": "tuerkentaube",
 			"cv": {
-				"de": "Michael Grosse-Br\u00f6mer (* 12. Oktober 1960 in Oberhausen) ist ein deutscher Politiker (CDU). Seit dem 22. Mai 2012 ist er Erster Parlamentarischer Gesch\u00e4ftsf\u00fchrer der CDU/CSU-Bundestagsfraktion.",
-				"en": "Michael Grosse-Br\u00f6mer is a German politician. He is a member of the CDU."
+				"de": "Michael Grosse-Br\u00f6mer (* 12. Oktober 1960 in Oberhausen) ist ein deutscher Politiker (CDU). Seit dem 22. Mai 2012 ist er Erster Parlamentarischer Gesch\u00e4ftsf\u00fchrer der CDU/CSU-Bundestagsfraktion.  Von Januar 2006 bis M\u00e4rz 2010 war er Mitglied im erweiterten Vorstand der CDU/CSU-Bundestagsfraktion, seit seiner Wahl zum Justiziar der Fraktion ist er gesch\u00e4ftsf\u00fchrendes Vorstandsmitglied. Von Oktober 2009 bis September 2013 war er Vorsitzender der Landesgruppe Niedersachsen in der CDU/CSU-Bundestagsfraktion und bis April 2010 der rechtspolitische Sprecher der CDU/CSU-Fraktion im Deutschen Bundestag.",
+				"en": "Michael Grosse-Br\u00f6mer (born 12 October 1960 in Oberhausen) is a German politician and a member of the Bundestag for the German Christian Democratic Union.  In 2012 he succeeded Peter Altmaier as First Secretary of the parliamentary group, in this position assisting the parliamentary group's chairman Volker Kauder. In addition, he is a member of the German-Austrian Parliamentary Friendship Group and the German-Irish Parliamentary Friendship Group.  Since 2014, he has been serving on the Committee on the Election of Judges (Wahlausschuss), which is in charge of appointing judges to the Federal Constitutional Court of Germany."
 			},
 			"full_name": "Michael Grosse-Br\u00f6mer",
 			"images": {
@@ -592,8 +592,8 @@
 		"156": {
 			"citizen_bird": "gartenrotschwanz",
 			"cv": {
-				"de": "Annette Groth (* 16. Mai 1954 in Gadderbaum, heute zu Bielefeld) ist eine baden-w\u00fcrttembergische Politikerin der Partei Die Linke und Mitglied des Deutschen Bundestags.",
-				"en": "Annette Groth is a German politician. She is a member of the DIE LINKE."
+				"de": "Annette Groth (* 16. Mai 1954 in Gadderbaum, heute zu Bielefeld) ist eine baden-w\u00fcrttembergische Politikerin der Partei Die Linke und Mitglied des Deutschen Bundestags.  Sie wurde zur Vorsitzenden der Deutsch-Griechischen Parlamentariergruppe des Deutschen Bundestags gew\u00e4hlt. Dar\u00fcber hinaus ist sie Mitglied im Migrationsausschuss der parlamentarischen Versammlung des Europarates.",
+				"en": "Annette Groth (born May 16, 1954 Bielefeld) is a German politician from Baden-Wuerttemberg.  Since October 2007, she is a member of the Left party in Baden-W\u00fcrttemberg, a member of the AK European integration, the BAG peace and international politics and active in the European Left Party to the feminist structures \"EL-Fem\". She is also a member of the Forum of the Rosa Luxemburg Foundation of Baden-Wuerttemberg."
 			},
 			"full_name": "Annette Groth",
 			"images": {
@@ -613,8 +613,8 @@
 		"159": {
 			"citizen_bird": "buntspecht",
 			"cv": {
-				"de": "Manfred Grund (* 3. Juli 1955 in Zeitz) ist ein deutscher Politiker (CDU). Er ist seit 1998 Parlamentarischer Gesch\u00e4ftsf\u00fchrer der CDU/CSU-Bundestagsfraktion.",
-				"en": "Manfred Grund is a German politician. He is a member of the CDU."
+				"de": "Manfred Grund (* 3. Juli 1955 in Zeitz) ist ein deutscher Politiker (CDU). Er ist seit 1998 Parlamentarischer Gesch\u00e4ftsf\u00fchrer der CDU/CSU-Bundestagsfraktion.  Im Januar 1990 wurde Grund Mitglied der CDU. Von 1994 bis 2001 war er stellvertretender Vorsitzender des CDU-Kreisverbandes Eichsfeld und daneben von 1994 bis 2003 sowie seit 2013 Vorsitzender des CDU-Stadtverbandes Heiligenstadt. Seit 1998 geh\u00f6rt er dem CDU-Landesvorstand in Th\u00fcringen an.  Er war Gr\u00fcndungsmitglied und erster Vorsitzender des Deutsch-Moldauischen Forums, dem er vom 26. M\u00e4rz 2009 bis zum 21. November 2015 vorstand. Er ist der stellvertretende Vorsitzende der Deutsch-Kasachischen Gesellschaft.",
+				"en": "Manfred Grund (born July 3, 1955) is a German politician of the Christian Democratic Union (CDU).  Grund has served as parliamentary secretary of the CDU/CSU parliamentary group and as chairman of the Thuringian Committee of the CDU/CSU parliamentary group since 1998."
 			},
 			"full_name": "Manfred Grund",
 			"images": {
@@ -635,8 +635,8 @@
 		"16": {
 			"citizen_bird": "klappergrasmuecke",
 			"cv": {
-				"de": "Thomas Barei\u00df (* 15. Februar 1975 in Albstadt-Ebingen) ist ein deutscher Politiker (CDU).",
-				"en": "Thomas Barei\u00df is a German politician. He is a member of the CDU."
+				"de": "Thomas Barei\u00df (* 15. Februar 1975 in Albstadt-Ebingen) ist ein deutscher Politiker (CDU).  Seit 2002 geh\u00f6rte er in seiner Eigenschaft als Landesvorsitzender der Jungen Union als beratendes Mitglied dem CDU-Landesvorstandes Baden-W\u00fcrttemberg an, seit dem Landesparteitag 2005 als gew\u00e4hltes Mitglied.  Am 22. Oktober 2011 wurde Thomas Barei\u00df in Uhldingen-M\u00fchlhofen zum neuen Vorsitzenden des rund 13.000 Mitglieder starken CDU-Bezirksverbands W\u00fcrttemberg-Hohenzollern gew\u00e4hlt.",
+				"en": "Thomas Barei\u00df (born 15 February 1975 in Albstadt, Baden-W\u00fcrttemberg) is a German politician and member of the conservative CDU.  A business manager by profession, Barei\u00df has been a directly elected member of the Bundestag since 2005. In his first term between 2005 and 2009, he was a full member of the Committee on the Affairs of the European Union as well as of the Committee on Labor and Social Affairs. Since the 2009 elections, he has been serving on the Committee on Economic Affairs and Energy."
 			},
 			"full_name": "Thomas Barei\u00df",
 			"images": {
@@ -658,7 +658,7 @@
 			"citizen_bird": "eichelhaeher",
 			"cv": {
 				"de": "Herlind Magdalena Gundelach (* 28. Februar 1949 in Aalen) ist eine deutsche Politikerin (CDU). Sie war von 2008 bis M\u00e4rz 2011 Hamburger Senatorin f\u00fcr Wissenschaft und Forschung. Vom 29. November 2010 bis zum 7. M\u00e4rz 2011 war sie au\u00dferdem Senatorin f\u00fcr Finanzen sowie f\u00fcr Stadtentwicklung und Umwelt.",
-				"en": "Herlind Gundelach is a German politician. She is a member of the CDU."
+				"en": "Herlind Gundelach, (born 1949) is a German politician, representative of the German Christian Democratic Union.  Gundelach was elected a member of the German Bundestag in the 2013 federal elections. She has since been serving as deputy chairwoman of the Committee on Cultural Affairs and Media. In addition, she is a member of the Committee on Economic Affairs and Energy, where she serves as her parliamentary group\u2019s rapporteur on energy efficiency and public procurement rules."
 			},
 			"full_name": "Dr. Herlind Gundelach",
 			"images": {
@@ -679,7 +679,7 @@
 		"165": {
 			"citizen_bird": "tannenmeise",
 			"cv": {
-				"de": "Olav Gutting (* 14. Oktober 1970 in Karlsruhe) ist ein deutscher Politiker (CDU).",
+				"de": "Olav Gutting (* 14. Oktober 1970 in Karlsruhe) ist ein deutscher Politiker (CDU).  Seit 2002 ist er Mitglied des Deutschen Bundestages. Olav Gutting ist stets als direkt gew\u00e4hlter Abgeordneter des Wahlkreises Bruchsal \u2013 Schwetzingen in den Bundestag eingezogen.",
 				"en": "Olav Gutting is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Olav Gutting",
@@ -701,8 +701,8 @@
 		"166": {
 			"citizen_bird": "ara",
 			"cv": {
-				"de": "Gregor Florian Gysi [\u02c8\u0261i\u02d0zi] (* 16. Januar 1948 in Berlin) ist ein deutscher Rechtsanwalt, linksgerichteter Politiker sowie zwischen 1990 und 2000 und seit 2005 erneut Mitglied des Deutschen Bundestages. Er ist Mitglied der Partei Die Linke.",
-				"en": "Gregor Gysi is a German politician. He is a member of the DIE LINKE."
+				"de": "Gregor Florian Gysi (* 16. Januar 1948 in Berlin) ist ein deutscher Rechtsanwalt, linksgerichteter Politiker sowie zwischen 1990 und 2000 und seit 2005 erneut Mitglied des Deutschen Bundestages. Er ist Mitglied der Partei Die Linke.  Von 2005 bis 2015 war er Fraktionsvorsitzender der Linksfraktion im Deutschen Bundestag. Mit dem Amtsantritt des dritten Kabinetts Merkel am 17. Dezember 2013 wurde Gysi zus\u00e4tzlich Oppositionsf\u00fchrer im Deutschen Bundestag. Am 17. Dezember 2016 w\u00e4hlte die Europ\u00e4ische Linke Gysi auf einem Parteitag in Berlin zum Pr\u00e4sidenten.",
+				"en": "Gregor Gysi (born 16 January 1948) is a German attorney and key politician of the political party The Left (Die Linke)."
 			},
 			"full_name": "Dr. Gregor Gysi",
 			"images": {
@@ -722,8 +722,8 @@
 		"17": {
 			"citizen_bird": "blaumeise",
 			"cv": {
-				"de": "Katarina Barley [\u02c8ba:\u0250\u032fl\u025b\u026a\u032f] (* 19. November 1968 in K\u00f6ln) ist eine deutsche Juristin, Politikerin (SPD) und Abgeordnete im 18. Deutschen Bundestag. Am 11. Dezember 2015 wurde sie auf dem SPD-Bundesparteitag zur Generalsekret\u00e4rin gew\u00e4hlt.",
-				"en": "Katarina Barley is a German politician. She is a member of the SPD."
+				"de": "Katarina Barley (* 19. November 1968 in K\u00f6ln) ist eine deutsche Juristin, Politikerin (SPD) und Abgeordnete im 18. Deutschen Bundestag. Am 11. Dezember 2015 wurde sie auf dem SPD-Bundesparteitag zur Generalsekret\u00e4rin gew\u00e4hlt.  Anfang November 2015 schlug der SPD-Vorsitzende Sigmar Gabriel Barley als Generalsekret\u00e4rin der SPD (und damit als Nachfolgerin von Yasmin Fahimi) vor.",
+				"en": "Katarina Barley (* 19. November 1968 in Cologne) is a German lawyer, politician and member of the 18th German Bundestag. Her English last name comes from her British father.  In 2014, Barley briefly served as a member of the Committee on the Affairs of the European Union. In addition to her committee assignments, she is a member of the German-British Parliamentary Friendship Group.  Within the SPD parliamentary group, Barley belongs to the Parliamentary Left, a left-wing movement.  In 2015, she was proposed by party chairman Sigmar Gabriel to succeed Yasmin Fahimi in the role of general secretary of the SPD, one of the party's most senior positions."
 			},
 			"full_name": "Dr. Katarina Barley",
 			"images": {
@@ -744,7 +744,7 @@
 		"171": {
 			"citizen_bird": "mehlschwalbe",
 			"cv": {
-				"de": "Florian Hahn (* 14. M\u00e4rz 1974 in M\u00fcnchen) ist ein deutscher Politiker. Als Abgeordneter der CSU geh\u00f6rt er seit der Wahl zum 17. Bundestag im Herbst 2009 dem Deutschen Bundestag an.",
+				"de": "Florian Hahn (* 14. M\u00e4rz 1974 in M\u00fcnchen) ist ein deutscher Politiker. Als Abgeordneter der CSU geh\u00f6rt er seit der Wahl zum 17. Bundestag im Herbst 2009 dem Deutschen Bundestag an.  Seit 2014 ist er Sprecher der CSU-Landesgruppe f\u00fcr Ausw\u00e4rtiges, Verteidigung, Angelegenheiten der Europ\u00e4ischen Union, wirtschaftliche Zusammenarbeit und Entwicklung, Menschenrechte und Humanit\u00e4re Hilfe und Landesvorsitzender des Arbeitskreises Au\u00dfen-, Sicherheits- und Europapolitik (ASP) der CSU. Hier leitet er auch den Fachausschuss Au\u00dfenpolitik.",
 				"en": "Florian Hahn is a German politician. He is a member of the CSU."
 			},
 			"full_name": "Florian Hahn",
@@ -766,8 +766,8 @@
 		"172": {
 			"citizen_bird": "goldammer",
 			"cv": {
-				"de": "Anja Hajduk (* 8. Juni 1963 in Duisburg) ist eine deutsche Politikerin. Sie ist Mitglied im Hamburger Landesverband von B\u00fcndnis 90/Die Gr\u00fcnen und Mitglied des Deutschen Bundestages.",
-				"en": "Anja Hajduk is a German politician. She is a member of the GR\u00dcNE."
+				"de": "Anja Hajduk (* 8. Juni 1963 in Duisburg) ist eine deutsche Politikerin. Sie ist Mitglied im Hamburger Landesverband von B\u00fcndnis 90/Die Gr\u00fcnen und Mitglied des Deutschen Bundestages.  Sie war vom 7. Mai 2008 bis zum 29. November 2010 Senatorin und Pr\u00e4ses der Beh\u00f6rde f\u00fcr Stadtentwicklung und Umwelt der Freien und Hansestadt Hamburg.",
+				"en": "Hajduk (born 8 June 1963 in Duisburg) is a German politician. She has been a member of the Alliance '90/The Greens since 1995.  In the 2013 federal elections, Hajduk was again elected member of the German Bundestag where she has since served as Chief Whip of her parliamentary group. A member of the budget committee, she serves as rapporteur on the budgets of the Federal Ministry for Economic Affairs and Energy, the Federal Ministry of Economic Cooperation and Development, the Federal Ministry of the Interior and the Bundestag. She is also a member of the so-called Confidential Committee (Vertrauensgremium) of the Budget Committee, which provides budgetary supervision for Germany\u2019s three intelligence services, BND, BfV and MAD."
 			},
 			"full_name": "Anja Hajduk",
 			"images": {
@@ -788,7 +788,7 @@
 		"173": {
 			"citizen_bird": "kiwi",
 			"cv": {
-				"de": "Metin Hakverdi (* 25. Juni 1969 in Hamburg) ist ein Hamburger Politiker der SPD. Seit 2013 ist er Mitglied des Deutschen Bundestages.",
+				"de": "Metin Hakverdi (* 25. Juni 1969 in Hamburg) ist ein Hamburger Politiker der SPD. Seit 2013 ist er Mitglied des Deutschen Bundestages.  Im Dezember 2012 wurde Hakverdi als Kandidat der SPD f\u00fcr den Wahlkreis Hamburg-Bergedorf \u2013 Harburg als Nachfolger von Hans-Ulrich Klose nominiert. Bei der Bundestagswahl 2013 wurde er als Direktkandidat in den Bundestag gew\u00e4hlt. Im Bundestag ist er Mitglied des Finanzausschusses, des Parlamentarischen Finanzmarktgremiums und des Ausschusses f\u00fcr Recht und Verbraucherschutz.",
 				"en": "Metin Hakverdi is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Metin Hakverdi",
@@ -810,7 +810,7 @@
 		"175": {
 			"citizen_bird": "gartenrotschwanz",
 			"cv": {
-				"de": "Heike H\u00e4nsel (* 1. Januar 1966 in Stuttgart) ist eine deutsche Politikerin (Die Linke). Sie ist Bundestagsabgeordnete und Stellvertretende Vorsitzende der Linksfraktion.",
+				"de": "Heike H\u00e4nsel (* 1. Januar 1966 in Stuttgart) ist eine deutsche Politikerin (Die Linke). Seit 2005 ist Heike H\u00e4nsel Mitglied des Deutschen Bundestages. Hier ist sie entwicklungspolitische Sprecherin der Linksfraktion. Sie ist \u00fcber die Landesliste Baden-W\u00fcrttemberg in den Bundestag eingezogen. Seit dem 3. November 2015 ist sie Stellvertretende Vorsitzende der Linksfraktion.",
 				"en": "Heike H\u00e4nsel is a German politician. She is a member of the DIE LINKE."
 			},
 			"full_name": "Heike H\u00e4nsel",
@@ -831,7 +831,7 @@
 		"176": {
 			"citizen_bird": "blaumeise",
 			"cv": {
-				"de": "Stephan Harbarth (* 19. Dezember 1971 in Heidelberg) ist ein deutscher Politiker (CDU) und Rechtsanwalt.",
+				"de": "Stephan Harbarth (* 19. Dezember 1971 in Heidelberg) ist ein deutscher Politiker (CDU) und Rechtsanwalt.  Ende August 2010 wurde Harbarth in den Bundesfachausschuss Wirtschafts-, Haushalts- und Finanzpolitik der CDU Deutschlands berufen. 2011 wurde Harbarth als Nachfolger von Georg Wacker zum Kreisvorsitzenden der CDU Rhein-Neckar gew\u00e4hlt, seit 2013 ist er Mitglied des Landesvorstandes der CDU Baden-W\u00fcrttemberg. Harbarth ist Mitglied im CDU-Bundesvorstand.",
 				"en": "Stephan Harbarth is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Dr. Stephan Harbarth",
@@ -853,8 +853,8 @@
 		"177": {
 			"citizen_bird": "star",
 			"cv": {
-				"de": "J\u00fcrgen Hardt (* 30. Mai 1963 in Hofheim am Taunus) ist ein deutscher Politiker (CDU). J\u00fcrgen Hardt ist au\u00dfenpolitischer Sprecher der CDU/CSU-Bundestagsfraktion und geh\u00f6rt dem Fraktionsvorstand an. ",
-				"en": "J\u00fcrgen Hardt is a German politician. He is a member of the CDU."
+				"de": "J\u00fcrgen Hardt (* 30. Mai 1963 in Hofheim am Taunus) ist ein deutscher Politiker (CDU). J\u00fcrgen Hardt ist au\u00dfenpolitischer Sprecher der CDU/CSU-Bundestagsfraktion und geh\u00f6rt dem Fraktionsvorstand an.  Hardt trat 1981 in die CDU ein. Von 1987 bis 1989 war er Bundesvorsitzender des Rings Christlich-Demokratischer Studenten. Von 2004 bis 2009 geh\u00f6rte er dem Rat der Stadt Wuppertal an. Von 2003 bis 2014 war er Kreisvorsitzender der CDU Wuppertal. Seit 2005 ist J\u00fcrgen Hardt stellvertretender Vorsitzender des CDU-Bezirks Bergisches Land.  Hardt ist Mitglied der Europa-Union Parlamentariergruppe Deutscher Bundestag, der Parlamentarischen Versammlung der NATO und der Parlamentarischen Versammlung der OSZE. Au\u00dferdem ist er Mitglied im Vorstand der Europ\u00e4ischen Volkspartei.",
+				"en": "J\u00fcrgen Hardt (born 30 May 1963) is a German politician. He is a Christian Democratic Union member of the Bundestag.  Hardt was Federal chairman of the Association of Christian Democratic Students (RCDS) from 1987 to 1989 and from 2004 to 2009 member of Wuppertal city council and chairman of its economics committee.  Since 2003 he has been serving as chairman of the Wuppertal county branch of the CDU and since 2005 deputy chairman of the Bergisches Land district branch of the CDU.  In April 2014, Hardt succeeded Philipp Mi\u00dffelder as Coordinator of Transatlantic Cooperation."
 			},
 			"full_name": "J\u00fcrgen Hardt",
 			"images": {
@@ -897,7 +897,7 @@
 		"179": {
 			"citizen_bird": "schneeeule",
 			"cv": {
-				"de": "Sebastian Hartmann (* 7. Juli 1977 in Oberhausen) ist ein deutscher Politiker (SPD). Bei der Bundestagswahl 2013 wurde er \u00fcber die Landesliste Nordrhein-Westfalen in den deutschen Bundestag gew\u00e4hlt.",
+				"de": "Sebastian Hartmann (* 7. Juli 1977 in Oberhausen) ist ein deutscher Politiker (SPD).  Von 2011 bis 2013 war er Assistent des Europaabgeordneten und Pr\u00e4sidenten des Europ\u00e4ischen Parlaments, Martin Schulz. Bei der Bundestagswahl 2013 trat er im Wahlkreis Rhein-Sieg-Kreis I f\u00fcr das Direktmandat an. Zwar unterlag er dabei Elisabeth Winkelmeier-Becker von der CDU, daf\u00fcr zog er aber \u00fcber die Landesliste in den Deutschen Bundestag ein.  Seit 2014 ist er stellvertretender Landrat des Rhein-Sieg-Kreises.",
 				"en": "Sebastian Hartmann is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Sebastian Hartmann",
@@ -919,7 +919,7 @@
 		"181": {
 			"citizen_bird": "kiwi",
 			"cv": {
-				"de": "Britta Ha\u00dfelmann (* 10. Dezember 1961 in Straelen am Niederrhein) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen). Sie ist seit 2013 erste parlamentarische Gesch\u00e4ftsf\u00fchrerin.",
+				"de": "Britta Ha\u00dfelmann (* 10. Dezember 1961 in Straelen am Niederrhein) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen).  Seit 2005 ist sie Mitglied des Deutschen Bundestages. Hier ist sie Sprecherin der Bundestagsfraktion B\u00fcndnis 90/Die Gr\u00fcnen f\u00fcr Demografie und Altenpolitik, sowie seit Fr\u00fchjahr 2007 Sprecherin f\u00fcr Kommunalpolitik.  Bei der Bundestagswahl 2009 war Britta Ha\u00dfelmann Kandidatin im Bundestagswahlkreis Bielefeld und ist \u00fcber die Landesliste Nordrhein-Westfalen in den Bundestag eingezogen. W\u00e4hrend dieser Legislaturperiode war sie eine von drei Parlamentarischen Gesch\u00e4ftsf\u00fchrern.  Nach der Bundestagswahl 2013 wurde Ha\u00dfelmann am 8. Oktober 2013 zur ersten Parlamentarischen Gesch\u00e4ftsf\u00fchrerin ihrer Bundestagsfraktion gew\u00e4hlt und tritt die Nachfolge von Volker Beck an, der nicht mehr kandidierte.",
 				"en": "Britta Ha\u00dfelmann is a German politician. She is a member of the GR\u00dcNE."
 			},
 			"full_name": "Britta Ha\u00dfelmann",
@@ -940,7 +940,7 @@
 		"182": {
 			"citizen_bird": "gartengrasmuecke",
 			"cv": {
-				"de": "Matthias Hauer (* 18. Dezember 1977 in Hattingen) ist ein deutscher Politiker (CDU).",
+				"de": "Matthias Hauer (* 18. Dezember 1977 in Hattingen) ist ein deutscher Politiker (CDU).  Hauer ist seit 2013 Mitglied des Deutschen Bundestages. Bei der Bundestagswahl 2013 gewann er das Direktmandat im Wahlkreis Essen III, der bis dahin als SPD-Hochburg galt, gegen Petra Hinz (SPD).",
 				"en": "Matthias Hauer is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Matthias Hauer",
@@ -962,8 +962,8 @@
 		"183": {
 			"citizen_bird": "kiwi",
 			"cv": {
-				"de": "Mark Lars Carsten Hauptmann (* 29. April 1984 in Weimar) ist ein deutscher Politiker (CDU). Er ist seit 2013 Mitglied des 18. Deutschen Bundestages.",
-				"en": "Mark Hauptmann is a German politician. He is a member of the CDU."
+				"de": "Mark Lars Carsten Hauptmann (* 29. April 1984 in Weimar) ist ein deutscher Politiker (CDU). Er ist seit 2013 Mitglied des 18. Deutschen Bundestages.  Seit 2003 ist er Mitglied der CDU und engagierte sich im Kreisvorstand der CDU Suhl[7] sowie im Landesfachausschuss Europa[8] auf Landesebene. Seit 2014 ist er Mitglied im Bundesfachausschuss Au\u00dfen-, Sicherheits-, Entwicklungs- und Menschenrechtspolitik der CDU Deutschlands.  Er ist ordentliches Mitglied im 'Ausschuss f\u00fcr Wirtschaft und Energie' und stellvertretendes Mitglied im Ausw\u00e4rtigen Ausschuss.",
+				"en": "Mark Lars Carsten Hauptmann (born April 29, 1984 in Weimar/Thuringia) is a German politician and member of the Christian Democratic Union of Germany (CDU) and since 2013 member of the 18th German Bundestag.  "
 			},
 			"full_name": "Mark Hauptmann",
 			"images": {
@@ -984,7 +984,7 @@
 		"184": {
 			"citizen_bird": "hausrotschwanz",
 			"cv": {
-				"de": "Stefan Heck (* 18. August 1982 in Marburg) ist ein deutscher Politiker (CDU) und seit 2013 Mitglied des 18. Deutschen Bundestags.",
+				"de": "Stefan Heck (* 18. August 1982 in Marburg) ist ein deutscher Politiker (CDU) und seit 2013 Mitglied des 18. Deutschen Bundestags.  Nachdem er bereits bei der Bundestagswahl 2009 erfolglos im Bundestagswahlkreis Marburg kandidiert hatte, zog er 2013 \u00fcber Platz 12 der CDU-Landesliste Hessen in den Bundestag ein. Dr. Stefan Heck ist im Deutschen Bundestag ordentliches Mitglied in dem Ausschuss f\u00fcr Wahlpr\u00fcfung, Immunit\u00e4t und Gesch\u00e4ftsordnung sowie im Ausschuss f\u00fcr Recht und Verbraucherschutz.",
 				"en": "Stefan Heck is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Dr. Stefan Heck",
@@ -1006,7 +1006,7 @@
 		"186": {
 			"citizen_bird": "star",
 			"cv": {
-				"de": "Matthias Heider (* 18. Mai 1966 in L\u00fcdenscheid) ist ein deutscher Politiker (CDU).",
+				"de": "Matthias Heider (* 18. Mai 1966 in L\u00fcdenscheid) ist ein deutscher Politiker (CDU).  Seit 2008 ist er stellvertretender Vorsitzender der Mittelstands- und Wirtschaftsvereinigung M\u00e4rkischer Kreis. Seit 2010 ist Matthias Heider dar\u00fcber hinaus stellvertretender Vorsitzender der CDU im M\u00e4rkischen Kreis. Er wurde au\u00dferdem zum Bezirksvorsitzenden der Mittelstands- und Wirtschaftsvereinigung in S\u00fcdwestfalen gew\u00e4hlt.",
 				"en": "Matthias Heider is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Dr. Matthias Heider",
@@ -1028,8 +1028,8 @@
 		"188": {
 			"citizen_bird": "rauchschwalbe",
 			"cv": {
-				"de": "Hubertus Heil (* 3. November 1972 in Hildesheim) ist ein deutscher Politiker (SPD). Er ist seit 1998 Mitglied des Deutschen Bundestages und derzeit stellvertretender Fraktionsvorsitzender der Bundestagsfraktion seiner Partei mit Zust\u00e4ndigkeit f\u00fcr die Themen Wirtschaft und Energie, Bildung und Forschung.",
-				"en": "Hubertus Heil is a German politician. He is a member of the SPD."
+				"de": "Hubertus Heil (* 3. November 1972 in Hildesheim) ist ein deutscher Politiker (SPD). Er ist seit 1998 Mitglied des Deutschen Bundestages und derzeit stellvertretender Fraktionsvorsitzender der Bundestagsfraktion seiner Partei mit Zust\u00e4ndigkeit f\u00fcr die Themen Wirtschaft und Energie, Bildung und Forschung.  Seit 1998 ist er Mitglied des Deutschen Bundestages. Er geh\u00f6rte von Oktober 2002 bis November 2005 dem Vorstand der SPD-Landesgruppe Niedersachsen und von Oktober 2002 bis November 2004 dem Vorstand der SPD-Bundestagsfraktion an. Heil war von April 2003 bis Oktober 2005 Vorsitzender der Fraktionsarbeitsgruppe Telekommunikation und Post. Er geh\u00f6rt zu den Gr\u00fcndungsmitgliedern des Netzwerkes Berlin, deren Sprecher er von 2003 bis 2005 war. Hubertus Heil geh\u00f6rt als beratendes Mitglied der Grundwertekommission der SPD an. Heil ist gegen ein Bedingungsloses Grundeinkommen.",
+				"en": "Hubertus Heil (born 3 November 1972 in Hildesheim, Lower Saxony) is a German politician. In 2005 he became general secretary of the Social Democratic Party of Germany (SPD).  In October 2016, Heil accompanied Federal Minister for Economic Affairs and Energy Sigmar Gabriel to Tehran to attend the German-Iranian Joint Economic Commission\u2019s first meeting in 15 years."
 			},
 			"full_name": "Hubertus Heil",
 			"images": {
@@ -1050,7 +1050,7 @@
 		"189": {
 			"citizen_bird": "ara",
 			"cv": {
-				"de": "Mechthild Heil, geborene Rumpf, (* 23. August 1961 in Andernach) ist eine deutsche Politikerin der CDU. Seit 2009 ist sie Mitglied des Deutschen Bundestages. Sie ist Verbraucherschutzbeauftragte der CDU/CSU-Bundestagsfraktion.",
+				"de": "Mechthild Heil, geborene Rumpf, (* 23. August 1961 in Andernach) ist eine deutsche Politikerin der CDU. Seit 2009 ist sie Mitglied des Deutschen Bundestages. Sie ist Verbraucherschutzbeauftragte der CDU/CSU-Bundestagsfraktion.  Im Januar 2014 wurde Heil vom Fraktionsvorsitzenden Volker Kauder zur Verbraucherschutzbeauftragten der CDU/CSU-Bundestagsfraktion ernannt. Dieses Amt hatte sie bereits in der vergangenen Wahlperiode inne. Sie ist Ordentliches Mitglied im Ausschuss f\u00fcr Recht und Verbraucherschutz und Stellvertretendes Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft[3].",
 				"en": "Mechthild Heil is a German politician. She is a member of the CDU."
 			},
 			"full_name": "Mechthild Heil",
