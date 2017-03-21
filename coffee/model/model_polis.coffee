@@ -2703,7 +2703,7 @@
 		"317": {
 			"citizen_bird": "tukan",
 			"cv": {
-				"de": "Sabine Leidig (* 7. August 1961 in Heidelberg) ist eine deutsche Politikerin, Gewerkschafterin, gelernte Biologielaborantin und war von 2002 bis 2009 Gesch\u00e4ftsf\u00fchrerin von Attac Deutschland. Seit September 2009 ist sie Bundestagsabgeordnete f\u00fcr die Partei Die Linke.",
+				"de": "Sabine Leidig (* 7. August 1961 in Heidelberg) ist eine deutsche Politikerin, Gewerkschafterin, gelernte Biologielaborantin und war von 2002 bis 2009 Gesch\u00e4ftsf\u00fchrerin von Attac Deutschland. Seit September 2009 ist sie Bundestagsabgeordnete f\u00fcr die Partei Die Linke.  Sabine Leidig ist seit 2009 verkehrspolitische Sprecherin der Linksfraktion. In der 17. Legislatur war sie bis zur Vorlage des Abschlussberichtes Mitglied der Enquete-Kommission Wachstum, Wohlstand, Lebensqualit\u00e4t \u2013 Wege zu nachhaltigem Wirtschaften und gesellschaftlichem Fortschritt in der Sozialen Marktwirtschaft. Sie leitete die Projektgruppe 5: Arbeitswelt, Konsumverhalten und Lebensstile.  Sie ist Mitglied im Ausschuss f\u00fcr Verkehr und digitale Infrastruktur des Bundestages und stellvertretendes Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft. Weiterhin geh\u00f6rt sie dem Parlamentarischen Beirat f\u00fcr nachhaltige Entwicklung an und ist im Vorstand der fraktions\u00fcbergreifenden Parlamentsgruppe Schienenverkehr.",
 				"en": "Sabine Leidig is a German politician. She is a member of the DIE LINKE."
 			},
 			"full_name": "Sabine Leidig",
@@ -2724,7 +2724,7 @@
 		"318": {
 			"citizen_bird": "zaunkoenig",
 			"cv": {
-				"de": "Katja Isabel Leikert (* 3. M\u00e4rz 1975 in Neustadt an der Weinstra\u00dfe als Katja Isabel R\u00fcb) ist eine deutsche Politikerin (CDU).",
+				"de": "Katja Isabel Leikert (* 3. M\u00e4rz 1975 in Neustadt an der Weinstra\u00dfe als Katja Isabel R\u00fcb) ist eine deutsche Politikerin (CDU).  In der 18. Legislaturperiode des Deutschen Bundestags ist sie ordentliches Mitglied im Ausschuss f\u00fcr Gesundheit sowie Schriftf\u00fchrerin und stellvertretendes Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend und im Ausw\u00e4rtigen Ausschuss.",
 				"en": "Katja Leikert is a German politician. She is a member of the CDU."
 			},
 			"full_name": "Dr. Katja Leikert",
@@ -2746,7 +2746,7 @@
 		"319": {
 			"citizen_bird": "mauersegler",
 			"cv": {
-				"de": "Steffi Lemke (* 19. Januar 1968 in Dessau, DDR) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen) und Mitglied des Deutschen Bundestages. Sie war zudem von 2002 bis 2013 politische Bundesgesch\u00e4ftsf\u00fchrerin ihrer Partei.",
+				"de": "Steffi Lemke (* 19. Januar 1968 in Dessau, DDR) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen) und Mitglied des Deutschen Bundestages. Sie war zudem von 2002 bis 2013 politische Bundesgesch\u00e4ftsf\u00fchrerin ihrer Partei.  Steffi Lemke ist ordentliches Mitglied im Ausschuss f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit. Sie ist stellvertretendes Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft.  Seit 2013 ist Steffi Lemke eine von vier parlamentarischen Gesch\u00e4ftsf\u00fchrerinnen der Bundestagsfraktion von B\u00fcndnis 90/Die Gr\u00fcnen.",
 				"en": "Steffi Lemke is a German politician. She is a member of the GR\u00dcNE."
 			},
 			"full_name": "Steffi Lemke",
@@ -2767,7 +2767,7 @@
 		"32": {
 			"citizen_bird": "buchfink",
 			"cv": {
-				"de": "Maik Beermann (* 19. Oktober 1981 in Nienburg/Weser) ist ein deutscher Politiker (CDU). Er wurde bei der Bundestagswahl 2013 in den 18. Deutschen Bundestag gew\u00e4hlt.",
+				"de": "Maik Beermann (* 19. Oktober 1981 in Nienburg/Weser) ist ein deutscher Politiker (CDU). Er wurde bei der Bundestagswahl 2013 in den 18. Deutschen Bundestag gew\u00e4hlt.  Beermann ist ordentliches Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend und dem Ausschuss f\u00fcr Digitale Agenda. Er ist stellvertretendes Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft[1] sowie im Ausschuss f\u00fcr Verkehr und Digitale Infrastruktur. Au\u00dferdem ist er Stellvertreter im parlamentarischen Beirat f\u00fcr nachhaltige Entwicklung und Mitglied der Jungen Gruppe der CDU/CSU-Bundestagsfraktion.",
 				"en": "Maik Beermann is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Maik Beermann",
@@ -2789,7 +2789,7 @@
 		"320": {
 			"citizen_bird": "tuerkentaube",
 			"cv": {
-				"de": "Steffen-Claudio Lemme (* 1. April 1965 in Erfurt) ist ein deutscher Politiker (SPD) und Gewerkschafter. Seit Oktober 2009 ist er Mitglied des Deutschen Bundestages.",
+				"de": "Steffen-Claudio Lemme (* 1. April 1965 in Erfurt) ist ein deutscher Politiker (SPD) und Gewerkschafter. Seit Oktober 2009 ist er Mitglied des Deutschen Bundestages.  Seit 2006 war er Landesvorsitzender des DGB Th\u00fcringen, sowie Vorsitzender der DGB-Region Mittel-/Nordth\u00fcringen und stellvertretender Bezirksvorsitzender des DGB-Bezirks Hessen-Th\u00fcringen. Im November 2009 wurde Renate Licht zur neuen Landesvorsitzenden gew\u00e4hlt.",
 				"en": "Steffen-Claudio Lemme is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Steffen-Claudio Lemme",
@@ -2811,7 +2811,7 @@
 		"321": {
 			"citizen_bird": "buchfink",
 			"cv": {
-				"de": "Philipp David Lengsfeld (* 21. M\u00e4rz 1972 in Ost-Berlin) ist ein deutscher Politiker. Seit 2013 ist er Bundestagsabgeordneter (CDU).",
+				"de": "Philipp David Lengsfeld (* 21. M\u00e4rz 1972 in Ost-Berlin) ist ein deutscher Politiker. Seit 2013 ist er Bundestagsabgeordneter (CDU).  Im Bundestag ist er Mitglied der Deutsch-Koreanischen Parlamentariergruppe.",
 				"en": "Philipp Lengsfeld is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Dr. Philipp Lengsfeld",
@@ -2833,7 +2833,7 @@
 		"323": {
 			"citizen_bird": "gruenfink",
 			"cv": {
-				"de": "Andreas Lenz (* 23. April 1981 in Ebersberg) ist ein deutscher Politiker (CSU) aus Jakobneuharting.",
+				"de": "Andreas Lenz (* 23. April 1981 in Ebersberg) ist ein deutscher Politiker (CSU) aus Jakobneuharting.  In der 18. Wahlperiode arbeitet Lenz als ordentliches Mitglied im Ausschuss f\u00fcr Wirtschaft und Energie sowie im Parlamentarischen Beirat f\u00fcr nachhaltige Entwicklung und als stellvertretendes Mitglied im Finanzausschuss, im Ausschuss f\u00fcr Bildung, Forschung und Technikfolgenabsch\u00e4tzung sowie im Unterausschuss Regionale Wirtschaftspolitik und ERP-Wirtschaftspl\u00e4ne.",
 				"en": "Andreas Lenz is a German politician. She is a member of the CSU."
 			},
 			"full_name": "Dr. Andreas Lenz",
@@ -2855,7 +2855,7 @@
 		"325": {
 			"citizen_bird": "kohlmeise",
 			"cv": {
-				"de": "Michael Gerhard Leutert (* 8. August 1974 in Schlema) ist ein deutscher Politiker (Die Linke).",
+				"de": "Michael Gerhard Leutert (* 8. August 1974 in Schlema) ist ein deutscher Politiker (Die Linke).  In der 18. Wahlperiode seit 2013 ist Leutert im Haushaltsausschuss f\u00fcr die Etats des Verteidigungsministeriums, des Au\u00dfenministeriums, des Bundesministeriums f\u00fcr wirtschaftliche Zusammenarbeit und Entwicklung, des Bundesministeriums f\u00fcr Familie, Senioren, Frauen und Jugend und des Bundesrechnungshofs zust\u00e4ndig. Zudem ist er Obmann im Rechnungspr\u00fcfungsausschuss und Vorsitzender der deutsch-mexikanischen Parlamentariergruppe.",
 				"en": "Michael Leutert is a German politician. He is a member of the DIE LINKE."
 			},
 			"full_name": "Michael Leutert",
@@ -2876,8 +2876,8 @@
 		"326": {
 			"citizen_bird": "bachstelze",
 			"cv": {
-				"de": "Ursula Gertrud von der Leyen (geb. Albrecht; * 8. Oktober 1958 in Ixelles/Elsene, Region Br\u00fcssel-Hauptstadt, Belgien) ist eine deutsche Politikerin der CDU und seit dem 17.\u00a0Dezember 2013 Bundesministerin der Verteidigung im Kabinett Merkel\u00a0III. Sie ist Mitglied der evangelisch-lutherischen Kirche.",
-				"en": "Ursula von der Leyen is a German politician. She is a member of the CDU."
+				"de": "Ursula Gertrud von der Leyen (geb. Albrecht; * 8. Oktober 1958) ist eine deutsche Politikerin der CDU und seit dem 17. Dezember 2013 Bundesministerin der Verteidigung im Kabinett Merkel III.  Am 17. August 2005 wurde sie von Angela Merkel in das Kompetenzteam f\u00fcr die Bundestagswahl 2005 der CDU/CSU f\u00fcr die Bereiche Familie und Gesundheit berufen. Am 22. November 2005 wurde Ursula von der Leyen als Bundesministerin f\u00fcr Familie, Senioren, Frauen und Jugend in der von Bundeskanzlerin Angela Merkel gef\u00fchrten Bundesregierung, dem Kabinett Merkel I, vereidigt.  Bei der Bundestagswahl 2009 wurde von der Leyen \u00fcber die Landesliste Niedersachsen in den Deutschen Bundestag gew\u00e4hlt. Anschlie\u00dfend wurde sie am 28. Oktober 2009 im Kabinett Merkel II erneut als Familienministerin vereidigt.  Nach dem R\u00fccktritt des Bundesministers f\u00fcr Arbeit und Soziales, Franz Josef Jung, am 27. November 2009 wurde von der Leyen am 30. November 2009 zu dessen Nachfolgerin ernannt.  Nachdem sie bei der Bundestagswahl 2013 wieder in den Bundestag gew\u00e4hlt wurde, hat von der Leyen am 17. Dezember 2013 nach dreimonatigen Koalitionsverhandlungen das Amt der Verteidigungsministerin in der gro\u00dfen Koalition von CDU/CSU und SPD \u00fcbernommen und ist damit die erste Frau an der Spitze des Verteidigungsministeriums.",
+				"en": "Ursula Gertrud von der Leyen (n\u00e9e Albrecht; born 8 October 1958) is a German politician who has been the Minister of Defence since 2013, and is the first woman in German history to hold that office. A doctor by profession, she previously also served as the Minister of Labour and Social Affairs from 2009 to 2013 and as the Minister of Senior Citizens, Women and Youth from 2005 to 2009.   In 2013, Ursula von der Leyen was appointed as Germany's first female defence minister. By placing a major party figure such as von der Leyen at the head of the Defence Ministry, Merkel was widely seen as reinvigorating the scandal-ridden ministry\u2019s morale and prestige. Along with Finance Minister Wolfgang Sch\u00e4uble and Interior Minister Thomas de Maiziere, von der Leyen is one of only three ministers to remain with Merkel since she became chancellor in 2005.  Von der Leyen chairs the EPP Defence Ministers Meeting, which gathers EPP defence ministers ahead of meetings of the Council of the European Union."
 			},
 			"full_name": "Dr. Ursula von der Leyen",
 			"images": {
@@ -2898,7 +2898,7 @@
 		"328": {
 			"citizen_bird": "bachstelze",
 			"cv": {
-				"de": "Stefan Liebich (* 30. Dezember 1972 in Wismar) ist ein deutscher Politiker (Die Linke). Er ist seit 2009 Mitglied des Deutschen Bundestages und war zuvor seit 1995 Mitglied des Berliner Abgeordnetenhauses.",
+				"de": "Stefan Liebich (* 30. Dezember 1972 in Wismar) ist ein deutscher Politiker (Die Linke). Er ist seit 2009 Mitglied des Deutschen Bundestages und war zuvor seit 1995 Mitglied des Berliner Abgeordnetenhauses.  Er ist Mitglied des Ausw\u00e4rtigen Ausschusses des Bundestages, in der 18. Wahlperiode als Obmann der Fraktion Die Linke.",
 				"en": "Stefan Liebich is a German politician. He is a member of the DIE LINKE."
 			},
 			"full_name": "Stefan Liebich",
@@ -2919,8 +2919,8 @@
 		"329": {
 			"citizen_bird": "kiwi",
 			"cv": {
-				"de": "Ingbert Liebing (* 11. Mai 1963 in Flensburg) ist ein deutscher Politiker (CDU). Er ist seit 2005 Mitglied des Deutschen Bundestages und seit November 2014 Landesvorsitzender der CDU Schleswig-Holstein. Seit Juni 2013 ist er au\u00dferdem Bundesvorsitzender der Kommunalpolitischen Vereinigung der CDU.",
-				"en": "Ingbert Liebing is a German politician. He is a member of the CDU."
+				"de": "Ingbert Liebing (* 11. Mai 1963 in Flensburg) ist ein deutscher Politiker (CDU). Er ist seit 2005 Mitglied des Deutschen Bundestages und seit November 2014 Landesvorsitzender der CDU Schleswig-Holstein. Nach der Bundestagswahl 2009 wurde Liebing stellvertretender Vorsitzender der Arbeitsgemeinschaft Kommunalpolitik der CDU/CSU-Bundestagsfraktion und stellvertretender Vorsitzender im Unterausschuss Kommunalpolitik im Deutschen Bundestag. Dem Ausschuss f\u00fcr Umwelt, Naturschutz und Reaktorsicherheit und dem Ausschuss f\u00fcr Tourismus geh\u00f6rte er als ordentliches Mitglied an.  Seit 2013 ist Liebing in seiner Bundestagsfraktion Vorsitzender der Arbeitsgemeinschaft Kommunalpolitik und kommunalpolitischer Sprecher, Mitglied im Fraktionsvorstand sowie Obmann im Unterausschuss Kommunalpolitik im Bundestag. Zudem sitzt Liebing seitdem im Ausschuss f\u00fcr Wirtschaft und Energie. Als stellvertretendes Mitglied geh\u00f6rt er dem Ausschuss f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit, Innenausschuss und dem Ausschuss f\u00fcr Tourismus an.  Liebing ist Mitglied der Europa-Union Parlamentariergruppe Deutscher Bundestag.",
+				"en": "Ingbert Liebing (born May 11, 1963) is a German politician and CDU member of the Bundestag, where he represents Nordfriesland \u2013 Dithmarschen Nord. Since November 2014, he has been serving as chairman of the CDU state party group of Schleswig-Holstein.  Liebing has been a member of the German Bundestag since the 2005 national elections. Between 2005 and 2013, he served on the Committee on the Environment, Nature Conservation, Building and Nuclear Safety as well as on the Committee on Tourism. On the environment committee, he was his parliamentary group's rapporteur on marine conservation. In addition, he was the deputy chairman of the German delegation to the Baltic Sea Parliamentary Conference (BSPC) from 2005 to 2009.  Since 2009, Liebing has been a member of the Sub-Committee on Municipal Policy, serving as the committee\u2019s deputy chairman between 2009 and 2013. He also serves on the Committee on Economic Affairs and Energy. In 2013, he was elected as chairman of the Regional Government Association of the CDU/CSU (KPV)."
 			},
 			"full_name": "Ingbert Liebing",
 			"images": {
@@ -2941,7 +2941,7 @@
 		"33": {
 			"citizen_bird": "ara",
 			"cv": {
-				"de": "Herbert Behrens (* 30. Mai 1954 in Osterholz-Scharmbeck) ist ein deutscher Gewerkschafter und Politiker der Partei Die Linke. Seit 2009 ist er Mitglied des Deutschen Bundestages.",
+				"de": "Herbert Behrens (* 30. Mai 1954 in Osterholz-Scharmbeck) ist ein deutscher Gewerkschafter und Politiker der Partei Die Linke. Er zog 2009 als einer von sechs nieders\u00e4chsischen Kandidaten seiner Partei in den Bundestag ein. In der 17. Wahlperiode war er ordentliches Mitglied im Ausschuss f\u00fcr Verkehr, Bau und Stadtentwicklung, im Unterausschuss Neue Medien, sowie stellvertretendes Mitglied im Ausschuss f\u00fcr Gesundheit und im Ausschuss f\u00fcr Kultur und Medien. Daneben arbeitete er in der Enquete-Kommission Internet und digitale Gesellschaft mit. Bei der Wahl im September 2013 zog Behrens erneut \u00fcber die nieders\u00e4chsische Landesliste f\u00fcr die Partei Die Linke in den Bundestag ein.  Er ist Obmann der Linksfraktion im Ausschuss f\u00fcr Verkehr und digitale Infrastruktur, Mitglied im Ausschuss Digitale Agenda und Mitglied im Rechnungspr\u00fcfungsausschuss. Behrens ist auch Mitglied im Ausschuss f\u00fcr niederdeutsche Sprache und Mitglied der Ostseeparlamentarierkonferenz.",
 				"en": "Herbert Behrens is a German politician. He is a member of the DIE LINKE."
 			},
 			"full_name": "Herbert Behrens",
@@ -2962,7 +2962,7 @@
 		"331": {
 			"citizen_bird": "eichelhaeher",
 			"cv": {
-				"de": "Andrea Lindholz (* 25. September 1970 in Bonn als Andrea Milnik) ist eine deutsche Politikerin (CSU) und seit September 2013 Mitglied des Deutschen Bundestages.",
+				"de": "Andrea Lindholz (* 25. September 1970 in Bonn als Andrea Milnik) ist eine deutsche Politikerin (CSU).  Am 22. September 2013 zog Andrea Lindholz f\u00fcr den Bundeswahlkreises Stadt und Landkreis Aschaffenburg in den Deutschen Bundestag ein und trat die Nachfolge von Norbert Geis an.  Im Bundestag ist sie Ordentliches Mitglied im Innenausschuss, im NSA-Untersuchungsausschuss sowie im Ausschuss f\u00fcr die Angelegenheiten der Europ\u00e4ischen Union. Als stellvertretendes Mitglied sitzt sie im Ausschuss f\u00fcr Kultur und Medien.",
 				"en": "Andrea Lindholz is a German politician. She is a member of the CSU."
 			},
 			"full_name": "Andrea Lindholz",
@@ -2984,8 +2984,8 @@
 		"332": {
 			"citizen_bird": "blaumeise",
 			"cv": {
-				"de": "Tobias Lindner (* 11. Januar 1982 in Karlsruhe) ist deutscher Volkswirt und Politiker (B\u00fcndnis 90/Die Gr\u00fcnen).",
-				"en": "Tobias Lindner is a German politician. He is a member of the GR\u00dcNE."
+				"de": "Tobias Lindner (* 11. Januar 1982 in Karlsruhe) ist deutscher Volkswirt und Politiker (B\u00fcndnis 90/Die Gr\u00fcnen).  Im Juni 2011 r\u00fcckte Lindner f\u00fcr Ulrike H\u00f6fken als Mitglied des Deutschen Bundestages \u00fcber die Landesliste Rheinland-Pfalz nach. Seither war Lindner in der 17. Wahlperiode Mitglied im Haushaltsausschuss und Rechnungspr\u00fcfungsausschuss sowie stellvertretendes Mitglied im Verteidigungsausschuss. Am 27. M\u00e4rz 2012 wurde Lindner zum Sprecher f\u00fcr Wirtschaftspolitik der Bundestagsfraktion B\u00fcndnis 90/Die Gr\u00fcnen gew\u00e4hlt und war fortan Mitglied im Ausschuss f\u00fcr Wirtschaft und Technologie. Des Weiteren \u00fcbernahm er das Amt des stellvertretenden Vorsitzenden der Deutsch-Irischen Parlamentariergruppe und des stellvertretenden Vorsitzenden der rheinland-pf\u00e4lzischen Landesgruppe der Gr\u00fcnen-Bundestagsabgeordneten. Am 1. Dezember 2012 wurde Lindner auf der Landesdelegiertenversammlung seiner Partei auf Platz zwei der Landesliste f\u00fcr die Bundestagswahl 2013 gew\u00e4hlt. Im September 2013 wurde er schlie\u00dflich \u00fcber die Landesliste erneut in den neuen Bundestag gew\u00e4hlt.  In der 18. Wahlperiode des Deutschen Bundestages ist Lindner Obmann der Bundestagsfraktion B\u00fcndnis 90/Die Gr\u00fcnen im Haushaltsausschuss, Ordentliches Mitglied im Verteidigungsausschuss und im Rechnungspr\u00fcfungsausschuss. Zudem ist er stellvertretendes Mitglied der Parlamentarischen Versammlung der NATO. In der rheinland-pf\u00e4lzischen Landesgruppe der Gr\u00fcnen-Bundestagsabgeordneten ist er weiterhin stellvertretender Vorsitzender.",
+				"en": "Tobias Lindner (born January 11, 1982 in Karlsruhe) is a German economist and politician from the political party B\u00fcndnis 90/Die Gr\u00fcnen. Lindner is the current member for the electorate of Germersheim, Rhineland-Palatinate in the Bundestag.  In June 2011, Lindner became a member of the German Parliament when he filled in the seat of Ulrike H\u00f6fken who had previously resigned. Since then, Lindner has been serving on the budget committee and the audit committee. He is also a member of the defence committee. In addition, he served as deputy chairman of the German-Irish Parliamentary Friendship Group.  In the 2013 federal elections, Lindner was reelected. On the budget committee, he is his parliamentary group's rapporteur on the budgets of the Federal Ministry of Finance, the Federal Foreign Office, the Federal Ministry of Defence, the German Bundesrat and the Federal Court of Auditors. In addition, he serves as deputy chairman of the German-Canadian Parliamentary Friendship Group."
 			},
 			"full_name": "Dr. Tobias Lindner",
 			"images": {
@@ -3005,7 +3005,7 @@
 		"335": {
 			"citizen_bird": "fitis",
 			"cv": {
-				"de": "Burkhard Lischka (* 1. Februar 1965 in Marsberg) ist ein deutscher Politiker (SPD) und seit 2009 Mitglied des Deutschen Bundestages. Zuvor war er von 2006 bis 2009 Staatssekret\u00e4r im Ministerium der Justiz des Landes Sachsen-Anhalt.",
+				"de": "Burkhard Lischka (* 1. Februar 1965 in Marsberg) ist ein deutscher Politiker (SPD) und seit 2009 Mitglied des Deutschen Bundestages. Zuvor war er von 2006 bis 2009 Staatssekret\u00e4r im Ministerium der Justiz des Landes Sachsen-Anhalt.  Bei den Bundestagswahlen 2009 und 2013 war Lischka Direktkandidat der SPD im Wahlkreis Magdeburg und zog jeweils \u00fcber die SPD-Landesliste in den Bundestag ein, 2013 als Spitzenkandidat der sachsen-anhaltischen SPD. Lischka war von 2011 bis 2014 Sprecher f\u00fcr Recht und Verbraucherschutz und ist seit September 2014 als Mitglied des Bundestags-Innenausschusses innenpolitischer Sprecher der SPD-Bundestagsfraktion. Er ist zudem SPD-Obmann im Parlamentarischen Kontrollgremium zur Kontrolle der Nachrichtendienste (PKGr) und stellvertretendes Mitglied des NSA-Untersuchungsausschusses. Seit 2011 ist er au\u00dferdem Mitglied im Vorstand der SPD-Bundestagsfraktion.",
 				"en": "Burkhard Lischka is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Burkhard Lischka",
@@ -3027,7 +3027,7 @@
 		"338": {
 			"citizen_bird": "amsel",
 			"cv": {
-				"de": "Hiltrud Lotze (* 13. November 1958 in Bauhaus, Hessen) ist eine deutsche Politikerin der Sozialdemokratischen Partei Deutschlands.",
+				"de": "Hiltrud Lotze (* 13. November 1958 in Bauhaus, Hessen) ist eine deutsche Politikerin der Sozialdemokratischen Partei Deutschlands.  Bei der Bundestagswahl am 22. September 2013 kandidierte sie auf einem Listenplatz der SPD, \u00fcber den ihr der Einzug in den Bundestag gelang. Sie ist Mitglied des Ausschusses f\u00fcr Kultur und Medien und des Ausschusses f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit.",
 				"en": "Hiltrud Lotze is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Hiltrud Lotze",
@@ -3049,8 +3049,8 @@
 		"339": {
 			"citizen_bird": "hausrotschwanz",
 			"cv": {
-				"de": "Gesine L\u00f6tzsch (* 7. August 1961 in Berlin-Lichtenberg) ist eine deutsche Politikerin der Partei Die Linke. Seit 2005 ist sie stellvertretende Vorsitzende der Linksfraktion im Deutschen Bundestag. Von 2010 bis 2012 war sie eine der beiden Parteivorsitzenden.",
-				"en": "Gesine L\u00f6tzsch is a German politician. She is a member of the DIE LINKE."
+				"de": "Gesine L\u00f6tzsch (* 7. August 1961 in Berlin-Lichtenberg) ist eine deutsche Politikerin der Partei Die Linke. Seit 2005 ist sie stellvertretende Vorsitzende der Linksfraktion im Deutschen Bundestag. Von 2010 bis 2012 war sie eine der beiden Parteivorsitzenden.  L\u00f6tzsch zog seit 2002 f\u00fcr den Wahlkreises Berlin-Lichtenberg in den Bundestag ein.  Gesine L\u00f6tzsch und Klaus Ernst wurden Ende Januar 2010 vom Parteivorstand der Die Linke f\u00fcr eine Doppelspitze der Partei vorgeschlagen. Am 10. April 2012 trat sie wegen einer Erkrankung ihres Mannes von diesem Amt zur\u00fcck.  Am 15. Januar 2014 wurde Gesine L\u00f6tzsch zur Vorsitzenden des Haushaltsausschusses des Deutschen Bundestages gew\u00e4hlt.  Nach dem R\u00fccktritt von Evrim Sommer wurde L\u00f6tzsch wieder zur Bezirksvorsitzenden des Lichtenberger Kreisverbands der Linken gew\u00e4hlt.",
+				"en": "Gesine L\u00f6tzsch (German pronunciation: [ge\u02c8zin\u0259 l\u00f8\u02d0t\u0283]; born August 7, 1961) is a German politician of the left-wing party Die Linke (\"The Left\"). In 2010, with Klaus Ernst, she was elected president of the party.  In 2002, as a candidate of the Party of Democratic Socialism, L\u00f6tzsch was elected to the German parliament (the Bundestag) for the constituency Berlin Lichtenberg, which she continues to represent today. For her first term, she and Petra Pau were the only PDS deputies in the chamber."
 			},
 			"full_name": "Dr. Gesine L\u00f6tzsch",
 			"images": {
@@ -3070,7 +3070,7 @@
 		"34": {
 			"citizen_bird": "amsel",
 			"cv": {
-				"de": "Manfred Behrens (* 28. Oktober 1956 in Magdeburg) ist ein deutscher Politiker (CDU).",
+				"de": "Manfred Behrens (* 28. Oktober 1956 in Magdeburg) ist ein deutscher Politiker (CDU).  Am 27. September 2009 gewann Behrens bei der Bundestagswahl das Direktmandat im Bundestagswahlkreis B\u00f6rde \u2013 Jerichower Land und wurde Mitglied des Deutschen Bundestages. Er ist in der 17. Wahlperiode ordentliches Mitglied des Innenausschusses sowie stellvertretendes Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend.  Bei der Bundestagswahl 2013 gewann er erneut das Direktmandat f\u00fcr seinen Wahlkreis und sitzt nun im Ausschuss f\u00fcr Verkehr und digitale Infrastruktur und ist weiterhin stellvertretendes Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend.",
 				"en": "Manfred Behrens is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Manfred Behrens",
@@ -3092,8 +3092,8 @@
 		"341": {
 			"citizen_bird": "schwanzmeise",
 			"cv": {
-				"de": "Jan-Marco Luczak (* 2. Oktober 1975 in Berlin) ist ein Berliner Rechtsanwalt und Politiker (CDU). Er ist Mitglied des Deutschen Bundestags.",
-				"en": "Jan-Marco Luczak is a German politician. He is a member of the CDU."
+				"de": "Jan-Marco Luczak (* 2. Oktober 1975 in Berlin) ist ein Berliner Rechtsanwalt und Politiker (CDU).  Seit 2009 ist Jan-Marco Luczak Abgeordneter im Deutschen Bundestag. Seine inhaltlichen Schwerpunkte liegen im Bereich der Rechts-, Wirtschafts- und Europapolitik. Er ist Mitglied im Ausschuss f\u00fcr Recht und Verbraucherschutz, dessen stellvertretender Vorsitzender er seit Beginn der 18. Wahlperiode ist. Luczak geh\u00f6rt zudem dem Unterausschuss Europarecht sowie dem Ausschuss f\u00fcr die Wahl der Bundesverfassungsrichter an. Daneben ist er stellvertretendes Mitglied im Innen- und Umweltausschuss. Au\u00dferdem geh\u00f6rt Luczak dem H\u00f6rfunkrat des Deutschlandradios an und ist stellvertretendes Mitglied im Beirat der Bundesnetzagentur.  Luczak ist unter anderem Mitglied in der Deutsch-Franz\u00f6sischen sowie der Deutsch-Polnischen Parlamentariergruppe.",
+				"en": "Jan-Marco Luczak (born 2 October 1975) is a German lawyer and a politician (CDU). He represents the Tempelhof-Sch\u00f6neberg constituency at the Bundestag.  As a member of the Committee on Legal Affairs, the Sub-Committee on European Law and as an alternate member of the Committee on Internal Affairs, the majority of his work focuses on legal affairs and economic policy. Since 2014, he has been deputy chairman of the Committee on Legal Affairs. In addition, he has been serving on the Committee on the Election of Judges (Wahlausschuss), which is in charge of appointing judges to the Federal Constitutional Court of Germany.  Within the parliament Luczak is additionally a member of the German Parliamentary Society. He is also a member of the German-French, the German-Polish and the German-American Parliamentary Friendship Groups."
 			},
 			"full_name": "Dr. Jan-Marco Luczak",
 			"images": {
@@ -3114,7 +3114,7 @@
 		"344": {
 			"citizen_bird": "blaumeise",
 			"cv": {
-				"de": "Thomas Lutze (* 23. August 1969 in Elsterwerda) ist ein deutscher Politiker der Partei Die Linke. Er ist seit Oktober 2009 Mitglied des Deutschen Bundestages. Am 30. Juni 2013 wurde er auf dem Saarbr\u00fccker Landesparteitag der Linken als Spitzenkandidat der Landesliste f\u00fcr die Bundestagswahl 2013 nominiert und zog \u00fcber die Landesliste in den Bundestag ein.",
+				"de": "Thomas Lutze (* 23. August 1969 in Elsterwerda) ist ein deutscher Politiker der Partei Die Linke. Er ist seit Oktober 2009 Mitglied des Deutschen Bundestages.  Lutze ist ordentliches Mitglied des Ausschusses f\u00fcr Wirtschaft und Energie und des Ausschusses f\u00fcr Verkehr und digitale Infrastruktur sowie Mitglied des Ausschusses f\u00fcr Tourismus und stellvertretender Vorsitzender der Deutsch-Koreanischen Parlamentariergruppe. F\u00fcr die Linksfraktion des Deutschen Bundestages bekleidet er die Funktion des Obmanns im Ausschuss f\u00fcr Wirtschaft und Energie.  Als Mitglied des Bundestages engagiert Lutze sich vor allem im Bereich der Innenpolitik, schwerpunktm\u00e4\u00dfig in den Bereichen Verkehr, Bau und Stadtentwicklung. Weitere Bereiche in denen, teilweise seit den 1990ern, ein deutliches Engagement wahrnehmbar sind: Abschaltung von Cattenom, Forderung Castor-Transporte zu stoppen, und Bek\u00e4mpfung von Jugendarmut.",
 				"en": "Thomas Lutze is a German politician. He is a member of the DIE LINKE."
 			},
 			"full_name": "Thomas Lutze",
@@ -3135,8 +3135,8 @@
 		"346": {
 			"citizen_bird": "dohle",
 			"cv": {
-				"de": "Yvonne Magwas (* 28. November 1979 in Rodewisch) ist eine deutsche Politikerin (CDU).",
-				"en": "Yvonne Magwas is a German politician. She is a member of the CDU."
+				"de": "Yvonne Magwas (* 28. November 1979 in Rodewisch) ist eine deutsche Politikerin (CDU).  Bei den Kommunalwahlen in Sachsen 2003 wurde sie Stadtr\u00e4tin in Auerbach und Kreisr\u00e4tin im Vogtlandkreis und \u00fcbte die beiden \u00c4mter bis 2009 bzw. 2005 aus. Bei der Bundestagswahl 2013 wurde Magwas \u00fcber Platz 12 der CDU-Landesliste Sachsen zum Mitglied des Deutschen Bundestages gew\u00e4hlt. Sie ist ordentliches Mitglied im Ausschuss f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit sowie im Ausschuss f\u00fcr Kultur und Medien. Die Bundesregierung entsendete sie 2014 in den H\u00f6rfunkrat des Deutschlandradios und ist auch dessen Mitglied im Finanz- und Wirtschaftsausschuss.",
+				"en": "Yvonne Magwas (born in November 28, 1979 in Rodewisch in Eastern Germany (GDR)) is a German politician of the CDU  In the local elections in 2003, she was elected Councillor in Auerbach and district councillor in the Vogtland and practiced the two functions until 2009 or rather until 2005. In the general election in 2013 she was elected as a member of the German Bundestag \u2013 being on 12th position of CDU regional list. She is a full member of the Committee for the Environment, Nature Conservation, Building and Nuclear Safety and the Committee on Culture and Media. There she is rapporteur on rental policy, housing and urban development in the Committee on Environment, Nature Conservation, Building and Nuclear Safety. She is also member of the German Taiwanese friendship group in the German parliament. The federal government dispatched her to the Council for Radio and Broadcasting Association in Germany where she is also member of the Financial and Economic Committee."
 			},
 			"full_name": "Yvonne Magwas",
 			"images": {
@@ -3157,7 +3157,7 @@
 		"348": {
 			"citizen_bird": "goldammer",
 			"cv": {
-				"de": "Nicole Maisch (* 20. April 1981 in Hanau) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen). Sie ist seit dem 20. Februar 2007 Mitglied des Deutschen Bundestages.",
+				"de": "Nicole Maisch (* 20. April 1981 in Hanau) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen). Am 20. Februar 2007 r\u00fcckte sie \u00fcber die Landesliste Hessen f\u00fcr den ausgeschiedenen Abgeordneten Matthias Berninger in den Bundestag nach und ist seitdem Mitglied des Deutschen Bundestages.  Im Bundestag ist Nicole Maisch Sprecherin f\u00fcr Verbraucherpolitik und Tierschutz der Fraktion B\u00fcndnis 90/Die Gr\u00fcnen. Sie ist Ordentliches Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft und dessen Obfrau ihrer Fraktion, sowie des Ausschusses f\u00fcr Recht und Verbraucherschutz.",
 				"en": "Nicole Maisch is a German politician. She is a member of the GR\u00dcNE."
 			},
 			"full_name": "Nicole Maisch",
@@ -3178,7 +3178,7 @@
 		"350": {
 			"citizen_bird": "tuerkentaube",
 			"cv": {
-				"de": "Birgit Malecha-Nissen (* 9. April 1958 in Essen) ist eine deutsche Geologin und Politikerin der SPD.",
+				"de": "Birgit Malecha-Nissen (* 9. April 1958 in Essen) ist eine deutsche Geologin und Politikerin der SPD.  Am 22. September 2013 gelang ihr bei der Bundestagswahl 2013 der Einzug in den Bundestag \u00fcber einen Listenplatz der SPD.",
 				"en": "Birgit Malecha-Nissen is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Dr. Birgit Malecha-Nissen",
@@ -3200,7 +3200,7 @@
 		"351": {
 			"citizen_bird": "hausrotschwanz",
 			"cv": {
-				"de": "Gisela Manderla (* 11. Februar 1958 in D\u00fcsseldorf-Kaiserswerth) ist eine deutsche Politikerin (CDU). Sie ist seit 1981 verheiratet und hat drei erwachsene Kinder.",
+				"de": "Gisela Manderla (* 11. Februar 1958 in D\u00fcsseldorf-Kaiserswerth) ist eine deutsche Politikerin (CDU).  Bei der Bundestagswahl 2013 wurde Manderla \u00fcber die CDU-Landesliste Nordrhein-Westfalen zum Mitglied des Deutschen Bundestages gew\u00e4hlt. Sie ist Ordentliches Mitglied im Verteidigungsausschuss und stellvertretendes Mitglied des Gesundheitsausschusses. Sie ist Pr\u00e4sidiumsmitglied der Deutschen Gesellschaft f\u00fcr Wehrtechnik und Mitglied der Deutsch-Slowenischen und der Deutsch-Australischen Parlamentariergruppe. Ihr Wahlkreis in K\u00f6ln ist Nippes, Ehrenfeld und Chorweiler.  Sie ist Schirmherrin des K\u00f6lner Segelverbandes f\u00fcr Behinderte (SFEHB) und stellvertretende Vorsitzende des Bundes Katholischer Unternehmer (BKU), Di\u00f6zesangruppe K\u00f6ln.",
 				"en": "Gisela Manderla is a German politician. She is a member of the CDU."
 			},
 			"full_name": "Gisela Manderla",
@@ -3222,7 +3222,7 @@
 		"353": {
 			"citizen_bird": "klappergrasmuecke",
 			"cv": {
-				"de": "Matern Freiherr Marschall von Bieberstein (* 3. August 1962 in Freiburg im Breisgau) ist ein deutscher Politiker (CDU). In der \u00d6ffentlichkeit ist er unter dem Namen Matern von Marschall bekannt. Seit Oktober 2013 ist er Mitglied des Bundestages f\u00fcr den Wahlkreis Freiburg.",
+				"de": "Matern Freiherr Marschall von Bieberstein (* 3. August 1962 in Freiburg im Breisgau) ist ein deutscher Politiker (CDU). In der \u00d6ffentlichkeit ist er unter dem Namen Matern von Marschall bekannt. Seit Oktober 2013 ist er Mitglied des Bundestages f\u00fcr den Wahlkreis Freiburg.  Im Deutschen Bundestag ist Matern von Marschall in zwei Aussch\u00fcssen ordentliches Mitglied. Im Ausschuss f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit ist er der Berichterstatter der CDU/CSU-Bundestagsfraktion f\u00fcr die Schwerpunkte Nachhaltigkeit, Umweltforschung und umweltbezogenen Verbraucherschutz. Im Ausschuss f\u00fcr die Angelegenheiten der Europ\u00e4ischen Union ist von Marschall f\u00fcr die Themenfelder Klimapolitik, Umweltschutz, Kultur und Medien sowie Fragen zur Informationsgesellschaft zust\u00e4ndig. Dar\u00fcber hinaus hat er die L\u00e4nderberichterstattung f\u00fcr Portugal, Spanien und die T\u00fcrkei inne. Als ordentliches Mitglied im Parlamentarischen Beirat f\u00fcr nachhaltige Entwicklung (PBNE) liegt von Marschalls Schwerpunkt bei der Gr\u00fcnen Gentechnik.  Am 30. Januar 2014 stimmte er mit vier weiteren Abgeordneten der CDU/CSU-Fraktion mit der Opposition gegen eine Zulassung der Genmaissorte 1507. Matern von Marschall und seine Abgeordnetenkollegen Josef G\u00f6ppel, Hubert H\u00fcppe, Hans-Georg von der Marwitz und Martin Patzelt stie\u00dfen damit eine innerparteiliche Diskussion an, die zu einer Neupositionierung der CDU/CSU f\u00fchrte.",
 				"en": "Matern von Marschall is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Matern von Marschall",
@@ -3244,7 +3244,7 @@
 		"356": {
 			"citizen_bird": "ringeltaube",
 			"cv": {
-				"de": "Andreas Mattfeldt (* 28. September 1969 in V\u00f6lkersen) ist ein deutscher Politiker (CDU) und seit 2009 Mitglied des Deutschen Bundestages.",
+				"de": "Andreas Mattfeldt (* 28. September 1969 in V\u00f6lkersen) ist ein deutscher Politiker (CDU).  Bei den Bundestagswahlen 2009 und 2013 gewann er im Wahlkreis Osterholz \u2013 Verden das Direktmandat. Seit 2011 ist er au\u00dferdem Mitglied im Kreistag Verden und Kreisausschussmitglied und au\u00dferdem Mitglied im CDU Bezirksvorstand. Im Deutschen Bundestag ist er Mitglied im Haushalts- und Petitionsausschuss (Obmann f\u00fcr die CDU/CSU-Fraktion). Dar\u00fcber hinaus geh\u00f6rt er dem Unterausschuss Rechnungspr\u00fcfung des Haushaltsausschusses an und ist stellvertretendes Mitglied im Finanzausschuss.  Innerhalb der CDU/CSU-Fraktion ist Mattfeldt Initiator und F\u00fchrer der \u201eMattfeldt-Gruppe\u201c, eines Zusammenschlusses von Unions-Abgeordneten, deren Ziel die Verhinderung von Gesetzen ist, welche Hydraulic Fracturing in Deutschland erm\u00f6glichen.  Mattfeldt geh\u00f6rte bei der Abstimmung \u00fcber die Erteilung eines Verhandlungsmandates an die Bundesregierung zur Aufnahme von Verhandlungen f\u00fcr ein drittes Hilfspaket im Zusammenhang mit der Griechischen Depression zu den Abgeordneten der Gro\u00dfen Koalition, die gegen ein solches Mandat stimmten.",
 				"en": "Andreas Mattfeldt is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Andreas Mattfeldt",
@@ -3266,7 +3266,7 @@
 		"357": {
 			"citizen_bird": "amsel",
 			"cv": {
-				"de": "Hilde Mattheis geb. Gudelius (* 6. Oktober 1954 in Finnentrop) ist eine baden-w\u00fcrttembergische Politikerin der SPD und Abgeordnete des Deutschen Bundestags. Sie ist Vorsitzende des Forums Demokratische Linke 21.",
+				"de": "Hilde Mattheis geb. Gudelius (* 6. Oktober 1954 in Finnentrop) ist eine baden-w\u00fcrttembergische Politikerin der SPD und Abgeordnete des Deutschen Bundestags. Sie ist Vorsitzende des Forums Demokratische Linke 21.  Hilde Mattheis ist seit 2002 Mitglied des Deutschen Bundestags und hier seit 2005 stellvertretende Sprecherin der Arbeitsgruppe \u201eGesundheit\u201c sowie Vorsitzende der Arbeitsgruppe \u201eVerteilungsgerechtigkeit und soziale Integration\u201c der SPD-Bundestagsfraktion. Von Dezember 2005 bis November 2013 geh\u00f6rte sie au\u00dferdem dem SPD-Fraktionsvorstand an. Seit der 18. Legislaturperiode ist sie Sprecherin der Arbeitsgruppe \u201eGesundheit\u201c.  Die Schwerpunkte ihrer politischen Arbeit im Bundestag sind Gesundheitspolitik, Pflege, Gleichstellungspolitik und Verteilungsgerechtigkeit.  Sie ist in der 18. Legislaturperiode des Deutschen Bundestags ordentliches Mitglied im Ausschuss f\u00fcr Gesundheit und stellvertretendes Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend.",
 				"en": "Hilde Mattheis is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Hilde Mattheis",
@@ -3288,7 +3288,7 @@
 		"360": {
 			"citizen_bird": "tukan",
 			"cv": {
-				"de": "Michael G\u00fcnther Meister (* 9. Juni 1961 in Lorsch) ist ein deutscher Politiker (CDU). Er ist seit Dezember 2013 Parlamentarischer Staatssekret\u00e4r beim Bundesminister f\u00fcr Finanzen.",
+				"de": "Michael G\u00fcnther Meister (* 9. Juni 1961 in Lorsch) ist ein deutscher Politiker (CDU). Er ist seit Dezember 2013 Parlamentarischer Staatssekret\u00e4r beim Bundesminister f\u00fcr Finanzen.  Seit 1994 ist er Mitglied des Deutschen Bundestages. Dort war er von 1996 bis 1998 Stellvertretender Vorsitzender der Enqu\u00eate-Kommission Zukunft der Medien in Wirtschaft und Gesellschaft \u2013 Deutschlands Weg in die Informationsgesellschaft. Von 2002 bis 2004 war Meister Vorsitzender der Arbeitsgruppe Finanzen der CDU/CSU-Bundestagsfraktion. Nach dem R\u00fccktritt von Friedrich Merz wurde er im Dezember 2004 zum Stellvertretenden Vorsitzenden der CDU/CSU-Fraktion gew\u00e4hlt und war dort zust\u00e4ndig f\u00fcr die Bereiche Wirtschaft, Mittelstand, Finanzen und Haushalt. Anl\u00e4sslich seiner Ernennung zum Staatssekret\u00e4r endete sein Amt im Dezember 2013.",
 				"en": "Michael Meister is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Dr. Michael Meister",
