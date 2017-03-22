@@ -3310,7 +3310,7 @@
 		"361": {
 			"citizen_bird": "rauchschwalbe",
 			"cv": {
-				"de": "Peter Meiwald (* 31. M\u00e4rz 1966 in Oldenburg (Oldenburg)) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen). Er ist seit Oktober 2013 Mitglied des Deutschen Bundestages.",
+				"de": "Peter Meiwald (* 31. M\u00e4rz 1966 in Oldenburg) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen). \u00dcber die Landesliste Niedersachsen wurde er bei der Bundestagswahl 2013 in den Deutschen Bundestag gew\u00e4hlt.  Im 18. Bundestag ist er ordentliches Mitglied des Ausschuss f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit und der Obmann seiner Fraktion sowie im Petitionsausschuss des Deutschen Bundestages. Des Weiteren ist er stellvertretendes Mitglied im Ausschuss f\u00fcr wirtschaftliche Zusammenarbeit und Entwicklung und Parlamentarischer Beirat f\u00fcr nachhaltige Entwicklung.",
 				"en": "Peter Meiwald is a German politician. He is a member of the GR\u00dcNE."
 			},
 			"full_name": "Peter Meiwald",
@@ -3332,8 +3332,8 @@
 		"364": {
 			"citizen_bird": "buntspecht",
 			"cv": {
-				"de": "Jan Metzler (* 5. Juli 1981 in Worms) ist ein deutscher Politiker (CDU). Am 22. September 2013 kandidierte er als Direktkandidat f\u00fcr den Bundestagswahlkreis Worms. Mit 42,0 Prozent gewann er als erster Direktkandidat der CDU diesen Wahlkreis, der zuvor seit 1949 immer von der SPD gewonnen worden war.",
-				"en": "Jan Metzler is a German politician. He is a member of the CDU."
+				"de": "Jan Metzler (* 5. Juli 1981 in Worms) ist ein deutscher Politiker (CDU). Am 22. September 2013 kandidierte er als Direktkandidat f\u00fcr den Bundestagswahlkreis Worms.  Er ist Mitglied im Bundesvorstand des Jungen Wirtschaftsrates, stellvertretender Landesvorsitzender des Jungen Wirtschaftsrates im Wirtschaftsrat Rheinland-Pfalz und Mitglied der Deutsch-Ukrainischen Gesellschaft f\u00fcr Wirtschaft und Wissenschaft",
+				"en": "Jan Metzler (born 5 July 1981 in Worms, West Germany) is a German politician who represents the Christian Democratic Union (CDU) in the Bundestag.  He was selected as the CDU candidate for Worms in November 2012."
 			},
 			"full_name": "Jan Metzler",
 			"images": {
@@ -3354,7 +3354,7 @@
 		"369": {
 			"citizen_bird": "star",
 			"cv": {
-				"de": "Irene Mihalic (* 17. November 1976 in Waldbr\u00f6l) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen) aus Gelsenkirchen.",
+				"de": "Irene Mihalic (* 17. November 1976 in Waldbr\u00f6l) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen) aus Gelsenkirchen. Sie ist seit 2013 Mitglied des Bundestages.  Irene Mihalic war anf\u00e4nglich Sprecherin f\u00fcr innere Sicherheit in der Bundestagsfraktion von B\u00fcndnis 90/Die Gr\u00fcnen. Seit April 2016 ist sie Sprecherin f\u00fcr Innenpolitik.  Sie ist Obfrau im Innenausschuss. Sie war Obfrau ihrer Fraktion im Untersuchungsausschuss zur Edathy-Aff\u00e4re, der im Juli 2014 eingesetzt wurde und im Dezember 2015 seinen abschlie\u00dfenden Bericht abgeliefert hat.  Zudem ist sie Obfrau im zweiten NSU-Untersuchungsausschuss des Bundestages, der im November 2015 seine Arbeit aufgenommen hat.  Sie ist stellvertretende Koordinatorin des Arbeitskreises III der Bundestagsfraktion sowie stellvertretendes Mitglied im Ausschuss f\u00fcr Recht und Verbraucherschutz.",
 				"en": "Irene Mihalic is a German politician. She is a member of the GR\u00dcNE."
 			},
 			"full_name": "Irene Mihalic",
@@ -3375,7 +3375,7 @@
 		"372": {
 			"citizen_bird": "amsel",
 			"cv": {
-				"de": "Susanne Mittag (* 25. Juli 1958 in Cleveland, Ohio, USA) ist eine deutsche Politikerin (SPD) und wurde bei der Bundestagswahl am 22. September 2013 \u00fcber die nieders\u00e4chsische Landesliste ihrer Partei in den Deutschen Bundestag gew\u00e4hlt. Sie trat im Bundestagswahlkreis Delmenhorst \u2013 Wesermarsch \u2013 Oldenburg-Land (Wahlkreis 28) an.",
+				"de": "Susanne Mittag (* 25. Juli 1958 in Cleveland, Ohio, USA) ist eine deutsche Politikerin (SPD) und wurde bei der Bundestagswahl am 22. September 2013 \u00fcber die nieders\u00e4chsische Landesliste ihrer Partei in den Deutschen Bundestag gew\u00e4hlt. Sie trat im Bundestagswahlkreis Delmenhorst \u2013 Wesermarsch \u2013 Oldenburg-Land (Wahlkreis 28) an.  Sie ist ordentliches Mitglied im Innenausschuss, stellvertretende Vorsitzende des NSA-Untersuchungsausschusses und stellvertretendes Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft.",
 				"en": "Susanne Mittag is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Susanne Mittag",
@@ -3397,7 +3397,7 @@
 		"373": {
 			"citizen_bird": "hausrotschwanz",
 			"cv": {
-				"de": "Cornelia M\u00f6hring (* 9. Januar 1960 in Hamburg) ist eine deutsche Politikerin (Die Linke). 2009 zog sie erstmals als Abgeordnete in den Bundestag ein. Von 2009 bis 2011 war sie frauenpolitische Sprecherin der Linksfraktion im Bundestag und wurde im November 2011 zur Ersten stellvertretenden Fraktionsvorsitzenden gew\u00e4hlt. Mit Beginn der 18. Legislatur ist sie erneut Mitglied im Deutschen Bundestag. Sie wurde von ihrer Fraktion erneut als frauenpolitische Sprecherin und als stellvertretende Vorsitzende gew\u00e4hlt.",
+				"de": "Cornelia M\u00f6hring (* 9. Januar 1960 in Hamburg) ist eine deutsche Politikerin (Die Linke). 2009 zog sie erstmals als Abgeordnete in den Bundestag ein. Von 2009 bis 2011 war sie frauenpolitische Sprecherin der Linksfraktion im Bundestag und wurde im November 2011 zur Ersten stellvertretenden Fraktionsvorsitzenden gew\u00e4hlt. Mit Beginn der 18. Legislatur ist sie erneut Mitglied im Deutschen Bundestag. Sie wurde von ihrer Fraktion erneut als frauenpolitische Sprecherin und als stellvertretende Vorsitzende gew\u00e4hlt.  Cornelia M\u00f6hring war in der vergangenen Legislaturperiode stellvertretendes Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend, sowie in den Aussch\u00fcssen Gesundheit und Arbeit und Soziales. Mit Beginn der 18. Legislatur ist sie Vollmitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend.",
 				"en": "Cornelia M\u00f6hring is a German politician. She is a member of the DIE LINKE."
 			},
 			"full_name": "Cornelia M\u00f6hring",
@@ -3440,8 +3440,8 @@
 		"376": {
 			"citizen_bird": "grauschnaepper",
 			"cv": {
-				"de": "Marlene Mortler (geborene Hengelein; * 16. Oktober 1955 in Lauf an der Pegnitz) ist eine deutsche Politikerin (CSU) und seit Januar 2014 Drogenbeauftragte der Bundesregierung.",
-				"en": "Marlene Mortler is a German politician. She is a member of the CSU."
+				"de": "Marlene Mortler (geborene Hengelein; * 16. Oktober 1955 in Lauf an der Pegnitz) ist eine deutsche Politikerin (CSU) und seit Januar 2014 Drogenbeauftragte der Bundesregierung.  2002 wurde Mortler Mitglied des Deutschen Bundestages. Hier arbeitete sie vor allem in den Aussch\u00fcssen f\u00fcr Ern\u00e4hrung, Landwirtschaft und Verbraucherschutz sowie f\u00fcr Tourismus. Von 2004 bis 2005 war sie agrar- und verbraucherpolitische Sprecherin der CSU-Landesgruppe. Von 2005 bis 2009 war sie Vorsitzende des Bundestagsausschusses f\u00fcr Tourismus, von 2009 bis Januar 2014 tourismuspolitische Sprecherin der CDU/CSU-Fraktion. Seit Februar 2010 ist sie Mitglied der Deutsch-Maltesischen Parlamentariergruppe, seit Oktober 2011 Mitglied im CSU-Parteivorstand, seit November 2011 Landesvorsitzende der Arbeitsgemeinschaft Landwirtschaft der CSU.  Im Bundestag 2013 ist sie ordentliches Mitglied im Bundestagsausschuss Ern\u00e4hrung und Landwirtschaft, agrarpolitische Sprecherin der CSU-Landesgruppe sowie stellvertretendes Mitglied im Ausschuss f\u00fcr Tourismus.  Mortler ist im Bundestag zudem Mitglied der Europa-Union Parlamentariergruppe Deutscher Bundestag.",
+				"en": "Marlene Mortler (born 16 October 1955) is a German politician (CSU), and the Drug Commissioner of the Federal Government since January 2014.  In 2002, Mortler became a member of the German Bundestag. Here she has worked primarily in the Committees on Food, Agriculture and Consumer Protection, as well as for tourism. From 2004 to 2005, she was agricultural and consumer policy spokesperson for the CSU state group. From 2005 to 2009, she was president of the parliamentary committee for tourism, and Mortler is tourism spokeswoman of the CDU / CSU parliamentary group. Since February 2010, she is member of the German-Maltese and German-Hungarian Parliamentary Group, and since October 2011 a member of the CSU Board and since November 2011 state chairman of the Working Group on Agriculture of the CSU.  In the Bundestag, she is a full member of the Committee on Food and Agriculture and Deputy Member of the Tourism Committee.  Mortler in the Bundestag is also a member of the European Union Parliamentarians German Bundestag."
 			},
 			"full_name": "Marlene Mortler",
 			"images": {
@@ -3462,7 +3462,7 @@
 		"379": {
 			"citizen_bird": "gartenrotschwanz",
 			"cv": {
-				"de": "Niema Movassat (* 22. August 1984 in Wuppertal) ist Mitglied des Deutschen Bundestages f\u00fcr die Partei DIE LINKE.",
+				"de": "Niema Movassat (* 22. August 1984 in Wuppertal) ist Mitglied des Deutschen Bundestages f\u00fcr die Partei DIE LINKE.  Am 27. September 2009 wurde Movassat \u00fcber die Landesliste Nordrhein-Westfalen in den 17. Bundestag gew\u00e4hlt und ist seitdem Mitglied des Deutschen Bundestages. Er war der j\u00fcngste Abgeordnete seiner Fraktion, bis Yvonne Ploetz im Februar 2010 f\u00fcr den zur\u00fcckgetretenen Oskar Lafontaine nachr\u00fcckte. Movassat ist Mitglied und seit 2013 Obmann im Ausschuss f\u00fcr wirtschaftliche Zusammenarbeit und Entwicklung sowie Stellvertreter im Ausw\u00e4rtigen Ausschuss. Zudem ist er Sprecher f\u00fcr Weltern\u00e4hrung f\u00fcr die Fraktion DIE LINKE. Von 2009 bis 2013 war er Obmann seiner Fraktion im Unterausschuss Gesundheit in Entwicklungsl\u00e4ndern; diesen Unterausschuss gibt es seit der neuesten Legislaturperiode nicht mehr.  Bei der Bundestagswahl am 22. September 2013 wurde er wieder in den Bundestag gew\u00e4hlt.",
 				"en": "Niema Movassat is a German politician. He is a member of the DIE LINKE."
 			},
 			"full_name": "Niema Movassat",
@@ -3484,7 +3484,7 @@
 		"380": {
 			"citizen_bird": "buchfink",
 			"cv": {
-				"de": "Bettina M\u00fcller (* 7. Juni 1959 in Alzenau-Wasserlos) ist eine deutsche Rechtsanw\u00e4ltin, Politikerin und Abgeordnete im Deutschen Bundestag (SPD).",
+				"de": "Bettina M\u00fcller (* 7. Juni 1959 in Alzenau-Wasserlos) ist eine deutsche Rechtsanw\u00e4ltin, Politikerin und Abgeordnete im Deutschen Bundestag (SPD).  Sie ist in der 18. Legislaturperiode des Deutschen Bundestags ordentliches Mitglied im Ausschuss f\u00fcr Gesundheit sowie Schriftf\u00fchrer und stellvertretendes Mitglied im Ausschuss f\u00fcr Recht und Verbraucherschutz.",
 				"en": "Bettina M\u00fcller is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Bettina M\u00fcller",
@@ -3506,8 +3506,8 @@
 		"383": {
 			"citizen_bird": "ara",
 			"cv": {
-				"de": "Gerhard \u201eGerd\u201c M\u00fcller (* 25. August 1955 in Krumbach (Schwaben)) ist seit 1978 ein deutscher Politiker (CSU). Er ist seit Dezember 2013 Bundesminister f\u00fcr wirtschaftliche Zusammenarbeit und Entwicklung.",
-				"en": "Gerd M\u00fcller is a German politician. He is a member of the CSU."
+				"de": "Gerhard \u201eGerd\u201c M\u00fcller (* 25. August 1955 in Krumbach (Schwaben)) ist seit 1978 ein deutscher Politiker (CSU). Er ist seit Dezember 2013 Bundesminister f\u00fcr wirtschaftliche Zusammenarbeit und Entwicklung.  Seit 1994 ist M\u00fcller Mitglied des Deutschen Bundestages f\u00fcr den Wahlkreis Oberallg\u00e4u (Kempten, Lindau, Oberallg\u00e4u und Westallg\u00e4u). Bis 2005 war er, unter anderem, au\u00dfen- und europapolitischer Sprecher und Stellvertretender Vorsitzender der CSU-Landesgruppe im Deutschen Bundestag. Zudem war er von 2002 bis 2005 im Bundestag in der Position als stellvertretender Vorsitzender des Ausschusses f\u00fcr Fremdenverkehr und Tourismus.  Am 22. November 2005 wurde M\u00fcller als Parlamentarischer Staatssekret\u00e4r beim Bundesministerium f\u00fcr Ern\u00e4hrung, Landwirtschaft und Verbraucherschutz in die von Bundeskanzlerin Angela Merkel gef\u00fchrte Bundesregierung berufen. Wie dem Kabinett Merkel I geh\u00f6rte er auch dem Kabinett Merkel II an.",
+				"en": "Gerd M\u00fcller (born 25 August 1955 as Gerhard M\u00fcller in the town of Krumbach, district of G\u00fcnzburg, Bavaria, Germany) is a German politician and member of the Christian Social Union in Bavaria. He is the Federal Minister of Economic Cooperation and Development.  Since 1994, M\u00fcller has been a member of the German Parliament (Bundestag) following the federal election that year. He served on the committees for foreign and defense policy and was the spokesman on Europe, foreign, and development policy for the CSU group.  Since 2013, M\u00fcller has been Federal Minister of Economic Cooperation and Development in the third cabinet of Chancellor Angela Merkel; he was succeeded as Parliamentary State Secretary by Peter Bleser.  In February 2014, M\u00fcller accompanied German President Joachim Gauck on a state visit to India \u2013 where they met with Prime Minister Manmohan Singh and Sonia Gandhi, among others \u2013 and to Myanmar.  In October 2014, M\u00fcller co-chaired the Berlin Conference on the Syrian Refugee Situation along with Foreign Minister Frank-Walter Steinmeier and the UN High Commissioner for Refugees, Ant\u00f3nio Guterres. In November 2014, he and German Environment Minister Barbara Hendricks hosted a conference which raised $10 billion for the Green Climate Fund\u2019s projects to fight global warming.  In August 2015, M\u00fcller was part of Chancellor Merkel\u2019s delegation to the first joint cabinet meeting of the governments of Germany and Brazil in Bras\u00edlia. In January 2016, he participated in the first joint cabinet meeting of the governments of Germany and Turkey in Berlin."
 			},
 			"full_name": "Dr. Gerd M\u00fcller",
 			"images": {
@@ -3528,7 +3528,7 @@
 		"384": {
 			"citizen_bird": "blaumeise",
 			"cv": {
-				"de": "Norbert M\u00fcller (* 10. Februar 1986 in Wriezen) ist ein deutscher Politiker (Die Linke). Er ist verheiratet und hat zwei Kinder. Norbert M\u00fcller ist seit Dezember 2014 Mitglied des Deutschen Bundestages. Er ist Kinder- und Jugendpolitischer Sprecher der Linksfraktion im Deutschen Bundestag und seit Januar 2016 Vorsitzender der Kinderkommission des Deutschen Bundestages.",
+				"de": "Norbert M\u00fcller (* 10. Februar 1986 in Wriezen) ist ein deutscher Politiker (Die Linke). Norbert M\u00fcller ist seit Dezember 2014 Mitglied des Deutschen Bundestages. Er ist Kinder- und Jugendpolitischer Sprecher der Linksfraktion im Deutschen Bundestag und seit Januar 2016 Vorsitzender der Kinderkommission des Deutschen Bundestages.  Zur Bundestagswahl 2013 trat Norbert M\u00fcller auf Platz 6 der Landesliste der Partei Die Linke in Brandenburg an und kandierte im Bundestagswahlkreis 61. Dabei erzielte er 20,0 % der Erststimmen.",
 				"en": "Norbert M\u00fcller is a German politician. He is a member of the DIE LINKE."
 			},
 			"full_name": "Norbert M\u00fcller",
@@ -3549,7 +3549,7 @@
 		"385": {
 			"citizen_bird": "elster",
 			"cv": {
-				"de": "Stefan M\u00fcller (* 3. September 1975 in Neustadt an der Aisch) ist ein deutscher Politiker (CSU).",
+				"de": "Stefan M\u00fcller (* 3. September 1975 in Neustadt an der Aisch) ist ein deutscher Politiker (CSU).  Er ist stets als direkt gew\u00e4hlter Abgeordneter des Wahlkreises Erlangen in den Bundestag eingezogen.  Seit Dezember 2013 ist M\u00fcller Parlamentarischer Staatssekret\u00e4r bei der Bundesministerin f\u00fcr Bildung und Forschung im Kabinett Merkel III.  M\u00fcller ist Mitglied der Europa-Union Parlamentariergruppe Deutscher Bundestag und des Kuratoriums der Stiftung Lesen.",
 				"en": "Stefan M\u00fcller is a German politician. He is a member of the CSU."
 			},
 			"full_name": "Stefan M\u00fcller",
@@ -3571,7 +3571,7 @@
 		"386": {
 			"citizen_bird": "blaumeise",
 			"cv": {
-				"de": "Beate M\u00fcller-Gemmeke (geb. M\u00fcller; *\u00a07. Oktober 1960 in Frankfurt am Main) ist eine deutsche Politikerin der Gr\u00fcnen. Sie ist seit 2009 Mitglied des Deutschen Bundestags.",
+				"de": "Beate M\u00fcller-Gemmeke (geb. M\u00fcller; *\u00a07. Oktober 1960 in Frankfurt am Main) ist eine deutsche Politikerin der Gr\u00fcnen. Sie ist seit 2009 Mitglied des Deutschen Bundestags.  M\u00fcller-Gemmeke ist Mitglied im Bundestagsausschuss f\u00fcr Arbeit und Soziales und Sprecherin f\u00fcr Arbeitnehmerrechte ihrer Fraktion. Seit 2013 ist sie stellvertretendes Mitglied im Petitionsausschuss.",
 				"en": "Beate M\u00fcller-Gemmeke is a German politician. She is a member of the GR\u00dcNE."
 			},
 			"full_name": "Beate M\u00fcller-Gemmeke",
@@ -3593,8 +3593,8 @@
 		"389": {
 			"citizen_bird": "blaumeise",
 			"cv": {
-				"de": "\u00d6zcan Mutlu (* 10. Januar 1968 in Kelkit, T\u00fcrkei) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen). Er ist Mitglied des 18. Deutschen Bundestages.",
-				"en": "\u00d6zcan Mutlu is a German politician. He is a member of the GR\u00dcNE."
+				"de": "\u00d6zcan Mutlu (* 10. Januar 1968 in Kelkit, T\u00fcrkei) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen). Er ist Mitglied des 18. Deutschen Bundestages.  Mit der Wahl zum Mitglied des Deutschen Bundestages wurde er auch zum Sprecher f\u00fcr Bildungspolitik und Sprecher f\u00fcr Sportpolitik der Fraktion B\u00fcndnis 90/Die Gr\u00fcnen im Deutschen Bundestag und er ist zugleich Berichterstatter seiner Fraktion f\u00fcr das Thema B\u00fcrgerbeteiligung. Er ist Ordentliches Mitglied und Sprecher seiner Fraktion im Sportausschuss[8] und im Ausschuss f\u00fcr Bildung, Forschung und Technikfolgenabsch\u00e4tzung.",
+				"en": "\u00d6zcan Mutlu (born January 10, 1968) in Kelkit, G\u00fcm\u00fc\u015fhane Province, Turkey, is a Turkish-German Green Party politician.  He is one of the eleven politicians of Turkish descent who entered the federal parliament, including seven women. In parliament, he has since been serving on the Committee on Education, Research and Technology Assessment. On the committee, he is his parliamentary group\u2019s rapporteur on citizen participation."
 			},
 			"full_name": "\u00d6zcan Mutlu",
 			"images": {
@@ -3614,7 +3614,7 @@
 		"392": {
 			"citizen_bird": "gartenbaumlaeufer",
 			"cv": {
-				"de": "Alexander Soranto Neu (* 19. M\u00e4rz 1969 in Harmonie, Gemeinde Eitorf) ist ein deutscher Politiker (Die Linke). Seit der Bundestagswahl 2013 ist er Mitglied des Deutschen Bundestages.",
+				"de": "Alexander Soranto Neu (* 19. M\u00e4rz 1969 in Harmonie, Gemeinde Eitorf) ist ein deutscher Politiker (Die Linke). Seit der Bundestagswahl 2013 ist er Mitglied des Deutschen Bundestages.  Neu ist Obmann im Verteidigungsausschuss des Deutschen Bundestages und stellvertretendes Mitglied im Ausw\u00e4rtigen Ausschuss.  Weiterhin ist er Mitglied des Aufsichtsrates des Zentrum f\u00fcr Internationale Friedenseins\u00e4tze gemeinn\u00fctzige GmbH (ZIF)",
 				"en": "Alexander Neu is a German politician. He is a member of the DIE LINKE."
 			},
 			"full_name": "Dr. Alexander S. Neu",
@@ -3636,7 +3636,7 @@
 		"393": {
 			"citizen_bird": "heckenbraunelle",
 			"cv": {
-				"de": "Andreas Nick (* 26. April 1967 in Koblenz-Moselwei\u00df) ist ein deutscher Politiker (CDU). Er wurde am 22. September 2013 in seinem Bundestagswahlkreis Montabaur mit 49,3\u00a0% der Erststimmen erstmals als Direktkandidat in den Deutschen Bundestag gew\u00e4hlt.",
+				"de": "Andreas Nick (* 26. April 1967 in Koblenz-Moselwei\u00df) ist ein deutscher Politiker (CDU). Er wurde am 22. September 2013 in seinem Bundestagswahlkreis Montabaur in den Deutschen Bundestag gew\u00e4hlt.  Seit Januar 2014 ist er Mitglied im Ausw\u00e4rtigen Ausschuss; dort ist er federf\u00fchrender Berichterstatter seiner Fraktion f\u00fcr Globalisierungsthemen (UN/internationale Organisationen, Welthandel, Klimaschutz) sowie als Regionalberichterstatter f\u00fcr die T\u00fcrkei, Ungarn, S\u00fcdamerika und Australien zust\u00e4ndig. Er ist ebenfalls Mitglied des Unterausschusses Vereinte Nationen, Internationale Organisationen und Globalisierung sowie stellvertretendes Mitglied der Parlamentarischen Versammlung der OSZE. Im Februar 2014 wurde er zus\u00e4tzlich als Mitglied in den neuen Ausschuss Digitale Agenda berufen, wo er als Berichterstatter unter anderem f\u00fcr Fragen des Breitbandausbaus, der Digitalisierung der Finanzwirtschaft und der Internet Governance zust\u00e4ndig ist. Au\u00dferdem ist Andreas Nick stellvertretendes Mitglied im Finanzausschuss des Deutschen Bundestages.  Im Herbst 2014 wurde er von CDU-Generalsekret\u00e4r Peter Tauber als Mitglied in den neu gebildeten Bundesfachausschuss Au\u00dfen-, Sicherheits-, Entwicklungs- und Menschenrechtspolitik der CDU Deutschlands unter Vorsitz von Roderich Kiesewetter berufen. Au\u00dferdem geh\u00f6rt er dem Netzwerk Digitalisierung unter Vorsitz von Nadine Sch\u00f6n an.",
 				"en": "Andreas Nick is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Dr. Andreas Nick",
@@ -3658,7 +3658,7 @@
 		"395": {
 			"citizen_bird": "ringeltaube",
 			"cv": {
-				"de": "Ulrike \u201eUlli\u201c Nissen (* 16. Juni 1959 in Essen) ist eine deutsche Politikerin (SPD). Sie ist seit 2013 Mitglied des Deutschen Bundestages.",
+				"de": "Ulrike \u201eUlli\u201c Nissen (* 16. Juni 1959 in Essen) ist eine deutsche Politikerin (SPD). Sie ist seit 2013 Mitglied des Deutschen Bundestages.  Sie ist ordentliches Mitglied im Ausschuss f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit sowie stellvertretendes Mitglied im Ausschuss f\u00fcr Verkehr und digitale Infrastruktur sowie im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft[1]. Sie ist au\u00dferdem Schriftf\u00fchrerin im Bundestag.",
 				"en": "Ulli Nissen is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Ulli Nissen",
@@ -3680,8 +3680,8 @@
 		"397": {
 			"citizen_bird": "rauchschwalbe",
 			"cv": {
-				"de": "Thomas Nord (* 19. Oktober 1957 in Berlin) ist ein deutscher linksgerichteter Politiker. Er ist Mitglied der Linkspartei und sitzt f\u00fcr diese als Abgeordneter im Deutschen Bundestag. Zudem ist er auch deren Bundesschatzmeister.",
-				"en": "Thomas Nord is a German politician. He is a member of the DIE LINKE."
+				"de": "Thomas Nord (* 19. Oktober 1957 in Berlin[1]) ist ein deutscher Politiker (Die Linke). Von 2005 bis 2012 war er Landesvorsitzender der PDS in Brandenburg. Seit 2009 ist er Mitglied des Bundestages, seit 2012 Mitglied des Bundesvorstandes der Linkspartei und seit Mai 2014 deren Bundesschatzmeister.  Im Bundestag arbeitet er dort im Ausschuss f\u00fcr die Angelegenheiten der Europ\u00e4ischen Union. Er ist stellvertretendes Mitglied im Ausschuss f\u00fcr Kultur und Medien sowie im Verteidigungsausschuss.[7] Er ist f\u00fcr die Linksfraktion stellvertretender Vorsitzender der deutsch-polnischen und der deutsch-franz\u00f6sischen Parlamentariergruppe.",
+				"en": "Thomas Nord (born 19 October 1957 in Berlin) is a German politician (DIE LINKE) and Member of the German Federal Parliament.  In the 18th Legislature he is a member of the Committee of Economy and Energy, substitute member of the Committee on the Affairs of the European Union and a member of the Subcommittee on Regional Economic Policy. He is chairman of the German-Polish Parliamentary Group and Deputy Chairman of the German-French Parliamentary Friendship Group. He is also a national spokesperson for the Group of Brandenburger Deputies of DIE LINKE."
 			},
 			"full_name": "Thomas Nord",
 			"images": {
@@ -3701,8 +3701,8 @@
 		"398": {
 			"citizen_bird": "mauersegler",
 			"cv": {
-				"de": "Konstantin von Notz (* 21. Januar 1971 in M\u00f6lln) ist ein deutscher Jurist und Politiker (B\u00fcndnis 90/Die Gr\u00fcnen). Er ist seit 2009 Mitglied des Deutschen Bundestags.",
-				"en": "Konstantin von Notz is a German politician. He is a member of the GR\u00dcNE."
+				"de": "Konstantin von Notz (* 21. Januar 1971 in M\u00f6lln) ist ein deutscher Jurist und Politiker (B\u00fcndnis 90/Die Gr\u00fcnen). Er ist seit 2009 Mitglied des Deutschen Bundestags.  In der 17. Wahlperiode war er Mitglied des Bundestags-Innenausschusses und geh\u00f6rte als Obmann der Bundestagsfraktion von B\u00fcndnis 90/Die Gr\u00fcnen der Enquete-Kommission Internet und digitale Gesellschaft an. Er war stellvertretendes Mitglied im Rechtsausschuss und im Unterausschuss Neue Medien und vertrat die Bundestagsfraktion von B\u00fcndnis 90/Die Gr\u00fcnen im Gremium nach dem Zollfahndungsdienstgesetzes und der IuK-Kommission, einer Unterkommission des \u00c4ltestenrates des Deutschen Bundestages. In der 18. Wahlperiode ist er erneut ordentliches Mitglied im Bundestags-Innenausschuss sowie Obmann im NSA-Untersuchungsausschuss und im Ausschuss Digitale Agenda. Stellvertretendes Mitglied ist er im Ausschuss f\u00fcr Recht und Verbraucherschutz sowie im Wahlausschuss.",
+				"en": "Konstantin von Notz (born 21 January 1971 in M\u00f6lln) is a German lawyer and politician. He is a member of the Alliance '90/The Greens party. Since 2009 he has been an MP of the German Bundestag. He was the speaker for the Interior and Internet Policies of the Green Party faction in the Bundestag from 2009 to 2013. In 2013 he was elected as Vice Faction Leader and again as Speaker for Internet Policies. He is also currently the party chairman within the German Parliamentary Committee investigating the NSA spying scandal and the Digital Agenda Committee in the Bundestag. Von Notz is also a member of Transparency International in Germany."
 			},
 			"full_name": "Dr. Konstantin von Notz",
 			"images": {
@@ -3722,8 +3722,8 @@
 		"399": {
 			"citizen_bird": "rabenkraehe",
 			"cv": {
-				"de": "Omid Nouripour (persisch\u00a0\u200f\u0627\u0645\u06cc\u062f \u0646\u0648\u0631\u06cc \u067e\u0648\u0631\u200e [omi\u02d0d \u025b nu\u02d0ri\u02d0\u02c8pu\u02d0r]; * 18. Juni 1975 in Teheran, Iran) ist ein deutsch-iranischer Politiker (B\u00fcndnis 90/Die Gr\u00fcnen) und Mitglied des Deutschen Bundestages (MdB).",
-				"en": "Omid Nouripour is a German politician. He is a member of the GR\u00dcNE."
+				"de": "Omid Nouripour (* 18. Juni 1975 in Teheran, Iran) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen) und Mitglied des Deutschen Bundestages (MdB).  Am 1. September 2006 r\u00fcckte er f\u00fcr den ausgeschiedenen Abgeordneten Joschka Fischer \u00fcber die Landesliste Hessen in den Bundestag nach. Dort war er zun\u00e4chst Mitglied im Europaausschuss und von 2008 bis zur Bundestagswahl 2009 Mitglied im Haushalts- und Verteidigungsausschuss.  Von 2009 bis 2013 war Nouripour sicherheitspolitischer Sprecher der Fraktion B\u00fcndnis 90/Die Gr\u00fcnen. Seit der Bundestagswahl 2013 ist er au\u00dfenpolitischer Sprecher seiner Fraktion. Zudem ist er ordentliches Mitglied im Ausw\u00e4rtigen Ausschuss und im Ausschuss f\u00fcr Menschenrechte und humanit\u00e4re Hilfe sowie stellvertretendes Mitglied im Verteidigungsausschuss und im Unterausschuss f\u00fcr Ausw\u00e4rtige Kulturpolitik.",
+				"en": "Omid Nouripour (born June 18, 1975) is a German politician of the Alliance '90/The Greens who currently serves as a member of the Bundestag, representing the state of Hesse. He is his party's spokesman on foreign affairs, and is a member of the Committee on Foreign Affairs and a deputy member of the Defence Committee. He is a member of the board of trustees of the pro-American Atlantik-Br\u00fccke organisation, a member of the pro-EU Europa-Union Deutschland caucus in the Bundestag, and a member of the board of trustees of the pro-NATO German Atlantic Association.."
 			},
 			"full_name": "Omid Nouripour",
 			"images": {
@@ -3743,8 +3743,8 @@
 		"4": {
 			"citizen_bird": "gruenfink",
 			"cv": {
-				"de": "Peter Altmaier (* 18. Juni 1958 in Ensdorf, Saar), ist ein deutscher Politiker (CDU). Seit dem 17. Dezember 2013 ist er Bundesminister f\u00fcr besondere Aufgaben und Chef des Bundeskanzleramtes im Kabinett Merkel III. Ab dem 22. Mai 2012 war er Nachfolger von Norbert R\u00f6ttgen als Bundesumweltminister im Kabinett Merkel II. Zuvor war Altmaier Parlamentarischer Gesch\u00e4ftsf\u00fchrer der CDU/CSU-Bundestagsfraktion.",
-				"en": "Peter Altmaier is a German politician. He is a member of the CDU."
+				"de": "Peter Altmaier (* 18. Juni 1958 in Ensdorf, Saar), ist ein deutscher Politiker (CDU). Seit dem 17. Dezember 2013 ist er Bundesminister f\u00fcr besondere Aufgaben und Chef des Bundeskanzleramtes im Kabinett Merkel III. Ab dem 22. Mai 2012 war er Nachfolger von Norbert R\u00f6ttgen als Bundesumweltminister im Kabinett Merkel II. Zuvor war Altmaier Parlamentarischer Gesch\u00e4ftsf\u00fchrer der CDU/CSU-Bundestagsfraktion.  Altmaier ist Mitglied der Europa-Union Parlamentariergruppe Deutscher Bundestag.",
+				"en": "Peter Altmaier (born 18 June 1958) is a German politician who has served as the Chief of Staff of the German Chancellery and as Federal Minister for Special Affairs since December 2013. Previously he was Federal Minister for the Environment, Nature Conservation and Nuclear Safety from May 2012 to December 2013. Altmaier is widely seen as one of Chancellor Angela Merkel's most trusted advisors and respected for his \"compromising style\".  In October 2015, Merkel put Altmaier in charge of coordinating Germany's response to the refugee crisis. Since early 2017, he has been a member of the German government's cabinet committee on Brexit at which ministers will discuss organizational and structural issues related to the United Kingdom's departure from the European Union."
 			},
 			"full_name": "Peter Altmaier",
 			"images": {
@@ -3765,8 +3765,8 @@
 		"40": {
 			"citizen_bird": "saatkraehe",
 			"cv": {
-				"de": "Peter Beyer (* 25. Dezember 1970 in Ratingen) ist ein deutscher Politiker (CDU) und Rechtsanwalt (Fachanwalt f\u00fcr gewerblichen Rechtsschutz).",
-				"en": "Peter Beyer is a German politician. He is a member of the CDU."
+				"de": "Peter Beyer (* 25. Dezember 1970 in Ratingen) ist ein deutscher Politiker (CDU) und Rechtsanwalt (Fachanwalt f\u00fcr gewerblichen Rechtsschutz).  Am 22. September 2013 wurde Beyer bei der Bundestagswahl als Abgeordneter in den 18. deutschen Bundestag wiedergew\u00e4hlt. Er ist dort Mitglied des Ausw\u00e4rtigen Ausschusses sowie stellvertretendes Mitglied des Verteidigungsausschusses, des Unterausschusses Vereinte Nationen, Internationale Organisationen und Globalisierung, der Parlamentarischen Versammlung der OSZE.",
+				"en": "Peter Beyer LL.M. (born 25 December 1970 in Ratingen, Germany) is a German politician (CDU).  In the federal election on September 22, 2013, Beyer was re-elected as a Member of the Bundestag. Currently, he is a member of the Bundestag's Committee on Foreign Affairs where he serves as Parliamentary Special Rapporteur on Transatlantic Relations.  Beyer describes himself as \"committed Atlanticist\" and \"advocate of a strong transatlantic relationship\". He is a member of the Atlantik-Br\u00fccke (engl. Atlantic Bridge), and of the Deutsche Gesellschaft f\u00fcr ausw\u00e4rtige Politik (engl. German Council on Foreign Relations), both private Think Tanks."
 			},
 			"full_name": "Peter Beyer",
 			"images": {
@@ -3787,7 +3787,7 @@
 		"400": {
 			"citizen_bird": "ara",
 			"cv": {
-				"de": "Helmut Fedor Nowak (* 19. April 1941 in Beuthen, Oberschlesien) ist ein deutscher Politiker (CDU).",
+				"de": "Helmut Fedor Nowak (* 19. April 1941 in Beuthen, Oberschlesien) ist ein deutscher Politiker (CDU).  Helmut Nowak ist Mitglied der Landsmannschaft der Oberschlesier, Kreisgruppe K\u00f6ln und nach Herbert Czaja erstes Mitglied der Landsmannschaft, das den Sprung in den Deutschen Bundestag geschafft hat.",
 				"en": "Helmut Nowak is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Helmut Nowak",
@@ -3809,7 +3809,7 @@
 		"401": {
 			"citizen_bird": "ara",
 			"cv": {
-				"de": "Georg N\u00fc\u00dflein (* 10. April 1969 in Krumbach/Schwaben) ist ein deutscher Politiker (CSU). Seit 2002 ist er Mitglied des Deutschen Bundestages und seit Januar 2014 Stellvertretender Vorsitzender der CDU/CSU-Bundestagsfraktion.",
+				"de": "Georg N\u00fc\u00dflein (* 10. April 1969 in Krumbach/Schwaben) ist ein deutscher Politiker (CSU). Seit 2002 ist er Mitglied des Deutschen Bundestages und seit Januar 2014 Stellvertretender Vorsitzender der CDU/CSU-Bundestagsfraktion.  Seine Zust\u00e4ndigkeiten umfassen die Gesundheits- und Umweltpolitik.",
 				"en": "Georg N\u00fc\u00dflein is a German politician. He is a member of the CSU."
 			},
 			"full_name": "Dr. Georg N\u00fc\u00dflein",
@@ -3831,8 +3831,8 @@
 		"402": {
 			"citizen_bird": "amsel",
 			"cv": {
-				"de": "Julia Obermeier (* 7. September 1984 in M\u00fcnchen als Julia Bartz) ist eine deutsche Politikerin der CSU und Mitglied des Deutschen Bundestages.",
-				"en": "Julia Obermeier is a German politician. She is a member of the CSU."
+				"de": "Julia Obermeier (* 7. September 1984 in M\u00fcnchen als Julia Bartz) ist eine deutsche Politikerin der CSU und Mitglied des Deutschen Bundestages.  Bei der Bundestagswahl 2013 zog Obermeier \u00fcber Platz 39 der CSU-Landesliste in den Deutschen Bundestag ein. Sie ist Mitglied im Verteidigungsausschuss und stellvertretendes Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft. Zudem ist sie ordentliches Mitglied der Parlamentarischen Versammlung des Europarates. Dar\u00fcber hinaus ist sie stellvertretendes Mitglied der Parlamentarischen Versammlung der NATO und der Interparlamentarische Konferenz f\u00fcr die Gemeinsame Au\u00dfen- und Sicherheitspolitik und die Gemeinsame Sicherheits- und Verteidigungspolitik.  Obermeier wurde 2015 von der CDU/CSU-Bundestagsfraktion in den Stiftungsrat Treuh\u00e4nderische Stiftung zur Unterst\u00fctzung besonderer H\u00e4rtef\u00e4lle in der Bundeswehr und der ehemaligen NVA (Deutsche H\u00e4rtefallstiftung) berufen.",
+				"en": "Julia Obermeier (born Julia Bartz 7 September 1984) is a German politician (CSU). She had been a member of the German parliament (Bundestag) since 2013, and is a member of the assembly's defence committee. Since 2015 she has also been a member of the Parliamentary Assembly of the Council of Europe.  She is a member of the Bundestag Defence Committee and an alternate member of the Food and Agriculture Committee. She is a member of the Parliamentary Assembly of the Council of Europe. She is a deputy member of the NATO Parliamentary Assembly and of the Interparliamentary Conference for Joint Foreign and Security Policy and for Joint Security and Defence Policy."
 			},
 			"full_name": "Julia Obermeier",
 			"images": {
@@ -3853,7 +3853,7 @@
 		"403": {
 			"citizen_bird": "heckenbraunelle",
 			"cv": {
-				"de": "Wilfried Oellers (* 16. September 1975 in M\u00f6nchengladbach) ist ein deutscher Politiker (CDU) und Mitglied des Deutschen Bundestages.",
+				"de": "Wilfried Oellers (* 16. September 1975 in M\u00f6nchengladbach) ist ein deutscher Politiker (CDU) und Mitglied des Deutschen Bundestages.  Er ist ordentliches Mitglied im Ausschuss f\u00fcr Arbeit und Soziales, dort Berichterstatter f\u00fcr Arbeitsrecht, Arbeitsgerichtsgesetz, Tarifrecht und europ\u00e4isches Arbeitsrecht. Dar\u00fcber hinaus ist er stellvertretendes Mitglied in den Aussch\u00fcssen Wirtschaft und Energie sowie Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft.",
 				"en": "Wilfried Oellers is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Wilfried Oellers",
@@ -3875,8 +3875,8 @@
 		"404": {
 			"citizen_bird": "haussperling",
 			"cv": {
-				"de": "Thomas Ludwig Albert Oppermann (* 27. April 1954 in Freckenhorst) ist ein deutscher Politiker (SPD) und seit dem 16.\u00a0Dezember 2013 Fraktionsvorsitzender der SPD-Bundestagsfraktion. Er war von November 2007 bis Dezember 2013 Erster Parlamentarischer Gesch\u00e4ftsf\u00fchrer der SPD-Bundestagsfraktion und Vorsitzender des Parlamentarischen Kontrollgremiums und von 1998 bis 2003 nieders\u00e4chsischer Minister f\u00fcr Wissenschaft und Kultur.",
-				"en": "Thomas Oppermann is a German politician. He is a member of the SPD."
+				"de": "Thomas Ludwig Albert Oppermann (* 27. April 1954 in Freckenhorst) ist ein deutscher Politiker (SPD) und seit dem 16.\u00a0Dezember 2013 Fraktionsvorsitzender der SPD-Bundestagsfraktion. Er war von November 2007 bis Dezember 2013 Erster Parlamentarischer Gesch\u00e4ftsf\u00fchrer der SPD-Bundestagsfraktion und Vorsitzender des Parlamentarischen Kontrollgremiums und von 1998 bis 2003 nieders\u00e4chsischer Minister f\u00fcr Wissenschaft und Kultur.  Oppermann geh\u00f6rt dem Netzwerk Berlin und dem Seeheimer Kreis an und ist stellvertretender Vorsitzender der deutsch-israelischen Parlamentariergruppe. Er geh\u00f6rte dem Jahrgang 1992 des \u201eYoung Leaders Programm\u201c des Netzwerkes Atlantik-Br\u00fccke an.",
+				"en": "Thomas Ludwig Albert Oppermann[2] (born 27 April 1954 in Freckenhorst, West Germany) is a German politician with the Social Democratic Party (SPD). From 1998-2003, he was the Minister for Science and Culture in the German state of Lower Saxony. He has been the First Secretary of the SPD Parliamentary Group in the Bundestag from November 2007 to December 2013. Currently, he serves as Chairman of the SPD Parliamentary Group."
 			},
 			"full_name": "Thomas Oppermann",
 			"images": {
@@ -3897,7 +3897,7 @@
 		"405": {
 			"citizen_bird": "haussperling",
 			"cv": {
-				"de": "Florian O\u00dfner (* 5. Juli 1980 in Vilsbiburg) ist ein deutscher Politiker (CSU) und Mitglied des Deutschen Bundestages.",
+				"de": "Florian O\u00dfner (* 5. Juli 1980 in Vilsbiburg) ist ein deutscher Politiker (CSU) und Mitglied des Deutschen Bundestages.  Bei der Bundestagswahl 2013 gewann O\u00dfner das Direktmandat im Bundestagswahlkreis Landshut. Er ist im Bundestag ordentliches Mitglied im Ausschuss f\u00fcr Verkehr und digitale Infrastruktur und stellvertretendes Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft sowie im Ausschuss f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit. Er vertritt die CSU in der Kommission Lagerung hoch radioaktiver Abfallstoffe (Endlagerkommission) gem\u00e4\u00df Standortauswahlgesetz. Er ist Mitglied in den Parlamentariergruppen zwischen Deutschland und den Vereinigten Staaten, Schweden sowie \u00d6sterreich.",
 				"en": "Florian O\u00dfner is a German politician. He is a member of the CSU."
 			},
 			"full_name": "Florian O\u00dfner",
@@ -3919,7 +3919,7 @@
 		"406": {
 			"citizen_bird": "buntspecht",
 			"cv": {
-				"de": "Friedrich Ostendorff (* 12. Januar 1953 in Dortmund) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen). Er war von 2002 bis 2005 und ist wiederum seit 2009 Mitglied des Deutschen Bundestages.",
+				"de": "Friedrich Ostendorff (* 12. Januar 1953 in Dortmund) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen). Er war von 2002 bis 2005 und ist wiederum seit 2009 Mitglied des Deutschen Bundestages.  Seit Juni 2011 war er Stellvertretender Vorsitzender des Bundestagsausschusses f\u00fcr Ern\u00e4hrung, Landwirtschaft und Verbraucherschutz. Im 18. Bundestag ist er Ordentliches Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft.  Weiterhin ist er Stellvertretendes Mitglied im Ausschuss f\u00fcr Umwelt, Naturschutz und Reaktorsicherheit, sowie im Haushaltsausschuss.  Ostendorff ist Stellvertretender Vorsitzender der Deutsch-Japanischen Parlamentariergruppe.",
 				"en": "Friedrich Ostendorff is a German politician. He is a member of the GR\u00dcNE."
 			},
 			"full_name": "Friedrich Ostendorff",
@@ -3940,7 +3940,7 @@
 		"407": {
 			"citizen_bird": "gartengrasmuecke",
 			"cv": {
-				"de": "Tim Ostermann (* 16. Juni 1979 in B\u00fcnde) ist ein deutscher Politiker (CDU) und Mitglied des 18. Deutschen Bundestages.",
+				"de": "Tim Ostermann (* 16. Juni 1979 in B\u00fcnde) ist ein deutscher Politiker (CDU) und Mitglied des 18. Deutschen Bundestages.  Schwartze ist ordentliches Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend und im Petitionsausschuss. Er ist ebenso stellvertretendes Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft.",
 				"en": "Tim Ostermann is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Dr. Tim Ostermann",
@@ -3962,8 +3962,8 @@
 		"409": {
 			"citizen_bird": "elster",
 			"cv": {
-				"de": "Cem \u00d6zdemir [\u02cc\u02a4\u025bm \u02c8\u0153zd\u025bmir] (* 21. Dezember 1965 in Urach) ist ein deutscher Politiker und seit November 2008 Bundesvorsitzender der Partei B\u00fcndnis 90/Die Gr\u00fcnen. 1994 waren Cem \u00d6zdemir und Leyla Onur die ersten Bundestagsabgeordneten mit t\u00fcrkischen Eltern.",
-				"en": "Cem \u00d6zdemir is a German politician. He is a member of the GR\u00dcNE."
+				"de": "Cem \u00d6zdemir (* 21. Dezember 1965 in Urach) ist ein deutscher Politiker und seit November 2008 Bundesvorsitzender der Partei B\u00fcndnis 90/Die Gr\u00fcnen. 1994 waren Cem \u00d6zdemir und Leyla Onur die ersten Bundestagsabgeordneten mit t\u00fcrkischen Eltern.  \u00d6zdemir war kurzzeitig Mitglied der Atlantik-Br\u00fccke, trat aber wegen des Vorsitzenden Friedrich Merz aus und sprach in dem Kontext von \u201eCDU-nahen Machenschaften\u201c; er ist Mitglied des Beirats der Atlantischen Initiative. 2007 war er an der Gr\u00fcndung der europ\u00e4ischen Denkfabrik European Council on Foreign Relations beteiligt.  Er ist offizieller Unterst\u00fctzer des B\u00fcndnisses Freiheit statt Angst f\u00fcr Datenschutz und gegen staatliche \u00dcberwachung.[29] Au\u00dferdem ist er Gr\u00fcndungskurator der Amadeu Antonio Stiftung. Au\u00dferdem ist \u00d6zdemir ehrenamtliches Jurymitglied bei \u201eTop 100\u201c, einer Auszeichnung f\u00fcr die innovativsten Unternehmen im deutschen Mittelstand.",
+				"en": "Cem \u00d6zdemir (born 21 December 1965) is a German politician. Since 2008 he is co-chair of the German political party Alliance '90/The Greens, together with Simone Peter. He is a member of the German Bundestag since 2013 and he was a member of the German Bundestag between 1994 and 2002 and of the European Parliament between 2004 and 2009. He is standing to be one of the top two candidates for the Greens for the 2017 German federal election.  He serves as deputy chairman of the German-Chinese Parliamentary Friendship Group."
 			},
 			"full_name": "Cem \u00d6zdemir",
 			"images": {
@@ -3983,7 +3983,7 @@
 		"41": {
 			"citizen_bird": "klappergrasmuecke",
 			"cv": {
-				"de": "Steffen Bilger (* 16. Februar 1979 in Schongau) ist ein deutscher Politiker (CDU).",
+				"de": "Steffen Bilger (* 16. Februar 1979 in Schongau) ist ein deutscher Politiker (CDU).  Im 17. Bundestag war er ordentliches Mitglied im Ausschuss f\u00fcr Verkehr, Bau und Stadtentwicklung, Mitglied im Parlamentarischen Beirat f\u00fcr nachhaltige Entwicklung und stellvertretendes Mitglied in den Aussch\u00fcssen Gesundheit und Umwelt, Naturschutz und Reaktorsicherheit. Au\u00dferdem war er ordentliches Mitglied in der Enquete-Kommission Wachstum, Wohlstand, Lebensqualit\u00e4t.  Im 18. Bundestag ist er ordentliches Mitglied im Parlamentarischen Beirat f\u00fcr nachhaltige Entwicklung, Ausschuss f\u00fcr Verkehr und digitale Infrastruktur sowie Vorsitzender des Kuratoriums der Bundeszentrale f\u00fcr politische Bildung.  Innerhalb der Arbeitsgruppe Verkehr der CDU/CSU-Bundestagsfraktion ist Bilger u. a. Berichterstatter f\u00fcr Alternative Antriebe. Er leitet auch den Parlamentskreis Elektromobilit\u00e4t des Deutschen Bundestages. Au\u00dferdem ist er Vorsitzender der Jungen Gruppe, des Zusammenschlusses aller Unionsabgeordneten unter 35 Jahren.",
 				"en": "Steffen Bilger is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Steffen Bilger",
@@ -4005,8 +4005,8 @@
 		"410": {
 			"citizen_bird": "goldammer",
 			"cv": {
-				"de": "Mahmut \u00d6zdemir (* 23. Juni 1987 in Duisburg) ist ein deutscher Politiker (SPD). Er wurde bei der Bundestagswahl 2013 mit 26 Jahren als damals j\u00fcngster Bundestagsabgeordneter ins Parlament gew\u00e4hlt.",
-				"en": "Mahmut \u00d6zdemir is a German politician. He is a member of the SPD."
+				"de": "Mahmut \u00d6zdemir (* 23. Juni 1987 in Duisburg) ist ein deutscher Politiker (SPD). Er wurde bei der Bundestagswahl 2013 ins Parlament gew\u00e4hlt.  In Bundestagsaussch\u00fcssen ist er ordentliches Mitglied im Kuratorium der Bundeszentrale f\u00fcr politische Bildung (seit dem 6. Mai 2014), im Unterausschuss Kommunales (seit dem 18. Februar 2014), und im Innenausschuss (seit dem 13. Januar 2014).",
+				"en": "Mahmut \u00d6zdemir (born June 23, 1987 in Duisburg, Germany) is a Turkish-German politician for the Social Democratic Party of Germany (SPD). He has been a member of the Bundestag since being elected in September 2013."
 			},
 			"full_name": "Mahmut \u00d6zdemir",
 			"images": {
@@ -4027,8 +4027,8 @@
 		"411": {
 			"citizen_bird": "kleiber",
 			"cv": {
-				"de": "Aydan \u00d6zo\u011fuz [\u0251id\u0251n \u02c8\u0153z\u02c8o.u\u02d0z] (* 31. Mai 1967 in Hamburg) ist eine deutsche Politikerin (SPD) und seit 2009 Mitglied des Deutschen Bundestages. \u00d6zo\u011fuz ist seit Dezember 2011 eine der sechs stellvertretenden Bundesvorsitzenden der SPD. Im Juni 2013 wurde sie zur ersten Bundesvorsitzenden der SPD-Arbeitsgemeinschaft Migration und Vielfalt gew\u00e4hlt. Seit Dezember 2013 ist sie Nachfolgerin von Maria B\u00f6hmer als Staatsministerin bei der Bundeskanzlerin als Beauftragte der Bundesregierung f\u00fcr Migration, Fl\u00fcchtlinge und Integration.",
-				"en": "Aydan \u00d6zo\u011fuz is a German politician. She is a member of the SPD."
+				"de": "Aydan \u00d6zo\u011fuz (* 31. Mai 1967 in Hamburg) ist eine deutsche Politikerin (SPD) und seit 2009 Mitglied des Deutschen Bundestages. \u00d6zo\u011fuz ist seit Dezember 2011 eine der sechs stellvertretenden Bundesvorsitzenden der SPD. Im Juni 2013 wurde sie zur ersten Bundesvorsitzenden der SPD-Arbeitsgemeinschaft Migration und Vielfalt gew\u00e4hlt. Seit Dezember 2013 ist sie Nachfolgerin von Maria B\u00f6hmer als Staatsministerin bei der Bundeskanzlerin als Beauftragte der Bundesregierung f\u00fcr Migration, Fl\u00fcchtlinge und Integration.  Im 17. Bundestag wurde \u00d6zo\u011fuz Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend und Mitglied der Enquete-Kommission Internet und digitale Gesellschaft.  Nach der Bundestagswahl 2013 wurde sie im Kabinett Merkel III Nachfolgerin von Maria B\u00f6hmer als Staatsministerin bei der Bundeskanzlerin als Beauftragte der Bundesregierung f\u00fcr Migration, Fl\u00fcchtlinge und Integration.",
+				"en": "Aydan \u00d6zo\u011fuz (born 31 May 1967) is a German politician. She is a member of the Bundestag for SPD, and was elected deputy chairperson of the party in 2011. Since 2013, she serves as Minister of State in the German Chancellery and Commissioner for Immigration, Refugees and Integration."
 			},
 			"full_name": "Aydan \u00d6zo\u011fuz",
 			"images": {
@@ -4049,7 +4049,7 @@
 		"413": {
 			"citizen_bird": "tannenmeise",
 			"cv": {
-				"de": "Sylvia Maria Pantel (* 1. Januar 1961 in D\u00fcsseldorf) ist eine deutsche Politikerin (CDU) und seit 2013 Mitglied des Bundestages.",
+				"de": "Sylvia Maria Pantel (* 1. Januar 1961 in D\u00fcsseldorf) ist eine deutsche Politikerin (CDU).  Sie gewann bei der Wahl zum Deutschen Bundestag 2013 den Bundestagswahlkreis D\u00fcsseldorf II und wurde direkt in den Bundestag gew\u00e4hlt.",
 				"en": "Sylvia Pantel is a German politician. She is a member of the CDU."
 			},
 			"full_name": "Sylvia Pantel",
@@ -4071,7 +4071,7 @@
 		"414": {
 			"citizen_bird": "amsel",
 			"cv": {
-				"de": "Markus Paschke (* 8. Juni 1963 in Bremen) ist ein deutscher Politiker (SPD). Er lebt seit 2003 im ostfriesischen Riepe und ist seit 2013 verheiratet.",
+				"de": "Markus Paschke (* 8. Juni 1963 in Bremen) ist ein deutscher Politiker (SPD). Seit 2013 ist Paschke Mitglied des Deutschen Bundestages. Er zog \u00fcber die Landesliste seiner Partei in das Parlament ein.",
 				"en": "Markus Paschke is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Markus Paschke",
@@ -4093,8 +4093,8 @@
 		"417": {
 			"citizen_bird": "ringeltaube",
 			"cv": {
-				"de": "Petra Angelika Pau (* 9. August 1963 in Ost-Berlin) ist eine deutsche Politikerin (Die Linke). Seit 2006 ist sie Vizepr\u00e4sidentin des Deutschen Bundestages.",
-				"en": "Petra Pau is a German politician. She is a member of the DIE LINKE."
+				"de": "Petra Angelika Pau (* 9. August 1963 in Ost-Berlin) ist eine deutsche Politikerin (Die Linke). Seit 2006 ist sie Vizepr\u00e4sidentin des Deutschen Bundestages.  Sie ist Obfrau der Linken in den NSU-Untersuchungsaussch\u00fcssen des Bundestages (2012/13 im ersten und seit 2015 im zweiten).",
+				"en": "Petra Pau (born 9 August 1963) is a member of The Left in the German parliament, the Bundestag. First elected in 1998, from 2002 to 2005 she was one of just two party representatives, having been directly elected as the representative of Berlin Marzahn \u2013 Hellersdorf. She is currently one of the vice presidents of the Bundestag and belongs to the reform-oriented members of her party, actively supporting parliamentary representative democracy."
 			},
 			"full_name": "Petra Pau",
 			"images": {
