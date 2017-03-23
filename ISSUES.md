@@ -1,8 +1,5 @@
 # Issue tracker (formerly: https://piratenpad.de/p/SNIP)
 
-This is a copy of our internal issue tracker. Thanks to piratenpad.de
-and Etherpad for their wonderful work!
-
 ## Open Questions
 
 [Next Meeting]
@@ -60,6 +57,7 @@ Nothing to do currently
 - [Max] bird on tweet more prominent
 - [Max] "Add Citizen User" should not play sound of already displayed tweets
 - [Max] Add Citizen User page: After scrolling: Arrows have different opacity -> take the one after scrolling.
+- [Max] Replace double-spaces in politician's CV by `<br />` or something.
 - [Max] Adapt data structure for citizen user feedback queue, see README
 
 ## Model
