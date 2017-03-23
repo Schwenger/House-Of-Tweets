@@ -4114,8 +4114,8 @@
 		"418": {
 			"citizen_bird": "kleiber",
 			"cv": {
-				"de": "Lisa Paus (* 19. September 1968 in Rheine) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen), sie zog 2009 \u00fcber die Berliner Landesliste in den Deutschen Bundestag ein.",
-				"en": "Elisabeth Paus is a German politician. She is a member of the GR\u00dcNE."
+				"de": "Lisa Paus (* 19. September 1968 in Rheine) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen), sie zog 2009 \u00fcber die Berliner Landesliste in den Deutschen Bundestag ein.   In der Legislaturperiode von 2009 bis 2013 war sie Mitglied des Finanzausschusses und des Ausschusses f\u00fcr Angelegenheiten der Europ\u00e4ischen Union der Bundestagsfraktion B\u00fcndnis 90/Die Gr\u00fcnen. Paus ist stellvertretende Vorsitzende sowohl der deutsch-irischen Parlamentariergruppe, der deutsch-slowenischen als auch der deutsch-italienischen Parlamentariergruppe.",
+				"en": "Elisabeth \"Lisa\" Paus (born 19 September 1968 in Rheine, Germany) is a German politician (Alliance '90/The Greens). Since 2009 she has been a member of the German parliament.  She is a member of the Finance Committee and within the committee she is the Green's spokesperson. In her first term between 2009 and 2013, she also served on the Committee on the Affairs of the European Union. She currently also serves as deputy chairwoman of the German-Irish Parliamentary Friendship Group of the German-Italian Parliamentary Friendship Group."
 			},
 			"full_name": "Lisa Paus",
 			"images": {
@@ -4135,7 +4135,7 @@
 		"419": {
 			"citizen_bird": "tukan",
 			"cv": {
-				"de": "Christian Peter Petry (* 15. M\u00e4rz 1965 in Neunkirchen, Saarland) ist ein deutscher Politiker (SPD) und Mitglied des 18. Deutschen Bundestags.",
+				"de": "Christian Peter Petry (* 15. M\u00e4rz 1965 in Neunkirchen, Saarland) ist ein deutscher Politiker (SPD) und Mitglied des 18. Deutschen Bundestags.  Im Deutschen Bundestag ist Christian Petry stellvertretender europapolitischer Sprecher der SPD-Bundestagsfraktion sowie ordentliches Mitglied im Ausschuss f\u00fcr die Angelegenheiten der Europ\u00e4ischen Union. Dar\u00fcber hinaus ist er ordentliches Mitglied im Finanzausschuss sowie im Parlamentarischen Finanzmarktgremium. Christian Petry ist zudem stellvertretender Vorsitzender der deutsch-ungarischen Parlamentariergruppe des Deutschen Bundestages und stellvertretendes Mitglied im Haushaltsausschuss.",
 				"en": "Christian Petry is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Christian Petry",
@@ -4157,8 +4157,8 @@
 		"42": {
 			"citizen_bird": "eichelhaeher",
 			"cv": {
-				"de": "Karin Binder (* 28. August 1957 in Stuttgart) ist eine deutsche Politikerin (Die Linke). Sie ist Mitglied des Deutschen Bundestages.",
-				"en": "Karin Binder is a German politician. She is a member of the DIE LINKE."
+				"de": "Karin Binder (* 28. August 1957 in Stuttgart) ist eine deutsche Politikerin (Die Linke). Seit 2005 ist Binder Mitglied des Bundestages. Sie ist 2005, 2009 und 2013 \u00fcber Platz 3 der Landesliste Baden-W\u00fcrttemberg in den Bundestag eingezogen. Ihr Heimatwahlkreis ist Karlsruhe-Stadt.  Sie war Mitglied im Vorstand und seit 2009 in der Parlamentarischen Gesch\u00e4ftsf\u00fchrung der Linksfraktion. Au\u00dferdem ist sie Ordentliches Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft und im 17. Bundestag und 18. Bundestag Obfrau f\u00fcr ihre Fraktion. F\u00fcr ihre Fraktion ist sie die ern\u00e4hrungspolitische Sprecherin und zust\u00e4ndig f\u00fcr den gesundheitlichen Verbraucherschutz.",
+				"en": "Karin Binder (born 28 August 1957 in Stuttgart) is a German politician and member of the \"Die Linke\".   From 1975 till 1998 she was a member of the SPD. In 2005 she became a member of Die Linke. She has been a member of the Bundestag since 2005. She was re-elected in 2009 and 2013."
 			},
 			"full_name": "Karin Binder",
 			"images": {
@@ -4178,8 +4178,8 @@
 		"420": {
 			"citizen_bird": "gartengrasmuecke",
 			"cv": {
-				"de": "Harald Alfred Petzold (* 28. M\u00e4rz 1962 in Seebad Heringsdorf) ist ein deutscher Politiker (Die Linke).",
-				"en": "Harald Petzold is a German politician. He is a member of the DIE LINKE."
+				"de": "Harald Alfred Petzold (* 28. M\u00e4rz 1962 in Seebad Heringsdorf) ist ein deutscher Politiker (Die Linke).  Am 22. September 2013 gelang Petzold der Einzug in den Bundestag bei der Bundestagswahl 2013 \u00fcber einen Listenplatz.",
+				"en": "Harald Petzold (born March 28, 1962 in Seebad Heringsdorf) is a German politician from The Left.  Since 2013 Petzold is a member of German Bundestag."
 			},
 			"full_name": "Harald Petzold",
 			"images": {
@@ -4199,8 +4199,8 @@
 		"422": {
 			"citizen_bird": "goldammer",
 			"cv": {
-				"de": "Joachim Pfeiffer (* 25. April 1967 in Mutlangen) ist ein deutscher Politiker (CDU). Er ist seit 2002 Mitglied des Deutschen Bundestages.",
-				"en": "Joachim Pfeiffer is a German politician. He is a member of the CDU."
+				"de": "Joachim Pfeiffer (* 25. April 1967 in Mutlangen) ist ein deutscher Politiker (CDU). Er ist seit 2002 Mitglied des Deutschen Bundestages.  Pfeiffer ist ordentliches Mitglied im Ausschuss f\u00fcr Wirtschaft und Energie.  Im Verteidigungsausschuss ist Pfeiffer ein stellvertretendes Mitglied. Im Vordergrund des Verteidigungsausschusses steht die Sicherheit des Landes, der Verb\u00fcndeten und nicht zuletzt die der Bundeswehrsoldaten im Einsatz.  Weiterhin ist er Mitglied in der Europa-Union Deutschland.",
+				"en": "Joachim Pfeiffer (born 25 April 1967 in Mutlangen) is a German politician who represents the CDU in the Bundestag.  In March 2012, Pfeiffer was made deputy chairman of the Advisory Board of the Federal Network Agency for Electricity, Gas, Telecommunications, Post and Railway.  Following the 2013 federal elections, Pfeiffer was part of the CDU/CSU team in the negotiations with the SPD on a coalition agreement. He is also a member of the German-French Parliamentary Friendship Group as well as of the Parliamentary Friendship Group for Relations with the ASEAN States. Since November 2015, he has been member of an informal German-Russian working group on energy cooperation, convening parliamentarians of both the German Bundestag and the Russian State Duma as well as business representatives from both countries."
 			},
 			"full_name": "Dr. Joachim Pfeiffer",
 			"images": {
@@ -4221,7 +4221,7 @@
 		"423": {
 			"citizen_bird": "girlitz",
 			"cv": {
-				"de": "Sibylle Pfeiffer geb. Schmidt (* 16. Oktober 1951 in Wetzlar) ist eine deutsche Politikerin (CDU) und Mitglied des Deutschen Bundestages.",
+				"de": "Sibylle Pfeiffer geb. Schmidt (* 16. Oktober 1951 in Wetzlar) ist eine deutsche Politikerin (CDU).  Seit 2002 ist sie Mitglied des Deutschen Bundestages und war hier von November 2005 bis Oktober 2009 stellvertretende Vorsitzende des Ausschusses f\u00fcr wirtschaftliche Zusammenarbeit und Entwicklung. Seit M\u00e4rz 2011 ist sie Vorsitzende der Arbeitsgruppe Wirtschaftliche Zusammenarbeit und Entwicklung der CDU/CSU-Bundestagsfraktion und Mitglied im Fraktionsvorstand.",
 				"en": "Sibylle Pfeiffer is a German politician. She is a member of the CDU."
 			},
 			"full_name": "Sibylle Pfeiffer",
@@ -4243,7 +4243,7 @@
 		"425": {
 			"citizen_bird": "mehlschwalbe",
 			"cv": {
-				"de": "Detlev Pilger (* 29. April 1955 in Koblenz) ist ein deutscher Lehrer und Politiker der SPD. Seit dem 22. Oktober 2013 geh\u00f6rt er dem Deutschen Bundestag an.",
+				"de": "Detlev Pilger (* 29. April 1955 in Koblenz) ist ein deutscher Lehrer und Politiker der SPD.  Bei der Bundestagswahl 2013 kandidierte er im Wahlkreis Koblenz f\u00fcr das Direktmandat, er zog \u00fcber die Landesliste in den Bundestag ein. Im 18. Bundestag ist er Ordentliches Mitglied im Sportausschuss.",
 				"en": "Detlev Pilger is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Detlev Pilger",
@@ -4265,8 +4265,8 @@
 		"43": {
 			"citizen_bird": "gartenrotschwanz",
 			"cv": {
-				"de": "Lothar Binding (* 1. April 1950 in Sandershausen) ist ein deutscher Politiker (SPD).",
-				"en": "Lothar Binding is a German politician. He is a member of the SPD."
+				"de": "Lothar Binding (* 1. April 1950 in Sandershausen) ist ein deutscher Politiker (SPD).  Seit 1998 ist Binding Mitglied des Deutschen Bundestages. Er ist 1998 und 2002 als direkt gew\u00e4hlter Abgeordneter des Wahlkreises Heidelberg eingezogen. In den Jahren 2005, 2009, und 2013 wurde er \u00fcber die Landesliste Baden-W\u00fcrttemberg in den Bundestag gew\u00e4hlt.  Von 2002 bis 2005 - damals regierte das rot-gr\u00fcne Kabinett Schr\u00f6der II - war er stellvertretender Sprecher der Arbeitsgruppe Finanzen der SPD-Bundestagsfraktion. Im Haushaltsausschuss ist er Hauptberichterstatter f\u00fcr das Bundesministerium der Justiz und f\u00fcr das Bundesverfassungsgericht.  Er ist Mitglied im Finanzausschuss und finanzpolitischer Sprecher der Fraktion.",
+				"en": "Lothar Binding (born 1 April 1950 in Sandershausen, Niestetal) is a German politician and member of the Social Democratic Party of Germany (SPD).  Since the 1998 national elections, Binding has been a member of the German Bundestag, representing Heidelberg. He has since been serving on the Finance Committee. Within the SPD parliamentary group, he was the deputy spokesman of the financial policy working group from 2002 until 2005 and again from 2009 until 2012; he has been serving as the working group\u2019s spokesman since 2012. He has also been a member of the working group on municipal policy since 2005.  On the Budget Committee, Binding served as his parliamentary group's rapporteur on the budgets of the Federal Constitutional Court (2005-2009), the Federal Ministry of Justice (2005-2019) and the Federal Ministry of Economic Cooperation and Development (2009-2013).  In the negotiations to form a Grand Coalition of Chancellor Angela Merkel's Christian Democrats (CDU together with the Bavarian CSU) and the SPD following the 2013 German elections, Binding was part of the SPD delegation in the working group on banking regulation and the Eurozone, led by Herbert Reul and Martin Schulz.  From 2014 to 2015, Binding was part of the SPD parliamentary group\u2019s leadership under chairman Thomas Oppermann.  In addition, Binding was the initiator of the bipartisan group resolution which laid the groundwork for the anti-smoking legislation in Germany including the federal legislation in 2007 and some German states' legislation in the following years."
 			},
 			"full_name": "Lothar Binding",
 			"images": {
@@ -4309,7 +4309,7 @@
 		"432": {
 			"citizen_bird": "rauchschwalbe",
 			"cv": {
-				"de": "Florian Post (* 27. Mai 1981 in Neustadt a.d. Waldnaab (Oberpfalz)) ist Diplom-Kaufmann Univ. und Politiker (SPD).",
+				"de": "Florian Post (* 27. Mai 1981 in Neustadt an der Waldnaab (Oberpfalz)) ist ein deutscher Politiker (SPD). Er ist seit 2013 Mitglied des Deutschen Bundestages.  Im Parlament ist er Ordentliches Mitglied des Wahlpr\u00fcfungsausschusses und des Ausschusses f\u00fcr Wirtschaft und Energie.  Schwerpunkte seiner politischen Arbeit sind eine soziale Finanz- und Steuerpolitik und der Erhalt kommunaler Unternehmen in \u00f6ffentlicher Hand.",
 				"en": "Florian Post is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Florian Post",
@@ -4331,7 +4331,7 @@
 		"433": {
 			"citizen_bird": "buchfink",
 			"cv": {
-				"de": "Brigitte Pothmer (* 10. Februar 1955 in Prisser) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen).",
+				"de": "Brigitte Pothmer (* 10. Februar 1955 in Prisser) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen).  Von 1994 bis 2003 geh\u00f6rte Brigitte Pothmer dem Nieders\u00e4chsischen Landtag an. Hier war sie zuletzt stellvertretende Fraktionsvorsitzende und sozialpolitische Fraktionssprecherin.  Seit 2005 ist sie Mitglied des Deutschen Bundestages und hier seitdem Sprecherin der Bundestagsfraktion B\u00fcndnis 90/Die Gr\u00fcnen f\u00fcr Arbeitsmarktpolitik. Pothmer ist Mitglied im Ausschuss f\u00fcr Arbeit und Soziales und stellvertretendes Mitglied im Gesundheitsausschuss. Sie geh\u00f6rt der deutsch-rum\u00e4nischen sowie der deutsch-bulgarischen Parlamentariergruppe des Bundestages an.  Bei den Wahlen 2005, 2009 und 2013 ist Brigitte Pothmer im Bundestagswahlkreis Hildesheim angetreten und jeweils \u00fcber die Landesliste Niedersachsen in den Bundestag eingezogen.",
 				"en": "Brigitte Pothmer is a German politician. She is a member of the GR\u00dcNE."
 			},
 			"full_name": "Brigitte Pothmer",
@@ -4352,7 +4352,7 @@
 		"434": {
 			"citizen_bird": "klappergrasmuecke",
 			"cv": {
-				"de": "Wilhelm Priesmeier (* 25. Juli 1954 in Rahden) ist ein deutscher Politiker (SPD). Seit 2002 geh\u00f6rt er dem Deutschen Bundestag an.",
+				"de": "Wilhelm Priesmeier (* 25. Juli 1954 in Rahden) ist ein deutscher Politiker (SPD). Seit 2002 geh\u00f6rt er dem Deutschen Bundestag an.  Seit 2002 ist Priesmeier Mitglied des Deutschen Bundestages. Er ist ordentliches Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft und dessen Fraktions-Obmann, Stellvertreter im Finanzausschuss. Zuvor war er von 2003 bis 2009 Tierschutzbeauftragter und von 2004 bis 2009 stellvertretender agrarpolitischer Sprecher der SPD-Bundestagsfraktion.  Priesmeier ist Sprecher der Arbeitsgruppe \u201eErn\u00e4hrung und Landwirtschaft\u201c der SPD-Bundestagsfraktion.",
 				"en": "Wilhelm Priesmeier is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Dr. Wilhelm Priesmeier",
@@ -4374,7 +4374,7 @@
 		"435": {
 			"citizen_bird": "dohle",
 			"cv": {
-				"de": "Florian Pronold (* 28. Dezember 1972 in Passau) ist ein deutscher Politiker (SPD) und seit 2002 Mitglied des Deutschen Bundestages. Seit dem 11. Juli 2009 ist er Vorsitzender der SPD in Bayern. Seit dem 17. Dezember 2013 ist er Parlamentarischer Staatssekret\u00e4r im Bundesministerium f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit mit der Zust\u00e4ndigkeit f\u00fcr Bau und Stadtentwicklung.",
+				"de": "Florian Pronold (* 28. Dezember 1972 in Passau) ist ein deutscher Politiker (SPD) und seit 2002 Mitglied des Deutschen Bundestages. Seit dem 11. Juli 2009 ist er Vorsitzender der SPD in Bayern. Seit dem 17. Dezember 2013 ist er Parlamentarischer Staatssekret\u00e4r im Bundesministerium f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit mit der Zust\u00e4ndigkeit f\u00fcr Bau und Stadtentwicklung.  Innerhalb des Bundestages ist er seit Oktober 2004 stellvertretender Sprecher der Arbeitsgruppe Finanzen der SPD-Bundestagsfraktion.",
 				"en": "Florian Pronold is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Florian Pronold",
@@ -4396,7 +4396,7 @@
 		"438": {
 			"citizen_bird": "fitis",
 			"cv": {
-				"de": "Martin Hermann Rabanus (* 2. September 1971 in Fulda) ist ein deutscher Politiker der SPD, der dem deutschen Bundestag seit 2013 angeh\u00f6rt.",
+				"de": "Martin Hermann Rabanus (* 2. September 1971 in Fulda) ist ein deutscher Politiker der SPD, der dem deutschen Bundestag seit 2013 angeh\u00f6rt.  Rabanus ist seit 2014 Sprecher des Zusammenschlusses von SPD-Politikern Netzwerk Berlin. Zudem geh\u00f6rt Rabanus seit 2014 dem erweiterten Vorstand der SPD-Bundestagsfraktion an.",
 				"en": "Martin Rabanus is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Martin Rabanus",
@@ -4418,8 +4418,8 @@
 		"441": {
 			"citizen_bird": "girlitz",
 			"cv": {
-				"de": "Alexander Gamal Radwan (* 30. August 1964 in M\u00fcnchen) ist ein deutscher Politiker (CSU) und Mitglied des Deutschen Bundestages.",
-				"en": "Alexander Radwan is a German politician. He is a member of the CSU."
+				"de": "Alexander Gamal Radwan (* 30. August 1964 in M\u00fcnchen) ist ein deutscher Politiker (CSU) und Mitglied des Deutschen Bundestages.  Er ist ordentliches Mitglied im Finanzausschuss sowie im Ausw\u00e4rtigen Ausschuss, wo er zudem im Unterausschuss Vereinte Nationen, Internationale Organisationen und Globalisierung ist.  Auf Bundesebene besch\u00e4ftigt er sich als Berichterstatter unter anderem mit den Themen Bankenunion und Bankenaufsicht, Euro und W\u00e4hrung, Zahlungsverkehr, Gr\u00f6\u00dferer, Naher und Mittlerer Osten, mit der Maghrebregion und Internationaler Finanzpolitik.  Radwan ist Mitglied der Kangaroo Group, ein Think Tank und eine Lobbyorganisation mit Sitz in Br\u00fcssel.",
+				"en": "Alexander Gamal Radwan (born on 30 August 1964 in M\u00fcnchen) is a German politician.  Radwan has been a member of the German Bundestag since the 2013 federal elections. He has since been serving on the Finance Committee, the Committee on Foreign Affairs and its Subcommittee on the United Nations, International Organizations and Globalization. In addition, he is a member of the parliament\u2019s delegation to the Parliamentary Assembly of the Mediterranean.  In addition to his legal practice, Radwan is Member of the Board in the German-Arab Friendship Association (DAFG)."
 			},
 			"full_name": "Alexander Radwan",
 			"images": {
@@ -4440,7 +4440,7 @@
 		"444": {
 			"citizen_bird": "star",
 			"cv": {
-				"de": "Mechthild Rawert (* 3. November 1957 in Coesfeld) ist eine deutsche Politikerin (SPD).",
+				"de": "Mechthild Rawert (* 3. November 1957 in Coesfeld) ist eine deutsche Politikerin (SPD).  Seit 2005 ist sie Mitglied des Deutschen Bundestages und ist hier Sprecherin der Landesgruppe Berlin in der SPD-Bundestagsfraktion. Im Bundestag ist sie Mitglied des Ausschusses f\u00fcr Gesundheit. Seit 2014 ist sie f\u00fcr den Deutschen Bundestag Mitglied der parlamentarischen Versammlung des Europarates in Stra\u00dfburg sowie stellvertretendes Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft.  2005 ist Mechthild Rawert als direkt gew\u00e4hlte Abgeordnete des Wahlkreises Berlin-Tempelhof \u2013 Sch\u00f6neberg in den Bundestag gew\u00e4hlt worden. Bei den Bundestagswahlen 2009 und 2013 zog sie \u00fcber die Berliner Landesliste der SPD in den Bundestag ein.",
 				"en": "Mechthild Rawert is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Mechthild Rawert",
@@ -4462,7 +4462,7 @@
 		"445": {
 			"citizen_bird": "stieglitz",
 			"cv": {
-				"de": "Stefan Rebmann (* 20. Juni 1962 in Heidelberg) ist ein deutscher Politiker (SPD).",
+				"de": "Stefan Rebmann (* 20. Juni 1962 in Heidelberg) ist ein deutscher Politiker (SPD). In 2011 r\u00fcckte er f\u00fcr den ausgeschiedenen Peter Friedrich in den Deutschen Bundestag nach.  Rebmann ist stellvertretender Vorsitzender im Ausschuss f\u00fcr Wirtschaftliche Zusammenarbeit und Entwicklung.[2] In dieser Funktion setzt er sich besonders f\u00fcr die Verbesserung der Gesundheitsversorgung in Entwicklungsl\u00e4ndern ein.[3] Dar\u00fcber hinaus ist er stellvertretendes Mitglied in verschiedenen Aussch\u00fcssen. Dazu z\u00e4hlen der Ausschuss f\u00fcr Arbeit und Soziales, der Unterausschuss f\u00fcr zivile Krisenpr\u00e4vention, Konfliktbearbeitung und vernetztes Handeln und der parlamentarische Beirat f\u00fcr nachhaltige Entwicklung.",
 				"en": "Stefan Rebmann is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Stefan Rebmann",
@@ -4484,7 +4484,7 @@
 		"446": {
 			"citizen_bird": "gruenfink",
 			"cv": {
-				"de": "Eckhardt Harald Rehberg (* 3. April 1954 in Ribnitz-Damgarten) ist ein deutscher Politiker (CDU).",
+				"de": "Eckhardt Harald Rehberg (* 3. April 1954 in Ribnitz-Damgarten) ist ein deutscher Politiker (CDU).  Nach der Bundestagswahl 2005 zog Rehberg \u00fcber die Landesliste der CDU Mecklenburg-Vorpommern in den Bundestag ein. Bei der Bundestagswahl 2009 wurde er im Bundestagswahlkreis Bad Doberan \u2013 G\u00fcstrow \u2013 M\u00fcritz direkt gew\u00e4hlt. Seit 2009 ist er Sprecher der Landesgruppe Mecklenburg-Vorpommern innerhalb der CDU/CSU-Bundestagsfraktion. Bei der Bundestagswahl 2013 errang er wieder ein Direktmandat, diesmal im neu gebildeten Bundestagswahlkreis Mecklenburgische Seenplatte II \u2013 Landkreis Rostock III. Er blieb Sprecher der Landesgruppe Mecklenburg-Vorpommern und wurde au\u00dferdem Sprecher aller Landesgruppen der CDU und damit Mitglied des gesch\u00e4ftsf\u00fchrenden Fraktionsvorstands. Seit M\u00e4rz 2015 ist Eckhardt Rehberg Mitglied im Senat der Deutschen Industrieforschungsgemeinschaft Konrad Zuse.",
 				"en": "Eckhardt Rehberg is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Eckhardt Rehberg",
@@ -4506,7 +4506,7 @@
 		"448": {
 			"citizen_bird": "mauersegler",
 			"cv": {
-				"de": "Gerold Reichenbach (* 28. September 1953 in Geinsheim am Rhein) ist ein deutscher Politiker (SPD). Er ist seit 2002 Mitglied des Deutschen Bundestages.",
+				"de": "Gerold Reichenbach (* 28. September 1953 in Geinsheim am Rhein) ist ein deutscher Politiker (SPD). Seit 2002 ist er Mitglied des Deutschen Bundestages. Hier ist er seit 2005 stellvertretender Sprecher der Landesgruppe Hessen in der SPD-Bundestagsfraktion. Er geh\u00f6rt der Abgeordnetengruppe Parlamentarische Linke an.  Gerold Reichenbach ist 2002 und 2005 als direkt gew\u00e4hlter Abgeordneter des Wahlkreises Gro\u00df-Gerau in den Bundestag eingezogen. 2009 und 2013 zog er \u00fcber die Landesliste erneut in den Bundestag ein. Er ist in der 18. Wahlperiode Mitglied des Bundestags-Innenausschusses und Mitglied im Ausschuss Digitale Agenda.",
 				"en": "Gerold Reichenbach is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Gerold Reichenbach",
@@ -4528,7 +4528,7 @@
 		"45": {
 			"citizen_bird": "blaumeise",
 			"cv": {
-				"de": "Matthias W. Birkwald (* 28. September 1961 in M\u00fcnster) ist ein deutscher Politiker (DIE LINKE). Seit Oktober 2009 ist er Mitglied des Deutschen Bundestages.",
+				"de": "Matthias W. Birkwald (* 28. September 1961 in M\u00fcnster) ist ein deutscher Politiker (Die Linke). Seit Oktober 2009 ist er Mitglied des Deutschen Bundestages.  Bei der Bundestagswahl am 27. September 2009 zog Matthias W. Birkwald auf der Landesliste Nordrhein-Westfalen in den Deutschen Bundestag ein. Er ist ordentliches Mitglied und Obmann der Linken im Ausschuss f\u00fcr Arbeit und Soziales und rentenpolitischer Sprecher seiner Fraktion.",
 				"en": "Matthias Birkwald is a German politician. He is a member of the DIE LINKE."
 			},
 			"full_name": "Matthias W. Birkwald",
@@ -4549,7 +4549,7 @@
 		"450": {
 			"citizen_bird": "feldsperling",
 			"cv": {
-				"de": "Martina Renner (* 11. M\u00e4rz 1967 in Mainz) ist eine deutsche Politikerin (Die Linke). Sie war seit 2009 Mitglied des Th\u00fcringer Landtags und wurde 2013 in den Deutschen Bundestag gew\u00e4hlt.",
+				"de": "Martina Renner (* 11. M\u00e4rz 1967 in Mainz) ist eine deutsche Politikerin (Die Linke). Sie war seit 2009 Mitglied des Th\u00fcringer Landtags und wurde 2013 in den Deutschen Bundestag gew\u00e4hlt. Sie ist Obfrau ihrer Fraktion im NSA-Untersuchungsausschuss und ordentliches Mitglied des Innenausschusses.  Au\u00dferdem ist sie stellvertretendes Mitglied im Ausschuss f\u00fcr Recht und Verbraucherschutz sowie im Ausschuss f\u00fcr die Angelegenheiten der Europ\u00e4ischen Union. Weiterhin ist sie Sprecherin f\u00fcr antifaschistische Politik der Linksfraktion im Bundestag.  F\u00fcr ihre Fraktion nimmt sie einen Sitz im Kuratorium der Bundeszentrale f\u00fcr politische Bildung wahr.",
 				"en": "Martina Renner is a German politician. She is a member of the DIE LINKE."
 			},
 			"full_name": "Martina Renner",
@@ -4570,7 +4570,7 @@
 		"455": {
 			"citizen_bird": "feldsperling",
 			"cv": {
-				"de": "Andreas Rimkus (* 24. Dezember 1962 in D\u00fcsseldorf) ist ein deutscher Politiker (SPD). Seit 2011 ist er Vorsitzender des SPD-Unterbezirks D\u00fcsseldorf. Seit der Wahl zum 18. Deutschen Bundestag 2013 ist er Abgeordneter und stellvertretender, verkehrspolitischer Sprecher der SPD-Bundestagsfraktion. Zuvor war er von 2009 bis 2013 Mitglied des Rats der Landeshauptstadt D\u00fcsseldorf.",
+				"de": "Andreas Rimkus (* 24. Dezember 1962 in D\u00fcsseldorf) ist ein deutscher Politiker (SPD). Seit 2011 ist er Vorsitzender des SPD-Unterbezirks D\u00fcsseldorf. Seit der Wahl zum 18. Deutschen Bundestag 2013 ist er Abgeordneter und stellvertretender, verkehrspolitischer Sprecher der SPD-Bundestagsfraktion. Zuvor war er von 2009 bis 2013 Mitglied des Rats der Landeshauptstadt D\u00fcsseldorf.  Er geh\u00f6rt dem Landesvorstand der NRW-SPD an sowie dem SPD-Parteikonvent und war an der Abstimmung \u00fcber Sondierungsgespr\u00e4chen zur Bildung einer Koalition mit CDU/CSU beteiligt.  Als pers\u00f6nliche Schwerpunkte seiner Arbeit nennt er selbst: Verkehrs- und Mobilit\u00e4tspolitik, Elektromobilit\u00e4t, Luft- und Raumfahrt, Wohnungspolitik, Kinder- und Jugendpolitik, Arbeits- und Sozialpolitik.",
 				"en": "Andreas Rimkus is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Andreas Rimkus",
@@ -4592,7 +4592,7 @@
 		"456": {
 			"citizen_bird": "gartengrasmuecke",
 			"cv": {
-				"de": "S\u00f6nke Rix (* 3. Dezember 1975 in Eckernf\u00f6rde) ist ein deutscher Politiker (SPD).",
+				"de": "S\u00f6nke Rix (* 3. Dezember 1975 in Eckernf\u00f6rde) ist ein deutscher Politiker (SPD).  S\u00f6nke Rix ist seit 2005 Mitglied des Deutschen Bundestages. Er ist sowohl 2005, 2009 als auch 2013 \u00fcber die Landesliste Schleswig-Holstein in den Bundestag eingezogen. Rix ist Sprecher der SPD-Bundestagsfraktion im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend.  Er ist u. a. Mitglied bei Greenpeace, ver.di und AWO.",
 				"en": "S\u00f6nke Rix is a German politician. He is a member of the SPD."
 			},
 			"full_name": "S\u00f6nke Rix",
@@ -4614,7 +4614,7 @@
 		"458": {
 			"citizen_bird": "klappergrasmuecke",
 			"cv": {
-				"de": "Dennis Rohde (* 24. Juni 1986 in Oldenburg) ist ein deutscher Politiker (SPD). Er ist Mitglied des 18. Deutschen Bundestages.",
+				"de": "Dennis Rohde (* 24. Juni 1986 in Oldenburg) ist ein deutscher Politiker (SPD). Er ist Mitglied des 18. Deutschen Bundestages.  Er vertritt als direkt gew\u00e4hlter Abgeordneter den Wahlkreis Oldenburg-Ammerland. Rohde ist Mitglied im Rechnungspr\u00fcfungsausschuss, im Ausschuss f\u00fcr Recht und Verbraucherschutz und im Haushaltsausschuss.",
 				"en": "Dennis Rohde is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Dennis Rohde",
@@ -4636,7 +4636,7 @@
 		"460": {
 			"citizen_bird": "goldammer",
 			"cv": {
-				"de": "Martin Rosemann (* 20. Oktober 1976 in Saulgau) ist promovierter Volkswirt und deutscher Politiker (SPD). Seit dem Jahr 2013 ist er Bundestagsabgeordneter des Wahlkreises Hechingen-T\u00fcbingen. Dr. Martin Rosemann ist Mitglied im Ausschuss f\u00fcr Arbeit und Soziales sowie stellvertretendes Mitglied im Europaausschuss. F\u00fcr die SPD-Fraktion ist er federf\u00fchrender Berichterstatter f\u00fcr den Bereich Rentenpolitik.",
+				"de": "Martin Rosemann (* 20. Oktober 1976 in Saulgau) ist promovierter Volkswirt und deutscher Politiker (SPD). Seit dem Jahr 2013 ist er Bundestagsabgeordneter des Wahlkreises Hechingen-T\u00fcbingen. Dr. Martin Rosemann ist Mitglied im Ausschuss f\u00fcr Arbeit und Soziales sowie stellvertretendes Mitglied im Europaausschuss. F\u00fcr die SPD-Fraktion ist er federf\u00fchrender Berichterstatter f\u00fcr den Bereich Rentenpolitik.  Seine schwerpunktm\u00e4\u00dfigen T\u00e4tigkeitsbereiche sind Rentenpolitik, Aktive Arbeitsmarktpolitik, Struktur und Organisation der Jobcenter sowie Inklusion.",
 				"en": "Martin Rosemann is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Dr. Martin Rosemann",
@@ -4658,7 +4658,7 @@
 		"461": {
 			"citizen_bird": "goldammer",
 			"cv": {
-				"de": "Peter Ren\u00e9 R\u00f6spel (* 9. Juli 1964 in Hagen) ist ein deutscher Politiker (SPD).",
+				"de": "Peter Ren\u00e9 R\u00f6spel (* 9. Juli 1964 in Hagen) ist ein deutscher Politiker (SPD).  Seit 1998 ist R\u00f6spel Mitglied des Deutschen Bundestages. Von 2000 bis 2002 war er Mitglied, von 2002 bis 2005 Vorsitzender der Enqu\u00eate-Kommission \u201eEthik und Recht der modernen Medizin\u201c. Seit November 2005 ist er stellvertretender Sprecher der Arbeitsgruppe \u201eBildung und Forschung\u201c der SPD-Bundestagsfraktion. Von April 2008 bis September 2009 war er Vorsitzender des Parlamentarischen Beirats zu Fragen der Ethik insbesondere in den Lebenswissenschaften des Deutschen Bundestages.",
 				"en": "Ren\u00e9 R\u00f6spel is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Ren\u00e9 R\u00f6spel",
@@ -4680,7 +4680,7 @@
 		"462": {
 			"citizen_bird": "saatkraehe",
 			"cv": {
-				"de": "Ernst Dieter Rossmann (* 4. Februar 1951 in Elmshorn) ist ein deutscher Politiker (SPD).",
+				"de": "Ernst Dieter Rossmann (* 4. Februar 1951 in Elmshorn) ist ein deutscher Politiker (SPD).  Seit 1998 ist er Mitglied des Deutschen Bundestages. Hier ist er Sprecher der Arbeitsgruppe \u201eBildung und Forschung\u201c der SPD-Bundestagsfraktion. Zuvor war er dort von 1998 bis M\u00e4rz 2009 stellvertretender Sprecher gewesen. Seit November 2002 geh\u00f6rt er au\u00dferdem dem Fraktionsvorstand an und ist Sprecher der Landesgruppe Schleswig-Holstein in der SPD-Fraktion.  Rossmann ist beratendes Mitglied der Grundwertekommission der SPD (2016).",
 				"en": "Ernst Dieter Rossmann is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Dr. Ernst Dieter Rossmann",
@@ -4702,7 +4702,7 @@
 		"463": {
 			"citizen_bird": "gartengrasmuecke",
 			"cv": {
-				"de": "Tabea R\u00f6\u00dfner (* 7. Dezember 1966 in Sassenberg) ist eine rheinland-pf\u00e4lzische Politikerin von B\u00fcndnis 90/Die Gr\u00fcnen und seit 2009 Mitglied des Bundestages. Als Landesvorstandssprecherin war sie von November 2001 bis November 2006 eine der beiden Vorsitzenden des rheinland-pf\u00e4lzischen Landesverbandes. Von 1991 bis 2009 arbeitete sie als freie Redakteurin und Autorin im \u00f6ffentlich-rechtlichen wie privaten Rundfunk, unter anderem bei der Kindernachrichtensendung logo!.",
+				"de": "Tabea R\u00f6\u00dfner (* 7. Dezember 1966 in Sassenberg) ist eine rheinland-pf\u00e4lzische Politikerin von B\u00fcndnis 90/Die Gr\u00fcnen und seit 2009 Mitglied des Bundestages.  Sie ist Sprecherin f\u00fcr Medienpolitik, Kreativwirtschaft und digitale Infrastruktur der Fraktion B\u00fcndnis 90/Die Gr\u00fcnen, Mitglied des Ausschusses f\u00fcr Kultur und Medien und stellvertretendes Mitglied im Ausschuss f\u00fcr Wirtschaft und Energie, im Ausschuss Digitale Agenda sowie im Ausschuss f\u00fcr Verkehr und digitale Infrastruktur.  Mit ihrem Einzug in den Bundestag geh\u00f6rt zu ihren Schwerpunkten der Breitbandausbau sowie die Unabh\u00e4ngigkeit der Medien. Sie war treibende Kraft f\u00fcr ein Normenkontrollverfahren zum ZDF-Staatsvertrag in der Causa Brender.  R\u00f6\u00dfner ist Mitglied der Europa-Union Parlamentariergruppe Deutscher Bundestag.",
 				"en": "Tabea R\u00f6\u00dfner is a German politician. She is a member of the GR\u00dcNE."
 			},
 			"full_name": "Tabea R\u00f6\u00dfner",
@@ -4723,8 +4723,8 @@
 		"464": {
 			"citizen_bird": "haussperling",
 			"cv": {
-				"de": "Claudia Benedikta Roth (* 15. Mai 1955 in Ulm) ist eine deutsche Politikerin und war von 2001 bis 2002 sowie von 2004 bis 2013 eine von zwei Bundesvorsitzenden der Partei B\u00fcndnis 90/Die Gr\u00fcnen, 2008 bis 2013 neben Cem \u00d6zdemir. Seit dem 22.\u00a0Oktober 2013 ist sie Vizepr\u00e4sidentin des Deutschen Bundestages.",
-				"en": "Claudia Roth is a German politician. She is a member of the GR\u00dcNE."
+				"de": "Claudia Benedikta Roth (* 15. Mai 1955 in Ulm) ist eine deutsche Politikerin und war von 2001 bis 2002 sowie von 2004 bis 2013 eine von zwei Bundesvorsitzenden der Partei B\u00fcndnis 90/Die Gr\u00fcnen, 2008 bis 2013 neben Cem \u00d6zdemir. Seit dem 22.\u00a0Oktober 2013 ist sie Vizepr\u00e4sidentin des Deutschen Bundestages.  Am 22. Oktober 2013 wurde sie zur Vizepr\u00e4sidentin des Deutschen Bundestages gew\u00e4hlt. Des Weiteren ist sie im Parlament Mitglied des Ausschusses f\u00fcr wirtschaftliche Zusammenarbeit und Entwicklung und als Obfrau Mitglied des Unterausschusses \u201eAusw\u00e4rtige Kultur- und Bildungspolitik\u201c.  Schwerpunkte der politischen Arbeit Claudia Roths sind multikulturelles Zusammenleben, der Schutz von Minderheiten und die europ\u00e4ische Integration.  Claudia Roth ist ehrenamtliches Mitglied des Verwaltungsrates der Europ\u00e4ischen Stelle zur Beobachtung von Rassismus und Fremdenfeindlichkeit in Wien sowie ehrenamtliches Kuratoriumsmitglied der Universit\u00e4t Augsburg und der Deutschen Orient-Stiftung in Hamburg. Daneben geh\u00f6rt sie ehrenamtlich dem Beirat der Humanistischen Union an.  In den Jahren 2005 bis 2010 war Claudia Roth Mitglied der Atlantik-Br\u00fccke.",
+				"en": "Claudia Roth (born 15 May 1955 in Ulm) is a German Green Party politician. She was one of the two party chairs from 2004 to 2013.  Roth served as deputy chairwoman of the German-Iranian Parliamentary Friendship Group between 2005 and 2009 and held the same office in the German-Turkish Friendship Group between 2005 and 2013.  Roth was elected as Vice-President of the German Bundestag on 22 October 2013. In addition, she is a member of the parliament\u2019s Council of Elders, which \u2013 among other duties \u2013 determines daily legislative agenda items and assigning committee chairpersons based on party representation. She also serves as a member of the Committee on Economic Cooperation and Development as well as of the Sub-Committee on Cultural Relations and Education Policy. In addition, she is a member of the Art Advisory Board of the German Bundestag."
 			},
 			"full_name": "Claudia Roth",
 			"images": {
@@ -4744,8 +4744,8 @@
 		"465": {
 			"citizen_bird": "amsel",
 			"cv": {
-				"de": "Michael Roth (* 24. August 1970 in Heringen) ist ein deutscher Politiker (SPD). Er ist seit dem 17. Dezember 2013 Staatsminister f\u00fcr Europa im Ausw\u00e4rtigen Amt der Bundesrepublik Deutschland im Kabinett Merkel III. Seit Januar 2014 ist er auch Beauftragter der Bundesregierung f\u00fcr die deutsch-franz\u00f6sische Zusammenarbeit.",
-				"en": "Michael Roth is a German politician. He is a member of the SPD."
+				"de": "Michael Roth (* 24. August 1970 in Heringen) ist ein deutscher Politiker (SPD). Er ist seit dem 17. Dezember 2013 Staatsminister f\u00fcr Europa im Ausw\u00e4rtigen Amt der Bundesrepublik Deutschland im Kabinett Merkel III. Seit Januar 2014 ist er auch Beauftragter der Bundesregierung f\u00fcr die deutsch-franz\u00f6sische Zusammenarbeit.   Roth ist seit 1998 Mitglied des Deutschen Bundestages. Michael Roth ist Aufsichtsratsvorsitzender des Zentrums f\u00fcr internationale Friedenseins\u00e4tze (ZIF) [10], Mitglied des Rundfunkrates der Deutschen Welle, Vorstandsmitglied des Deutsch-Franz\u00f6sischen Instituts Ludwigsburg, Kuratoriumsmitglied des Instituts f\u00fcr Europ\u00e4ische Politik und Mitglied im Stiftungsrat der Stiftung Flucht, Vertreibung, Vers\u00f6hnung sowie der Deutschen Stiftung Friedensforschung. Er ist Mitglied im Kuratorium der Stiftung \u201eDenkmal f\u00fcr die ermordeten Juden Europas\u201c.",
+				"en": "Michael Roth (born 24 August 1970 in Heringen) is a German politician and a member of the Social Democratic Party of Germany (SPD). Since 17 December 2013, he has been Minister of State for Europe at the German Federal Foreign Office in the third Merkel Cabinet. Since January 2014, he has also been Federal Government Commissioner for Franco German Cooperation."
 			},
 			"full_name": "Michael Roth",
 			"images": {
@@ -4766,7 +4766,7 @@
 		"467": {
 			"citizen_bird": "kiwi",
 			"cv": {
-				"de": "Erwin Josef R\u00fcddel (* 21. Dezember 1955 in Bonn) ist ein deutscher Politiker (CDU). Er ist seit 2009 Mitglied des Deutschen Bundestages.",
+				"de": "Erwin Josef R\u00fcddel (* 21. Dezember 1955 in Bonn) ist ein deutscher Politiker (CDU). Er ist seit 2009 Mitglied des Deutschen Bundestages.  Seit 2014 ist er Mitglied des Bundesfachausschusses \u201eGesundheit und Pflege\u201c der CDU Deutschlands.  Er ist ordentliches Mitglied im Ausschuss f\u00fcr Gesundheit und stellvertretendes Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend.[6] F\u00fcr seine Fraktion ist er Berichterstatter f\u00fcr die Pflegepolitik.  Er geh\u00f6rt der Europa-Union Parlamentariergruppe Deutscher Bundestag, der Parlamentsgruppe Schienenverkehr, der Parlamentsgruppe \u201eBahnl\u00e4rm\u201c, dem Parlamentskreis Mittelstand der CDU/CSU-Fraktion, der Arbeitnehmergruppe der CDU/CSU-Fraktion und dem Kardinal-H\u00f6ffner-Kreis im Deutschen Bundestag an.",
 				"en": "Erwin R\u00fcddel is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Erwin R\u00fcddel",
@@ -4788,7 +4788,7 @@
 		"468": {
 			"citizen_bird": "amsel",
 			"cv": {
-				"de": "Corinna R\u00fcffer (* 11. Oktober 1975 in Osnabr\u00fcck) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen). Sie ist seit Oktober 2013 Mitglied des Deutschen Bundestages.",
+				"de": "Corinna R\u00fcffer (* 11. Oktober 1975 in Osnabr\u00fcck) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen). Sie ist seit Oktober 2013 Mitglied des Deutschen Bundestages.  Sie war von Oktober 2007 bis November 2013 Mitglied des Stadtrates Trier, legte dieses Mandat aber nach dem Einzug in den Bundestag nieder. Sie ist Sprecherin f\u00fcr Behindertenpolitik der Bundestagsfraktion B\u00fcndnis 90/Die Gr\u00fcnen.",
 				"en": "Corinna R\u00fcffer is a German politician. She is a member of the GR\u00dcNE."
 			},
 			"full_name": "Corinna R\u00fcffer",
@@ -4809,7 +4809,7 @@
 		"470": {
 			"citizen_bird": "rabenkraehe",
 			"cv": {
-				"de": "Susann R\u00fcthrich MdB, (* 21. Juli 1977 in Mei\u00dfen) ist eine deutsche Politikerin (SPD).",
+				"de": "Susann R\u00fcthrich, (* 21. Juli 1977 in Mei\u00dfen) ist eine deutsche Politikerin (SPD).  Sie ist Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend sowie stellvertretendes Mitglied im Ausschuss f\u00fcr Arbeit und Soziales. Seit dem 11. Februar 2014 ist sie die Kinderbeauftragte der SPD-Bundestagsfraktion und Mitglied der SPD in der Kinderkommission des Deutschen Bundestages.[1] Seit Juni 2014 ist sie Sprecherin der Querschnittsarbeitsgruppe \u201eStrategien gegen Rechtsextremismus\u201c der SPD-Bundestagsfraktion.",
 				"en": "Susann R\u00fcthrich is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Susann R\u00fcthrich",
@@ -4831,7 +4831,7 @@
 		"474": {
 			"citizen_bird": "kiwi",
 			"cv": {
-				"de": "Manuel Sarrazin (* 6. Februar 1982 in Dortmund) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen) und seit 2008 Mitglied des Deutschen Bundestages.",
+				"de": "Manuel Sarrazin (* 6. Februar 1982 in Dortmund) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen).  Sarrazin r\u00fcckte am 13. Mai 2008 f\u00fcr die ausgeschiedene Abgeordnete Anja Hajduk \u00fcber die Landesliste Hamburg in den Bundestag nach und ist seitdem Mitglied des Deutschen Bundestages. Bei den Bundestagswahlen 2009 und 2013 wurde er auf den Landeslistenplatz 2 der Gr\u00fcnen Hamburg gew\u00e4hlt. Seit dem 13. November 2009 ist er Obmann und Sprecher seiner Fraktion f\u00fcr Europapolitik. Au\u00dferdem ist er st\u00e4ndiger Stellvertreter im Haushaltsausschuss und Obmann im Unterausschuss f\u00fcr Angelegenheiten der Europ\u00e4ischen Union des Haushaltsausschusses.",
 				"en": "Manuel Sarrazin is a German politician. He is a member of the GR\u00dcNE."
 			},
 			"full_name": "Manuel Sarrazin",
@@ -4852,7 +4852,7 @@
 		"475": {
 			"citizen_bird": "rauchschwalbe",
 			"cv": {
-				"de": "Annette Sawade (* 23. April 1953 in Nordhausen) ist eine deutsche Politikerin (SPD) und seit 2012 Mitglied des Deutschen Bundestages.",
+				"de": "Annette Sawade (* 23. April 1953 in Nordhausen) ist eine deutsche Politikerin (SPD).  Am 1. Juni 2012 r\u00fcckte Sawade f\u00fcr Nicolette Kressl, die ihr Mandat niedergelegt hatte, in den Bundestag nach. Sie ist ordentliches Mitglied im Ausschuss f\u00fcr Verkehr und digitale Infrastruktur und dort Berichterstatterin f\u00fcr den Bundesverkehrswegeplan Baden-W\u00fcrttemberg sowie f\u00fcr ihre Fraktion f\u00fcr Verkehrsl\u00e4rm bei Schiene, Stra\u00dfe und Wasser. Zudem ist sie Mitglied des Petitionsausschusses und dort stellvertretende Sprecherin der AG Petition und Vorsitzende des Unterausschusses Kommunales.",
 				"en": "Annette Sawade is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Annette Sawade",
@@ -4874,8 +4874,8 @@
 		"481": {
 			"citizen_bird": "weisskopfseeadler",
 			"cv": {
-				"de": "Ulle Schauws (* 30. April 1966 in H\u00fcls) ist eine deutsche Politikerin der B\u00fcndnis 90/Die Gr\u00fcnen.",
-				"en": "Ursula Schauws is a German politician. She is a member of the GR\u00dcNE."
+				"de": "Ulle Schauws (* 30. April 1966 in H\u00fcls) ist eine deutsche Politikerin der B\u00fcndnis 90/Die Gr\u00fcnen.  Am 22. September 2013 gelang ihr bei der Bundestagswahl 2013 der Einzug in den Bundestag \u00fcber einen Listenplatz der Gr\u00fcnen.",
+				"en": "Urusula Ulle Schauws (born April 30, 1966 in H\u00fcls) is a German politician from Alliance '90/The Greens.  Schauws is since 2013 a member of the German Bundestag."
 			},
 			"full_name": "Ulle Schauws",
 			"images": {
@@ -4895,8 +4895,8 @@
 		"484": {
 			"citizen_bird": "bachstelze",
 			"cv": {
-				"de": "Andreas Franz Scheuer (* 26. September 1974 in Passau) ist ein deutscher Politiker (CSU) und seit 2002 Mitglied des Deutschen Bundestages. Er war im Kabinett Merkel II von 2009 bis 2013 Parlamentarischer Staatssekret\u00e4r beim Bundesminister f\u00fcr Verkehr, Bau und Stadtentwicklung. Seit dem 15. Dezember 2013 ist er Generalsekret\u00e4r der CSU.",
-				"en": "Andreas Scheuer is a German politician. He is a member of the CSU."
+				"de": "Andreas Franz Scheuer (* 26. September 1974 in Passau) ist ein deutscher Politiker (CSU) und seit 2002 Mitglied des Deutschen Bundestages. Er war im Kabinett Merkel II von 2009 bis 2013 Parlamentarischer Staatssekret\u00e4r beim Bundesminister f\u00fcr Verkehr, Bau und Stadtentwicklung. Seit dem 15. Dezember 2013 ist er Generalsekret\u00e4r der CSU.  Seit dem 19. Februar 2016 ist er Bezirksvorsitzender der CSU Niederbayern.",
+				"en": "Andreas Scheuer (born 26 September 1974 in Passau) is a German politician and member of the CSU party. Since 15 December 2013 he is Secretary General of the CSU. From 2009 to 2013 Scheuer was Parliamentary Secretary of State in the former Federal Ministry for Transport, Building and Urban Development in the Cabinet Merkel II. Scheuer is a MP of the German Bundestag since 2002. In 2016 he also was elected district chairman of CSU Lower Bavaria."
 			},
 			"full_name": "Andreas Scheuer",
 			"images": {
@@ -4917,8 +4917,8 @@
 		"485": {
 			"citizen_bird": "rabenkraehe",
 			"cv": {
-				"de": "Gerhard Schick, MdB, (* 18. April 1972 in Hechingen) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen).",
-				"en": "Gerhard Schick is a German politician. He is a member of the GR\u00dcNE."
+				"de": "Gerhard Schick, (* 18. April 1972 in Hechingen) ist ein deutscher Politiker (B\u00fcndnis 90/Die Gr\u00fcnen).  Seit 2005 ist er Mitglied des Deutschen Bundestages und war zun\u00e4chst Leiter der Arbeitsgemeinschaft \u201eWirtschaft und Arbeit\u201c der Bundestagsfraktion B\u00fcndnis 90/Die Gr\u00fcnen. Im September 2007 wurde er zum finanzpolitischen Sprecher seiner Fraktion gew\u00e4hlt. Er ist stellvertretender Vorsitzender des Finanzausschusses und stellvertretendes Mitglied des Haushaltsausschusses. Weiterhin ist er Mitglied im Parlamentarischen Finanzmarktgremium, das das Banken-Rettungspaket des Bundes \u00fcberwacht.  Er ist ehrenamtliches Mitglied des Beirates des Vereins Ehrbare Versicherungskaufleute e.V., Mitglied des Beirates des Vereins Forum Kapitalmarktinstrumente \u2013 Kapitalmarktfinanzierung e.V., sowie Mitglied des Vorstandes des Vereins PLUS Psychologische Lesben- und Schwulenberatung Rhein-Neckar e.V., Mannheim, der ein umfangreiches Angebot f\u00fcr die schwul-lesbische Szene f\u00fcr den psychosozialen Bereich bereitstellt.",
+				"en": "Gerhard Schick (born 18 April 1972) is a German politician, specifically a Green Party representative in the Bundestag.  Schick has been a member of the German Parliament since the 2005 federal elections, representing Baden-W\u00fcrttemberg.  Schick has been the Alliance '90/The Greens parliamentary group\u2019s spokesman on financial policy since 2007. From its inception in 2008, he has been a member of the Financial Markets Panel, which provides parliamentary oversight of the Financial Market Stabilization Agency (FMSA). Following the 2013 federal elections, he was elected deputy chairman of the Finance Committee."
 			},
 			"full_name": "Dr. Gerhard Schick",
 			"images": {
@@ -4938,7 +4938,7 @@
 		"487": {
 			"citizen_bird": "gartenrotschwanz",
 			"cv": {
-				"de": "Udo Schiefner (* 7. August 1959 in Kempen, Niederrhein) ist ein deutscher Politiker der SPD. Seit dem 22. Oktober 2013 geh\u00f6rt er dem Deutschen Bundestag an.",
+				"de": "Udo Schiefner (* 7. August 1959 in Kempen, Niederrhein) ist ein deutscher Politiker der SPD. Seit dem 22. Oktober 2013 geh\u00f6rt er dem Deutschen Bundestag an.  Er ist Mitglied des Ausschusses f\u00fcr Verkehr und digitale Infrastruktur sowie des Petitionsausschusses. Schiefner ist stellvertretender Vorsitzender der deutsch-niederl\u00e4ndischen Parlamentariergruppe sowie Mitglied des Fraktionsvorstandes der Bundestagsfraktion der SPD.",
 				"en": "Udo Schiefner is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Udo Schiefner",
@@ -4960,8 +4960,8 @@
 		"489": {
 			"citizen_bird": "rabenkraehe",
 			"cv": {
-				"de": "Jana Schimke (* 6. September 1979 in Cottbus) ist eine deutsche Politikerin (CDU).",
-				"en": "Jana Schimke is a German politician. She is a member of the CDU."
+				"de": "Jana Schimke (* 6. September 1979 in Cottbus) ist eine deutsche Politikerin (CDU).  Bei der Bundestagswahl 2013 gewann sie das Direktmandat im Bundestagswahlkreis Dahme-Spreewald \u2013 Teltow-Fl\u00e4ming III \u2013 Oberspreewald-Lausitz I.  Sie ist stellvertretende Kreisvorsitzende der CDU Dahme-Spreewald und Mitglied im Landesfachausschuss Wirtschaft und Arbeit Brandenburg. Ehrenamtlich engagiert sich Jana Schimke seit September 2014 im Pr\u00e4sidium des DRK Landesverbandes Brandenburg e.V. Seit April 2015 ist sie au\u00dferdem stellvertretende Landesvorsitzende der CDU Brandenburg.  Schimke ist ordentliches Mitglied im Ausschuss f\u00fcr Arbeit und Soziales sowie stellvertretendes Mitglied im Ausschuss f\u00fcr Bildung, Forschung und Technikfolgenabsch\u00e4tzung. Sie engagiert sich zudem im Vorstand des Parlamentskreis Mittelstand (PKM), der Jungen Gruppe sowie der Gruppe der Frauen der CDU/CSU Bundestagsfraktion. Zudem ist sie Vorsitzende der Deutsch-Spanischen Parlamentariergruppe.",
+				"en": "Jana Schimke (born Cottbus, Germany, 6 September 1979) is a German politician who represents the Christian Democratic Union (CDU) in the Bundestag, the German federal parliament.  At the general election in September 2013, Schimke gained the constituency of Dahme-Spreewald \u2013 Teltow-Fl\u00e4ming III \u2013 Oberspreewald-Lausitz I from the Social Democratic Party."
 			},
 			"full_name": "Jana Schimke",
 			"images": {
@@ -4983,7 +4983,7 @@
 			"citizen_bird": "rauchschwalbe",
 			"cv": {
 				"de": "Maria B\u00f6hmer (* 23. April 1950 in Mainz) ist eine deutsche Politikerin (CDU). Vom November 2005 bis zum Dezember 2013 war sie Staatsministerin bei der Bundeskanzlerin und Beauftragte der Bundesregierung f\u00fcr Migration, Fl\u00fcchtlinge und Integration. Ihre Nachfolgerin in dieser Funktion ist Aydan \u00d6zo\u011fuz. Im Kabinett Merkel\u00a0III ist sie seit Dezember 2013 Staatsministerin im Ausw\u00e4rtigen Amt und f\u00fcr Ausw\u00e4rtige Kultur- und Bildungspolitik zust\u00e4ndig.",
-				"en": "Maria B\u00f6hmer is a German politician. She is a member of the CDU."
+				"en": "Maria B\u00f6hmer (born 23 April 1950 in Mainz, Rhineland-Palatinate) is a German politician and member of the Bundestag for the CDU. Under the leadership of Foreign Minister Frank-Walter Steinmeier, she currently serves as Minister of State in the Federal Foreign Office, primarily responsible for cultural relations and education policy.  In 2015, she served as chairwoman of the UNESCO World Heritage Committee."
 			},
 			"full_name": "Prof. Dr. Maria B\u00f6hmer",
 			"images": {
@@ -5004,7 +5004,7 @@
 		"491": {
 			"citizen_bird": "buchfink",
 			"cv": {
-				"de": "Tankred Schipanski (* 30. Dezember 1976 in Leipzig) ist ein deutscher Politiker (CDU). Seit der Bundestagswahl 2009 ist er direkt gew\u00e4hlter Abgeordneter des Bundestagswahlkreises 192 (Gotha \u2013 Ilm-Kreis).",
+				"de": "Tankred Schipanski (* 30. Dezember 1976 in Leipzig) ist ein deutscher Politiker (CDU). Seit der Bundestagswahl 2009 ist er direkt gew\u00e4hlter Abgeordneter des Bundestagswahlkreises 192 (Gotha \u2013 Ilm-Kreis).  Er war in der 17. Legislaturperiode des Deutschen Bundestages ordentliches Mitglied im Ausschuss f\u00fcr Bildung, Forschung und Technikfolgenabsch\u00e4tzung und im Unterausschuss Neue Medien sowie stellvertretendes Mitglied im Ausschuss f\u00fcr die Angelegenheiten der Europ\u00e4ischen Union, im Rechtsausschuss sowie in der Enquete-Kommission Internet und digitale Gesellschaft. Von Januar 2012 bis August 2013 war Schipanski Mitglied im ersten Bundestags-Untersuchungsausschuss zur Terrorgruppe NSU des Bundestages, der die Verbrechen der rechtsextremen Terrorzelle Nationalsozialistischer Untergrund (NSU) sowie M\u00e4ngel der Sicherheitsbeh\u00f6rden bei ihrer Aufkl\u00e4rungsarbeit untersuchte.  In der 18. Legislaturperiode des Deutschen Bundestages ist er weiterhin ordentliches Mitglied im Ausschuss f\u00fcr Bildung, Forschung und Technikfolgenabsch\u00e4tzung und neu im Ausschuss Digitale Agenda, dort ist er Obmann der CDU/CSU-Bundestagsfraktion, sowie im NSA-Untersuchungsausschuss.",
 				"en": "Tankred Schipanski is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Tankred Schipanski",
@@ -5026,7 +5026,7 @@
 		"492": {
 			"citizen_bird": "eichelhaeher",
 			"cv": {
-				"de": "Michael Schlecht (* 25. Juni 1951 in Hildesheim) ist ein deutscher Politiker (Die Linke).",
+				"de": "Michael Schlecht (* 25. Juni 1951 in Hildesheim) ist ein deutscher Politiker (Die Linke).  Schlecht ist Mitglied der Fraktion DIE LINKE. im 17. Deutschen Bundestag. Innerhalb der Fraktion hat er die Position des Chefvolkswirts inne. Er ist ordentliches Mitglied des Ausschusses f\u00fcr Wirtschaft und Technologie.",
 				"en": "Michael Schlecht is a German politician. He is a member of the DIE LINKE."
 			},
 			"full_name": "Michael Schlecht",
@@ -5047,7 +5047,7 @@
 		"496": {
 			"citizen_bird": "gimpel",
 			"cv": {
-				"de": "Dagmar Schmidt (* 13. M\u00e4rz 1973 in Gie\u00dfen) ist eine deutsche Historikerin und Politikerin (SPD).",
+				"de": "Dagmar Schmidt (* 13. M\u00e4rz 1973 in Gie\u00dfen) ist eine deutsche Politikerin (SPD).  Bei der Bundestagswahl 2013 kandidierte sie im Wahlkreis Lahn-Dill sowie auf Platz 6 der hessischen Landesliste der SPD. Ihr gelang \u00fcber die Landesliste der Einzug in den Bundestag, dem sie seit dem 22. September 2013 angeh\u00f6rt. Dort ist sie Mitglied im Ausschuss f\u00fcr Arbeit und Soziales, sowie stellvertretendes Mitglied im Petitionsausschuss des Deutschen Bundestages und dem Ausw\u00e4rtigen Ausschuss. Zudem ist sie Vorsitzende der Deutsch-Chinesischen Parlamentariergruppe.  Seit 2013 ist Schmidt Mitglied im Parteivorstand der SPD.",
 				"en": "Dagmar Schmidt is a German politician. She is a member of the SPD."
 			},
 			"full_name": "Dagmar Schmidt",
@@ -5069,7 +5069,7 @@
 		"5": {
 			"citizen_bird": "schwanzmeise",
 			"cv": {
-				"de": "Luise Amtsberg (* 17. Oktober 1984 in Greifswald, geborene von Jackowski) ist eine deutsche Politikerin von B\u00fcndnis 90/Die Gr\u00fcnen und seit der Bundestagswahl 2013 Abgeordnete des Deutschen Bundestages.",
+				"de": "Luise Amtsberg (* 17. Oktober 1984 in Greifswald, geborene von Jackowski) ist eine deutsche Politikerin von B\u00fcndnis 90/Die Gr\u00fcnen.  Im M\u00e4rz 2013 wurde Amtsberg auf den ersten Platz der schleswig-holsteinischen gr\u00fcnen Landesliste f\u00fcr die Bundestagswahl 2013 gew\u00e4hlt, \u00fcber die sie als Abgeordnete in den Bundestag einzog.  Seit Januar 2014 ist sie Mitglied der Parlamentarischen Versammlung des Europarates.",
 				"en": "Luise Amtsberg is a German politician. She is a member of the GR\u00dcNE."
 			},
 			"full_name": "Luise Amtsberg",
@@ -5091,7 +5091,7 @@
 		"501": {
 			"citizen_bird": "goldammer",
 			"cv": {
-				"de": "Ronja Schmitt (* 3. Mai 1989 in Esslingen am Neckar) ist eine deutsche Politikerin der CDU und seit Dezember 2014 Mitglied des Deutschen Bundestages.",
+				"de": "Ronja Kemmer, vormals Ronja Schmitt (* 3. Mai 1989 in Esslingen am Neckar), ist eine deutsche Politikerin der CDU.  Nach dem Ausscheiden von Annette Schavan aus dem Bundestag und dem Tod von Andreas Schockenhoff r\u00fcckte sie f\u00fcr diesen am 27. Dezember 2014 in den Bundestag nach.  Sie ist die j\u00fcngste Abgeordnete des Bundestags in der 18. Legislaturperiode. Kemmer ist ordentliches Mitglied im Ausschuss f\u00fcr die Angelegenheiten der Europ\u00e4ischen Union und stellvertretendes Mitglied im Petitionsausschuss. Kemmer ist seit Januar 2015 Mitglied in der Deutsch-Italienischen Parlamentariergruppe und seit November 2016 Mitglied der Deutsch-Ukrainischen Parlamentariergruppe. Am 5. M\u00e4rz 2015 wurde Ronja Kemmer zur Schriftf\u00fchrerin im Deutschen Bundestag gew\u00e4hlt.",
 				"en": "Ronja Schmitt is a German politician. She is a member of the CDU."
 			},
 			"full_name": "Ronja Kemmer",
@@ -5113,8 +5113,8 @@
 		"502": {
 			"citizen_bird": "buchfink",
 			"cv": {
-				"de": "Carsten Schneider (* 23. Januar 1976 in Erfurt) ist ein deutscher Politiker (SPD). Er ist seit 1998 Mitglied des Deutschen Bundestages und war von 2005 bis 2013 (16. Bundestag und 17. Bundestag) haushaltspolitischer Sprecher der SPD-Bundestagsfraktion. Seit dem 19. Dezember 2013 ist er einer der sieben stellvertretenden Vorsitzenden der SPD-Bundestagsfraktion (Liste hier).",
-				"en": "Carsten Schneider is a German politician. He is a member of the SPD."
+				"de": "Carsten Schneider (* 23. Januar 1976 in Erfurt) ist ein deutscher Politiker (SPD). Er ist seit 1998 Mitglied des Deutschen Bundestages und war von 2005 bis 2013 (16. Bundestag und 17. Bundestag) haushaltspolitischer Sprecher der SPD-Bundestagsfraktion. Seit dem 19. Dezember 2013 ist er einer der sieben stellvertretenden Vorsitzenden der SPD-Bundestagsfraktion.  Nach der Bundestagswahl am 27. September 1998 wurde Schneider als damals j\u00fcngster Abgeordneter Mitglied des Deutschen Bundestages. Nachdem er von 2002 bis 2005 jeweils stellvertretender Sprecher der Fraktionsarbeitsgruppe \u201eHaushalt\u201c und der Landesgruppe Th\u00fcringen in der SPD-Bundestagsfraktion war, wurde er im November 2005 Sprecher beider Gruppen. Er geh\u00f6rt dem Netzwerk Berlin und dem Sprecherkreis des Seeheimer Kreises an.  Seit Januar 2014 ist er Vorsitzender des Koordinierungsausschusses des Deutschen Bundestags, der die Finanzmittel der Bundesnachrichtendienstes bewilligt und dessen Ausgaben kontrolliert.",
+				"en": "Carsten Schneider (born 23 January 1976) is a German social democratic politician, who has been a member of the German Parliament since 1998. Since 2005, he has been the budgetary policy spokesman for the SPD.  Following the formation of the third cabinet of Federal Chancellor Angela Merkel, Schneider has been serving as deputy chairman of the SPD parliamentary group under the leadership of Thomas Oppermann. He is also the chairman of the so-called Confidential Committee (Vertrauensgremium) of the Budget Committee, which provides budgetary supervision for Germany\u2019s three intelligence services, BND, BfV and MAD.  In addition, Schneider has been a delegate to the Conference established under Article 13 of the European Fiscal Compact since 2014; this body assembles members of the relevant committees of the European Parliament and national parliaments to discuss economic and fiscal policy and other matters concerning stability, coordination and governance in the Economic and Monetary Union of the European Union."
 			},
 			"full_name": "Carsten Schneider",
 			"images": {
@@ -5135,7 +5135,7 @@
 		"503": {
 			"citizen_bird": "moenchsgrasmuecke",
 			"cv": {
-				"de": "Patrick Schnieder (* 1. Mai 1968 in Kyllburg) ist deutscher Politiker (CDU) und seit 2009 Mitglied des Deutschen Bundestages. Schnieder war von 1999 bis 2009 B\u00fcrgermeister in der Verbandsgemeinde Arzfeld, bevor er in den Bundestag wechselte. Er hat an der Rheinischen Friedrich-Wilhelms-Universit\u00e4t in Bonn Rechtswissenschaften studiert und ist Volljurist.",
+				"de": "Patrick Schnieder (* 1. Mai 1968 in Kyllburg) ist deutscher Politiker (CDU).  Patrick Schnieder errang bei der Wahl zum Deutschen Bundestag am 27. September 2009 im Bundestagswahlkreis 203 Bitburg das Direktmandat. Im Deutschen Bundestag ist er ordentliches Mitglied im Ausschuss f\u00fcr Verkehr und digitale Infrastruktur und befasst sich als Berichterstatter mit dem Bundesverkehrswegeplan und dem Breitbandausbau. Zudem ist Schnieder stellvertretendes Mitglied im Haushaltsausschuss und im Rechtsausschuss und engagiert sich in zahlreichen Parlamentariergruppen, darunter die Arbeitsgruppe Kommunales, der Parlamentskreis Mittelstand, der Stephanuskreis und die Deutsch-Belgisch-Luxemburgische Parlamentariergruppe, deren Vorsitzender er ist.",
 				"en": "Patrick Schnieder is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Patrick Schnieder",
@@ -5157,8 +5157,8 @@
 		"506": {
 			"citizen_bird": "kiwi",
 			"cv": {
-				"de": "Nadine Sch\u00f6n (* 5. Juni 1983 in Lebach als Nadine M\u00fcller) ist eine deutsche Politikerin (CDU).",
-				"en": "Nadine Sch\u00f6n is a German politician. She is a member of the CDU."
+				"de": "Nadine Sch\u00f6n (* 5. Juni 1983 in Lebach als Nadine M\u00fcller) ist eine deutsche Politikerin (CDU).  Sie wurde 2009 als Direktkandidatin des Bundestagswahlkreises St. Wendel in den Deutschen Bundestag gew\u00e4hlt. Dort ist sie ordentliches Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend und im Ausschuss f\u00fcr Wirtschaft und Technologie.  Seit dem Sommer 2012 setzt sich Sch\u00f6n zusammen mit zw\u00f6lf weiteren Unions-Bundestagsabgeordneten \u00f6ffentlich f\u00fcr die einkommenssteuerliche Gleichstellung von Eingetragenen gleichgeschlechtlichen Partnerschaften mit der Ehe ein.  2013 wurde sie erneut direkt in den Deutschen Bundestag gew\u00e4hlt. Seit dem 13. Januar 2014 geh\u00f6rt sie dem gesch\u00e4ftsf\u00fchrenden Fraktionsvorstand der CDU/CSU-Fraktion im Deutschen Bundestag an. Sie \u00fcbt das Amt der Vize-Fraktionsvorsitzenden aus und ist f\u00fcr die Familienpolitik und \u201eDigitale Agenda\u201c zust\u00e4ndig.",
+				"en": "Nadine Sch\u00f6n (born Nadine M\u00fcller, 5 June 1983 in Lebach, Saarland) is a German politician and member of the CDU.  Sch\u00f6n has been a member of the German Bundestag since the 2009 federal elections. Between 2009 and 2013, she served on the Committee on Economic Affairs and Technology and the Committee on Family Affairs, Senior Citizens, Women and Youth. In this capacity, she was her parliamentary group\u2019s rapporteur on gender equality and the validation of foreign studies and degrees.  In the negotiations to form a Grand Coalition of Chancellor Angela Merkel's Christian Democrats (CDU together with the Bavarian CSU) and the Social Democrats (SPD) following the 2013 German elections, Sch\u00f6n was part of the CDU/CSU delegation in the working group on digital policy, led by Dorothee B\u00e4r and Brigitte Zypries. In 2014, she was appointed deputy chairperson of the CDU/CSU parliamentary group in charge of digital policy as well as family affairs, senior citizens, women and youth."
 			},
 			"full_name": "Nadine Sch\u00f6n",
 			"images": {
@@ -5179,8 +5179,8 @@
 		"507": {
 			"citizen_bird": "girlitz",
 			"cv": {
-				"de": "Kristina Schr\u00f6der (geb. K\u00f6hler; * 3. August 1977 in Wiesbaden) ist eine deutsche Politikerin (CDU). Vom 30. November 2009 bis Mitte Dezember 2013 war sie Bundesministerin f\u00fcr Familie, Senioren, Frauen und Jugend.",
-				"en": "Kristina Schr\u00f6der is a German politician. She is a member of the CDU."
+				"de": "Kristina Schr\u00f6der (geb. K\u00f6hler; * 3. August 1977 in Wiesbaden) ist eine deutsche Politikerin (CDU). Vom 30. November 2009 bis Mitte Dezember 2013 war sie Bundesministerin f\u00fcr Familie, Senioren, Frauen und Jugend.  Seit der Bundestagswahl im Herbst 2002 ist sie Mitglied des Deutschen Bundestages. Dort ist sie ordentliches Mitglied im Innenausschuss und Berichterstatterin der CDU/CSU-Bundestagsfraktion f\u00fcr Islam, Integration und Extremismus. Ab November 2008 war sie Obfrau der CDU/CSU-Fraktion in dem 2006 eingesetzten und im Juni 2009 beendeten BND-Untersuchungsausschuss (Kurnaz-Untersuchungsausschuss).  Am 30. November 2009, etwa f\u00fcnf Wochen nach dem Amtsantritt des Kabinett Merkel II, kam es zu einer Kabinettsumbildung, nachdem Bundesarbeitsminister Franz Josef Jung zur\u00fcckgetreten war. Schr\u00f6der wurde Bundesministerin f\u00fcr Familie, Senioren, Frauen und Jugend; die bisherige Ministerin Ursula von der Leyen wurde Arbeitsministerin. Am 2. Dezember wurde Schr\u00f6der vor dem Deutschen Bundestag vereidigt.",
+				"en": "Kristina Schr\u00f6der (n\u00e9e K\u00f6hler, born 3 August 1977) is a German politician who served as the Federal Minister of Family Affairs, Senior Citizens, Women and Youth in the government of Chancellor Angela Merkel from 2009 to 2013. She has served as a Member of Parliament since 2002.  Since the 2013 elections, Schr\u00f6der has been the deputy chairwoman of the Committee on the Scrutiny of Elections, Immunity and the Rules of Procedure, which is chaired by Johann Wadephul. In addition, she serves as member of the Committee on Economic Affairs and Energy, where she is her parliamentary group\u2019s rapporteur on the media, food and pharmaceutical industries as well as on space technology."
 			},
 			"full_name": "Dr. Kristina Schr\u00f6der",
 			"images": {
@@ -5201,7 +5201,7 @@
 		"511": {
 			"citizen_bird": "singdrossel",
 			"cv": {
-				"de": "Swen Schulz (* 1. M\u00e4rz 1968 in Hamburg) ist ein deutscher Politiker (SPD).",
+				"de": "Swen Schulz (* 1. M\u00e4rz 1968 in Hamburg) ist ein deutscher Politiker (SPD).  Seit 2002 ist er Mitglied des Deutschen Bundestages. Hier war er von 2005 bis 2009 Sprecher der Landesgruppe Berlin. Von 2005 bis 2014 war er Mitglied im Vorstand der SPD-Bundestagsfraktion, von 2009 bis 2013 au\u00dferdem stellvertretender Sprecher der Fraktionsarbeitsgruppe \u201eBildung und Forschung\u201c. Seit 2013 ist er Mitglied des Haushaltsausschusses und dort Hauptberichterstatter f\u00fcr Bildung und Forschung.",
 				"en": "Swen Schulz is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Swen Schulz",
@@ -5223,7 +5223,7 @@
 		"512": {
 			"citizen_bird": "amsel",
 			"cv": {
-				"de": "Kordula Anna Paula Schulz-Asche (* 31. Dezember 1956 in Berlin-Spandau) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen). Sie ist Mitglied des Deutschen Bundestages.",
+				"de": "Kordula Anna Paula Schulz-Asche (* 31. Dezember 1956 in Berlin-Spandau) ist eine deutsche Politikerin (B\u00fcndnis 90/Die Gr\u00fcnen). Sie ist Mitglied des Deutschen Bundestages.  Sie kandidierte f\u00fcr die Bundestagswahl 2013 im Wahlkreis 181 (Main-Taunus-Kreis und s\u00fcdlicher Hochtaunuskreis), und zog \u00fcber die Landesliste in den Bundestag ein.  Im 18. Deutschen Bundestag ist sie ordentliches Mitglied im Ausschuss f\u00fcr Gesundheit und im Unterausschuss B\u00fcrgerschaftliches Engagement sowie stellvertretendes Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend und im Ausschuss f\u00fcr Menschenrechte und humanit\u00e4re Hilfe. Sie ist Sprecherin der Fraktion f\u00fcr Pr\u00e4vention und Gesundheitswirtschaft sowie B\u00fcrgerschaftliches Engagement.",
 				"en": "Kordula Schulz-Asche is a German politician. She is a member of the GR\u00dcNE."
 			},
 			"full_name": "Kordula Schulz-Asche",
@@ -5244,8 +5244,8 @@
 		"514": {
 			"citizen_bird": "mehlschwalbe",
 			"cv": {
-				"de": "Uwe Schummer (* 14. November 1957 in Adelaide, Australien) ist ein deutscher Politiker (CDU) aus Willich. Seit 2014 ist er Beauftragter der CDU/CSU-Bundestagsfraktion f\u00fcr Menschen mit Behinderungen.",
-				"en": "Uwe Schummer is a German politician. He is a member of the CDU."
+				"de": "Uwe Schummer (* 14. November 1957 in Adelaide, Australien) ist ein deutscher Politiker (CDU) aus Willich. Seit 2014 ist er Beauftragter der CDU/CSU-Bundestagsfraktion f\u00fcr Menschen mit Behinderungen.  Schummer ist seit 2002 Mitglied des Deutschen Bundestages. Seit 2005 ist er einer der stellvertretenden Vorsitzenden der Arbeitnehmergruppe der CDU/CSU-Bundestagsfraktion. Er ist Mitglied im Ausschuss f\u00fcr Bildung, Forschung und Technikfolgenabsch\u00e4tzung, in dem er von 2009 bis 2014 Obmann seiner Fraktion war.",
+				"en": "Uwe Schummer (born 14 November 1957 in Adelaide, Australia) is a German politician of the (CDU) from Willich. Schummer has been a member of the Bundestag since 2002. Since 2014 he has been Commissioner of the CDU/CSU parliamentary group for people with disabilities. He is a member of the Parliamentary Committee on Education, Research and Technology Assessment, where he served as chairman of the CDU/CSU parliamentary group from 2009 to 2014."
 			},
 			"full_name": "Uwe Schummer",
 			"images": {
@@ -5266,7 +5266,7 @@
 		"516": {
 			"citizen_bird": "fitis",
 			"cv": {
-				"de": "Armin Schuster (* 20. Mai 1961 in Andernach) ist ein deutscher Politiker (CDU). Er ist seit 2009 Mitglied des Deutschen Bundestages.",
+				"de": "Armin Schuster (* 20. Mai 1961 in Andernach) ist ein deutscher Politiker (CDU). Bei der Bundestagswahl 2009 gewann er das Direktmandat des Wahlkreises L\u00f6rrach \u2013 M\u00fcllheim und wurde Mitglied des Deutschen Bundestages; in der 17. Wahlperiode war er auch Mitglied des Innenausschusses. Bei der Bundestagswahl 2013 wurde er wiedergew\u00e4hlt. Im 18. Bundestag ist er Obmann im Innenausschuss und Mitglied des Parlamentarischen Kontrollgremiums.  Schuster ist Mitglied der International Police Association und im Verbund f\u00fcr Innere Sicherheit der Bundespolizeigewerkschaft. Er ist ehrenamtliches Jurymitglied des Ludwig-Erhard-Preises.  Au\u00dferdem vergibt er jedes Jahr ein Stipendium im Rahmen des Parlamentarisches Patenschafts-Programm an Sch\u00fcler oder junge Berufst\u00e4tige in seinem Wahlkreis.  W\u00e4hrend der sich im Herbst 2015 zur sogenannten Fl\u00fcchtlingskrise entwickelnden unkontrollierten Zuwanderung von Asylbewerbern nach Deutschland wurde Armin Schuster zu einem der wichtigsten CDU-internen Kritiker von Bundeskanzlerin Angela Merkel.",
 				"en": "Armin Schuster is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Armin Schuster",
@@ -5288,7 +5288,7 @@
 		"517": {
 			"citizen_bird": "gruenfink",
 			"cv": {
-				"de": "Frank Schwabe (* 12. November 1970 in Waltrop) ist ein deutscher Politiker (SPD) und Mitglied des Deutschen Bundestages.",
+				"de": "Frank Schwabe (* 12. November 1970 in Waltrop) ist ein deutscher Politiker (SPD).  Bei der Bundestagswahl 2005 zog Frank Schwabe als Nachfolger von Jochen Welt als direkt gew\u00e4hlter Abgeordneter des Wahlkreises Recklinghausen I (Recklinghausen, Castrop-Rauxel, Waltrop) in den Bundestag ein.  Im Bundestag ist Schwabe ordentliches Mitglied im Ausschuss f\u00fcr Menschenrechte und humanit\u00e4re Hilfe und Ausschuss f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit, sowie stellvertretendes Mitglied im Ausschuss f\u00fcr Wirtschaft und Energie.  Schwabe ist Fraktionssprecher f\u00fcr Menschenrechte und Humanit\u00e4re Hilfe. Als Berichterstatter f\u00fcr Klimapolitik der SPD-Bundestagsfraktion ist er im Rahmen seiner Ausschusst\u00e4tigkeit f\u00fcr eine politisch wirksame Umsetzung von Ma\u00dfnahmen gegen den Klimawandel zust\u00e4ndig. Er ist Mitglied der Parlamentarischen Versammlung des Europarats und stellvertretender Leiter der deutschen Delegation.  Als Mitglied der deutsch-s\u00fcdamerikanischen und der deutsch-zentralamerikanischen Parlamentariergruppen ist Lateinamerika einer der Schwerpunkte seiner parlamentarischen Arbeit. Dar\u00fcber hinaus ist er Mitglied und stellvertretender Vorsitzender der Parlamentariergruppe Englisch- und Portugiesischsprachige Staaten West- und Zentralafrikas. Schwabe ist Vizepr\u00e4sident der Umweltorganisation Globe International.",
 				"en": "Frank Schwabe is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Frank Schwabe",
@@ -5310,7 +5310,7 @@
 		"518": {
 			"citizen_bird": "fitis",
 			"cv": {
-				"de": "Stefan Schwartze (* 23. Mai 1974 in Bad Oeynhausen) ist ein deutscher Politiker (SPD) und Bundestagsabgeordneter im 18. Deutschen Bundestag.",
+				"de": "Stefan Schwartze (* 23. Mai 1974 in Bad Oeynhausen) ist ein deutscher Politiker (SPD).  Bei der Bundestagswahl 2009 wurde er im Wahlkreis 134 (Herford \u2013 Minden-L\u00fcbbecke II) als Direktkandidat in den 17. Deutschen Bundestag gew\u00e4hlt. Nach der Neueinteilung der Wahlkreise f\u00fcr die Bundestagswahl 2013 ist Stefan Schwartze nun direktgew\u00e4hlter Abgeordneter des Wahlkreises 133 (Herford - Minden-L\u00fcbbecke II \u2013 also f\u00fcr den Kreis Herford und die Stadt Bad Oeynhausen). Schwartze ist ordentliches Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend und im Petitionsausschuss. Er ist ebenso stellvertretendes Mitglied im Ausschuss f\u00fcr Ern\u00e4hrung und Landwirtschaft im 18. Bundestag.",
 				"en": "Stefan Schwartze is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Stefan Schwartze",
@@ -5332,7 +5332,7 @@
 		"519": {
 			"citizen_bird": "blaumeise",
 			"cv": {
-				"de": "Andreas Schwarz (* 3. M\u00e4rz 1965 in Berleburg) ist ein deutscher Politiker der SPD und seit 2013 Mitglied des Deutschen Bundestages.",
+				"de": "Andreas Schwarz (* 3. M\u00e4rz 1965 in Berleburg) ist ein deutscher Politiker der SPD und seit 2013 Mitglied des Deutschen Bundestages.  Er ist Mitglied im Finanzausschuss und dort Berichterstatter seiner Fraktion f\u00fcr Umsatzsteuer, Steuerkriminalit\u00e4t, Ratingagenturen und Verbrauchssteuern.",
 				"en": "Andreas Schwarz is a German politician. He is a member of the SPD."
 			},
 			"full_name": "Andreas Schwarz",
@@ -5354,8 +5354,8 @@
 		"520": {
 			"citizen_bird": "singdrossel",
 			"cv": {
-				"de": "Rita Schwarzel\u00fchr-Sutter MdB, (* 13. Oktober 1962 in Waldshut) ist eine deutsche Wirtschaftswissenschaftlerin und Politikerin (SPD). Seit dem 17. Dezember 2013 ist sie Parlamentarische Staatssekret\u00e4rin im Kabinett Merkel III bei der Bundesministerin f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit.",
-				"en": "Rita Schwarzel\u00fchr-Sutter is a German politician. She is a member of the SPD."
+				"de": "Rita Schwarzel\u00fchr-Sutter, (* 13. Oktober 1962 in Waldshut) ist eine deutsche Wirtschaftswissenschaftlerin und Politikerin (SPD). Seit dem 17. Dezember 2013 ist sie Parlamentarische Staatssekret\u00e4rin im Kabinett Merkel III bei der Bundesministerin f\u00fcr Umwelt, Naturschutz, Bau und Reaktorsicherheit. Sie vertritt die Bundesrepublik derzeit in Leitungsgremien der Deutschen Bundesstiftung Umwelt (DBU), der Gesellschaft f\u00fcr Anlagen- und Reaktorsicherheit (GRS) und der Kreditanstalt f\u00fcr Wiederaufbau (KfW).  Bei der Bundestagswahl 2005 wurde sie \u00fcber die Landesliste Baden-W\u00fcrttemberg zum Mitglied des Deutschen Bundestages. Sie war Mitglied im Verkehrsausschuss sowie seit 2006 Vorsitzende der Unter-Arbeitsgruppe \u201eVerkehr und Klima\u201c der Arbeitsgruppe Verkehr, Bau und Stadtentwicklung der SPD-Bundestagsfraktion.",
+				"en": "Rita Schwarzel\u00fchr-Sutter (born 13 October 1962) is a German Social Democrat politician, a member of the German Bundestag and a Parliamentary State Secretary in Chancellor Angela Merkel's cabinet."
 			},
 			"full_name": "Rita Schwarzel\u00fchr-Sutter",
 			"images": {
@@ -5376,7 +5376,7 @@
 		"521": {
 			"citizen_bird": "buchfink",
 			"cv": {
-				"de": "Christina Schwarzer (* 12. September 1976 in Berlin) ist eine deutsche Politikerin (CDU).",
+				"de": "Christina Schwarzer (* 12. September 1976 in Berlin) ist eine deutsche Politikerin (CDU).  2013 zog Schwarzer \u00fcber die Berliner Landesliste in den Bundestag ein. Im Bundestag ist sie Mitglied im Ausschuss f\u00fcr Familie, Senioren, Frauen und Jugend. Sie vertritt dort die CDU/CSU-Fraktion als Obfrau. Zu ihren Schwerpunktthemen z\u00e4hlen die Kinder- und Jugendhilfe, der Jugendschutz, der Kinder- und Jugendplan des Bundes, sexueller Missbrauch, Pflegefamilien sowie Schulverweigerer und Jugendkriminalit\u00e4t. Seit dem 28. September 2016 ist Christina Schwarzer offiziell Mitglied im Unterausschuss \u201eB\u00fcrgerschaftliches Engagement\u201c, welches sich die Verbesserung der gesetzlichen Rahmenbedingungen f\u00fcr ehrenamtliche Bet\u00e4tigungen zum Ziel gesetzt hat. Au\u00dferdem ist Schwarzer Mitglied im Ausschuss Digitale Agenda. Dort z\u00e4hlen zu ihren Schwerpunkten die Medienkompetenz und digitale Bildung, der Jugendschutz im Internet sowie die Kriminalit\u00e4t im Internet, vor allem gegen minderj\u00e4hrige Opfer. Schwarzer ist stellvertretendes Mitglied im Petitionsausschuss sowie im Ausschuss f\u00fcr Gesundheit. An Sitzungstagen ist sie zudem als Schriftf\u00fchrerin aktiv.",
 				"en": "Christina Schwarzer is a German politician. She is a member of the CDU."
 			},
 			"full_name": "Christina Schwarzer",
@@ -5398,7 +5398,7 @@
 		"525": {
 			"citizen_bird": "tukan",
 			"cv": {
-				"de": "Patrick Ernst Sensburg (* 25. Juni 1971 in Paderborn) ist ein deutscher Bundestagsabgeordneter und Professor an der Fachhochschule f\u00fcr \u00f6ffentliche Verwaltung Nordrhein-Westfalen in M\u00fcnster.",
+				"de": "Patrick Ernst Sensburg (* 25. Juni 1971 in Paderborn) ist ein deutscher Bundestagsabgeordneter und Professor an der Fachhochschule f\u00fcr \u00f6ffentliche Verwaltung Nordrhein-Westfalen in M\u00fcnster.  Im Juni 2008 schlug der CDU-Stadtverband Brilon Patrick Sensburg f\u00fcr die Nachfolge von Friedrich Merz f\u00fcr den Deutschen Bundestag vor. Sensburg empfing als stellvertretender B\u00fcrgermeister von Brilon den damaligen nieders\u00e4chsischen Ministerpr\u00e4sidenten Christian Wulff. Bei der Kreisversammlung am 17. Januar 2009 in Meschede wurde Patrick Sensburg von den Delegierten der CDU Hochsauerlandkreis zum Bundestagskandidaten gew\u00e4hlt.  Vom 10. November 2012 bis zum 24. Januar 2015 war Sensburg Vorsitzender der CDU im Hochsauerlandkreis.  Patrick Sensburg ist Mitglied des Rechtsausschusses und Vorsitzender dessen Unterausschusses Europarecht sowie stellvertretendes Mitglied im Innenausschuss des Bundestages.  Nach dem R\u00fccktritt des bisherigen Vorsitzenden des NSA-Untersuchungsausschusses Clemens Binninger wurde Sensburg am 10. April 2014 zum k\u00fcnftigen Vorsitzenden des Ausschusses in der Legislaturperiode 2013\u20132017 gew\u00e4hlt.",
 				"en": "Patrick Ernst Sensburg is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Prof. Dr. Patrick Sensburg",
@@ -5420,7 +5420,7 @@
 		"526": {
 			"citizen_bird": "buchfink",
 			"cv": {
-				"de": "Bernd Siebert (* 17. Oktober 1949 in Gudensberg) ist ein deutscher Politiker (CDU).",
+				"de": "Bernd Siebert (* 17. Oktober 1949 in Gudensberg) ist ein deutscher Politiker (CDU).  Zun\u00e4chst von 1994 bis 2009 war Siebert Mitglied des Deutschen Bundestages. Hier war er seit Dezember 2003 Vorsitzender der Landesgruppe Hessen in der CDU/CSU-Bundestagsfraktion und war ab November 2005 Vorsitzender der Arbeitsgruppe Verteidigung der CDU/CSU-Fraktion. Siebert war au\u00dferdem Obmann der CDU/CSU-Fraktion im Verteidigungsausschuss.  Am 6. September 2010 zog Bernd Siebert jedoch wieder in den Bundestag ein, als Nachr\u00fccker f\u00fcr die Abgeordnete Lucia Puttrich. Bei der Bundestagswahl 2013 kam er erneut \u00fcber die Landesliste in den Bundestag. Siebert ist erneut ordentliches Mitglied im Verteidigungsausschuss.  Siebert ist au\u00dferdem Vizepr\u00e4sident des F\u00f6rderkreises Deutsches Heer.",
 				"en": "Bernd Siebert is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Bernd Siebert",
@@ -5442,8 +5442,8 @@
 		"529": {
 			"citizen_bird": "weisskopfseeadler",
 			"cv": {
-				"de": "Johannes Singhammer (* 9. Mai 1953 in M\u00fcnchen) ist ein deutscher Politiker (CSU) und seit 22. Oktober 2013 Vizepr\u00e4sident des Deutschen Bundestages.",
-				"en": "Johannes Singhammer is a German politician. He is a member of the CSU."
+				"de": "Johannes Singhammer (* 9. Mai 1953 in M\u00fcnchen) ist ein deutscher Politiker (CSU) und seit 22. Oktober 2013 Vizepr\u00e4sident des Deutschen Bundestages.  Johannes Singhammer ist seit 1994, mit einer kurzen Unterbrechung 2005, Mitglied des Deutschen Bundestages.  Von November 2005 bis November 2009 war er Vorsitzender der Arbeitsgruppe Familie, Senioren, Frauen und Jugend der CDU/CSU-Bundestagsfraktion. Von 2009 bis 2013 war er stellvertretender Vorsitzender der CDU/CSU-Fraktion im Deutschen Bundestag, zust\u00e4ndig f\u00fcr Gesundheit sowie Ern\u00e4hrung, Landwirtschaft und Verbraucherschutz.",
+				"en": "Johannes Singhanmer (born 9 May 1953), is one of the current Vice-Presidents of the Bundestag.  He was first elected to the German Bundestag in the 1994 federal elections, as representative of the Munich North constituency. He initially served on the Committee on Labour and Social Affairs as well as on the Committee on Family Affairs, Senior Citizens, Women and Youth.  In the negotiations to form a coalition government following the 2013 federal elections, Singhammer was part of the CDU/CSU delegation in the working group on health policy, led by Jens Spahn and Karl Lauterbach."
 			},
 			"full_name": "Johannes Singhammer",
 			"images": {
@@ -5464,7 +5464,7 @@
 		"530": {
 			"citizen_bird": "tannenmeise",
 			"cv": {
-				"de": "Petra Sitte (* 1. Dezember 1960 in Dresden) ist eine deutsche Politikerin (Die Linke). Sie ist seit 2013 erste parlamentarische Gesch\u00e4ftsf\u00fchrerin der Linksfraktion im Deutschen Bundestag.",
+				"de": "Petra Sitte (* 1. Dezember 1960 in Dresden) ist eine deutsche Politikerin (Die Linke). Sie ist seit 2013 erste parlamentarische Gesch\u00e4ftsf\u00fchrerin der Linksfraktion im Deutschen Bundestag.  Seit 2005 ist sie Mitglied des Deutschen Bundestages. Hier ist sie stellvertretende Vorsitzende der Bundestagsfraktion Die Linke, Mitglied und Obfrau im Ausschuss f\u00fcr Bildung, Forschung und Technikfolgenabsch\u00e4tzung und Vorsitzende des Fraktionsarbeitskreises Innovation, Bildung, Wissenschaft, Kultur und Medien. Von 2010 bis 2013 war sie Mitglied der Enquete-Kommission \u201cInternet und digitale Gesellschaft\u201d.",
 				"en": "Petra Sitte is a German politician. She is a member of the DIE LINKE."
 			},
 			"full_name": "Dr. Petra Sitte",
@@ -5485,7 +5485,7 @@
 		"531": {
 			"citizen_bird": "tukan",
 			"cv": {
-				"de": "Tino Sorge (* 4. M\u00e4rz 1975 in Ilmenau) ist ein deutscher Politiker (CDU).",
+				"de": "Tino Sorge (* 4. M\u00e4rz 1975 in Ilmenau) ist ein deutscher Politiker (CDU).  Bei der Bundestagswahl 2013 gewann Sorge das Direktmandat im Bundestagswahlkreis Magdeburg.  Er ist in der 18. Legislaturperiode des Deutschen Bundestags ordentliches Mitglied im Ausschuss f\u00fcr Gesundheit und stellvertretendes Mitglied im Ausschuss f\u00fcr Verkehr und digitale Infrastruktur und im Ausschuss f\u00fcr Bildung, Forschung und Technikfolgenabsch\u00e4tzung.",
 				"en": "Tino Sorge is a German politician. He is a member of the CDU."
 			},
 			"full_name": "Tino Sorge",
@@ -5507,8 +5507,8 @@
 		"532": {
 			"citizen_bird": "kleiber",
 			"cv": {
-				"de": "Jens Spahn (* 16. Mai 1980 in Ahaus) ist ein deutscher Politiker (CDU). Seit dem 3. Juli 2015 ist er Parlamentarischer Staatssekret\u00e4r beim Bundesminister der Finanzen.",
-				"en": "Jens Spahn is a German politician. He is a member of the CDU."
+				"de": "Jens Spahn (* 16. Mai 1980 in Ahaus) ist ein deutscher Politiker (CDU). Seit dem 3. Juli 2015 ist er Parlamentarischer Staatssekret\u00e4r beim Bundesminister der Finanzen.   Spahn zog 2002, 2005, 2009 und 2013 als direkt gew\u00e4hlter Abgeordneter des Wahlkreises Steinfurt I \u2013 Borken I in den Bundestag ein.  Hier war er seit November 2005 stellvertretender Vorsitzender der Arbeitsgruppe Gesundheit der CDU/CSU-Bundestagsfraktion und Obmann der CDU/CSU-Fraktion im Ausschuss f\u00fcr Gesundheit. Er war Mitglied in der Koalitionsarbeitsgruppe von CDU/CSU und SPD, die die Gesundheitsreform 2007 vorbereitete. Von 2009 bis 2015 war er Vorsitzender der Arbeitsgruppe Gesundheit und gesundheitspolitischer Sprecher der CDU/CSU-Fraktion. Spahn geh\u00f6rt der \u201eJungen Gruppe\u201c der CDU/CSU-Bundestagsfraktion an. Er ist Gr\u00fcndungsmitglied einer fraktions\u00fcbergreifenden Gruppe von jungen Bundestagsabgeordneten, die sich f\u00fcr die Verankerung der Generationengerechtigkeit als Staatsziel ins Grundgesetz einsetzt.  Bis Juli 2015 war er ordentliches Mitglied im Ausschuss f\u00fcr Gesundheit. Spahn ist weiterhin stellvertretendes Mitglied im Haushaltsausschuss. Seit dem 3. Juli 2015 ist er Parlamentarischer Staatssekret\u00e4r im Bundesministerium der Finanzen.  Beim Bundesparteitag 2014 in K\u00f6ln wurde in das CDU-Pr\u00e4sidium gew\u00e4hlt.  Jens Spahn ist seit 14. November 2014 Vorsitzender des Bundesfachausschusses Gesundheit und Pflege seiner Partei. Dem rund 40-k\u00f6pfigen Gremium geh\u00f6ren Vertreter der Landesverb\u00e4nde und der Vereinigungen der CDU an. Der Ausschuss erarbeitet die gesundheitspolitischen Positionen der Partei. Er war von 2009 bis 2015 zudem Vorsitzender der Arbeitsgruppe Gesundheit der CDU/CSU-Bundestagsfraktion.",
+				"en": "Jens Spahn (born 16 May 1980, in Ahaus, North Rhine-Westphalia) is a German politician (CDU). He is a Member of the Bundestag for Steinfurt I \u2013 Borken I.  Since 2009, he has been Chairman of the Working group on health and health policy as well as the spokesman of the CDU/CSU parliamentary group on health policy.  In 2015, Spahn became Parliamentary State Secretary in the Federal Ministry of Finance under minister Wolfgang Sch\u00e4uble in the third cabinet of Chancellor Angela Merkel. At the ministry, he oversees the German government\u2019s annual budget. He is also in charge of representing Germany in the negotiations on the annual budget of the European Union."
 			},
 			"full_name": "Jens Spahn",
 			"images": {
@@ -5529,8 +5529,8 @@
 		"538": {
 			"citizen_bird": "stieglitz",
 			"cv": {
-				"de": "Frank Steffel (* 2. M\u00e4rz 1966 in Berlin) ist ein deutscher Politiker (CDU) und Unternehmer. Der Diplom-Kaufmann war von Mai 2001 bis Mai 2003 Fraktionsvorsitzender der CDU im Abgeordnetenhaus von Berlin. Seit dem 27. September 2009 ist Steffel Mitglied des Deutschen Bundestages.",
-				"en": "Frank Steffel is a German politician. He is a member of the CDU."
+				"de": "Frank Steffel (* 2. M\u00e4rz 1966 in Berlin) ist ein deutscher Politiker (CDU) und Unternehmer. Der Diplom-Kaufmann war von Mai 2001 bis Mai 2003 Fraktionsvorsitzender der CDU im Abgeordnetenhaus von Berlin. Seit dem 27. September 2009 ist Steffel Mitglied des Deutschen Bundestages.  Am 28. Januar 2014 wurde Frank Steffel mit gro\u00dfer Mehrheit zum Obmann der CDU/CSU-Fraktion im Sportausschuss und Ehrenamtsausschuss des Deutschen Bundestages gew\u00e4hlt. Dar\u00fcber hinaus ist er weiterhin ordentliches Mitglied im Finanzausschuss.",
+				"en": "Frank Steffel (born March 2, 1966 in West Berlin) is a German politician of the Christian Democratic Party (CDU).  He is chairman of the CDU in Berlin-Reinickendorf since 2001 and member of the Bundestag since 2009."
 			},
 			"full_name": "Dr. Frank Steffel",
 			"images": {
