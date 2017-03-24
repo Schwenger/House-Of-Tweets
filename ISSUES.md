@@ -5,11 +5,11 @@
 [Next Meeting]
 > - [Both] About page on public facing site.
   -> Ehh, an unstylized `<ul>` gotta do the job.
+- Soll "HoT" wirklich ein Politiker sein?  Vielleicht im Frontend "verstecken"?
 
 [Volker]
 - French?
 - Paper? - Paper!
-- Poke Volker: Picture<Schweizer> from twitter? Looks not all too serious. Description?
 - Poke Volker: How does the hall look.
 - Make a decision about the "Feetless Akoya"
     * currently it's pretty bad: the "air holes" are irregular and look improvised – which they are.
@@ -64,7 +64,6 @@ Nothing to do currently
 
 - [Ben] Stephan Schweitzer hinzufügen:
     Twitter-Handle: @sc_ontour
-- [Ben] Check how long the cv entries are, and enrich short ones.
 
 ## Publicity (public-facing page)
 
