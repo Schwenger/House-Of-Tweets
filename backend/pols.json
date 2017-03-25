@@ -5395,6 +5395,25 @@
       "twitterUserName": "TinaSchwarzer"
     }
   },
+  "523": {
+    "citizen_bird": "zaunkoenig",
+    "cv": {
+      "de": "Schweitzer, ein geb\u00fcrtiger Saarl\u00e4nder, arbeitete zuvor vier Jahre im Willy-Brandt-Haus in Berlin, zun\u00e4chst als B\u00fcroleiter der damaligen SPD-Bundesgesch\u00e4ftsf\u00fchrerin Astrid Klug, dann als Abteilungsleiter f\u00fcr Kommunikation und zuletzt als technischer Wahlkampfleiter im Bundestagswahlkampf. Vor seinem Wechsel nach Berlin hatte der Diplom-Verwaltungswirt, der seine Laufbahn 1993 als Pressesprecher des Landkreises Saarlouis begann, die Gesch\u00e4fte der Saar-SPD gef\u00fchrt.",
+      "en": "Schweitzer, born in Saarland, used to work in the Willy-Brandt-Haus in Berlin for four years. He started out as head of Astrid Klug's office, then became the head of the department for communication. Lastly, he was technical director for the election campaign. Before transferring to Berlin, the certified public administration specialist directed the affairs of the Saar-SPD. His career began as publicist for the Saarlouis county in 1993."
+    },
+    "images": {
+      "pathToImage": "523.jpg",
+      "pathToThumb": "523_t.jpg"
+    },
+    "name": "Stephan Schweitzer",
+    "party": "SPD",
+    "pid": "523",
+    "self_bird": "girlitz",
+    "twittering": {
+      "twitterId": "237115617",
+      "twitterUserName": "sc_ontour"
+    }
+  },
   "525": {
     "citizen_bird": "tukan",
     "cv": {

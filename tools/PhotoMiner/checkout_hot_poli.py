@@ -261,6 +261,9 @@ def checkout(pid, fields):
                '-extent', '75x75',
                *inject,
                img_prefix + '_t.jpg')
+        # TODO: Use '-strip'.
+        # Don't do it right now in order to
+        # avoid blowing up 'heavy' even more.
 
     # Retract '_raw'
     os.remove(raw_dst_path)
@@ -288,24 +291,45 @@ def choose_img(pid, imgs):
     return imgs[choice]
 
 
-SPOOF_HOT_USER = {
-    "twittering": {
-      "twitterId": "4718199753",
-      "twitterUserName": "HouseOfTweetsSB"
+SPOOF_USERS = {
+    'hot': {
+        "twittering": {
+          "twitterId": "4718199753",
+          "twitterUserName": "HouseOfTweetsSB"
+        },
+        "self_bird": "amsel",
+        "party": "Gr\u00fcn",
+        "name": "House Of Tweets",
+        "pid": "hot",
+        "cv": {
+          "en": "HoT is an ordinary German politician. He is a member of the Gr\u00fcn.",
+          "de": "Das sind wir."
+        },
+        "images": {
+          "pathToThumb": "tgroup_greengr\u00fcn.jpg",
+          "pathToImage": "group_greengr\u00fcn.jpg"
+        },
+        "citizen_bird": "amsel"
     },
-    "self_bird": "amsel",
-    "party": "Gr\u00fcn",
-    "name": "House Of Tweets",
-    "pid": "hot",
-    "cv": {
-      "en": "HoT is an ordinary German politician. He is a member of the Gr\u00fcn.",
-      "de": "Das sind wir"
-    },
-    "images": {
-      "pathToThumb": "tgroup_greengr\u00fcn.jpg",
-      "pathToImage": "group_greengr\u00fcn.jpg"
-    },
-    "citizen_bird": "amsel"
+    '523': {
+        "twittering": {
+            "twitterId": "237115617",
+            "twitterUserName": "sc_ontour"
+        },
+        "self_bird": "girlitz",
+        "party": "SPD",
+        "name": "Stephan Schweitzer",
+        "pid": "523",
+        "cv": {
+            "en": "Schweitzer, born in Saarland, used to work in the Willy-Brandt-Haus in Berlin for four years. He started out as head of Astrid Klug's office, then became the head of the department for communication. Lastly, he was technical director for the election campaign. Before transferring to Berlin, the certified public administration specialist directed the affairs of the Saar-SPD. His career began as publicist for the Saarlouis county in 1993.",
+            "de": "Schweitzer, ein gebürtiger Saarländer, arbeitete zuvor vier Jahre im Willy-Brandt-Haus in Berlin, zunächst als Büroleiter der damaligen SPD-Bundesgeschäftsführerin Astrid Klug, dann als Abteilungsleiter für Kommunikation und zuletzt als technischer Wahlkampfleiter im Bundestagswahlkampf. Vor seinem Wechsel nach Berlin hatte der Diplom-Verwaltungswirt, der seine Laufbahn 1993 als Pressesprecher des Landkreises Saarlouis begann, die Geschäfte der Saar-SPD geführt."
+        },
+        "images": {
+            "pathToThumb": "523_t.jpg",
+            "pathToImage": "523.jpg"
+        },
+        "citizen_bird": "zaunkoenig"
+    }
 }
 
 
@@ -313,7 +337,9 @@ def prune_convert(pols):
     pols = {poli['pid']: poli for poli in pols if 'twittering' in poli}
     for poli in pols.values():
         del poli['imgs']
-    pols['hot'] = SPOOF_HOT_USER
+    for (pid, poli) in SPOOF_USERS.items():
+        assert pid == poli['pid']
+        pols[pid] = poli
     return pols
 
 

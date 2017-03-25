@@ -327,6 +327,9 @@ recently_joined = {
     # },
 }
 
+# Will be added later on, but is in the way for now.
+IGNORE_PIDS = {'hot', '523'}
+
 twitter_stats = {'poli': 0, 'both': 0}
 
 spoof_images = {
@@ -433,13 +436,12 @@ def load_padded_polis():
 
     max_pid = 1
     for poli in polis:
+        if poli['pid'] in IGNORE_PIDS:
+            continue
         try:
-            # (false positive)
-            # noinspection PyTypeChecker
             this_pid = int(poli['pid'])
         except ValueError:
-            # Ignore non-numeric pids
-            continue
+            assert False, poli['pid']
         max_pid = max(max_pid, this_pid)
 
     for name, j in sorted(recently_joined.items(), key=lambda x: x[0]):

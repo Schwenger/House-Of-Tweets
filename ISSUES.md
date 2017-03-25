@@ -62,9 +62,7 @@ Nothing to do currently
 
 ## Model
 
-- [Ben] Stephan Schweitzer hinzufügen:
-    Twitter-Handle: @sc_ontour
-    PID: 523
+Nuthin'.  Watchin' tha game, njoyin' a bud …
 
 ## Publicity (public-facing page)
 
