@@ -63,8 +63,8 @@ def test_messages_phrasing():
                 'status': 'fail',
                 'reason': 'unknown-user',
                 'message': {
-                        "de": 'Konnte "heinzelmännchen" nicht auf Twitter finden',
-                        "en": 'Couldn\'t find "heinzelmännchen" on twitter'
+                        "de": 'Konnte "heinzelmännchen" nicht auf Twitter finden.',
+                        "en": 'Could not find "heinzelmännchen" on twitter.'
                     }
                 }
     actual = messages.phrase("heinzelmännchen", 'unknown-user')
@@ -83,7 +83,7 @@ def test_messages_send():
                 'status': 'succ',
                 'reason': 'succ-firstpoll',
                 'message': {
-                        "de": 'karli kann loslegen!',
+                        "de": 'karli kann los-tweeten!',
                         "en": 'karli can start tweeting!'
                     }
                 }
