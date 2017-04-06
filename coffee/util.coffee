@@ -38,9 +38,13 @@ Util = {
 
 	addLang: (str) -> 
 		# Adds a language prefix w.r.t. the globally set time.
+		@getLang() + '_' + str
+
+	getLang: ->
+		# Retrieves the language identifier w.r.t. the globally set time.
 		switch Global.language
-			when "english" then "en_" + str
-			when "german"  then "de_" + str
+			when "english" then "en"
+			when "german"  then "de"
 
 	# List of potential replacements for swear words.
 	nyahNyah: [

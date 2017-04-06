@@ -43,5 +43,5 @@ class LanguageController
 		# Notify each page controller about the translation. Note that the 
 		# impress is controller-less and is thus not notified.
 		VoicesLists.translateBirds()
-		CitizenUser.translateBirds()
+		CitizenUser.translate()
 		TweetController.translateBirds()

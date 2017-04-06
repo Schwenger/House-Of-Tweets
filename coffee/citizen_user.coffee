@@ -7,6 +7,12 @@ CitizenUser =
 	_citizenBirdMQ: undefined
 	_listRoot: $('.main-gallery')
 	_twitterNameInput: $('#citizen-user-name-input')
+	_feedback:
+		open: []
+		id: 0
+		threshold: 100000
+	_openFeedback: []
+
 
 	maxTwitterNameLength: 20
 
@@ -52,35 +58,54 @@ CitizenUser =
 		# No preparation.
 		0
 
+	# Public
+	translate: ->
+		@translateBirds()
+		for container in @_feedback.open
+			newMsg = container[Util.getLang()]
+			$(container.selector + "-message").text(newMsg)
+
 	_consumeFeedback: (msg) ->
 		# Consumes a message from the feedback queue. That means, with respect
 		# to the status, an appropriately colored message field shall be added
 		# to the page.
-		
-		# TODO
-		if msg.error?
-			console.log "Error adding user #{msg.twittername}. Reason: #{msg.error}"
+		if msg.reason?
+			console.log "Error adding user #{msg.twittername}. Reason: #{msg.reason}"
 		[kind, msg_key] = switch msg.error
 			when undefined then ["success", "success"]
 			when "is-politician" then ["info", "is_poli"]
 			else ["error", "error"]
+
+		selector = '#feedback-container-' + CitizenUser._feedback.id
+		CitizenUser._feedback.id = (CitizenUser._feedback.id + 1) % CitizenUser._feedback.threshold
+
+		internal = 
+			de: msg.message.de
+			en: msg.message.en
+			selector: selector
+
+		CitizenUser._feedback.open.push internal
+
 		data = 
-			kind: kind
-			name: Util.sanitize(msg.twittername[...CitizenUser.maxTwitterNameLength])
-			pre: Model.msg.get("#{msg_key}_feedback_pre")
-			post: Model.msg.get("#{msg_key}_feedback_post")
+			kind: msg.status
+			selector: selector
+			message: msg.message[Util.getLang()]
+			# name: Util.sanitize(msg.twittername[...CitizenUser.maxTwitterNameLength])
+			# pre: Model.msg.get("#{msg_key}_feedback_pre")
+			# post: Model.msg.get("#{msg_key}_feedback_post")
 		template = """
-			<div class="entry {{kind}}"> 
+			<div class="entry {{kind}}" id="{{selector}}"> 
       			<div>
-        			<span translatestring stringID="{{kind}}_feedback_pre"> {{pre}} </span>
-        			<span class="twittername"> {{name}} </span>
-        			<span translatestring stringID="{{kind}}_feedback_post"> {{post}} </span>
+      				<span id="{{selector}}-message}}>
+      					{{message}}
+      				</span>
       			</div>
     		</div>
 		"""
 		elem = $(Mustache.render(template, data))
 		$('#citizen-user-feedback-list').append(elem)
 		setTimeout (() -> 
+			CitizenUser._feedback.shift() # remove first
 			elem.addClass("fade-out")
 			setTimeout (() -> elem.remove()), 1500
 		), 10000
