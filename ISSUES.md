@@ -3,12 +3,11 @@
 ## Open Questions
 
 [Next Meeting]
-> - [Both] About page on public facing site.
+- [Both] About page on public facing site.
   -> Ehh, an unstylized `<ul>` gotta do the job.
 - Soll "HoT" wirklich ein Politiker sein?  Vielleicht im Frontend "verstecken"?
 
 [Volker]
-- French?
 - Paper? - Paper!
 - Poke Volker: How does the hall look.
 - Make a decision about the "Feetless Akoya"
@@ -62,7 +61,11 @@ Nothing to do currently
 
 ## Model
 
-Nuthin'.  Watchin' tha game, njoyin' a bud …
+Nuthin'.  Watchin' da game, havin' a bud …
+- [Ben] Stephan Schweitzer hinzufügen:
+    Twitter-Handle: @sc_ontour
+- [Ben] Add Schweitzer's CV
+- [Ben] Check how long the cv entries are, and enrich short ones.
 
 ## Publicity (public-facing page)
 
