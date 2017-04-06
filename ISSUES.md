@@ -62,10 +62,6 @@ Nothing to do currently
 ## Model
 
 Nuthin'.  Watchin' da game, havin' a bud …
-- [Ben] Stephan Schweitzer hinzufügen:
-    Twitter-Handle: @sc_ontour
-- [Ben] Add Schweitzer's CV
-- [Ben] Check how long the cv entries are, and enrich short ones.
 
 ## Publicity (public-facing page)
 
