@@ -1,30 +1,31 @@
 {
   "unknown-user": {
-    "de": "Konnte \"{name}\" nicht auf Twitter finden",
-    "en": "Couldn't find \"{name}\" on twitter"
+    "de": "Konnte \"{name}\" nicht auf Twitter finden.",
+    "en": "Could not find \"{name}\" on twitter."
   },
   "is-politician": {
-    "de": "Politiker \"{name}\" kann nicht als Besucher eingetragen werden",
-    "en": "Deputy \"{name}\" can't be added as visitor"
+    "de": "\"{name}\" wird bereits gefolgt.",
+    // "en": "Politician \"{name}\" cannot be added as visitor."
+    "en": "\"{name}\" is already followed."
   },
   "unknown-bird": {
-    "de": "Bitte wähle einen anderen Vogel, {name}",
-    "en": "Please choose a different bird, {name}"
+    "de": "Bitte wähle einen anderen Vogel aus, {name}.",
+    "en": "Please choose a different bird, {name}."
   },
   "succ-resolved": {
-    "de": "Account von {name} gefunden.  Synchronisiere …",
-    "en": "Found your account, {name}.  Synchronizing …"
+    "de": "Account von {name} gefunden. Gleich wird es losgehen…", 
+    "en": "Found your account, {name}. You can start shortly …" 
   },
   "succ-firstpoll": {
-    "de": "{name} kann loslegen!",
+    "de": "{name} kann los-tweeten!", 
     "en": "{name} can start tweeting!"
   },
   "del-timeout": {
-    "de": "{name} entfernt",
-    "en": "{name} deleted"
+    "de": "{name} entfernt.",
+    "en": "{name} deleted."
   },
   "del-toomany": {
-    "de": "{name} entfernt",
-    "en": "{name} deleted"
+    "de": "{name} entfernt.",
+    "en": "{name} deleted."
   }
 }
