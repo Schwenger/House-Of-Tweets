@@ -70,11 +70,7 @@ CitizenUser =
 		# to the status, an appropriately colored message field shall be added
 		# to the page.
 		if msg.reason?
-			console.log "Error adding user #{msg.twittername}. Reason: #{msg.reason}"
-		[kind, msg_key] = switch msg.error
-			when undefined then ["success", "success"]
-			when "is-politician" then ["info", "is_poli"]
-			else ["error", "error"]
+			console.log "**INFO** User: #{msg.twittername}. Status: #{msg.status}. Reason: #{msg.reason}."
 
 		id = 'feedback-container-' + CitizenUser._feedback.id
 		CitizenUser._feedback.id = (CitizenUser._feedback.id + 1) % CitizenUser._feedback.threshold
