@@ -5,7 +5,6 @@
   },
   "is-politician": {
     "de": "\"{name}\" wird bereits gefolgt.",
-    // "en": "Politician \"{name}\" cannot be added as visitor."
     "en": "\"{name}\" is already followed."
   },
   "unknown-bird": {
@@ -13,7 +12,7 @@
     "en": "Please choose a different bird, {name}."
   },
   "succ-resolved": {
-    "de": "Account von {name} gefunden. Gleich wird es losgehen…", 
+    "de": "Account von {name} gefunden. Gleich wird es losgehen …",
     "en": "Found your account, {name}. You can start shortly …" 
   },
   "succ-firstpoll": {
