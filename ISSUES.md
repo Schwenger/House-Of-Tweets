@@ -70,6 +70,9 @@ Nuthin'.  Watchin' da game, havin' a bud …
 ## Publicity (public-facing page)
 
 - [Max] Make preview-video's dimensions dynamic (responsive)
+- [Ben] Add date, time, place
+    18.5.
+- [Ben] Landesvertretung fragen, auf unsere Seite zu verlinken.
 
 ## Publicity
 
