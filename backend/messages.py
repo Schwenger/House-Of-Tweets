@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json
 from twitter import UpdatesConsumer
 from threading import RLock
@@ -42,3 +44,16 @@ class UpdatesQueueAdapter(UpdatesConsumer):
     def updateShortpoll(self, username: str, reason: str):
         with self.lock:
             self.q.post(phrase(username, reason))
+
+
+if __name__ == '__main__':
+    import mq
+    from time import sleep
+    print("Sending some example messages to the real queue:")
+    q = UpdatesQueueAdapter(mq.RealQueue("citizenUserFeedbackQueue"))
+    for k in sorted(msgs_types.keys()):
+        sleep(4)
+        user = "Us_%s_er" % k
+        print("  Sending a {} message", k)
+        q.updateShortpoll(user, k)
+    print("All done.")
