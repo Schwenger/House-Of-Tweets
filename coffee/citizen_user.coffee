@@ -63,7 +63,7 @@ CitizenUser =
 		@translateBirds()
 		for container in @_feedback.open
 			newMsg = container[Util.getLang()]
-			$(container.selector + "-message").text(newMsg)
+			$(container.selector).text(newMsg)
 
 	_consumeFeedback: (msg) ->
 		# Consumes a message from the feedback queue. That means, with respect
@@ -76,36 +76,29 @@ CitizenUser =
 			when "is-politician" then ["info", "is_poli"]
 			else ["error", "error"]
 
-		selector = '#feedback-container-' + CitizenUser._feedback.id
+		id = 'feedback-container-' + CitizenUser._feedback.id
 		CitizenUser._feedback.id = (CitizenUser._feedback.id + 1) % CitizenUser._feedback.threshold
 
 		internal = 
 			de: msg.message.de
 			en: msg.message.en
-			selector: selector
+			selector: '#' + id
 
 		CitizenUser._feedback.open.push internal
-
 		data = 
 			kind: msg.status
-			selector: selector
+			id: id
 			message: msg.message[Util.getLang()]
-			# name: Util.sanitize(msg.twittername[...CitizenUser.maxTwitterNameLength])
-			# pre: Model.msg.get("#{msg_key}_feedback_pre")
-			# post: Model.msg.get("#{msg_key}_feedback_post")
 		template = """
-			<div class="entry {{kind}}" id="{{selector}}"> 
-      			<div>
-      				<span id="{{selector}}-message}}>
-      					{{message}}
-      				</span>
-      			</div>
+			<div class="entry {{kind}}" id="{{id}}"> 
+      			{{message}}
     		</div>
 		"""
+
 		elem = $(Mustache.render(template, data))
 		$('#citizen-user-feedback-list').append(elem)
 		setTimeout (() -> 
-			CitizenUser._feedback.shift() # remove first
+			CitizenUser._feedback.open.shift() # remove first
 			elem.addClass("fade-out")
 			setTimeout (() -> elem.remove()), 1500
 		), 10000
