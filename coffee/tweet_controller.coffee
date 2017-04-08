@@ -107,7 +107,7 @@ TweetController =
 		# d) Displaying the tweet and playing the sound if the mode is
 		# 	 appropriate.
 
-		newMixed = @_transform(incomingTweets)
+		newMixed = @_transformAll(incomingTweets)
 		[newPoli, birdChange] = @_classify(newMixed)
 
 		@_updatePoliBird(tweet.refresh) for tweet in birdChange
@@ -228,7 +228,7 @@ TweetController =
 		@_tLists.mixed = @_tLists.mixed[numEvictedMixed...]
 		[evictedPoli, evictedMixed]
 
-	_transform: (tweets) ->
+	_transformAll: (tweets) ->
 		# Transforms tweets in the internal representation.
 		tweet.time = new Date(parseInt tweet.time) for tweet in tweets
 		@_transform(tweet) for tweet in tweets
@@ -236,8 +236,8 @@ TweetController =
 	_classify: (tweets) ->
 		# Returns a list with tweets by politicians and tweets with a change in 
 		# bird. Potentially overlapping
-		poli = tweet for tweet in tweets when tweet.poli?
-		birdChange = tweet for tweet in tweets when tweet.refresh?
+		poli = (tweet for tweet in tweets when tweet.poli?)
+		birdChange = (tweet for tweet in tweets when tweet.refresh?)
 		[poli, birdChange]
 
 	_removeTweets: (tweets) ->
