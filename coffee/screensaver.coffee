@@ -15,7 +15,7 @@ Screensaver =
 		# Initializes the screen saver by setting timeouts and interval checks.
 		$(document).click (->
 			Screensaver.lastTouch = Util.time()
-			Screensaver.stop()
+			Screensaver.stop() if Screensaver.active
 		)
 
 		checkActivation = () ->

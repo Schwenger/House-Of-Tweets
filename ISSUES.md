@@ -18,6 +18,7 @@
 
 [Max]
 - Bird list -> allow to show drawings???
+	-> No.
 
 [Both]
 - Keyboard situation
@@ -50,7 +51,7 @@ Nothing to do currently
 
 - [HIGH PRIORITY] INCLUDE REFERENCE TO BIRD PERSON!!!
 
-- [Max] Fix screensaver
+- [Max] Fix screensaver - DONE
 - [Max] Imprint "button" placement
 - [Max] Prepare removing "drawing" feature
 - [Max] auto focus input field
