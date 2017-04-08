@@ -56,7 +56,7 @@ Nothing to do currently
 - [Max] Left sidebar control and flags overlap invisibly. - DONE
 - [Max] Prepare removing "drawing" feature
 - [Max] auto focus input field
-- [Max] bird on tweet more prominent
+- [Max] bird on tweet more prominent - Done?
 - [Max] "Add Citizen User" should not play sound of already displayed tweets
 - [Max] Add Citizen User page: After scrolling: Arrows have different opacity -> take the one after scrolling.
 - [Max] Replace double-spaces in politician's CV by `<br />` or something.
