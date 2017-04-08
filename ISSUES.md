@@ -52,7 +52,7 @@ Nothing to do currently
 - [HIGH PRIORITY] INCLUDE REFERENCE TO BIRD PERSON!!!
 
 - [Max] Fix screensaver - DONE
-- [Max] Imprint "button" placement
+- [Max] Imprint "button" placement - DONE
 - [Max] Prepare removing "drawing" feature
 - [Max] auto focus input field
 - [Max] bird on tweet more prominent
