@@ -145,13 +145,14 @@ VoicesLists =
 	_displayPolis: (root, prefix, list) ->
 		for own id, p of list
 			do(id, p) ->
-				firstLine = p.name
-				image = Util.politicianPath p.images?.pathToThumb
-				obj = Util.createListEntry id, firstLine, p.party, image, prefix, undefined
-				root.append obj
-				obj.click () -> 
-					frozen = $(@).attr("frozen") is "true"
-					Profiles.openPoliticianPage id unless frozen
+				if id isnt 'hot'
+					firstLine = p.name
+					image = Util.politicianPath p.images?.pathToThumb
+					obj = Util.createListEntry id, firstLine, p.party, image, prefix, undefined
+					root.append obj
+					obj.click () -> 
+						frozen = $(@).attr("frozen") is "true"
+						Profiles.openPoliticianPage id unless frozen
 		@_handleScroll("poli")
 
 	_displayBirds: (root, prefix, list) ->

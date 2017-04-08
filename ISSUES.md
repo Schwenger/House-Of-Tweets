@@ -6,6 +6,7 @@
 - [Both] About page on public facing site.
   -> Ehh, an unstylized `<ul>` gotta do the job.
 - Soll "HoT" wirklich ein Politiker sein?  Vielleicht im Frontend "verstecken"?
+		-> Wahrscheinlich eine gute Idee, habe es mal eingefügt.
 
 [Volker]
 - Paper? - Paper!
