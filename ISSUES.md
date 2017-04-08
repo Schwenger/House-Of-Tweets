@@ -53,6 +53,7 @@ Nothing to do currently
 
 - [Max] Fix screensaver - DONE
 - [Max] Imprint "button" placement - DONE
+- [Max] Left sidebar control and flags overlap invisibly. - DONE
 - [Max] Prepare removing "drawing" feature
 - [Max] auto focus input field
 - [Max] bird on tweet more prominent
