@@ -95,7 +95,7 @@ TweetController =
 	# Public
 	showAllTweets: () ->
 		# Displays politician tweets as well as citizen user tweets.
-		$('#citizen-tweets-switch').prop('checked', false);
+		$('#citizen-tweets-switch').prop('checked', true);
 		@_changeShownTweets()
 
 	# Public
@@ -170,7 +170,7 @@ TweetController =
 		@_changeShownTweets (all=false)
 
 	_toggleShownTweets: (switchObj) ->
-		@_changeShownTweets $(switchObj).prop('checked')
+		@_changeShownTweets not $(switchObj).prop('checked')
 
 	_changeShownTweets: (all) ->
 		# Adapts the list of tweets w.r.t. the selected mode.
@@ -236,7 +236,7 @@ TweetController =
 	_classify: (tweets) ->
 		# Returns a list with tweets by politicians and tweets with a change in 
 		# bird. Potentially overlapping
-		poli = (tweet for tweet in tweets when tweet.poli?)
+		poli = (tweet for tweet in tweets when tweet.bid.poli?)
 		birdChange = (tweet for tweet in tweets when tweet.refresh?)
 		[poli, birdChange]
 
