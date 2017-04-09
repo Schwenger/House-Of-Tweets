@@ -40,14 +40,11 @@ TweetController =
 		leftLabelV = 
 			selec: '#voices-switch-label-citizens'
 			handlerGen: (obj) ->
-				() -> 
-					console.log "Handler in leftLabelV called."
-					TweetController._selectCitizenBirds(obj)
+				() -> TweetController._selectCitizenBirds(obj)
 		rightLabelV = 
 			selec: '#voices-switch-label-politicians', 
 			handlerGen: (obj) ->
 				() -> TweetController._selectPoliBirds(obj)
-		console.log "Now initializing single switches."
 		@_initSwitch(voicesSwitch, leftLabelV, rightLabelV)
 		@_usePoliBirds = true # Put default in class-global scope.
 
