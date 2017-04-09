@@ -55,7 +55,8 @@ CitizenUser =
 	# Public
 	open: ->
 		# No further initialization.
-		0
+		$('#citizen-user-name-input').focus()
+
 	# Public 
 	prepareOpen: ->
 		# No preparation.
