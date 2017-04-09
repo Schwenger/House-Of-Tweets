@@ -169,7 +169,7 @@ Profiles =
 		$("#voices-profile-cv-bird").text(bird[Util.addLang "cv"])
 		$("#voices-profile-picture-bird").attr("src", Util.birdPath id)
 		
-		if Model.birds[id].has_drawing
+		if Global.config.allow_bird_drawings and Model.birds[id].has_drawing
 			$("#bird-photo-switch-container").removeClass "invisible"
 			$("#voices-profile-picture-bird-drawing").attr("src", Util.birdPath(id, "-drawing"))
 			imageSwitch = $("#picture-artist-image-switch")

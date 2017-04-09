@@ -22,5 +22,6 @@ Global = {
 
 	config:
 		citizen_user_bird_entry_clickable: false
+		allow_bird_drawings: false
 }
 
