@@ -32,6 +32,9 @@ CitizenUser =
 		})
 
 		@_initBirdList()
+		# Enable buttons by default.
+		$('.flickity-prev-next-button').each () -> $(@).removeProp('disabled')
+
 		$(document).keyup () -> CitizenUser._notifySelectButtons()
 
 	# Public
