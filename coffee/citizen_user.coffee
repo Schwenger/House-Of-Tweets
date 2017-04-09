@@ -106,7 +106,7 @@ CitizenUser =
 	_leave: () ->
 		# Leave the page without further user interaction.
 		@leavePage()
-		$("carousel-control-prev").click()
+		$('#carousel-control-prev').click()
 
 	_disableSelectButtons: () ->
 		# All buttons in the bird list will become disabled.
