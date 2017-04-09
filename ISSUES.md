@@ -49,18 +49,19 @@ Nothing to do currently
 
 ## Frontend:
 
+- [Urgent] Adding new user will remove tweets by polis.
 - [HIGH PRIORITY] INCLUDE REFERENCE TO BIRD PERSON!!!
 
 - [Max] Fix screensaver - DONE
 - [Max] Imprint "button" placement - DONE
 - [Max] Left sidebar control and flags overlap invisibly. - DONE
-- [Max] Prepare removing "drawing" feature
-- [Max] auto focus input field
+- [Max] Prepare removing "drawing" feature - DONE
+- [Max] auto focus input field - DONE
 - [Max] bird on tweet more prominent - Done?
 - [Max] "Add Citizen User" should not play sound of already displayed tweets
-- [Max] Add Citizen User page: After scrolling: Arrows have different opacity -> take the one after scrolling.
-- [Max] Replace double-spaces in politician's CV by `<br />` or something.
-- [Max] Adapt data structure for citizen user feedback queue, see README
+- [Max] Add Citizen User page: After scrolling: Arrows have different opacity -> take the one after scrolling. - DONE
+- [Max] Replace double-spaces in politician's CV by `<br />` or something. - DONE
+- [Max] Adapt data structure for citizen user feedback queue, see README - DONE
 
 ## Model
 
