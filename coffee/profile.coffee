@@ -119,7 +119,10 @@ Profiles =
 		$("#voices-profile-name-politician").text(poli.name)
 
 		# CV
-		$("#voices-profile-cv-politician").text(poli.cv[Global.langId()])
+		cv = poli.cv[Global.langId()]
+		cv = cv.replace("  ", "<br>")
+		# CV data is from backend and thus assume to be sane.
+		$("#voices-profile-cv-politician").html(cv)
 		cvSrcObj = $("#voices-profile-cv-politician-src")
 		cvSrcObj.text(if poli.cv.src? then poli.cv.src else "")
 
