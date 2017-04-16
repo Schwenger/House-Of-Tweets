@@ -17,20 +17,24 @@ T1? T2? Task
         open properties, IPv4 -> properties
 [X] [_] check 'Use the following IP address:'
 [X] [_] insert the respective values
-[X] [_] use `8.8.8.8` and `8.8.4.4` as 
+[X] [X] use `8.8.8.8` and `8.8.4.4` as 
         DNS addresses.
-        save and exit. Run `cmd` from the start menu and type `ipconfig`. 
-[X] [_] Make sure the changes have been applied.
+     ?  save and exit. Run `cmd` from the start menu and type `ipconfig`. 
+[X] [X] Make sure the changes have been applied.
         open energy options, change plan settings
-[X] [_] turn off the display: never
+[X] [X] turn off the display: never
         -> change advanced settings for this plan
         leave as is except: 
-[X] [_] Sleep -> hibernate after -> never
-[X] [_] Display -> turn off display after: never
-[X] [_] open the settings for All Control Panel Items -> Notification Area Icons
-[X] [_] hide all notifications
+[X] [X] Sleep -> hibernate after -> never
+[X] [X] Display -> turn off display after: never
+[X] [X] open the settings for All Control Panel Items -> Notification Area Icons
+[X] [X] hide all notifications
 
-========================[ Key Lock ]========================
+============================[ Programs ]=============================
+T1? T2? Task
+Python?  PIP?  Erlang?  Rabbit?
+
+============================[ Key Lock ]=============================
 T1? T2? Task
 [X] [_] download and install "kid key lock"
         open setup
