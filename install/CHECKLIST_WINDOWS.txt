@@ -4,7 +4,7 @@ so we can undo/redo anything needed.
 
 =======================[ Driver Installation ]=======================
 T1? T2? Task
-[X] [_] get `.exe` files for drivers from medion website
+[X] [X] get `.exe` files for drivers from medion website
 [X] [_] extract each of them
 [X] [_] open device manager, install each missing driver. NB: One will fail
 [X] [_] restart machine

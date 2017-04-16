@@ -15,8 +15,10 @@ HTML=html
 DIRS=${OUT} ${TEMP} out_pubweb/imgs out_pubweb/css out_pubweb/js
 MODELS:=$(wildcard ${MODEL}/*.coffee)
 
+# Max: /Volumes/TF
+# Ben: /media/eispin/BW2-NTFS
 WINDOWSSHARE=/Volumes/TF
-EXPORTDIR=ext out backend tools
+EXPORTDIR=ext out backend tools/tweepy_monkeypatch
 
 all: frontend backend
 
@@ -24,13 +26,12 @@ all: frontend backend
 
 .PHONY: windows
 windows: all
-	sed -e "s/citizenUserLoadingTime = 1000;/citizenUserLoadingTime = 3000/;" -i "" ${OUT}/main.js
+	sed -i -e "s/citizenUserLoadingTime = 1000;/citizenUserLoadingTime = 3000/;" ${OUT}/main.js
 	echo Copying files to ${WINDOWSSHARE}.
 	mkdir -p $(WINDOWSSHARE)/HoT
 	# "Processing... This might take a while."
-	for dir in $(EXPORTDIR) ; do \
-		rsync $$dir ${WINDOWSSHARE}/HoT -a --copy-links ; \
-	done
+	rsync --stats -a --copy-links --exclude node_modules --delete-excluded ${EXPORTDIR} ${WINDOWSSHARE}/HoT
+	# Note that tweepy_monkeypatch is now at the top-level.
 
 # FRONTEND
 
