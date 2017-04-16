@@ -17,7 +17,7 @@ MODELS:=$(wildcard ${MODEL}/*.coffee)
 
 # Max: /Volumes/TF
 # Ben: /media/eispin/BW2-NTFS
-WINDOWSSHARE=/Volumes/TF
+WINDOWSSHARE?=/Volumes/TF
 EXPORTDIR=ext out backend tools/tweepy_monkeypatch
 
 all: frontend backend
