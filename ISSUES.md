@@ -42,6 +42,8 @@
 - [Any] Copy over concept text to public facing site
 - [Any] Check language -> British English
 - [Max] Re-check whether switch-icons are correctly aligned with the switch-text (e.g. "stimmen von")
+- [Any] Make sure to run HoT *in a fresh tab*, so that "Back" and "Redo" doesn't apply as a browser-concept, and therefore there's no accidental gestures possible.
+- [Any] Clean Downloads folder and Hinstory, just to make it less interesting to troll
 
 ## Backend:
 

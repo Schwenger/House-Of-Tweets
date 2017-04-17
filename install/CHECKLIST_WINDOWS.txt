@@ -2,6 +2,9 @@ This is a check-list for setting up a new installation, beginning right after th
 Please document all relevant steps taken on the actual machines,
 so we can undo/redo anything needed.
 
+T1: The "good" Akoya.
+T2: The one with the self-made frame
+
 =======================[ Driver Installation ]=======================
 T1? T2? Task
 [X] [X] get `.exe` files for drivers from medion website
@@ -29,10 +32,15 @@ T1? T2? Task
 [X] [X] Display -> turn off display after: never
 [X] [X] open the settings for All Control Panel Items -> Notification Area Icons
 [X] [X] hide all notifications
+[_] [X] Control Panel > Clock, Language, Region > Change keyboards > Select and add "German" to the list
+        (So that the virtual keyboard is usable in German)
 
 ============================[ Programs ]=============================
 T1? T2? Task
-Python?  PIP?  Erlang?  Rabbit?
+[X] [X] Follow README for installation of Python (includes pip), Erlang, RabbitMQ.
+[_] [X] Install Teamviewer ("unattended access")
+[_] [X] Run Teamviewer and disable message about "still running"
+[_] [X] Save password in /.secrets/teamviewer.txt
 
 ============================[ Key Lock ]=============================
 T1? T2? Task
