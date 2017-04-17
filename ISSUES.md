@@ -15,6 +15,7 @@
     * currently it's pretty bad: the "air holes" are irregular and look improvised – which they are.
     * getting the real "Standfuß" seems impossible
     * not desperate enough to ask the devil
+- Need someone at the exhibition to press the "Close" button whenever we log out from TeamViewer.
 
 [Max]
 - Bird list -> allow to show drawings???
@@ -25,7 +26,7 @@
 - Retweet information/details
 - Wording
 - Curse Word Replacements
-- TeamViewer?
+- TeamViewer!
 
 ## Windows setup:
 
