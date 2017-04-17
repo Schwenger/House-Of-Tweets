@@ -65,6 +65,8 @@ Nothing to do currently
 - [Max] Replace double-spaces in politician's CV by `<br />` or something. - DONE
 - [Max] Adapt data structure for citizen user feedback queue, see README - DONE
 
+- [Max] Move "Imprint" button a bit up: Barely reachable (by physical finger) on Tweetian2
+
 ## Model
 
 Nuthin'.  Watchin' da game, havin' a bud …
