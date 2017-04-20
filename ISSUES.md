@@ -67,6 +67,8 @@ Nothing to do currently
 - [Max] Adapt data structure for citizen user feedback queue, see README - DONE
 
 - [Max] Move "Imprint" button a bit up: Barely reachable (by physical finger) on Tweetian2
+- [Max] After "Zooming", the bird selection scroll thing (CitizenUser) is broken.
+- [Max] Apparently, there's a 4x2 grid.
 
 ## Model
 
