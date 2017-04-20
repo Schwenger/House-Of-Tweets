@@ -57,8 +57,18 @@ STRINGS_DE = {
         und tragen zum Klangerlebnis bei.
         """,
     'index_spacetime': 'Ort und Zeit',
-    'index_spacetime_text': 'Aufgrund von Krankheit ist die Ausstellung'
-                            ' vorerst auf unbestimmte Zeit verschoben.',
+    'index_spacetime_text': """
+        Die Ausstellung beginnt am Donnerstag, den 18. Mai 2017,
+        und findet in der saarl&auml;ndischen Landesvertretung statt.
+        <br />
+        Die Anschrift lautet:
+        <blockquote>
+        Die Vertretung des Saarlandes beim Bund <br />
+        In den Ministerg&auml;rten 4 <br />
+        10117 Berlin <br />
+        <a class="quotelink" href="https://www.google.de/maps/place/Berlin+Landesvertretung+Saarland">In Google Maps &ouml;ffnen</a>
+        </blockquote>
+        """,
     'index_demo': 'Vorschau',
     # Appears on birds.html only:
     'birds_lead': 'Alle Vogelstimmen, die im Rahmen des Projekts House of Tweets zur Verf&uuml;gung stehen.',
@@ -75,7 +85,7 @@ STRINGS_DE = {
         ' unseren Systemen &uuml;bernommen.',
     'birds_list_title': 'Vogelliste',
     # Appears on about.html only:
-    'about_lead': 'Wer wir sind, und unsere Sponsoren.',
+    'about_lead': 'Wer wir und unsere Sponsoren sind.',
     'about_sponsors': 'Sponsoren',
     'about_sponsors_html': """<ul>
         <li>
@@ -140,8 +150,18 @@ STRINGS_EN = {
         They can also add their own twitter account, choose a bird, and become themselves part of the exhibit. Their tweets will not only be displayed among the politicians', but become audible and contribute to the sound experience.
         """,
     'index_spacetime': 'Place and time',
-    'index_spacetime_text': 'Due to illness, the exhibition is postponed'
-                            ' indefinitely at the moment.',
+    'index_spacetime_text': """
+        The exhibition opens on Thursday, the 18th of May 2017,
+        in the saarl&auml;ndische Landesvertretung.
+        <br />
+        The address is:
+        <blockquote>
+        Die Vertretung des Saarlandes beim Bund <br />
+        In den Ministerg&auml;rten 4 <br />
+        10117 Berlin <br />
+        <a class="quotelink" href="https://www.google.de/maps/place/Berlin+Landesvertretung+Saarland">Open in Google Maps</a>
+        </blockquote>
+        """,
     'index_demo': 'Preview',
     # Appears on birds.html only:
     'birds_lead': 'All bird voices that can be selected, in the context of the project House of Tweets.',
@@ -157,7 +177,7 @@ STRINGS_EN = {
         ' send a Tweet, and their preferred bird voice will be applied by our systems',
     'birds_list_title': 'List of recognised birds.',
     # Appears on about.html only:
-    'about_lead': 'Who we are, and our sponsors.',
+    'about_lead': 'Who we and our sponsors are.',
     'about_sponsors': 'Sponsors',
     'about_sponsors_html': """<ul>
         <li>
