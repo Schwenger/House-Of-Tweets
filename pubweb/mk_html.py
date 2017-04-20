@@ -69,7 +69,6 @@ STRINGS_DE = {
         <a class="quotelink" href="https://www.google.de/maps/place/Berlin+Landesvertretung+Saarland">In Google Maps &ouml;ffnen</a>
         </blockquote>
         """,
-    'index_demo': 'Vorschau',
     # Appears on birds.html only:
     'birds_lead': 'Alle Vogelstimmen, die im Rahmen des Projekts House of Tweets zur Verf&uuml;gung stehen.',
     'birds_function_title': 'Funktionsweise',
@@ -162,7 +161,6 @@ STRINGS_EN = {
         <a class="quotelink" href="https://www.google.de/maps/place/Berlin+Landesvertretung+Saarland">Open in Google Maps</a>
         </blockquote>
         """,
-    'index_demo': 'Preview',
     # Appears on birds.html only:
     'birds_lead': 'All bird voices that can be selected, in the context of the project House of Tweets.',
     'birds_function_title': 'How it works',
