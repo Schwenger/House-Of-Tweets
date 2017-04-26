@@ -24,8 +24,8 @@ NACK_TEMPLATES = [
     'Leider haben wir nicht alle Vogelstimmen, aber hier ist unsere Auswahl:',
 ]
 
-# https://houseoftweets.github.io/
-ACK_LINK = 'https://t.co/Jh0JMFWHWK'
+# https://houseoftweets.github.io/birds.html
+ACK_LINK = 'https://t.co/oXBoTZ6VUG'
 NACK_LINK = ACK_LINK
 
 
