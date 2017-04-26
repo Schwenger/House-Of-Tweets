@@ -34,6 +34,11 @@ T1? T2? Task
 [X] [X] hide all notifications
 [_] [X] Control Panel > Clock, Language, Region > Change keyboards > Select and add "German" to the list
         (So that the virtual keyboard is usable in German)
+[X] [_] Touch input: disable multi-gestures, disable rightclick
+[X] [?] Re-upload images of politicians
+[X] [_] Shortcut: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk file:///C:/Users/user/Downloads/HoT/out/main.html -kiosk-printing --start-fullscreen
+[X] [_] Install sharpkeys: all F keys, mute key, special application, left alt, left ctrl, left windows, right alt, right ctrl, right windows, click "write to registry"
+[_] [_] check with keyboards at exhibition
 
 ============================[ Programs ]=============================
 T1? T2? Task
