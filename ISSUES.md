@@ -34,7 +34,6 @@
 - [Any] Copy over concept text to public facing site
 - [Any] Check language -> British English
 - [Max] Re-check whether switch-icons are correctly aligned with the switch-text (e.g. "stimmen von")
-- [Any] Make sure to run HoT *in a fresh tab*, so that "Back" and "Redo" doesn't apply as a browser-concept, and therefore there's no accidental gestures possible.
 - [Any] Clean Downloads folder and Hinstory, just to make it less interesting to troll
 - [Any] Make extra triple-sure that both have the newest version of backend (`backend/`),
         frontend (`out/` after `$ make frontend`) and images (`ext/images/politicians/`) if appliccable
@@ -62,7 +61,8 @@ Nothing to do currently
 - [Max] Adapt data structure for citizen user feedback queue, see README - DONE
 
 - [Max] Move "Imprint" button a bit up: Barely reachable (by physical finger) on Tweetian2
-- [Max] After "Zooming", the bird selection scroll thing (CitizenUser) is broken.
+- [Max] The bird selection scroll thing (CitizenUser) is sometimes broken.
+- [Max] The `@` (CitizenUser) is always broken.
 - [Max] Apparently, there's a 4x2 grid.
 
 ## Model
