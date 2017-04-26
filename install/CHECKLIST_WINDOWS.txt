@@ -8,9 +8,9 @@ T2: The one with the self-made frame
 =======================[ Driver Installation ]=======================
 T1? T2? Task
 [X] [X] get `.exe` files for drivers from medion website
-[X] [_] extract each of them
-[X] [_] open device manager, install each missing driver. NB: One will fail
-[X] [_] restart machine
+[X] [Y] extract each of them (Y: skipped, but seems unnecessary)
+[X] [Y] open device manager, install each missing driver. NB: One will fail (Y: skipped, but seems unnecessary)
+[X] [Y] restart machine
 
 =======================[ System configuration ]======================
 T1? T2? Task
@@ -20,7 +20,7 @@ T1? T2? Task
         open properties, IPv4 -> properties
 [X] [X] use `8.8.8.8` and `8.8.4.4` as 
         DNS addresses.
-     ?  save and exit. Run `cmd` from the start menu and type `ipconfig`. 
+        save and exit. Run `cmd` from the start menu and type `ipconfig`. 
 [X] [X] Make sure the changes have been applied.
         open energy options, change plan settings
 [X] [X] turn off the display: never
@@ -32,12 +32,20 @@ T1? T2? Task
 [X] [X] hide all notifications
 [X] [X] Control Panel > Clock, Language, Region > Change keyboards > Select and add "German" to the list
         (So that the virtual keyboard is usable in German)
-[X] [_] Touch input: disable multi-gestures, disable rightclick
-[X] [?] Re-upload images of politicians
-[X] [_] Shortcut: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk file:///C:/Users/user/Downloads/HoT/out/main.html -kiosk-printing --start-fullscreen
-[X] [_] Install sharpkeys: all F keys, mute key, special application, left alt, left ctrl, left windows, right alt, right ctrl, right windows, click "write to registry"
+[X] [X] Touch input: disable multi-gestures, disable rightclick
+[X] [X] Re-upload images of politicians
+[X] [X] Shortcut
+        T1:
+                "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk file:///C:/Users/user/Downloads/HoT/out/main.html -kiosk-printing --start-fullscreen
+        T2:
+                "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk file:///C:/Users/hot/HoT/out/main.html -kiosk-printing --start-fullscreen
+[_] [X] Mark the shortcut as such
+[X] [X] Install sharpkeys: all F keys, mute key, special application, left alt, left ctrl, left windows, right alt, right ctrl, right windows, click "write to registry"
+        https://sharpkeys.codeplex.com/
+        In the future available at: http://www.github.com/randyrants/sharpkeys
+[_] [X] Additional keys: CapsLock, Escape, PrintScreen, NumLock
 [_] [_] check with keyboards at exhibition
-[X] [_] On screen keyboard (findable by windows search in the start menu): Disable "Input bar" and "note" thing.
+[X] [X] On screen keyboard (findable by windows search in the start menu): Disable "Input bar" and "note" thing.
 
 ============================[ Programs ]=============================
 T1? T2? Task
@@ -50,15 +58,6 @@ T1? T2? Task
 [X] [X] Run Teamviewer and disable message about "still running"
 [X] [X] Save password in /.secrets/teamviewer.txt
 
-============================[ Key Lock ]=============================
+===========================[ Hot itself ]============================
 T1? T2? Task
-[X] [_] download and install "kid key lock"
-        open setup
-[X] [_] lock middle and right mouse button
-[X] [_] lock all keys except character keys, space, enter and arrow keys
-[X] [_] set passwords, disable reminder, and save.
-
-[X] [_] deactive ctrl-keys
-[_] [_] deactive F-keys
-[_] [_] zoom deaktivieren
 [X] [_] Upload c113803

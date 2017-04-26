@@ -3,10 +3,8 @@
 ## Open Questions
 
 [Next Meeting]
-- [Both] About page on public facing site.
-  -> Ehh, an unstylized `<ul>` gotta do the job.
-- Soll "HoT" wirklich ein Politiker sein?  Vielleicht im Frontend "verstecken"?
-		-> Wahrscheinlich eine gute Idee, habe es mal eingefügt.
+- Check for remaining issues
+- Why does "Ben" ask the Landesvertretung to link to us?
 
 [Volker]
 - Paper? - Paper!
@@ -15,18 +13,11 @@
     * currently it's pretty bad: the "air holes" are irregular and look improvised – which they are.
     * getting the real "Standfuß" seems impossible
     * not desperate enough to ask the devil
-- Need someone at the exhibition to press the "Close" button whenever we log out from TeamViewer.
-
-[Max]
-- Bird list -> allow to show drawings???
-	-> No.
 
 [Both]
-- Keyboard situation
 - Retweet information/details
 - Wording
 - Curse Word Replacements
-- TeamViewer!
 
 ## Windows setup:
 
@@ -45,6 +36,10 @@
 - [Max] Re-check whether switch-icons are correctly aligned with the switch-text (e.g. "stimmen von")
 - [Any] Make sure to run HoT *in a fresh tab*, so that "Back" and "Redo" doesn't apply as a browser-concept, and therefore there's no accidental gestures possible.
 - [Any] Clean Downloads folder and Hinstory, just to make it less interesting to troll
+- [Any] Make extra triple-sure that both have the newest version of backend (`backend/`),
+        frontend (`out/` after `$ make frontend`) and images (`ext/images/politicians/`) if appliccable
+- [Any] Check that "our" shortcut is marked as such
+- [Any] Check CHECKLIST_WINDOWS.txt for missing entries
 
 ## Backend:
 
@@ -76,9 +71,6 @@ Nuthin'.  Watchin' da game, havin' a bud …
 
 ## Publicity (public-facing page)
 
-- [Max] Make preview-video's dimensions dynamic (responsive)
-- [Ben] Add date, time, place
-    18.5.
 - [Ben] Landesvertretung fragen, auf unsere Seite zu verlinken.
 
 ## Publicity
