@@ -18,8 +18,6 @@ T1? T2? Task
         change adapter settings
         right-click Wireless Network Connection/Local Area Connection
         open properties, IPv4 -> properties
-[X] [_] check 'Use the following IP address:'
-[X] [_] insert the respective values
 [X] [X] use `8.8.8.8` and `8.8.4.4` as 
         DNS addresses.
      ?  save and exit. Run `cmd` from the start menu and type `ipconfig`. 
@@ -32,24 +30,25 @@ T1? T2? Task
 [X] [X] Display -> turn off display after: never
 [X] [X] open the settings for All Control Panel Items -> Notification Area Icons
 [X] [X] hide all notifications
-[_] [X] Control Panel > Clock, Language, Region > Change keyboards > Select and add "German" to the list
+[X] [X] Control Panel > Clock, Language, Region > Change keyboards > Select and add "German" to the list
         (So that the virtual keyboard is usable in German)
 [X] [_] Touch input: disable multi-gestures, disable rightclick
 [X] [?] Re-upload images of politicians
 [X] [_] Shortcut: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk file:///C:/Users/user/Downloads/HoT/out/main.html -kiosk-printing --start-fullscreen
 [X] [_] Install sharpkeys: all F keys, mute key, special application, left alt, left ctrl, left windows, right alt, right ctrl, right windows, click "write to registry"
 [_] [_] check with keyboards at exhibition
+[X] [_] On screen keyboard (findable by windows search in the start menu): Disable "Input bar" and "note" thing.
 
 ============================[ Programs ]=============================
 T1? T2? Task
 [X] [X] Follow README for installation of Python (includes pip), Erlang, RabbitMQ.
 [X] [X] Follow README for configuring RabbitMQ (enable plugins)
-[_] [X] Open a command-line and run this to determine the file-to-replace:
+[X] [X] Open a command-line and run this to determine the file-to-replace:
                 import tweepy; print(tweepy.streaming.__file__)
         Copy the file /tools/tweepy_monkeypatch/streaming.py into that place.
-[_] [X] Install Teamviewer ("unattended access")
-[_] [X] Run Teamviewer and disable message about "still running"
-[_] [X] Save password in /.secrets/teamviewer.txt
+[X] [X] Install Teamviewer ("unattended access")
+[X] [X] Run Teamviewer and disable message about "still running"
+[X] [X] Save password in /.secrets/teamviewer.txt
 
 ============================[ Key Lock ]=============================
 T1? T2? Task
@@ -58,3 +57,8 @@ T1? T2? Task
 [X] [_] lock middle and right mouse button
 [X] [_] lock all keys except character keys, space, enter and arrow keys
 [X] [_] set passwords, disable reminder, and save.
+
+[X] [_] deactive ctrl-keys
+[_] [_] deactive F-keys
+[_] [_] zoom deaktivieren
+[X] [_] Upload c113803
