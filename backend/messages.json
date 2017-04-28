@@ -12,8 +12,8 @@
     "en": "Please choose a different bird, {name}."
   },
   "succ-resolved": {
-    "de": "Account von {name} gefunden. Gleich wird es losgehen …",
-    "en": "Found your account, {name}. You can start shortly …" 
+    "de": "Account von {name} gefunden. Gleich wird es losgehen.",
+    "en": "Found your account, {name}. You can start shortly." 
   },
   "succ-firstpoll": {
     "de": "{name} kann los-tweeten!", 

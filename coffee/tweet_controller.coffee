@@ -19,7 +19,7 @@ TweetController =
 		interval: 5 * 1000
 		size: 10
 	_poliTweetsOnly: true
-	_threshold: 6
+	_threshold: 8
 
 	init: ->
 		@_initSwitches()
