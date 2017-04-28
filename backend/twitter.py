@@ -354,8 +354,7 @@ class RealTwitterInterface(TwitterInterface):
                        .format(self.key, MAY_POST))
         else:
             mylog.info("Actually writing to Twitter!")
-            # self.api.update_status(status=content, in_reply_to_status_id=tweet_id)
-            mylog.error("Hah!  Gotcha.  :notyet:")
+            self.api.update_status(status=content, in_reply_to_status_id=tweet_id)
         mylog.info("-" * 40)
 
     def run_short_poll_wrap(self):
