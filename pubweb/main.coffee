@@ -9,14 +9,14 @@ BirdFeeder =
 	nextBirdIdx: 0
 
 	init: ->
-		# FIXME: assert(nextBirds is null)
+		# TODO: assert(nextBirds is null)
 		console.log "Auto-detect language"
 		lang_tags = $("ul.navbar-right > li.active img")
-		# FIXME: assert(len(lang_tags) == 1)
+		# TODO: assert(len(lang_tags) == 1)
 		lang_tag = $(lang_tags[0])
 		lang = lang_tag.attr("alt")
 		@birds = {"Deutsch": RawBirds_de, "English": RawBirds_en}[lang]
-		# FIXME: assert(not @birds is undefined)
+		# TODO: assert(not @birds is undefined)
 		# A single cell is 150 (image height) + 52 (text, padding, border)
 		#     + 20 (div margin) + 145 (loading anim height)
 		#     + (20+10) (loading anim description) = 397 pixels high

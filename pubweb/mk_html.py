@@ -209,7 +209,7 @@ assert STRINGS_DE.keys() == STRINGS_EN.keys()
 
 # Technically, I have to properly URI-component-escape the bid string.
 # Factually, I know that it's just plain ascii, so there's nothing to do.
-# FIXME: Properly share resources between this python code and the generating JS code.
+# TODO: Properly share resources between this python code and the generating JS code.
 BIRD_HTML_TEMPLATE = """<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
 <div class="bird-entry">
 <div class="bird-image">
