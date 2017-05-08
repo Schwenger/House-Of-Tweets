@@ -3,7 +3,7 @@
 import json
 
 recently_renamed = {
-    # 'Name in poli.json': 'Crawled Name'
+    # 'Name in pols.json': 'Crawled Name'
 }
 
 recently_ejected = {
@@ -392,9 +392,9 @@ def merge_all(by_name, padded_polis):
         name = poli['name']
         if name in recently_renamed:
             name = recently_renamed[name]
-        if name in recently_ejected or name == 'House Of Tweets':
-            # "House Of Tweets" will be injected back later on,
-            # but for now it's in the way.
+        if name in recently_ejected or poli['pid'] in IGNORE_PIDS:
+            # They will be injected back later on,
+            # but for now they are in the way.
             continue
         agg = by_name.get(name)
         if agg is None:

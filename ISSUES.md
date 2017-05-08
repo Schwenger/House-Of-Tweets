@@ -35,8 +35,6 @@
 
 ## Frontend:
 
-- [HIGH PRIORITY] INCLUDE REFERENCE TO BIRD PERSON!!!
-
 - [Max] The `@` (CitizenUser) is always broken.
 
 ## Model

@@ -302,8 +302,8 @@ SPOOF_USERS = {
         "name": "House Of Tweets",
         "pid": "hot",
         "cv": {
-          "en": "HoT is an ordinary German politician. He is a member of the Gr\u00fcn.",
-          "de": "Das sind wir."
+          "en": "A good bird person.  Very reliable.  But also killed.  In bird culture, that was considered a 'dick move'.",
+          "de": "Uhh, keine Ahnung, ich kenn das Zitat nur auf Englisch."
         },
         "images": {
           "pathToThumb": "tgroup_greengr\u00fcn.jpg",
