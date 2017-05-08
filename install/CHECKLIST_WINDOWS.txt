@@ -18,6 +18,7 @@ T1? T2? Task
         change adapter settings
         right-click Wireless Network Connection/Local Area Connection
         open properties, IPv4 -> properties
+[X] [_] "Use automatic local IP" or whatever it said.  Just use DHCP.
 [X] [X] use `8.8.8.8` and `8.8.4.4` as 
         DNS addresses.
         save and exit. Run `cmd` from the start menu and type `ipconfig`. 
