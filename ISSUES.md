@@ -36,6 +36,8 @@
 ## Frontend:
 
 - [Max] The `@` (CitizenUser) is always broken.
+- [Max] Can Windows play more than one sound at the same time?
+        On Linux, I just noticed, this fails silently. (Pun not intended.)
 
 ## Model
 
