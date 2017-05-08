@@ -48,9 +48,10 @@ Util = {
 
 	# List of potential replacements for swear words.
 	nyahNyah: [
-		"kitty", "rainbow", "tippytoe", "jibberjabber", "#IHideMyInsecurityBehindCurses", "pinky",
-		"Kätzchen", "Regenbogen", "BlaBlaBla", "#InnerlichTot", "Wattebällchen", "#ILikeTrains",
-		"UNICORN", "Einhorn", "$@*$@!#", "#$@&%*!", "$@*$@!#", "#$@&%*!" # double occurrences intended
+		"*****", "****", "#####", "*****", "#####",
+		"$@*$@!#", "#$@&%*!", "$@*$@!#", "#$@&%*!",
+		"█████", "█████", "██████",
+		"*****" # duplicates and variations intentional
 	]
 
 	_getRandom: (collection) ->

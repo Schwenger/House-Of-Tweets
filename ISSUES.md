@@ -10,9 +10,6 @@
 [Volker]
 - Paper? - Paper!
 
-[Both]
-- Curse Word Replacements
-
 ## Windows setup:
 
 ## Last steps before Production:
@@ -30,6 +27,7 @@
 - [Max] Re-check whether switch-icons are correctly aligned with the switch-text (e.g. "stimmen von")
 - [Any] Check that "our" shortcut is marked as such
 - [Any] Check CHECKLIST_WINDOWS.txt for missing entries
+- [Any] Check whether Windows can handle and display the `█` char ("redacted")
 
 ## Backend:
 
