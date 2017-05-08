@@ -4,9 +4,8 @@
 
 There is:
 - `birds`, the bird selection, intended for use by politicians.  
-  TODO: rename to something saner, like `birds`
 - `about`, listing copyright credits and "the concept"
-- TODO: `index`, the page that will host preview screenshots,
+- `index`, the page that welcomes new visitors, and has
   some general information about where, when, and how this
   exhibition will take place.
 

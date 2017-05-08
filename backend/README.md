@@ -8,8 +8,9 @@ See attached file `dataflow.png`:
 
 ### Politicians (`pols.json` and `model_polis.coffee`)
 
-Both files are essentially just JSON objects, with the politician ID being the key and politician entry being the value.
-Currently, `backend/pols.json` actually is a list of such entries, but that will change.  # FIXME
+Both files are essentially just the same JSON object,
+with the politician ID being the key and politician entry being the value.
+The field 'pid' is stored for ease of use, and equals the key.
 
 Each politician entry has:
 - `twittering` (optional): JSON object, contact information on Twitter if existing
@@ -17,8 +18,6 @@ Each politician entry has:
     - `twitterUserName`: string, Twitter-Handle, e.g. `"lisapaus"`
 - `self_bird`, `citizen_bird`: string, bird-IDs of the politician-chosen and citizen-chosen birds, respectively, e.g. `"gartenbaumlaeufer"`
 - `party`: string, official name of the party, e.g. `"GR\u00dcNE"`
-- `name`, `full_name`: string, official name of the politician (without and with titles, respectively), e.g. `"Elisabeth Paus"`  
-  FIXME: currently `full_name` does not exist
 - `pid`: string, HoT-internal ID of the politician, e.g. `"418"` or `"hot"`
 - `cv`: JSON object, description of the politician
   - `en`, `de`: string, human-readable description of the politician, e.g. `"Lisa Paus (* 19. September 1968 in Rheine) ist …"`

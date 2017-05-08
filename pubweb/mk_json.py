@@ -6,9 +6,7 @@
 import json
 
 # We have at most 4 columns, and for a 1280x1024 monitor you currently can
-# see three rows [1], so we need to load 4+4+1=9 birds initially, at least.
-# [1]: I figured that out empirically.
-#      TODO: Figure out if there's a better way to do it.
+# see three rows, so we need to load 4+4+1=9 birds initially, at least.
 INIT_DISPLAY_AMOUNT = 9
 
 
