@@ -5,11 +5,11 @@ BASE_TEMPLATE = '@{handle}: {msg} {link} #HouseOfTweets'
 # Must NOT contain
 # any opening braces or other formatting instructions.
 ACK_TEMPLATES = [
-    'Ihre Vogelstimme wurde geändert: {fromm} → {to}',
-    'Okay, Sie haben jetzt eine {to}-Stimme. :)',
+    'Ihre Vogelstimme wurde geändert: {fromm} → {to} 🐦',
+    'Okay, Sie haben jetzt eine {to}-Stimme. ☺️',
     'Gerne, eine {to}-Stimme für Sie!',
-    '{to}? Kommt sofort!',
-    '{to}? Gute Wahl!'
+    '{to}? Kommt sofort! ✔️',
+    '{to}? Gute Wahl! 👍'
 ]
 
 # You MAY use {fromm}, you must NOT use {to}
@@ -18,8 +18,8 @@ ACK_TEMPLATES = [
 # any opening braces or other formatting instructions.
 NACK_TEMPLATES = [
     'Tweeten Sie Ihre Vogelstimme von dieser Liste:',
-    'Das Programm fand keinen Vogelnamen im Tweet. Liste gefällig?',
-    'Keinen Vogelnamen im Tweet gefunden. Der Link führt zur Liste:',
+    'Das Programm fand keinen Vogelnamen im Tweet. 😞 Liste gefällig?',
+    'Keinen Vogelnamen im Tweet gefunden. 🔍 Der Link führt zur Liste:',
     'Wir kennen diese 45 Vogelnamen:',
     'Leider haben wir nicht alle Vogelstimmen, aber hier ist unsere Auswahl:',
 ]

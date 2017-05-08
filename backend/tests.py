@@ -582,11 +582,11 @@ def test_twitter_listener():
     polBack.setBird('74', 'amsel', 'c')
     polBack.setBird('74', 'invalid', 'p')
     assert responseBuilder.NEXT_ACK == 0, 'You inserted/removed a test without updating this one'
-    assert ('Ihre Vogelstimme wurde geändert: {fromm} → {to}', 'https://t.co/oXBoTZ6VUG') \
+    assert ('Ihre Vogelstimme wurde geändert: {fromm} → {to} 🐦', 'https://t.co/oXBoTZ6VUG') \
         == (responseBuilder.ACK_TEMPLATES[0], responseBuilder.ACK_LINK), \
         'You changed responseBuilder.py without updating tests.py'
     expect_response = \
-        '@SevimDagdelen: Ihre Vogelstimme wurde geändert: Goldammer → Amsel https://t.co/oXBoTZ6VUG #HouseOfTweets'
+        '@SevimDagdelen: Ihre Vogelstimme wurde geändert: Goldammer → Amsel 🐦 https://t.co/oXBoTZ6VUG #HouseOfTweets'
     # Test receiving a command:
     fakeTwitter.send({'content': 'such an #amsel #HoT',
                       'profile_img': 'img_url',
