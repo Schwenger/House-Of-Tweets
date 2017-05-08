@@ -24,15 +24,14 @@
 
 ### Once
 
-- [Any] All the "response" strings in `backend/responseBuilder.py`.
-    This will be the most public part of the project, even more so than the text on the monitors.
-- [Ben] Also, strings in `backend/messages.json`
 - [Max] Activate ambient sounds
 - [Max] Re-check whether switch-icons are correctly aligned with the switch-text (e.g. "stimmen von")
 - [Any] Check that "our" shortcut is marked as such
 - [Any] Check CHECKLIST_WINDOWS.txt for missing entries
 
 ## Backend:
+
+(ready)
 
 ## Frontend:
 
@@ -42,13 +41,15 @@
 
 ## Model
 
-- [Ben] Download ambient sounds.
+(ready)
 
 ## Publicity (public-facing page)
 
+(ready)
+
 ## Publicity
 
-- [Max] Polish group green Twitter account for public display, rename.
+- [Max] Rename group green Twitter account for public display, maybe adjust color.
 - [Any] Prepare How-To for exhib.
 
 ## Trivia / Good to know:
