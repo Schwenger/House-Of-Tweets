@@ -3,7 +3,9 @@
 ## Open Questions
 
 [Next Meeting]
-- Check for remaining issues
+- Do we want to tweet to each and every registered politician that they are part of this project?
+  I could automate this easily.  This would kickstart "awareness", and maybe spark some discussions.
+  Maybe some even retweet it?
 
 [Volker]
 - Paper? - Paper!
