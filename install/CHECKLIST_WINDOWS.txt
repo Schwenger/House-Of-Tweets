@@ -40,10 +40,10 @@ T1? T2? Task
                 "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk file:///C:/Users/user/Downloads/HoT/out/main.html -kiosk-printing --start-fullscreen
         T2:
                 "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk file:///C:/Users/hot/HoT/out/main.html -kiosk-printing --start-fullscreen
-[_] [_] Shortcut to Backend:
+[X] [_] Shortcut to Backend:
         T1:
             Target: Something like:
-                "C:\Program Files\Python35\python.exe" "C:\Users\user\Downloads\HoT\backend\startBackend.py" production_silent
+                "C:\Program Files\Python35\python.exe" "C:\Users\user\Downloads\HoT\backend\startBackend.py" "production_silent"
             Run in:
                 "C:\Users\user\Downloads\HoT\backend"
         T2:
@@ -70,6 +70,7 @@ T1? T2? Task
 [X] [X] Run Teamviewer and disable message about "still running"
 [X] [X] Save password in /.secrets/teamviewer.txt
 
-===========================[ Hot itself ]============================
-T1? T2? Task
-[X] [_] Upload c113803
+
+Latest uploads:
+T1: 2017-05-10 64ffecd: "Frontend: don't modify source during 'make windows'"
+T2: Unknown
