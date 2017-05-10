@@ -26,7 +26,6 @@ all: frontend backend
 
 .PHONY: windows
 windows: all
-	sed -i -e "s/citizenUserLoadingTime = 1000;/citizenUserLoadingTime = 3000/;" ${OUT}/main.js
 	echo Copying files to ${WINDOWSSHARE}.
 	mkdir -p $(WINDOWSSHARE)/HoT
 	# "Processing... This might take a while."

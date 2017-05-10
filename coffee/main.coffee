@@ -16,7 +16,7 @@ here = "You should never forget quotation marks."
 
 # Needed to provide enough time for the carousels to set up without messing up
 # the spacing.
-citizenUserLoadingTime = 1000
+citizenUserLoadingTime = 3000
 
 # Public
 enforceConsistencyConstraints = ->
