@@ -50,14 +50,15 @@ In general, you'll need:
 
 ##### Linux
 - Ubuntu: `sudo apt-get install -qq libav-tools rabbitmq-server` (python, pip, and bsdutils?)
-- Debian: `sudo apt-get install -qq libav-tools npm rabbitmq-server python3-dev python3-pip bsdutils`
+- Debian: `sudo apt-get install -qq libav-tools npm nodejs-legacy rabbitmq-server python3-dev python3-pip bsdutils`
 
 Some systems (Ubuntu and Debian, at least) install the `node` binary in
-a way that is incompatible with npm.  To resolve this, do this on
-Debian and Ubuntu:
+a way that is incompatible with npm.  To resolve this, do this on Ubuntu:
 ```
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
+Debian provides the package `nodejs-legacy` to do this.
+Note that `npm` is not available in all distributions.
 
 ##### Mac OS X
 In case you have not installed homebrew yet, run 
@@ -89,6 +90,7 @@ Note 1: In Ubuntu the `pip3` package is simply called `pip`.
 Check with `--version` which Python version it is addressing and make sure it is Python 3.
 
 Note 2: Under Debian, you may need to install the pip packages as sudo.
+Also, you may need to `sudo pip3 install setuptools` first.
 
 Note 3: Under Windows you need to install the dependencies manually.
 Use the command line with administrator rights for `pip`.
