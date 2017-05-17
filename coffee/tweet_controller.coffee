@@ -18,8 +18,9 @@ TweetController =
 		duration: 10 * 1000
 		interval: 5 * 1000
 		size: 10
-	_poliTweetsOnly: true
 	_threshold: 8
+
+	_ALL_TWEETS: false
 
 	init: ->
 		@_initSwitches()
@@ -48,14 +49,21 @@ TweetController =
 		@_initSwitch(voicesSwitch, leftLabelV, rightLabelV)
 		@_usePoliBirds = true # Put default in class-global scope.
 
-		tweetsSwitch = {selec: '#citizen-tweets-switch', dft: false, handlerGen: (obj) ->
-			() -> TweetController._toggleShownTweets(obj)}
-		leftLabelT = {selec: '#tweets-switch-label-on', handlerGen: (obj) ->
-			() -> TweetController._showPoliTweetsOnly(obj)}
-		rightLabelT = {selec: '#tweets-switch-label-off', handlerGen: (obj) ->
-			() -> TweetController._showAllTweets(obj)}
+		tweetsSwitch = 
+			selec: '#citizen-tweets-switch',
+			dft: @_ALL_TWEETS, 
+			handlerGen: (obj) ->
+				() -> TweetController._toggleShownTweets(obj)
+		leftLabelT = 
+			selec: '#tweets-switch-label-on', 
+			handlerGen: (obj) ->
+				() -> TweetController._showPoliTweetsOnly(obj)
+		rightLabelT = 
+			selec: '#tweets-switch-label-off', 
+			handlerGen: (obj) ->
+				() -> TweetController._showAllTweets(obj)
 		@_initSwitch(tweetsSwitch, leftLabelT, rightLabelT)
-		@_poliTweetsOnly = false # Put default in class-global scope.
+		@_poliTweetsOnly = @_ALL_TWEETS # Put default in class-global scope.
 
 	_initSwitch: (switchObj, left, right) ->
 		# TODO: DOCUMENTATION
@@ -92,7 +100,7 @@ TweetController =
 	# Public
 	showAllTweets: () ->
 		# Displays politician tweets as well as citizen user tweets.
-		$('#citizen-tweets-switch').prop('checked', true);
+		$('#citizen-tweets-switch').prop('checked', @_ALL_TWEETS);
 		@_changeShownTweets()
 
 	# Public
