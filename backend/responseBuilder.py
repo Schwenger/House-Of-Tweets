@@ -5,7 +5,7 @@ BASE_TEMPLATE = '@{handle}: {msg} {link} #HouseOfTweets'
 # Must NOT contain
 # any opening braces or other formatting instructions.
 ACK_TEMPLATES = [
-    'Ihre Vogelstimme wurde geändert: {fromm} → {to} 🐦',
+    'Ihre Vogelstimme wurde auf {to} geändert 🐦',
     'Okay, Sie haben jetzt eine {to}-Stimme. ☺️',
     'Gerne, eine {to}-Stimme für Sie!',
     '{to}? Kommt sofort! ✔️',
@@ -24,8 +24,8 @@ NACK_TEMPLATES = [
     'Leider haben wir nicht alle Vogelstimmen, aber hier ist unsere Auswahl:',
 ]
 
-# https://houseoftweets.github.io/birds.html
-ACK_LINK = 'https://t.co/oXBoTZ6VUG'
+ACK_LINK = 'https://houseoftweets.github.io/birds.html'
+LINK_LENGTH = 23  # According to twitter, the above 42 characters are 23 characters long.
 NACK_LINK = ACK_LINK
 
 

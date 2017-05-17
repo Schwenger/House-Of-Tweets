@@ -18,7 +18,8 @@ all_tests = []
 RUN_SLOW_TESTS = 'CONTINUOUS_INTEGRATION' in os.environ
 
 # Stay away from the official maximum 140 in order to have a safety margin.
-MAX_RESPONSE_LENGTH = 130
+# But also, correct for miscounting the length of the link.
+MAX_RESPONSE_LENGTH = 130 - responseBuilder.LINK_LENGTH + len(responseBuilder.ACK_LINK)
 
 
 def test_mq():
@@ -257,7 +258,7 @@ def test_responses():
     mylog.info("Worst-case response lengths: {}"
                .format([len(r) for r in responses]))
     for (l, r) in lengths:
-        assert l <= MAX_RESPONSE_LENGTH, (l, r)
+        assert l <= MAX_RESPONSE_LENGTH, (l, r, MAX_RESPONSE_LENGTH)
 
 all_tests.append(test_responses)
 
@@ -582,11 +583,11 @@ def test_twitter_listener():
     polBack.setBird('74', 'amsel', 'c')
     polBack.setBird('74', 'invalid', 'p')
     assert responseBuilder.NEXT_ACK == 0, 'You inserted/removed a test without updating this one'
-    assert ('Ihre Vogelstimme wurde geändert: {fromm} → {to} 🐦', 'https://t.co/oXBoTZ6VUG') \
+    assert ('Ihre Vogelstimme wurde auf {to} geändert 🐦', 'https://houseoftweets.github.io/birds.html') \
         == (responseBuilder.ACK_TEMPLATES[0], responseBuilder.ACK_LINK), \
         'You changed responseBuilder.py without updating tests.py'
     expect_response = \
-        '@SevimDagdelen: Ihre Vogelstimme wurde geändert: Goldammer → Amsel 🐦 https://t.co/oXBoTZ6VUG #HouseOfTweets'
+        '@SevimDagdelen: Ihre Vogelstimme wurde auf Amsel geändert 🐦 https://houseoftweets.github.io/birds.html #HouseOfTweets'
     # Test receiving a command:
     fakeTwitter.send({'content': 'such an #amsel #HoT',
                       'profile_img': 'img_url',
