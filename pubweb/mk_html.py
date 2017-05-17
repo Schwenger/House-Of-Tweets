@@ -113,7 +113,7 @@ Ben Wiederhake: Design und technische Umsetzung
     'about_thanks_text':
         'Wir danken Bootstrap, Github Pages, CoffeeScript, Wikipedia und NodeJS'
         ' f&uuml;r diese wundervollen Projekte, und der Universit&auml;t des Saarlandes'
-        ' sowie der Hochschule der Bildenen K&uuml;nste Saar f&uuml;r ihre Unterst&uuml;tzung.',
+        ' sowie der Hochschule der Bildenden K&uuml;nste Saar f&uuml;r ihre Unterst&uuml;tzung. Weiterhin danken wir xeno-canto für die wunderbare Fülle an Vogelstimmen und craftport (CC-BY-3.0), FonotecadeCanarias (CC-BY-NC-3.0), sowie ibirdfilm (CC-BY-3.0) für die Hintergrundmusik.',
 }
 
 STRINGS_EN = {
