@@ -20,7 +20,6 @@
 
 - [Max] Activate ambient sounds
 - [Max] Re-check whether switch-icons are correctly aligned with the switch-text (e.g. "stimmen von")
-- [Any] Check that "our" shortcut is marked as such
 - [Any] Check CHECKLIST_WINDOWS.txt for missing entries
 - [Any] Wir brauchen eine "Kostenübernahme von der Landesvertretung,
         damit wir die zwei beruflichen Nächte nicht selber zahlen müssen".
@@ -31,8 +30,6 @@
 
 ## Frontend:
 
-- [Max] Can Windows play more than one sound at the same time?
-        On Linux, I just noticed, this fails silently. (Pun not intended.)
 - [Max] Alignment, still
 
 ## Model
@@ -47,7 +44,6 @@ leiser:
 ## Publicity
 
 - [Max] Rename group green Twitter account for public display, maybe adjust color.
-- [Any] Prepare How-To for exhib.
 
 ## Trivia / Good to know:
 
