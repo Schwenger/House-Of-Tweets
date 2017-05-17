@@ -60,6 +60,7 @@ T1? T2? Task
 [X] [X] On screen keyboard (findable by windows search in the start menu): Disable "Input bar" and "note" thing.
 [_] [_] Disable the "system feature" SMB v1, and probably others, in order to avoid things like CryptoLocker
 [X] [X] Disable TeamViewer "no internet connection" dialog
+[_] [X] Englisches Tastaturlayout rausschmeißen
 
 ============================[ Programs ]=============================
 T1? T2? Task
