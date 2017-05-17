@@ -89,7 +89,7 @@ Profiles =
 			when "custom-spd" then intro + "SPD"
 			else obj.license
 		res += "\n" + obj.copyright if obj.copyright?
-		res
+		if res? then res else " "
 
 	# Public
 	close: ->
