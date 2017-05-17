@@ -61,7 +61,7 @@ TweetController =
 		rightLabelT = 
 			selec: '#tweets-switch-label-off', 
 			handlerGen: (obj) ->
-				() -> TweetController._showAllTweets(obj)
+				() -> TweetController.showAllTweets(obj)
 		@_initSwitch(tweetsSwitch, leftLabelT, rightLabelT)
 		@_poliTweetsOnly = @_ALL_TWEETS # Put default in class-global scope.
 
@@ -100,8 +100,8 @@ TweetController =
 	# Public
 	showAllTweets: () ->
 		# Displays politician tweets as well as citizen user tweets.
-		$('#citizen-tweets-switch').prop('checked', @_ALL_TWEETS);
-		@_changeShownTweets()
+		$('#citizen-tweets-switch').prop('checked', @_ALL_TWEETS)
+		@_changeShownTweets(all=true)
 
 	# Public
 	consume: (incomingTweets) ->
@@ -166,13 +166,8 @@ TweetController =
 		TweetController._updateBirdNames()
 		TweetController._switchView()
 
-	_showAllTweets: (switchObj) ->
-		switchObj.prop('checked', true)
-		@_changeShownTweets (all=true)
-
 	_showPoliTweetsOnly: (switchObj) ->
-		switchObj.prop('checked', false)
-		@_changeShownTweets (all=false)
+		switchObj.prop('checked', not @_ALL_TWEETS)
 
 	_toggleShownTweets: (switchObj) ->
 		@_changeShownTweets not $(switchObj).prop('checked')
@@ -271,6 +266,7 @@ TweetController =
 		newL = if @_poliTweetsOnly then @_tLists.poli else @_tLists.mixed
 		tweet.obj.remove() for tweet in oldL
 		root = $('#tweet-list')
+		#root.children().each () -> $(@).remove()
 		root.append tweet.obj for tweet in newL
 		@_playTweets(newL, SoundCtrl.getMode())
 		@_attachClickHandler tweet for tweet in newL 
