@@ -33,17 +33,12 @@
 
 - [Max] Can Windows play more than one sound at the same time?
         On Linux, I just noticed, this fails silently. (Pun not intended.)
-- [Max] After registering a CitizenUser, selection jumps to "false".
-        That's the wrong way around.
-        `TweetController.showAllTweets` and `_showAllTweets` (why is this implemented twice?) call this:
-            `$('#citizen-tweets-switch').prop('checked', true);`
-        Running that in the console, shows that the switch seems to
-        implement this mapping: `true` for "aus" and `false` for "an".
-        There's too many `not` in there, I'm not gonna touch it.
+- [Max] Alignment, still
 
 ## Model
 
-(ready)
+leiser:
+    Türkentaube, ringeltaube
 
 ## Publicity (public-facing page)
 
