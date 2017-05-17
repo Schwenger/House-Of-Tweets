@@ -40,7 +40,7 @@ T1? T2? Task
                 "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk file:///C:/Users/user/Downloads/HoT/out/main.html -kiosk-printing --start-fullscreen
         T2:
                 "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk file:///C:/Users/hot/HoT/out/main.html -kiosk-printing --start-fullscreen
-[X] [_] Shortcut to Backend:
+[X] [X] Shortcut to Backend:
         T1:
             Target: Something like:
                 "C:\Program Files\Python35\python.exe" "C:\Users\user\Downloads\HoT\backend\startBackend.py" "production_silent"
@@ -48,7 +48,7 @@ T1? T2? Task
                 "C:\Users\user\Downloads\HoT\backend"
         T2:
             Target: Something like:
-                "C:\Program Files\Python35\python.exe" "C:\Users\hot\HoT\backend\startBackend.py" production_responder
+                "C:\Users\hot\AppData\Local\Programs\Python\Python36\python.exe" "C:\Users\hot\HoT\backend\startBackend.py" production_responder
             Run in:
                 "C:\Users\hot\HoT\backend"
 [X] [X] Mark the shortcut as such
