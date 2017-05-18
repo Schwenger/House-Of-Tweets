@@ -23,15 +23,16 @@ def check(tweets):
 
 
 # Waiting period, in milliseconds, between each sent batch
-PERIOD_MS = 700
+PERIOD_MS = 200
 
 
 def vomit(tweets):
     print('Now vomiting {} tweet-batches all over the place.'.format(len(tweets)))
     q = mq.RealQueue('tweets')
     for batch in tweets:
-        q.post(batch)
-        sleep(PERIOD_MS / 1000.0)
+        for t in batch:
+            q.post([t])
+            sleep(PERIOD_MS / 1000.0)
 
 
 def transfer_file(filename):
