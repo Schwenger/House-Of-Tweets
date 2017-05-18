@@ -41,8 +41,10 @@ def transfer_file(filename):
 
 
 if __name__ == '__main__':
-    if len(argv) != 1 + 1:
+    if len(argv) == 1:
+        transfer_file('all_tweets.json')  # argv[0] is the program name
+    elif len(argv) == 2:
+        transfer_file(argv[1])  # argv[0] is the program name
+    else:
         print('{}: need precisely one argument: the name of the tweets JSON file.'.format(argv[0]))
         exit(1)
-    else:
-        transfer_file(argv[1])  # argv[0] is the program name
