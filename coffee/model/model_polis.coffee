@@ -6956,6 +6956,69 @@
 				"twitterUserName": "larscastellucci"
 			}
 		},
+		"701": {
+			"citizen_bird": "hausrotschwanz",
+			"cv": {
+				"de": "Ulrich Commer\u00e7on (* 28. April 1968 in Homburg) ist ein deutscher Politiker der SPD und seit 2017 saarl\u00e4ndischer Minister f\u00fcr Bildung und Kultur im Kabinett Kramp-Karrenbauer III. Zuvor war er von 2012 bis 2017 Minister f\u00fcr Bildung und Kultur.",
+				"en": "Ulrich Commer\u00e7on is a German politician. He is a member of the CSU."
+			},
+			"images": {
+				"copyright": "Tromla, Eigenes Werk",
+				"license": "CC-BY-SA 3.0",
+				"pathToImage": "701.jpg",
+				"pathToThumb": "701_t.jpg"
+			},
+			"name": "Ulrich Commer\u00e7on",
+			"party": "SPD",
+			"pid": "701",
+			"self_bird": "fitis",
+			"twittering": {
+				"twitterId": "18250754",
+				"twitterUserName": "ulrichcommercon"
+			}
+		},
+		"702": {
+			"citizen_bird": "rauchschwalbe",
+			"cv": {
+				"de": "Annegret Kramp-Karrenbauer (geb. Kramp; * 9. August 1962 in V\u00f6lklingen) ist eine deutsche Politikerin. Sie ist seit August 2011 Ministerpr\u00e4sidentin des Saarlandes, seit Juni 2011 Vorsitzende der CDU Saar und seit November 2010 Mitglied im CDU-Bundespr\u00e4sidium. Sie war von 2000 bis 2011 Ministerin in der Regierung des Saarlandes in verschiedenen Ressorts (Inneres, Bildung, Soziales). 1998 war sie f\u00fcr ein halbes Jahr Mitglied des Deutschen Bundestages und ist seit 1999 Abgeordnete im Landtag des Saarlandes.",
+				"en": "Annegret Kramp-Karrenbauer is a German politician. She is a member of the CSU."
+			},
+			"images": {
+				"copyright": "Claude Truong-Ngoc / Wikimedia Commons",
+				"license": "CC-BY-SA 3.0",
+				"pathToImage": "702.jpg",
+				"pathToThumb": "702_t.jpg"
+			},
+			"name": "Annegret Kramp-Karrenbauer",
+			"party": "CSU",
+			"pid": "702",
+			"self_bird": "klappergrasmuecke",
+			"twittering": {
+				"twitterId": "47620601",
+				"twitterUserName": "_A_K_K_"
+			}
+		},
+		"703": {
+			"citizen_bird": "stieglitz",
+			"cv": {
+				"de": "Anke Rehlinger (geb. Moos; * 6. April 1976 in Wadern) ist eine deutsche Politikerin (SPD). Sie ist Ministerin f\u00fcr Wirtschaft, Arbeit, Energie und Verkehr und stellvertretende Ministerpr\u00e4sidentin im Saarland. Zuvor war sie saarl\u00e4ndische Ministerin der Justiz und Ministerin f\u00fcr Umwelt und Verbraucherschutz im Kabinett Kramp-Karrenbauer II.  Sie trat bei der saarl\u00e4ndischen Landtagswahl im Fr\u00fchjahr 2017 als Spitzenkandidatin f\u00fcr das Amt der saarl\u00e4ndischen Ministerpr\u00e4sidentin an, und erreichte mit der SPD Saar 29,6 Prozent der Stimmen.",
+				"en": "Anke Rehlinger is a German politician. She is a member of the SPD."
+			},
+			"images": {
+				"copyright": "Sandro Halank, Wikimedia Commons",
+				"license": "CC-BY-SA 3.0",
+				"pathToImage": "703.jpg",
+				"pathToThumb": "703_t.jpg"
+			},
+			"name": "Anke Rehlinger",
+			"party": "SPD",
+			"pid": "703",
+			"self_bird": "schneeeule",
+			"twittering": {
+				"twitterId": "474792689",
+				"twitterUserName": "AnkeRehlinger"
+			}
+		},
 		"72": {
 			"citizen_bird": "rotkehlchen",
 			"cv": {
