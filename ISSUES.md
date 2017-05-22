@@ -18,11 +18,7 @@
 
 ### Once
 
-- [Max] Activate ambient sounds
-- [Max] Re-check whether switch-icons are correctly aligned with the switch-text (e.g. "stimmen von")
 - [Any] Check CHECKLIST_WINDOWS.txt for missing entries
-- [Any] Wir brauchen eine "Kostenübernahme von der Landesvertretung,
-        damit wir die zwei beruflichen Nächte nicht selber zahlen müssen".
 
 ## Backend:
 
@@ -34,8 +30,7 @@
 
 ## Model
 
-leiser:
-    Türkentaube, ringeltaube
+(ready)
 
 ## Publicity (public-facing page)
 

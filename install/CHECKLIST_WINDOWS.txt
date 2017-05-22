@@ -56,9 +56,8 @@ T1? T2? Task
         https://sharpkeys.codeplex.com/
         In the future available at: http://www.github.com/randyrants/sharpkeys
 [X] [X] Additional keys: CapsLock, Escape, PrintScreen, NumLock
-[_] [_] check with keyboards at exhibition
+[*] [*] check with keyboards at exhibition
 [X] [X] On screen keyboard (findable by windows search in the start menu): Disable "Input bar" and "note" thing.
-[_] [_] Disable the "system feature" SMB v1, and probably others, in order to avoid things like CryptoLocker
 [X] [X] Disable TeamViewer "no internet connection" dialog
 [X] [X] Englisches Tastaturlayout rausschmeißen
 
