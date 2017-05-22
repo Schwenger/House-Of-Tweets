@@ -19,14 +19,18 @@
 ### Once
 
 - [Any] Check CHECKLIST_WINDOWS.txt for missing entries
+- [None] Upload correct pictures for Max/V7 to T1
 
 ## Backend:
 
-(ready)
+- [None] backend/vomit.py sometimes leads to strange behavior in frontend  (sorry, future programmer)
+- [None] Find out what happened to the API keys, why T2 burned them, and whether they are usable again
 
 ## Frontend:
 
-- [Max] Alignment, still
+- [None] Alignment, still
+- [None] Need a way to load pols.json from Backend, NOT built-in
+         (changes to coffee/model/model_polis.json are lost upon restart)
 
 ## Model
 
@@ -36,9 +40,11 @@
 
 (ready)
 
+- [Any] After 23rd May 2017: Add note that HoT is over, at least in LV Saarland.
+
 ## Publicity
 
-- [Max] Rename group green Twitter account for public display, maybe adjust color.
+- [None] Rename group green Twitter account for public display, maybe adjust color.
 
 ## Trivia / Good to know:
 
